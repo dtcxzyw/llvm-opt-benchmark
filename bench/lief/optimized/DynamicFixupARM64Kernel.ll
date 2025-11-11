@@ -1068,7 +1068,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18: ; preds
   store i64 %81, ptr %24, align 8, !tbaa !68
   %89 = call noundef i64 @_ZNK4LIEF10SpanStream4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #24
   %.not88 = icmp eq i64 %89, 0
-  br i1 %.not88, label %.thread.jt0, label %.lr.ph
+  br i1 %.not88, label %.loopexit99, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %138
   %90 = load i64, ptr %34, align 8, !tbaa !68
@@ -1217,13 +1217,13 @@ _ZNSt6vectorIN4LIEF2PE23DynamicFixupARM64Kernel13reloc_entry_tESaIS3_EE17_M_real
   %149 = load ptr, ptr %148, align 8
   %150 = call noundef i64 %149(ptr noundef nonnull align 8 dereferenceable(24) %14) #24
   %151 = icmp ult i64 %146, %150
-  br i1 %151, label %.lr.ph, label %.thread.jt0
+  br i1 %151, label %.lr.ph, label %.loopexit99
 
-.thread.jt0:                                      ; preds = %138, %86
+.loopexit99:                                      ; preds = %138, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18, %.thread.jt0
+.backedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18, %.loopexit99
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %152 = load i64, ptr %24, align 8, !tbaa !68
   %153 = load ptr, ptr %2, align 8, !tbaa !24

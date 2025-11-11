@@ -38965,249 +38965,255 @@ define void @_ZN12polars_arrow6legacy8bit_util29find_first_true_false_no_null17h
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN110_$LT$polars_arrow..legacy..kernels..MaskedSlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ad38272774ac308E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(192) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-tailrecurse:
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %1, align 8, !range !117
-  switch i64 %.pre, label %default.unreachable [
-    i64 0, label %thread-pre-split
-    i64 1, label %38
-    i64 2, label %66
-    i64 3, label %101
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
+  %12 = phi i64 [ %.pre, %2 ], [ %.be, %tailrecurse.backedge ]
+  switch i64 %12, label %default.unreachable [
+    i64 0, label %13
+    i64 1, label %39
+    i64 2, label %69
+    i64 3, label %.loopexit70
   ]
-
-tailrecurse.jt0:                                  ; preds = %.lr.ph.i1
-  store i64 0, ptr %1, align 8, !alias.scope !2724, !noalias !2727
-  store i64 %43, ptr %10, align 8, !alias.scope !2724, !noalias !2727
-  store i64 0, ptr %6, align 8
-  br label %12
-
-tailrecurse.jt2:                                  ; preds = %49, %38
-  %11 = load i64, ptr %9, align 8, !alias.scope !2724, !noalias !2727, !noundef !28
-  store i64 %11, ptr %4, align 8, !alias.scope !2724, !noalias !2727
-  store i64 2, ptr %1, align 8, !alias.scope !2724, !noalias !2727
-  store i64 0, ptr %6, align 8
-  br label %66
-
-tailrecurse.jt1:                                  ; preds = %30, %12
-  store i64 0, ptr %6, align 8, !alias.scope !2729, !noalias !2732
-  store i64 1, ptr %1, align 8
-  br label %38
 
 default.unreachable:                              ; preds = %tailrecurse
   unreachable
 
-thread-pre-split:                                 ; preds = %tailrecurse
-  %.promoted.i.pr = load i64, ptr %6, align 8, !alias.scope !2729, !noalias !2732
-  br label %12
+13:                                               ; preds = %tailrecurse
+  %14 = load i64, ptr %11, align 8, !noundef !28
+  %.promoted.i = load i64, ptr %7, align 8, !alias.scope !2724, !noalias !2727
+  %15 = icmp ult i64 %.promoted.i, 64
+  br i1 %15, label %.lr.ph.i, label %.loopexit14
 
-12:                                               ; preds = %thread-pre-split, %tailrecurse.jt0
-  %.promoted.i = phi i64 [ %.promoted.i.pr, %thread-pre-split ], [ 0, %tailrecurse.jt0 ]
-  %13 = load i64, ptr %10, align 8, !noundef !28
-  %14 = icmp ult i64 %.promoted.i, 64
-  br i1 %14, label %.lr.ph.i, label %tailrecurse.jt1
+.lr.ph.i:                                         ; preds = %13
+  %16 = load i64, ptr %5, align 8, !alias.scope !2724, !noalias !2727
+  %17 = shl i64 %16, 6
+  %.promoted5.i = load i8, ptr %6, align 8, !alias.scope !2724, !noalias !2727
+  %.promoted6.i = load i64, ptr %9, align 8, !alias.scope !2724, !noalias !2727
+  br label %18
 
-.lr.ph.i:                                         ; preds = %12
-  %15 = load i64, ptr %4, align 8, !alias.scope !2729, !noalias !2732
-  %16 = shl i64 %15, 6
-  %.promoted5.i = load i8, ptr %5, align 8, !alias.scope !2729, !noalias !2732
-  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !2729, !noalias !2732
-  br label %17
+18:                                               ; preds = %31, %.lr.ph.i
+  %19 = phi i64 [ %.promoted6.i, %.lr.ph.i ], [ %32, %31 ]
+  %20 = phi i8 [ %.promoted5.i, %.lr.ph.i ], [ %33, %31 ]
+  %21 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %34, %31 ]
+  %22 = shl nuw i64 1, %21
+  %23 = and i64 %22, %14
+  %24 = icmp eq i64 %23, 0
+  %25 = trunc nuw i8 %20 to i1
+  br i1 %24, label %26, label %27
 
-17:                                               ; preds = %30, %.lr.ph.i
-  %18 = phi i64 [ %.promoted6.i, %.lr.ph.i ], [ %31, %30 ]
-  %19 = phi i8 [ %.promoted5.i, %.lr.ph.i ], [ %32, %30 ]
-  %20 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %33, %30 ]
-  %21 = shl nuw i64 1, %20
-  %22 = and i64 %21, %13
-  %23 = icmp eq i64 %22, 0
-  %24 = trunc nuw i8 %19 to i1
-  br i1 %23, label %25, label %26
+26:                                               ; preds = %18
+  br i1 %25, label %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread, label %31
 
-25:                                               ; preds = %17
-  br i1 %24, label %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread, label %30
+27:                                               ; preds = %18
+  br i1 %25, label %37, label %35
 
-26:                                               ; preds = %17
-  br i1 %24, label %36, label %34
-
-_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread: ; preds = %25
-  %27 = load i64, ptr %7, align 8, !alias.scope !2729, !noalias !2732, !noundef !28
-  %28 = add i64 %27, %18
-  store i64 0, ptr %8, align 8, !alias.scope !2729, !noalias !2732
-  store i8 0, ptr %5, align 8, !alias.scope !2729, !noalias !2732
-  %29 = add nuw nsw i64 %20, 1
-  store i64 %29, ptr %6, align 8, !alias.scope !2729, !noalias !2732
+_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread: ; preds = %26
+  %28 = load i64, ptr %8, align 8, !alias.scope !2724, !noalias !2727, !noundef !28
+  %29 = add i64 %28, %19
+  store i64 0, ptr %9, align 8, !alias.scope !2724, !noalias !2727
+  store i8 0, ptr %6, align 8, !alias.scope !2724, !noalias !2727
+  %30 = add nuw nsw i64 %21, 1
+  store i64 %30, ptr %7, align 8, !alias.scope !2724, !noalias !2727
   br label %.sink.split
 
-30:                                               ; preds = %36, %25
-  %31 = phi i64 [ %18, %25 ], [ %37, %36 ]
-  %32 = phi i8 [ 0, %25 ], [ 1, %36 ]
-  %33 = add nuw nsw i64 %20, 1
-  %exitcond.not.i = icmp eq i64 %33, 64
-  br i1 %exitcond.not.i, label %tailrecurse.jt1, label %17
+31:                                               ; preds = %37, %26
+  %32 = phi i64 [ %19, %26 ], [ %38, %37 ]
+  %33 = phi i8 [ 0, %26 ], [ 1, %37 ]
+  %34 = add nuw nsw i64 %21, 1
+  %exitcond.not.i = icmp eq i64 %34, 64
+  br i1 %exitcond.not.i, label %.loopexit14, label %18
 
-34:                                               ; preds = %26
-  %35 = add nuw i64 %20, %16
-  store i64 %35, ptr %7, align 8, !alias.scope !2729, !noalias !2732
-  store i8 1, ptr %5, align 8, !alias.scope !2729, !noalias !2732
-  br label %36
+35:                                               ; preds = %27
+  %36 = add nuw i64 %21, %17
+  store i64 %36, ptr %8, align 8, !alias.scope !2724, !noalias !2727
+  store i8 1, ptr %6, align 8, !alias.scope !2724, !noalias !2727
+  br label %37
 
-36:                                               ; preds = %34, %26
-  %37 = add i64 %18, 1
-  store i64 %37, ptr %8, align 8, !alias.scope !2729, !noalias !2732
-  br label %30
+37:                                               ; preds = %35, %27
+  %38 = add i64 %19, 1
+  store i64 %38, ptr %9, align 8, !alias.scope !2724, !noalias !2727
+  br label %31
 
-38:                                               ; preds = %tailrecurse.jt1, %tailrecurse
-  %39 = tail call fastcc { i64, i64 } @"_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2), !noalias !2734
-  %40 = extractvalue { i64, i64 } %39, 0
-  %41 = trunc nuw i64 %40 to i1
-  br i1 %41, label %.lr.ph.i1, label %tailrecurse.jt2
+39:                                               ; preds = %tailrecurse
+  %40 = tail call fastcc { i64, i64 } @"_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3), !noalias !2729
+  %41 = extractvalue { i64, i64 } %40, 0
+  %42 = trunc nuw i64 %41 to i1
+  br i1 %42, label %.lr.ph.i1, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E.exit.i"
 
-.lr.ph.i1:                                        ; preds = %38, %49
-  %42 = phi { i64, i64 } [ %50, %49 ], [ %39, %38 ]
-  %43 = extractvalue { i64, i64 } %42, 1
-  %44 = load i64, ptr %3, align 8, !alias.scope !2737, !noalias !2734, !noundef !28
-  %45 = add i64 %44, 1
-  store i64 %45, ptr %3, align 8, !alias.scope !2737, !noalias !2734
-  store i64 %44, ptr %4, align 8, !alias.scope !2724, !noalias !2727
-  switch i64 %43, label %tailrecurse.jt0 [
-    i64 0, label %46
-    i64 -1, label %53
+.lr.ph.i1:                                        ; preds = %39, %51
+  %43 = phi { i64, i64 } [ %52, %51 ], [ %40, %39 ]
+  %44 = extractvalue { i64, i64 } %43, 1
+  %45 = load i64, ptr %4, align 8, !alias.scope !2734, !noalias !2729, !noundef !28
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %4, align 8, !alias.scope !2734, !noalias !2729
+  store i64 %45, ptr %5, align 8, !alias.scope !2737, !noalias !2738
+  switch i64 %44, label %55 [
+    i64 0, label %48
+    i64 -1, label %56
   ]
 
-46:                                               ; preds = %.lr.ph.i1
-  %47 = load i8, ptr %5, align 8, !range !214, !alias.scope !2724, !noalias !2727, !noundef !28
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit, label %49
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E.exit.i": ; preds = %51, %39
+  %47 = load i64, ptr %10, align 8, !alias.scope !2737, !noalias !2738, !noundef !28
+  store i64 %47, ptr %5, align 8, !alias.scope !2737, !noalias !2738
+  store i64 2, ptr %1, align 8, !alias.scope !2737, !noalias !2738
+  br label %104
 
-49:                                               ; preds = %60, %46
-  %50 = tail call fastcc { i64, i64 } @"_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2), !noalias !2734
-  %51 = extractvalue { i64, i64 } %50, 0
-  %52 = trunc nuw i64 %51 to i1
-  br i1 %52, label %.lr.ph.i1, label %tailrecurse.jt2
+48:                                               ; preds = %.lr.ph.i1
+  %49 = load i8, ptr %6, align 8, !range !214, !alias.scope !2737, !noalias !2738, !noundef !28
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit, label %51
 
-53:                                               ; preds = %.lr.ph.i1
-  %54 = load i8, ptr %5, align 8, !range !214, !alias.scope !2724, !noalias !2727, !noundef !28
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %60, label %56
+51:                                               ; preds = %63, %48
+  %52 = tail call fastcc { i64, i64 } @"_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3), !noalias !2729
+  %53 = extractvalue { i64, i64 } %52, 0
+  %54 = trunc nuw i64 %53 to i1
+  br i1 %54, label %.lr.ph.i1, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E.exit.i"
 
-56:                                               ; preds = %53
-  %57 = shl i64 %44, 6
-  %58 = load i64, ptr %6, align 8, !alias.scope !2724, !noalias !2727, !noundef !28
-  %59 = add i64 %58, %57
-  store i64 %59, ptr %7, align 8, !alias.scope !2724, !noalias !2727
-  store i8 1, ptr %5, align 8, !alias.scope !2724, !noalias !2727
-  br label %60
+55:                                               ; preds = %.lr.ph.i1
+  store i64 0, ptr %1, align 8, !alias.scope !2737, !noalias !2738
+  store i64 %44, ptr %11, align 8, !alias.scope !2737, !noalias !2738
+  br label %104
 
-60:                                               ; preds = %56, %53
-  %61 = load i64, ptr %8, align 8, !alias.scope !2724, !noalias !2727, !noundef !28
-  %62 = add i64 %61, 64
-  store i64 %62, ptr %8, align 8, !alias.scope !2724, !noalias !2727
-  br label %49
+56:                                               ; preds = %.lr.ph.i1
+  %57 = load i8, ptr %6, align 8, !range !214, !alias.scope !2737, !noalias !2738, !noundef !28
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %63, label %59
 
-_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit: ; preds = %46
-  %63 = load i64, ptr %7, align 8, !alias.scope !2724, !noalias !2727, !noundef !28
-  %64 = load i64, ptr %8, align 8, !alias.scope !2724, !noalias !2727, !noundef !28
-  %65 = add i64 %64, %63
-  store i64 0, ptr %8, align 8, !alias.scope !2724, !noalias !2727
-  store i8 0, ptr %5, align 8, !alias.scope !2724, !noalias !2727
+59:                                               ; preds = %56
+  %60 = shl i64 %45, 6
+  %61 = load i64, ptr %7, align 8, !alias.scope !2737, !noalias !2738, !noundef !28
+  %62 = add i64 %61, %60
+  store i64 %62, ptr %8, align 8, !alias.scope !2737, !noalias !2738
+  store i8 1, ptr %6, align 8, !alias.scope !2737, !noalias !2738
+  br label %63
+
+63:                                               ; preds = %59, %56
+  %64 = load i64, ptr %9, align 8, !alias.scope !2737, !noalias !2738, !noundef !28
+  %65 = add i64 %64, 64
+  store i64 %65, ptr %9, align 8, !alias.scope !2737, !noalias !2738
+  br label %51
+
+_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit: ; preds = %48
+  %66 = load i64, ptr %8, align 8, !alias.scope !2737, !noalias !2738, !noundef !28
+  %67 = load i64, ptr %9, align 8, !alias.scope !2737, !noalias !2738, !noundef !28
+  %68 = add i64 %67, %66
+  store i64 0, ptr %9, align 8, !alias.scope !2737, !noalias !2738
+  store i8 0, ptr %6, align 8, !alias.scope !2737, !noalias !2738
   br label %.sink.split
 
-66:                                               ; preds = %tailrecurse.jt2, %tailrecurse
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %68 = load i64, ptr %67, align 8, !noundef !28
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %70 = load i64, ptr %69, align 8, !noundef !28
-  %.promoted.i2 = load i64, ptr %6, align 8, !alias.scope !2739, !noalias !2742
-  %71 = icmp ult i64 %.promoted.i2, %70
-  %.pre52 = load i8, ptr %5, align 8
-  br i1 %71, label %.lr.ph.i5, label %.loopexit
+69:                                               ; preds = %tailrecurse
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %71 = load i64, ptr %70, align 8, !noundef !28
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %73 = load i64, ptr %72, align 8, !noundef !28
+  %.promoted.i2 = load i64, ptr %7, align 8, !alias.scope !2739, !noalias !2742
+  %74 = icmp ult i64 %.promoted.i2, %73
+  %.pre52 = load i8, ptr %6, align 8
+  br i1 %74, label %.lr.ph.i5, label %.loopexit
 
-.lr.ph.i5:                                        ; preds = %66
-  %72 = load i64, ptr %4, align 8, !alias.scope !2739, !noalias !2742
-  %73 = shl i64 %72, 6
-  %.promoted6.i7 = load i64, ptr %8, align 8, !alias.scope !2739, !noalias !2742
-  br label %74
+.lr.ph.i5:                                        ; preds = %69
+  %75 = load i64, ptr %5, align 8, !alias.scope !2739, !noalias !2742
+  %76 = shl i64 %75, 6
+  %.promoted6.i7 = load i64, ptr %9, align 8, !alias.scope !2739, !noalias !2742
+  br label %77
 
-74:                                               ; preds = %89, %.lr.ph.i5
-  %75 = phi i8 [ %.pre52, %.lr.ph.i5 ], [ %90, %89 ]
-  %76 = phi i64 [ %.promoted6.i7, %.lr.ph.i5 ], [ %91, %89 ]
-  %77 = phi i8 [ %.pre52, %.lr.ph.i5 ], [ %92, %89 ]
-  %78 = phi i64 [ %.promoted.i2, %.lr.ph.i5 ], [ %93, %89 ]
-  %79 = and i64 %78, 63
-  %80 = shl nuw i64 1, %79
-  %81 = and i64 %80, %68
-  %82 = icmp eq i64 %81, 0
-  %83 = trunc nuw i8 %77 to i1
-  br i1 %82, label %84, label %85
+77:                                               ; preds = %92, %.lr.ph.i5
+  %78 = phi i8 [ %.pre52, %.lr.ph.i5 ], [ %93, %92 ]
+  %79 = phi i64 [ %.promoted6.i7, %.lr.ph.i5 ], [ %94, %92 ]
+  %80 = phi i8 [ %.pre52, %.lr.ph.i5 ], [ %95, %92 ]
+  %81 = phi i64 [ %.promoted.i2, %.lr.ph.i5 ], [ %96, %92 ]
+  %82 = and i64 %81, 63
+  %83 = shl nuw i64 1, %82
+  %84 = and i64 %83, %71
+  %85 = icmp eq i64 %84, 0
+  %86 = trunc nuw i8 %80 to i1
+  br i1 %85, label %87, label %88
 
-84:                                               ; preds = %74
-  br i1 %83, label %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread, label %89
+87:                                               ; preds = %77
+  br i1 %86, label %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread, label %92
 
-85:                                               ; preds = %74
-  br i1 %83, label %96, label %94
+88:                                               ; preds = %77
+  br i1 %86, label %99, label %97
 
-_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread: ; preds = %84
-  %86 = load i64, ptr %7, align 8, !alias.scope !2739, !noalias !2742, !noundef !28
-  %87 = add i64 %86, %76
-  store i64 0, ptr %8, align 8, !alias.scope !2739, !noalias !2742
-  store i8 0, ptr %5, align 8, !alias.scope !2739, !noalias !2742
-  %88 = add nuw i64 %78, 1
-  store i64 %88, ptr %6, align 8, !alias.scope !2739, !noalias !2742
+_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread: ; preds = %87
+  %89 = load i64, ptr %8, align 8, !alias.scope !2739, !noalias !2742, !noundef !28
+  %90 = add i64 %89, %79
+  store i64 0, ptr %9, align 8, !alias.scope !2739, !noalias !2742
+  store i8 0, ptr %6, align 8, !alias.scope !2739, !noalias !2742
+  %91 = add nuw i64 %81, 1
+  store i64 %91, ptr %7, align 8, !alias.scope !2739, !noalias !2742
   br label %.sink.split
 
-89:                                               ; preds = %96, %84
-  %90 = phi i8 [ %75, %84 ], [ %97, %96 ]
-  %91 = phi i64 [ %76, %84 ], [ %98, %96 ]
-  %92 = phi i8 [ 0, %84 ], [ 1, %96 ]
-  %93 = add i64 %78, 1
-  %exitcond.not.i8 = icmp eq i64 %93, %70
-  br i1 %exitcond.not.i8, label %.loopexit, label %74
+92:                                               ; preds = %99, %87
+  %93 = phi i8 [ %78, %87 ], [ %100, %99 ]
+  %94 = phi i64 [ %79, %87 ], [ %101, %99 ]
+  %95 = phi i8 [ 0, %87 ], [ 1, %99 ]
+  %96 = add i64 %81, 1
+  %exitcond.not.i8 = icmp eq i64 %96, %73
+  br i1 %exitcond.not.i8, label %.loopexit, label %77
 
-94:                                               ; preds = %85
-  %95 = add i64 %78, %73
-  store i64 %95, ptr %7, align 8, !alias.scope !2739, !noalias !2742
-  store i8 1, ptr %5, align 8, !alias.scope !2739, !noalias !2742
-  br label %96
-
-96:                                               ; preds = %94, %85
-  %97 = phi i8 [ 1, %94 ], [ %75, %85 ]
-  %98 = add i64 %76, 1
+97:                                               ; preds = %88
+  %98 = add i64 %81, %76
   store i64 %98, ptr %8, align 8, !alias.scope !2739, !noalias !2742
-  br label %89
+  store i8 1, ptr %6, align 8, !alias.scope !2739, !noalias !2742
+  br label %99
 
-.sink.split:                                      ; preds = %104, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread
-  %.sink68 = phi i64 [ %86, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread ], [ %63, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit ], [ %27, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread ], [ %105, %104 ]
-  %.sink66 = phi i64 [ %87, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread ], [ %65, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit ], [ %28, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread ], [ %107, %104 ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink68, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink66, ptr %100, align 8
-  br label %101
+99:                                               ; preds = %97, %88
+  %100 = phi i8 [ 1, %97 ], [ %78, %88 ]
+  %101 = add i64 %79, 1
+  store i64 %101, ptr %9, align 8, !alias.scope !2739, !noalias !2742
+  br label %92
 
-101:                                              ; preds = %.sink.split, %tailrecurse, %.loopexit
-  %.sink = phi i64 [ 0, %.loopexit ], [ 0, %tailrecurse ], [ 1, %.sink.split ]
+.sink.split:                                      ; preds = %108, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread
+  %.sink68 = phi i64 [ %89, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread ], [ %66, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit ], [ %28, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread ], [ %109, %108 ]
+  %.sink66 = phi i64 [ %90, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit9.thread ], [ %68, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E.exit ], [ %29, %_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E.exit.thread ], [ %111, %108 ]
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink68, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink66, ptr %103, align 8
+  br label %.loopexit70
+
+.loopexit70:                                      ; preds = %tailrecurse, %.sink.split, %.loopexit
+  %.sink = phi i64 [ 0, %.loopexit ], [ 1, %.sink.split ], [ 0, %tailrecurse ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-.loopexit:                                        ; preds = %89, %66
-  %102 = phi i8 [ %.pre52, %66 ], [ %90, %89 ]
-  store i64 0, ptr %6, align 8, !alias.scope !2739, !noalias !2742
-  store i64 3, ptr %1, align 8
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %101
+.loopexit14:                                      ; preds = %31, %13
+  store i64 0, ptr %7, align 8, !alias.scope !2724, !noalias !2727
+  store i64 1, ptr %1, align 8
+  br label %tailrecurse.backedge
 
-104:                                              ; preds = %.loopexit
-  %105 = load i64, ptr %7, align 8, !noundef !28
-  %106 = load i64, ptr %8, align 8, !noundef !28
-  %107 = add i64 %106, %105
+tailrecurse.backedge:                             ; preds = %.loopexit14, %104
+  %.be = phi i64 [ 1, %.loopexit14 ], [ %105, %104 ]
+  br label %tailrecurse
+
+104:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E.exit.i", %55
+  %105 = phi i64 [ 2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E.exit.i" ], [ 0, %55 ]
+  store i64 0, ptr %7, align 8
+  br label %tailrecurse.backedge
+
+.loopexit:                                        ; preds = %92, %69
+  %106 = phi i8 [ %.pre52, %69 ], [ %93, %92 ]
+  store i64 0, ptr %7, align 8, !alias.scope !2739, !noalias !2742
+  store i64 3, ptr %1, align 8
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %108, label %.loopexit70
+
+108:                                              ; preds = %.loopexit
+  %109 = load i64, ptr %8, align 8, !noundef !28
+  %110 = load i64, ptr %9, align 8, !noundef !28
+  %111 = add i64 %110, %109
   br label %.sink.split
 }
 
@@ -50652,20 +50658,20 @@ attributes #36 = { nounwind }
 !2722 = !{!2723}
 !2723 = distinct !{!2723, !2721, !"_ZN12polars_arrow6bitmap5utils14chunk_iterator17BitChunkIterExact14remainder_iter17h371d1dfb2467866eE: argument 1"}
 !2724 = !{!2725}
-!2725 = distinct !{!2725, !2726, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E: argument 1"}
-!2726 = distinct !{!2726, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E"}
+!2725 = distinct !{!2725, !2726, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E: argument 1"}
+!2726 = distinct !{!2726, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E"}
 !2727 = !{!2728}
-!2728 = distinct !{!2728, !2726, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E: argument 0"}
-!2729 = !{!2730}
-!2730 = distinct !{!2730, !2731, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E: argument 1"}
-!2731 = distinct !{!2731, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E"}
-!2732 = !{!2733}
-!2733 = distinct !{!2733, !2731, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E: argument 0"}
-!2734 = !{!2735, !2728}
-!2735 = distinct !{!2735, !2736, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E: argument 0"}
-!2736 = distinct !{!2736, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E"}
-!2737 = !{!2738, !2725}
-!2738 = distinct !{!2738, !2736, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E: argument 1"}
+!2728 = distinct !{!2728, !2726, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E: argument 0"}
+!2729 = !{!2730, !2732}
+!2730 = distinct !{!2730, !2731, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E: argument 0"}
+!2731 = distinct !{!2731, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E"}
+!2732 = distinct !{!2732, !2733, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E: argument 0"}
+!2733 = distinct !{!2733, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E"}
+!2734 = !{!2735, !2736}
+!2735 = distinct !{!2735, !2731, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f38aae070a05bc6E: argument 1"}
+!2736 = distinct !{!2736, !2733, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator14iterate_chunks17h557d3f8ec2b79570E: argument 1"}
+!2737 = !{!2736}
+!2738 = !{!2732}
 !2739 = !{!2740}
 !2740 = distinct !{!2740, !2741, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E: argument 1"}
 !2741 = distinct !{!2741, !"_ZN12polars_arrow6legacy7kernels20MaskedSlicesIterator12iterate_bits17ha92c9be9213743a8E"}

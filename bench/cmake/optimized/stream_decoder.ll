@@ -135,97 +135,92 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre = load i32, ptr %0, align 8, !tbaa !32
-  switch i32 %.pre, label %.thread [
-    i32 0, label %37
-    i32 1, label %59
+  br label %34
+
+34:                                               ; preds = %.backedge, %9
+  %35 = phi i32 [ %.pre, %9 ], [ %.be, %.backedge ]
+  switch i32 %35, label %.thread [
+    i32 0, label %36
+    i32 1, label %58
     i32 2, label %81
     i32 3, label %93
-    i32 4, label %102
-    i32 5, label %107
-    i32 6, label %126
+    i32 4, label %103
+    i32 5, label %108
+    i32 6, label %127
   ]
 
-34:                                               ; preds = %143
-  store i32 0, ptr %0, align 8, !tbaa !32
+36:                                               ; preds = %34
+  %37 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 12) #10
+  %38 = load i64, ptr %14, align 8, !tbaa !33
+  %39 = icmp ult i64 %38, 12
+  br i1 %39, label %.thread, label %40
+
+40:                                               ; preds = %36
   store i64 0, ptr %14, align 8, !tbaa !33
-  br label %37
-
-35:                                               ; preds = %97
-  store i32 1, ptr %0, align 8, !tbaa !32
-  br label %59
-
-36:                                               ; preds = %64
-  store i32 4, ptr %0, align 8, !tbaa !32
-  br label %102
-
-37:                                               ; preds = %34, %9
-  %38 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 12) #10
-  %39 = load i64, ptr %14, align 8, !tbaa !33
-  %40 = icmp ult i64 %39, 12
-  br i1 %40, label %.thread, label %41
-
-41:                                               ; preds = %37
-  store i64 0, ptr %14, align 8, !tbaa !33
-  %42 = call i32 @lzma_stream_header_decode(ptr noundef nonnull %16, ptr noundef nonnull %13) #10
-  switch i32 %42, label %.thread [
-    i32 0, label %46
-    i32 7, label %43
+  %41 = call i32 @lzma_stream_header_decode(ptr noundef nonnull %16, ptr noundef nonnull %13) #10
+  switch i32 %41, label %.thread [
+    i32 0, label %45
+    i32 7, label %42
   ]
 
-43:                                               ; preds = %41
-  %44 = load i8, ptr %18, align 1, !tbaa !31, !range !34, !noundef !35
-  %45 = trunc nuw i8 %44 to i1
-  %spec.select = select i1 %45, i32 7, i32 9
+42:                                               ; preds = %40
+  %43 = load i8, ptr %18, align 1, !tbaa !31, !range !34, !noundef !35
+  %44 = trunc nuw i8 %43 to i1
+  %spec.select = select i1 %44, i32 7, i32 9
   br label %.thread
 
-46:                                               ; preds = %41
+45:                                               ; preds = %40
   store i8 0, ptr %18, align 1, !tbaa !31
-  %47 = load i32, ptr %19, align 8, !tbaa !36
-  store i32 %47, ptr %20, align 8, !tbaa !37
+  %46 = load i32, ptr %19, align 8, !tbaa !36
+  store i32 %46, ptr %20, align 8, !tbaa !37
   store i32 1, ptr %0, align 8, !tbaa !32
-  %48 = load i8, ptr %21, align 8, !tbaa !26, !range !34, !noundef !35
-  %49 = trunc nuw i8 %48 to i1
-  %50 = icmp eq i32 %47, 0
-  %or.cond = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond, label %.thread, label %51
+  %47 = load i8, ptr %21, align 8, !tbaa !26, !range !34, !noundef !35
+  %48 = trunc nuw i8 %47 to i1
+  %49 = icmp eq i32 %46, 0
+  %or.cond = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond, label %.thread, label %50
 
-51:                                               ; preds = %46
-  %52 = load i8, ptr %22, align 1, !tbaa !27, !range !34, !noundef !35
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %56
+50:                                               ; preds = %45
+  %51 = load i8, ptr %22, align 1, !tbaa !27, !range !34, !noundef !35
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %51
-  %55 = call zeroext i8 @lzma_check_is_supported(i32 noundef %47) #11
-  %.not176 = icmp eq i8 %55, 0
-  br i1 %.not176, label %.thread, label %56
+53:                                               ; preds = %50
+  %54 = call zeroext i8 @lzma_check_is_supported(i32 noundef %46) #11
+  %.not176 = icmp eq i8 %54, 0
+  br i1 %.not176, label %.thread, label %55
 
-56:                                               ; preds = %51, %54
-  %57 = load i8, ptr %23, align 2, !tbaa !28, !range !34, !noundef !35
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %.thread, label %59
+55:                                               ; preds = %50, %53
+  %56 = load i8, ptr %23, align 2, !tbaa !28, !range !34, !noundef !35
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %.thread, label %58
 
-59:                                               ; preds = %35, %56, %9
-  %60 = load i64, ptr %3, align 8, !tbaa !23
-  %.not177 = icmp ult i64 %60, %4
-  br i1 %.not177, label %61, label %.thread
+58:                                               ; preds = %55, %34
+  %59 = load i64, ptr %3, align 8, !tbaa !23
+  %.not177 = icmp ult i64 %59, %4
+  br i1 %.not177, label %60, label %.thread
 
-61:                                               ; preds = %59
-  %62 = load i64, ptr %14, align 8, !tbaa !33
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %._crit_edge218
+60:                                               ; preds = %58
+  %61 = load i64, ptr %14, align 8, !tbaa !33
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %._crit_edge218
 
-._crit_edge218:                                   ; preds = %61
+._crit_edge218:                                   ; preds = %60
   %.pre219 = load i32, ptr %24, align 4, !tbaa !38
   br label %72
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 %60
-  %66 = load i8, ptr %65, align 1, !tbaa !39
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %36, label %68
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %59
+  %65 = load i8, ptr %64, align 1, !tbaa !39
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %67, label %68
 
-68:                                               ; preds = %64
-  %69 = zext i8 %66 to i32
+67:                                               ; preds = %63
+  store i32 4, ptr %0, align 8, !tbaa !32
+  br label %.backedge
+
+68:                                               ; preds = %63
+  %69 = zext i8 %65 to i32
   %70 = shl nuw nsw i32 %69, 2
   %71 = add nuw nsw i32 %70, 4
   store i32 %71, ptr %24, align 4, !tbaa !38
@@ -246,7 +241,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   store i32 2, ptr %0, align 8, !tbaa !32
   br label %81
 
-81:                                               ; preds = %80, %9
+81:                                               ; preds = %80, %34
   store i32 1, ptr %25, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %10, ptr %26, align 8, !tbaa !41
@@ -281,7 +276,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   br i1 %.not179, label %92, label %.thread189
 
 .thread189:                                       ; preds = %81, %90, %.thread185
-  %.10.ph = phi i32 [ %.0151.ph, %.thread185 ], [ %91, %90 ], [ %82, %81 ]
+  %.10.ph = phi i32 [ %.0151.ph, %.thread185 ], [ %82, %81 ], [ %91, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
@@ -290,7 +285,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %93
 
-93:                                               ; preds = %92, %9
+93:                                               ; preds = %92, %34
   %94 = load ptr, ptr %32, align 8, !tbaa !43
   %95 = load ptr, ptr %31, align 8, !tbaa !44
   %96 = call i32 %94(ptr noundef %95, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8) #10
@@ -303,119 +298,132 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   %100 = load i64, ptr %33, align 8, !tbaa !45
   %101 = call i32 @lzma_index_hash_append(ptr noundef %98, i64 noundef %99, i64 noundef %100) #10
   %.not181 = icmp eq i32 %101, 0
-  br i1 %.not181, label %35, label %.thread
+  br i1 %.not181, label %102, label %.thread
 
-102:                                              ; preds = %36, %9
-  %103 = load i64, ptr %3, align 8, !tbaa !23
-  %.not = icmp ult i64 %103, %4
-  br i1 %.not, label %104, label %.thread
+102:                                              ; preds = %97
+  store i32 1, ptr %0, align 8, !tbaa !32
+  br label %.backedge
 
-104:                                              ; preds = %102
-  %105 = load ptr, ptr %12, align 8, !tbaa !11
-  %106 = call i32 @lzma_index_hash_decode(ptr noundef %105, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #10
-  %.not166 = icmp eq i32 %106, 1
+103:                                              ; preds = %34
+  %104 = load i64, ptr %3, align 8, !tbaa !23
+  %.not = icmp ult i64 %104, %4
+  br i1 %.not, label %105, label %.thread
+
+105:                                              ; preds = %103
+  %106 = load ptr, ptr %12, align 8, !tbaa !11
+  %107 = call i32 @lzma_index_hash_decode(ptr noundef %106, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #10
+  %.not166 = icmp eq i32 %107, 1
   br i1 %.not166, label %.thread196, label %.thread
 
-.thread196:                                       ; preds = %104
+.thread196:                                       ; preds = %105
   store i32 5, ptr %0, align 8, !tbaa !32
-  br label %107
+  br label %108
 
-107:                                              ; preds = %.thread196, %9
-  %108 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 12) #10
-  %109 = load i64, ptr %14, align 8, !tbaa !33
-  %110 = icmp ult i64 %109, 12
-  br i1 %110, label %.thread, label %111
+108:                                              ; preds = %.thread196, %34
+  %109 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 12) #10
+  %110 = load i64, ptr %14, align 8, !tbaa !33
+  %111 = icmp ult i64 %110, 12
+  br i1 %111, label %.thread, label %112
 
-111:                                              ; preds = %107
+112:                                              ; preds = %108
   store i64 0, ptr %14, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %112 = call i32 @lzma_stream_footer_decode(ptr noundef nonnull %11, ptr noundef nonnull %13) #10
-  %.not167 = icmp eq i32 %112, 0
-  br i1 %.not167, label %116, label %113
+  %113 = call i32 @lzma_stream_footer_decode(ptr noundef nonnull %11, ptr noundef nonnull %13) #10
+  %.not167 = icmp eq i32 %113, 0
+  br i1 %.not167, label %117, label %114
 
-113:                                              ; preds = %111
-  %114 = icmp eq i32 %112, 7
-  %115 = select i1 %114, i32 9, i32 %112
+114:                                              ; preds = %112
+  %115 = icmp eq i32 %113, 7
+  %116 = select i1 %115, i32 9, i32 %113
   br label %.thread199
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %12, align 8, !tbaa !11
-  %118 = call i64 @lzma_index_hash_size(ptr noundef %117) #12
-  %119 = load i64, ptr %15, align 8, !tbaa !46
-  %.not168 = icmp eq i64 %118, %119
-  br i1 %.not168, label %120, label %.thread199
+117:                                              ; preds = %112
+  %118 = load ptr, ptr %12, align 8, !tbaa !11
+  %119 = call i64 @lzma_index_hash_size(ptr noundef %118) #12
+  %120 = load i64, ptr %15, align 8, !tbaa !46
+  %.not168 = icmp eq i64 %119, %120
+  br i1 %.not168, label %121, label %.thread199
 
-120:                                              ; preds = %116
-  %121 = call i32 @lzma_stream_flags_compare(ptr noundef nonnull %16, ptr noundef nonnull %11) #12
-  %.not169 = icmp eq i32 %121, 0
-  br i1 %.not169, label %122, label %.thread199
+121:                                              ; preds = %117
+  %122 = call i32 @lzma_stream_flags_compare(ptr noundef nonnull %16, ptr noundef nonnull %11) #12
+  %.not169 = icmp eq i32 %122, 0
+  br i1 %.not169, label %123, label %.thread199
 
-122:                                              ; preds = %120
-  %123 = load i8, ptr %17, align 4, !tbaa !30, !range !34, !noundef !35
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %125, label %.thread199
+123:                                              ; preds = %121
+  %124 = load i8, ptr %17, align 4, !tbaa !30, !range !34, !noundef !35
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %126, label %.thread199
 
-.thread199:                                       ; preds = %120, %116, %122, %113
-  %.15.ph = phi i32 [ %115, %113 ], [ 1, %122 ], [ 9, %116 ], [ %121, %120 ]
+.thread199:                                       ; preds = %121, %117, %123, %114
+  %.15.ph = phi i32 [ %116, %114 ], [ %122, %121 ], [ 9, %117 ], [ 1, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
-125:                                              ; preds = %122
+126:                                              ; preds = %123
   store i32 6, ptr %0, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %126
+  br label %127
 
-126:                                              ; preds = %125, %9
+127:                                              ; preds = %126, %34
   %.promoted = load i64, ptr %3, align 8, !tbaa !23
   %.not170211 = icmp ult i64 %.promoted, %4
   br i1 %.not170211, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %134, %126
+._crit_edge:                                      ; preds = %127, %135
   %.not174 = icmp eq i32 %8, 3
-  br i1 %.not174, label %127, label %.thread
+  br i1 %.not174, label %128, label %.thread
 
-127:                                              ; preds = %._crit_edge
-  %128 = load i64, ptr %14, align 8, !tbaa !33
-  %129 = icmp eq i64 %128, 0
-  %130 = select i1 %129, i32 1, i32 9
+128:                                              ; preds = %._crit_edge
+  %129 = load i64, ptr %14, align 8, !tbaa !33
+  %130 = icmp eq i64 %129, 0
+  %131 = select i1 %130, i32 1, i32 9
   br label %.thread
 
-.lr.ph:                                           ; preds = %126, %134
-  %131 = phi i64 [ %135, %134 ], [ %.promoted, %126 ]
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 %131
-  %133 = load i8, ptr %132, align 1, !tbaa !39
-  %.not171 = icmp eq i8 %133, 0
-  br i1 %.not171, label %134, label %139
+.lr.ph:                                           ; preds = %127, %135
+  %132 = phi i64 [ %136, %135 ], [ %.promoted, %127 ]
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !39
+  %.not171 = icmp eq i8 %134, 0
+  br i1 %.not171, label %135, label %140
 
-134:                                              ; preds = %.lr.ph
-  %135 = add i64 %131, 1
-  store i64 %135, ptr %3, align 8, !tbaa !23
-  %136 = load i64, ptr %14, align 8, !tbaa !33
-  %137 = add i64 %136, 1
-  %138 = and i64 %137, 3
-  store i64 %138, ptr %14, align 8, !tbaa !33
-  %exitcond.not = icmp eq i64 %135, %4
+135:                                              ; preds = %.lr.ph
+  %136 = add i64 %132, 1
+  store i64 %136, ptr %3, align 8, !tbaa !23
+  %137 = load i64, ptr %14, align 8, !tbaa !33
+  %138 = add i64 %137, 1
+  %139 = and i64 %138, 3
+  store i64 %139, ptr %14, align 8, !tbaa !33
+  %exitcond.not = icmp eq i64 %136, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-139:                                              ; preds = %.lr.ph
-  %140 = load i64, ptr %14, align 8, !tbaa !33
-  %.not172 = icmp eq i64 %140, 0
-  br i1 %.not172, label %143, label %141
+140:                                              ; preds = %.lr.ph
+  %141 = load i64, ptr %14, align 8, !tbaa !33
+  %.not172 = icmp eq i64 %141, 0
+  br i1 %.not172, label %144, label %142
 
-141:                                              ; preds = %139
-  %142 = add nuw i64 %131, 1
-  store i64 %142, ptr %3, align 8, !tbaa !23
+142:                                              ; preds = %140
+  %143 = add nuw i64 %132, 1
+  store i64 %143, ptr %3, align 8, !tbaa !23
   br label %.thread
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %12, align 8, !tbaa !11
-  %145 = call ptr @lzma_index_hash_init(ptr noundef %144, ptr noundef %1) #10
-  store ptr %145, ptr %12, align 8, !tbaa !11
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %.thread, label %34
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %12, align 8, !tbaa !11
+  %146 = call ptr @lzma_index_hash_init(ptr noundef %145, ptr noundef %1) #10
+  store ptr %146, ptr %12, align 8, !tbaa !11
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %.thread, label %stream_decoder_reset.exit.thread
 
-.thread:                                          ; preds = %143, %46, %93, %97, %54, %104, %9, %107, %102, %72, %59, %37, %56, %41, %43, %.thread199, %.thread189, %._crit_edge, %141, %127
-  %.6 = phi i32 [ %130, %127 ], [ 9, %141 ], [ 0, %._crit_edge ], [ %.10.ph, %.thread189 ], [ %.15.ph, %.thread199 ], [ %spec.select, %43 ], [ 4, %56 ], [ 0, %37 ], [ 0, %59 ], [ 0, %72 ], [ 0, %102 ], [ 0, %107 ], [ 11, %9 ], [ %106, %104 ], [ 3, %54 ], [ %96, %93 ], [ %101, %97 ], [ 2, %46 ], [ 5, %143 ], [ %42, %41 ]
+stream_decoder_reset.exit.thread:                 ; preds = %144
+  store i32 0, ptr %0, align 8, !tbaa !32
+  store i64 0, ptr %14, align 8, !tbaa !33
+  br label %.backedge
+
+.backedge:                                        ; preds = %stream_decoder_reset.exit.thread, %102, %67
+  %.be = phi i32 [ 4, %67 ], [ 1, %102 ], [ 0, %stream_decoder_reset.exit.thread ]
+  br label %34
+
+.thread:                                          ; preds = %144, %45, %93, %97, %53, %105, %34, %108, %103, %72, %58, %36, %55, %40, %42, %.thread199, %.thread189, %._crit_edge, %142, %128
+  %.6 = phi i32 [ %131, %128 ], [ 9, %142 ], [ 0, %._crit_edge ], [ %.10.ph, %.thread189 ], [ %.15.ph, %.thread199 ], [ %spec.select, %42 ], [ %41, %40 ], [ 5, %144 ], [ 2, %45 ], [ %101, %97 ], [ %96, %93 ], [ 3, %53 ], [ %107, %105 ], [ 11, %34 ], [ 0, %108 ], [ 0, %103 ], [ 0, %72 ], [ 0, %58 ], [ 0, %36 ], [ 4, %55 ]
   ret i32 %.6
 }
 

@@ -59,7 +59,7 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 12:                                               ; preds = %2
   tail call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str) #17
-  br label %224
+  br label %187
 
 13:                                               ; preds = %2
   %.not31 = icmp eq i32 %1, 0
@@ -91,7 +91,7 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 21:                                               ; preds = %20, %19
   tail call void @free(ptr noundef nonnull %11) #17
-  br label %224
+  br label %187
 
 22:                                               ; preds = %.thread122, %17
   %.027126 = phi ptr [ %15, %.thread122 ], [ %18, %17 ]
@@ -110,12 +110,14 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 bindAction.exit:                                  ; preds = %bindAction.exit.backedge, %22
   %.0174 = phi ptr [ null, %22 ], [ %.0174.be, %bindAction.exit.backedge ]
   %.0106173 = phi i32 [ 0, %22 ], [ %.0106173.be, %bindAction.exit.backedge ]
-  %.0111171 = phi i32 [ 0, %22 ], [ %.0111171.be, %bindAction.exit.backedge ]
+  %.0109172 = phi i32 [ 0, %22 ], [ %.1110, %bindAction.exit.backedge ]
+  %.0111171 = phi i32 [ 0, %22 ], [ %.1112, %bindAction.exit.backedge ]
   %.sroa.24.0170 = phi i64 [ 0, %22 ], [ %.sroa.24.0170.be, %bindAction.exit.backedge ]
   %.sroa.16.0169 = phi i64 [ 0, %22 ], [ %.sroa.16.0169.be, %bindAction.exit.backedge ]
   %.sroa.10.0168 = phi i64 [ 0, %22 ], [ %.sroa.10.0168.be, %bindAction.exit.backedge ]
   %.sroa.0.0167 = phi ptr [ null, %22 ], [ %.sroa.0.0167.be, %bindAction.exit.backedge ]
-  %.0114166 = phi ptr [ null, %22 ], [ %.0114166.be, %bindAction.exit.backedge ]
+  %.0114166 = phi ptr [ null, %22 ], [ %.1115, %bindAction.exit.backedge ]
+  %.0117165 = phi ptr [ null, %22 ], [ %.1118, %bindAction.exit.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -137,7 +139,7 @@ gv_isspace.exit.i.i.i.backedge:                   ; preds = %gv_isspace.exit.i.i
 
 skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i.i
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %parseKind.exit.thread19.i.jt7, label %34
+  br i1 %33, label %parseKind.exit.thread19.i, label %34
 
 34:                                               ; preds = %skipWS.exit.i.i
   %35 = and i32 %32, 2147483615
@@ -148,7 +150,7 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
 
 39:                                               ; preds = %34
   call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %32, i32 noundef %38) #17
-  br label %parseKind.exit.thread19.i.jt7
+  br label %parseKind.exit.thread19.i
 
 40:                                               ; preds = %34
   store i32 %38, ptr @kwLine, align 4, !tbaa !3
@@ -198,475 +200,386 @@ parseID.exit.i.i:                                 ; preds = %51, %49, %58, %55, 
   store i8 0, ptr %.0.ptr20.i.i.i, align 1, !tbaa !13
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
   %61 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %61, label %86, label %62
+  br i1 %61, label %73, label %62
 
 62:                                               ; preds = %parseID.exit.i.i
   %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.8, i64 6)
   %63 = icmp eq i32 %bcmp10.i.i, 0
-  br i1 %63, label %82, label %64
+  br i1 %63, label %73, label %64
 
 64:                                               ; preds = %62
   %bcmp11.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %7, ptr noundef nonnull dereferenceable(2) @.str.9, i64 2)
   %65 = icmp eq i32 %bcmp11.i.i, 0
-  br i1 %65, label %90, label %66
+  br i1 %65, label %77, label %66
 
 66:                                               ; preds = %64
   %bcmp12.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
   %67 = icmp eq i32 %bcmp12.i.i, 0
-  br i1 %67, label %78, label %68
+  br i1 %67, label %73, label %68
 
 68:                                               ; preds = %66
   %bcmp13.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.11, i64 6)
   %69 = icmp eq i32 %bcmp13.i.i, 0
-  br i1 %69, label %74, label %70
+  br i1 %69, label %73, label %70
 
 70:                                               ; preds = %68
   %bcmp14.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %7, ptr noundef nonnull dereferenceable(2) @.str.12, i64 2)
   %.not.i.i = icmp eq i32 %bcmp14.i.i, 0
-  br i1 %.not.i.i, label %94, label %71
+  br i1 %.not.i.i, label %77, label %71
 
 71:                                               ; preds = %70
   %72 = load i32, ptr @kwLine, align 4, !tbaa !3
   call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %7, i32 noundef %72) #17
-  br label %parseKind.exit.thread19.i.jt7
+  br label %parseKind.exit.thread19.i
 
-parseKind.exit.thread19.i.jt7:                    ; preds = %skipWS.exit.i.i, %39, %71
+parseKind.exit.thread19.i:                        ; preds = %71, %39, %skipWS.exit.i.i
+  %.08.i.ph18.i = phi i32 [ 7, %71 ], [ 6, %skipWS.exit.i.i ], [ 7, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.val14.i.jt7 = load i8, ptr %23, align 1, !tbaa !13
-  %73 = icmp eq i8 %.val14.i.jt7, -1
-  br i1 %73, label %parseCase.exit.sink.split, label %parseCase.exit
+  br label %86
 
-74:                                               ; preds = %68
+73:                                               ; preds = %68, %66, %62, %parseID.exit.i.i
+  %.08.i.ph.i = phi i32 [ 0, %parseID.exit.i.i ], [ 2, %62 ], [ 1, %66 ], [ 3, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %75 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
-  %76 = load i32, ptr @startLine, align 4, !tbaa !3
-  %77 = call i32 @getErrorErrors() #17
-  %.not12.i.jt3 = icmp eq i32 %77, 0
-  br i1 %.not12.i.jt3, label %113, label %spec.select13.i.si.unfold.false
+  %74 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
+  %75 = load i32, ptr @startLine, align 4, !tbaa !3
+  %76 = call i32 @getErrorErrors() #17
+  %.not12.i = icmp eq i32 %76, 0
+  %spec.select.i = select i1 %.not12.i, i32 %.08.i.ph.i, i32 7
+  br label %86
 
-78:                                               ; preds = %66
+77:                                               ; preds = %70, %64
+  %.08.i.i = phi i32 [ 4, %70 ], [ 5, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %79 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
-  %80 = load i32, ptr @startLine, align 4, !tbaa !3
-  %81 = call i32 @getErrorErrors() #17
-  %.not12.i.jt1 = icmp eq i32 %81, 0
-  br i1 %.not12.i.jt1, label %115, label %spec.select13.i.si.unfold.false
+  %78 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 91, i32 noundef 93)
+  %79 = load i32, ptr @startLine, align 4, !tbaa !3
+  %80 = call i32 @getErrorErrors() #17
+  %.not.i = icmp eq i32 %80, 0
+  br i1 %.not.i, label %81, label %84
 
-82:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %83 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
-  %84 = load i32, ptr @startLine, align 4, !tbaa !3
+81:                                               ; preds = %77
+  %82 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
+  %83 = load i32, ptr @startLine, align 4, !tbaa !3
+  br label %84
+
+84:                                               ; preds = %81, %77
+  %.2116 = phi ptr [ %82, %81 ], [ %.0114166, %77 ]
+  %.2113 = phi i32 [ %83, %81 ], [ %.0111171, %77 ]
   %85 = call i32 @getErrorErrors() #17
-  %.not12.i.jt2 = icmp eq i32 %85, 0
-  br i1 %.not12.i.jt2, label %117, label %spec.select13.i.si.unfold.false
+  %.not11.i = icmp eq i32 %85, 0
+  %spec.select13.i = select i1 %.not11.i, i32 %.08.i.i, i32 7
+  br label %86
 
-86:                                               ; preds = %parseID.exit.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %87 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
-  %88 = load i32, ptr @startLine, align 4, !tbaa !3
-  %89 = call i32 @getErrorErrors() #17
-  %.not12.i.jt0 = icmp eq i32 %89, 0
-  br i1 %.not12.i.jt0, label %119, label %spec.select13.i.si.unfold.false
-
-90:                                               ; preds = %64
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %91 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 91, i32 noundef 93)
-  %92 = load i32, ptr @startLine, align 4, !tbaa !3
-  %93 = call i32 @getErrorErrors() #17
-  %.not.i.jt5 = icmp eq i32 %93, 0
-  br i1 %.not.i.jt5, label %98, label %104
-
-94:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %95 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 91, i32 noundef 93)
-  %96 = load i32, ptr @startLine, align 4, !tbaa !3
-  %97 = call i32 @getErrorErrors() #17
-  %.not.i.jt4 = icmp eq i32 %97, 0
-  br i1 %.not.i.jt4, label %101, label %106
-
-98:                                               ; preds = %90
-  %99 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
-  %100 = load i32, ptr @startLine, align 4, !tbaa !3
-  br label %104
-
-101:                                              ; preds = %94
-  %102 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 123, i32 noundef 125)
-  %103 = load i32, ptr @startLine, align 4, !tbaa !3
-  br label %106
-
-104:                                              ; preds = %90, %98
-  %.2116.jt5 = phi ptr [ %.0114166, %90 ], [ %99, %98 ]
-  %.2113.jt5 = phi i32 [ %.0111171, %90 ], [ %100, %98 ]
-  %105 = call i32 @getErrorErrors() #17
-  %.not11.i.jt5 = icmp eq i32 %105, 0
-  br i1 %.not11.i.jt5, label %109, label %spec.select13.i.si.unfold.false
-
-106:                                              ; preds = %94, %101
-  %.2116.jt4 = phi ptr [ %.0114166, %94 ], [ %102, %101 ]
-  %.2113.jt4 = phi i32 [ %.0111171, %94 ], [ %103, %101 ]
-  %107 = call i32 @getErrorErrors() #17
-  %.not11.i.jt4 = icmp eq i32 %107, 0
-  br i1 %.not11.i.jt4, label %111, label %spec.select13.i.si.unfold.false
-
-spec.select13.i.si.unfold.false:                  ; preds = %86, %82, %78, %74, %106, %104
+86:                                               ; preds = %84, %73, %parseKind.exit.thread19.i
+  %.1118 = phi ptr [ %.0117165, %parseKind.exit.thread19.i ], [ %.0117165, %73 ], [ %78, %84 ]
+  %.1115 = phi ptr [ %.0114166, %parseKind.exit.thread19.i ], [ %74, %73 ], [ %.2116, %84 ]
+  %.1112 = phi i32 [ %.0111171, %parseKind.exit.thread19.i ], [ %75, %73 ], [ %.2113, %84 ]
+  %.1110 = phi i32 [ %.0109172, %parseKind.exit.thread19.i ], [ %.0109172, %73 ], [ %79, %84 ]
+  %.0.i = phi i32 [ %.08.i.ph18.i, %parseKind.exit.thread19.i ], [ %spec.select.i, %73 ], [ %spec.select13.i, %84 ]
   %.val14.i = load i8, ptr %23, align 1, !tbaa !13
-  %108 = icmp eq i8 %.val14.i, -1
-  br i1 %108, label %parseCase.exit.sink.split, label %parseCase.exit
+  %87 = icmp eq i8 %.val14.i, -1
+  br i1 %87, label %88, label %parseCase.exit
 
-109:                                              ; preds = %104
-  %.val14.i.jt5 = load i8, ptr %23, align 1, !tbaa !13
-  %110 = icmp eq i8 %.val14.i.jt5, -1
-  br i1 %110, label %121, label %187
+88:                                               ; preds = %86
+  %.val.i = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %.val.i) #17
+  br label %parseCase.exit
 
-111:                                              ; preds = %106
-  %.val14.i.jt4 = load i8, ptr %23, align 1, !tbaa !13
-  %112 = icmp eq i8 %.val14.i.jt4, -1
-  br i1 %112, label %122, label %186
-
-113:                                              ; preds = %74
-  %.val14.i.jt3 = load i8, ptr %23, align 1, !tbaa !13
-  %114 = icmp eq i8 %.val14.i.jt3, -1
-  br i1 %114, label %123, label %178
-
-115:                                              ; preds = %78
-  %.val14.i.jt1 = load i8, ptr %23, align 1, !tbaa !13
-  %116 = icmp eq i8 %.val14.i.jt1, -1
-  br i1 %116, label %124, label %170
-
-117:                                              ; preds = %82
-  %.val14.i.jt2 = load i8, ptr %23, align 1, !tbaa !13
-  %118 = icmp eq i8 %.val14.i.jt2, -1
-  br i1 %118, label %125, label %135
-
-119:                                              ; preds = %86
-  %.val14.i.jt0 = load i8, ptr %23, align 1, !tbaa !13
-  %120 = icmp eq i8 %.val14.i.jt0, -1
-  br i1 %120, label %126, label %127
-
-121:                                              ; preds = %109
-  %.val.i.jt5 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt5) #17
-  br label %187
-
-122:                                              ; preds = %111
-  %.val.i.jt4 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt4) #17
-  br label %186
-
-123:                                              ; preds = %113
-  %.val.i.jt3 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt3) #17
-  br label %178
-
-124:                                              ; preds = %115
-  %.val.i.jt1 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt1) #17
-  br label %170
-
-125:                                              ; preds = %117
-  %.val.i.jt2 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt2) #17
-  br label %135
-
-126:                                              ; preds = %119
-  %.val.i.jt0 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt0) #17
-  br label %127
-
-127:                                              ; preds = %126, %119
+parseCase.exit:                                   ; preds = %86, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not.i41 = icmp eq ptr %87, null
-  br i1 %.not.i41, label %128, label %130
+  switch i32 %.0.i, label %default.unreachable187 [
+    i32 0, label %89
+    i32 2, label %97
+    i32 1, label %132
+    i32 3, label %140
+    i32 6, label %150
+    i32 4, label %148
+    i32 5, label %149
+    i32 7, label %150
+  ]
 
-128:                                              ; preds = %127
-  %129 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.7, i32 noundef %129) #17
+89:                                               ; preds = %parseCase.exit
+  %.not.i41 = icmp eq ptr %.1115, null
+  br i1 %.not.i41, label %90, label %92
+
+90:                                               ; preds = %89
+  %91 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.7, i32 noundef %91) #17
   br label %bindAction.exit.backedge
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %30, align 8, !tbaa !14
-  %.not7.i = icmp eq ptr %131, null
-  br i1 %.not7.i, label %134, label %132
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %30, align 8, !tbaa !14
+  %.not7.i = icmp eq ptr %93, null
+  br i1 %.not7.i, label %96, label %94
 
-132:                                              ; preds = %130
-  %133 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.7, i32 noundef %133) #17
+94:                                               ; preds = %92
+  %95 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.7, i32 noundef %95) #17
   br label %bindAction.exit.backedge
 
-134:                                              ; preds = %130
-  store ptr %87, ptr %30, align 8, !tbaa !14
-  store i32 %88, ptr %31, align 8, !tbaa !3
+96:                                               ; preds = %92
+  store ptr %.1115, ptr %30, align 8, !tbaa !14
+  store i32 %.1112, ptr %31, align 8, !tbaa !3
   br label %bindAction.exit.backedge
 
-135:                                              ; preds = %125, %117
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not36 = icmp eq ptr %83, null
-  br i1 %.not36, label %168, label %136
+97:                                               ; preds = %parseCase.exit
+  %.not36 = icmp eq ptr %.1115, null
+  br i1 %.not36, label %130, label %98
 
-136:                                              ; preds = %135
+98:                                               ; preds = %97
   %.not37 = icmp eq ptr %.0174, null
   %.val = load i64, ptr %28, align 8
-  %137 = icmp eq i64 %.val, 0
-  %or.cond = select i1 %.not37, i1 %137, i1 false
+  %99 = icmp eq i64 %.val, 0
+  %or.cond = select i1 %.not37, i1 %99, i1 false
   %.val38 = load i64, ptr %29, align 8
-  %138 = icmp eq i64 %.val38, 0
-  %or.cond145 = select i1 %or.cond, i1 %138, i1 false
-  br i1 %or.cond145, label %bindAction.exit.backedge, label %139
+  %100 = icmp eq i64 %.val38, 0
+  %or.cond145 = select i1 %or.cond, i1 %100, i1 false
+  br i1 %or.cond145, label %bindAction.exit.backedge, label %101
 
-bindAction.exit.backedge:                         ; preds = %136, %185, %183, %179, %177, %175, %171, %168, %addBlock.exit, %134, %132, %128, %187, %186
-  %.0174.be = phi ptr [ %83, %136 ], [ %.0174, %185 ], [ %.0174, %183 ], [ %.0174, %179 ], [ %.0174, %177 ], [ %.0174, %175 ], [ %.0174, %171 ], [ %.0174, %168 ], [ %83, %addBlock.exit ], [ %.0174, %134 ], [ %.0174, %132 ], [ %.0174, %128 ], [ %.0174, %187 ], [ %.0174, %186 ]
-  %.0106173.be = phi i32 [ %84, %136 ], [ %.0106173, %185 ], [ %.0106173, %183 ], [ %.0106173, %179 ], [ %.0106173, %177 ], [ %.0106173, %175 ], [ %.0106173, %171 ], [ %.0106173, %168 ], [ %84, %addBlock.exit ], [ %.0106173, %134 ], [ %.0106173, %132 ], [ %.0106173, %128 ], [ %.0106173, %187 ], [ %.0106173, %186 ]
-  %.0111171.be = phi i32 [ %84, %136 ], [ %76, %185 ], [ %76, %183 ], [ %76, %179 ], [ %80, %177 ], [ %80, %175 ], [ %80, %171 ], [ %84, %168 ], [ %84, %addBlock.exit ], [ %88, %134 ], [ %88, %132 ], [ %88, %128 ], [ %.2113.jt5, %187 ], [ %.2113.jt4, %186 ]
-  %.sroa.24.0170.be = phi i64 [ %.sroa.24.0170, %136 ], [ %.sroa.24.0170, %185 ], [ %.sroa.24.0170, %183 ], [ %.sroa.24.0170, %179 ], [ %.sroa.24.0170, %177 ], [ %.sroa.24.0170, %175 ], [ %.sroa.24.0170, %171 ], [ %.sroa.24.0170, %168 ], [ %.sroa.24.4, %addBlock.exit ], [ %.sroa.24.0170, %134 ], [ %.sroa.24.0170, %132 ], [ %.sroa.24.0170, %128 ], [ %.sroa.24.0170, %187 ], [ %.sroa.24.0170, %186 ]
-  %.sroa.16.0169.be = phi i64 [ %.sroa.16.0169, %136 ], [ %.sroa.16.0169, %185 ], [ %.sroa.16.0169, %183 ], [ %.sroa.16.0169, %179 ], [ %.sroa.16.0169, %177 ], [ %.sroa.16.0169, %175 ], [ %.sroa.16.0169, %171 ], [ %.sroa.16.0169, %168 ], [ %167, %addBlock.exit ], [ %.sroa.16.0169, %134 ], [ %.sroa.16.0169, %132 ], [ %.sroa.16.0169, %128 ], [ %.sroa.16.0169, %187 ], [ %.sroa.16.0169, %186 ]
-  %.sroa.10.0168.be = phi i64 [ %.sroa.10.0168, %136 ], [ %.sroa.10.0168, %185 ], [ %.sroa.10.0168, %183 ], [ %.sroa.10.0168, %179 ], [ %.sroa.10.0168, %177 ], [ %.sroa.10.0168, %175 ], [ %.sroa.10.0168, %171 ], [ %.sroa.10.0168, %168 ], [ %.sroa.10.5, %addBlock.exit ], [ %.sroa.10.0168, %134 ], [ %.sroa.10.0168, %132 ], [ %.sroa.10.0168, %128 ], [ %.sroa.10.0168, %187 ], [ %.sroa.10.0168, %186 ]
-  %.sroa.0.0167.be = phi ptr [ %.sroa.0.0167, %136 ], [ %.sroa.0.0167, %185 ], [ %.sroa.0.0167, %183 ], [ %.sroa.0.0167, %179 ], [ %.sroa.0.0167, %177 ], [ %.sroa.0.0167, %175 ], [ %.sroa.0.0167, %171 ], [ %.sroa.0.0167, %168 ], [ %.sroa.0.4, %addBlock.exit ], [ %.sroa.0.0167, %134 ], [ %.sroa.0.0167, %132 ], [ %.sroa.0.0167, %128 ], [ %.sroa.0.0167, %187 ], [ %.sroa.0.0167, %186 ]
-  %.0114166.be = phi ptr [ %83, %136 ], [ %75, %185 ], [ %75, %183 ], [ null, %179 ], [ %79, %177 ], [ %79, %175 ], [ null, %171 ], [ null, %168 ], [ %83, %addBlock.exit ], [ %87, %134 ], [ %87, %132 ], [ null, %128 ], [ %.2116.jt5, %187 ], [ %.2116.jt4, %186 ]
+bindAction.exit.backedge:                         ; preds = %98, %147, %145, %141, %139, %137, %133, %130, %addBlock.exit, %96, %94, %90, %149, %148
+  %.0174.be = phi ptr [ %.0174, %148 ], [ %.0174, %149 ], [ %.0174, %90 ], [ %.0174, %94 ], [ %.0174, %96 ], [ %.0174, %130 ], [ %.1115, %addBlock.exit ], [ %.0174, %133 ], [ %.0174, %137 ], [ %.0174, %139 ], [ %.0174, %141 ], [ %.0174, %145 ], [ %.0174, %147 ], [ %.1115, %98 ]
+  %.0106173.be = phi i32 [ %.0106173, %148 ], [ %.0106173, %149 ], [ %.0106173, %90 ], [ %.0106173, %94 ], [ %.0106173, %96 ], [ %.0106173, %130 ], [ %.1112, %addBlock.exit ], [ %.0106173, %133 ], [ %.0106173, %137 ], [ %.0106173, %139 ], [ %.0106173, %141 ], [ %.0106173, %145 ], [ %.0106173, %147 ], [ %.1112, %98 ]
+  %.sroa.24.0170.be = phi i64 [ %.sroa.24.0170, %148 ], [ %.sroa.24.0170, %149 ], [ %.sroa.24.0170, %90 ], [ %.sroa.24.0170, %94 ], [ %.sroa.24.0170, %96 ], [ %.sroa.24.0170, %130 ], [ %.sroa.24.4, %addBlock.exit ], [ %.sroa.24.0170, %133 ], [ %.sroa.24.0170, %137 ], [ %.sroa.24.0170, %139 ], [ %.sroa.24.0170, %141 ], [ %.sroa.24.0170, %145 ], [ %.sroa.24.0170, %147 ], [ %.sroa.24.0170, %98 ]
+  %.sroa.16.0169.be = phi i64 [ %.sroa.16.0169, %148 ], [ %.sroa.16.0169, %149 ], [ %.sroa.16.0169, %90 ], [ %.sroa.16.0169, %94 ], [ %.sroa.16.0169, %96 ], [ %.sroa.16.0169, %130 ], [ %129, %addBlock.exit ], [ %.sroa.16.0169, %133 ], [ %.sroa.16.0169, %137 ], [ %.sroa.16.0169, %139 ], [ %.sroa.16.0169, %141 ], [ %.sroa.16.0169, %145 ], [ %.sroa.16.0169, %147 ], [ %.sroa.16.0169, %98 ]
+  %.sroa.10.0168.be = phi i64 [ %.sroa.10.0168, %148 ], [ %.sroa.10.0168, %149 ], [ %.sroa.10.0168, %90 ], [ %.sroa.10.0168, %94 ], [ %.sroa.10.0168, %96 ], [ %.sroa.10.0168, %130 ], [ %.sroa.10.5, %addBlock.exit ], [ %.sroa.10.0168, %133 ], [ %.sroa.10.0168, %137 ], [ %.sroa.10.0168, %139 ], [ %.sroa.10.0168, %141 ], [ %.sroa.10.0168, %145 ], [ %.sroa.10.0168, %147 ], [ %.sroa.10.0168, %98 ]
+  %.sroa.0.0167.be = phi ptr [ %.sroa.0.0167, %148 ], [ %.sroa.0.0167, %149 ], [ %.sroa.0.0167, %90 ], [ %.sroa.0.0167, %94 ], [ %.sroa.0.0167, %96 ], [ %.sroa.0.0167, %130 ], [ %.sroa.0.4, %addBlock.exit ], [ %.sroa.0.0167, %133 ], [ %.sroa.0.0167, %137 ], [ %.sroa.0.0167, %139 ], [ %.sroa.0.0167, %141 ], [ %.sroa.0.0167, %145 ], [ %.sroa.0.0167, %147 ], [ %.sroa.0.0167, %98 ]
   br label %bindAction.exit, !llvm.loop !15
 
-139:                                              ; preds = %136
+101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  %140 = icmp eq i64 %.sroa.16.0169, %.sroa.24.0170
-  br i1 %140, label %141, label %addBlock.exit
+  %102 = icmp eq i64 %.sroa.16.0169, %.sroa.24.0170
+  br i1 %102, label %103, label %addBlock.exit
 
-141:                                              ; preds = %139
-  %142 = icmp eq i64 %.sroa.24.0170, 0
-  %143 = shl i64 %.sroa.24.0170, 1
-  %spec.select.i.i.i = select i1 %142, i64 1, i64 %143
+103:                                              ; preds = %101
+  %104 = icmp eq i64 %.sroa.24.0170, 0
+  %105 = shl i64 %.sroa.24.0170, 1
+  %spec.select.i.i.i = select i1 %104, i64 1, i64 %105
   %mul.ov.i.i.i = icmp ugt i64 %spec.select.i.i.i, 230584300921369395
-  br i1 %mul.ov.i.i.i, label %160, label %144
+  br i1 %mul.ov.i.i.i, label %122, label %106
 
-144:                                              ; preds = %141
-  %145 = mul nuw i64 %spec.select.i.i.i, 80
-  %146 = call ptr @realloc(ptr noundef %.sroa.0.0167, i64 noundef %145) #18
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %160, label %148
+106:                                              ; preds = %103
+  %107 = mul nuw i64 %spec.select.i.i.i, 80
+  %108 = call ptr @realloc(ptr noundef %.sroa.0.0167, i64 noundef %107) #18
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %122, label %110
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds nuw %struct.parse_block, ptr %146, i64 %.sroa.24.0170
-  %150 = sub i64 %spec.select.i.i.i, %.sroa.24.0170
-  %151 = mul i64 %150, 80
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %149, i8 0, i64 %151, i1 false)
-  %152 = add i64 %.sroa.24.0170, %.sroa.10.0168
-  %153 = icmp ugt i64 %152, %.sroa.24.0170
-  br i1 %153, label %154, label %addBlock.exit
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw %struct.parse_block, ptr %108, i64 %.sroa.24.0170
+  %112 = sub i64 %spec.select.i.i.i, %.sroa.24.0170
+  %113 = mul i64 %112, 80
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %111, i8 0, i64 %113, i1 false)
+  %114 = add i64 %.sroa.24.0170, %.sroa.10.0168
+  %115 = icmp ugt i64 %114, %.sroa.24.0170
+  br i1 %115, label %116, label %addBlock.exit
 
-154:                                              ; preds = %148
-  %155 = sub i64 %.sroa.24.0170, %.sroa.10.0168
-  %156 = sub i64 %spec.select.i.i.i, %155
-  %157 = getelementptr inbounds nuw %struct.parse_block, ptr %146, i64 %156
-  %158 = getelementptr inbounds nuw %struct.parse_block, ptr %146, i64 %.sroa.10.0168
-  %159 = mul i64 %155, 80
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr nonnull align 8 %158, i64 %159, i1 false)
+116:                                              ; preds = %110
+  %117 = sub i64 %.sroa.24.0170, %.sroa.10.0168
+  %118 = sub i64 %spec.select.i.i.i, %117
+  %119 = getelementptr inbounds nuw %struct.parse_block, ptr %108, i64 %118
+  %120 = getelementptr inbounds nuw %struct.parse_block, ptr %108, i64 %.sroa.10.0168
+  %121 = mul i64 %117, 80
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %119, ptr nonnull align 8 %120, i64 %121, i1 false)
   br label %addBlock.exit
 
-160:                                              ; preds = %144, %141
-  %.2.i.ph.i.i = phi i32 [ 34, %141 ], [ 12, %144 ]
-  %161 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %162 = call ptr @strerror(i32 noundef %.2.i.ph.i.i) #17
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.22, ptr noundef %162) #19
+122:                                              ; preds = %106, %103
+  %.2.i.ph.i.i = phi i32 [ 34, %103 ], [ 12, %106 ]
+  %123 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %124 = call ptr @strerror(i32 noundef %.2.i.ph.i.i) #17
+  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.22, ptr noundef %124) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
-addBlock.exit:                                    ; preds = %148, %154, %139
-  %.sroa.0.4 = phi ptr [ %.sroa.0.0167, %139 ], [ %146, %154 ], [ %146, %148 ]
-  %.sroa.10.5 = phi i64 [ %.sroa.10.0168, %139 ], [ %156, %154 ], [ %.sroa.10.0168, %148 ]
-  %.sroa.24.4 = phi i64 [ %.sroa.24.0170, %139 ], [ %spec.select.i.i.i, %154 ], [ %spec.select.i.i.i, %148 ]
-  %164 = add i64 %.sroa.10.5, %.sroa.16.0169
-  %165 = urem i64 %164, %.sroa.24.4
-  %166 = getelementptr inbounds nuw %struct.parse_block, ptr %.sroa.0.4, i64 %165
-  store i32 %.0106173, ptr %166, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %166, i64 4
+addBlock.exit:                                    ; preds = %110, %116, %101
+  %.sroa.0.4 = phi ptr [ %.sroa.0.0167, %101 ], [ %108, %116 ], [ %108, %110 ]
+  %.sroa.10.5 = phi i64 [ %.sroa.10.0168, %101 ], [ %118, %116 ], [ %.sroa.10.0168, %110 ]
+  %.sroa.24.4 = phi i64 [ %.sroa.24.0170, %101 ], [ %spec.select.i.i.i, %116 ], [ %spec.select.i.i.i, %110 ]
+  %126 = add i64 %.sroa.10.5, %.sroa.16.0169
+  %127 = urem i64 %126, %.sroa.24.4
+  %128 = getelementptr inbounds nuw %struct.parse_block, ptr %.sroa.0.4, i64 %127
+  store i32 %.0106173, ptr %128, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr %.0174, ptr %.sroa.54.0..sroa_idx.i, align 8
-  %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.65.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %.sroa.76.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %166, i64 48
+  %.sroa.76.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.76.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %167 = add i64 %.sroa.16.0169, 1
+  %129 = add i64 %.sroa.16.0169, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   br label %bindAction.exit.backedge
 
-168:                                              ; preds = %135
-  %169 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.8, i32 noundef %169) #17
+130:                                              ; preds = %97
+  %131 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.8, i32 noundef %131) #17
   br label %bindAction.exit.backedge
 
-170:                                              ; preds = %124, %115
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not.i45 = icmp eq ptr %79, null
-  br i1 %.not.i45, label %171, label %173
+132:                                              ; preds = %parseCase.exit
+  %.not.i45 = icmp eq ptr %.1115, null
+  br i1 %.not.i45, label %133, label %135
 
-171:                                              ; preds = %170
-  %172 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef %172) #17
+133:                                              ; preds = %132
+  %134 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef %134) #17
   br label %bindAction.exit.backedge
 
-173:                                              ; preds = %170
-  %174 = load ptr, ptr %26, align 8, !tbaa !14
-  %.not7.i46 = icmp eq ptr %174, null
-  br i1 %.not7.i46, label %177, label %175
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %26, align 8, !tbaa !14
+  %.not7.i46 = icmp eq ptr %136, null
+  br i1 %.not7.i46, label %139, label %137
 
-175:                                              ; preds = %173
-  %176 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef %176) #17
+137:                                              ; preds = %135
+  %138 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef %138) #17
   br label %bindAction.exit.backedge
 
-177:                                              ; preds = %173
-  store ptr %79, ptr %26, align 8, !tbaa !14
-  store i32 %80, ptr %27, align 4, !tbaa !3
+139:                                              ; preds = %135
+  store ptr %.1115, ptr %26, align 8, !tbaa !14
+  store i32 %.1112, ptr %27, align 4, !tbaa !3
   br label %bindAction.exit.backedge
 
-178:                                              ; preds = %123, %113
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not.i48 = icmp eq ptr %75, null
-  br i1 %.not.i48, label %179, label %181
+140:                                              ; preds = %parseCase.exit
+  %.not.i48 = icmp eq ptr %.1115, null
+  br i1 %.not.i48, label %141, label %143
 
-179:                                              ; preds = %178
-  %180 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef %180) #17
+141:                                              ; preds = %140
+  %142 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef %142) #17
   br label %bindAction.exit.backedge
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %24, align 8, !tbaa !14
-  %.not7.i49 = icmp eq ptr %182, null
-  br i1 %.not7.i49, label %185, label %183
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %24, align 8, !tbaa !14
+  %.not7.i49 = icmp eq ptr %144, null
+  br i1 %.not7.i49, label %147, label %145
 
-183:                                              ; preds = %181
-  %184 = load i32, ptr @kwLine, align 4, !tbaa !3
-  call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, i32 noundef %184) #17
+145:                                              ; preds = %143
+  %146 = load i32, ptr @kwLine, align 4, !tbaa !3
+  call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, i32 noundef %146) #17
   br label %bindAction.exit.backedge
 
-185:                                              ; preds = %181
-  store ptr %75, ptr %24, align 8, !tbaa !14
-  store i32 %76, ptr %25, align 8, !tbaa !3
+147:                                              ; preds = %143
+  store ptr %.1115, ptr %24, align 8, !tbaa !14
+  store i32 %.1112, ptr %25, align 8, !tbaa !3
   br label %bindAction.exit.backedge
 
-186:                                              ; preds = %122, %111
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call fastcc void @addCase(ptr noundef %10, ptr noundef %95, i32 noundef %96, ptr noundef %.2116.jt4, i32 noundef %.2113.jt4)
+148:                                              ; preds = %parseCase.exit
+  call fastcc void @addCase(ptr noundef %10, ptr noundef %.1118, i32 noundef %.1110, ptr noundef %.1115, i32 noundef %.1112)
   br label %bindAction.exit.backedge
 
-187:                                              ; preds = %121, %109
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call fastcc void @addCase(ptr noundef %9, ptr noundef %91, i32 noundef %92, ptr noundef %.2116.jt5, i32 noundef %.2113.jt5)
+149:                                              ; preds = %parseCase.exit
+  call fastcc void @addCase(ptr noundef %9, ptr noundef %.1118, i32 noundef %.1110, ptr noundef %.1115, i32 noundef %.1112)
   br label %bindAction.exit.backedge
 
-parseCase.exit.sink.split:                        ; preds = %parseKind.exit.thread19.i.jt7, %spec.select13.i.si.unfold.false
-  %.val.i.jt7 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %.val.i.jt7) #17
-  br label %parseCase.exit
+default.unreachable187:                           ; preds = %parseCase.exit
+  unreachable
 
-parseCase.exit:                                   ; preds = %parseCase.exit.sink.split, %parseKind.exit.thread19.i.jt7, %spec.select13.i.si.unfold.false
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+150:                                              ; preds = %parseCase.exit, %parseCase.exit
   %.not34 = icmp eq ptr %.0174, null
   %.val39 = load i64, ptr %28, align 8
-  %188 = icmp eq i64 %.val39, 0
-  %or.cond147 = select i1 %.not34, i1 %188, i1 false
+  %151 = icmp eq i64 %.val39, 0
+  %or.cond147 = select i1 %.not34, i1 %151, i1 false
   %.val40 = load i64, ptr %29, align 8
-  %189 = icmp eq i64 %.val40, 0
-  %or.cond149 = select i1 %or.cond147, i1 %189, i1 false
-  br i1 %or.cond149, label %219, label %190
+  %152 = icmp eq i64 %.val40, 0
+  %or.cond149 = select i1 %or.cond147, i1 %152, i1 false
+  br i1 %or.cond149, label %182, label %153
 
-190:                                              ; preds = %parseCase.exit
+153:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  %191 = icmp eq i64 %.sroa.16.0169, %.sroa.24.0170
-  br i1 %191, label %192, label %addBlock.exit62
+  %154 = icmp eq i64 %.sroa.16.0169, %.sroa.24.0170
+  br i1 %154, label %155, label %addBlock.exit62
 
-192:                                              ; preds = %190
-  %193 = icmp eq i64 %.sroa.16.0169, 0
-  %194 = shl i64 %.sroa.16.0169, 1
-  %spec.select.i.i.i59 = select i1 %193, i64 1, i64 %194
+155:                                              ; preds = %153
+  %156 = icmp eq i64 %.sroa.16.0169, 0
+  %157 = shl i64 %.sroa.16.0169, 1
+  %spec.select.i.i.i59 = select i1 %156, i64 1, i64 %157
   %mul.ov.i.i.i60 = icmp ugt i64 %spec.select.i.i.i59, 230584300921369395
-  br i1 %mul.ov.i.i.i60, label %211, label %195
+  br i1 %mul.ov.i.i.i60, label %174, label %158
 
-195:                                              ; preds = %192
-  %196 = mul nuw i64 %spec.select.i.i.i59, 80
-  %197 = call ptr @realloc(ptr noundef %.sroa.0.0167, i64 noundef %196) #18
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %211, label %199
+158:                                              ; preds = %155
+  %159 = mul nuw i64 %spec.select.i.i.i59, 80
+  %160 = call ptr @realloc(ptr noundef %.sroa.0.0167, i64 noundef %159) #18
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %174, label %162
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw %struct.parse_block, ptr %197, i64 %.sroa.16.0169
-  %201 = sub i64 %spec.select.i.i.i59, %.sroa.16.0169
-  %202 = mul i64 %201, 80
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %200, i8 0, i64 %202, i1 false)
-  %203 = add i64 %.sroa.16.0169, %.sroa.10.0168
-  %204 = icmp ugt i64 %203, %.sroa.16.0169
-  br i1 %204, label %205, label %addBlock.exit62
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw %struct.parse_block, ptr %160, i64 %.sroa.16.0169
+  %164 = sub i64 %spec.select.i.i.i59, %.sroa.16.0169
+  %165 = mul i64 %164, 80
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %163, i8 0, i64 %165, i1 false)
+  %166 = add i64 %.sroa.16.0169, %.sroa.10.0168
+  %167 = icmp ugt i64 %166, %.sroa.16.0169
+  br i1 %167, label %168, label %addBlock.exit62
 
-205:                                              ; preds = %199
-  %206 = sub i64 %.sroa.16.0169, %.sroa.10.0168
-  %207 = sub i64 %spec.select.i.i.i59, %206
-  %208 = getelementptr inbounds nuw %struct.parse_block, ptr %197, i64 %207
-  %209 = getelementptr inbounds nuw %struct.parse_block, ptr %197, i64 %.sroa.10.0168
-  %210 = mul i64 %206, 80
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %208, ptr nonnull align 8 %209, i64 %210, i1 false)
+168:                                              ; preds = %162
+  %169 = sub i64 %.sroa.16.0169, %.sroa.10.0168
+  %170 = sub i64 %spec.select.i.i.i59, %169
+  %171 = getelementptr inbounds nuw %struct.parse_block, ptr %160, i64 %170
+  %172 = getelementptr inbounds nuw %struct.parse_block, ptr %160, i64 %.sroa.10.0168
+  %173 = mul i64 %169, 80
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %171, ptr nonnull align 8 %172, i64 %173, i1 false)
   br label %addBlock.exit62
 
-211:                                              ; preds = %195, %192
-  %.2.i.ph.i.i61 = phi i32 [ 34, %192 ], [ 12, %195 ]
-  %212 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %213 = call ptr @strerror(i32 noundef %.2.i.ph.i.i61) #17
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str.22, ptr noundef %213) #19
+174:                                              ; preds = %158, %155
+  %.2.i.ph.i.i61 = phi i32 [ 34, %155 ], [ 12, %158 ]
+  %175 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %176 = call ptr @strerror(i32 noundef %.2.i.ph.i.i61) #17
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.22, ptr noundef %176) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
-addBlock.exit62:                                  ; preds = %199, %205, %190
-  %.sroa.0.5 = phi ptr [ %.sroa.0.0167, %190 ], [ %197, %205 ], [ %197, %199 ]
-  %.sroa.10.7 = phi i64 [ %.sroa.10.0168, %190 ], [ %207, %205 ], [ %.sroa.10.0168, %199 ]
-  %.sroa.24.5 = phi i64 [ %.sroa.24.0170, %190 ], [ %spec.select.i.i.i59, %205 ], [ %spec.select.i.i.i59, %199 ]
-  %215 = add i64 %.sroa.10.7, %.sroa.16.0169
-  %216 = urem i64 %215, %.sroa.24.5
-  %217 = getelementptr inbounds nuw %struct.parse_block, ptr %.sroa.0.5, i64 %216
-  store i32 %.0106173, ptr %217, align 8
-  %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %217, i64 4
+addBlock.exit62:                                  ; preds = %162, %168, %153
+  %.sroa.0.5 = phi ptr [ %.sroa.0.0167, %153 ], [ %160, %168 ], [ %160, %162 ]
+  %.sroa.10.7 = phi i64 [ %.sroa.10.0168, %153 ], [ %170, %168 ], [ %.sroa.10.0168, %162 ]
+  %.sroa.24.5 = phi i64 [ %.sroa.24.0170, %153 ], [ %spec.select.i.i.i59, %168 ], [ %spec.select.i.i.i59, %162 ]
+  %178 = add i64 %.sroa.10.7, %.sroa.16.0169
+  %179 = urem i64 %178, %.sroa.24.5
+  %180 = getelementptr inbounds nuw %struct.parse_block, ptr %.sroa.0.5, i64 %179
+  store i32 %.0106173, ptr %180, align 8
+  %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i55, align 4
-  %.sroa.54.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %.sroa.54.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr %.0174, ptr %.sroa.54.0..sroa_idx.i56, align 8
-  %.sroa.65.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %.sroa.65.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %180, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.65.0..sroa_idx.i57, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false)
-  %.sroa.76.0..sroa_idx.i58 = getelementptr inbounds nuw i8, ptr %217, i64 48
+  %.sroa.76.0..sroa_idx.i58 = getelementptr inbounds nuw i8, ptr %180, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.76.0..sroa_idx.i58, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %218 = add i64 %.sroa.16.0169, 1
+  %181 = add i64 %.sroa.16.0169, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %219
+  br label %182
 
-219:                                              ; preds = %parseCase.exit, %addBlock.exit62
-  %.sroa.0.3 = phi ptr [ %.sroa.0.5, %addBlock.exit62 ], [ %.sroa.0.0167, %parseCase.exit ]
-  %.sroa.10.3 = phi i64 [ %.sroa.10.7, %addBlock.exit62 ], [ %.sroa.10.0168, %parseCase.exit ]
-  %.sroa.16.3 = phi i64 [ %218, %addBlock.exit62 ], [ %.sroa.16.0169, %parseCase.exit ]
-  %.sroa.24.3 = phi i64 [ %.sroa.24.5, %addBlock.exit62 ], [ %.sroa.24.0170, %parseCase.exit ]
-  %220 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %.sroa.0.3, ptr %220, align 8, !tbaa !19
+182:                                              ; preds = %150, %addBlock.exit62
+  %.sroa.0.3 = phi ptr [ %.sroa.0.5, %addBlock.exit62 ], [ %.sroa.0.0167, %150 ]
+  %.sroa.10.3 = phi i64 [ %.sroa.10.7, %addBlock.exit62 ], [ %.sroa.10.0168, %150 ]
+  %.sroa.16.3 = phi i64 [ %181, %addBlock.exit62 ], [ %.sroa.16.0169, %150 ]
+  %.sroa.24.3 = phi i64 [ %.sroa.24.5, %addBlock.exit62 ], [ %.sroa.24.0170, %150 ]
+  %183 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store ptr %.sroa.0.3, ptr %183, align 8, !tbaa !19
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %.sroa.10.3, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !20
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %.sroa.16.3, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !20
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i64 %.sroa.24.3, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !20
-  %221 = call i32 @fclose(ptr noundef nonnull %.027126)
-  %222 = call i32 @getErrorErrors() #17
-  %.not35 = icmp eq i32 %222, 0
-  br i1 %.not35, label %224, label %223
+  %184 = call i32 @fclose(ptr noundef nonnull %.027126)
+  %185 = call i32 @getErrorErrors() #17
+  %.not35 = icmp eq i32 %185, 0
+  br i1 %.not35, label %187, label %186
 
-223:                                              ; preds = %219
+186:                                              ; preds = %182
   call void @freeParseProg(ptr noundef nonnull %11)
-  br label %224
+  br label %187
 
-224:                                              ; preds = %219, %223, %21, %12
-  %.028 = phi ptr [ null, %21 ], [ null, %12 ], [ null, %223 ], [ %11, %219 ]
+187:                                              ; preds = %182, %186, %21, %12
+  %.028 = phi ptr [ null, %21 ], [ null, %12 ], [ null, %186 ], [ %11, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.028

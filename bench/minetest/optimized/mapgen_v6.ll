@@ -7361,11 +7361,11 @@ if.end55.i:                                       ; preds = %land.lhs.true41.if.
   %tobool58.not.i = icmp ne i32 %and57.i, 0
   %cmp61.i = fcmp nsz ogt float %26, 7.500000e-01
   %or.cond.i = select i1 %tobool58.not.i, i1 %cmp61.i, i1 false
-  %spec.select8 = select i1 %or.cond.i, i32 2, i32 0
+  %spec.select476 = select i1 %or.cond.i, i32 2, i32 0
   br label %if.then90
 
 if.then90:                                        ; preds = %if.end55.i, %if.then22.i, %if.end17.i, %if.then11.i
-  %retval.1.i.ph = phi i32 [ 0, %if.end17.i ], [ 2, %if.then11.i ], [ 4, %if.then22.i ], [ %spec.select8, %if.end55.i ]
+  %retval.1.i.ph = phi i32 [ 0, %if.end17.i ], [ 2, %if.then11.i ], [ 4, %if.then22.i ], [ %spec.select476, %if.end55.i ]
   %cmp86465 = icmp eq i32 %retval.1.i.ph, 2
   %p.sroa.0.0.extract.trunc.i = trunc i32 %add36 to i16
   %p.sroa.2.0.extract.trunc.i = trunc i32 %add46 to i16

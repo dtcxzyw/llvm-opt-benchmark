@@ -10071,9 +10071,9 @@ save_parents.exit:                                ; preds = %71, %saved_parents_
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %125
-  %75 = phi ptr [ %126, %125 ], [ %73, %.lr.ph.i.preheader ]
-  %.01420.i = phi ptr [ %.115.i, %125 ], [ %72, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %123
+  %75 = phi ptr [ %124, %123 ], [ %73, %.lr.ph.i.preheader ]
+  %.01420.i = phi ptr [ %.115.i, %123 ], [ %72, %.lr.ph.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) @__const.rewrite_one.queue, i64 48, i1 false)
   %.pre.i.i = load ptr, ptr %75, align 8, !tbaa !67
@@ -10089,19 +10089,19 @@ save_parents.exit:                                ; preds = %71, %saved_parents_
 80:                                               ; preds = %76
   %81 = call fastcc i32 @process_parents(ptr noundef nonnull %0, ptr noundef %77, ptr noundef null, ptr noundef nonnull %3)
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %rewrite_one_1.exit.i.jt2, label %83
+  br i1 %82, label %rewrite_one_1.exit.i, label %83
 
 83:                                               ; preds = %80, %76
   %84 = load i32, ptr %77, align 8
   %85 = and i32 %84, 96
   %or.cond.not.i.i = icmp eq i32 %85, 64
-  br i1 %or.cond.not.i.i, label %86, label %rewrite_one_1.exit.i.jt0
+  br i1 %or.cond.not.i.i, label %86, label %rewrite_one_1.exit.i
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !363
   %.not18.i.i = icmp eq ptr %88, null
-  br i1 %.not18.i.i, label %rewrite_one_1.exit.i.jt1, label %89
+  br i1 %.not18.i.i, label %rewrite_one_1.exit.i, label %89
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %6, align 8
@@ -10132,7 +10132,7 @@ save_parents.exit:                                ; preds = %71, %saved_parents_
 
 101:                                              ; preds = %.preheader.i.i.i
   %.not23.i.i.i = icmp eq ptr %.01426.i.i.i, null
-  br i1 %.not23.i.i.i, label %102, label %rewrite_one_1.exit.i.jt0
+  br i1 %.not23.i.i.i, label %102, label %rewrite_one_1.exit.i
 
 102:                                              ; preds = %101, %.preheader.i.i.i
   %.216.i.i.i = phi ptr [ %.01426.i.i.i, %.preheader.i.i.i ], [ %97, %101 ]
@@ -10142,105 +10142,77 @@ save_parents.exit:                                ; preds = %71, %saved_parents_
 one_relevant_parent.exit.i.i:                     ; preds = %102, %95
   %.0.i.i.i = phi ptr [ %96, %95 ], [ %.216.i.i.i, %102 ]
   %.not19.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not19.i.i, label %rewrite_one_1.exit.i.jt0, label %103
+  br i1 %.not19.i.i, label %rewrite_one_1.exit.i, label %103
 
 103:                                              ; preds = %one_relevant_parent.exit.i.i
   store ptr %.0.i.i.i, ptr %75, align 8, !tbaa !67
   br label %76
 
-rewrite_one_1.exit.i.jt2:                         ; preds = %80
+rewrite_one_1.exit.i:                             ; preds = %one_relevant_parent.exit.i.i, %86, %83, %80, %101
+  %.1.ph.i.i = phi i32 [ 0, %101 ], [ 2, %80 ], [ 0, %83 ], [ 1, %86 ], [ 0, %one_relevant_parent.exit.i.i ]
   %104 = load i64, ptr %74, align 8, !tbaa !394
-  %.not14.i.i.jt2 = icmp eq i64 %104, 0
-  br i1 %.not14.i.i.jt2, label %rewrite_one.exit.jt2, label %.lr.ph.i.i.preheader
+  %.not14.i.i = icmp eq i64 %104, 0
+  br i1 %.not14.i.i, label %rewrite_one.exit, label %.lr.ph.i.i
 
-rewrite_one_1.exit.i.jt1:                         ; preds = %86
-  %105 = load i64, ptr %74, align 8, !tbaa !394
-  %.not14.i.i.jt1 = icmp eq i64 %105, 0
-  br i1 %.not14.i.i.jt1, label %rewrite_one.exit.jt1, label %.lr.ph.i.i.preheader
+.lr.ph.i.i:                                       ; preds = %rewrite_one_1.exit.i, %116
+  %.015.i.i = phi ptr [ %.1.i.i, %116 ], [ %0, %rewrite_one_1.exit.i ]
+  %105 = call ptr @prio_queue_peek(ptr noundef nonnull %3) #26
+  %106 = load ptr, ptr %.015.i.i, align 8, !tbaa !58
+  %.not12.i.i = icmp eq ptr %106, null
+  br i1 %.not12.i.i, label %113, label %107
 
-rewrite_one_1.exit.i.jt0:                         ; preds = %one_relevant_parent.exit.i.i, %83, %101
-  %106 = load i64, ptr %74, align 8, !tbaa !394
-  %.not14.i.i.jt0 = icmp eq i64 %106, 0
-  br i1 %.not14.i.i.jt0, label %rewrite_one.exit.jt0, label %.lr.ph.i.i.preheader
-
-.lr.ph.i.i.preheader:                             ; preds = %rewrite_one_1.exit.i.jt2, %rewrite_one_1.exit.i.jt1, %rewrite_one_1.exit.i.jt0
-  %.1.ph.i.i36 = phi i32 [ 2, %rewrite_one_1.exit.i.jt2 ], [ 1, %rewrite_one_1.exit.i.jt1 ], [ 0, %rewrite_one_1.exit.i.jt0 ]
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %118
-  %.015.i.i = phi ptr [ %.1.i.i, %118 ], [ %0, %.lr.ph.i.i.preheader ]
-  %107 = call ptr @prio_queue_peek(ptr noundef nonnull %3) #26
-  %108 = load ptr, ptr %.015.i.i, align 8, !tbaa !58
-  %.not12.i.i = icmp eq ptr %108, null
-  br i1 %.not12.i.i, label %115, label %109
-
-109:                                              ; preds = %.lr.ph.i.i
-  %110 = load ptr, ptr %108, align 8, !tbaa !59
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
+107:                                              ; preds = %.lr.ph.i.i
+  %108 = load ptr, ptr %106, align 8, !tbaa !59
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %110 = load i64, ptr %109, align 8, !tbaa !321
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %112 = load i64, ptr %111, align 8, !tbaa !321
-  %113 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %114 = load i64, ptr %113, align 8, !tbaa !321
-  %.not13.i.i = icmp ult i64 %112, %114
-  br i1 %.not13.i.i, label %115, label %118
+  %.not13.i.i = icmp ult i64 %110, %112
+  br i1 %.not13.i.i, label %113, label %116
 
-115:                                              ; preds = %109, %.lr.ph.i.i
-  %116 = call ptr @commit_list_insert(ptr noundef %107, ptr noundef nonnull %.015.i.i) #26
-  %117 = call ptr @prio_queue_get(ptr noundef nonnull %3) #26
-  br label %118
+113:                                              ; preds = %107, %.lr.ph.i.i
+  %114 = call ptr @commit_list_insert(ptr noundef %105, ptr noundef nonnull %.015.i.i) #26
+  %115 = call ptr @prio_queue_get(ptr noundef nonnull %3) #26
+  br label %116
 
-118:                                              ; preds = %115, %109
-  %.pn.i.i = phi ptr [ %116, %115 ], [ %108, %109 ]
+116:                                              ; preds = %113, %107
+  %.pn.i.i = phi ptr [ %114, %113 ], [ %106, %107 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
-  %119 = load i64, ptr %74, align 8, !tbaa !394
-  %.not.i3.i = icmp eq i64 %119, 0
+  %117 = load i64, ptr %74, align 8, !tbaa !394
+  %.not.i3.i = icmp eq i64 %117, 0
   br i1 %.not.i3.i, label %rewrite_one.exit, label %.lr.ph.i.i, !llvm.loop !395
 
-rewrite_one.exit:                                 ; preds = %118
+rewrite_one.exit:                                 ; preds = %116, %rewrite_one_1.exit.i
   call void @clear_prio_queue(ptr noundef nonnull %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %.1.ph.i.i36, label %123 [
+  switch i32 %.1.ph.i.i, label %121 [
     i32 2, label %rewrite_parents.exit.thread
-    i32 1, label %120
+    i32 1, label %118
   ]
 
-rewrite_one.exit.jt2:                             ; preds = %rewrite_one_1.exit.i.jt2
-  call void @clear_prio_queue(ptr noundef nonnull %3) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %rewrite_parents.exit.thread
+118:                                              ; preds = %rewrite_one.exit
+  %119 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %120 = load ptr, ptr %119, align 8, !tbaa !251
+  store ptr %120, ptr %.01420.i, align 8, !tbaa !58
+  call void @free(ptr noundef nonnull %75) #26
+  br label %123, !llvm.loop !375
 
-rewrite_one.exit.jt1:                             ; preds = %rewrite_one_1.exit.i.jt1
-  call void @clear_prio_queue(ptr noundef nonnull %3) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %120
-
-rewrite_one.exit.jt0:                             ; preds = %rewrite_one_1.exit.i.jt0
-  call void @clear_prio_queue(ptr noundef nonnull %3) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+121:                                              ; preds = %rewrite_one.exit
+  %122 = getelementptr inbounds nuw i8, ptr %75, i64 8
   br label %123
 
-120:                                              ; preds = %rewrite_one.exit.jt1, %rewrite_one.exit
-  %121 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !251
-  store ptr %122, ptr %.01420.i, align 8, !tbaa !58
-  call void @free(ptr noundef nonnull %75) #26
-  br label %125, !llvm.loop !375
-
-123:                                              ; preds = %rewrite_one.exit.jt0, %rewrite_one.exit
-  %124 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  br label %125
-
-125:                                              ; preds = %123, %120
-  %.115.i = phi ptr [ %124, %123 ], [ %.01420.i, %120 ]
-  %126 = load ptr, ptr %.115.i, align 8, !tbaa !58
-  %.not.i17 = icmp eq ptr %126, null
+123:                                              ; preds = %121, %118
+  %.115.i = phi ptr [ %122, %121 ], [ %.01420.i, %118 ]
+  %124 = load ptr, ptr %.115.i, align 8, !tbaa !58
+  %.not.i17 = icmp eq ptr %124, null
   br i1 %.not.i17, label %rewrite_parents.exit, label %.lr.ph.i
 
-rewrite_parents.exit:                             ; preds = %125, %save_parents.exit
-  %127 = call fastcc i32 @remove_duplicate_parents(ptr noundef %0, ptr noundef %1)
+rewrite_parents.exit:                             ; preds = %123, %save_parents.exit
+  %125 = call fastcc i32 @remove_duplicate_parents(ptr noundef %0, ptr noundef %1)
   br label %rewrite_parents.exit.thread
 
-rewrite_parents.exit.thread:                      ; preds = %rewrite_one.exit, %rewrite_one.exit.jt2, %2, %5, %want_ancestry.exit, %rewrite_parents.exit
-  %.0 = phi i32 [ 1, %rewrite_parents.exit ], [ 1, %want_ancestry.exit ], [ 1, %5 ], [ 0, %2 ], [ 2, %rewrite_one.exit.jt2 ], [ %.1.ph.i.i36, %rewrite_one.exit ]
+rewrite_parents.exit.thread:                      ; preds = %rewrite_one.exit, %2, %5, %want_ancestry.exit, %rewrite_parents.exit
+  %.0 = phi i32 [ 1, %rewrite_parents.exit ], [ 1, %want_ancestry.exit ], [ 1, %5 ], [ 0, %2 ], [ %.1.ph.i.i, %rewrite_one.exit ]
   ret i32 %.0
 }
 

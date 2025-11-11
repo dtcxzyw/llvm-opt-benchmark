@@ -2961,7 +2961,7 @@ define noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13Unicod
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = load i32, ptr %2, align 4, !tbaa !13
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %275
+  br i1 %10, label %11, label %204
 
 11:                                               ; preds = %3
   %12 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #23
@@ -2974,13 +2974,13 @@ define noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13Unicod
 
 15:                                               ; preds = %11
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %275
+  br label %204
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %12) #23
-  br label %274
+  br label %203
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3006,7 +3006,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %18
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, %.thread202
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %indvars.iv.next, %.thread202 ]
-  %32 = phi i16 [ %21, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %196, %.thread202 ]
+  %32 = phi i16 [ %21, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %151, %.thread202 ]
   %.0114237 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %.2116214, %.thread202 ]
   %.0120236 = phi i8 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %.2122213, %.thread202 ]
   %.0124235 = phi i8 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %.1125212, %.thread202 ]
@@ -3019,673 +3019,484 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
   %36 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !24
   %38 = icmp eq i16 %37, 39
-  br i1 %38, label %58, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader
+  br i1 %38, label %39, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0:     ; preds = %.thread202.jt0
-  %39 = and i16 %204, 2
-  %.not.i.i.i.jt0 = icmp eq i16 %39, 0
-  %40 = load ptr, ptr %29, align 8
-  %41 = select i1 %.not.i.i.i.jt0, ptr %40, ptr %28
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv.next.jt0
-  %43 = load i16, ptr %42, align 2, !tbaa !24
-  %44 = icmp eq i16 %43, 39
-  br i1 %44, label %59, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader
-
-_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0
-  %.ph = phi i16 [ %37, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %43, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0 ]
-  %.0134232283.ph = phi i32 [ %.0134232, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0 ]
-  %.0128233276.ph = phi i32 [ %.0128233, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.2130211.jt0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0 ]
-  %.0124235269.ph = phi i8 [ %.0124235, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.1125212.jt0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0 ]
-  %.0114237262.ph = phi i32 [ %.0114237, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.2116214.jt0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0 ]
-  %indvars.iv252.ph = phi i64 [ %indvars.iv, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %indvars.iv.next.jt0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0 ]
-  %45 = icmp eq i8 %.0124235269.ph, 0
-  br i1 %45, label %.lr.ph, label %91
-
-_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4:     ; preds = %.thread202.jt4
-  %46 = and i16 %213, 2
-  %.not.i.i.i.jt4 = icmp eq i16 %46, 0
-  %47 = load ptr, ptr %29, align 8
-  %48 = select i1 %.not.i.i.i.jt4, ptr %47, ptr %28
-  %49 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv.next.jt4
-  %50 = load i16, ptr %49, align 2, !tbaa !24
-  %51 = icmp eq i16 %50, 39
-  br i1 %51, label %._crit_edge.thread.sink.split, label %.lr.ph.backedge
-
-_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1:     ; preds = %.thread202.jt1
-  %52 = and i16 %222, 2
-  %.not.i.i.i.jt1 = icmp eq i16 %52, 0
-  %53 = load ptr, ptr %29, align 8
-  %54 = select i1 %.not.i.i.i.jt1, ptr %53, ptr %28
-  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.next.jt1
-  %56 = load i16, ptr %55, align 2, !tbaa !24
-  %57 = icmp eq i16 %56, 39
-  br i1 %57, label %.thread317, label %.lr.ph.backedge
-
-.lr.ph.backedge:                                  ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4
-  %indvars.iv252471.be = phi i64 [ %indvars.iv.next.jt4, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4 ], [ %indvars.iv.next.jt1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.0114237262470.be = phi i32 [ %212, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4 ], [ %221, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.0134232283468.be = phi i32 [ %.0.i172.ph.jt4, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.be = phi i16 [ %50, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4 ], [ %56, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  br label %.lr.ph
-
-58:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
+39:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %.not153 = icmp eq i8 %.0120236, 0
-  br i1 %.not153, label %64, label %60
+  br i1 %.not153, label %44, label %40
 
-59:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0
-  br i1 %.not153.jt0, label %87, label %60
-
-60:                                               ; preds = %59, %58
-  %.0134232284 = phi i32 [ 0, %59 ], [ %.0134232, %58 ]
-  %.0128233277 = phi i32 [ %.2130211.jt0, %59 ], [ %.0128233, %58 ]
-  %.0124235270 = phi i8 [ %.1125212.jt0, %59 ], [ %.0124235, %58 ]
-  %.0114237263 = phi i32 [ %.2116214.jt0, %59 ], [ %.0114237, %58 ]
-  %indvars.iv253 = phi i64 [ %indvars.iv.next.jt0, %59 ], [ %indvars.iv, %58 ]
+40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 39, ptr %6, align 2, !tbaa !24
-  %61 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
-          to label %_ZN6icu_7713UnicodeString6appendEDs.exit unwind label %62
+  %41 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
+          to label %_ZN6icu_7713UnicodeString6appendEDs.exit unwind label %42
 
-_ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %60
+_ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %87
+  br label %68
 
-62:                                               ; preds = %91, %60
-  %63 = landingpad { ptr, i32 }
+42:                                               ; preds = %70, %40
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-64:                                               ; preds = %58
+44:                                               ; preds = %39
   switch i32 %.0134232, label %.unreachabledefault [
-    i32 0, label %89
-    i32 1, label %65
+    i32 0, label %68
+    i32 1, label %45
     i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
     i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
   ]
 
-65:                                               ; preds = %64
-  %66 = add i32 %.0128233, -1
-  %67 = icmp ult i32 %66, 2
-  br i1 %67, label %.thread317, label %._crit_edge.thread.sink.split
+45:                                               ; preds = %44
+  %46 = add i32 %.0128233, -1
+  %47 = icmp ult i32 %46, 2
+  br i1 %47, label %49, label %._crit_edge.thread.sink.split
 
-.unreachabledefault:                              ; preds = %64
+.unreachabledefault:                              ; preds = %44
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit: ; preds = %64, %64
-  %68 = icmp eq i32 %.0128233, 2
-  br i1 %68, label %.thread317, label %._crit_edge.thread.sink.split
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit: ; preds = %44, %44
+  %48 = icmp eq i32 %.0128233, 2
+  br i1 %48, label %49, label %._crit_edge.thread.sink.split
 
-.thread317:                                       ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1, %65, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
-  %indvars.iv257292 = phi i64 [ %indvars.iv, %65 ], [ %indvars.iv, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit ], [ %indvars.iv.next.jt1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.0114237267291 = phi i32 [ %.0114237, %65 ], [ %.0114237, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit ], [ %221, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.0124235274290 = phi i8 [ %.0124235, %65 ], [ %.0124235, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.0128233281289 = phi i32 [ %.0128233, %65 ], [ 2, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %.0134232287288 = phi i32 [ 1, %65 ], [ %.0134232, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1 ]
-  %69 = trunc nuw nsw i32 %.0128233281289 to i8
-  %70 = load i32, ptr %2, align 4, !tbaa !13
-  %71 = icmp slt i32 %70, 1
-  br i1 %71, label %72, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
+49:                                               ; preds = %45, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
+  %50 = trunc nuw nsw i32 %.0128233 to i8
+  %51 = load i32, ptr %2, align 4, !tbaa !13
+  %52 = icmp slt i32 %51, 1
+  br i1 %52, label %53, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
 
-72:                                               ; preds = %.thread317
-  %73 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %76, label %75
+53:                                               ; preds = %49
+  %54 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %57, label %56
 
-75:                                               ; preds = %72
-  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %73)
-          to label %79 unwind label %77
+56:                                               ; preds = %53
+  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %54)
+          to label %60 unwind label %58
 
-76:                                               ; preds = %72
+57:                                               ; preds = %53
   store i32 7, ptr %2, align 4, !tbaa !13
   br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
 
-77:                                               ; preds = %75
-  %78 = landingpad { ptr, i32 }
+58:                                               ; preds = %56
+  %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %73) #23
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %54) #23
   br label %.body
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i32 %.0134232287288, ptr %80, align 8, !tbaa !21
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 20
-  store i8 %69, ptr %81, align 4, !tbaa !22
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i32 %.0134232, ptr %61, align 8, !tbaa !21
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  store i8 %50, ptr %62, align 4, !tbaa !22
   br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
 
-_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit: ; preds = %79, %76, %.thread317
-  %.0.i170 = phi ptr [ null, %.thread317 ], [ null, %76 ], [ %73, %79 ]
+_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit: ; preds = %60, %57, %49
+  %.0.i170 = phi ptr [ null, %49 ], [ null, %57 ], [ %54, %60 ]
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %.0.i170, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %82 unwind label %85
+          to label %63 unwind label %66
 
-82:                                               ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
-  %83 = load i32, ptr %2, align 4, !tbaa !13
-  %84 = icmp slt i32 %83, 1
-  br i1 %84, label %89, label %._crit_edge.thread
+63:                                               ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
+  %64 = load i32, ptr %2, align 4, !tbaa !13
+  %65 = icmp slt i32 %64, 1
+  br i1 %65, label %68, label %._crit_edge.thread
 
-85:                                               ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
-  %86 = landingpad { ptr, i32 }
+66:                                               ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-87:                                               ; preds = %59, %_ZN6icu_7713UnicodeString6appendEDs.exit
-  %.0128233280 = phi i32 [ %.0128233277, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %.2130211.jt0, %59 ]
-  %.0124235273 = phi i8 [ %.0124235270, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %.1125212.jt0, %59 ]
-  %.0114237266 = phi i32 [ %.0114237263, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %.2116214.jt0, %59 ]
-  %indvars.iv256 = phi i64 [ %indvars.iv253, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %indvars.iv.next.jt0, %59 ]
-  %.2136 = phi i32 [ %.0134232284, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ 0, %59 ]
-  %.1121 = phi i8 [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ 1, %59 ]
-  %.not160 = icmp eq i8 %.0124235273, 0
-  %88 = zext i1 %.not160 to i8
+68:                                               ; preds = %44, %_ZN6icu_7713UnicodeString6appendEDs.exit, %63
+  %.2136 = phi i32 [ %.0134232, %44 ], [ %.0134232, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ 0, %63 ]
+  %.1121 = phi i8 [ 1, %44 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ 1, %63 ]
+  %.not160 = icmp eq i8 %.0124235, 0
+  %69 = zext i1 %.not160 to i8
   br label %.thread202
 
-89:                                               ; preds = %82, %64
-  %.0128233282 = phi i32 [ %.0128233281289, %82 ], [ %.0128233, %64 ]
-  %.0124235275 = phi i8 [ %.0124235274290, %82 ], [ %.0124235, %64 ]
-  %.0114237268 = phi i32 [ %.0114237267291, %82 ], [ %.0114237, %64 ]
-  %indvars.iv258 = phi i64 [ %indvars.iv257292, %82 ], [ %indvars.iv, %64 ]
-  %.not160.jt0 = icmp eq i8 %.0124235275, 0
-  %90 = zext i1 %.not160.jt0 to i8
-  br label %.thread202.jt0
+_ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  %.not144 = icmp eq i8 %.0124235, 0
+  br i1 %.not144, label %72, label %70
 
-91:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader
+70:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i16 %.ph, ptr %5, align 2, !tbaa !24
-  %92 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
-          to label %_ZN6icu_7713UnicodeString6appendEDs.exit171 unwind label %62
+  store i16 %37, ptr %5, align 2, !tbaa !24
+  %71 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
+          to label %_ZN6icu_7713UnicodeString6appendEDs.exit171 unwind label %42
 
-_ZN6icu_7713UnicodeString6appendEDs.exit171:      ; preds = %91
+_ZN6icu_7713UnicodeString6appendEDs.exit171:      ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread202
 
-.lr.ph:                                           ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader, %.lr.ph.backedge
-  %indvars.iv252471 = phi i64 [ %indvars.iv252471.be, %.lr.ph.backedge ], [ %indvars.iv252.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader ]
-  %.0114237262470 = phi i32 [ %.0114237262470.be, %.lr.ph.backedge ], [ %.0114237262.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader ]
-  %.0128233276469 = phi i32 [ 1, %.lr.ph.backedge ], [ %.0128233276.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader ]
-  %.0134232283468 = phi i32 [ %.0134232283468.be, %.lr.ph.backedge ], [ %.0134232283.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader ]
-  %93 = phi i16 [ %.be, %.lr.ph.backedge ], [ %.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.preheader ]
-  switch i16 %93, label %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit [
-    i16 72, label %97
-    i16 109, label %95
-    i16 115, label %94
+72:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
+  switch i16 %37, label %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit [
+    i16 72, label %75
+    i16 109, label %73
+    i16 115, label %74
   ]
 
-94:                                               ; preds = %.lr.ph
-  br label %95
+73:                                               ; preds = %72
+  br label %75
 
-95:                                               ; preds = %.lr.ph, %94
-  %.0.i172.ph.jt4 = phi i32 [ 4, %94 ], [ 2, %.lr.ph ]
-  %96 = icmp eq i32 %.0.i172.ph.jt4, %.0134232283468
-  br i1 %96, label %.loopexit, label %99
+74:                                               ; preds = %72
+  br label %75
 
-97:                                               ; preds = %.lr.ph
-  switch i32 %.0134232283468, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt1 [
-    i32 1, label %.loopexit
-    i32 0, label %108
-  ]
+75:                                               ; preds = %73, %74, %72
+  %.0.i172.ph = phi i32 [ 1, %72 ], [ 4, %74 ], [ 2, %73 ]
+  %76 = icmp eq i32 %.0.i172.ph, %.0134232
+  br i1 %76, label %77, label %79
 
-.loopexit:                                        ; preds = %97, %95
-  %98 = add nsw i32 %.0128233276469, 1
+77:                                               ; preds = %75
+  %78 = add nsw i32 %.0128233, 1
   br label %.thread202
 
-99:                                               ; preds = %95
-  switch i32 %.0134232283468, label %.unreachabledefault408 [
-    i32 0, label %100
-    i32 1, label %136
-    i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt4
-    i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt4
+79:                                               ; preds = %75
+  switch i32 %.0134232, label %.unreachabledefault228 [
+    i32 0, label %80
+    i32 1, label %101
+    i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
+    i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
   ]
 
-100:                                              ; preds = %99
-  %101 = load i16, ptr %30, align 8, !tbaa !23
-  %102 = icmp slt i16 %101, 0
-  %103 = ashr i16 %101, 5
-  %104 = sext i16 %103 to i32
-  %105 = load i32, ptr %31, align 4
-  %106 = select i1 %102, i32 %105, i32 %104
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %116, label %.thread202.jt4
+80:                                               ; preds = %79
+  %81 = load i16, ptr %30, align 8, !tbaa !23
+  %82 = icmp slt i16 %81, 0
+  %83 = ashr i16 %81, 5
+  %84 = sext i16 %83 to i32
+  %85 = load i32, ptr %31, align 4
+  %86 = select i1 %82, i32 %85, i32 %84
+  %87 = icmp sgt i32 %86, 0
+  br i1 %87, label %88, label %124
 
-108:                                              ; preds = %97
-  %109 = load i16, ptr %30, align 8, !tbaa !23
-  %110 = icmp slt i16 %109, 0
-  %111 = ashr i16 %109, 5
-  %112 = sext i16 %111 to i32
-  %113 = load i32, ptr %31, align 4
-  %114 = select i1 %110, i32 %113, i32 %112
-  %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %118, label %.thread202.jt1
+88:                                               ; preds = %80
+  %89 = invoke noundef ptr @_ZN6icu_7714GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %90 unwind label %96
 
-116:                                              ; preds = %100
-  %117 = invoke noundef ptr @_ZN6icu_7714GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %120 unwind label %.loopexit340
+90:                                               ; preds = %88
+  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %89, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %91 unwind label %96
 
-118:                                              ; preds = %108
-  %119 = invoke noundef ptr @_ZN6icu_7714GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %121 unwind label %.loopexit340
+91:                                               ; preds = %90
+  %92 = load i32, ptr %2, align 4, !tbaa !13
+  %93 = icmp slt i32 %92, 1
+  br i1 %93, label %.thread200, label %._crit_edge.thread
 
-120:                                              ; preds = %116
-  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %117, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %122 unwind label %.loopexit340
-
-121:                                              ; preds = %118
-  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %119, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %125 unwind label %.loopexit340
-
-122:                                              ; preds = %120
-  %123 = load i32, ptr %2, align 4, !tbaa !13
-  %124 = icmp slt i32 %123, 1
-  br i1 %124, label %.thread200.jt4, label %._crit_edge.thread
-
-125:                                              ; preds = %121
-  %126 = load i32, ptr %2, align 4, !tbaa !13
-  %127 = icmp slt i32 %126, 1
-  br i1 %127, label %.thread200.jt1, label %._crit_edge.thread
-
-128:                                              ; preds = %193
-  %129 = landingpad { ptr, i32 }
+94:                                               ; preds = %149
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit340:                                     ; preds = %118, %121, %116, %120
-  %lpad.loopexit342 = landingpad { ptr, i32 }
+96:                                               ; preds = %90, %88
+  %97 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.thread200.jt4:                                   ; preds = %122
-  %130 = load i16, ptr %30, align 8, !tbaa !23
-  %131 = and i16 %130, 1
-  %.not.i.jt4 = icmp eq i16 %131, 0
-  %132 = and i16 %130, 30
-  %storemerge.i.jt4 = select i1 %.not.i.jt4, i16 %132, i16 2
-  store i16 %storemerge.i.jt4, ptr %30, align 8, !tbaa !23
-  br label %.thread202.jt4
+.thread200:                                       ; preds = %91
+  %98 = load i16, ptr %30, align 8, !tbaa !23
+  %99 = and i16 %98, 1
+  %.not.i = icmp eq i16 %99, 0
+  %100 = and i16 %98, 30
+  %storemerge.i = select i1 %.not.i, i16 %100, i16 2
+  store i16 %storemerge.i, ptr %30, align 8, !tbaa !23
+  br label %124
 
-.thread200.jt1:                                   ; preds = %125
-  %133 = load i16, ptr %30, align 8, !tbaa !23
-  %134 = and i16 %133, 1
-  %.not.i.jt1 = icmp eq i16 %134, 0
-  %135 = and i16 %133, 30
-  %storemerge.i.jt1 = select i1 %.not.i.jt1, i16 %135, i16 2
-  store i16 %storemerge.i.jt1, ptr %30, align 8, !tbaa !23
-  br label %.thread202.jt1
+101:                                              ; preds = %79
+  %102 = add i32 %.0128233, -1
+  %103 = icmp ult i32 %102, 2
+  br i1 %103, label %105, label %._crit_edge.thread.sink.split
 
-136:                                              ; preds = %99
-  %137 = add i32 %.0128233276469, -1
-  %138 = icmp ult i32 %137, 2
-  br i1 %138, label %141, label %._crit_edge.thread.sink.split
-
-.unreachabledefault408:                           ; preds = %99
+.unreachabledefault228:                           ; preds = %79
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt4: ; preds = %99, %99
-  %139 = icmp eq i32 %.0128233276469, 2
-  br i1 %139, label %141, label %._crit_edge.thread.sink.split
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175: ; preds = %79, %79
+  %104 = icmp eq i32 %.0128233, 2
+  br i1 %104, label %105, label %._crit_edge.thread.sink.split
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt1: ; preds = %97
-  %140 = icmp eq i32 %.0128233276469, 2
-  br i1 %140, label %145, label %._crit_edge.thread.sink.split
+105:                                              ; preds = %101, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
+  %106 = trunc i32 %.0128233 to i8
+  %107 = load i32, ptr %2, align 4, !tbaa !13
+  %108 = icmp slt i32 %107, 1
+  br i1 %108, label %109, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179
 
-141:                                              ; preds = %136, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt4
-  %142 = trunc nuw nsw i32 %.0128233276469 to i8
-  %143 = load i32, ptr %2, align 4, !tbaa !13
-  %144 = icmp slt i32 %143, 1
-  br i1 %144, label %148, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt4
+109:                                              ; preds = %105
+  %110 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %113, label %112
 
-145:                                              ; preds = %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt1
-  %146 = load i32, ptr %2, align 4, !tbaa !13
-  %147 = icmp slt i32 %146, 1
-  br i1 %147, label %151, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt1
+112:                                              ; preds = %109
+  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %110)
+          to label %116 unwind label %114
 
-148:                                              ; preds = %141
-  %149 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %156, label %154
-
-151:                                              ; preds = %145
-  %152 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %157, label %155
-
-154:                                              ; preds = %148
-  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %149)
-          to label %158 unwind label %.loopexit333
-
-155:                                              ; preds = %151
-  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %152)
-          to label %161 unwind label %.loopexit333
-
-156:                                              ; preds = %148
+113:                                              ; preds = %109
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt4
+  br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179
 
-157:                                              ; preds = %151
-  store i32 7, ptr %2, align 4, !tbaa !13
-  br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt1
-
-.loopexit333:                                     ; preds = %155, %154
-  %.ph334 = phi ptr [ %152, %155 ], [ %149, %154 ]
-  %lpad.loopexit = landingpad { ptr, i32 }
+114:                                              ; preds = %112
+  %115 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.ph334) #23
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %110) #23
   br label %.body
 
-158:                                              ; preds = %154
-  %159 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  store i32 %.0134232283468, ptr %159, align 8, !tbaa !21
-  %160 = getelementptr inbounds nuw i8, ptr %149, i64 20
-  store i8 %142, ptr %160, align 4, !tbaa !22
-  br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt4
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  store i32 %.0134232, ptr %117, align 8, !tbaa !21
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
+  store i8 %106, ptr %118, align 4, !tbaa !22
+  br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179
 
-161:                                              ; preds = %155
-  %162 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i32 %.0134232283468, ptr %162, align 8, !tbaa !21
-  %163 = getelementptr inbounds nuw i8, ptr %152, i64 20
-  store i8 2, ptr %163, align 4, !tbaa !22
-  br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt1
+_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179: ; preds = %116, %113, %105
+  %.0.i176 = phi ptr [ null, %105 ], [ null, %113 ], [ %110, %116 ]
+  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %.0.i176, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %119 unwind label %122
 
-_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt4: ; preds = %141, %158, %156
-  %.0.i176.jt4 = phi ptr [ null, %141 ], [ null, %156 ], [ %149, %158 ]
-  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %.0.i176.jt4, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %164 unwind label %.loopexit335
+119:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179
+  %120 = load i32, ptr %2, align 4, !tbaa !13
+  %121 = icmp slt i32 %120, 1
+  br i1 %121, label %124, label %._crit_edge.thread
 
-_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt1: ; preds = %145, %161, %157
-  %.0.i176.jt1 = phi ptr [ null, %145 ], [ null, %157 ], [ %152, %161 ]
-  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %.0.i176.jt1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %167 unwind label %.loopexit335
-
-164:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt4
-  %165 = load i32, ptr %2, align 4, !tbaa !13
-  %166 = icmp slt i32 %165, 1
-  br i1 %166, label %.thread202.jt4, label %._crit_edge.thread
-
-167:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt1
-  %168 = load i32, ptr %2, align 4, !tbaa !13
-  %169 = icmp slt i32 %168, 1
-  br i1 %169, label %.thread202.jt1, label %._crit_edge.thread
-
-.loopexit335:                                     ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt1, %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179.jt4
-  %lpad.loopexit337 = landingpad { ptr, i32 }
+122:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit179
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit: ; preds = %.lr.ph
-  switch i32 %.0134232283468, label %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit.unreachabledefault [
-    i32 0, label %193
-    i32 1, label %170
+124:                                              ; preds = %.thread200, %119, %80
+  %125 = or i32 %.0.i172.ph, %.0114237
+  br label %.thread202
+
+_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit: ; preds = %72
+  switch i32 %.0134232, label %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit.unreachabledefault [
+    i32 0, label %149
+    i32 1, label %126
     i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
     i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
   ]
 
-170:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
-  %171 = add i32 %.0128233276469, -1
-  %172 = icmp ult i32 %171, 2
-  br i1 %172, label %174, label %._crit_edge.thread.sink.split
+126:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
+  %127 = add i32 %.0128233, -1
+  %128 = icmp ult i32 %127, 2
+  br i1 %128, label %130, label %._crit_edge.thread.sink.split
 
 _ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit.unreachabledefault: ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
   unreachable
 
 _ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182: ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit, %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
-  %173 = icmp eq i32 %.0128233276469, 2
-  br i1 %173, label %174, label %._crit_edge.thread.sink.split
+  %129 = icmp eq i32 %.0128233, 2
+  br i1 %129, label %130, label %._crit_edge.thread.sink.split
 
-174:                                              ; preds = %170, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
-  %175 = trunc nuw nsw i32 %.0128233276469 to i8
-  %176 = load i32, ptr %2, align 4, !tbaa !13
-  %177 = icmp slt i32 %176, 1
-  br i1 %177, label %178, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
+130:                                              ; preds = %126, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
+  %131 = trunc nuw nsw i32 %.0128233 to i8
+  %132 = load i32, ptr %2, align 4, !tbaa !13
+  %133 = icmp slt i32 %132, 1
+  br i1 %133, label %134, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
 
-178:                                              ; preds = %174
-  %179 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %182, label %181
+134:                                              ; preds = %130
+  %135 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %138, label %137
 
-181:                                              ; preds = %178
-  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %179)
-          to label %185 unwind label %183
+137:                                              ; preds = %134
+  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %135)
+          to label %141 unwind label %139
 
-182:                                              ; preds = %178
+138:                                              ; preds = %134
   store i32 7, ptr %2, align 4, !tbaa !13
   br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
 
-183:                                              ; preds = %181
-  %184 = landingpad { ptr, i32 }
+139:                                              ; preds = %137
+  %140 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %179) #23
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %135) #23
   br label %.body
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  store i32 %.0134232283468, ptr %186, align 8, !tbaa !21
-  %187 = getelementptr inbounds nuw i8, ptr %179, i64 20
-  store i8 %175, ptr %187, align 4, !tbaa !22
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  store i32 %.0134232, ptr %142, align 8, !tbaa !21
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 20
+  store i8 %131, ptr %143, align 4, !tbaa !22
   br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
 
-_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186: ; preds = %185, %182, %174
-  %.0.i183 = phi ptr [ null, %174 ], [ null, %182 ], [ %179, %185 ]
+_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186: ; preds = %141, %138, %130
+  %.0.i183 = phi ptr [ null, %130 ], [ null, %138 ], [ %135, %141 ]
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %.0.i183, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %188 unwind label %191
+          to label %144 unwind label %147
 
-188:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
-  %189 = load i32, ptr %2, align 4, !tbaa !13
-  %190 = icmp slt i32 %189, 1
-  br i1 %190, label %193, label %._crit_edge.thread
+144:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
+  %145 = load i32, ptr %2, align 4, !tbaa !13
+  %146 = icmp slt i32 %145, 1
+  br i1 %146, label %149, label %._crit_edge.thread
 
-191:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
-  %192 = landingpad { ptr, i32 }
+147:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
+  %148 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-193:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit, %188
+149:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit, %144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 %93, ptr %4, align 2, !tbaa !24
-  %194 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
-          to label %195 unwind label %128
+  store i16 %37, ptr %4, align 2, !tbaa !24
+  %150 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
+          to label %_ZN6icu_7713UnicodeString6appendEDs.exit187 unwind label %94
 
-195:                                              ; preds = %193
+_ZN6icu_7713UnicodeString6appendEDs.exit187:      ; preds = %149
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread202.jt0
+  br label %.thread202
 
-.thread202:                                       ; preds = %.loopexit, %87, %_ZN6icu_7713UnicodeString6appendEDs.exit171
-  %indvars.iv260 = phi i64 [ %indvars.iv256, %87 ], [ %indvars.iv252.ph, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %indvars.iv252471, %.loopexit ]
-  %.2116214 = phi i32 [ %.0114237266, %87 ], [ %.0114237262.ph, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %.0114237262470, %.loopexit ]
-  %.2122213 = phi i8 [ %.1121, %87 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ 0, %.loopexit ]
-  %.1125212 = phi i8 [ %88, %87 ], [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ 0, %.loopexit ]
-  %.2130211 = phi i32 [ %.0128233280, %87 ], [ %.0128233276.ph, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %98, %.loopexit ]
-  %.3137210 = phi i32 [ %.2136, %87 ], [ %.0134232283.ph, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %.0134232283468, %.loopexit ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv260, 1
-  %196 = load i16, ptr %19, align 8, !tbaa !23
-  %197 = icmp slt i16 %196, 0
-  %198 = ashr i16 %196, 5
-  %199 = sext i16 %198 to i32
-  %200 = load i32, ptr %20, align 4
-  %201 = select i1 %197, i32 %200, i32 %199
-  %202 = sext i32 %201 to i64
-  %203 = icmp slt i64 %indvars.iv.next, %202
-  br i1 %203, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %._crit_edge, !llvm.loop !59
+.thread202:                                       ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit187, %124, %77, %68, %_ZN6icu_7713UnicodeString6appendEDs.exit171
+  %.2116214 = phi i32 [ %.0114237, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %.0114237, %68 ], [ %.0114237, %77 ], [ %125, %124 ], [ %.0114237, %_ZN6icu_7713UnicodeString6appendEDs.exit187 ]
+  %.2122213 = phi i8 [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %.1121, %68 ], [ 0, %77 ], [ 0, %124 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit187 ]
+  %.1125212 = phi i8 [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %69, %68 ], [ 0, %77 ], [ 0, %124 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit187 ]
+  %.2130211 = phi i32 [ %.0128233, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %.0128233, %68 ], [ %78, %77 ], [ 1, %124 ], [ %.0128233, %_ZN6icu_7713UnicodeString6appendEDs.exit187 ]
+  %.3137210 = phi i32 [ %.0134232, %_ZN6icu_7713UnicodeString6appendEDs.exit171 ], [ %.2136, %68 ], [ %.0134232, %77 ], [ %.0.i172.ph, %124 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit187 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %151 = load i16, ptr %19, align 8, !tbaa !23
+  %152 = icmp slt i16 %151, 0
+  %153 = ashr i16 %151, 5
+  %154 = sext i16 %153 to i32
+  %155 = load i32, ptr %20, align 4
+  %156 = select i1 %152, i32 %155, i32 %154
+  %157 = sext i32 %156 to i64
+  %158 = icmp slt i64 %indvars.iv.next, %157
+  br i1 %158, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %._crit_edge, !llvm.loop !59
 
-.thread202.jt0:                                   ; preds = %195, %89
-  %indvars.iv261 = phi i64 [ %indvars.iv258, %89 ], [ %indvars.iv252471, %195 ]
-  %.2116214.jt0 = phi i32 [ %.0114237268, %89 ], [ %.0114237262470, %195 ]
-  %.not153.jt0 = phi i1 [ false, %89 ], [ true, %195 ]
-  %.1125212.jt0 = phi i8 [ %90, %89 ], [ 0, %195 ]
-  %.2130211.jt0 = phi i32 [ %.0128233282, %89 ], [ %.0128233276469, %195 ]
-  %indvars.iv.next.jt0 = add nuw nsw i64 %indvars.iv261, 1
-  %204 = load i16, ptr %19, align 8, !tbaa !23
-  %205 = icmp slt i16 %204, 0
-  %206 = ashr i16 %204, 5
-  %207 = sext i16 %206 to i32
-  %208 = load i32, ptr %20, align 4
-  %209 = select i1 %205, i32 %208, i32 %207
-  %210 = sext i32 %209 to i64
-  %211 = icmp slt i64 %indvars.iv.next.jt0, %210
-  br i1 %211, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt0, label %._crit_edge, !llvm.loop !59
+._crit_edge:                                      ; preds = %.thread202, %18
+  %.1135.ph.ph = phi i32 [ 0, %18 ], [ %.3137210, %.thread202 ]
+  %.1129.ph.ph = phi i32 [ 1, %18 ], [ %.2130211, %.thread202 ]
+  %.1115.ph.ph = phi i32 [ 0, %18 ], [ %.2116214, %.thread202 ]
+  %.pr.pr = load i32, ptr %2, align 4, !tbaa !13
+  %159 = icmp sgt i32 %.pr.pr, 0
+  br i1 %159, label %._crit_edge.thread, label %160
 
-.thread202.jt4:                                   ; preds = %164, %100, %.thread200.jt4
-  %212 = or i32 %.0.i172.ph.jt4, %.0114237262470
-  %indvars.iv.next.jt4 = add nuw nsw i64 %indvars.iv252471, 1
-  %213 = load i16, ptr %19, align 8, !tbaa !23
-  %214 = icmp slt i16 %213, 0
-  %215 = ashr i16 %213, 5
-  %216 = sext i16 %215 to i32
-  %217 = load i32, ptr %20, align 4
-  %218 = select i1 %214, i32 %217, i32 %216
-  %219 = sext i32 %218 to i64
-  %220 = icmp slt i64 %indvars.iv.next.jt4, %219
-  br i1 %220, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4, label %._crit_edge, !llvm.loop !59
-
-.thread202.jt1:                                   ; preds = %167, %108, %.thread200.jt1
-  %221 = or i32 %.0114237262470, 1
-  %indvars.iv.next.jt1 = add nuw nsw i64 %indvars.iv252471, 1
-  %222 = load i16, ptr %19, align 8, !tbaa !23
-  %223 = icmp slt i16 %222, 0
-  %224 = ashr i16 %222, 5
-  %225 = sext i16 %224 to i32
-  %226 = load i32, ptr %20, align 4
-  %227 = select i1 %223, i32 %226, i32 %225
-  %228 = sext i32 %227 to i64
-  %229 = icmp slt i64 %indvars.iv.next.jt1, %228
-  br i1 %229, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt1, label %._crit_edge, !llvm.loop !59
-
-._crit_edge:                                      ; preds = %.thread202, %.thread202.jt0, %.thread202.jt1, %.thread202.jt4, %18
-  %.1135.ph.ph.ph = phi i32 [ 0, %18 ], [ %.0.i172.ph.jt4, %.thread202.jt4 ], [ 1, %.thread202.jt1 ], [ 0, %.thread202.jt0 ], [ %.3137210, %.thread202 ]
-  %.1129.ph.ph.ph = phi i32 [ 1, %18 ], [ 1, %.thread202.jt4 ], [ 1, %.thread202.jt1 ], [ %.2130211.jt0, %.thread202.jt0 ], [ %.2130211, %.thread202 ]
-  %.1115.ph.ph.ph = phi i32 [ 0, %18 ], [ %212, %.thread202.jt4 ], [ %221, %.thread202.jt1 ], [ %.2116214.jt0, %.thread202.jt0 ], [ %.2116214, %.thread202 ]
-  %.pr.pr.pr = load i32, ptr %2, align 4, !tbaa !13
-  %230 = icmp sgt i32 %.pr.pr.pr, 0
-  br i1 %230, label %._crit_edge.thread, label %231
-
-231:                                              ; preds = %._crit_edge
-  switch i32 %.1135.ph.ph.ph, label %.unreachabledefault229 [
-    i32 0, label %232
-    i32 1, label %247
+160:                                              ; preds = %._crit_edge
+  switch i32 %.1135.ph.ph, label %.unreachabledefault229 [
+    i32 0, label %161
+    i32 1, label %176
     i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
     i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
   ]
 
-232:                                              ; preds = %231
-  %233 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %234 = load i16, ptr %233, align 8, !tbaa !23
-  %235 = icmp slt i16 %234, 0
-  %236 = ashr i16 %234, 5
-  %237 = sext i16 %236 to i32
-  %238 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %239 = load i32, ptr %238, align 4
-  %240 = select i1 %235, i32 %239, i32 %237
-  %241 = icmp sgt i32 %240, 0
-  br i1 %241, label %242, label %264
+161:                                              ; preds = %160
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %163 = load i16, ptr %162, align 8, !tbaa !23
+  %164 = icmp slt i16 %163, 0
+  %165 = ashr i16 %163, 5
+  %166 = sext i16 %165 to i32
+  %167 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %168 = load i32, ptr %167, align 4
+  %169 = select i1 %164, i32 %168, i32 %166
+  %170 = icmp sgt i32 %169, 0
+  br i1 %170, label %171, label %193
 
-242:                                              ; preds = %232
-  %243 = invoke noundef ptr @_ZN6icu_7714GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %244 unwind label %245
+171:                                              ; preds = %161
+  %172 = invoke noundef ptr @_ZN6icu_7714GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %173 unwind label %174
 
-244:                                              ; preds = %242
-  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %243, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %264 unwind label %245
+173:                                              ; preds = %171
+  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %172, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %193 unwind label %174
 
-245:                                              ; preds = %244, %242
-  %246 = landingpad { ptr, i32 }
+174:                                              ; preds = %173, %171
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-247:                                              ; preds = %231
-  %248 = add i32 %.1129.ph.ph.ph, -1
-  %249 = icmp ult i32 %248, 2
-  br i1 %249, label %251, label %._crit_edge.thread.sink.split
+176:                                              ; preds = %160
+  %177 = add i32 %.1129.ph.ph, -1
+  %178 = icmp ult i32 %177, 2
+  br i1 %178, label %180, label %._crit_edge.thread.sink.split
 
-.unreachabledefault229:                           ; preds = %231
+.unreachabledefault229:                           ; preds = %160
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190: ; preds = %231, %231
-  %250 = icmp eq i32 %.1129.ph.ph.ph, 2
-  br i1 %250, label %251, label %._crit_edge.thread.sink.split
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190: ; preds = %160, %160
+  %179 = icmp eq i32 %.1129.ph.ph, 2
+  br i1 %179, label %180, label %._crit_edge.thread.sink.split
 
-251:                                              ; preds = %247, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
-  %252 = trunc nuw nsw i32 %.1129.ph.ph.ph to i8
-  %253 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %256, label %255
+180:                                              ; preds = %176, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
+  %181 = trunc nuw nsw i32 %.1129.ph.ph to i8
+  %182 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %185, label %184
 
-255:                                              ; preds = %251
-  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %253)
-          to label %259 unwind label %257
+184:                                              ; preds = %180
+  invoke void @_ZN6icu_7714GMTOffsetFieldC1Ev(ptr noundef nonnull align 8 dereferenceable(21) %182)
+          to label %188 unwind label %186
 
-256:                                              ; preds = %251
+185:                                              ; preds = %180
   store i32 7, ptr %2, align 4, !tbaa !13
   br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194
 
-257:                                              ; preds = %255
-  %258 = landingpad { ptr, i32 }
+186:                                              ; preds = %184
+  %187 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %253) #23
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %182) #23
   br label %.body
 
-259:                                              ; preds = %255
-  %260 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  store i32 %.1135.ph.ph.ph, ptr %260, align 8, !tbaa !21
-  %261 = getelementptr inbounds nuw i8, ptr %253, i64 20
-  store i8 %252, ptr %261, align 4, !tbaa !22
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  store i32 %.1135.ph.ph, ptr %189, align 8, !tbaa !21
+  %190 = getelementptr inbounds nuw i8, ptr %182, i64 20
+  store i8 %181, ptr %190, align 4, !tbaa !22
   br label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194
 
-_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194: ; preds = %259, %256
-  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %253, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %264 unwind label %262
+_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194: ; preds = %188, %185
+  invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %182, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %193 unwind label %191
 
-262:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194
-  %263 = landingpad { ptr, i32 }
+191:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194
+  %192 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-264:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194, %244, %232
-  %.pr = load i32, ptr %2, align 4, !tbaa !13
-  %265 = icmp sgt i32 %.pr, 0
-  br i1 %265, label %._crit_edge.thread, label %266
+193:                                              ; preds = %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit194, %173, %161
+  %.pr258 = load i32, ptr %2, align 4, !tbaa !13
+  %194 = icmp sgt i32 %.pr258, 0
+  br i1 %194, label %._crit_edge.thread, label %195
 
-266:                                              ; preds = %264
-  %267 = icmp ult i32 %1, 3
-  br i1 %267, label %switch.lookup, label %269
+195:                                              ; preds = %193
+  %196 = icmp ult i32 %1, 3
+  br i1 %196, label %switch.lookup, label %198
 
-switch.lookup:                                    ; preds = %266
-  %268 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode, i64 %268
+switch.lookup:                                    ; preds = %195
+  %197 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode, i64 %197
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %269
+  br label %198
 
-269:                                              ; preds = %switch.lookup, %266
-  %.0 = phi i32 [ 0, %266 ], [ %switch.load, %switch.lookup ]
-  %.not167 = icmp eq i32 %.1115.ph.ph.ph, %.0
-  br i1 %.not167, label %273, label %._crit_edge.thread
+198:                                              ; preds = %switch.lookup, %195
+  %.0 = phi i32 [ 0, %195 ], [ %switch.load, %switch.lookup ]
+  %.not167 = icmp eq i32 %.1115.ph.ph, %.0
+  br i1 %.not167, label %202, label %._crit_edge.thread
 
-._crit_edge.thread.sink.split:                    ; preds = %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182, %170, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit, %65, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt1, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175.jt4, %136, %_ZNK6icu_7713UnicodeString6charAtEi.exit.jt4, %247, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
+._crit_edge.thread.sink.split:                    ; preds = %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182, %126, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175, %101, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit, %45, %176, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
   store i32 1, ptr %2, align 4, !tbaa !13
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %82, %188, %125, %167, %122, %164, %._crit_edge.thread.sink.split, %._crit_edge, %269, %264
-  %270 = load ptr, ptr %12, align 8, !tbaa !15
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(40) %12) #23
-  br label %273
+._crit_edge.thread:                               ; preds = %63, %119, %144, %91, %._crit_edge.thread.sink.split, %._crit_edge, %198, %193
+  %199 = load ptr, ptr %12, align 8, !tbaa !15
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %201 = load ptr, ptr %200, align 8
+  call void %201(ptr noundef nonnull align 8 dereferenceable(40) %12) #23
+  br label %202
 
-273:                                              ; preds = %269, %._crit_edge.thread
-  %.3 = phi ptr [ null, %._crit_edge.thread ], [ %12, %269 ]
+202:                                              ; preds = %198, %._crit_edge.thread
+  %.3 = phi ptr [ null, %._crit_edge.thread ], [ %12, %198 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %275
+  br label %204
 
-.body:                                            ; preds = %262, %257, %191, %183, %.loopexit335, %.loopexit333, %85, %77, %128, %.loopexit340, %62, %245
-  %.pn163 = phi { ptr, i32 } [ %246, %245 ], [ %63, %62 ], [ %lpad.loopexit342, %.loopexit340 ], [ %129, %128 ], [ %86, %85 ], [ %78, %77 ], [ %lpad.loopexit337, %.loopexit335 ], [ %lpad.loopexit, %.loopexit333 ], [ %192, %191 ], [ %184, %183 ], [ %263, %262 ], [ %258, %257 ]
+.body:                                            ; preds = %191, %186, %147, %139, %122, %114, %66, %58, %94, %96, %42, %174
+  %.pn163 = phi { ptr, i32 } [ %175, %174 ], [ %43, %42 ], [ %97, %96 ], [ %95, %94 ], [ %67, %66 ], [ %59, %58 ], [ %123, %122 ], [ %115, %114 ], [ %148, %147 ], [ %140, %139 ], [ %192, %191 ], [ %187, %186 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %274
+  br label %203
 
-274:                                              ; preds = %16, %.body
+203:                                              ; preds = %16, %.body
   %.pn163.pn = phi { ptr, i32 } [ %.pn163, %.body ], [ %17, %16 ]
   resume { ptr, i32 } %.pn163.pn
 
-275:                                              ; preds = %15, %273, %3
-  %.099 = phi ptr [ null, %3 ], [ null, %15 ], [ %.3, %273 ]
+204:                                              ; preds = %15, %202, %3
+  %.099 = phi ptr [ null, %3 ], [ null, %15 ], [ %.3, %202 ]
   ret ptr %.099
 }
 

@@ -2905,11 +2905,11 @@ _ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit: ; preds = %4, %21, %23
 
 29:                                               ; preds = %27
   %30 = icmp ult i64 %25, 4294967296
-  %spec.select329 = select i1 %30, i8 4, i8 6
+  %..i193 = select i1 %30, i8 4, i8 6
   br label %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195
 
-_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195: ; preds = %29, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit, %27
-  %.0.i194 = phi i8 [ 1, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit ], [ 2, %27 ], [ %spec.select329, %29 ]
+_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195: ; preds = %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit, %27, %29
+  %.0.i194 = phi i8 [ 1, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit ], [ 2, %27 ], [ %..i193, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !177
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2935,17 +2935,17 @@ _ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195: ; preds = %29, %_ZN3n
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 3
   %switch.downshift = lshr i48 13194273752064, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
-  %switch.tableidx335 = add nsw i8 %.0.i194, -1
-  %switch.cast336 = zext i8 %switch.tableidx335 to i48
-  %switch.shiftamt337 = shl nuw nsw i48 %switch.cast336, 3
-  %switch.downshift338 = lshr i48 3298568438016, %switch.shiftamt337
-  %switch.masked339 = trunc i48 %switch.downshift338 to i8
+  %switch.tableidx334 = add nsw i8 %.0.i194, -1
+  %switch.cast335 = zext i8 %switch.tableidx334 to i48
+  %switch.shiftamt336 = shl nuw nsw i48 %switch.cast335, 3
+  %switch.downshift337 = lshr i48 3298568438016, %switch.shiftamt336
+  %switch.masked338 = trunc i48 %switch.downshift337 to i8
   %46 = select i1 %45, i8 0, i8 2
   %47 = zext i1 %44 to i8
   %48 = or disjoint i8 %46, %47
   %49 = shl nuw nsw i8 %48, 4
   %50 = or disjoint i8 %49, %switch.masked
-  %51 = or disjoint i8 %50, %switch.masked339
+  %51 = or disjoint i8 %50, %switch.masked338
   %52 = or disjoint i8 %51, 64
   %53 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext %52)
           to label %54 unwind label %62

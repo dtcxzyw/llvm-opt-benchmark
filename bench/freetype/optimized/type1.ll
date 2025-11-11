@@ -7224,9 +7224,9 @@ define internal void @parse_charstrings(ptr noundef readonly captures(none) %0, 
 
 60:                                               ; preds = %.lr.ph, %.backedge
   %61 = phi ptr [ %51, %.lr.ph ], [ %173, %.backedge ]
-  %.0180322 = phi i8 [ 0, %.lr.ph ], [ %.1181.jt0, %.backedge ]
-  %.0184321 = phi i32 [ 0, %.lr.ph ], [ %.1185.jt0, %.backedge ]
-  %.0190320 = phi i32 [ 0, %.lr.ph ], [ %.1191.jt0, %.backedge ]
+  %.0180322 = phi i8 [ 0, %.lr.ph ], [ %.1181, %.backedge ]
+  %.0184321 = phi i32 [ 0, %.lr.ph ], [ %.1185, %.backedge ]
+  %.0190320 = phi i32 [ 0, %.lr.ph ], [ %.1191, %.backedge ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 3
   %63 = icmp ult ptr %62, %14
   br i1 %63, label %64, label %.thread
@@ -7444,10 +7444,10 @@ read_binary_data.exit:                            ; preds = %111
   %spec.select240 = add nsw i32 %.0190320, %171
   br i1 %.not216, label %.backedge, label %.loopexit.loopexit
 
-.backedge:                                        ; preds = %89, %126, %169
-  %.1191.jt0 = phi i32 [ %.0190320, %89 ], [ %.0190320, %126 ], [ %spec.select240, %169 ]
-  %.1185.jt0 = phi i32 [ %.0184321, %89 ], [ %.0184321, %126 ], [ %.4188, %169 ]
-  %.1181.jt0 = phi i8 [ %.0180322, %89 ], [ %.0180322, %126 ], [ %.4, %169 ]
+.backedge:                                        ; preds = %169, %89, %126
+  %.1191 = phi i32 [ %.0190320, %89 ], [ %.0190320, %126 ], [ %spec.select240, %169 ]
+  %.1185 = phi i32 [ %.0184321, %89 ], [ %.0184321, %126 ], [ %.4188, %169 ]
+  %.1181 = phi i8 [ %.0180322, %89 ], [ %.0180322, %126 ], [ %.4, %169 ]
   %172 = load ptr, ptr %49, align 8, !tbaa !98
   call void %172(ptr noundef nonnull %1) #17
   %173 = load ptr, ptr %1, align 8, !tbaa !90
@@ -7455,9 +7455,9 @@ read_binary_data.exit:                            ; preds = %111
   br i1 %.not207, label %60, label %.thread269
 
 .thread269:                                       ; preds = %.backedge, %81
-  %.0190.lcssa = phi i32 [ %.1191.jt0, %.backedge ], [ %.0190320, %81 ]
-  %.0184.lcssa = phi i32 [ %.1185.jt0, %.backedge ], [ %.0184321, %81 ]
-  %.0180.lcssa = phi i8 [ %.1181.jt0, %.backedge ], [ %.0180322, %81 ]
+  %.0190.lcssa = phi i32 [ %.1191, %.backedge ], [ %.0190320, %81 ]
+  %.0184.lcssa = phi i32 [ %.1185, %.backedge ], [ %.0184321, %81 ]
+  %.0180.lcssa = phi i8 [ %.1181, %.backedge ], [ %.0180322, %81 ]
   %.not217 = icmp eq i32 %.0190.lcssa, 0
   br i1 %.not217, label %.loopexit, label %.thread269.thread
 
@@ -7667,7 +7667,7 @@ read_binary_data.exit:                            ; preds = %111
   store i32 3, ptr %3, align 4, !tbaa !19
   br label %.loopexit.loopexit
 
-.loopexit.loopexit:                               ; preds = %128, %153, %169, %.loopexit.loopexit.sink.split
+.loopexit.loopexit:                               ; preds = %128, %169, %153, %.loopexit.loopexit.sink.split
   %.pre341 = load i32, ptr %3, align 4, !tbaa !19
   br label %.loopexit
 
@@ -7677,7 +7677,7 @@ read_binary_data.exit:                            ; preds = %111
   store i32 %301, ptr %302, align 8, !tbaa !97
   br label %.thread279
 
-.thread279:                                       ; preds = %87, %read_binary_data.exit, %.thread.i, %122, %298, %174, %243, %20, %29, %.loopexit
+.thread279:                                       ; preds = %read_binary_data.exit, %87, %.thread.i, %122, %298, %174, %243, %20, %29, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

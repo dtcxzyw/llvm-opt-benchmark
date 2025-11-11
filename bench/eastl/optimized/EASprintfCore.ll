@@ -3856,10 +3856,10 @@ for.cond:                                         ; preds = %entry, %for.inc
   %fd.sroa.0.0 = phi i32 [ %fd.sroa.0.1, %for.inc ], [ 1, %entry ]
   %pFormatCurrent.0 = phi ptr [ %incdec.ptr22, %for.inc ], [ %incdec.ptr, %entry ]
   %alignmentNonZeroFill.0 = phi i32 [ %alignmentNonZeroFill.2, %for.inc ], [ 0, %entry ]
-  %c.0 = phi i8 [ %3, %for.inc ], [ %0, %entry ]
+  %c.0 = phi i8 [ %1, %for.inc ], [ %0, %entry ]
   switch i8 %c.0, label %while.cond.preheader [
-    i8 45, label %for.cond.jt0.preheader
-    i8 43, label %for.inc
+    i8 45, label %for.inc
+    i8 43, label %sw.bb2
     i8 32, label %sw.bb3
     i8 35, label %sw.bb9
     i8 39, label %sw.bb10
@@ -3867,53 +3867,16 @@ for.cond:                                         ; preds = %entry, %for.inc
     i8 42, label %if.then25
   ]
 
-for.cond.jt2:                                     ; preds = %for.cond.jt2.preheader, %for.cond.jt2
-  %pFormatCurrent.0235 = phi ptr [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond.jt2.preheader ]
-  %incdec.ptr22.jt2 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0235, i64 1
-  %1 = load i8, ptr %incdec.ptr22.jt2, align 1
-  switch i8 %1, label %while.cond.preheader [
-    i8 45, label %for.cond.jt0.preheader
-    i8 43, label %for.inc.loopexit306
-    i8 32, label %sw.bb3
-    i8 35, label %for.inc
-    i8 39, label %sw.bb10
-    i8 48, label %for.cond.jt2
-    i8 42, label %if.then25
-  ]
-
-for.cond.jt0.preheader:                           ; preds = %for.cond.jt2, %for.cond, %sw.bb11
-  %pFormatCurrent.0228.ph = phi ptr [ %pFormatCurrent.0, %sw.bb11 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %alignmentNonZeroFill.2.jt0.ph = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  br label %for.cond.jt0
-
-for.cond.jt0:                                     ; preds = %for.cond.jt0, %for.cond.jt0.preheader
-  %pFormatCurrent.0228 = phi ptr [ %pFormatCurrent.0228.ph, %for.cond.jt0.preheader ], [ %incdec.ptr22.jt0, %for.cond.jt0 ]
-  %incdec.ptr22.jt0 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0228, i64 1
-  %2 = load i8, ptr %incdec.ptr22.jt0, align 1
-  switch i8 %2, label %while.cond.preheader [
-    i8 45, label %for.inc.loopexit
-    i8 43, label %for.inc.loopexit283
-    i8 32, label %sw.bb3
-    i8 35, label %for.inc
-    i8 39, label %sw.bb10
-    i8 48, label %for.cond.jt0
-    i8 42, label %if.then25
-  ]
-
-while.cond.preheader:                             ; preds = %for.cond, %for.cond.jt2, %for.cond.jt0
-  %c.0245 = phi i8 [ %2, %for.cond.jt0 ], [ %1, %for.cond.jt2 ], [ %c.0, %for.cond ]
-  %alignmentNonZeroFill.0237 = phi i32 [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %for.cond ]
-  %pFormatCurrent.0227 = phi ptr [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond ]
-  %fd.sroa.0.0221 = phi i32 [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %for.cond ]
-  %conv34169 = sext i8 %c.0245 to i32
+while.cond.preheader:                             ; preds = %for.cond
+  %conv34169 = sext i8 %c.0 to i32
   %sub35170 = add nsw i32 %conv34169, -48
   %cmp36171 = icmp ult i32 %sub35170, 10
   br i1 %cmp36171, label %while.body, label %if.end47
 
-sw.bb3:                                           ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0239 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0230 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0223 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb2:                                           ; preds = %for.cond
+  br label %for.inc
+
+sw.bb3:                                           ; preds = %for.cond
   %cmp5.not = icmp eq i32 %fd.sroa.13.0, 2
   %spec.select147 = select i1 %cmp5.not, i32 2, i32 3
   br label %for.inc
@@ -3921,60 +3884,40 @@ sw.bb3:                                           ; preds = %for.cond.jt2, %for.
 sw.bb9:                                           ; preds = %for.cond
   br label %for.inc
 
-sw.bb10:                                          ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0241 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0232 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0225 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb10:                                          ; preds = %for.cond
   br label %for.inc
 
 sw.bb11:                                          ; preds = %for.cond
-  switch i32 %fd.sroa.0.0, label %for.cond.jt2.preheader [
-    i32 0, label %for.cond.jt0.preheader
-    i32 2, label %if.end19
+  switch i32 %fd.sroa.0.0, label %if.then17 [
+    i32 0, label %for.inc
+    i32 2, label %for.inc
   ]
 
-for.cond.jt2.preheader:                           ; preds = %if.end19, %sw.bb11
-  %alignmentNonZeroFill.2.jt2.ph = phi i32 [ %alignmentNonZeroFill.0, %if.end19 ], [ %fd.sroa.0.0, %sw.bb11 ]
-  br label %for.cond.jt2
-
-if.end19:                                         ; preds = %sw.bb11
-  br label %for.cond.jt2.preheader
-
-for.inc.loopexit283:                              ; preds = %for.cond.jt0
+if.then17:                                        ; preds = %sw.bb11
   br label %for.inc
 
-for.inc.loopexit:                                 ; preds = %for.cond.jt0
-  br label %for.inc
-
-for.inc.loopexit306:                              ; preds = %for.cond.jt2
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit306, %for.inc.loopexit, %for.inc.loopexit283, %for.cond, %sw.bb3, %sw.bb9, %sw.bb10
-  %pFormatCurrent.0236 = phi ptr [ %pFormatCurrent.0230, %sw.bb3 ], [ %pFormatCurrent.0232, %sw.bb10 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.inc.loopexit283 ], [ %incdec.ptr22.jt0, %for.inc.loopexit ], [ %incdec.ptr22.jt2, %for.inc.loopexit306 ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb9 ]
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb3 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit283 ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit306 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %for.cond.jt0 ], [ %fd.sroa.67.0, %sw.bb9 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit283 ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit306 ], [ 1, %for.cond.jt2 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb9 ]
-  %fd.sroa.13.1 = phi i32 [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb10 ], [ 2, %for.cond ], [ 2, %for.inc.loopexit283 ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb9 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0223, %sw.bb3 ], [ %fd.sroa.0.0225, %sw.bb10 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit283 ], [ 0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb9 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0239, %sw.bb3 ], [ %alignmentNonZeroFill.0241, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit283 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit306 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ]
-  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0236, i64 1
-  %3 = load i8, ptr %incdec.ptr22, align 1
+for.inc:                                          ; preds = %sw.bb11, %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb9 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb11 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
+  %fd.sroa.13.1 = phi i32 [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb11 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 1
+  %1 = load i8, ptr %incdec.ptr22, align 1
   br label %for.cond, !llvm.loop !72
 
-if.then25:                                        ; preds = %for.cond, %for.cond.jt2, %for.cond.jt0
-  %alignmentNonZeroFill.0242 = phi i32 [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %for.cond ]
-  %pFormatCurrent.0233 = phi ptr [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond ]
-  %fd.sroa.0.0226 = phi i32 [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %for.cond ]
+if.then25:                                        ; preds = %for.cond
   %gp_offset = load i32, ptr %pArguments, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then25
-  %4 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
-  %reg_save_area = load ptr, ptr %4, align 8
-  %5 = zext nneg i32 %gp_offset to i64
-  %6 = getelementptr i8, ptr %reg_save_area, i64 %5
-  %7 = add nuw nsw i32 %gp_offset, 8
-  store i32 %7, ptr %pArguments, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
+  %reg_save_area = load ptr, ptr %2, align 8
+  %3 = zext nneg i32 %gp_offset to i64
+  %4 = getelementptr i8, ptr %reg_save_area, i64 %3
+  %5 = add nuw nsw i32 %gp_offset, 8
+  store i32 %5, ptr %pArguments, align 8
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then25
@@ -3985,34 +3928,33 @@ vaarg.in_mem:                                     ; preds = %if.then25
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %6, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %8 = load i32, ptr %vaarg.addr, align 4
-  %cmp27 = icmp slt i32 %8, 0
-  %spec.select148 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %spec.select149 = select i1 %cmp27, i32 0, i32 %fd.sroa.0.0226
-  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0233, i64 1
-  %9 = load i8, ptr %incdec.ptr33, align 1
+  %vaarg.addr = phi ptr [ %4, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
+  %6 = load i32, ptr %vaarg.addr, align 4
+  %cmp27 = icmp slt i32 %6, 0
+  %spec.select148 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %spec.select149 = select i1 %cmp27, i32 0, i32 %fd.sroa.0.0
+  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 1
+  %7 = load i8, ptr %incdec.ptr33, align 1
   br label %if.end42
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %sub35174 = phi i32 [ %sub35, %while.body ], [ %sub35170, %while.cond.preheader ]
-  %pFormatCurrent.2173 = phi ptr [ %incdec.ptr41, %while.body ], [ %pFormatCurrent.0227, %while.cond.preheader ]
+  %pFormatCurrent.2173 = phi ptr [ %incdec.ptr41, %while.body ], [ %pFormatCurrent.0, %while.cond.preheader ]
   %fd.sroa.1971.2172 = phi i32 [ %add, %while.body ], [ 0, %while.cond.preheader ]
   %mul = mul nsw i32 %fd.sroa.1971.2172, 10
   %add = add nsw i32 %sub35174, %mul
   %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.2173, i64 1
-  %10 = load i8, ptr %incdec.ptr41, align 1
-  %conv34 = sext i8 %10 to i32
+  %8 = load i8, ptr %incdec.ptr41, align 1
+  %conv34 = sext i8 %8 to i32
   %sub35 = add nsw i32 %conv34, -48
   %cmp36 = icmp ult i32 %sub35, 10
   br i1 %cmp36, label %while.body, label %if.end42, !llvm.loop !73
 
 if.end42:                                         ; preds = %while.body, %vaarg.end
-  %alignmentNonZeroFill.0244 = phi i32 [ %alignmentNonZeroFill.0242, %vaarg.end ], [ %alignmentNonZeroFill.0237, %while.body ]
   %fd.sroa.1971.1 = phi i32 [ %spec.select148, %vaarg.end ], [ %add, %while.body ]
-  %fd.sroa.0.3 = phi i32 [ %spec.select149, %vaarg.end ], [ %fd.sroa.0.0221, %while.body ]
+  %fd.sroa.0.3 = phi i32 [ %spec.select149, %vaarg.end ], [ %fd.sroa.0.0, %while.body ]
   %pFormatCurrent.1 = phi ptr [ %incdec.ptr33, %vaarg.end ], [ %incdec.ptr41, %while.body ]
-  %c.1 = phi i8 [ %9, %vaarg.end ], [ %10, %while.body ]
+  %c.1 = phi i8 [ %7, %vaarg.end ], [ %8, %while.body ]
   %cmp44 = icmp sgt i32 %fd.sroa.1971.1, 4096
   br i1 %cmp44, label %if.then45, label %if.end47
 
@@ -4040,27 +3982,26 @@ if.then45:                                        ; preds = %if.end42
   br label %return
 
 if.end47:                                         ; preds = %while.cond.preheader, %if.end42
-  %c.1262 = phi i8 [ %c.1, %if.end42 ], [ %c.0245, %while.cond.preheader ]
-  %pFormatCurrent.1261 = phi ptr [ %pFormatCurrent.1, %if.end42 ], [ %pFormatCurrent.0227, %while.cond.preheader ]
-  %fd.sroa.0.3260 = phi i32 [ %fd.sroa.0.3, %if.end42 ], [ %fd.sroa.0.0221, %while.cond.preheader ]
-  %fd.sroa.1971.1259 = phi i32 [ %fd.sroa.1971.1, %if.end42 ], [ 0, %while.cond.preheader ]
-  %alignmentNonZeroFill.0244255 = phi i32 [ %alignmentNonZeroFill.0244, %if.end42 ], [ %alignmentNonZeroFill.0237, %while.cond.preheader ]
-  %conv48 = sext i8 %c.1262 to i32
+  %c.1208 = phi i8 [ %c.1, %if.end42 ], [ %c.0, %while.cond.preheader ]
+  %pFormatCurrent.1207 = phi ptr [ %pFormatCurrent.1, %if.end42 ], [ %pFormatCurrent.0, %while.cond.preheader ]
+  %fd.sroa.0.3206 = phi i32 [ %fd.sroa.0.3, %if.end42 ], [ %fd.sroa.0.0, %while.cond.preheader ]
+  %fd.sroa.1971.1205 = phi i32 [ %fd.sroa.1971.1, %if.end42 ], [ 0, %while.cond.preheader ]
+  %conv48 = sext i8 %c.1208 to i32
   %mDecimalPoint = getelementptr inbounds nuw i8, ptr %pFormatData, i64 28
-  %11 = load i32, ptr %mDecimalPoint, align 4
-  %sext = shl i32 %11, 24
+  %9 = load i32, ptr %mDecimalPoint, align 4
+  %sext = shl i32 %9, 24
   %conv50 = ashr exact i32 %sext, 24
   %cmp51 = icmp eq i32 %conv50, %conv48
   br i1 %cmp51, label %if.then52, label %if.end91
 
 if.then52:                                        ; preds = %if.end47
-  %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1261, i64 1
-  %12 = load i8, ptr %incdec.ptr53, align 1
-  %cmp55 = icmp eq i8 %12, 42
+  %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1207, i64 1
+  %10 = load i8, ptr %incdec.ptr53, align 1
+  %cmp55 = icmp eq i8 %10, 42
   br i1 %cmp55, label %if.then56, label %while.cond77.preheader
 
 while.cond77.preheader:                           ; preds = %if.then52
-  %conv78177 = sext i8 %12 to i32
+  %conv78177 = sext i8 %10 to i32
   %sub79178 = add nsw i32 %conv78177, -48
   %cmp80179 = icmp ult i32 %sub79178, 10
   br i1 %cmp80179, label %while.body81, label %if.end91
@@ -4071,12 +4012,12 @@ if.then56:                                        ; preds = %if.then52
   br i1 %fits_in_gp60, label %vaarg.in_reg61, label %vaarg.in_mem63
 
 vaarg.in_reg61:                                   ; preds = %if.then56
-  %13 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
-  %reg_save_area62 = load ptr, ptr %13, align 8
-  %14 = zext nneg i32 %gp_offset59 to i64
-  %15 = getelementptr i8, ptr %reg_save_area62, i64 %14
-  %16 = add nuw nsw i32 %gp_offset59, 8
-  store i32 %16, ptr %pArguments, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
+  %reg_save_area62 = load ptr, ptr %11, align 8
+  %12 = zext nneg i32 %gp_offset59 to i64
+  %13 = getelementptr i8, ptr %reg_save_area62, i64 %12
+  %14 = add nuw nsw i32 %gp_offset59, 8
+  store i32 %14, ptr %pArguments, align 8
   br label %vaarg.end67
 
 vaarg.in_mem63:                                   ; preds = %if.then56
@@ -4087,11 +4028,11 @@ vaarg.in_mem63:                                   ; preds = %if.then56
   br label %vaarg.end67
 
 vaarg.end67:                                      ; preds = %vaarg.in_mem63, %vaarg.in_reg61
-  %vaarg.addr68 = phi ptr [ %15, %vaarg.in_reg61 ], [ %overflow_arg_area65, %vaarg.in_mem63 ]
-  %17 = load i32, ptr %vaarg.addr68, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
-  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1261, i64 2
-  %18 = load i8, ptr %incdec.ptr74, align 1
+  %vaarg.addr68 = phi ptr [ %13, %vaarg.in_reg61 ], [ %overflow_arg_area65, %vaarg.in_mem63 ]
+  %15 = load i32, ptr %vaarg.addr68, align 4
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1207, i64 2
+  %16 = load i8, ptr %incdec.ptr74, align 1
   br label %if.end91
 
 while.body81:                                     ; preds = %while.cond77.preheader, %while.body81
@@ -4101,16 +4042,16 @@ while.body81:                                     ; preds = %while.cond77.prehea
   %mul83 = mul nsw i32 %fd.sroa.26.1180, 10
   %add86 = add nsw i32 %sub79182, %mul83
   %incdec.ptr88 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.4181, i64 1
-  %19 = load i8, ptr %incdec.ptr88, align 1
-  %conv78 = sext i8 %19 to i32
+  %17 = load i8, ptr %incdec.ptr88, align 1
+  %conv78 = sext i8 %17 to i32
   %sub79 = add nsw i32 %conv78, -48
   %cmp80 = icmp ult i32 %sub79, 10
   br i1 %cmp80, label %while.body81, label %if.end91, !llvm.loop !74
 
 if.end91:                                         ; preds = %while.body81, %while.cond77.preheader, %vaarg.end67, %if.end47
   %fd.sroa.26.0 = phi i32 [ %spec.select, %vaarg.end67 ], [ 2147483647, %if.end47 ], [ 0, %while.cond77.preheader ], [ %add86, %while.body81 ]
-  %pFormatCurrent.3 = phi ptr [ %incdec.ptr74, %vaarg.end67 ], [ %pFormatCurrent.1261, %if.end47 ], [ %incdec.ptr53, %while.cond77.preheader ], [ %incdec.ptr88, %while.body81 ]
-  %c.3 = phi i8 [ %18, %vaarg.end67 ], [ %c.1262, %if.end47 ], [ %12, %while.cond77.preheader ], [ %19, %while.body81 ]
+  %pFormatCurrent.3 = phi ptr [ %incdec.ptr74, %vaarg.end67 ], [ %pFormatCurrent.1207, %if.end47 ], [ %incdec.ptr53, %while.cond77.preheader ], [ %incdec.ptr88, %while.body81 ]
+  %c.3 = phi i8 [ %16, %vaarg.end67 ], [ %c.1208, %if.end47 ], [ %10, %while.cond77.preheader ], [ %17, %while.body81 ]
   switch i8 %c.3, label %if.end186 [
     i8 104, label %sw.bb93
     i8 108, label %sw.bb101
@@ -4124,16 +4065,16 @@ if.end91:                                         ; preds = %while.body81, %whil
 
 sw.bb93:                                          ; preds = %if.end91
   %arrayidx = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 1
-  %20 = load i8, ptr %arrayidx, align 1
-  %cmp95 = icmp eq i8 %20, 104
+  %18 = load i8, ptr %arrayidx, align 1
+  %cmp95 = icmp eq i8 %18, 104
   %spec.select150 = select i1 %cmp95, i32 1, i32 2
   %spec.select151 = select i1 %cmp95, ptr %arrayidx, ptr %pFormatCurrent.3
   br label %if.then184
 
 sw.bb101:                                         ; preds = %if.end91
   %arrayidx102 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 1
-  %21 = load i8, ptr %arrayidx102, align 1
-  %cmp104 = icmp eq i8 %21, 108
+  %19 = load i8, ptr %arrayidx102, align 1
+  %cmp104 = icmp eq i8 %19, 108
   %spec.select152 = select i1 %cmp104, i32 5, i32 4
   %spec.select153 = select i1 %cmp104, ptr %arrayidx102, ptr %pFormatCurrent.3
   br label %if.then184
@@ -4152,8 +4093,8 @@ sw.bb119:                                         ; preds = %if.end91
 
 sw.bb121:                                         ; preds = %if.end91
   %arrayidx122 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 1
-  %22 = load i8, ptr %arrayidx122, align 1
-  switch i8 %22, label %if.else175 [
+  %20 = load i8, ptr %arrayidx122, align 1
+  switch i8 %20, label %if.else175 [
     i8 56, label %if.then184
     i8 49, label %land.lhs.true
     i8 51, label %land.lhs.true142
@@ -4162,38 +4103,38 @@ sw.bb121:                                         ; preds = %if.end91
 
 land.lhs.true:                                    ; preds = %sw.bb121
   %arrayidx132 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %23 = load i8, ptr %arrayidx132, align 1
-  switch i8 %23, label %if.else175 [
+  %21 = load i8, ptr %arrayidx132, align 1
+  switch i8 %21, label %if.else175 [
     i8 54, label %if.then184
     i8 50, label %land.lhs.true168
   ]
 
 land.lhs.true142:                                 ; preds = %sw.bb121
   %arrayidx143 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %24 = load i8, ptr %arrayidx143, align 1
-  %cmp145 = icmp eq i8 %24, 50
+  %22 = load i8, ptr %arrayidx143, align 1
+  %cmp145 = icmp eq i8 %22, 50
   br i1 %cmp145, label %if.then184, label %if.else175
 
 land.lhs.true153:                                 ; preds = %sw.bb121
   %arrayidx154 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %25 = load i8, ptr %arrayidx154, align 1
-  %cmp156 = icmp eq i8 %25, 52
+  %23 = load i8, ptr %arrayidx154, align 1
+  %cmp156 = icmp eq i8 %23, 52
   br i1 %cmp156, label %if.then184, label %if.else175
 
 land.lhs.true168:                                 ; preds = %land.lhs.true
   %arrayidx169 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 3
-  %26 = load i8, ptr %arrayidx169, align 1
-  %cmp171 = icmp eq i8 %26, 56
+  %24 = load i8, ptr %arrayidx169, align 1
+  %cmp171 = icmp eq i8 %24, 56
   br i1 %cmp171, label %if.then184, label %if.else175
 
 if.else175:                                       ; preds = %land.lhs.true, %sw.bb121, %land.lhs.true153, %land.lhs.true142, %land.lhs.true168
-  store i32 %fd.sroa.0.3260, ptr %pFormatData, align 4
+  store i32 %fd.sroa.0.3206, ptr %pFormatData, align 4
   %fd.sroa.13.0.pFormatData.sroa_idx58 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 4
   store i32 %fd.sroa.13.0, ptr %fd.sroa.13.0.pFormatData.sroa_idx58, align 4
   %fd.sroa.17.0.pFormatData.sroa_idx64 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 8
   store i8 %fd.sroa.17.0, ptr %fd.sroa.17.0.pFormatData.sroa_idx64, align 4
   %fd.sroa.1971.0.pFormatData.sroa_idx74 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 12
-  store i32 %fd.sroa.1971.1259, ptr %fd.sroa.1971.0.pFormatData.sroa_idx74, align 4
+  store i32 %fd.sroa.1971.1205, ptr %fd.sroa.1971.0.pFormatData.sroa_idx74, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx82 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 16
   store i32 %fd.sroa.26.0, ptr %fd.sroa.26.0.pFormatData.sroa_idx82, align 4
   %fd.sroa.39.0.pFormatData.sroa_idx92 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 20
@@ -4211,13 +4152,13 @@ if.then184:                                       ; preds = %land.lhs.true, %sw.
   %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true168 ], [ 15, %land.lhs.true153 ], [ 14, %land.lhs.true142 ], [ 13, %land.lhs.true ], [ 12, %sw.bb121 ], [ 10, %sw.bb119 ], [ 8, %sw.bb117 ], [ 7, %sw.bb115 ], [ 6, %sw.bb113 ], [ 5, %if.end91 ], [ %spec.select150, %sw.bb93 ], [ %spec.select152, %sw.bb101 ]
   %pFormatCurrent.5.ph = phi ptr [ %arrayidx169, %land.lhs.true168 ], [ %arrayidx154, %land.lhs.true153 ], [ %arrayidx143, %land.lhs.true142 ], [ %arrayidx132, %land.lhs.true ], [ %arrayidx122, %sw.bb121 ], [ %pFormatCurrent.3, %sw.bb119 ], [ %pFormatCurrent.3, %sw.bb117 ], [ %pFormatCurrent.3, %sw.bb115 ], [ %pFormatCurrent.3, %sw.bb113 ], [ %pFormatCurrent.3, %if.end91 ], [ %spec.select151, %sw.bb93 ], [ %spec.select153, %sw.bb101 ]
   %incdec.ptr185 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.ph, i64 1
-  %27 = load i8, ptr %incdec.ptr185, align 1
+  %25 = load i8, ptr %incdec.ptr185, align 1
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end91, %if.then184
   %fd.sroa.39.0133 = phi i32 [ %fd.sroa.39.0.ph, %if.then184 ], [ 0, %if.end91 ]
   %pFormatCurrent.6 = phi ptr [ %incdec.ptr185, %if.then184 ], [ %pFormatCurrent.3, %if.end91 ]
-  %c.6 = phi i8 [ %27, %if.then184 ], [ %c.3, %if.end91 ]
+  %c.6 = phi i8 [ %25, %if.then184 ], [ %c.3, %if.end91 ]
   %conv187 = sext i8 %c.6 to i32
   switch i8 %c.6, label %sw.epilog250 [
     i8 98, label %sw.bb190
@@ -4247,8 +4188,8 @@ sw.bb190:                                         ; preds = %if.end186, %if.end1
   br i1 %cmp192, label %if.end264, label %if.else195
 
 if.else195:                                       ; preds = %sw.bb190
-  %cmp197 = icmp eq i32 %fd.sroa.0.3260, 2
-  %spec.select154 = select i1 %cmp197, i32 1, i32 %fd.sroa.0.3260
+  %cmp197 = icmp eq i32 %fd.sroa.0.3206, 2
+  %spec.select154 = select i1 %cmp197, i32 1, i32 %fd.sroa.0.3206
   br label %sw.epilog250
 
 sw.bb202:                                         ; preds = %if.end186, %if.end186
@@ -4262,8 +4203,8 @@ sw.bb208:                                         ; preds = %if.end186, %if.end1
   br i1 %cmp210, label %if.end264.fold.split, label %sw.epilog250
 
 sw.bb218:                                         ; preds = %if.end186, %if.end186, %if.end186, %if.end186
-  %cmp220 = icmp eq i32 %fd.sroa.0.3260, 2
-  %spec.select155 = select i1 %cmp220, i32 %alignmentNonZeroFill.0244255, i32 %fd.sroa.0.3260
+  %cmp220 = icmp eq i32 %fd.sroa.0.3206, 2
+  %spec.select155 = select i1 %cmp220, i32 %alignmentNonZeroFill.0, i32 %fd.sroa.0.3206
   switch i32 %fd.sroa.39.0133, label %sw.epilog250 [
     i32 2, label %if.then226
     i32 4, label %if.then231
@@ -4277,19 +4218,19 @@ if.then231:                                       ; preds = %sw.bb218
   br label %sw.epilog250
 
 if.then236:                                       ; preds = %sw.bb218
-  %28 = and i8 %c.6, -17
-  %or.cond = icmp eq i8 %28, 99
+  %26 = and i8 %c.6, -17
+  %or.cond = icmp eq i8 %26, 99
   %spec.select156 = select i1 %or.cond, i32 1, i32 11
   br label %sw.epilog250
 
 sw.epilog250:                                     ; preds = %if.then236, %if.else195, %sw.bb202, %sw.bb218, %if.then226, %if.then231, %sw.bb208, %if.end186
   %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0133, %if.end186 ], [ %fd.sroa.39.0133, %sw.bb208 ], [ %fd.sroa.39.0133, %sw.bb218 ], [ 1, %if.then226 ], [ 11, %if.then231 ], [ %fd.sroa.39.0133, %if.else195 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ %spec.select156, %if.then236 ]
-  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3260, %if.end186 ], [ %fd.sroa.0.3260, %sw.bb208 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then226 ], [ %spec.select155, %if.then231 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3260, %sw.bb202 ], [ %spec.select155, %if.then236 ]
-  %29 = add i32 %fd.sroa.26.0, -4097
-  %or.cond1 = icmp ult i32 %29, 2147479550
-  %30 = and i8 %c.6, -33
-  %31 = icmp ne i8 %30, 83
-  %or.cond3 = and i1 %or.cond1, %31
+  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3206, %if.end186 ], [ %fd.sroa.0.3206, %sw.bb208 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then226 ], [ %spec.select155, %if.then231 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3206, %sw.bb202 ], [ %spec.select155, %if.then236 ]
+  %27 = add i32 %fd.sroa.26.0, -4097
+  %or.cond1 = icmp ult i32 %27, 2147479550
+  %28 = and i8 %c.6, -33
+  %29 = icmp ne i8 %28, 83
+  %or.cond3 = and i1 %or.cond1, %29
   %spec.select157 = select i1 %or.cond3, i32 0, i32 %conv187
   br label %if.end264
 
@@ -4297,7 +4238,7 @@ if.end264.fold.split:                             ; preds = %sw.bb202, %sw.bb208
   br label %if.end264
 
 if.end264:                                        ; preds = %sw.epilog250, %sw.bb202, %if.end264.fold.split, %if.end186, %sw.bb190
-  %fd.sroa.0.4146 = phi i32 [ %fd.sroa.0.3260, %sw.bb190 ], [ %fd.sroa.0.3260, %sw.bb202 ], [ %fd.sroa.0.3260, %if.end186 ], [ %fd.sroa.0.3260, %if.end264.fold.split ], [ %fd.sroa.0.4, %sw.epilog250 ]
+  %fd.sroa.0.4146 = phi i32 [ %fd.sroa.0.3206, %sw.bb190 ], [ %fd.sroa.0.3206, %sw.bb202 ], [ %fd.sroa.0.3206, %if.end186 ], [ %fd.sroa.0.3206, %if.end264.fold.split ], [ %fd.sroa.0.4, %sw.epilog250 ]
   %fd.sroa.26.2145 = phi i32 [ 1, %sw.bb190 ], [ 1, %sw.bb202 ], [ 2, %if.end186 ], [ 6, %if.end264.fold.split ], [ %fd.sroa.26.0, %sw.epilog250 ]
   %fd.sroa.39.1144 = phi i32 [ %fd.sroa.39.0133, %sw.bb190 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ 15, %if.end186 ], [ %fd.sroa.39.0133, %if.end264.fold.split ], [ %fd.sroa.39.1, %sw.epilog250 ]
   %fd.sroa.60.1 = phi i32 [ %conv187, %sw.bb190 ], [ %conv187, %sw.bb202 ], [ 120, %if.end186 ], [ %conv187, %if.end264.fold.split ], [ %spec.select157, %sw.epilog250 ]
@@ -4307,7 +4248,7 @@ if.end264:                                        ; preds = %sw.epilog250, %sw.b
   %fd.sroa.17.0.pFormatData.sroa_idx66 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 8
   store i8 %fd.sroa.17.0, ptr %fd.sroa.17.0.pFormatData.sroa_idx66, align 4
   %fd.sroa.1971.0.pFormatData.sroa_idx76 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 12
-  store i32 %fd.sroa.1971.1259, ptr %fd.sroa.1971.0.pFormatData.sroa_idx76, align 4
+  store i32 %fd.sroa.1971.1205, ptr %fd.sroa.1971.0.pFormatData.sroa_idx76, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx84 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 16
   store i32 %fd.sroa.26.2145, ptr %fd.sroa.26.0.pFormatData.sroa_idx84, align 4
   %fd.sroa.39.0.pFormatData.sroa_idx94 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 20
@@ -5920,10 +5861,10 @@ for.cond:                                         ; preds = %entry, %for.inc
   %fd.sroa.0.0 = phi i32 [ %fd.sroa.0.1, %for.inc ], [ 1, %entry ]
   %pFormatCurrent.0 = phi ptr [ %incdec.ptr22, %for.inc ], [ %incdec.ptr, %entry ]
   %alignmentNonZeroFill.0 = phi i32 [ %alignmentNonZeroFill.2, %for.inc ], [ 0, %entry ]
-  %c.0 = phi i16 [ %3, %for.inc ], [ %0, %entry ]
+  %c.0 = phi i16 [ %1, %for.inc ], [ %0, %entry ]
   switch i16 %c.0, label %while.cond.preheader [
-    i16 45, label %for.cond.jt0.preheader
-    i16 43, label %for.inc
+    i16 45, label %for.inc
+    i16 43, label %sw.bb2
     i16 32, label %sw.bb3
     i16 35, label %sw.bb9
     i16 39, label %sw.bb10
@@ -5931,53 +5872,16 @@ for.cond:                                         ; preds = %entry, %for.inc
     i16 42, label %if.then25
   ]
 
-for.cond.jt2:                                     ; preds = %for.cond.jt2.preheader, %for.cond.jt2
-  %pFormatCurrent.0235 = phi ptr [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond.jt2.preheader ]
-  %incdec.ptr22.jt2 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0235, i64 2
-  %1 = load i16, ptr %incdec.ptr22.jt2, align 2
-  switch i16 %1, label %while.cond.preheader [
-    i16 45, label %for.cond.jt0.preheader
-    i16 43, label %for.inc.loopexit306
-    i16 32, label %sw.bb3
-    i16 35, label %for.inc
-    i16 39, label %sw.bb10
-    i16 48, label %for.cond.jt2
-    i16 42, label %if.then25
-  ]
-
-for.cond.jt0.preheader:                           ; preds = %for.cond.jt2, %for.cond, %sw.bb11
-  %pFormatCurrent.0228.ph = phi ptr [ %pFormatCurrent.0, %sw.bb11 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %alignmentNonZeroFill.2.jt0.ph = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  br label %for.cond.jt0
-
-for.cond.jt0:                                     ; preds = %for.cond.jt0, %for.cond.jt0.preheader
-  %pFormatCurrent.0228 = phi ptr [ %pFormatCurrent.0228.ph, %for.cond.jt0.preheader ], [ %incdec.ptr22.jt0, %for.cond.jt0 ]
-  %incdec.ptr22.jt0 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0228, i64 2
-  %2 = load i16, ptr %incdec.ptr22.jt0, align 2
-  switch i16 %2, label %while.cond.preheader [
-    i16 45, label %for.inc.loopexit
-    i16 43, label %for.inc.loopexit283
-    i16 32, label %sw.bb3
-    i16 35, label %for.inc
-    i16 39, label %sw.bb10
-    i16 48, label %for.cond.jt0
-    i16 42, label %if.then25
-  ]
-
-while.cond.preheader:                             ; preds = %for.cond, %for.cond.jt2, %for.cond.jt0
-  %c.0245 = phi i16 [ %2, %for.cond.jt0 ], [ %1, %for.cond.jt2 ], [ %c.0, %for.cond ]
-  %alignmentNonZeroFill.0237 = phi i32 [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %for.cond ]
-  %pFormatCurrent.0227 = phi ptr [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond ]
-  %fd.sroa.0.0221 = phi i32 [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %for.cond ]
-  %conv34169 = zext i16 %c.0245 to i32
+while.cond.preheader:                             ; preds = %for.cond
+  %conv34169 = zext i16 %c.0 to i32
   %sub35170 = add nsw i32 %conv34169, -48
   %cmp36171 = icmp ult i32 %sub35170, 10
   br i1 %cmp36171, label %while.body, label %if.end47
 
-sw.bb3:                                           ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0239 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0230 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0223 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb2:                                           ; preds = %for.cond
+  br label %for.inc
+
+sw.bb3:                                           ; preds = %for.cond
   %cmp5.not = icmp eq i32 %fd.sroa.13.0, 2
   %spec.select147 = select i1 %cmp5.not, i32 2, i32 3
   br label %for.inc
@@ -5985,60 +5889,40 @@ sw.bb3:                                           ; preds = %for.cond.jt2, %for.
 sw.bb9:                                           ; preds = %for.cond
   br label %for.inc
 
-sw.bb10:                                          ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0241 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0232 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0225 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb10:                                          ; preds = %for.cond
   br label %for.inc
 
 sw.bb11:                                          ; preds = %for.cond
-  switch i32 %fd.sroa.0.0, label %for.cond.jt2.preheader [
-    i32 0, label %for.cond.jt0.preheader
-    i32 2, label %if.end19
+  switch i32 %fd.sroa.0.0, label %if.then17 [
+    i32 0, label %for.inc
+    i32 2, label %for.inc
   ]
 
-for.cond.jt2.preheader:                           ; preds = %if.end19, %sw.bb11
-  %alignmentNonZeroFill.2.jt2.ph = phi i32 [ %alignmentNonZeroFill.0, %if.end19 ], [ %fd.sroa.0.0, %sw.bb11 ]
-  br label %for.cond.jt2
-
-if.end19:                                         ; preds = %sw.bb11
-  br label %for.cond.jt2.preheader
-
-for.inc.loopexit283:                              ; preds = %for.cond.jt0
+if.then17:                                        ; preds = %sw.bb11
   br label %for.inc
 
-for.inc.loopexit:                                 ; preds = %for.cond.jt0
-  br label %for.inc
-
-for.inc.loopexit306:                              ; preds = %for.cond.jt2
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit306, %for.inc.loopexit, %for.inc.loopexit283, %for.cond, %sw.bb3, %sw.bb9, %sw.bb10
-  %pFormatCurrent.0236 = phi ptr [ %pFormatCurrent.0230, %sw.bb3 ], [ %pFormatCurrent.0232, %sw.bb10 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.inc.loopexit283 ], [ %incdec.ptr22.jt0, %for.inc.loopexit ], [ %incdec.ptr22.jt2, %for.inc.loopexit306 ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb9 ]
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb3 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit283 ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit306 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %for.cond.jt0 ], [ %fd.sroa.67.0, %sw.bb9 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit283 ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit306 ], [ 1, %for.cond.jt2 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb9 ]
-  %fd.sroa.13.1 = phi i32 [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb10 ], [ 2, %for.cond ], [ 2, %for.inc.loopexit283 ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb9 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0223, %sw.bb3 ], [ %fd.sroa.0.0225, %sw.bb10 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit283 ], [ 0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb9 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0239, %sw.bb3 ], [ %alignmentNonZeroFill.0241, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit283 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit306 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ]
-  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0236, i64 2
-  %3 = load i16, ptr %incdec.ptr22, align 2
+for.inc:                                          ; preds = %sw.bb11, %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb9 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb11 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
+  %fd.sroa.13.1 = phi i32 [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb11 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 2
+  %1 = load i16, ptr %incdec.ptr22, align 2
   br label %for.cond, !llvm.loop !105
 
-if.then25:                                        ; preds = %for.cond, %for.cond.jt2, %for.cond.jt0
-  %alignmentNonZeroFill.0242 = phi i32 [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %for.cond ]
-  %pFormatCurrent.0233 = phi ptr [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond ]
-  %fd.sroa.0.0226 = phi i32 [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %for.cond ]
+if.then25:                                        ; preds = %for.cond
   %gp_offset = load i32, ptr %pArguments, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then25
-  %4 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
-  %reg_save_area = load ptr, ptr %4, align 8
-  %5 = zext nneg i32 %gp_offset to i64
-  %6 = getelementptr i8, ptr %reg_save_area, i64 %5
-  %7 = add nuw nsw i32 %gp_offset, 8
-  store i32 %7, ptr %pArguments, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
+  %reg_save_area = load ptr, ptr %2, align 8
+  %3 = zext nneg i32 %gp_offset to i64
+  %4 = getelementptr i8, ptr %reg_save_area, i64 %3
+  %5 = add nuw nsw i32 %gp_offset, 8
+  store i32 %5, ptr %pArguments, align 8
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then25
@@ -6049,34 +5933,33 @@ vaarg.in_mem:                                     ; preds = %if.then25
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %6, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %8 = load i32, ptr %vaarg.addr, align 4
-  %cmp27 = icmp slt i32 %8, 0
-  %spec.select148 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %spec.select149 = select i1 %cmp27, i32 0, i32 %fd.sroa.0.0226
-  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0233, i64 2
-  %9 = load i16, ptr %incdec.ptr33, align 2
+  %vaarg.addr = phi ptr [ %4, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
+  %6 = load i32, ptr %vaarg.addr, align 4
+  %cmp27 = icmp slt i32 %6, 0
+  %spec.select148 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %spec.select149 = select i1 %cmp27, i32 0, i32 %fd.sroa.0.0
+  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 2
+  %7 = load i16, ptr %incdec.ptr33, align 2
   br label %if.end42
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %sub35174 = phi i32 [ %sub35, %while.body ], [ %sub35170, %while.cond.preheader ]
-  %pFormatCurrent.2173 = phi ptr [ %incdec.ptr41, %while.body ], [ %pFormatCurrent.0227, %while.cond.preheader ]
+  %pFormatCurrent.2173 = phi ptr [ %incdec.ptr41, %while.body ], [ %pFormatCurrent.0, %while.cond.preheader ]
   %fd.sroa.1971.2172 = phi i32 [ %add, %while.body ], [ 0, %while.cond.preheader ]
   %mul = mul nsw i32 %fd.sroa.1971.2172, 10
   %add = add nsw i32 %sub35174, %mul
   %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.2173, i64 2
-  %10 = load i16, ptr %incdec.ptr41, align 2
-  %conv34 = zext i16 %10 to i32
+  %8 = load i16, ptr %incdec.ptr41, align 2
+  %conv34 = zext i16 %8 to i32
   %sub35 = add nsw i32 %conv34, -48
   %cmp36 = icmp ult i32 %sub35, 10
   br i1 %cmp36, label %while.body, label %if.end42, !llvm.loop !106
 
 if.end42:                                         ; preds = %while.body, %vaarg.end
-  %alignmentNonZeroFill.0244 = phi i32 [ %alignmentNonZeroFill.0242, %vaarg.end ], [ %alignmentNonZeroFill.0237, %while.body ]
   %fd.sroa.1971.1 = phi i32 [ %spec.select148, %vaarg.end ], [ %add, %while.body ]
-  %fd.sroa.0.3 = phi i32 [ %spec.select149, %vaarg.end ], [ %fd.sroa.0.0221, %while.body ]
+  %fd.sroa.0.3 = phi i32 [ %spec.select149, %vaarg.end ], [ %fd.sroa.0.0, %while.body ]
   %pFormatCurrent.1 = phi ptr [ %incdec.ptr33, %vaarg.end ], [ %incdec.ptr41, %while.body ]
-  %c.1 = phi i16 [ %9, %vaarg.end ], [ %10, %while.body ]
+  %c.1 = phi i16 [ %7, %vaarg.end ], [ %8, %while.body ]
   %cmp44 = icmp sgt i32 %fd.sroa.1971.1, 4096
   br i1 %cmp44, label %if.then45, label %if.end47
 
@@ -6104,25 +5987,24 @@ if.then45:                                        ; preds = %if.end42
   br label %return
 
 if.end47:                                         ; preds = %while.cond.preheader, %if.end42
-  %c.1262 = phi i16 [ %c.1, %if.end42 ], [ %c.0245, %while.cond.preheader ]
-  %pFormatCurrent.1261 = phi ptr [ %pFormatCurrent.1, %if.end42 ], [ %pFormatCurrent.0227, %while.cond.preheader ]
-  %fd.sroa.0.3260 = phi i32 [ %fd.sroa.0.3, %if.end42 ], [ %fd.sroa.0.0221, %while.cond.preheader ]
-  %fd.sroa.1971.1259 = phi i32 [ %fd.sroa.1971.1, %if.end42 ], [ 0, %while.cond.preheader ]
-  %alignmentNonZeroFill.0244255 = phi i32 [ %alignmentNonZeroFill.0244, %if.end42 ], [ %alignmentNonZeroFill.0237, %while.cond.preheader ]
+  %c.1208 = phi i16 [ %c.1, %if.end42 ], [ %c.0, %while.cond.preheader ]
+  %pFormatCurrent.1207 = phi ptr [ %pFormatCurrent.1, %if.end42 ], [ %pFormatCurrent.0, %while.cond.preheader ]
+  %fd.sroa.0.3206 = phi i32 [ %fd.sroa.0.3, %if.end42 ], [ %fd.sroa.0.0, %while.cond.preheader ]
+  %fd.sroa.1971.1205 = phi i32 [ %fd.sroa.1971.1, %if.end42 ], [ 0, %while.cond.preheader ]
   %mDecimalPoint = getelementptr inbounds nuw i8, ptr %pFormatData, i64 28
-  %11 = load i32, ptr %mDecimalPoint, align 4
-  %12 = trunc i32 %11 to i16
-  %cmp51 = icmp eq i16 %c.1262, %12
+  %9 = load i32, ptr %mDecimalPoint, align 4
+  %10 = trunc i32 %9 to i16
+  %cmp51 = icmp eq i16 %c.1208, %10
   br i1 %cmp51, label %if.then52, label %if.end91
 
 if.then52:                                        ; preds = %if.end47
-  %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1261, i64 2
-  %13 = load i16, ptr %incdec.ptr53, align 2
-  %cmp55 = icmp eq i16 %13, 42
+  %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1207, i64 2
+  %11 = load i16, ptr %incdec.ptr53, align 2
+  %cmp55 = icmp eq i16 %11, 42
   br i1 %cmp55, label %if.then56, label %while.cond77.preheader
 
 while.cond77.preheader:                           ; preds = %if.then52
-  %conv78177 = zext i16 %13 to i32
+  %conv78177 = zext i16 %11 to i32
   %sub79178 = add nsw i32 %conv78177, -48
   %cmp80179 = icmp ult i32 %sub79178, 10
   br i1 %cmp80179, label %while.body81, label %if.end91
@@ -6133,12 +6015,12 @@ if.then56:                                        ; preds = %if.then52
   br i1 %fits_in_gp60, label %vaarg.in_reg61, label %vaarg.in_mem63
 
 vaarg.in_reg61:                                   ; preds = %if.then56
-  %14 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
-  %reg_save_area62 = load ptr, ptr %14, align 8
-  %15 = zext nneg i32 %gp_offset59 to i64
-  %16 = getelementptr i8, ptr %reg_save_area62, i64 %15
-  %17 = add nuw nsw i32 %gp_offset59, 8
-  store i32 %17, ptr %pArguments, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
+  %reg_save_area62 = load ptr, ptr %12, align 8
+  %13 = zext nneg i32 %gp_offset59 to i64
+  %14 = getelementptr i8, ptr %reg_save_area62, i64 %13
+  %15 = add nuw nsw i32 %gp_offset59, 8
+  store i32 %15, ptr %pArguments, align 8
   br label %vaarg.end67
 
 vaarg.in_mem63:                                   ; preds = %if.then56
@@ -6149,11 +6031,11 @@ vaarg.in_mem63:                                   ; preds = %if.then56
   br label %vaarg.end67
 
 vaarg.end67:                                      ; preds = %vaarg.in_mem63, %vaarg.in_reg61
-  %vaarg.addr68 = phi ptr [ %16, %vaarg.in_reg61 ], [ %overflow_arg_area65, %vaarg.in_mem63 ]
-  %18 = load i32, ptr %vaarg.addr68, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
-  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1261, i64 4
-  %19 = load i16, ptr %incdec.ptr74, align 2
+  %vaarg.addr68 = phi ptr [ %14, %vaarg.in_reg61 ], [ %overflow_arg_area65, %vaarg.in_mem63 ]
+  %16 = load i32, ptr %vaarg.addr68, align 4
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
+  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1207, i64 4
+  %17 = load i16, ptr %incdec.ptr74, align 2
   br label %if.end91
 
 while.body81:                                     ; preds = %while.cond77.preheader, %while.body81
@@ -6163,16 +6045,16 @@ while.body81:                                     ; preds = %while.cond77.prehea
   %mul83 = mul nsw i32 %fd.sroa.26.1180, 10
   %add86 = add nsw i32 %sub79182, %mul83
   %incdec.ptr88 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.4181, i64 2
-  %20 = load i16, ptr %incdec.ptr88, align 2
-  %conv78 = zext i16 %20 to i32
+  %18 = load i16, ptr %incdec.ptr88, align 2
+  %conv78 = zext i16 %18 to i32
   %sub79 = add nsw i32 %conv78, -48
   %cmp80 = icmp ult i32 %sub79, 10
   br i1 %cmp80, label %while.body81, label %if.end91, !llvm.loop !107
 
 if.end91:                                         ; preds = %while.body81, %while.cond77.preheader, %vaarg.end67, %if.end47
   %fd.sroa.26.0 = phi i32 [ %spec.select, %vaarg.end67 ], [ 2147483647, %if.end47 ], [ 0, %while.cond77.preheader ], [ %add86, %while.body81 ]
-  %pFormatCurrent.3 = phi ptr [ %incdec.ptr74, %vaarg.end67 ], [ %pFormatCurrent.1261, %if.end47 ], [ %incdec.ptr53, %while.cond77.preheader ], [ %incdec.ptr88, %while.body81 ]
-  %c.3 = phi i16 [ %19, %vaarg.end67 ], [ %c.1262, %if.end47 ], [ %13, %while.cond77.preheader ], [ %20, %while.body81 ]
+  %pFormatCurrent.3 = phi ptr [ %incdec.ptr74, %vaarg.end67 ], [ %pFormatCurrent.1207, %if.end47 ], [ %incdec.ptr53, %while.cond77.preheader ], [ %incdec.ptr88, %while.body81 ]
+  %c.3 = phi i16 [ %17, %vaarg.end67 ], [ %c.1208, %if.end47 ], [ %11, %while.cond77.preheader ], [ %18, %while.body81 ]
   switch i16 %c.3, label %if.end186 [
     i16 104, label %sw.bb93
     i16 108, label %sw.bb101
@@ -6186,16 +6068,16 @@ if.end91:                                         ; preds = %while.body81, %whil
 
 sw.bb93:                                          ; preds = %if.end91
   %arrayidx = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %21 = load i16, ptr %arrayidx, align 2
-  %cmp95 = icmp eq i16 %21, 104
+  %19 = load i16, ptr %arrayidx, align 2
+  %cmp95 = icmp eq i16 %19, 104
   %spec.select150 = select i1 %cmp95, i32 1, i32 2
   %spec.select151 = select i1 %cmp95, ptr %arrayidx, ptr %pFormatCurrent.3
   br label %if.then184
 
 sw.bb101:                                         ; preds = %if.end91
   %arrayidx102 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %22 = load i16, ptr %arrayidx102, align 2
-  %cmp104 = icmp eq i16 %22, 108
+  %20 = load i16, ptr %arrayidx102, align 2
+  %cmp104 = icmp eq i16 %20, 108
   %spec.select152 = select i1 %cmp104, i32 5, i32 4
   %spec.select153 = select i1 %cmp104, ptr %arrayidx102, ptr %pFormatCurrent.3
   br label %if.then184
@@ -6214,8 +6096,8 @@ sw.bb119:                                         ; preds = %if.end91
 
 sw.bb121:                                         ; preds = %if.end91
   %arrayidx122 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %23 = load i16, ptr %arrayidx122, align 2
-  switch i16 %23, label %if.else175 [
+  %21 = load i16, ptr %arrayidx122, align 2
+  switch i16 %21, label %if.else175 [
     i16 56, label %if.then184
     i16 49, label %land.lhs.true
     i16 51, label %land.lhs.true142
@@ -6224,38 +6106,38 @@ sw.bb121:                                         ; preds = %if.end91
 
 land.lhs.true:                                    ; preds = %sw.bb121
   %arrayidx132 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %24 = load i16, ptr %arrayidx132, align 2
-  switch i16 %24, label %if.else175 [
+  %22 = load i16, ptr %arrayidx132, align 2
+  switch i16 %22, label %if.else175 [
     i16 54, label %if.then184
     i16 50, label %land.lhs.true168
   ]
 
 land.lhs.true142:                                 ; preds = %sw.bb121
   %arrayidx143 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %25 = load i16, ptr %arrayidx143, align 2
-  %cmp145 = icmp eq i16 %25, 50
+  %23 = load i16, ptr %arrayidx143, align 2
+  %cmp145 = icmp eq i16 %23, 50
   br i1 %cmp145, label %if.then184, label %if.else175
 
 land.lhs.true153:                                 ; preds = %sw.bb121
   %arrayidx154 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %26 = load i16, ptr %arrayidx154, align 2
-  %cmp156 = icmp eq i16 %26, 52
+  %24 = load i16, ptr %arrayidx154, align 2
+  %cmp156 = icmp eq i16 %24, 52
   br i1 %cmp156, label %if.then184, label %if.else175
 
 land.lhs.true168:                                 ; preds = %land.lhs.true
   %arrayidx169 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 6
-  %27 = load i16, ptr %arrayidx169, align 2
-  %cmp171 = icmp eq i16 %27, 56
+  %25 = load i16, ptr %arrayidx169, align 2
+  %cmp171 = icmp eq i16 %25, 56
   br i1 %cmp171, label %if.then184, label %if.else175
 
 if.else175:                                       ; preds = %land.lhs.true, %sw.bb121, %land.lhs.true153, %land.lhs.true142, %land.lhs.true168
-  store i32 %fd.sroa.0.3260, ptr %pFormatData, align 4
+  store i32 %fd.sroa.0.3206, ptr %pFormatData, align 4
   %fd.sroa.13.0.pFormatData.sroa_idx58 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 4
   store i32 %fd.sroa.13.0, ptr %fd.sroa.13.0.pFormatData.sroa_idx58, align 4
   %fd.sroa.17.0.pFormatData.sroa_idx64 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 8
   store i8 %fd.sroa.17.0, ptr %fd.sroa.17.0.pFormatData.sroa_idx64, align 4
   %fd.sroa.1971.0.pFormatData.sroa_idx74 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 12
-  store i32 %fd.sroa.1971.1259, ptr %fd.sroa.1971.0.pFormatData.sroa_idx74, align 4
+  store i32 %fd.sroa.1971.1205, ptr %fd.sroa.1971.0.pFormatData.sroa_idx74, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx82 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 16
   store i32 %fd.sroa.26.0, ptr %fd.sroa.26.0.pFormatData.sroa_idx82, align 4
   %fd.sroa.39.0.pFormatData.sroa_idx92 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 20
@@ -6273,13 +6155,13 @@ if.then184:                                       ; preds = %land.lhs.true, %sw.
   %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true168 ], [ 15, %land.lhs.true153 ], [ 14, %land.lhs.true142 ], [ 13, %land.lhs.true ], [ 12, %sw.bb121 ], [ 10, %sw.bb119 ], [ 8, %sw.bb117 ], [ 7, %sw.bb115 ], [ 6, %sw.bb113 ], [ 5, %if.end91 ], [ %spec.select150, %sw.bb93 ], [ %spec.select152, %sw.bb101 ]
   %pFormatCurrent.5.ph = phi ptr [ %arrayidx169, %land.lhs.true168 ], [ %arrayidx154, %land.lhs.true153 ], [ %arrayidx143, %land.lhs.true142 ], [ %arrayidx132, %land.lhs.true ], [ %arrayidx122, %sw.bb121 ], [ %pFormatCurrent.3, %sw.bb119 ], [ %pFormatCurrent.3, %sw.bb117 ], [ %pFormatCurrent.3, %sw.bb115 ], [ %pFormatCurrent.3, %sw.bb113 ], [ %pFormatCurrent.3, %if.end91 ], [ %spec.select151, %sw.bb93 ], [ %spec.select153, %sw.bb101 ]
   %incdec.ptr185 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.ph, i64 2
-  %28 = load i16, ptr %incdec.ptr185, align 2
+  %26 = load i16, ptr %incdec.ptr185, align 2
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end91, %if.then184
   %fd.sroa.39.0133 = phi i32 [ %fd.sroa.39.0.ph, %if.then184 ], [ 0, %if.end91 ]
   %pFormatCurrent.6 = phi ptr [ %incdec.ptr185, %if.then184 ], [ %pFormatCurrent.3, %if.end91 ]
-  %c.6 = phi i16 [ %28, %if.then184 ], [ %c.3, %if.end91 ]
+  %c.6 = phi i16 [ %26, %if.then184 ], [ %c.3, %if.end91 ]
   %conv187 = zext i16 %c.6 to i32
   switch i16 %c.6, label %sw.epilog250 [
     i16 98, label %sw.bb190
@@ -6309,8 +6191,8 @@ sw.bb190:                                         ; preds = %if.end186, %if.end1
   br i1 %cmp192, label %if.end264, label %if.else195
 
 if.else195:                                       ; preds = %sw.bb190
-  %cmp197 = icmp eq i32 %fd.sroa.0.3260, 2
-  %spec.select154 = select i1 %cmp197, i32 1, i32 %fd.sroa.0.3260
+  %cmp197 = icmp eq i32 %fd.sroa.0.3206, 2
+  %spec.select154 = select i1 %cmp197, i32 1, i32 %fd.sroa.0.3206
   br label %sw.epilog250
 
 sw.bb202:                                         ; preds = %if.end186, %if.end186
@@ -6324,8 +6206,8 @@ sw.bb208:                                         ; preds = %if.end186, %if.end1
   br i1 %cmp210, label %if.end264.fold.split, label %sw.epilog250
 
 sw.bb218:                                         ; preds = %if.end186, %if.end186, %if.end186, %if.end186
-  %cmp220 = icmp eq i32 %fd.sroa.0.3260, 2
-  %spec.select155 = select i1 %cmp220, i32 %alignmentNonZeroFill.0244255, i32 %fd.sroa.0.3260
+  %cmp220 = icmp eq i32 %fd.sroa.0.3206, 2
+  %spec.select155 = select i1 %cmp220, i32 %alignmentNonZeroFill.0, i32 %fd.sroa.0.3206
   switch i32 %fd.sroa.39.0133, label %sw.epilog250 [
     i32 2, label %if.then226
     i32 4, label %if.then231
@@ -6339,19 +6221,19 @@ if.then231:                                       ; preds = %sw.bb218
   br label %sw.epilog250
 
 if.then236:                                       ; preds = %sw.bb218
-  %29 = and i16 %c.6, -17
-  %or.cond = icmp eq i16 %29, 99
+  %27 = and i16 %c.6, -17
+  %or.cond = icmp eq i16 %27, 99
   %spec.select156 = select i1 %or.cond, i32 11, i32 1
   br label %sw.epilog250
 
 sw.epilog250:                                     ; preds = %if.then236, %if.else195, %sw.bb202, %sw.bb218, %if.then226, %if.then231, %sw.bb208, %if.end186
   %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0133, %if.end186 ], [ %fd.sroa.39.0133, %sw.bb208 ], [ %fd.sroa.39.0133, %sw.bb218 ], [ 1, %if.then226 ], [ 11, %if.then231 ], [ %fd.sroa.39.0133, %if.else195 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ %spec.select156, %if.then236 ]
-  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3260, %if.end186 ], [ %fd.sroa.0.3260, %sw.bb208 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then226 ], [ %spec.select155, %if.then231 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3260, %sw.bb202 ], [ %spec.select155, %if.then236 ]
-  %30 = add i32 %fd.sroa.26.0, -4097
-  %or.cond1 = icmp ult i32 %30, 2147479550
-  %31 = and i32 %conv187, 65503
-  %32 = icmp ne i32 %31, 83
-  %or.cond3 = and i1 %or.cond1, %32
+  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3206, %if.end186 ], [ %fd.sroa.0.3206, %sw.bb208 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then226 ], [ %spec.select155, %if.then231 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3206, %sw.bb202 ], [ %spec.select155, %if.then236 ]
+  %28 = add i32 %fd.sroa.26.0, -4097
+  %or.cond1 = icmp ult i32 %28, 2147479550
+  %29 = and i32 %conv187, 65503
+  %30 = icmp ne i32 %29, 83
+  %or.cond3 = and i1 %or.cond1, %30
   %spec.select157 = select i1 %or.cond3, i32 0, i32 %conv187
   br label %if.end264
 
@@ -6359,7 +6241,7 @@ if.end264.fold.split:                             ; preds = %sw.bb202, %sw.bb208
   br label %if.end264
 
 if.end264:                                        ; preds = %sw.epilog250, %sw.bb202, %if.end264.fold.split, %if.end186, %sw.bb190
-  %fd.sroa.0.4146 = phi i32 [ %fd.sroa.0.3260, %sw.bb190 ], [ %fd.sroa.0.3260, %sw.bb202 ], [ %fd.sroa.0.3260, %if.end186 ], [ %fd.sroa.0.3260, %if.end264.fold.split ], [ %fd.sroa.0.4, %sw.epilog250 ]
+  %fd.sroa.0.4146 = phi i32 [ %fd.sroa.0.3206, %sw.bb190 ], [ %fd.sroa.0.3206, %sw.bb202 ], [ %fd.sroa.0.3206, %if.end186 ], [ %fd.sroa.0.3206, %if.end264.fold.split ], [ %fd.sroa.0.4, %sw.epilog250 ]
   %fd.sroa.26.2145 = phi i32 [ 1, %sw.bb190 ], [ 1, %sw.bb202 ], [ 2, %if.end186 ], [ 6, %if.end264.fold.split ], [ %fd.sroa.26.0, %sw.epilog250 ]
   %fd.sroa.39.1144 = phi i32 [ %fd.sroa.39.0133, %sw.bb190 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ 15, %if.end186 ], [ %fd.sroa.39.0133, %if.end264.fold.split ], [ %fd.sroa.39.1, %sw.epilog250 ]
   %fd.sroa.60.1 = phi i32 [ %conv187, %sw.bb190 ], [ %conv187, %sw.bb202 ], [ 120, %if.end186 ], [ %conv187, %if.end264.fold.split ], [ %spec.select157, %sw.epilog250 ]
@@ -6369,7 +6251,7 @@ if.end264:                                        ; preds = %sw.epilog250, %sw.b
   %fd.sroa.17.0.pFormatData.sroa_idx66 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 8
   store i8 %fd.sroa.17.0, ptr %fd.sroa.17.0.pFormatData.sroa_idx66, align 4
   %fd.sroa.1971.0.pFormatData.sroa_idx76 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 12
-  store i32 %fd.sroa.1971.1259, ptr %fd.sroa.1971.0.pFormatData.sroa_idx76, align 4
+  store i32 %fd.sroa.1971.1205, ptr %fd.sroa.1971.0.pFormatData.sroa_idx76, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx84 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 16
   store i32 %fd.sroa.26.2145, ptr %fd.sroa.26.0.pFormatData.sroa_idx84, align 4
   %fd.sroa.39.0.pFormatData.sroa_idx94 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 20
@@ -7971,10 +7853,10 @@ for.cond:                                         ; preds = %entry, %for.inc
   %fd.sroa.0.0 = phi i32 [ %fd.sroa.0.1, %for.inc ], [ 1, %entry ]
   %pFormatCurrent.0 = phi ptr [ %incdec.ptr21, %for.inc ], [ %incdec.ptr, %entry ]
   %alignmentNonZeroFill.0 = phi i32 [ %alignmentNonZeroFill.2, %for.inc ], [ 0, %entry ]
-  %c.0 = phi i32 [ %3, %for.inc ], [ %0, %entry ]
+  %c.0 = phi i32 [ %1, %for.inc ], [ %0, %entry ]
   switch i32 %c.0, label %while.cond.preheader [
-    i32 45, label %for.cond.jt0.preheader
-    i32 43, label %for.inc
+    i32 45, label %for.inc
+    i32 43, label %sw.bb1
     i32 32, label %sw.bb2
     i32 35, label %sw.bb8
     i32 39, label %sw.bb9
@@ -7982,52 +7864,15 @@ for.cond:                                         ; preds = %entry, %for.inc
     i32 42, label %if.then23
   ]
 
-for.cond.jt2:                                     ; preds = %for.cond.jt2.preheader, %for.cond.jt2
-  %pFormatCurrent.0236 = phi ptr [ %incdec.ptr21.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond.jt2.preheader ]
-  %incdec.ptr21.jt2 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0236, i64 4
-  %1 = load i32, ptr %incdec.ptr21.jt2, align 4
-  switch i32 %1, label %while.cond.preheader [
-    i32 45, label %for.cond.jt0.preheader
-    i32 43, label %for.inc.loopexit307
-    i32 32, label %sw.bb2
-    i32 35, label %for.inc
-    i32 39, label %sw.bb9
-    i32 48, label %for.cond.jt2
-    i32 42, label %if.then23
-  ]
-
-for.cond.jt0.preheader:                           ; preds = %for.cond.jt2, %for.cond, %sw.bb10
-  %pFormatCurrent.0229.ph = phi ptr [ %pFormatCurrent.0, %sw.bb10 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt2, %for.cond.jt2 ]
-  %alignmentNonZeroFill.2.jt0.ph = phi i32 [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  br label %for.cond.jt0
-
-for.cond.jt0:                                     ; preds = %for.cond.jt0, %for.cond.jt0.preheader
-  %pFormatCurrent.0229 = phi ptr [ %pFormatCurrent.0229.ph, %for.cond.jt0.preheader ], [ %incdec.ptr21.jt0, %for.cond.jt0 ]
-  %incdec.ptr21.jt0 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0229, i64 4
-  %2 = load i32, ptr %incdec.ptr21.jt0, align 4
-  switch i32 %2, label %while.cond.preheader [
-    i32 45, label %for.inc.loopexit
-    i32 43, label %for.inc.loopexit284
-    i32 32, label %sw.bb2
-    i32 35, label %for.inc
-    i32 39, label %sw.bb9
-    i32 48, label %for.cond.jt0
-    i32 42, label %if.then23
-  ]
-
-while.cond.preheader:                             ; preds = %for.cond, %for.cond.jt2, %for.cond.jt0
-  %c.0246 = phi i32 [ %2, %for.cond.jt0 ], [ %1, %for.cond.jt2 ], [ %c.0, %for.cond ]
-  %alignmentNonZeroFill.0238 = phi i32 [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %for.cond ]
-  %pFormatCurrent.0228 = phi ptr [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond ]
-  %fd.sroa.0.0222 = phi i32 [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %for.cond ]
-  %sub32172 = add i32 %c.0246, -48
+while.cond.preheader:                             ; preds = %for.cond
+  %sub32172 = add i32 %c.0, -48
   %cmp33173 = icmp ult i32 %sub32172, 10
   br i1 %cmp33173, label %while.body, label %if.end43
 
-sw.bb2:                                           ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0240 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0231 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0224 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb1:                                           ; preds = %for.cond
+  br label %for.inc
+
+sw.bb2:                                           ; preds = %for.cond
   %cmp4.not = icmp eq i32 %fd.sroa.13.0, 2
   %spec.select150 = select i1 %cmp4.not, i32 2, i32 3
   br label %for.inc
@@ -8035,60 +7880,40 @@ sw.bb2:                                           ; preds = %for.cond.jt2, %for.
 sw.bb8:                                           ; preds = %for.cond
   br label %for.inc
 
-sw.bb9:                                           ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0242 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0233 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0226 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb9:                                           ; preds = %for.cond
   br label %for.inc
 
 sw.bb10:                                          ; preds = %for.cond
-  switch i32 %fd.sroa.0.0, label %for.cond.jt2.preheader [
-    i32 0, label %for.cond.jt0.preheader
-    i32 2, label %if.end18
+  switch i32 %fd.sroa.0.0, label %if.then16 [
+    i32 0, label %for.inc
+    i32 2, label %for.inc
   ]
 
-for.cond.jt2.preheader:                           ; preds = %if.end18, %sw.bb10
-  %alignmentNonZeroFill.2.jt2.ph = phi i32 [ %alignmentNonZeroFill.0, %if.end18 ], [ %fd.sroa.0.0, %sw.bb10 ]
-  br label %for.cond.jt2
-
-if.end18:                                         ; preds = %sw.bb10
-  br label %for.cond.jt2.preheader
-
-for.inc.loopexit284:                              ; preds = %for.cond.jt0
+if.then16:                                        ; preds = %sw.bb10
   br label %for.inc
 
-for.inc.loopexit:                                 ; preds = %for.cond.jt0
-  br label %for.inc
-
-for.inc.loopexit307:                              ; preds = %for.cond.jt2
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit307, %for.inc.loopexit, %for.inc.loopexit284, %for.cond, %sw.bb2, %sw.bb8, %sw.bb9
-  %pFormatCurrent.0237 = phi ptr [ %pFormatCurrent.0231, %sw.bb2 ], [ %pFormatCurrent.0233, %sw.bb9 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt0, %for.inc.loopexit284 ], [ %incdec.ptr21.jt0, %for.inc.loopexit ], [ %incdec.ptr21.jt2, %for.inc.loopexit307 ], [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb8 ]
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit284 ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit307 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %for.cond.jt0 ], [ %fd.sroa.67.0, %sw.bb8 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %sw.bb9 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit284 ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit307 ], [ 1, %for.cond.jt2 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb8 ]
-  %fd.sroa.13.1 = phi i32 [ %spec.select150, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %for.cond ], [ 2, %for.inc.loopexit284 ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit307 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb8 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0224, %sw.bb2 ], [ %fd.sroa.0.0226, %sw.bb9 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit284 ], [ 0, %for.inc.loopexit ], [ 2, %for.inc.loopexit307 ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb8 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0240, %sw.bb2 ], [ %alignmentNonZeroFill.0242, %sw.bb9 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit284 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit307 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb8 ]
-  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0237, i64 4
-  %3 = load i32, ptr %incdec.ptr21, align 4
+for.inc:                                          ; preds = %sw.bb10, %sw.bb2, %if.then16, %for.cond, %sw.bb10, %sw.bb1, %sw.bb8, %sw.bb9
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb1 ], [ %fd.sroa.67.0, %sw.bb8 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb10 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then16 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb10 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb1 ], [ 1, %sw.bb8 ], [ %fd.sroa.17.0, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then16 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %sw.bb10 ]
+  %fd.sroa.13.1 = phi i32 [ 2, %sw.bb1 ], [ %fd.sroa.13.0, %sw.bb8 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then16 ], [ %spec.select150, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb10 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb1 ], [ %fd.sroa.0.0, %sw.bb8 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb10 ], [ 0, %for.cond ], [ 2, %if.then16 ], [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb10 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb1 ], [ %alignmentNonZeroFill.0, %sw.bb8 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then16 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb10 ]
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 4
+  %1 = load i32, ptr %incdec.ptr21, align 4
   br label %for.cond, !llvm.loop !139
 
-if.then23:                                        ; preds = %for.cond, %for.cond.jt2, %for.cond.jt0
-  %alignmentNonZeroFill.0243 = phi i32 [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %for.cond ]
-  %pFormatCurrent.0234 = phi ptr [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %for.cond ]
-  %fd.sroa.0.0227 = phi i32 [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %for.cond ]
+if.then23:                                        ; preds = %for.cond
   %gp_offset = load i32, ptr %pArguments, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then23
-  %4 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
-  %reg_save_area = load ptr, ptr %4, align 8
-  %5 = zext nneg i32 %gp_offset to i64
-  %6 = getelementptr i8, ptr %reg_save_area, i64 %5
-  %7 = add nuw nsw i32 %gp_offset, 8
-  store i32 %7, ptr %pArguments, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
+  %reg_save_area = load ptr, ptr %2, align 8
+  %3 = zext nneg i32 %gp_offset to i64
+  %4 = getelementptr i8, ptr %reg_save_area, i64 %3
+  %5 = add nuw nsw i32 %gp_offset, 8
+  store i32 %5, ptr %pArguments, align 8
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then23
@@ -8099,33 +7924,32 @@ vaarg.in_mem:                                     ; preds = %if.then23
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %6, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %8 = load i32, ptr %vaarg.addr, align 4
-  %cmp25 = icmp slt i32 %8, 0
-  %spec.select151 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %spec.select152 = select i1 %cmp25, i32 0, i32 %fd.sroa.0.0227
-  %incdec.ptr31 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0234, i64 4
-  %9 = load i32, ptr %incdec.ptr31, align 4
+  %vaarg.addr = phi ptr [ %4, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
+  %6 = load i32, ptr %vaarg.addr, align 4
+  %cmp25 = icmp slt i32 %6, 0
+  %spec.select151 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %spec.select152 = select i1 %cmp25, i32 0, i32 %fd.sroa.0.0
+  %incdec.ptr31 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 4
+  %7 = load i32, ptr %incdec.ptr31, align 4
   br label %if.end38
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %sub32176 = phi i32 [ %sub32, %while.body ], [ %sub32172, %while.cond.preheader ]
-  %pFormatCurrent.2175 = phi ptr [ %incdec.ptr37, %while.body ], [ %pFormatCurrent.0228, %while.cond.preheader ]
+  %pFormatCurrent.2175 = phi ptr [ %incdec.ptr37, %while.body ], [ %pFormatCurrent.0, %while.cond.preheader ]
   %fd.sroa.1974.2174 = phi i32 [ %add, %while.body ], [ 0, %while.cond.preheader ]
   %mul = mul nsw i32 %fd.sroa.1974.2174, 10
   %add = add i32 %sub32176, %mul
   %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.2175, i64 4
-  %10 = load i32, ptr %incdec.ptr37, align 4
-  %sub32 = add i32 %10, -48
+  %8 = load i32, ptr %incdec.ptr37, align 4
+  %sub32 = add i32 %8, -48
   %cmp33 = icmp ult i32 %sub32, 10
   br i1 %cmp33, label %while.body, label %if.end38, !llvm.loop !140
 
 if.end38:                                         ; preds = %while.body, %vaarg.end
-  %alignmentNonZeroFill.0245 = phi i32 [ %alignmentNonZeroFill.0243, %vaarg.end ], [ %alignmentNonZeroFill.0238, %while.body ]
   %fd.sroa.1974.1 = phi i32 [ %spec.select151, %vaarg.end ], [ %add, %while.body ]
-  %fd.sroa.0.3 = phi i32 [ %spec.select152, %vaarg.end ], [ %fd.sroa.0.0222, %while.body ]
+  %fd.sroa.0.3 = phi i32 [ %spec.select152, %vaarg.end ], [ %fd.sroa.0.0, %while.body ]
   %pFormatCurrent.1 = phi ptr [ %incdec.ptr31, %vaarg.end ], [ %incdec.ptr37, %while.body ]
-  %c.1 = phi i32 [ %9, %vaarg.end ], [ %10, %while.body ]
+  %c.1 = phi i32 [ %7, %vaarg.end ], [ %8, %while.body ]
   %cmp40 = icmp sgt i32 %fd.sroa.1974.1, 4096
   br i1 %cmp40, label %if.then41, label %if.end43
 
@@ -8153,24 +7977,23 @@ if.then41:                                        ; preds = %if.end38
   br label %return
 
 if.end43:                                         ; preds = %while.cond.preheader, %if.end38
-  %c.1263 = phi i32 [ %c.1, %if.end38 ], [ %c.0246, %while.cond.preheader ]
-  %pFormatCurrent.1262 = phi ptr [ %pFormatCurrent.1, %if.end38 ], [ %pFormatCurrent.0228, %while.cond.preheader ]
-  %fd.sroa.0.3261 = phi i32 [ %fd.sroa.0.3, %if.end38 ], [ %fd.sroa.0.0222, %while.cond.preheader ]
-  %fd.sroa.1974.1260 = phi i32 [ %fd.sroa.1974.1, %if.end38 ], [ 0, %while.cond.preheader ]
-  %alignmentNonZeroFill.0245256 = phi i32 [ %alignmentNonZeroFill.0245, %if.end38 ], [ %alignmentNonZeroFill.0238, %while.cond.preheader ]
+  %c.1209 = phi i32 [ %c.1, %if.end38 ], [ %c.0, %while.cond.preheader ]
+  %pFormatCurrent.1208 = phi ptr [ %pFormatCurrent.1, %if.end38 ], [ %pFormatCurrent.0, %while.cond.preheader ]
+  %fd.sroa.0.3207 = phi i32 [ %fd.sroa.0.3, %if.end38 ], [ %fd.sroa.0.0, %while.cond.preheader ]
+  %fd.sroa.1974.1206 = phi i32 [ %fd.sroa.1974.1, %if.end38 ], [ 0, %while.cond.preheader ]
   %mDecimalPoint = getelementptr inbounds nuw i8, ptr %pFormatData, i64 28
-  %11 = load i32, ptr %mDecimalPoint, align 4
-  %cmp44 = icmp eq i32 %c.1263, %11
+  %9 = load i32, ptr %mDecimalPoint, align 4
+  %cmp44 = icmp eq i32 %c.1209, %9
   br i1 %cmp44, label %if.then45, label %if.end81
 
 if.then45:                                        ; preds = %if.end43
-  %incdec.ptr46 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1262, i64 4
-  %12 = load i32, ptr %incdec.ptr46, align 4
-  %cmp47 = icmp eq i32 %12, 42
+  %incdec.ptr46 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1208, i64 4
+  %10 = load i32, ptr %incdec.ptr46, align 4
+  %cmp47 = icmp eq i32 %10, 42
   br i1 %cmp47, label %if.then48, label %while.cond69.preheader
 
 while.cond69.preheader:                           ; preds = %if.then45
-  %sub70179 = add i32 %12, -48
+  %sub70179 = add i32 %10, -48
   %cmp71180 = icmp ult i32 %sub70179, 10
   br i1 %cmp71180, label %while.body72, label %if.end81
 
@@ -8180,12 +8003,12 @@ if.then48:                                        ; preds = %if.then45
   br i1 %fits_in_gp52, label %vaarg.in_reg53, label %vaarg.in_mem55
 
 vaarg.in_reg53:                                   ; preds = %if.then48
-  %13 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
-  %reg_save_area54 = load ptr, ptr %13, align 8
-  %14 = zext nneg i32 %gp_offset51 to i64
-  %15 = getelementptr i8, ptr %reg_save_area54, i64 %14
-  %16 = add nuw nsw i32 %gp_offset51, 8
-  store i32 %16, ptr %pArguments, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %pArguments, i64 16
+  %reg_save_area54 = load ptr, ptr %11, align 8
+  %12 = zext nneg i32 %gp_offset51 to i64
+  %13 = getelementptr i8, ptr %reg_save_area54, i64 %12
+  %14 = add nuw nsw i32 %gp_offset51, 8
+  store i32 %14, ptr %pArguments, align 8
   br label %vaarg.end59
 
 vaarg.in_mem55:                                   ; preds = %if.then48
@@ -8196,11 +8019,11 @@ vaarg.in_mem55:                                   ; preds = %if.then48
   br label %vaarg.end59
 
 vaarg.end59:                                      ; preds = %vaarg.in_mem55, %vaarg.in_reg53
-  %vaarg.addr60 = phi ptr [ %15, %vaarg.in_reg53 ], [ %overflow_arg_area57, %vaarg.in_mem55 ]
-  %17 = load i32, ptr %vaarg.addr60, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
-  %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1262, i64 8
-  %18 = load i32, ptr %incdec.ptr66, align 4
+  %vaarg.addr60 = phi ptr [ %13, %vaarg.in_reg53 ], [ %overflow_arg_area57, %vaarg.in_mem55 ]
+  %15 = load i32, ptr %vaarg.addr60, align 4
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.1208, i64 8
+  %16 = load i32, ptr %incdec.ptr66, align 4
   br label %if.end81
 
 while.body72:                                     ; preds = %while.cond69.preheader, %while.body72
@@ -8210,15 +8033,15 @@ while.body72:                                     ; preds = %while.cond69.prehea
   %mul74 = mul nsw i32 %fd.sroa.26.1181, 10
   %add76 = add i32 %sub70183, %mul74
   %incdec.ptr78 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.4182, i64 4
-  %19 = load i32, ptr %incdec.ptr78, align 4
-  %sub70 = add i32 %19, -48
+  %17 = load i32, ptr %incdec.ptr78, align 4
+  %sub70 = add i32 %17, -48
   %cmp71 = icmp ult i32 %sub70, 10
   br i1 %cmp71, label %while.body72, label %if.end81, !llvm.loop !141
 
 if.end81:                                         ; preds = %while.body72, %while.cond69.preheader, %vaarg.end59, %if.end43
   %fd.sroa.26.0 = phi i32 [ %spec.select, %vaarg.end59 ], [ 2147483647, %if.end43 ], [ 0, %while.cond69.preheader ], [ %add76, %while.body72 ]
-  %pFormatCurrent.3 = phi ptr [ %incdec.ptr66, %vaarg.end59 ], [ %pFormatCurrent.1262, %if.end43 ], [ %incdec.ptr46, %while.cond69.preheader ], [ %incdec.ptr78, %while.body72 ]
-  %c.3 = phi i32 [ %18, %vaarg.end59 ], [ %c.1263, %if.end43 ], [ %12, %while.cond69.preheader ], [ %19, %while.body72 ]
+  %pFormatCurrent.3 = phi ptr [ %incdec.ptr66, %vaarg.end59 ], [ %pFormatCurrent.1208, %if.end43 ], [ %incdec.ptr46, %while.cond69.preheader ], [ %incdec.ptr78, %while.body72 ]
+  %c.3 = phi i32 [ %16, %vaarg.end59 ], [ %c.1209, %if.end43 ], [ %10, %while.cond69.preheader ], [ %17, %while.body72 ]
   switch i32 %c.3, label %if.end163 [
     i32 104, label %sw.bb82
     i32 108, label %sw.bb89
@@ -8232,16 +8055,16 @@ if.end81:                                         ; preds = %while.body72, %whil
 
 sw.bb82:                                          ; preds = %if.end81
   %arrayidx = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %20 = load i32, ptr %arrayidx, align 4
-  %cmp83 = icmp eq i32 %20, 104
+  %18 = load i32, ptr %arrayidx, align 4
+  %cmp83 = icmp eq i32 %18, 104
   %spec.select153 = select i1 %cmp83, i32 1, i32 2
   %spec.select154 = select i1 %cmp83, ptr %arrayidx, ptr %pFormatCurrent.3
   br label %if.then161
 
 sw.bb89:                                          ; preds = %if.end81
   %arrayidx90 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %21 = load i32, ptr %arrayidx90, align 4
-  %cmp91 = icmp eq i32 %21, 108
+  %19 = load i32, ptr %arrayidx90, align 4
+  %cmp91 = icmp eq i32 %19, 108
   %spec.select155 = select i1 %cmp91, i32 5, i32 4
   %spec.select156 = select i1 %cmp91, ptr %arrayidx90, ptr %pFormatCurrent.3
   br label %if.then161
@@ -8260,8 +8083,8 @@ sw.bb106:                                         ; preds = %if.end81
 
 sw.bb108:                                         ; preds = %if.end81
   %arrayidx109 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %22 = load i32, ptr %arrayidx109, align 4
-  switch i32 %22, label %if.else152 [
+  %20 = load i32, ptr %arrayidx109, align 4
+  switch i32 %20, label %if.else152 [
     i32 56, label %if.then161
     i32 49, label %land.lhs.true
     i32 51, label %land.lhs.true125
@@ -8270,38 +8093,38 @@ sw.bb108:                                         ; preds = %if.end81
 
 land.lhs.true:                                    ; preds = %sw.bb108
   %arrayidx117 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 8
-  %23 = load i32, ptr %arrayidx117, align 4
-  switch i32 %23, label %if.else152 [
+  %21 = load i32, ptr %arrayidx117, align 4
+  switch i32 %21, label %if.else152 [
     i32 54, label %if.then161
     i32 50, label %land.lhs.true146
   ]
 
 land.lhs.true125:                                 ; preds = %sw.bb108
   %arrayidx126 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 8
-  %24 = load i32, ptr %arrayidx126, align 4
-  %cmp127 = icmp eq i32 %24, 50
+  %22 = load i32, ptr %arrayidx126, align 4
+  %cmp127 = icmp eq i32 %22, 50
   br i1 %cmp127, label %if.then161, label %if.else152
 
 land.lhs.true134:                                 ; preds = %sw.bb108
   %arrayidx135 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 8
-  %25 = load i32, ptr %arrayidx135, align 4
-  %cmp136 = icmp eq i32 %25, 52
+  %23 = load i32, ptr %arrayidx135, align 4
+  %cmp136 = icmp eq i32 %23, 52
   br i1 %cmp136, label %if.then161, label %if.else152
 
 land.lhs.true146:                                 ; preds = %land.lhs.true
   %arrayidx147 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 12
-  %26 = load i32, ptr %arrayidx147, align 4
-  %cmp148 = icmp eq i32 %26, 56
+  %24 = load i32, ptr %arrayidx147, align 4
+  %cmp148 = icmp eq i32 %24, 56
   br i1 %cmp148, label %if.then161, label %if.else152
 
 if.else152:                                       ; preds = %land.lhs.true, %sw.bb108, %land.lhs.true134, %land.lhs.true125, %land.lhs.true146
-  store i32 %fd.sroa.0.3261, ptr %pFormatData, align 4
+  store i32 %fd.sroa.0.3207, ptr %pFormatData, align 4
   %fd.sroa.13.0.pFormatData.sroa_idx61 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 4
   store i32 %fd.sroa.13.0, ptr %fd.sroa.13.0.pFormatData.sroa_idx61, align 4
   %fd.sroa.17.0.pFormatData.sroa_idx67 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 8
   store i8 %fd.sroa.17.0, ptr %fd.sroa.17.0.pFormatData.sroa_idx67, align 4
   %fd.sroa.1974.0.pFormatData.sroa_idx77 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 12
-  store i32 %fd.sroa.1974.1260, ptr %fd.sroa.1974.0.pFormatData.sroa_idx77, align 4
+  store i32 %fd.sroa.1974.1206, ptr %fd.sroa.1974.0.pFormatData.sroa_idx77, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx85 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 16
   store i32 %fd.sroa.26.0, ptr %fd.sroa.26.0.pFormatData.sroa_idx85, align 4
   %fd.sroa.39.0.pFormatData.sroa_idx95 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 20
@@ -8319,13 +8142,13 @@ if.then161:                                       ; preds = %land.lhs.true, %sw.
   %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true146 ], [ 15, %land.lhs.true134 ], [ 14, %land.lhs.true125 ], [ 13, %land.lhs.true ], [ 12, %sw.bb108 ], [ 10, %sw.bb106 ], [ 8, %sw.bb104 ], [ 7, %sw.bb102 ], [ 6, %sw.bb100 ], [ 5, %if.end81 ], [ %spec.select153, %sw.bb82 ], [ %spec.select155, %sw.bb89 ]
   %pFormatCurrent.5.ph = phi ptr [ %arrayidx147, %land.lhs.true146 ], [ %arrayidx135, %land.lhs.true134 ], [ %arrayidx126, %land.lhs.true125 ], [ %arrayidx117, %land.lhs.true ], [ %arrayidx109, %sw.bb108 ], [ %pFormatCurrent.3, %sw.bb106 ], [ %pFormatCurrent.3, %sw.bb104 ], [ %pFormatCurrent.3, %sw.bb102 ], [ %pFormatCurrent.3, %sw.bb100 ], [ %pFormatCurrent.3, %if.end81 ], [ %spec.select154, %sw.bb82 ], [ %spec.select156, %sw.bb89 ]
   %incdec.ptr162 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.ph, i64 4
-  %27 = load i32, ptr %incdec.ptr162, align 4
+  %25 = load i32, ptr %incdec.ptr162, align 4
   br label %if.end163
 
 if.end163:                                        ; preds = %if.end81, %if.then161
   %fd.sroa.39.0136 = phi i32 [ %fd.sroa.39.0.ph, %if.then161 ], [ 0, %if.end81 ]
   %pFormatCurrent.6 = phi ptr [ %incdec.ptr162, %if.then161 ], [ %pFormatCurrent.3, %if.end81 ]
-  %c.6 = phi i32 [ %27, %if.then161 ], [ %c.3, %if.end81 ]
+  %c.6 = phi i32 [ %25, %if.then161 ], [ %c.3, %if.end81 ]
   switch i32 %c.6, label %sw.epilog223 [
     i32 98, label %sw.bb165
     i32 100, label %sw.bb165
@@ -8354,8 +8177,8 @@ sw.bb165:                                         ; preds = %if.end163, %if.end1
   br i1 %cmp167, label %if.end237, label %if.else170
 
 if.else170:                                       ; preds = %sw.bb165
-  %cmp172 = icmp eq i32 %fd.sroa.0.3261, 2
-  %spec.select157 = select i1 %cmp172, i32 1, i32 %fd.sroa.0.3261
+  %cmp172 = icmp eq i32 %fd.sroa.0.3207, 2
+  %spec.select157 = select i1 %cmp172, i32 1, i32 %fd.sroa.0.3207
   br label %sw.epilog223
 
 sw.bb177:                                         ; preds = %if.end163, %if.end163
@@ -8369,8 +8192,8 @@ sw.bb183:                                         ; preds = %if.end163, %if.end1
   br i1 %cmp185, label %if.end237.fold.split, label %sw.epilog223
 
 sw.bb193:                                         ; preds = %if.end163, %if.end163, %if.end163, %if.end163
-  %cmp195 = icmp eq i32 %fd.sroa.0.3261, 2
-  %spec.select158 = select i1 %cmp195, i32 %alignmentNonZeroFill.0245256, i32 %fd.sroa.0.3261
+  %cmp195 = icmp eq i32 %fd.sroa.0.3207, 2
+  %spec.select158 = select i1 %cmp195, i32 %alignmentNonZeroFill.0, i32 %fd.sroa.0.3207
   switch i32 %fd.sroa.39.0136, label %sw.epilog223 [
     i32 2, label %if.then201
     i32 4, label %if.then206
@@ -8384,19 +8207,19 @@ if.then206:                                       ; preds = %sw.bb193
   br label %sw.epilog223
 
 if.then211:                                       ; preds = %sw.bb193
-  %28 = and i32 %c.6, -17
-  %or.cond = icmp eq i32 %28, 99
+  %26 = and i32 %c.6, -17
+  %or.cond = icmp eq i32 %26, 99
   %spec.select159 = select i1 %or.cond, i32 11, i32 1
   br label %sw.epilog223
 
 sw.epilog223:                                     ; preds = %if.then211, %if.else170, %sw.bb177, %sw.bb193, %if.then201, %if.then206, %sw.bb183, %if.end163
   %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0136, %if.end163 ], [ %fd.sroa.39.0136, %sw.bb183 ], [ %fd.sroa.39.0136, %sw.bb193 ], [ 1, %if.then201 ], [ 11, %if.then206 ], [ %fd.sroa.39.0136, %if.else170 ], [ %fd.sroa.39.0136, %sw.bb177 ], [ %spec.select159, %if.then211 ]
-  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3261, %if.end163 ], [ %fd.sroa.0.3261, %sw.bb183 ], [ %spec.select158, %sw.bb193 ], [ %spec.select158, %if.then201 ], [ %spec.select158, %if.then206 ], [ %spec.select157, %if.else170 ], [ %fd.sroa.0.3261, %sw.bb177 ], [ %spec.select158, %if.then211 ]
-  %29 = add i32 %fd.sroa.26.0, -4097
-  %or.cond1 = icmp ult i32 %29, 2147479550
-  %30 = and i32 %c.6, -33
-  %31 = icmp ne i32 %30, 83
-  %or.cond3 = and i1 %or.cond1, %31
+  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3207, %if.end163 ], [ %fd.sroa.0.3207, %sw.bb183 ], [ %spec.select158, %sw.bb193 ], [ %spec.select158, %if.then201 ], [ %spec.select158, %if.then206 ], [ %spec.select157, %if.else170 ], [ %fd.sroa.0.3207, %sw.bb177 ], [ %spec.select158, %if.then211 ]
+  %27 = add i32 %fd.sroa.26.0, -4097
+  %or.cond1 = icmp ult i32 %27, 2147479550
+  %28 = and i32 %c.6, -33
+  %29 = icmp ne i32 %28, 83
+  %or.cond3 = and i1 %or.cond1, %29
   %spec.select160 = select i1 %or.cond3, i32 0, i32 %c.6
   br label %if.end237
 
@@ -8404,7 +8227,7 @@ if.end237.fold.split:                             ; preds = %sw.bb177, %sw.bb183
   br label %if.end237
 
 if.end237:                                        ; preds = %sw.epilog223, %sw.bb177, %if.end237.fold.split, %if.end163, %sw.bb165
-  %fd.sroa.0.4149 = phi i32 [ %fd.sroa.0.3261, %sw.bb165 ], [ %fd.sroa.0.3261, %sw.bb177 ], [ %fd.sroa.0.3261, %if.end163 ], [ %fd.sroa.0.3261, %if.end237.fold.split ], [ %fd.sroa.0.4, %sw.epilog223 ]
+  %fd.sroa.0.4149 = phi i32 [ %fd.sroa.0.3207, %sw.bb165 ], [ %fd.sroa.0.3207, %sw.bb177 ], [ %fd.sroa.0.3207, %if.end163 ], [ %fd.sroa.0.3207, %if.end237.fold.split ], [ %fd.sroa.0.4, %sw.epilog223 ]
   %fd.sroa.26.2148 = phi i32 [ 1, %sw.bb165 ], [ 1, %sw.bb177 ], [ 2, %if.end163 ], [ 6, %if.end237.fold.split ], [ %fd.sroa.26.0, %sw.epilog223 ]
   %fd.sroa.39.1147 = phi i32 [ %fd.sroa.39.0136, %sw.bb165 ], [ %fd.sroa.39.0136, %sw.bb177 ], [ 15, %if.end163 ], [ %fd.sroa.39.0136, %if.end237.fold.split ], [ %fd.sroa.39.1, %sw.epilog223 ]
   %fd.sroa.60.1 = phi i32 [ %c.6, %sw.bb165 ], [ %c.6, %sw.bb177 ], [ 120, %if.end163 ], [ %c.6, %if.end237.fold.split ], [ %spec.select160, %sw.epilog223 ]
@@ -8414,7 +8237,7 @@ if.end237:                                        ; preds = %sw.epilog223, %sw.b
   %fd.sroa.17.0.pFormatData.sroa_idx69 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 8
   store i8 %fd.sroa.17.0, ptr %fd.sroa.17.0.pFormatData.sroa_idx69, align 4
   %fd.sroa.1974.0.pFormatData.sroa_idx79 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 12
-  store i32 %fd.sroa.1974.1260, ptr %fd.sroa.1974.0.pFormatData.sroa_idx79, align 4
+  store i32 %fd.sroa.1974.1206, ptr %fd.sroa.1974.0.pFormatData.sroa_idx79, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx87 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 16
   store i32 %fd.sroa.26.2148, ptr %fd.sroa.26.0.pFormatData.sroa_idx87, align 4
   %fd.sroa.39.0.pFormatData.sroa_idx97 = getelementptr inbounds nuw i8, ptr %pFormatData, i64 20

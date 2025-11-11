@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon.1 = type { i32, i32 }
 %struct.anon.2 = type { ptr, ptr }
+%struct.anon.3 = type { ptr, ptr, ptr }
 %struct.anon.4 = type { ptr, ptr, ptr }
 %struct.anon.5 = type { ptr, ptr, ptr }
 %struct.test_ssl_memio_ctx = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, %struct.test_ssl_cbf, %struct.test_ssl_cbf, [65536 x i8], i32, [65536 x i8], i32 }
@@ -2189,6 +2190,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2074 = private unnamed_addr constant [20 x i8] c"(MATCH_SUITE_ERROR)\00", align 1
 @.str.2075 = private unnamed_addr constant [8 x i8] c"TLSv1_2\00", align 1
 @.str.2076 = private unnamed_addr constant [8 x i8] c"TLSv1_1\00", align 1
+@__const.test_short_session_id.params = private unnamed_addr constant [2 x %struct.anon.3] [%struct.anon.3 { ptr @wolfTLSv1_2_client_method, ptr @wolfTLSv1_2_server_method, ptr @.str.2075 }, %struct.anon.3 { ptr @wolfTLSv1_1_client_method, ptr @wolfTLSv1_1_server_method, ptr @.str.2076 }], align 16
 @.str.2077 = private unnamed_addr constant [27 x i8] c"\09Testing short ID with %s\0A\00", align 1
 @.str.2078 = private unnamed_addr constant [78 x i8] c"test_wolfSSL_client_server_nofail_memio(&client_cbf, &server_cbf, ((void*)0))\00", align 1
 @.str.2079 = private unnamed_addr constant [32 x i8] c"sess = wolfSSL_get_session(ssl)\00", align 1
@@ -4092,9 +4094,9 @@ ForceZero.exit:
   %.not24.i = icmp eq i32 %6, 0
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
-  %indvars.iv155 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next156, %.loopexit ]
-  %.1143 = phi i32 [ %.0147, %.preheader.lr.ph ], [ %.5168, %.loopexit ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %55
+  %indvars.iv155 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next156, %55 ]
+  %.1143 = phi i32 [ %.0147, %.preheader.lr.ph ], [ %.5, %55 ]
   br label %7
 
 7:                                                ; preds = %.preheader, %7
@@ -4157,117 +4159,82 @@ ForceZero.exit110:                                ; preds = %.lr.ph35.i106, %.pr
 
 23:                                               ; preds = %ForceZero.exit110, %.thread
   %indvars.iv151 = phi i64 [ 0, %ForceZero.exit110 ], [ %indvars.iv.next152, %.thread ]
-  %.2140 = phi i32 [ %.1143, %ForceZero.exit110 ], [ 0, %.thread ]
+  %.2140 = phi i32 [ %.1143, %ForceZero.exit110 ], [ %.5, %.thread ]
   %24 = icmp samesign uge i64 %indvars.iv151, %indvars.iv161
   %.not = icmp samesign ult i64 %indvars.iv151, %22
   %or.cond102 = and i1 %24, %.not
-  br i1 %or.cond102, label %.loopexit180, label %27
+  %.not167 = icmp eq i32 %.2140, 0
+  br i1 %or.cond102, label %37, label %25
 
-25:                                               ; preds = %.thread.jt0
-  %26 = icmp samesign uge i64 %indvars.iv.next152.jt0, %indvars.iv161
-  %.not.jt0 = icmp samesign ult i64 %indvars.iv.next152.jt0, %22
-  %or.cond102.jt0 = and i1 %26, %.not.jt0
-  br i1 %or.cond102.jt0, label %.loopexit180, label %28
+25:                                               ; preds = %23
+  br i1 %.not167, label %.thread, label %26
 
-27:                                               ; preds = %23
-  %.not166 = icmp eq i32 %.2140, 0
-  br i1 %.not166, label %.thread, label %29
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151
+  %28 = load i8, ptr %27, align 1, !tbaa !39
+  %.not101 = icmp eq i8 %28, 0
+  br i1 %.not101, label %29, label %.thread
 
-28:                                               ; preds = %25
-  br i1 %.not166.jt0, label %.thread, label %32
+29:                                               ; preds = %26
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82658)
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %32 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %31)
+  %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1067, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
+  %34 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %35 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %34)
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1070, i32 noundef 0, i32 noundef 0)
+  br label %.thread.sink.split
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151
-  %31 = load i8, ptr %30, align 1, !tbaa !39
-  %.not101 = icmp eq i8 %31, 0
-  br i1 %.not101, label %.loopexit181, label %.thread.jt0.preheader
+37:                                               ; preds = %23
+  br i1 %.not167, label %.thread, label %38
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next152.jt0
-  %34 = load i8, ptr %33, align 1, !tbaa !39
-  %.not101.jt0 = icmp eq i8 %34, 0
-  br i1 %.not101.jt0, label %.loopexit181, label %.thread.jt0
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151
+  %40 = load i8, ptr %39, align 1, !tbaa !39
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %.thread, label %42
 
-.loopexit181:                                     ; preds = %32, %29
-  %indvars.iv151172 = phi i64 [ %indvars.iv151, %29 ], [ %indvars.iv.next152.jt0, %32 ]
-  %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82658)
-  %36 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %37 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %36)
-  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1067, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %40 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %39)
-  %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1070, i32 noundef 0, i32 noundef 0)
-  br label %.thread.jt0.sink.split
+42:                                               ; preds = %38
+  %43 = zext i8 %40 to i32
+  %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82661)
+  %45 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %46 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %45)
+  %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %49 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %48)
+  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %43, i32 noundef 0)
+  br label %.thread.sink.split
 
-.loopexit180:                                     ; preds = %25, %23
-  %.2140174 = phi i32 [ %.2140, %23 ], [ %.5.jt0, %25 ]
-  %indvars.iv151169 = phi i64 [ %indvars.iv151, %23 ], [ %indvars.iv.next152.jt0, %25 ]
-  %.not167 = icmp eq i32 %.2140174, 0
-  br i1 %.not167, label %.thread, label %42
+.thread.sink.split:                               ; preds = %29, %42
+  %51 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %52 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %51)
+  %53 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %54 = call i32 @fflush(ptr noundef %53)
+  br label %.thread
 
-42:                                               ; preds = %.loopexit180
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151169
-  %44 = load i8, ptr %43, align 1, !tbaa !39
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %.thread.jt0.preheader, label %46
-
-46:                                               ; preds = %42
-  %47 = zext i8 %44 to i32
-  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82661)
-  %49 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %50 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %49)
-  %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
-  %52 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %53 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %52)
-  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %47, i32 noundef 0)
-  br label %.thread.jt0.sink.split
-
-.thread:                                          ; preds = %28, %.loopexit180, %27
-  %indvars.iv151170 = phi i64 [ %indvars.iv151169, %.loopexit180 ], [ %indvars.iv151, %27 ], [ %indvars.iv.next152.jt0, %28 ]
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151170, 1
+.thread:                                          ; preds = %.thread.sink.split, %38, %26, %37, %25
+  %.5 = phi i32 [ 0, %25 ], [ 0, %37 ], [ 1, %26 ], [ 1, %38 ], [ 0, %.thread.sink.split ]
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 32
-  br i1 %exitcond154.not, label %.loopexit, label %23, !llvm.loop !95
+  br i1 %exitcond154.not, label %55, label %23, !llvm.loop !95
 
-.thread.jt0.sink.split:                           ; preds = %.loopexit181, %46
-  %indvars.iv151173.ph = phi i64 [ %indvars.iv151172, %.loopexit181 ], [ %indvars.iv151169, %46 ]
-  %55 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %56 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %55)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %58 = call i32 @fflush(ptr noundef %57)
-  br label %.thread.jt0.preheader
-
-.thread.jt0.preheader:                            ; preds = %42, %29, %.thread.jt0.sink.split
-  %indvars.iv151173.ph179 = phi i64 [ %indvars.iv151173.ph, %.thread.jt0.sink.split ], [ %indvars.iv151, %29 ], [ %indvars.iv151169, %42 ]
-  %.not166.jt0.ph = phi i1 [ true, %.thread.jt0.sink.split ], [ false, %29 ], [ false, %42 ]
-  %.5.jt0.ph = phi i32 [ 0, %.thread.jt0.sink.split ], [ 1, %29 ], [ 1, %42 ]
-  br label %.thread.jt0
-
-.thread.jt0:                                      ; preds = %.thread.jt0.preheader, %32
-  %indvars.iv151173 = phi i64 [ %indvars.iv.next152.jt0, %32 ], [ %indvars.iv151173.ph179, %.thread.jt0.preheader ]
-  %.not166.jt0 = phi i1 [ false, %32 ], [ %.not166.jt0.ph, %.thread.jt0.preheader ]
-  %.5.jt0 = phi i32 [ 1, %32 ], [ %.5.jt0.ph, %.thread.jt0.preheader ]
-  %indvars.iv.next152.jt0 = add nuw nsw i64 %indvars.iv151173, 1
-  %exitcond154.not.jt0 = icmp eq i64 %indvars.iv.next152.jt0, 32
-  br i1 %exitcond154.not.jt0, label %.loopexit, label %25, !llvm.loop !95
-
-.loopexit:                                        ; preds = %.thread, %.thread.jt0
-  %.5168 = phi i32 [ %.5.jt0, %.thread.jt0 ], [ 0, %.thread ]
+55:                                               ; preds = %.thread
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next156, %indvars.iv158
   br i1 %exitcond160.not, label %._crit_edge, label %.preheader, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader134
-  %.1.lcssa = phi i32 [ %.0147, %.preheader134 ], [ %.5168, %.loopexit ]
+._crit_edge:                                      ; preds = %55, %.preheader134
+  %.1.lcssa = phi i32 [ %.0147, %.preheader134 ], [ %.5, %55 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, -1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 32
-  br i1 %exitcond164.not, label %59, label %.preheader134, !llvm.loop !97
+  br i1 %exitcond164.not, label %56, label %.preheader134, !llvm.loop !97
 
-59:                                               ; preds = %._crit_edge
-  %60 = icmp eq i32 %.1.lcssa, 2
-  %61 = select i1 %60, i32 1, i32 %.1.lcssa
+56:                                               ; preds = %._crit_edge
+  %57 = icmp eq i32 %.1.lcssa, 2
+  %58 = select i1 %57, i32 1, i32 %.1.lcssa
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  ret i32 %61
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17372,77 +17339,44 @@ define internal range(i32 0, 2) i32 @test_wc_ParseCert_Error() #0 {
 
 22:                                               ; preds = %0, %.thread
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %.thread ]
-  %.not = phi i1 [ false, %0 ], [ true, %.thread ]
+  %.056 = phi i32 [ 3, %0 ], [ %.2, %.thread ]
   %23 = getelementptr inbounds nuw %struct.testStruct, ptr %7, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16, !tbaa !130
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !132
   call void @wc_InitDecodedCert(ptr noundef nonnull %1, ptr noundef %24, i32 noundef %26, ptr noundef null) #27
-  br i1 %.not, label %.thread, label %32
+  %.not = icmp eq i32 %.056, 0
+  br i1 %.not, label %.thread, label %27
 
-27:                                               ; preds = %.thread.jt0
-  %28 = getelementptr inbounds nuw %struct.testStruct, ptr %7, i64 %indvars.iv.next.jt0
-  %29 = load ptr, ptr %28, align 16, !tbaa !130
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !132
-  call void @wc_InitDecodedCert(ptr noundef nonnull %1, ptr noundef %29, i32 noundef %31, ptr noundef null) #27
-  br i1 %.not.jt0, label %.thread, label %37
+27:                                               ; preds = %22
+  %28 = call i32 @wc_ParseCert(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, ptr noundef null) #27
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !133
+  %31 = icmp eq i32 %28, %30
+  br i1 %31, label %.thread, label %32
 
-32:                                               ; preds = %22
-  %33 = call i32 @wc_ParseCert(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, ptr noundef null) #27
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !133
-  %36 = icmp eq i32 %33, %35
-  br i1 %36, label %.thread.jt0.preheader, label %.loopexit64
+32:                                               ; preds = %27
+  %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 76364)
+  %34 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %35 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %34)
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1549, ptr noundef nonnull @.str.1555)
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %38 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %37)
+  %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %28, i32 noundef %30)
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %41 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %40)
+  %42 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %43 = call i32 @fflush(ptr noundef %42)
+  br label %.thread
 
-.thread.jt0.preheader:                            ; preds = %.loopexit64, %32
-  %indvars.iv63.ph = phi i64 [ %indvars.iv, %32 ], [ %indvars.iv62, %.loopexit64 ]
-  %.not.jt0.ph = phi i1 [ false, %32 ], [ true, %.loopexit64 ]
-  %.2.jt0.ph = phi i32 [ 1, %32 ], [ 0, %.loopexit64 ]
-  br label %.thread.jt0
-
-37:                                               ; preds = %27
-  %38 = call i32 @wc_ParseCert(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, ptr noundef null) #27
-  %39 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !133
-  %41 = icmp eq i32 %38, %40
-  br i1 %41, label %.thread.jt0, label %.loopexit64
-
-.loopexit64:                                      ; preds = %37, %32
-  %42 = phi i32 [ %35, %32 ], [ %40, %37 ]
-  %43 = phi i32 [ %33, %32 ], [ %38, %37 ]
-  %indvars.iv62 = phi i64 [ %indvars.iv, %32 ], [ %indvars.iv.next.jt0, %37 ]
-  %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 76364)
-  %45 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %46 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %45)
-  %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1549, ptr noundef nonnull @.str.1555)
-  %48 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %49 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %48)
-  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %43, i32 noundef %42)
-  %51 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %52 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %51)
-  %53 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %54 = call i32 @fflush(ptr noundef %53)
-  br label %.thread.jt0.preheader
-
-.thread:                                          ; preds = %27, %22
-  %indvars.iv60 = phi i64 [ %indvars.iv, %22 ], [ %indvars.iv.next.jt0, %27 ]
+.thread:                                          ; preds = %27, %32, %22
+  %.2 = phi i32 [ 0, %22 ], [ 0, %32 ], [ 1, %27 ]
   call void @wc_FreeDecodedCert(ptr noundef nonnull %1) #27
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv60, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !134
+  br i1 %exitcond.not, label %44, label %22, !llvm.loop !134
 
-.thread.jt0:                                      ; preds = %.thread.jt0.preheader, %37
-  %indvars.iv63 = phi i64 [ %indvars.iv.next.jt0, %37 ], [ %indvars.iv63.ph, %.thread.jt0.preheader ]
-  %.not.jt0 = phi i1 [ false, %37 ], [ %.not.jt0.ph, %.thread.jt0.preheader ]
-  %.2.jt0 = phi i32 [ 1, %37 ], [ %.2.jt0.ph, %.thread.jt0.preheader ]
-  call void @wc_FreeDecodedCert(ptr noundef nonnull %1) #27
-  %indvars.iv.next.jt0 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond.not.jt0 = icmp eq i64 %indvars.iv.next.jt0, 5
-  br i1 %exitcond.not.jt0, label %.loopexit, label %27, !llvm.loop !134
-
-.loopexit:                                        ; preds = %.thread, %.thread.jt0
-  %.259 = phi i32 [ %.2.jt0, %.thread.jt0 ], [ 0, %.thread ]
+44:                                               ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17450,7 +17384,7 @@ define internal range(i32 0, 2) i32 @test_wc_ParseCert_Error() #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.259
+  ret i32 %.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -30128,65 +30062,51 @@ define internal range(i32 0, 2) i32 @test_short_session_id() #8 {
   %fputc = tail call i32 @fputc(i32 10, ptr %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %7
+
+7:                                                ; preds = %0, %.thread
+  %8 = phi i1 [ true, %0 ], [ false, %.thread ]
+  %.05062 = phi i64 [ 0, %0 ], [ 1, %.thread ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.2077, ptr noundef nonnull @.str.2075) #28
-  store ptr @test_short_session_id_ssl_ready, ptr %4, align 8, !tbaa !159
-  store ptr @wolfTLSv1_2_client_method, ptr %1, align 8, !tbaa !160
-  store ptr @wolfTLSv1_2_server_method, ptr %2, align 8, !tbaa !160
-  %9 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %.thread.jt0.preheader, label %.loopexit
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %struct.anon.3, ptr @__const.test_short_session_id.params, i64 %.05062
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !159
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.2077, ptr noundef %12) #28
+  store ptr @test_short_session_id_ssl_ready, ptr %4, align 8, !tbaa !161
+  %14 = load ptr, ptr %10, align 8, !tbaa !162
+  store ptr %14, ptr %1, align 8, !tbaa !163
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !164
+  store ptr %16, ptr %2, align 8, !tbaa !163
+  %17 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %.thread, label %19
 
-11:                                               ; preds = %.thread.jt0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %30, i8 0, i64 104, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %31, i8 0, i64 104, i1 false)
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2077, ptr noundef nonnull @.str.2076) #28
-  store ptr @test_short_session_id_ssl_ready, ptr %4, align 8, !tbaa !159
-  store ptr @wolfTLSv1_1_client_method, ptr %1, align 8, !tbaa !160
-  store ptr @wolfTLSv1_1_server_method, ptr %2, align 8, !tbaa !160
-  %14 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %.thread.jt0, label %.loopexit
-
-.loopexit:                                        ; preds = %11, %0
-  %16 = phi i32 [ %9, %0 ], [ %14, %11 ]
-  %.0506266 = phi i64 [ 0, %0 ], [ 1, %11 ]
-  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 94759)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %18)
-  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2078, ptr noundef nonnull @.str.5)
+19:                                               ; preds = %7
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 94759)
   %21 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %21)
-  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %16, i32 noundef 1)
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %21)
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2078, ptr noundef nonnull @.str.5)
   %24 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %24)
-  %26 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %27 = tail call i32 @fflush(ptr noundef %26)
-  br label %.thread.jt0.preheader
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %24)
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %17, i32 noundef 1)
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %27)
+  %29 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %30 = tail call i32 @fflush(ptr noundef %29)
+  br label %.critedge
 
-.thread.jt0.preheader:                            ; preds = %.loopexit, %0
-  %.ph = phi i1 [ true, %0 ], [ false, %.loopexit ]
-  %.0506267.ph = phi i64 [ 0, %0 ], [ %.0506266, %.loopexit ]
-  %.155.jt0.ph = phi i32 [ 1, %0 ], [ 0, %.loopexit ]
-  %28 = icmp eq i64 %.0506267.ph, 0
-  %29 = and i1 %28, %.ph
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.thread.jt0
+.thread:                                          ; preds = %7
+  br i1 %8, label %7, label %.critedge, !llvm.loop !165
 
-.thread.jt0:                                      ; preds = %.thread.jt0.preheader, %11
-  %.155.jt0 = phi i32 [ 1, %11 ], [ %.155.jt0.ph, %.thread.jt0.preheader ]
-  %or.cond.jt0 = phi i1 [ false, %11 ], [ %29, %.thread.jt0.preheader ]
-  br i1 %or.cond.jt0, label %11, label %.critedge, !llvm.loop !161
-
-.critedge:                                        ; preds = %.thread.jt0
+.critedge:                                        ; preds = %.thread, %19
+  %.15567 = phi i32 [ 0, %19 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.155.jt0
+  ret i32 %.15567
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -30369,9 +30289,9 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131104) %5, i8 0, i64 131096, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 131096
-  store ptr @.str.2083, ptr %6, align 8, !tbaa !162
+  store ptr @.str.2083, ptr %6, align 8, !tbaa !166
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 65544
-  store ptr @.str.2083, ptr %7, align 8, !tbaa !163
+  store ptr @.str.2083, ptr %7, align 8, !tbaa !167
   %8 = call i32 @test_memio_setup(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @wolfTLSv1_2_client_method, ptr noundef nonnull @wolfTLSv1_2_server_method) #27
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.critedge587, label %.critedge589
@@ -30681,7 +30601,7 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
 211:                                              ; preds = %.critedge167, %186
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %212 = icmp slt i64 %indvars.iv.next, %182
-  br i1 %212, label %.critedge167, label %.critedge.loopexit.loopexit, !llvm.loop !164
+  br i1 %212, label %.critedge167, label %.critedge.loopexit.loopexit, !llvm.loop !168
 
 .critedge165:                                     ; preds = %.thread
   %.val = load i8, ptr %164, align 1, !tbaa !39
@@ -30953,7 +30873,7 @@ define internal range(i32 0, 2) i32 @test_tls_multi_handshakes_one_record() #0 {
   %81 = add nsw i32 %73, %79
   %82 = load i32, ptr %62, align 8, !tbaa !158
   %83 = icmp slt i32 %81, %82
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !165
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge265
   %.0250.lcssa = phi i32 [ 5, %.critedge265 ], [ %80, %.lr.ph ]
@@ -32270,7 +32190,7 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   store ptr null, ptr %2, align 8, !tbaa !144
   %.0.fr = freeze i32 %.45
   %.0849.fr = freeze i32 %.45894
-  br i1 %10, label %9, label %611, !llvm.loop !166
+  br i1 %10, label %9, label %611, !llvm.loop !170
 
 611:                                              ; preds = %.thread1308
   %612 = icmp eq i32 %.0.fr, 2
@@ -32308,98 +32228,88 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged() #0 {
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 0, ptr @test_tls_cert_store_unchanged_before_hashes_idx, align 8, !tbaa !56
-  store i64 0, ptr @test_tls_cert_store_unchanged_before_hashes, align 8
-  store i64 0, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
-  store i64 0, ptr @test_tls_cert_store_unchanged_after_hashes, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1, i8 0, i64 112, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
-  store ptr @test_tls_cert_store_unchanged_ctx_ready, ptr %3, align 8, !tbaa !167
-  store ptr @test_tls_cert_store_unchanged_ctx_ready, ptr %4, align 8, !tbaa !167
-  store ptr @test_tls_cert_store_unchanged_ssl_ready, ptr %5, align 8, !tbaa !159
-  store ptr @test_tls_cert_store_unchanged_ssl_ready, ptr %6, align 8, !tbaa !159
-  store ptr @test_tls_cert_store_unchanged_ctx_cleanup, ptr %10, align 8, !tbaa !168
-  store ptr @test_tls_cert_store_unchanged_ctx_cleanup, ptr %11, align 8, !tbaa !168
-  store ptr @.str.2117, ptr %7, align 8, !tbaa !169
-  store ptr @.str.2118, ptr %8, align 8, !tbaa !169
-  store ptr @.str.994, ptr %9, align 8, !tbaa !170
-  %14 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %.thread.thread, label %.thread.thread109
+  br label %14
 
-16:                                               ; preds = %.thread99.jt0
+14:                                               ; preds = %0, %.thread99
+  %.0119 = phi i32 [ 3, %0 ], [ %.4, %.thread99 ]
+  %15 = phi i1 [ true, %0 ], [ false, %.thread99 ]
+  %.080117 = phi i1 [ false, %0 ], [ true, %.thread99 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1, i8 0, i64 112, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   store i64 0, ptr @test_tls_cert_store_unchanged_before_hashes_idx, align 8, !tbaa !56
   store i64 0, ptr @test_tls_cert_store_unchanged_before_hashes, align 8
   store i64 0, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
   store i64 0, ptr @test_tls_cert_store_unchanged_after_hashes, align 8
-  store ptr @test_tls_cert_store_unchanged_ctx_ready, ptr %3, align 8, !tbaa !167
-  store ptr @test_tls_cert_store_unchanged_ctx_ready, ptr %4, align 8, !tbaa !167
-  store ptr @test_tls_cert_store_unchanged_ssl_ready, ptr %5, align 8, !tbaa !159
-  store ptr @test_tls_cert_store_unchanged_ssl_ready, ptr %6, align 8, !tbaa !159
+  store ptr @test_tls_cert_store_unchanged_ctx_ready, ptr %3, align 8, !tbaa !171
+  store ptr @test_tls_cert_store_unchanged_ctx_ready, ptr %4, align 8, !tbaa !171
+  store ptr @test_tls_cert_store_unchanged_ssl_ready, ptr %5, align 8, !tbaa !161
+  store ptr @test_tls_cert_store_unchanged_ssl_ready, ptr %6, align 8, !tbaa !161
+  br i1 %.080117, label %17, label %16
+
+16:                                               ; preds = %14
+  store ptr @test_tls_cert_store_unchanged_ctx_cleanup, ptr %10, align 8, !tbaa !172
+  store ptr @test_tls_cert_store_unchanged_ctx_cleanup, ptr %11, align 8, !tbaa !172
+  br label %18
+
+17:                                               ; preds = %14
   store ptr @test_tls_cert_store_unchanged_on_hs, ptr %12, align 8, !tbaa !36
   store ptr @test_tls_cert_store_unchanged_on_hs, ptr %13, align 8, !tbaa !36
-  store ptr @.str.2117, ptr %7, align 8, !tbaa !169
-  store ptr @.str.2118, ptr %8, align 8, !tbaa !169
-  store ptr @.str.994, ptr %9, align 8, !tbaa !170
-  %17 = add nsw i32 %.4.jt0, -1
-  %18 = icmp ult i32 %17, 4
-  br i1 %18, label %19, label %.thread99.thread
+  br label %18
 
-19:                                               ; preds = %16
-  %20 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %.thread.thread, label %.thread.thread109
+18:                                               ; preds = %17, %16
+  store ptr @.str.2117, ptr %7, align 8, !tbaa !173
+  store ptr @.str.2118, ptr %8, align 8, !tbaa !173
+  store ptr @.str.994, ptr %9, align 8, !tbaa !174
+  %19 = add nsw i32 %.0119, -1
+  %20 = icmp ult i32 %19, 4
+  br i1 %20, label %21, label %.thread99
 
-.thread.thread109:                                ; preds = %0, %19
-  %22 = phi i32 [ %20, %19 ], [ %14, %0 ]
-  %.080117124 = phi i32 [ 1, %19 ], [ 0, %0 ]
-  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97679)
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %24)
-  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2078, ptr noundef nonnull @.str.5)
-  %27 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %27)
-  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %22, i32 noundef 1)
-  br label %.thread99.jt0.sink.split
+21:                                               ; preds = %18
+  %22 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
+  %23 = icmp eq i32 %22, 1
+  br i1 %23, label %.thread.thread, label %.thread.thread109
 
-.thread.thread:                                   ; preds = %0, %19
-  %.080117123 = phi i32 [ 1, %19 ], [ 0, %0 ]
+.thread.thread109:                                ; preds = %21
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97679)
+  %25 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %25)
+  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2078, ptr noundef nonnull @.str.5)
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %28)
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %22, i32 noundef 1)
+  br label %.thread99.sink.split
+
+.thread.thread:                                   ; preds = %21
   %lhsv = load i64, ptr @test_tls_cert_store_unchanged_before_hashes, align 8
   %rhsv = load i64, ptr @test_tls_cert_store_unchanged_after_hashes, align 8
   %.not = icmp eq i64 %lhsv, %rhsv
-  br i1 %.not, label %.thread99.jt0, label %30
+  br i1 %.not, label %.thread99, label %31
 
-30:                                               ; preds = %.thread.thread
-  %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97683)
-  %32 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %32)
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2111, ptr noundef nonnull @.str.2119, ptr noundef nonnull @.str.2120, ptr noundef nonnull @.str.2121)
-  %35 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %35)
-  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2114, ptr noundef nonnull @test_tls_cert_store_unchanged_before_hashes, ptr noundef nonnull @test_tls_cert_store_unchanged_after_hashes, i32 noundef 8)
-  br label %.thread99.jt0.sink.split
+31:                                               ; preds = %.thread.thread
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97683)
+  %33 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %33)
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2111, ptr noundef nonnull @.str.2119, ptr noundef nonnull @.str.2120, ptr noundef nonnull @.str.2121)
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %36)
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2114, ptr noundef nonnull @test_tls_cert_store_unchanged_before_hashes, ptr noundef nonnull @test_tls_cert_store_unchanged_after_hashes, i32 noundef 8)
+  br label %.thread99.sink.split
 
-.thread99.jt0.sink.split:                         ; preds = %.thread.thread109, %30
-  %.080117125.ph = phi i32 [ %.080117124, %.thread.thread109 ], [ %.080117123, %30 ]
-  %38 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %38)
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %41 = tail call i32 @fflush(ptr noundef %40)
-  br label %.thread99.jt0
+.thread99.sink.split:                             ; preds = %.thread.thread109, %31
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %40 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %39)
+  %41 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %42 = tail call i32 @fflush(ptr noundef %41)
+  br label %.thread99
 
-.thread99.jt0:                                    ; preds = %.thread99.jt0.sink.split, %.thread.thread
-  %.080117125 = phi i32 [ %.080117123, %.thread.thread ], [ %.080117125.ph, %.thread99.jt0.sink.split ]
-  %.4.jt0 = phi i32 [ 1, %.thread.thread ], [ 0, %.thread99.jt0.sink.split ]
-  %42 = icmp eq i32 %.080117125, 0
-  br i1 %42, label %16, label %.thread99.thread, !llvm.loop !171
+.thread99:                                        ; preds = %.thread99.sink.split, %.thread.thread, %18
+  %.4 = phi i32 [ %.0119, %18 ], [ 1, %.thread.thread ], [ 0, %.thread99.sink.split ]
+  br i1 %15, label %14, label %43, !llvm.loop !175
 
-.thread99.thread:                                 ; preds = %16, %.thread99.jt0
-  %.4121 = phi i32 [ %.4.jt0, %.thread99.jt0 ], [ 0, %16 ]
+43:                                               ; preds = %.thread99
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.4121
+  ret i32 %.4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -32429,13 +32339,13 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw %struct.anon.4, ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 %.0322546
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !172
+  %11 = load ptr, ptr %10, align 8, !tbaa !159
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131104) %5, i8 0, i64 131104, i1 false)
-  %13 = load ptr, ptr %9, align 8, !tbaa !174
+  %13 = load ptr, ptr %9, align 8, !tbaa !162
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !175
+  %15 = load ptr, ptr %14, align 8, !tbaa !164
   %16 = call i32 @test_memio_setup(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %13, ptr noundef %15) #27
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %30, label %18
@@ -33018,12 +32928,12 @@ define internal i32 @test_wolfSSL_inject() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.test_wolfSSL_inject.params, i64 %.0273408
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !172
+  %12 = load ptr, ptr %11, align 8, !tbaa !159
   %13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131104) %5, i8 0, i64 131104, i1 false)
-  %14 = load ptr, ptr %10, align 8, !tbaa !174
+  %14 = load ptr, ptr %10, align 8, !tbaa !162
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !175
+  %16 = load ptr, ptr %15, align 8, !tbaa !164
   %17 = call i32 @test_memio_setup(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %14, ptr noundef %16) #27
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %32, label %19
@@ -37032,23 +36942,23 @@ attributes #36 = { nounwind allocsize(1) }
 !156 = !{!157, !11, i64 131088}
 !157 = !{!"test_memio_ctx", !7, i64 0, !11, i64 65536, !10, i64 65544, !7, i64 65552, !11, i64 131088, !10, i64 131096}
 !158 = !{!157, !11, i64 65536}
-!159 = !{!5, !6, i64 16}
-!160 = !{!5, !6, i64 0}
-!161 = distinct !{!161, !35}
-!162 = !{!157, !10, i64 131096}
-!163 = !{!157, !10, i64 65544}
-!164 = distinct !{!164, !35}
+!159 = !{!160, !10, i64 16}
+!160 = !{!"", !6, i64 0, !6, i64 8, !10, i64 16}
+!161 = !{!5, !6, i64 16}
+!162 = !{!160, !6, i64 0}
+!163 = !{!5, !6, i64 0}
+!164 = !{!160, !6, i64 8}
 !165 = distinct !{!165, !35}
-!166 = distinct !{!166, !35}
-!167 = !{!5, !6, i64 8}
-!168 = !{!5, !6, i64 32}
-!169 = !{!5, !10, i64 72}
-!170 = !{!5, !10, i64 64}
-!171 = distinct !{!171, !35}
-!172 = !{!173, !10, i64 16}
-!173 = !{!"", !6, i64 0, !6, i64 8, !10, i64 16}
-!174 = !{!173, !6, i64 0}
-!175 = !{!173, !6, i64 8}
+!166 = !{!157, !10, i64 131096}
+!167 = !{!157, !10, i64 65544}
+!168 = distinct !{!168, !35}
+!169 = distinct !{!169, !35}
+!170 = distinct !{!170, !35}
+!171 = !{!5, !6, i64 8}
+!172 = !{!5, !6, i64 32}
+!173 = !{!5, !10, i64 72}
+!174 = !{!5, !10, i64 64}
+!175 = distinct !{!175, !35}
 !176 = !{!177, !11, i64 0}
 !177 = !{!"WOLFSSL_ALERT_HISTORY", !178, i64 0, !178, i64 8}
 !178 = !{!"WOLFSSL_ALERT", !11, i64 0, !11, i64 4}

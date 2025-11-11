@@ -101,378 +101,252 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
 .preheader146:                                    ; preds = %.critedge
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.1117174244 = getelementptr inbounds nuw i8, ptr %.0116165, i64 1
-  %34 = load i8, ptr %.1117174244, align 1
+  %.1117174232 = getelementptr inbounds nuw i8, ptr %.0116165, i64 1
+  %34 = load i8, ptr %.1117174232, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %._crit_edge254, label %.lr.ph253
+  br i1 %35, label %._crit_edge242, label %.lr.ph241
 
 .critedge.thread:                                 ; preds = %28, %1, %.critedge
   %36 = tail call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %36, label %37, label %187
+  br i1 %36, label %37, label %135
 
 37:                                               ; preds = %.critedge.thread
   %38 = tail call i32 @errcode(i32 noundef 33685634) #11
   %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %40 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
   tail call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @__func__.multirange_in) #11
-  br label %187
+  br label %135
+
+.preheader:                                       ; preds = %108, %56
+  %.1117193 = getelementptr inbounds nuw i8, ptr %.0116.pn168238, i64 2
+  %41 = load i8, ptr %.1117193, align 1
+  %.not126175 = icmp eq i8 %41, 0
+  br i1 %.not126175, label %._crit_edge, label %.lr.ph177
 
 .lr.ph177:                                        ; preds = %.preheader
-  %41 = load ptr, ptr %20, align 8
-  br label %174
+  %42 = load ptr, ptr %20, align 8
+  br label %122
 
-42:                                               ; preds = %123
-  %.1117.jt2 = getelementptr inbounds nuw i8, ptr %.1117174192, i64 1
-  %43 = load i8, ptr %.1117.jt2, align 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %._crit_edge254, label %70
+._crit_edge242:                                   ; preds = %116, %.preheader146
+  %43 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
+  br i1 %43, label %44, label %135
 
-45:                                               ; preds = %153
-  %.1117.jt4 = getelementptr inbounds nuw i8, ptr %.1117174191, i64 1
-  %46 = load i8, ptr %.1117.jt4, align 1
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %._crit_edge254, label %76
-
-48:                                               ; preds = %143, %149, %115
-  %.1121.ph.jt5 = phi ptr [ %.0120167219, %143 ], [ %.0120167219, %149 ], [ %.0120167217, %115 ]
-  %.2118.ph.jt5 = phi ptr [ %.1117174192, %143 ], [ %.1117174192, %149 ], [ %116, %115 ]
-  %.1109.ph.jt5 = phi ptr [ %.3111, %143 ], [ %.3111, %149 ], [ %.0108170210, %115 ]
-  %.1105.ph.jt5 = phi i32 [ %.3107, %143 ], [ %.3107, %149 ], [ %.0104171205, %115 ]
-  %.1102.ph.jt5 = phi i32 [ %.0101172202, %143 ], [ %150, %149 ], [ %.0101172200, %115 ]
-  %.199.ph.jt5.in = phi i32 [ %.098173197, %143 ], [ %.098173197, %149 ], [ %.098173195, %115 ]
-  %.1117.jt5 = getelementptr inbounds nuw i8, ptr %.2118.ph.jt5, i64 1
-  %49 = load i8, ptr %.1117.jt5, align 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %._crit_edge254, label %82
-
-.fold.split:                                      ; preds = %155, %123, %70, %106, %107, %107
-  %.1121.ph.jt1 = phi ptr [ %.0120167251, %106 ], [ %.1117174190, %107 ], [ %.1117174190, %107 ], [ %.0120167219, %70 ], [ %.0120167219, %123 ], [ %.0120167218, %155 ]
-  %.2118.ph.jt1 = phi ptr [ %.1117174252, %106 ], [ %.1117174190, %107 ], [ %.1117174190, %107 ], [ %.1117.jt2, %70 ], [ %.1117174192, %123 ], [ %.1117174191, %155 ]
-  %.1109.ph.jt1 = phi ptr [ %.0108170248, %106 ], [ %.0108170210, %107 ], [ %.0108170210, %107 ], [ %.0108170212, %70 ], [ %.0108170212, %123 ], [ %.0108170211, %155 ]
-  %.1105.ph.jt1 = phi i32 [ %.0104171247, %106 ], [ %.0104171205, %107 ], [ %.0104171205, %107 ], [ %.0104171207, %70 ], [ %.0104171207, %123 ], [ %.0104171206, %155 ]
-  %.1102.ph.jt1 = phi i32 [ %.0101172246, %106 ], [ %.0101172200, %107 ], [ %.0101172200, %107 ], [ %.0101172202, %70 ], [ %.0101172202, %123 ], [ %.0101172201, %155 ]
-  %.199.ph.jt1 = phi i32 [ %.098173245, %106 ], [ %.098173195, %107 ], [ %.098173195, %107 ], [ %.098173197, %70 ], [ %.098173197, %123 ], [ %.098173196, %155 ]
-  %.1117.jt1 = getelementptr inbounds nuw i8, ptr %.2118.ph.jt1, i64 1
-  %51 = load i8, ptr %.1117.jt1, align 1
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %._crit_edge254, label %88
-
-53:                                               ; preds = %106, %76, %153, %155, %123
-  %.1121.ph.jt3 = phi ptr [ %.0120167218, %153 ], [ %.0120167218, %155 ], [ %.0120167219, %123 ], [ %.0120167251, %106 ], [ %.0120167218, %76 ]
-  %.2118.ph.jt3 = phi ptr [ %.1117174191, %153 ], [ %156, %155 ], [ %.1117174192, %123 ], [ %.1117174252, %106 ], [ %.1117.jt4, %76 ]
-  %.1109.ph.jt3 = phi ptr [ %.0108170211, %153 ], [ %.0108170211, %155 ], [ %.0108170212, %123 ], [ %.0108170248, %106 ], [ %.0108170211, %76 ]
-  %.1105.ph.jt3 = phi i32 [ %.0104171206, %153 ], [ %.0104171206, %155 ], [ %.0104171207, %123 ], [ %.0104171247, %106 ], [ %.0104171206, %76 ]
-  %.1102.ph.jt3 = phi i32 [ %.0101172201, %153 ], [ %.0101172201, %155 ], [ %.0101172202, %123 ], [ %.0101172246, %106 ], [ %.0101172201, %76 ]
-  %.199.ph.jt3 = phi i32 [ %.098173196, %153 ], [ %.098173196, %155 ], [ %.098173197, %123 ], [ %.098173245, %106 ], [ %.098173196, %76 ]
-  %.1117.jt3 = getelementptr inbounds nuw i8, ptr %.2118.ph.jt3, i64 1
-  %54 = load i8, ptr %.1117.jt3, align 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %._crit_edge254, label %94
-
-56:                                               ; preds = %159
-  %.1117.jt0 = getelementptr inbounds nuw i8, ptr %.1117174193, i64 1
-  %57 = load i8, ptr %.1117.jt0, align 1
-  %58 = icmp eq i8 %57, 0
-  br i1 %58, label %._crit_edge254, label %100
-
-._crit_edge254:                                   ; preds = %167, %56, %53, %.fold.split, %48, %45, %42, %.preheader146
-  %59 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %59, label %60, label %187
-
-60:                                               ; preds = %._crit_edge254
-  %61 = call i32 @errcode(i32 noundef 33685634) #11
-  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
-  %63 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #11
+44:                                               ; preds = %._crit_edge242
+  %45 = call i32 @errcode(i32 noundef 33685634) #11
+  %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
+  %47 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 165, ptr noundef nonnull @__func__.multirange_in) #11
-  br label %187
+  br label %135
 
-.lr.ph253:                                        ; preds = %.preheader146, %167
-  %64 = phi i8 [ %168, %167 ], [ %34, %.preheader146 ]
-  %.1117174252 = phi ptr [ %.1117174, %167 ], [ %.1117174244, %.preheader146 ]
-  %.0120167251 = phi ptr [ %.1121.ph, %167 ], [ null, %.preheader146 ]
-  %.0116.pn168250 = phi ptr [ %.2118.ph, %167 ], [ %.0116165, %.preheader146 ]
-  %.0113169249 = phi i32 [ %.1114.ph, %167 ], [ 0, %.preheader146 ]
-  %.0108170248 = phi ptr [ %.1109.ph, %167 ], [ %14, %.preheader146 ]
-  %.0104171247 = phi i32 [ %.1105.ph, %167 ], [ 8, %.preheader146 ]
-  %.0101172246 = phi i32 [ %.1102.ph, %167 ], [ 0, %.preheader146 ]
-  %.098173245 = phi i32 [ %.199.ph, %167 ], [ 0, %.preheader146 ]
-  %65 = load ptr, ptr %20, align 8
-  %66 = zext i8 %64 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %65, i64 %66
-  %68 = load i16, ptr %67, align 2
-  %69 = and i16 %68, 8192
-  %.not129 = icmp eq i16 %69, 0
-  br i1 %.not129, label %106, label %167
+.lr.ph241:                                        ; preds = %.preheader146, %116
+  %48 = phi i8 [ %117, %116 ], [ %34, %.preheader146 ]
+  %.1117174240 = phi ptr [ %.1117174, %116 ], [ %.1117174232, %.preheader146 ]
+  %.0120167239 = phi ptr [ %.1121.ph, %116 ], [ null, %.preheader146 ]
+  %.0116.pn168238 = phi ptr [ %.2118.ph, %116 ], [ %.0116165, %.preheader146 ]
+  %.0113169237 = phi i32 [ %.1114.ph, %116 ], [ 0, %.preheader146 ]
+  %.0108170236 = phi ptr [ %.1109.ph, %116 ], [ %14, %.preheader146 ]
+  %.0104171235 = phi i32 [ %.1105.ph, %116 ], [ 8, %.preheader146 ]
+  %.0101172234 = phi i32 [ %.1102.ph, %116 ], [ 0, %.preheader146 ]
+  %.098173233 = phi i32 [ %.199.ph, %116 ], [ 0, %.preheader146 ]
+  %49 = load ptr, ptr %20, align 8
+  %50 = zext i8 %48 to i64
+  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
+  %52 = load i16, ptr %51, align 2
+  %53 = and i16 %52, 8192
+  %.not129 = icmp eq i16 %53, 0
+  br i1 %.not129, label %54, label %116
 
-70:                                               ; preds = %42
-  %71 = load ptr, ptr %20, align 8
-  %72 = zext i8 %43 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %71, i64 %72
-  %74 = load i16, ptr %73, align 2
-  %75 = and i16 %74, 8192
-  %.not129.jt2 = icmp eq i16 %75, 0
-  br i1 %.not129.jt2, label %.fold.split, label %167
-
-76:                                               ; preds = %45
-  %77 = load ptr, ptr %20, align 8
-  %78 = zext i8 %46 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %77, i64 %78
-  %80 = load i16, ptr %79, align 2
-  %81 = and i16 %80, 8192
-  %.not129.jt4 = icmp eq i16 %81, 0
-  br i1 %.not129.jt4, label %53, label %167
-
-82:                                               ; preds = %48
-  %.199.ph.jt5 = add i32 %.199.ph.jt5.in, 1
-  %83 = load ptr, ptr %20, align 8
-  %84 = zext i8 %49 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %83, i64 %84
-  %86 = load i16, ptr %85, align 2
-  %87 = and i16 %86, 8192
-  %.not129.jt5 = icmp eq i16 %87, 0
-  br i1 %.not129.jt5, label %159, label %167
-
-88:                                               ; preds = %.fold.split
-  %89 = load ptr, ptr %20, align 8
-  %90 = zext i8 %51 to i64
-  %91 = getelementptr inbounds nuw i16, ptr %89, i64 %90
-  %92 = load i16, ptr %91, align 2
-  %93 = and i16 %92, 8192
-  %.not129.jt1 = icmp eq i16 %93, 0
-  br i1 %.not129.jt1, label %123, label %167
-
-94:                                               ; preds = %53
-  %95 = load ptr, ptr %20, align 8
-  %96 = zext i8 %54 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %95, i64 %96
-  %98 = load i16, ptr %97, align 2
-  %99 = and i16 %98, 8192
-  %.not129.jt3 = icmp eq i16 %99, 0
-  br i1 %.not129.jt3, label %153, label %167
-
-100:                                              ; preds = %56
-  %101 = load ptr, ptr %20, align 8
-  %102 = zext i8 %57 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %101, i64 %102
-  %104 = load i16, ptr %103, align 2
-  %105 = and i16 %104, 8192
-  %.not129.jt0 = icmp eq i16 %105, 0
-  br i1 %.not129.jt0, label %107, label %167
-
-106:                                              ; preds = %.lr.ph253
-  switch i32 %.0113169249, label %default.unreachable185 [
-    i32 0, label %107
-    i32 1, label %123
-    i32 2, label %.fold.split
-    i32 3, label %153
-    i32 5, label %159
-    i32 4, label %53
+54:                                               ; preds = %.lr.ph241
+  switch i32 %.0113169237, label %default.unreachable185 [
+    i32 0, label %55
+    i32 1, label %71
+    i32 2, label %116
+    i32 3, label %102
+    i32 5, label %108
+    i32 4, label %115
   ]
 
-107:                                              ; preds = %100, %106
-  %108 = phi i8 [ %64, %106 ], [ %57, %100 ]
-  %.0120167217 = phi ptr [ %.0120167251, %106 ], [ %.0120167220, %100 ]
-  %.0116.pn168214 = phi ptr [ %.0116.pn168250, %106 ], [ %.1117174193, %100 ]
-  %.0108170210 = phi ptr [ %.0108170248, %106 ], [ %.0108170213, %100 ]
-  %.0104171205 = phi i32 [ %.0104171247, %106 ], [ %.0104171208, %100 ]
-  %.0101172200 = phi i32 [ %.0101172246, %106 ], [ %.0101172203, %100 ]
-  %.098173195 = phi i32 [ %.098173245, %106 ], [ %.098173198, %100 ]
-  %.1117174190 = phi ptr [ %.1117174252, %106 ], [ %.1117.jt0, %100 ]
-  switch i8 %108, label %109 [
-    i8 91, label %.fold.split
-    i8 40, label %.fold.split
+55:                                               ; preds = %54
+  switch i8 %48, label %56 [
+    i8 91, label %116
+    i8 40, label %116
   ]
 
-109:                                              ; preds = %107
-  %110 = icmp eq i8 %108, 125
-  %111 = icmp eq i32 %.098173195, 0
-  %or.cond4 = select i1 %110, i1 %111, i1 false
-  br i1 %or.cond4, label %.preheader, label %112
+56:                                               ; preds = %55
+  %57 = icmp eq i8 %48, 125
+  %58 = icmp eq i32 %.098173233, 0
+  %or.cond4 = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond4, label %.preheader, label %59
 
-112:                                              ; preds = %109
-  %113 = call i32 @pg_strncasecmp(ptr noundef nonnull %.1117174190, ptr noundef nonnull @.str.4, i64 noundef 5) #11
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %117
+59:                                               ; preds = %56
+  %60 = call i32 @pg_strncasecmp(ptr noundef nonnull %.1117174240, ptr noundef nonnull @.str.4, i64 noundef 5) #11
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %65
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i8, ptr %.0116.pn168214, i64 5
-  br label %48
+62:                                               ; preds = %59
+  %63 = add i32 %.098173233, 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0116.pn168238, i64 5
+  br label %116
 
-117:                                              ; preds = %112
-  %118 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %118, label %119, label %187
+65:                                               ; preds = %59
+  %66 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
+  br i1 %66, label %67, label %135
 
-119:                                              ; preds = %117
-  %120 = call i32 @errcode(i32 noundef 33685634) #11
-  %121 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
-  %122 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #11
+67:                                               ; preds = %65
+  %68 = call i32 @errcode(i32 noundef 33685634) #11
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
+  %70 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull @__func__.multirange_in) #11
-  br label %187
+  br label %135
 
-123:                                              ; preds = %88, %106
-  %124 = phi i8 [ %64, %106 ], [ %51, %88 ]
-  %.0120167219 = phi ptr [ %.0120167251, %106 ], [ %.1121.ph.jt1, %88 ]
-  %.0108170212 = phi ptr [ %.0108170248, %106 ], [ %.1109.ph.jt1, %88 ]
-  %.0104171207 = phi i32 [ %.0104171247, %106 ], [ %.1105.ph.jt1, %88 ]
-  %.0101172202 = phi i32 [ %.0101172246, %106 ], [ %.1102.ph.jt1, %88 ]
-  %.098173197 = phi i32 [ %.098173245, %106 ], [ %.199.ph.jt1, %88 ]
-  %.1117174192 = phi ptr [ %.1117174252, %106 ], [ %.1117.jt1, %88 ]
-  switch i8 %124, label %.fold.split [
-    i8 93, label %125
-    i8 41, label %125
-    i8 34, label %53
-    i8 92, label %42
+71:                                               ; preds = %54
+  switch i8 %48, label %.fold.split [
+    i8 93, label %72
+    i8 41, label %72
+    i8 34, label %116
+    i8 92, label %101
   ]
 
-125:                                              ; preds = %123, %123
-  %126 = ptrtoint ptr %.1117174192 to i64
-  %127 = ptrtoint ptr %.0120167219 to i64
-  %128 = sub i64 %126, %127
-  %129 = shl i64 %128, 32
-  %sext = add i64 %129, 4294967296
-  %130 = ashr exact i64 %sext, 32
-  %131 = call ptr @pnstrdup(ptr noundef %.0120167219, i64 noundef %130) #11
-  %132 = icmp eq i32 %.0104171207, %.0101172202
-  br i1 %132, label %133, label %138
+72:                                               ; preds = %71, %71
+  %73 = ptrtoint ptr %.1117174240 to i64
+  %74 = ptrtoint ptr %.0120167239 to i64
+  %75 = sub i64 %73, %74
+  %76 = shl i64 %75, 32
+  %sext = add i64 %76, 4294967296
+  %77 = ashr exact i64 %sext, 32
+  %78 = call ptr @pnstrdup(ptr noundef %.0120167239, i64 noundef %77) #11
+  %79 = icmp eq i32 %.0104171235, %.0101172234
+  br i1 %79, label %80, label %85
 
-133:                                              ; preds = %125
-  %134 = shl i32 %.0101172202, 1
-  %135 = sext i32 %134 to i64
-  %136 = shl nsw i64 %135, 3
-  %137 = call ptr @repalloc(ptr noundef %.0108170212, i64 noundef %136) #11
-  br label %138
+80:                                               ; preds = %72
+  %81 = shl i32 %.0101172234, 1
+  %82 = sext i32 %81 to i64
+  %83 = shl nsw i64 %82, 3
+  %84 = call ptr @repalloc(ptr noundef %.0108170236, i64 noundef %83) #11
+  br label %85
 
-138:                                              ; preds = %133, %125
-  %.3111 = phi ptr [ %137, %133 ], [ %.0108170212, %125 ]
-  %.3107 = phi i32 [ %134, %133 ], [ %.0104171207, %125 ]
-  %139 = load i32, ptr %33, align 8
-  %140 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %32, ptr noundef %131, i32 noundef %139, i32 noundef %11, ptr noundef %13, ptr noundef nonnull %2) #11
-  br i1 %140, label %143, label %141
+85:                                               ; preds = %80, %72
+  %.3111 = phi ptr [ %84, %80 ], [ %.0108170236, %72 ]
+  %.3107 = phi i32 [ %81, %80 ], [ %.0104171235, %72 ]
+  %86 = add i32 %.098173233, 1
+  %87 = load i32, ptr %33, align 8
+  %88 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %32, ptr noundef %78, i32 noundef %87, i32 noundef %11, ptr noundef %13, ptr noundef nonnull %2) #11
+  br i1 %88, label %91, label %89
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %142, align 4
-  br label %187
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %90, align 4
+  br label %135
 
-143:                                              ; preds = %138
-  %144 = load i64, ptr %2, align 8
-  %145 = inttoptr i64 %144 to ptr
-  %146 = call ptr @pg_detoast_datum(ptr noundef %145) #11
-  %147 = call signext i8 @range_get_flags(ptr noundef %146) #11
-  %148 = and i8 %147, 1
-  %.not130 = icmp eq i8 %148, 0
-  br i1 %.not130, label %149, label %48
+91:                                               ; preds = %85
+  %92 = load i64, ptr %2, align 8
+  %93 = inttoptr i64 %92 to ptr
+  %94 = call ptr @pg_detoast_datum(ptr noundef %93) #11
+  %95 = call signext i8 @range_get_flags(ptr noundef %94) #11
+  %96 = and i8 %95, 1
+  %.not130 = icmp eq i8 %96, 0
+  br i1 %.not130, label %97, label %116
 
-149:                                              ; preds = %143
-  %150 = add i32 %.0101172202, 1
-  %151 = sext i32 %.0101172202 to i64
-  %152 = getelementptr inbounds ptr, ptr %.3111, i64 %151
-  store ptr %146, ptr %152, align 8
-  br label %48
+97:                                               ; preds = %91
+  %98 = add i32 %.0101172234, 1
+  %99 = sext i32 %.0101172234 to i64
+  %100 = getelementptr inbounds ptr, ptr %.3111, i64 %99
+  store ptr %94, ptr %100, align 8
+  br label %116
 
-153:                                              ; preds = %94, %106
-  %154 = phi i8 [ %64, %106 ], [ %54, %94 ]
-  %.0120167218 = phi ptr [ %.0120167251, %106 ], [ %.1121.ph.jt3, %94 ]
-  %.0116.pn168215 = phi ptr [ %.0116.pn168250, %106 ], [ %.2118.ph.jt3, %94 ]
-  %.0108170211 = phi ptr [ %.0108170248, %106 ], [ %.1109.ph.jt3, %94 ]
-  %.0104171206 = phi i32 [ %.0104171247, %106 ], [ %.1105.ph.jt3, %94 ]
-  %.0101172201 = phi i32 [ %.0101172246, %106 ], [ %.1102.ph.jt3, %94 ]
-  %.098173196 = phi i32 [ %.098173245, %106 ], [ %.199.ph.jt3, %94 ]
-  %.1117174191 = phi ptr [ %.1117174252, %106 ], [ %.1117.jt3, %94 ]
-  switch i8 %154, label %53 [
-    i8 34, label %155
-    i8 92, label %45
+101:                                              ; preds = %71
+  br label %116
+
+102:                                              ; preds = %54
+  switch i8 %48, label %116 [
+    i8 34, label %103
+    i8 92, label %107
   ]
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i8, ptr %.0116.pn168215, i64 2
-  %157 = load i8, ptr %156, align 1
-  %158 = icmp eq i8 %157, 34
-  br i1 %158, label %53, label %.fold.split
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %.0116.pn168238, i64 2
+  %105 = load i8, ptr %104, align 1
+  %106 = icmp eq i8 %105, 34
+  %..1117 = select i1 %106, ptr %104, ptr %.1117174240
+  %.0113. = select i1 %106, i32 3, i32 1
+  br label %116
 
-159:                                              ; preds = %82, %106
-  %160 = phi i8 [ %64, %106 ], [ %49, %82 ]
-  %.0120167220 = phi ptr [ %.0120167251, %106 ], [ %.1121.ph.jt5, %82 ]
-  %.0108170213 = phi ptr [ %.0108170248, %106 ], [ %.1109.ph.jt5, %82 ]
-  %.0104171208 = phi i32 [ %.0104171247, %106 ], [ %.1105.ph.jt5, %82 ]
-  %.0101172203 = phi i32 [ %.0101172246, %106 ], [ %.1102.ph.jt5, %82 ]
-  %.098173198 = phi i32 [ %.098173245, %106 ], [ %.199.ph.jt5, %82 ]
-  %.1117174193 = phi ptr [ %.1117174252, %106 ], [ %.1117.jt5, %82 ]
-  switch i8 %160, label %161 [
-    i8 44, label %56
+107:                                              ; preds = %102
+  br label %116
+
+108:                                              ; preds = %54
+  switch i8 %48, label %109 [
+    i8 44, label %116
     i8 125, label %.preheader
   ]
 
-161:                                              ; preds = %159
-  %162 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %162, label %163, label %187
+109:                                              ; preds = %108
+  %110 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
+  br i1 %110, label %111, label %135
 
-163:                                              ; preds = %161
-  %164 = call i32 @errcode(i32 noundef 33685634) #11
-  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
-  %166 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #11
+111:                                              ; preds = %109
+  %112 = call i32 @errcode(i32 noundef 33685634) #11
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
+  %114 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 268, ptr noundef nonnull @__func__.multirange_in) #11
-  br label %187
+  br label %135
 
-default.unreachable185:                           ; preds = %106
+115:                                              ; preds = %54
+  br label %116
+
+default.unreachable185:                           ; preds = %54
   unreachable
 
-167:                                              ; preds = %70, %76, %82, %88, %94, %100, %.lr.ph253
-  %.1121.ph = phi ptr [ %.0120167251, %.lr.ph253 ], [ %.0120167220, %100 ], [ %.1121.ph.jt3, %94 ], [ %.1121.ph.jt1, %88 ], [ %.1121.ph.jt5, %82 ], [ %.0120167218, %76 ], [ %.0120167219, %70 ]
-  %.2118.ph = phi ptr [ %.1117174252, %.lr.ph253 ], [ %.1117.jt0, %100 ], [ %.1117.jt3, %94 ], [ %.1117.jt1, %88 ], [ %.1117.jt5, %82 ], [ %.1117.jt4, %76 ], [ %.1117.jt2, %70 ]
-  %.1114.ph = phi i32 [ %.0113169249, %.lr.ph253 ], [ 0, %100 ], [ 3, %94 ], [ 1, %88 ], [ 5, %82 ], [ 4, %76 ], [ 2, %70 ]
-  %.1109.ph = phi ptr [ %.0108170248, %.lr.ph253 ], [ %.0108170213, %100 ], [ %.1109.ph.jt3, %94 ], [ %.1109.ph.jt1, %88 ], [ %.1109.ph.jt5, %82 ], [ %.0108170211, %76 ], [ %.0108170212, %70 ]
-  %.1105.ph = phi i32 [ %.0104171247, %.lr.ph253 ], [ %.0104171208, %100 ], [ %.1105.ph.jt3, %94 ], [ %.1105.ph.jt1, %88 ], [ %.1105.ph.jt5, %82 ], [ %.0104171206, %76 ], [ %.0104171207, %70 ]
-  %.1102.ph = phi i32 [ %.0101172246, %.lr.ph253 ], [ %.0101172203, %100 ], [ %.1102.ph.jt3, %94 ], [ %.1102.ph.jt1, %88 ], [ %.1102.ph.jt5, %82 ], [ %.0101172201, %76 ], [ %.0101172202, %70 ]
-  %.199.ph = phi i32 [ %.098173245, %.lr.ph253 ], [ %.098173198, %100 ], [ %.199.ph.jt3, %94 ], [ %.199.ph.jt1, %88 ], [ %.199.ph.jt5, %82 ], [ %.098173196, %76 ], [ %.098173197, %70 ]
+.fold.split:                                      ; preds = %71
+  br label %116
+
+116:                                              ; preds = %.lr.ph241, %108, %102, %103, %54, %71, %.fold.split, %91, %97, %55, %55, %107, %101, %62, %115
+  %.1121.ph = phi ptr [ %.0120167239, %108 ], [ %.0120167239, %102 ], [ %.0120167239, %103 ], [ %.0120167239, %54 ], [ %.0120167239, %.fold.split ], [ %.0120167239, %71 ], [ %.0120167239, %91 ], [ %.0120167239, %97 ], [ %.1117174240, %55 ], [ %.1117174240, %55 ], [ %.0120167239, %115 ], [ %.0120167239, %107 ], [ %.0120167239, %101 ], [ %.0120167239, %62 ], [ %.0120167239, %.lr.ph241 ]
+  %.2118.ph = phi ptr [ %.1117174240, %108 ], [ %.1117174240, %102 ], [ %..1117, %103 ], [ %.1117174240, %54 ], [ %.1117174240, %.fold.split ], [ %.1117174240, %71 ], [ %.1117174240, %91 ], [ %.1117174240, %97 ], [ %.1117174240, %55 ], [ %.1117174240, %55 ], [ %.1117174240, %115 ], [ %.1117174240, %107 ], [ %.1117174240, %101 ], [ %64, %62 ], [ %.1117174240, %.lr.ph241 ]
+  %.1114.ph = phi i32 [ 0, %108 ], [ 3, %102 ], [ %.0113., %103 ], [ 1, %54 ], [ 1, %.fold.split ], [ 3, %71 ], [ 5, %91 ], [ 5, %97 ], [ 1, %55 ], [ 1, %55 ], [ 3, %115 ], [ 4, %107 ], [ 2, %101 ], [ 5, %62 ], [ %.0113169237, %.lr.ph241 ]
+  %.1109.ph = phi ptr [ %.0108170236, %108 ], [ %.0108170236, %102 ], [ %.0108170236, %103 ], [ %.0108170236, %54 ], [ %.0108170236, %.fold.split ], [ %.0108170236, %71 ], [ %.3111, %91 ], [ %.3111, %97 ], [ %.0108170236, %55 ], [ %.0108170236, %55 ], [ %.0108170236, %115 ], [ %.0108170236, %107 ], [ %.0108170236, %101 ], [ %.0108170236, %62 ], [ %.0108170236, %.lr.ph241 ]
+  %.1105.ph = phi i32 [ %.0104171235, %108 ], [ %.0104171235, %102 ], [ %.0104171235, %103 ], [ %.0104171235, %54 ], [ %.0104171235, %.fold.split ], [ %.0104171235, %71 ], [ %.3107, %91 ], [ %.3107, %97 ], [ %.0104171235, %55 ], [ %.0104171235, %55 ], [ %.0104171235, %115 ], [ %.0104171235, %107 ], [ %.0104171235, %101 ], [ %.0104171235, %62 ], [ %.0104171235, %.lr.ph241 ]
+  %.1102.ph = phi i32 [ %.0101172234, %108 ], [ %.0101172234, %102 ], [ %.0101172234, %103 ], [ %.0101172234, %54 ], [ %.0101172234, %.fold.split ], [ %.0101172234, %71 ], [ %.0101172234, %91 ], [ %98, %97 ], [ %.0101172234, %55 ], [ %.0101172234, %55 ], [ %.0101172234, %115 ], [ %.0101172234, %107 ], [ %.0101172234, %101 ], [ %.0101172234, %62 ], [ %.0101172234, %.lr.ph241 ]
+  %.199.ph = phi i32 [ %.098173233, %108 ], [ %.098173233, %102 ], [ %.098173233, %103 ], [ %.098173233, %54 ], [ %.098173233, %.fold.split ], [ %.098173233, %71 ], [ %86, %91 ], [ %86, %97 ], [ %.098173233, %55 ], [ %.098173233, %55 ], [ %.098173233, %115 ], [ %.098173233, %107 ], [ %.098173233, %101 ], [ %63, %62 ], [ %.098173233, %.lr.ph241 ]
   %.1117174 = getelementptr inbounds nuw i8, ptr %.2118.ph, i64 1
-  %168 = load i8, ptr %.1117174, align 1
-  %169 = icmp eq i8 %168, 0
-  br i1 %169, label %._crit_edge254, label %.lr.ph253, !llvm.loop !6
+  %117 = load i8, ptr %.1117174, align 1
+  %118 = icmp eq i8 %117, 0
+  br i1 %118, label %._crit_edge242, label %.lr.ph241, !llvm.loop !6
 
-.preheader:                                       ; preds = %159, %109
-  %.2118.ph.jt6 = phi ptr [ %.1117174190, %109 ], [ %.1117174193, %159 ]
-  %.1109.ph.jt6 = phi ptr [ %.0108170210, %109 ], [ %.0108170213, %159 ]
-  %.1102.ph.jt6 = phi i32 [ %.0101172200, %109 ], [ %.0101172203, %159 ]
-  %.1117.jt6 = getelementptr inbounds nuw i8, ptr %.2118.ph.jt6, i64 1
-  %170 = load i8, ptr %.1117.jt6, align 1
-  %.not126175 = icmp eq i8 %170, 0
-  br i1 %.not126175, label %._crit_edge, label %.lr.ph177
+119:                                              ; preds = %122
+  %120 = getelementptr inbounds nuw i8, ptr %.4176, i64 1
+  %121 = load i8, ptr %120, align 1
+  %.not126 = icmp eq i8 %121, 0
+  br i1 %.not126, label %._crit_edge, label %122, !llvm.loop !7
 
-171:                                              ; preds = %174
-  %172 = getelementptr inbounds nuw i8, ptr %.4176, i64 1
-  %173 = load i8, ptr %172, align 1
-  %.not126 = icmp eq i8 %173, 0
-  br i1 %.not126, label %._crit_edge, label %174, !llvm.loop !7
+122:                                              ; preds = %.lr.ph177, %119
+  %123 = phi i8 [ %41, %.lr.ph177 ], [ %121, %119 ]
+  %.4176 = phi ptr [ %.1117193, %.lr.ph177 ], [ %120, %119 ]
+  %124 = zext i8 %123 to i64
+  %125 = getelementptr inbounds nuw i16, ptr %42, i64 %124
+  %126 = load i16, ptr %125, align 2
+  %127 = and i16 %126, 8192
+  %.not127 = icmp eq i16 %127, 0
+  br i1 %.not127, label %.critedge9, label %119
 
-174:                                              ; preds = %.lr.ph177, %171
-  %175 = phi i8 [ %170, %.lr.ph177 ], [ %173, %171 ]
-  %.4176 = phi ptr [ %.1117.jt6, %.lr.ph177 ], [ %172, %171 ]
-  %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw i16, ptr %41, i64 %176
-  %178 = load i16, ptr %177, align 2
-  %179 = and i16 %178, 8192
-  %.not127 = icmp eq i16 %179, 0
-  br i1 %.not127, label %.critedge9, label %171
+.critedge9:                                       ; preds = %122
+  %128 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
+  br i1 %128, label %129, label %135
 
-.critedge9:                                       ; preds = %174
-  %180 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %180, label %181, label %187
-
-181:                                              ; preds = %.critedge9
-  %182 = call i32 @errcode(i32 noundef 33685634) #11
-  %183 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
-  %184 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.8) #11
+129:                                              ; preds = %.critedge9
+  %130 = call i32 @errcode(i32 noundef 33685634) #11
+  %131 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
+  %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.8) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.multirange_in) #11
-  br label %187
+  br label %135
 
-._crit_edge:                                      ; preds = %171, %.preheader
-  %185 = call ptr @make_multirange(i32 noundef %8, ptr noundef %18, i32 noundef %.1102.ph.jt6, ptr noundef %.1109.ph.jt6)
-  %186 = ptrtoint ptr %185 to i64
-  br label %187
+._crit_edge:                                      ; preds = %119, %.preheader
+  %133 = call ptr @make_multirange(i32 noundef %8, ptr noundef %18, i32 noundef %.0101172234, ptr noundef %.0108170236)
+  %134 = ptrtoint ptr %133 to i64
+  br label %135
 
-187:                                              ; preds = %141, %60, %._crit_edge254, %119, %117, %163, %161, %.critedge9, %181, %.critedge.thread, %37, %._crit_edge
-  %.0 = phi i64 [ %186, %._crit_edge ], [ 0, %37 ], [ 0, %.critedge.thread ], [ 0, %181 ], [ 0, %.critedge9 ], [ 0, %161 ], [ 0, %163 ], [ 0, %117 ], [ 0, %119 ], [ 0, %._crit_edge254 ], [ 0, %60 ], [ 0, %141 ]
+135:                                              ; preds = %89, %44, %._crit_edge242, %67, %65, %111, %109, %.critedge9, %129, %.critedge.thread, %37, %._crit_edge
+  %.0 = phi i64 [ %134, %._crit_edge ], [ 0, %37 ], [ 0, %.critedge.thread ], [ 0, %129 ], [ 0, %.critedge9 ], [ 0, %109 ], [ 0, %111 ], [ 0, %65 ], [ 0, %67 ], [ 0, %._crit_edge242 ], [ 0, %44 ], [ 0, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }

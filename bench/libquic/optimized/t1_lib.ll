@@ -1305,39 +1305,39 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
   %56 = load ptr, ptr %55, align 8, !tbaa !120
   %57 = call i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #21
   %.not47.i = icmp eq i32 %57, 0
-  br i1 %.not47.i, label %59, label %58
-
-58:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.backedge.i
+  br i1 %.not47.i, label %60, label %58
 
 .thread.i:                                        ; preds = %47, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread59.i
 
-59:                                               ; preds = %48
-  %60 = load i8, ptr %7, align 1, !tbaa !90
-  %61 = zext i8 %60 to i32
-  store i32 %61, ptr %9, align 4, !tbaa !80
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2218) #21
-  %62 = load i16, ptr %5, align 2, !tbaa !56
-  %63 = zext i16 %62 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %63) #21
+58:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %84
+  br label %.backedge.i
 
 .backedge.i:                                      ; preds = %58, %45, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %64 = call i64 @CBS_len(ptr noundef nonnull %4) #21
-  %.not44.i = icmp eq i64 %64, 0
+  %59 = call i64 @CBS_len(ptr noundef nonnull %4) #21
+  %.not44.i = icmp eq i64 %59, 0
   br i1 %.not44.i, label %.thread62.i, label %.lr.ph.i, !llvm.loop !119
 
 .thread59.i:                                      ; preds = %.thread.i, %31
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %84
+
+60:                                               ; preds = %48
+  %61 = load i8, ptr %7, align 1, !tbaa !90
+  %62 = zext i8 %61 to i32
+  store i32 %62, ptr %9, align 4, !tbaa !80
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2218) #21
+  %63 = load i16, ptr %5, align 2, !tbaa !56
+  %64 = zext i16 %63 to i32
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %64) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %84
 
@@ -1382,7 +1382,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
   %exitcond75.not.i = icmp eq i64 %83, 13
   br i1 %exitcond75.not.i, label %ssl_scan_clienthello_tlsext.exit, label %65, !llvm.loop !121
 
-84:                                               ; preds = %77, %59, %.thread59.i
+84:                                               ; preds = %77, %60, %.thread59.i
   %85 = load i32, ptr %9, align 4, !tbaa !80
   %86 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %85) #21
   br label %110
@@ -1489,12 +1489,12 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   br label %.thread56.i
 
 .thread60.i:                                      ; preds = %.backedge.i, %.preheader.i
-  %.233.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.334.jt0.i, %.backedge.i ]
+  %.233.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.33482.i, %.backedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 18:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.23372.i = phi i32 [ 0, %.lr.ph.i ], [ %.334.jt0.i, %.backedge.i ]
+  %.23372.i = phi i32 [ 0, %.lr.ph.i ], [ %.33482.i, %.backedge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call i32 @CBS_get_u16(ptr noundef nonnull %4, ptr noundef nonnull %5) #21
@@ -1553,11 +1553,6 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   %.not43.i = icmp eq i32 %44, 0
   br i1 %.not43.i, label %48, label %45
 
-45:                                               ; preds = %41
-  %46 = or i32 %36, %.23372.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.backedge.i
-
 .thread.sink.split.i:                             ; preds = %20, %18, %38
   store i32 50, ptr %9, align 4, !tbaa !80
   br label %.thread.i
@@ -1572,13 +1567,23 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread56.i
 
+45:                                               ; preds = %41
+  %46 = or i32 %36, %.23372.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.backedge.i
+
 .backedge.i:                                      ; preds = %45, %29
-  %.334.jt0.i = phi i32 [ %.23372.i, %29 ], [ %46, %45 ]
+  %.33482.i = phi i32 [ %46, %45 ], [ %.23372.i, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = call i64 @CBS_len(ptr noundef nonnull %4) #21
   %.not39.i = icmp eq i64 %47, 0
   br i1 %.not39.i, label %.thread60.i, label %18, !llvm.loop !130
+
+.thread56.i:                                      ; preds = %.thread.i, %17
+  %.pre = phi i32 [ %.pre.pre, %.thread.i ], [ 50, %17 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %70
 
 48:                                               ; preds = %41
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2306) #21
@@ -1591,11 +1596,6 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %70
-
-.thread56.i:                                      ; preds = %.thread.i, %17
-  %.pre = phi i32 [ %.pre.pre, %.thread.i ], [ 50, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %70
 

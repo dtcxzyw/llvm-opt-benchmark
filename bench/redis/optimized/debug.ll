@@ -5331,8 +5331,8 @@ get_ready_to_signal_threads_tids.exit.thread21:   ; preds = %21
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %.03457.i = phi i64 [ %29, %.backedge.i ], [ 0, %.preheader.i ]
-  %.256.i = phi i64 [ %.4.jt0.i, %.backedge.i ], [ %.035.i, %.preheader.i ]
-  %.23955.i = phi i32 [ %.441.jt0.i, %.backedge.i ], [ %.037.i, %.preheader.i ]
+  %.256.i = phi i64 [ %.474.i, %.backedge.i ], [ %.035.i, %.preheader.i ]
+  %.23955.i = phi i32 [ %.44172.i, %.backedge.i ], [ %.037.i, %.preheader.i ]
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.03457.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i16, ptr %26, align 8, !tbaa !187
@@ -5435,7 +5435,7 @@ sub_0.i:                                          ; preds = %.preheader.i, %.bac
 is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread34.i.i, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %71
+  br label %.thread77.i
 
 63:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5449,11 +5449,11 @@ is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread34.i.i,
   %69 = getelementptr inbounds nuw i32, ptr %9, i64 %.256.i
   store i32 %67, ptr %69, align 4, !tbaa !16
   %70 = icmp eq i64 %68, 50
-  br i1 %70, label %._crit_edge.thread.i, label %71
+  br i1 %70, label %._crit_edge.thread.i, label %.thread77.i
 
-71:                                               ; preds = %63, %is_thread_ready_to_signal.exit.thread.i
-  %.542.jt0.i = phi i32 [ %spec.select.i, %63 ], [ %.23955.i, %is_thread_ready_to_signal.exit.thread.i ]
-  %.5.jt0.i = phi i64 [ %68, %63 ], [ %.256.i, %is_thread_ready_to_signal.exit.thread.i ]
+.thread77.i:                                      ; preds = %63, %is_thread_ready_to_signal.exit.thread.i
+  %.542.ph.i = phi i32 [ %.23955.i, %is_thread_ready_to_signal.exit.thread.i ], [ %spec.select.i, %63 ]
+  %.5.ph.i = phi i64 [ %.256.i, %is_thread_ready_to_signal.exit.thread.i ], [ %68, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.i
 
@@ -5462,122 +5462,122 @@ is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread34.i.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit.i
 
-.backedge.i:                                      ; preds = %.tail.i, %71, %.tail51.i
-  %.441.jt0.i = phi i32 [ %.23955.i, %.tail51.i ], [ %.23955.i, %.tail.i ], [ %.542.jt0.i, %71 ]
-  %.4.jt0.i = phi i64 [ %.256.i, %.tail51.i ], [ %.256.i, %.tail.i ], [ %.5.jt0.i, %71 ]
-  %72 = icmp slt i64 %29, %22
-  br i1 %72, label %sub_0.i, label %._crit_edge.i, !llvm.loop !189
+.backedge.i:                                      ; preds = %.tail.i, %.thread77.i, %.tail51.i
+  %.474.i = phi i64 [ %.5.ph.i, %.thread77.i ], [ %.256.i, %.tail51.i ], [ %.256.i, %.tail.i ]
+  %.44172.i = phi i32 [ %.542.ph.i, %.thread77.i ], [ %.23955.i, %.tail51.i ], [ %.23955.i, %.tail.i ]
+  %71 = icmp slt i64 %29, %22
+  br i1 %71, label %sub_0.i, label %._crit_edge.i, !llvm.loop !189
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.preheader.i
-  %.340.i = phi i32 [ %.037.i, %.preheader.i ], [ %.441.jt0.i, %.backedge.i ]
-  %.3.i = phi i64 [ %.035.i, %.preheader.i ], [ %.4.jt0.i, %.backedge.i ]
-  %73 = icmp eq i64 %.3.i, 50
-  br i1 %73, label %.loopexit.i, label %21, !llvm.loop !191
+  %.340.i = phi i32 [ %.037.i, %.preheader.i ], [ %.44172.i, %.backedge.i ]
+  %.3.i = phi i64 [ %.035.i, %.preheader.i ], [ %.474.i, %.backedge.i ]
+  %72 = icmp eq i64 %.3.i, 50
+  br i1 %72, label %.loopexit.i, label %21, !llvm.loop !191
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %21, %._crit_edge.thread.i
   %.138.i = phi i32 [ %spec.select.i, %._crit_edge.thread.i ], [ %.340.i, %._crit_edge.i ], [ %.037.i, %21 ]
   %.136.i = phi i64 [ 50, %._crit_edge.thread.i ], [ 50, %._crit_edge.i ], [ %.035.i, %21 ]
   %.not48.i = icmp eq i32 %.138.i, -1
-  br i1 %.not48.i, label %get_ready_to_signal_threads_tids.exit, label %74
+  br i1 %.not48.i, label %get_ready_to_signal_threads_tids.exit, label %73
 
-74:                                               ; preds = %.loopexit.i
-  %75 = getelementptr i32, ptr %9, i64 %.136.i
-  %76 = getelementptr i8, ptr %75, i64 -4
-  %77 = load i32, ptr %76, align 4, !tbaa !16
-  store i32 %18, ptr %76, align 4, !tbaa !16
-  %78 = sext i32 %.138.i to i64
-  %79 = getelementptr inbounds i32, ptr %9, i64 %78
-  store i32 %77, ptr %79, align 4, !tbaa !16
+73:                                               ; preds = %.loopexit.i
+  %74 = getelementptr i32, ptr %9, i64 %.136.i
+  %75 = getelementptr i8, ptr %74, i64 -4
+  %76 = load i32, ptr %75, align 4, !tbaa !16
+  store i32 %18, ptr %75, align 4, !tbaa !16
+  %77 = sext i32 %.138.i to i64
+  %78 = getelementptr inbounds i32, ptr %9, i64 %77
+  store i32 %76, ptr %78, align 4, !tbaa !16
   br label %get_ready_to_signal_threads_tids.exit
 
-get_ready_to_signal_threads_tids.exit:            ; preds = %.loopexit.i, %74
-  %80 = call i32 @close(i32 noundef %14) #26
+get_ready_to_signal_threads_tids.exit:            ; preds = %.loopexit.i, %73
+  %79 = call i32 @close(i32 noundef %14) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i64 %.136.i, 0
-  br i1 %.not, label %81, label %82
+  br i1 %.not, label %80, label %81
 
 .sink.split:                                      ; preds = %2, %get_ready_to_signal_threads_tids.exit.thread21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %80
+
+80:                                               ; preds = %.sink.split, %get_ready_to_signal_threads_tids.exit
+  call void @serverLogRawFromHandler(i32 noundef 3, ptr noundef nonnull @.str.327) #26
   br label %81
 
-81:                                               ; preds = %.sink.split, %get_ready_to_signal_threads_tids.exit
-  call void @serverLogRawFromHandler(i32 noundef 3, ptr noundef nonnull @.str.327) #26
+81:                                               ; preds = %80, %get_ready_to_signal_threads_tids.exit
+  %.0.i19 = phi i64 [ 0, %80 ], [ %.136.i, %get_ready_to_signal_threads_tids.exit ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %82
 
-82:                                               ; preds = %81, %get_ready_to_signal_threads_tids.exit
-  %.0.i19 = phi i64 [ 0, %81 ], [ %.136.i, %get_ready_to_signal_threads_tids.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %83
+82:                                               ; preds = %82, %81
+  %83 = load i32, ptr @stacktrace_pipe, align 4, !tbaa !16
+  %84 = call i64 @read(i32 noundef %83, ptr noundef nonnull %10, i64 noundef 4096) #26
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %82, label %86, !llvm.loop !192
 
-83:                                               ; preds = %83, %82
-  %84 = load i32, ptr @stacktrace_pipe, align 4, !tbaa !16
-  %85 = call i64 @read(i32 noundef %84, ptr noundef nonnull %10, i64 noundef 4096) #26
-  %86 = icmp sgt i64 %85, 0
-  br i1 %86, label %83, label %87, !llvm.loop !192
+86:                                               ; preds = %82
+  %87 = call i32 @ThreadsManager_runOnThreads(ptr noundef nonnull %9, i64 noundef %.0.i19, ptr noundef nonnull @collect_stacktrace_data) #26
+  %.not16 = icmp eq i32 %87, 0
+  br i1 %.not16, label %121, label %88
 
-87:                                               ; preds = %83
-  %88 = call i32 @ThreadsManager_runOnThreads(ptr noundef nonnull %9, i64 noundef %.0.i19, ptr noundef nonnull @collect_stacktrace_data) #26
-  %.not16 = icmp eq i32 %88, 0
-  br i1 %.not16, label %122, label %89
-
-89:                                               ; preds = %87
-  %90 = call i64 (i64, ...) @syscall(i64 noundef 186) #26
-  %91 = trunc i64 %90 to i32
+88:                                               ; preds = %86
+  %89 = call i64 (i64, ...) @syscall(i64 noundef 186) #26
+  %90 = trunc i64 %89 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %11, i8 0, i64 824, i1 false)
-  %92 = load i32, ptr @stacktrace_pipe, align 4, !tbaa !16
-  %93 = call i64 @read(i32 noundef %92, ptr noundef nonnull %11, i64 noundef 824) #26
-  %94 = icmp sgt i64 %93, 0
-  br i1 %94, label %.lr.ph, label %._crit_edge
+  %91 = load i32, ptr @stacktrace_pipe, align 4, !tbaa !16
+  %92 = call i64 @read(i32 noundef %91, ptr noundef nonnull %11, i64 noundef 824) #26
+  %93 = icmp sgt i64 %92, 0
+  br i1 %93, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %89
-  %95 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %96 = add nsw i32 %1, 5
-  %97 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %98 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  br label %99
+.lr.ph:                                           ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %95 = add nsw i32 %1, 5
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  br label %98
 
-99:                                               ; preds = %.lr.ph, %110
-  %.01524 = phi i64 [ 0, %.lr.ph ], [ %115, %110 ]
-  %100 = load i32, ptr %95, align 4, !tbaa !193
-  %101 = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %10, i64 noundef 4096, ptr noundef nonnull @.str.328, i32 noundef %100, ptr noundef nonnull %11) #26
-  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
-  %103 = call i64 @write(i32 noundef %0, ptr noundef nonnull %10, i64 noundef %102) #26
-  %104 = load i32, ptr %95, align 4, !tbaa !193
-  %105 = icmp eq i32 %104, %91
-  br i1 %105, label %106, label %108
+98:                                               ; preds = %.lr.ph, %109
+  %.01524 = phi i64 [ 0, %.lr.ph ], [ %114, %109 ]
+  %99 = load i32, ptr %94, align 4, !tbaa !193
+  %100 = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %10, i64 noundef 4096, ptr noundef nonnull @.str.328, i32 noundef %99, ptr noundef nonnull %11) #26
+  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
+  %102 = call i64 @write(i32 noundef %0, ptr noundef nonnull %10, i64 noundef %101) #26
+  %103 = load i32, ptr %94, align 4, !tbaa !193
+  %104 = icmp eq i32 %103, %90
+  br i1 %104, label %105, label %107
 
-106:                                              ; preds = %99
-  %107 = call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.329, i64 noundef 3) #26
-  br label %110
+105:                                              ; preds = %98
+  %106 = call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.329, i64 noundef 3) #26
+  br label %109
 
-108:                                              ; preds = %99
-  %109 = call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.309, i64 noundef 1) #26
-  br label %110
+107:                                              ; preds = %98
+  %108 = call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.309, i64 noundef 1) #26
+  br label %109
 
-110:                                              ; preds = %108, %106
-  %.0 = phi i32 [ %96, %106 ], [ 3, %108 ]
-  %111 = sext i32 %.0 to i64
-  %112 = getelementptr inbounds ptr, ptr %97, i64 %111
-  %113 = load i32, ptr %98, align 8, !tbaa !195
-  %114 = sub nsw i32 %113, %.0
-  call void @backtrace_symbols_fd(ptr noundef nonnull %112, i32 noundef %114, i32 noundef %0) #26
-  %115 = add i64 %.01524, 1
-  %116 = load i32, ptr @stacktrace_pipe, align 4, !tbaa !16
-  %117 = call i64 @read(i32 noundef %116, ptr noundef nonnull %11, i64 noundef 824) #26
-  %118 = icmp sgt i64 %117, 0
-  br i1 %118, label %99, label %._crit_edge, !llvm.loop !196
+109:                                              ; preds = %107, %105
+  %.0 = phi i32 [ %95, %105 ], [ 3, %107 ]
+  %110 = sext i32 %.0 to i64
+  %111 = getelementptr inbounds ptr, ptr %96, i64 %110
+  %112 = load i32, ptr %97, align 8, !tbaa !195
+  %113 = sub nsw i32 %112, %.0
+  call void @backtrace_symbols_fd(ptr noundef nonnull %111, i32 noundef %113, i32 noundef %0) #26
+  %114 = add i64 %.01524, 1
+  %115 = load i32, ptr @stacktrace_pipe, align 4, !tbaa !16
+  %116 = call i64 @read(i32 noundef %115, ptr noundef nonnull %11, i64 noundef 824) #26
+  %117 = icmp sgt i64 %116, 0
+  br i1 %117, label %98, label %._crit_edge, !llvm.loop !196
 
-._crit_edge:                                      ; preds = %110, %89
-  %.015.lcssa = phi i64 [ 0, %89 ], [ %115, %110 ]
-  %119 = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %10, i64 noundef 4096, ptr noundef nonnull @.str.330, i64 noundef %.015.lcssa, i64 noundef %.0.i19) #26
-  %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
-  %121 = call i64 @write(i32 noundef %0, ptr noundef nonnull %10, i64 noundef %120) #26
+._crit_edge:                                      ; preds = %109, %88
+  %.015.lcssa = phi i64 [ 0, %88 ], [ %114, %109 ]
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %10, i64 noundef 4096, ptr noundef nonnull @.str.330, i64 noundef %.015.lcssa, i64 noundef %.0.i19) #26
+  %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
+  %120 = call i64 @write(i32 noundef %0, ptr noundef nonnull %10, i64 noundef %119) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %122
+  br label %121
 
-122:                                              ; preds = %87, %._crit_edge
+121:                                              ; preds = %86, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void

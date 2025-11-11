@@ -342,13 +342,13 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %.not138 = icmp ne i64 %.pn, 5
   %.not139.not = icmp eq i16 %.0118.in, 45
   %or.cond144 = select i1 %.not138, i1 %.not139.not, i1 false
-  br i1 %or.cond144, label %119, label %.preheader477.preheader
+  br i1 %or.cond144, label %119, label %.loopexit189.preheader
 
 119:                                              ; preds = %.preheader
   %120 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !11
   %121 = load i32, ptr @rtlil_frontend_yyleng, align 4, !tbaa !11
   %122 = icmp slt i32 %120, %121
-  br i1 %122, label %.lr.ph313, label %.preheader477.preheader
+  br i1 %122, label %.lr.ph313, label %.loopexit189.preheader
 
 .lr.ph313:                                        ; preds = %119
   %rtlil_frontend_yylineno.promoted = load i32, ptr @rtlil_frontend_yylineno, align 4
@@ -374,21 +374,21 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %133 = phi i32 [ %126, %125 ], [ %131, %130 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader477.preheader, label %125, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit189.preheader, label %125, !llvm.loop !35
 
-.preheader477.preheader:                          ; preds = %132, %.preheader, %119
-  br label %.preheader477
+.loopexit189.preheader:                           ; preds = %132, %119, %.preheader
+  br label %.loopexit189
 
-.preheader477:                                    ; preds = %.preheader477.preheader, %_ZL21yy_get_previous_statev.exit169.jt13
-  %.pre440448 = phi ptr [ %468, %_ZL21yy_get_previous_statev.exit169.jt13 ], [ %.3105, %.preheader477.preheader ]
-  %.1119 = phi i32 [ %472, %_ZL21yy_get_previous_statev.exit169.jt13 ], [ %.0118, %.preheader477.preheader ]
+.loopexit189:                                     ; preds = %.loopexit189.preheader, %_ZL21yy_get_previous_statev.exit169
+  %.pre440448 = phi ptr [ %468, %_ZL21yy_get_previous_statev.exit169 ], [ %.3105, %.loopexit189.preheader ]
+  %.1119 = phi i32 [ %472, %_ZL21yy_get_previous_statev.exit169 ], [ %.0118, %.loopexit189.preheader ]
   switch i32 %.1119, label %473 [
     i32 0, label %134
     i32 1, label %.loopexit
     i32 2, label %.loopexit315
-    i32 3, label %.loopexit478
-    i32 4, label %.loopexit558
-    i32 5, label %.loopexit678
+    i32 3, label %.loopexit497
+    i32 4, label %.loopexit577
+    i32 5, label %.loopexit697
     i32 6, label %474
     i32 7, label %138
     i32 8, label %139
@@ -436,7 +436,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
     i32 48, label %248
   ], !llvm.loop !36
 
-134:                                              ; preds = %.preheader477
+134:                                              ; preds = %.loopexit189
   %135 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
   store i8 %135, ptr %.3105, align 1, !tbaa !29
   %136 = load ptr, ptr @_ZL22yy_last_accepting_cpos, align 8, !tbaa !6
@@ -444,109 +444,109 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %.pre441 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !11
   br label %.preheader
 
-138:                                              ; preds = %.preheader477
+138:                                              ; preds = %.loopexit189
   br label %474
 
-139:                                              ; preds = %.preheader477
+139:                                              ; preds = %.loopexit189
   br label %474
 
-140:                                              ; preds = %.preheader477
+140:                                              ; preds = %.loopexit189
   br label %474
 
-141:                                              ; preds = %.preheader477
+141:                                              ; preds = %.loopexit189
   br label %474
 
-142:                                              ; preds = %.preheader477
+142:                                              ; preds = %.loopexit189
   br label %474
 
-143:                                              ; preds = %.preheader477
+143:                                              ; preds = %.loopexit189
   br label %474
 
-144:                                              ; preds = %.preheader477
+144:                                              ; preds = %.loopexit189
   br label %474
 
-145:                                              ; preds = %.preheader477
+145:                                              ; preds = %.loopexit189
   br label %474
 
-146:                                              ; preds = %.preheader477
+146:                                              ; preds = %.loopexit189
   br label %474
 
-147:                                              ; preds = %.preheader477
+147:                                              ; preds = %.loopexit189
   br label %474
 
-148:                                              ; preds = %.preheader477
+148:                                              ; preds = %.loopexit189
   br label %474
 
-149:                                              ; preds = %.preheader477
+149:                                              ; preds = %.loopexit189
   br label %474
 
-150:                                              ; preds = %.preheader477
+150:                                              ; preds = %.loopexit189
   br label %474
 
-151:                                              ; preds = %.preheader477
+151:                                              ; preds = %.loopexit189
   br label %474
 
-152:                                              ; preds = %.preheader477
+152:                                              ; preds = %.loopexit189
   br label %474
 
-153:                                              ; preds = %.preheader477
+153:                                              ; preds = %.loopexit189
   br label %474
 
-154:                                              ; preds = %.preheader477
+154:                                              ; preds = %.loopexit189
   br label %474
 
-155:                                              ; preds = %.preheader477
+155:                                              ; preds = %.loopexit189
   br label %474
 
-156:                                              ; preds = %.preheader477
+156:                                              ; preds = %.loopexit189
   br label %474
 
-157:                                              ; preds = %.preheader477
+157:                                              ; preds = %.loopexit189
   br label %474
 
-158:                                              ; preds = %.preheader477
+158:                                              ; preds = %.loopexit189
   br label %474
 
-159:                                              ; preds = %.preheader477
+159:                                              ; preds = %.loopexit189
   br label %474
 
-160:                                              ; preds = %.preheader477
+160:                                              ; preds = %.loopexit189
   br label %474
 
-161:                                              ; preds = %.preheader477
+161:                                              ; preds = %.loopexit189
   br label %474
 
-162:                                              ; preds = %.preheader477
+162:                                              ; preds = %.loopexit189
   br label %474
 
-163:                                              ; preds = %.preheader477
+163:                                              ; preds = %.loopexit189
   br label %474
 
-164:                                              ; preds = %.preheader477
+164:                                              ; preds = %.loopexit189
   br label %474
 
-165:                                              ; preds = %.preheader477
+165:                                              ; preds = %.loopexit189
   br label %474
 
-166:                                              ; preds = %.preheader477
+166:                                              ; preds = %.loopexit189
   %167 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %168 = tail call noalias ptr @strdup(ptr noundef %167) #30
   store ptr %168, ptr @rtlil_frontend_yylval, align 8, !tbaa !29
   br label %474
 
-169:                                              ; preds = %.preheader477
+169:                                              ; preds = %.loopexit189
   %170 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %171 = tail call noalias ptr @strdup(ptr noundef %170) #30
   store ptr %171, ptr @rtlil_frontend_yylval, align 8, !tbaa !29
   br label %474
 
-172:                                              ; preds = %.preheader477
+172:                                              ; preds = %.loopexit189
   %173 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %174 = tail call noalias ptr @strdup(ptr noundef %173) #30
   store ptr %174, ptr @rtlil_frontend_yylval, align 8, !tbaa !29
   br label %474
 
-175:                                              ; preds = %.preheader477
+175:                                              ; preds = %.loopexit189
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !6
   %176 = tail call ptr @__errno_location() #31
@@ -570,15 +570,15 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %474
 
-185:                                              ; preds = %.preheader477
+185:                                              ; preds = %.loopexit189
   store i32 3, ptr @_ZL8yy_start, align 4, !tbaa !11
   br label %.loopexit186.backedge
 
-186:                                              ; preds = %.preheader477
+186:                                              ; preds = %.loopexit189
   store i1 true, ptr @_ZL12yy_more_flag, align 4
   br label %.loopexit186.backedge
 
-187:                                              ; preds = %.preheader477
+187:                                              ; preds = %.loopexit189
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !11
   %188 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %189 = tail call noalias ptr @strdup(ptr noundef %188) #30
@@ -681,20 +681,20 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   store ptr %189, ptr @rtlil_frontend_yylval, align 8, !tbaa !29
   br label %474
 
-235:                                              ; preds = %.preheader477
+235:                                              ; preds = %.loopexit189
   store i1 true, ptr @_ZL12yy_more_flag, align 4
   br label %.loopexit186.backedge
 
-236:                                              ; preds = %.preheader477
+236:                                              ; preds = %.loopexit189
   br label %474
 
-237:                                              ; preds = %.preheader477
+237:                                              ; preds = %.loopexit189
   %238 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %239 = load i8, ptr %238, align 1, !tbaa !29
   %240 = sext i8 %239 to i32
   br label %474
 
-241:                                              ; preds = %.preheader477
+241:                                              ; preds = %.loopexit189
   %242 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %243 = load i32, ptr @rtlil_frontend_yyleng, align 4, !tbaa !11
   %244 = sext i32 %243 to i64
@@ -703,14 +703,14 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %.pre440.pre = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
   br label %.loopexit186.backedge
 
-.loopexit186.backedge:                            ; preds = %.preheader477, %.preheader477, %241, %235, %186, %185
-  %.pre440.be = phi ptr [ %.pre440.pre, %241 ], [ %.pre440448, %235 ], [ %.pre440448, %186 ], [ %.pre440448, %185 ], [ %.pre440448, %.preheader477 ], [ %.pre440448, %.preheader477 ]
+.loopexit186.backedge:                            ; preds = %.loopexit189, %.loopexit189, %241, %235, %186, %185
+  %.pre440.be = phi ptr [ %.pre440.pre, %241 ], [ %.pre440448, %235 ], [ %.pre440448, %186 ], [ %.pre440448, %185 ], [ %.pre440448, %.loopexit189 ], [ %.pre440448, %.loopexit189 ]
   br label %.loopexit186, !llvm.loop !36
 
-247:                                              ; preds = %.preheader477, %.preheader477
+247:                                              ; preds = %.loopexit189, %.loopexit189
   br label %474
 
-248:                                              ; preds = %.preheader477
+248:                                              ; preds = %.loopexit189
   %249 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %250 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
   store i8 %250, ptr %.3105, align 1, !tbaa !29
@@ -882,23 +882,22 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i153, %326
   %.not141 = or i1 %.not141184, %347
   br i1 %.not141, label %.preheader.outer.backedge, label %348
 
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i181, %_ZL16yy_try_NUL_transi.exit, %408
-  %.ph.be = phi i32 [ %420, %408 ], [ %279, %_ZL16yy_try_NUL_transi.exit ], [ %420, %._crit_edge.i181 ]
-  %.1110.ph.be = phi ptr [ %422, %408 ], [ %281, %_ZL16yy_try_NUL_transi.exit ], [ %422, %._crit_edge.i181 ]
-  %.2104.ph.be = phi ptr [ %417, %408 ], [ %277, %_ZL16yy_try_NUL_transi.exit ], [ %417, %._crit_edge.i181 ]
-  %.3.ph.be = phi i32 [ %418, %408 ], [ %.016.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %462, %._crit_edge.i181 ]
-  br label %.preheader.outer
-
 348:                                              ; preds = %_ZL16yy_try_NUL_transi.exit
   %349 = sext i16 %346 to i32
   %350 = getelementptr inbounds nuw i8, ptr %277, i64 1
   store ptr %350, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
   br label %.loopexit187.backedge
 
+.loopexit187.backedge:                            ; preds = %._crit_edge.i167, %348, %353
+  %.0109.be = phi ptr [ %365, %353 ], [ %281, %348 ], [ %365, %._crit_edge.i167 ]
+  %.0102.be = phi ptr [ %361, %353 ], [ %350, %348 ], [ %361, %._crit_edge.i167 ]
+  %.096.be = phi i32 [ %362, %353 ], [ %349, %348 ], [ %405, %._crit_edge.i167 ]
+  br label %.loopexit187
+
 351:                                              ; preds = %262
   %352 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
   switch i32 %352, label %default.unreachable476 [
-    i32 1, label %_ZL21yy_get_previous_statev.exit169.jt13
+    i32 1, label %_ZL21yy_get_previous_statev.exit169
     i32 0, label %353
     i32 2, label %408
   ]
@@ -919,12 +918,6 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i153, %326
   %365 = getelementptr inbounds i8, ptr %359, i64 %364
   %366 = icmp slt i32 %363, %358
   br i1 %366, label %.lr.ph26.i157, label %.loopexit187.backedge
-
-.loopexit187.backedge:                            ; preds = %._crit_edge.i167, %353, %348
-  %.0109.be = phi ptr [ %281, %348 ], [ %365, %353 ], [ %365, %._crit_edge.i167 ]
-  %.0102.be = phi ptr [ %350, %348 ], [ %361, %353 ], [ %361, %._crit_edge.i167 ]
-  %.096.be = phi i32 [ %349, %348 ], [ %362, %353 ], [ %405, %._crit_edge.i167 ]
-  br label %.loopexit187
 
 .lr.ph26.i157:                                    ; preds = %353, %._crit_edge.i167
   %.01524.i158 = phi ptr [ %406, %._crit_edge.i167 ], [ %365, %353 ]
@@ -1018,6 +1011,13 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i153, %326
   %423 = icmp ult ptr %422, %417
   br i1 %423, label %.lr.ph26.i171, label %.preheader.outer.backedge
 
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i181, %408, %_ZL16yy_try_NUL_transi.exit
+  %.ph.be = phi i32 [ %279, %_ZL16yy_try_NUL_transi.exit ], [ %420, %408 ], [ %420, %._crit_edge.i181 ]
+  %.1110.ph.be = phi ptr [ %281, %_ZL16yy_try_NUL_transi.exit ], [ %422, %408 ], [ %422, %._crit_edge.i181 ]
+  %.2104.ph.be = phi ptr [ %277, %_ZL16yy_try_NUL_transi.exit ], [ %417, %408 ], [ %417, %._crit_edge.i181 ]
+  %.3.ph.be = phi i32 [ %.016.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %418, %408 ], [ %462, %._crit_edge.i181 ]
+  br label %.preheader.outer
+
 .lr.ph26.i171:                                    ; preds = %408, %._crit_edge.i181
   %.01524.i172 = phi ptr [ %463, %._crit_edge.i181 ], [ %422, %408 ]
   %.01623.i173 = phi i32 [ %462, %._crit_edge.i181 ], [ %418, %408 ]
@@ -1094,7 +1094,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i153, %326
 default.unreachable476:                           ; preds = %351
   unreachable
 
-_ZL21yy_get_previous_statev.exit169.jt13:         ; preds = %351
+_ZL21yy_get_previous_statev.exit169:              ; preds = %351
   %465 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   %466 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !11
   %467 = sext i32 %466 to i64
@@ -1104,29 +1104,29 @@ _ZL21yy_get_previous_statev.exit169.jt13:         ; preds = %351
   %470 = add nsw i32 %469, -1
   %471 = sdiv i32 %470, 2
   %472 = add nuw nsw i32 %471, 49
-  br label %.preheader477
+  br label %.loopexit189
 
-473:                                              ; preds = %.preheader477
+473:                                              ; preds = %.loopexit189
   tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str) #28
   unreachable
 
-.loopexit:                                        ; preds = %.preheader477
+.loopexit:                                        ; preds = %.loopexit189
   br label %474
 
-.loopexit315:                                     ; preds = %.preheader477
+.loopexit315:                                     ; preds = %.loopexit189
   br label %474
 
-.loopexit478:                                     ; preds = %.preheader477
+.loopexit497:                                     ; preds = %.loopexit189
   br label %474
 
-.loopexit558:                                     ; preds = %.preheader477
+.loopexit577:                                     ; preds = %.loopexit189
   br label %474
 
-.loopexit678:                                     ; preds = %.preheader477
+.loopexit697:                                     ; preds = %.loopexit189
   br label %474
 
-474:                                              ; preds = %.preheader477, %.loopexit678, %.loopexit558, %.loopexit478, %.loopexit315, %.loopexit, %247, %237, %236, %232, %184, %172, %169, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138
-  %.0 = phi i32 [ 264, %138 ], [ 292, %139 ], [ 265, %140 ], [ 296, %141 ], [ 289, %142 ], [ 293, %143 ], [ 266, %144 ], [ 267, %145 ], [ 268, %146 ], [ 269, %147 ], [ 270, %148 ], [ 271, %149 ], [ 272, %150 ], [ 273, %151 ], [ 274, %152 ], [ 275, %153 ], [ 276, %154 ], [ 277, %155 ], [ 278, %156 ], [ 279, %157 ], [ 280, %158 ], [ 281, %159 ], [ 282, %160 ], [ 283, %161 ], [ 284, %162 ], [ 285, %163 ], [ 286, %164 ], [ 287, %165 ], [ 258, %166 ], [ 258, %169 ], [ 259, %172 ], [ %.1, %184 ], [ 260, %232 ], [ 288, %236 ], [ %240, %237 ], [ 0, %247 ], [ 262, %.loopexit ], [ 263, %.loopexit315 ], [ 291, %.loopexit478 ], [ 290, %.loopexit558 ], [ 294, %.loopexit678 ], [ 295, %.preheader477 ]
+474:                                              ; preds = %.loopexit189, %.loopexit697, %.loopexit577, %.loopexit497, %.loopexit315, %.loopexit, %247, %237, %236, %232, %184, %172, %169, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138
+  %.0 = phi i32 [ 264, %138 ], [ 292, %139 ], [ 265, %140 ], [ 296, %141 ], [ 289, %142 ], [ 293, %143 ], [ 266, %144 ], [ 267, %145 ], [ 268, %146 ], [ 269, %147 ], [ 270, %148 ], [ 271, %149 ], [ 272, %150 ], [ 273, %151 ], [ 274, %152 ], [ 275, %153 ], [ 276, %154 ], [ 277, %155 ], [ 278, %156 ], [ 279, %157 ], [ 280, %158 ], [ 281, %159 ], [ 282, %160 ], [ 283, %161 ], [ 284, %162 ], [ 285, %163 ], [ 286, %164 ], [ 287, %165 ], [ 258, %166 ], [ 258, %169 ], [ 259, %172 ], [ %.1, %184 ], [ 260, %232 ], [ 288, %236 ], [ %240, %237 ], [ 0, %247 ], [ 262, %.loopexit ], [ 263, %.loopexit315 ], [ 291, %.loopexit497 ], [ 290, %.loopexit577 ], [ 294, %.loopexit697 ], [ 295, %.loopexit189 ]
   ret i32 %.0
 }
 

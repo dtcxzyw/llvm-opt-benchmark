@@ -13614,7 +13614,7 @@ define hidden void @_ZN4llvm13CodeViewDebug15calculateRangesERNS0_13LocalVariabl
   br label %42
 
 42:                                               ; preds = %.lr.ph, %.thread
-  %.057 = phi ptr [ %18, %.lr.ph ], [ %205, %.thread ]
+  %.057 = phi ptr [ %18, %.lr.ph ], [ %198, %.thread ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %.057, align 8
   %43 = and i64 %.0.copyload.i.i.i.i.i, 4
   %44 = icmp eq i64 %43, 0
@@ -13642,7 +13642,7 @@ define hidden void @_ZN4llvm13CodeViewDebug15calculateRangesERNS0_13LocalVariabl
   %.sroa.454.0.copyload = load i64, ptr %.sroa.454.0..pn6.i.i.sroa_idx, align 8
   %56 = and i32 %.sroa.053.0.copyload, 255
   %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br i1 %57, label %58, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 58:                                               ; preds = %50
   %59 = load i8, ptr %25, align 8, !tbaa !584, !range !224, !noundef !225
@@ -13667,14 +13667,14 @@ _ZN4llvm6APSIntaSEOS0_.exit.i:                    ; preds = %67, %64, %61
   store i64 %.sroa.454.0.copyload, ptr %24, align 8
   store i32 64, ptr %26, align 8, !tbaa !585
   store i8 0, ptr %27, align 4, !tbaa !587
-  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 68:                                               ; preds = %58
   store i32 64, ptr %26, align 8, !tbaa !585
   store i64 %.sroa.454.0.copyload, ptr %24, align 8
   store i8 0, ptr %27, align 4, !tbaa !587
   store i8 1, ptr %25, align 8, !tbaa !584
-  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 69:                                               ; preds = %45
   %70 = load i8, ptr %28, align 8, !tbaa !583, !range !224, !noundef !225
@@ -13684,7 +13684,7 @@ _ZN4llvm6APSIntaSEOS0_.exit.i:                    ; preds = %67, %64, %61
 
 72:                                               ; preds = %69
   %.not.i.i = icmp eq i32 %.val34, 0
-  br i1 %.not.i.i, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit
+  br i1 %.not.i.i, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit
 
 _ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit: ; preds = %72
   %.val = load ptr, ptr %30, align 8
@@ -13693,7 +13693,7 @@ _ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit: ; preds = %72
   %75 = getelementptr inbounds i8, ptr %74, i64 -8
   %76 = load i64, ptr %75, align 8, !tbaa !200
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br i1 %77, label %78, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 78:                                               ; preds = %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit
   %79 = add i32 %.val34, -1
@@ -13709,7 +13709,7 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit: ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %.val35, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !200
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br i1 %84, label %85, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 85:                                               ; preds = %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit
   store i8 1, ptr %28, align 8, !tbaa !583
@@ -13756,7 +13756,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13CodeViewDebug11LocalVarDefEjNS_12DenseM
   %101 = load ptr, ptr %35, align 8, !tbaa !63
   %102 = load i32, ptr %36, align 8, !tbaa !64
   %.not4.i.i.i = icmp eq i32 %102, 0
-  br i1 %.not4.i.i.i, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt1, label %.lr.ph.i.preheader.i.i
+  br i1 %.not4.i.i.i, label %_ZN4llvm9MapVectorINS_13CodeViewDebug11LocalVarDefENS_11SmallVectorISt4pairIPKNS_8MCSymbolES7_ELj1EEENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_IS4_IS2_S9_ELj0EEEE5clearEv.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13CodeViewDebug11LocalVarDefEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit.i
   %103 = zext i32 %102 to i64
@@ -13779,7 +13779,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13CodeViewDebug11LocalVarDefEjNS_12DenseM
 
 _ZNSt4pairIN4llvm13CodeViewDebug11LocalVarDefENS0_11SmallVectorIS_IPKNS0_8MCSymbolES6_ELj1EEEED2Ev.exit.i.i.i: ; preds = %110, %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq ptr %101, %105
-  br i1 %.not.i.i.i, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt1, label %.lr.ph.i.i.i, !llvm.loop !1163
+  br i1 %.not.i.i.i, label %_ZN4llvm9MapVectorINS_13CodeViewDebug11LocalVarDefENS_11SmallVectorISt4pairIPKNS_8MCSymbolES7_ELj1EEENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_IS4_IS2_S9_ELj0EEEE5clearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1163
+
+_ZN4llvm9MapVectorINS_13CodeViewDebug11LocalVarDefENS_11SmallVectorISt4pairIPKNS_8MCSymbolES7_ELj1EEENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_IS4_IS2_S9_ELj0EEEE5clearEv.exit: ; preds = %_ZNSt4pairIN4llvm13CodeViewDebug11LocalVarDefENS0_11SmallVectorIS_IPKNS0_8MCSymbolES6_ELj1EEEED2Ev.exit.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13CodeViewDebug11LocalVarDefEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit.i
+  store i32 0, ptr %36, align 8, !tbaa !64
+  call void @_ZN4llvm13CodeViewDebug15calculateRangesERNS0_13LocalVariableERKNS_11SmallVectorINS_18DbgValueHistoryMap5EntryELj4EEE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2)
+  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80, %78
   %111 = phi i32 [ %.val34, %80 ], [ %79, %78 ]
@@ -13787,7 +13792,7 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80
   %113 = icmp eq i32 %112, 0
   %114 = icmp ugt i32 %111, 1
   %or.cond = or i1 %113, %114
-  br i1 %or.cond, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0, label %115
+  br i1 %or.cond, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread, label %115
 
 115:                                              ; preds = %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
   %116 = load i8, ptr %37, align 8, !tbaa !1201, !range !224, !noundef !225
@@ -13798,7 +13803,7 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80
   %119 = load i64, ptr %38, align 8, !tbaa !1202
   %120 = and i64 %119, 7
   %.not32 = icmp eq i64 %120, 0
-  br i1 %.not32, label %121, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br i1 %.not32, label %121, label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
 121:                                              ; preds = %118, %115
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -13923,54 +13928,37 @@ _ZN4llvm15SmallVectorImplISt4pairIPKNS_8MCSymbolES4_EE12emplace_backIJRS4_S8_EEE
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
+  br label %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
 
-_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt1: ; preds = %_ZNSt4pairIN4llvm13CodeViewDebug11LocalVarDefENS0_11SmallVectorIS_IPKNS0_8MCSymbolES6_ELj1EEEED2Ev.exit.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13CodeViewDebug11LocalVarDefEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit.i
-  store i32 0, ptr %36, align 8, !tbaa !64
-  call void @_ZN4llvm13CodeViewDebug15calculateRangesERNS0_13LocalVariableERKNS_11SmallVectorINS_18DbgValueHistoryMap5EntryELj4EEE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2)
+_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit, %50, %_ZN4llvm6APSIntaSEOS0_.exit.i, %68, %72, %118, %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread, %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8MCSymbolES4_EE12emplace_backIJRS4_S8_EEERS5_DpOT_.exit, %_ZN4llvm9MapVectorINS_13CodeViewDebug11LocalVarDefENS_11SmallVectorISt4pairIPKNS_8MCSymbolES7_ELj1EEENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_IS4_IS2_S9_ELj0EEEE5clearEv.exit
+  %.2 = phi i32 [ 0, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8MCSymbolES4_EE12emplace_backIJRS4_S8_EEERS5_DpOT_.exit ], [ 1, %_ZN4llvm9MapVectorINS_13CodeViewDebug11LocalVarDefENS_11SmallVectorISt4pairIPKNS_8MCSymbolES7_ELj1EEENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_IS4_IS2_S9_ELj0EEEE5clearEv.exit ], [ 4, %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit ], [ 4, %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread ], [ 4, %118 ], [ 4, %72 ], [ 4, %68 ], [ 4, %_ZN4llvm6APSIntaSEOS0_.exit.i ], [ 4, %50 ], [ 4, %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit ]
   %191 = load i8, ptr %23, align 8, !tbaa !1173, !range !224, !noundef !225
   %192 = trunc nuw i8 %191 to i1
-  br i1 %192, label %195, label %203
+  br i1 %192, label %193, label %197
 
-_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0: ; preds = %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit, %50, %_ZN4llvm6APSIntaSEOS0_.exit.i, %68, %72, %118, %_ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread, %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8MCSymbolES4_EE12emplace_backIJRS4_S8_EEERS5_DpOT_.exit
-  %193 = load i8, ptr %23, align 8, !tbaa !1173, !range !224, !noundef !225
-  %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %198, label %204
-
-195:                                              ; preds = %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt1
+193:                                              ; preds = %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
   store i8 0, ptr %23, align 8, !tbaa !1173
-  %196 = load ptr, ptr %30, align 8, !tbaa !63
-  %197 = icmp eq ptr %196, %41
-  br i1 %197, label %203, label %201
+  %194 = load ptr, ptr %30, align 8, !tbaa !63
+  %195 = icmp eq ptr %194, %41
+  br i1 %195, label %197, label %196
 
-198:                                              ; preds = %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0
-  store i8 0, ptr %23, align 8, !tbaa !1173
-  %199 = load ptr, ptr %30, align 8, !tbaa !63
-  %200 = icmp eq ptr %199, %41
-  br i1 %200, label %204, label %202
+196:                                              ; preds = %193
+  call void @free(ptr noundef %194) #26
+  br label %197
 
-201:                                              ; preds = %195
-  call void @free(ptr noundef %196) #26
-  br label %203
-
-202:                                              ; preds = %198
-  call void @free(ptr noundef %199) #26
-  br label %204
-
-203:                                              ; preds = %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt1, %201, %195
+197:                                              ; preds = %196, %193, %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %._crit_edge
+  switch i32 %.2, label %._crit_edge [
+    i32 0, label %.thread
+    i32 4, label %.thread
+  ]
 
-204:                                              ; preds = %_ZL19canUseReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread.jt0, %202, %198
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread
-
-.thread:                                          ; preds = %204, %42
-  %205 = getelementptr inbounds nuw i8, ptr %.057, i64 16
-  %.not = icmp eq ptr %205, %22
+.thread:                                          ; preds = %42, %197, %197
+  %198 = getelementptr inbounds nuw i8, ptr %.057, i64 16
+  %.not = icmp eq ptr %198, %22
   br i1 %.not, label %._crit_edge, label %42, !llvm.loop !1209
 
-._crit_edge:                                      ; preds = %.thread, %203, %3
+._crit_edge:                                      ; preds = %197, %.thread, %3
   ret void
 }
 

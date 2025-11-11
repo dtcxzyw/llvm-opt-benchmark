@@ -27581,8 +27581,8 @@ define internal fastcc noundef zeroext i1 @_ZL34MaybeHandleUnionActiveMemberChan
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
-  %.067254 = phi i32 [ %.269.jt0, %.backedge ], [ %26, %.lr.ph.preheader ]
-  %.073253 = phi ptr [ %.275.jt0, %.backedge ], [ %1, %.lr.ph.preheader ]
+  %.067254 = phi i32 [ %.269.ph, %.backedge ], [ %26, %.lr.ph.preheader ]
+  %.073253 = phi ptr [ %.275.ph, %.backedge ], [ %1, %.lr.ph.preheader ]
   %27 = load i16, ptr %.073253, align 8
   %28 = and i16 %27, 511
   switch i16 %28, label %.thread177 [
@@ -27856,15 +27856,15 @@ _ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %126, %134, %139, %_
   %180 = and i8 %179, 1
   %.not193 = icmp eq i8 %180, 0
   %181 = add i32 %.8, -1
-  br i1 %.not193, label %174, label %.backedge
+  br i1 %.not193, label %174, label %.thread177
 
-.backedge:                                        ; preds = %174, %175, %.critedge, %161, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
-  %.275.jt0 = phi ptr [ %108, %.critedge ], [ %163, %161 ], [ %148, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ], [ %163, %174 ], [ null, %175 ]
-  %.269.jt0 = phi i32 [ %109, %.critedge ], [ %.067254, %161 ], [ %160, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ], [ %.8, %175 ], [ %.8, %174 ]
-  %.not97 = icmp eq ptr %.275.jt0, null
+.backedge:                                        ; preds = %174, %.critedge, %161, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+  %.275.ph = phi ptr [ %148, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ], [ %163, %161 ], [ %108, %.critedge ], [ %163, %174 ]
+  %.269.ph = phi i32 [ %160, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit ], [ %.067254, %161 ], [ %109, %.critedge ], [ %.8, %174 ]
+  %.not97 = icmp eq ptr %.275.ph, null
   br i1 %.not97, label %.thread177, label %.lr.ph, !llvm.loop !1020
 
-.thread177:                                       ; preds = %.backedge, %29, %37, %161, %.lr.ph, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
+.thread177:                                       ; preds = %.backedge, %29, %37, %161, %.lr.ph, %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit, %175
   %.pre = load i32, ptr %23, align 8, !tbaa !628
   %182 = icmp eq i32 %.pre, 0
   br i1 %182, label %.thread177.thread, label %183

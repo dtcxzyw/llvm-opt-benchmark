@@ -84,13 +84,13 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 12:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv105 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next106, %.loopexit ]
-  %.06184 = phi ptr [ %6, %.lr.ph ], [ %140, %.loopexit ]
-  %.06283 = phi i32 [ 0, %.lr.ph ], [ %.163113, %.loopexit ]
-  %.06482 = phi ptr [ null, %.lr.ph ], [ %.165109, %.loopexit ]
+  %.06184 = phi ptr [ %6, %.lr.ph ], [ %92, %.loopexit ]
+  %.06283 = phi i32 [ 0, %.lr.ph ], [ %.163, %.loopexit ]
+  %.06482 = phi ptr [ null, %.lr.ph ], [ %.165, %.loopexit ]
   %13 = getelementptr inbounds nuw i8, ptr %.06184, i64 36
   %14 = load i32, ptr %13, align 4, !tbaa !50
-  switch i32 %14, label %38 [
-    i32 1, label %58
+  switch i32 %14, label %43 [
+    i32 1, label %49
     i32 2, label %15
     i32 3, label %17
     i32 4, label %18
@@ -98,296 +98,211 @@ define internal void @start_pass(ptr noundef %0) #0 {
     i32 6, label %21
     i32 7, label %22
     i32 8, label %23
-    i32 9, label %30
-    i32 10, label %31
-    i32 11, label %32
-    i32 12, label %33
-    i32 13, label %34
-    i32 14, label %35
-    i32 15, label %36
-    i32 16, label %37
+    i32 9, label %35
+    i32 10, label %36
+    i32 11, label %37
+    i32 12, label %38
+    i32 13, label %39
+    i32 14, label %40
+    i32 15, label %41
+    i32 16, label %42
   ]
 
 15:                                               ; preds = %12
   %16 = tail call i32 @jsimd_can_idct_2x2() #3
   %.not72 = icmp eq i32 %16, 0
   %jpeg_idct_2x2.jsimd_idct_2x2 = select i1 %.not72, ptr @jpeg_idct_2x2, ptr @jsimd_idct_2x2
-  br label %58
+  br label %49
 
 17:                                               ; preds = %12
-  br label %58
+  br label %49
 
 18:                                               ; preds = %12
   %19 = tail call i32 @jsimd_can_idct_4x4() #3
   %.not71 = icmp eq i32 %19, 0
   %jpeg_idct_4x4.jsimd_idct_4x4 = select i1 %.not71, ptr @jpeg_idct_4x4, ptr @jsimd_idct_4x4
-  br label %58
+  br label %49
 
 20:                                               ; preds = %12
-  br label %58
+  br label %49
 
 21:                                               ; preds = %12
-  br label %58
+  br label %49
 
 22:                                               ; preds = %12
-  br label %58
+  br label %49
 
 23:                                               ; preds = %12
   %24 = load i32, ptr %9, align 8, !tbaa !51
-  switch i32 %24, label %27 [
+  switch i32 %24, label %31 [
     i32 0, label %25
-    i32 1, label %53
-    i32 2, label %48
+    i32 1, label %27
+    i32 2, label %29
   ]
 
 25:                                               ; preds = %23
   %26 = tail call i32 @jsimd_can_idct_islow() #3
   %.not70 = icmp eq i32 %26, 0
   %jpeg_idct_islow.jsimd_idct_islow = select i1 %.not70, ptr @jpeg_idct_islow, ptr @jsimd_idct_islow
-  br label %58
+  br label %49
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %0, align 8, !tbaa !30
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store i32 48, ptr %29, align 8, !tbaa !31
-  br label %43
+  %28 = tail call i32 @jsimd_can_idct_ifast() #3
+  %.not69 = icmp eq i32 %28, 0
+  %jpeg_idct_ifast.jsimd_idct_ifast = select i1 %.not69, ptr @jpeg_idct_ifast, ptr @jsimd_idct_ifast
+  br label %49
 
-30:                                               ; preds = %12
-  br label %58
+29:                                               ; preds = %23
+  %30 = tail call i32 @jsimd_can_idct_float() #3
+  %.not = icmp eq i32 %30, 0
+  %jpeg_idct_float.jsimd_idct_float = select i1 %.not, ptr @jpeg_idct_float, ptr @jsimd_idct_float
+  br label %49
 
-31:                                               ; preds = %12
-  br label %58
-
-32:                                               ; preds = %12
-  br label %58
-
-33:                                               ; preds = %12
-  br label %58
-
-34:                                               ; preds = %12
-  br label %58
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %0, align 8, !tbaa !30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  store i32 48, ptr %33, align 8, !tbaa !31
+  %34 = load ptr, ptr %32, align 8, !tbaa !35
+  tail call void %34(ptr noundef nonnull %0) #3
+  br label %49
 
 35:                                               ; preds = %12
-  br label %58
+  br label %49
 
 36:                                               ; preds = %12
-  br label %58
+  br label %49
 
 37:                                               ; preds = %12
-  br label %58
+  br label %49
 
 38:                                               ; preds = %12
-  %39 = load ptr, ptr %0, align 8, !tbaa !30
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store i32 7, ptr %40, align 8, !tbaa !31
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 44
-  store i32 %14, ptr %41, align 4, !tbaa !34
-  %42 = load ptr, ptr %0, align 8, !tbaa !30
-  br label %43
+  br label %49
 
-43:                                               ; preds = %27, %38
-  %.sink119 = phi ptr [ %28, %27 ], [ %42, %38 ]
-  %44 = load ptr, ptr %.sink119, align 8, !tbaa !35
-  tail call void %44(ptr noundef nonnull %0) #3
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
-  store ptr %.06482, ptr %45, align 8, !tbaa !52
-  %46 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
-  %47 = load i32, ptr %46, align 8, !tbaa !53
-  %.not73 = icmp eq i32 %47, 0
-  br i1 %.not73, label %.loopexit, label %62
+39:                                               ; preds = %12
+  br label %49
 
-48:                                               ; preds = %23
-  %49 = tail call i32 @jsimd_can_idct_float() #3
-  %.not = icmp eq i32 %49, 0
-  %jpeg_idct_float.jsimd_idct_float = select i1 %.not, ptr @jpeg_idct_float, ptr @jsimd_idct_float
+40:                                               ; preds = %12
+  br label %49
+
+41:                                               ; preds = %12
+  br label %49
+
+42:                                               ; preds = %12
+  br label %49
+
+43:                                               ; preds = %12
+  %44 = load ptr, ptr %0, align 8, !tbaa !30
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store i32 7, ptr %45, align 8, !tbaa !31
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 44
+  store i32 %14, ptr %46, align 4, !tbaa !34
+  %47 = load ptr, ptr %0, align 8, !tbaa !30
+  %48 = load ptr, ptr %47, align 8, !tbaa !35
+  tail call void %48(ptr noundef nonnull %0) #3
+  br label %49
+
+49:                                               ; preds = %12, %25, %27, %29, %31, %43, %42, %41, %40, %39, %38, %37, %36, %35, %22, %21, %20, %18, %17, %15
+  %.165 = phi ptr [ %.06482, %43 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_5x5, %20 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_7x7, %22 ], [ %.06482, %31 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ @jpeg_idct_9x9, %35 ], [ @jpeg_idct_10x10, %36 ], [ @jpeg_idct_11x11, %37 ], [ @jpeg_idct_12x12, %38 ], [ @jpeg_idct_13x13, %39 ], [ @jpeg_idct_14x14, %40 ], [ @jpeg_idct_15x15, %41 ], [ @jpeg_idct_16x16, %42 ], [ @jpeg_idct_1x1, %12 ]
+  %.163 = phi i32 [ %.06283, %43 ], [ 0, %15 ], [ 0, %17 ], [ 0, %18 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ %.06283, %31 ], [ 0, %25 ], [ 1, %27 ], [ 2, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ 0, %12 ]
   %50 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
-  store ptr %jpeg_idct_float.jsimd_idct_float, ptr %50, align 8, !tbaa !52
+  store ptr %.165, ptr %50, align 8, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
   %52 = load i32, ptr %51, align 8, !tbaa !53
-  %.not73.jt2 = icmp eq i32 %52, 0
-  br i1 %.not73.jt2, label %.loopexit, label %66
+  %.not73 = icmp eq i32 %52, 0
+  br i1 %.not73, label %.loopexit, label %53
 
-53:                                               ; preds = %23
-  %54 = tail call i32 @jsimd_can_idct_ifast() #3
-  %.not69 = icmp eq i32 %54, 0
-  %jpeg_idct_ifast.jsimd_idct_ifast = select i1 %.not69, ptr @jpeg_idct_ifast, ptr @jsimd_idct_ifast
-  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
-  store ptr %jpeg_idct_ifast.jsimd_idct_ifast, ptr %55, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
-  %57 = load i32, ptr %56, align 8, !tbaa !53
-  %.not73.jt1 = icmp eq i32 %57, 0
-  br i1 %.not73.jt1, label %.loopexit, label %70
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
+  %55 = load i32, ptr %54, align 4, !tbaa !47
+  %56 = icmp eq i32 %55, %.163
+  br i1 %56, label %.loopexit, label %57
 
-58:                                               ; preds = %12, %37, %36, %35, %34, %33, %32, %31, %30, %25, %22, %21, %20, %18, %17, %15
-  %.165.jt0 = phi ptr [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_5x5, %20 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_7x7, %22 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ @jpeg_idct_9x9, %30 ], [ @jpeg_idct_10x10, %31 ], [ @jpeg_idct_11x11, %32 ], [ @jpeg_idct_12x12, %33 ], [ @jpeg_idct_13x13, %34 ], [ @jpeg_idct_14x14, %35 ], [ @jpeg_idct_15x15, %36 ], [ @jpeg_idct_16x16, %37 ], [ @jpeg_idct_1x1, %12 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
-  store ptr %.165.jt0, ptr %59, align 8, !tbaa !52
-  %60 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
-  %61 = load i32, ptr %60, align 8, !tbaa !53
-  %.not73.jt0 = icmp eq i32 %61, 0
-  br i1 %.not73.jt0, label %.loopexit, label %74
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %.06184, i64 80
+  %59 = load ptr, ptr %58, align 8, !tbaa !54
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.loopexit, label %61
 
-62:                                               ; preds = %43
-  %63 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
-  %64 = load i32, ptr %63, align 4, !tbaa !47
-  %65 = icmp eq i32 %64, %.06283
-  br i1 %65, label %.loopexit, label %78
-
-66:                                               ; preds = %48
-  %67 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
-  %68 = load i32, ptr %67, align 4, !tbaa !47
-  %69 = icmp eq i32 %68, 2
-  br i1 %69, label %.loopexit, label %82
-
-70:                                               ; preds = %53
-  %71 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
-  %72 = load i32, ptr %71, align 4, !tbaa !47
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %.loopexit, label %86
-
-74:                                               ; preds = %58
-  %75 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
-  %76 = load i32, ptr %75, align 4, !tbaa !47
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.loopexit, label %90
-
-78:                                               ; preds = %62
-  %79 = getelementptr inbounds nuw i8, ptr %.06184, i64 80
-  %80 = load ptr, ptr %79, align 8, !tbaa !54
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %.loopexit, label %94
-
-82:                                               ; preds = %66
-  %83 = getelementptr inbounds nuw i8, ptr %.06184, i64 80
-  %84 = load ptr, ptr %83, align 8, !tbaa !54
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %.loopexit, label %95
-
-86:                                               ; preds = %70
-  %87 = getelementptr inbounds nuw i8, ptr %.06184, i64 80
-  %88 = load ptr, ptr %87, align 8, !tbaa !54
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit, label %96
-
-90:                                               ; preds = %74
-  %91 = getelementptr inbounds nuw i8, ptr %.06184, i64 80
-  %92 = load ptr, ptr %91, align 8, !tbaa !54
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %.loopexit, label %97
-
-94:                                               ; preds = %78
-  store i32 %.06283, ptr %63, align 4, !tbaa !47
-  switch i32 %.06283, label %default.unreachable108 [
-    i32 0, label %98
-    i32 1, label %106
-    i32 2, label %122
+61:                                               ; preds = %57
+  store i32 %.163, ptr %54, align 4, !tbaa !47
+  %62 = getelementptr inbounds nuw i8, ptr %.06184, i64 88
+  %63 = load ptr, ptr %62, align 8, !tbaa !45
+  switch i32 %.163, label %default.unreachable108 [
+    i32 0, label %.preheader111
+    i32 1, label %.preheader112
+    i32 2, label %.preheader
   ]
 
-95:                                               ; preds = %82
-  store i32 2, ptr %67, align 4, !tbaa !47
-  br label %122
-
-96:                                               ; preds = %86
-  store i32 1, ptr %71, align 4, !tbaa !47
-  br label %106
-
-97:                                               ; preds = %90
-  store i32 0, ptr %75, align 4, !tbaa !47
-  br label %98
-
-98:                                               ; preds = %97, %94
-  %99 = phi ptr [ %92, %97 ], [ %80, %94 ]
-  %.165112 = phi ptr [ %.165.jt0, %97 ], [ %.06482, %94 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.06184, i64 88
-  %101 = load ptr, ptr %100, align 8, !tbaa !45
-  br label %102
-
-102:                                              ; preds = %98, %102
-  %indvars.iv101 = phi i64 [ 0, %98 ], [ %indvars.iv.next102, %102 ]
-  %103 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv101
-  %104 = load i16, ptr %103, align 2, !tbaa !55
-  %105 = getelementptr inbounds nuw i16, ptr %101, i64 %indvars.iv101
-  store i16 %104, ptr %105, align 2, !tbaa !55
+.preheader111:                                    ; preds = %61, %.preheader111
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheader111 ], [ 0, %61 ]
+  %64 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv101
+  %65 = load i16, ptr %64, align 2, !tbaa !55
+  %66 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv101
+  store i16 %65, ptr %66, align 2, !tbaa !55
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 64
-  br i1 %exitcond104.not, label %.loopexit, label %102, !llvm.loop !56
+  br i1 %exitcond104.not, label %.loopexit, label %.preheader111, !llvm.loop !56
 
-106:                                              ; preds = %96, %94
-  %107 = phi ptr [ %88, %96 ], [ %80, %94 ]
-  %.165111 = phi ptr [ %jpeg_idct_ifast.jsimd_idct_ifast, %96 ], [ %.06482, %94 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.06184, i64 88
-  %109 = load ptr, ptr %108, align 8, !tbaa !45
-  br label %110
-
-110:                                              ; preds = %106, %110
-  %indvars.iv97 = phi i64 [ 0, %106 ], [ %indvars.iv.next98, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %107, i64 %indvars.iv97
-  %112 = load i16, ptr %111, align 2, !tbaa !55
-  %113 = zext i16 %112 to i32
-  %114 = getelementptr inbounds nuw i16, ptr @start_pass.aanscales, i64 %indvars.iv97
-  %115 = load i16, ptr %114, align 2, !tbaa !55
-  %116 = sext i16 %115 to i32
-  %117 = mul nsw i32 %116, %113
-  %118 = add nsw i32 %117, 2048
-  %119 = lshr i32 %118, 12
-  %120 = trunc i32 %119 to i16
-  %121 = getelementptr inbounds nuw i16, ptr %109, i64 %indvars.iv97
-  store i16 %120, ptr %121, align 2, !tbaa !55
+.preheader112:                                    ; preds = %61, %.preheader112
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader112 ], [ 0, %61 ]
+  %67 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv97
+  %68 = load i16, ptr %67, align 2, !tbaa !55
+  %69 = zext i16 %68 to i32
+  %70 = getelementptr inbounds nuw i16, ptr @start_pass.aanscales, i64 %indvars.iv97
+  %71 = load i16, ptr %70, align 2, !tbaa !55
+  %72 = sext i16 %71 to i32
+  %73 = mul nsw i32 %72, %69
+  %74 = add nsw i32 %73, 2048
+  %75 = lshr i32 %74, 12
+  %76 = trunc i32 %75 to i16
+  %77 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv97
+  store i16 %76, ptr %77, align 2, !tbaa !55
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
-  br i1 %exitcond100.not, label %.loopexit, label %110, !llvm.loop !57
+  br i1 %exitcond100.not, label %.loopexit, label %.preheader112, !llvm.loop !57
 
-122:                                              ; preds = %95, %94
-  %123 = phi ptr [ %84, %95 ], [ %80, %94 ]
-  %.165110 = phi ptr [ %jpeg_idct_float.jsimd_idct_float, %95 ], [ %.06482, %94 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.06184, i64 88
-  %125 = load ptr, ptr %124, align 8, !tbaa !45
-  br label %.preheader
-
-.preheader:                                       ; preds = %122, %139
-  %indvars.iv93 = phi i64 [ 0, %122 ], [ %indvars.iv.next94, %139 ]
-  %.278 = phi i64 [ 0, %122 ], [ %indvars.iv.next89, %139 ]
-  %126 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv93
-  %127 = load double, ptr %126, align 8, !tbaa !58
+.preheader:                                       ; preds = %61, %91
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %91 ], [ 0, %61 ]
+  %.278 = phi i64 [ %indvars.iv.next89, %91 ], [ 0, %61 ]
+  %78 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv93
+  %79 = load double, ptr %78, align 8, !tbaa !58
   %sext = shl i64 %.278, 32
-  %128 = ashr exact i64 %sext, 32
-  br label %129
+  %80 = ashr exact i64 %sext, 32
+  br label %81
 
-129:                                              ; preds = %.preheader, %129
-  %indvars.iv88 = phi i64 [ %128, %.preheader ], [ %indvars.iv.next89, %129 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %129 ]
-  %130 = getelementptr inbounds i16, ptr %123, i64 %indvars.iv88
-  %131 = load i16, ptr %130, align 2, !tbaa !55
-  %132 = uitofp i16 %131 to double
-  %133 = fmul double %127, %132
-  %134 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv
-  %135 = load double, ptr %134, align 8, !tbaa !58
-  %136 = fmul double %133, %135
-  %137 = fptrunc double %136 to float
-  %138 = getelementptr inbounds float, ptr %125, i64 %indvars.iv88
-  store float %137, ptr %138, align 4, !tbaa !59
+81:                                               ; preds = %.preheader, %81
+  %indvars.iv88 = phi i64 [ %80, %.preheader ], [ %indvars.iv.next89, %81 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %81 ]
+  %82 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv88
+  %83 = load i16, ptr %82, align 2, !tbaa !55
+  %84 = uitofp i16 %83 to double
+  %85 = fmul double %79, %84
+  %86 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !58
+  %88 = fmul double %85, %87
+  %89 = fptrunc double %88 to float
+  %90 = getelementptr inbounds float, ptr %63, i64 %indvars.iv88
+  store float %89, ptr %90, align 4, !tbaa !59
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %139, label %129, !llvm.loop !61
+  br i1 %exitcond.not, label %91, label %81, !llvm.loop !61
 
-139:                                              ; preds = %129
+91:                                               ; preds = %81
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
   br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !62
 
-default.unreachable108:                           ; preds = %94
+default.unreachable108:                           ; preds = %61
   unreachable
 
-.loopexit:                                        ; preds = %139, %110, %102, %82, %66, %48, %86, %70, %53, %90, %74, %58, %78, %43, %62
-  %.163113 = phi i32 [ 2, %82 ], [ 2, %66 ], [ 2, %48 ], [ 1, %86 ], [ 1, %70 ], [ 1, %53 ], [ 0, %90 ], [ 0, %74 ], [ 0, %58 ], [ %.06283, %78 ], [ %.06283, %43 ], [ %.06283, %62 ], [ 0, %102 ], [ 1, %110 ], [ 2, %139 ]
-  %.165109 = phi ptr [ %jpeg_idct_float.jsimd_idct_float, %82 ], [ %jpeg_idct_float.jsimd_idct_float, %66 ], [ %jpeg_idct_float.jsimd_idct_float, %48 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %86 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %70 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %53 ], [ %.165.jt0, %90 ], [ %.165.jt0, %74 ], [ %.165.jt0, %58 ], [ %.06482, %78 ], [ %.06482, %43 ], [ %.06482, %62 ], [ %.165112, %102 ], [ %.165111, %110 ], [ %.165110, %139 ]
+.loopexit:                                        ; preds = %91, %.preheader112, %.preheader111, %57, %49, %53
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %140 = getelementptr inbounds nuw i8, ptr %.06184, i64 96
-  %141 = load i32, ptr %2, align 8, !tbaa !43
-  %142 = sext i32 %141 to i64
-  %143 = icmp slt i64 %indvars.iv.next106, %142
-  br i1 %143, label %12, label %._crit_edge, !llvm.loop !63
+  %92 = getelementptr inbounds nuw i8, ptr %.06184, i64 96
+  %93 = load i32, ptr %2, align 8, !tbaa !43
+  %94 = sext i32 %93 to i64
+  %95 = icmp slt i64 %indvars.iv.next106, %94
+  br i1 %95, label %12, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void

@@ -83,9 +83,9 @@ target triple = "x86_64-pc-linux-gnu"
 @chartypeoffset = internal unnamed_addr constant [4 x i32] [i32 0, i32 13, i32 26, i32 39], align 16
 @_pcre2_utf8_table4 = external local_unnamed_addr constant [0 x i8], align 1
 @opcode_possessify = internal unnamed_addr constant <{ [105 x i8], [15 x i8] }> <{ [105 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00*\00+\00,\00-\00\00\00\00\00\007\008\009\00:\00\00\00\00\00\00D\00E\00F\00G\00\00\00\00\00\00Q\00R\00S\00T\00\00\00\00\00\00^\00_\00`\00a\00\00\00\00\00\00j\00k\00l\00m", [15 x i8] zeroinitializer }>, align 16
-@switch.table.find_firstassertedcu = private unnamed_addr constant [7 x i64] [i64 2, i64 2, i64 0, i64 0, i64 0, i64 2, i64 2], align 8
+@switch.table.find_firstassertedcu.4 = private unnamed_addr constant [7 x i64] [i64 2, i64 2, i64 0, i64 0, i64 0, i64 2, i64 2], align 8
 @switch.table.handle_escdsw = private unnamed_addr constant [6 x i32] [i32 256, i32 256, i32 512, i32 512, i32 1024, i32 1024], align 4
-@switch.table.handle_escdsw.4 = private unnamed_addr constant [6 x i32] [i32 -2145648625, i32 -2145648624, i32 -2145648625, i32 -2145648624, i32 -2145648625, i32 -2145648624], align 4
+@switch.table.handle_escdsw.5 = private unnamed_addr constant [6 x i32] [i32 -2145648625, i32 -2145648624, i32 -2145648625, i32 -2145648624, i32 -2145648625, i32 -2145648624], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @php_pcre2_code_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -13551,217 +13551,214 @@ define internal fastcc range(i32 0, 256) i32 @find_firstassertedcu(ptr noundef n
   store i32 -2, ptr %1, align 4, !tbaa !22
   %.pr = load i8, ptr %0, align 1, !tbaa !23
   %5 = icmp eq i32 %2, 0
-  br i1 %5, label %.split.us.split.us, label %.split.split.preheader
+  br i1 %5, label %.split.us.split.us.preheader, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %3
   %6 = add i8 %.pr, 117
   br label %.split.split
 
-.split.us.split.us:                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  switch i8 %.pr, label %7 [
-    i8 -117, label %switch.edge.us.us
-    i8 -112, label %switch.edge.us.us
-    i8 -116, label %switch.edge.us.us
-    i8 -111, label %switch.edge.us.us
-  ]
+.split.us.split.us.preheader:                     ; preds = %3
+  %7 = add i8 %.pr, 117
+  br label %.split.us.split.us
 
-.split.us.split.us.jt121:                         ; preds = %24
+.split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %26
+  %switch.tableidx = phi i8 [ -18, %26 ], [ %7, %.split.us.split.us.preheader ]
+  %.047.us.us = phi i32 [ %.249.us.us, %26 ], [ -2, %.split.us.split.us.preheader ]
+  %.044.us.us = phi i32 [ %.246.us.us, %26 ], [ 0, %.split.us.split.us.preheader ]
+  %.042.us.us = phi ptr [ %34, %26 ], [ %0, %.split.us.split.us.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %7
+  %8 = icmp ult i8 %switch.tableidx, 7
+  br i1 %8, label %switch.lookup, label %switch.edge.us.us
 
-7:                                                ; preds = %.split.us.split.us.jt121, %.split.us.split.us
-  %.042.us.us106 = phi ptr [ %32, %.split.us.split.us.jt121 ], [ %0, %.split.us.split.us ]
-  %.044.us.us104 = phi i32 [ %.246.us.us, %.split.us.split.us.jt121 ], [ 0, %.split.us.split.us ]
-  %.047.us.us102 = phi i32 [ %.249.us.us, %.split.us.split.us.jt121 ], [ -2, %.split.us.split.us ]
+switch.lookup:                                    ; preds = %.split.us.split.us
+  %9 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.find_firstassertedcu.4, i64 %9
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %switch.edge.us.us
 
-switch.edge.us.us:                                ; preds = %7, %.split.us.split.us, %.split.us.split.us, %.split.us.split.us, %.split.us.split.us
-  %.042.us.us107 = phi ptr [ %.042.us.us106, %7 ], [ %0, %.split.us.split.us ], [ %0, %.split.us.split.us ], [ %0, %.split.us.split.us ], [ %0, %.split.us.split.us ]
-  %.044.us.us105 = phi i32 [ %.044.us.us104, %7 ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ]
-  %.047.us.us103 = phi i32 [ %.047.us.us102, %7 ], [ -2, %.split.us.split.us ], [ -2, %.split.us.split.us ], [ -2, %.split.us.split.us ], [ -2, %.split.us.split.us ]
-  %8 = phi i64 [ 0, %7 ], [ 2, %.split.us.split.us ], [ 2, %.split.us.split.us ], [ 2, %.split.us.split.us ], [ 2, %.split.us.split.us ]
-  %9 = getelementptr inbounds nuw i8, ptr %.042.us.us107, i64 1
-  %10 = getelementptr inbounds nuw i8, ptr %.042.us.us107, i64 3
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %8
-  %12 = tail call fastcc ptr @first_significant_code(ptr noundef %11, i32 noundef 1)
-  %13 = load i8, ptr %12, align 1, !tbaa !23
-  switch i8 %13, label %.thread [
-    i8 -119, label %14
-    i8 -118, label %14
-    i8 -117, label %14
-    i8 -112, label %14
-    i8 -116, label %14
-    i8 -111, label %14
-    i8 -128, label %14
-    i8 -124, label %14
-    i8 -121, label %14
-    i8 -120, label %14
+switch.edge.us.us:                                ; preds = %.split.us.split.us, %switch.lookup
+  %10 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %.split.us.split.us ]
+  %11 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %10
+  %14 = tail call fastcc ptr @first_significant_code(ptr noundef %13, i32 noundef 1)
+  %15 = load i8, ptr %14, align 1, !tbaa !23
+  switch i8 %15, label %.thread [
+    i8 -119, label %16
+    i8 -118, label %16
+    i8 -117, label %16
+    i8 -112, label %16
+    i8 -116, label %16
+    i8 -111, label %16
+    i8 -128, label %16
+    i8 -124, label %16
+    i8 -121, label %16
+    i8 -120, label %16
   ]
 
-14:                                               ; preds = %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us
-  %15 = and i8 %13, -5
-  %16 = icmp eq i8 %15, -128
-  %17 = zext i1 %16 to i32
-  %18 = call fastcc i32 @find_firstassertedcu(ptr noundef %12, ptr noundef %4, i32 noundef %17)
-  %19 = load i32, ptr %4, align 4, !tbaa !22
-  %20 = icmp ugt i32 %19, -3
-  br i1 %20, label %.thread, label %21
+16:                                               ; preds = %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us, %switch.edge.us.us
+  %17 = and i8 %15, -5
+  %18 = icmp eq i8 %17, -128
+  %19 = zext i1 %18 to i32
+  %20 = call fastcc i32 @find_firstassertedcu(ptr noundef %14, ptr noundef %4, i32 noundef %19)
+  %21 = load i32, ptr %4, align 4, !tbaa !22
+  %22 = icmp ugt i32 %21, -3
+  br i1 %22, label %.thread, label %23
 
-21:                                               ; preds = %14
-  %22 = icmp ugt i32 %.047.us.us103, -3
-  br i1 %22, label %24, label %23
+23:                                               ; preds = %16
+  %24 = icmp ugt i32 %.047.us.us, -3
+  br i1 %24, label %26, label %25
 
-23:                                               ; preds = %21
-  %.not54.us.us = icmp eq i32 %.044.us.us105, %18
-  %.not55.us.us = icmp eq i32 %.047.us.us103, %19
+25:                                               ; preds = %23
+  %.not54.us.us = icmp eq i32 %.044.us.us, %20
+  %.not55.us.us = icmp eq i32 %.047.us.us, %21
   %or.cond.us.us = select i1 %.not54.us.us, i1 %.not55.us.us, i1 false
-  br i1 %or.cond.us.us, label %24, label %.thread
+  br i1 %or.cond.us.us, label %26, label %.thread
 
-24:                                               ; preds = %23, %21
-  %.249.us.us = phi i32 [ %19, %21 ], [ %.047.us.us103, %23 ]
-  %.246.us.us = phi i32 [ %18, %21 ], [ %.044.us.us105, %23 ]
-  %25 = load i8, ptr %9, align 1, !tbaa !23
-  %26 = zext i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 8
-  %28 = getelementptr inbounds nuw i8, ptr %.042.us.us107, i64 2
-  %29 = load i8, ptr %28, align 1, !tbaa !23
-  %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %.042.us.us107, i64 %27
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %30
+26:                                               ; preds = %25, %23
+  %.249.us.us = phi i32 [ %21, %23 ], [ %.047.us.us, %25 ]
+  %.246.us.us = phi i32 [ %20, %23 ], [ %.044.us.us, %25 ]
+  %27 = load i8, ptr %11, align 1, !tbaa !23
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, 8
+  %30 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 2
+  %31 = load i8, ptr %30, align 1, !tbaa !23
+  %32 = zext i8 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 %29
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %33 = load i8, ptr %32, align 1, !tbaa !23
-  %34 = icmp eq i8 %33, 121
-  br i1 %34, label %.split.us.split.us.jt121, label %.split61.us
+  %35 = load i8, ptr %34, align 1, !tbaa !23
+  %36 = icmp eq i8 %35, 121
+  br i1 %36, label %.split.us.split.us, label %.split61.us
 
-.split.split:                                     ; preds = %.split.split.preheader, %72
-  %switch.tableidx = phi i8 [ -18, %72 ], [ %6, %.split.split.preheader ]
-  %.047 = phi i32 [ %.249, %72 ], [ -2, %.split.split.preheader ]
-  %.044 = phi i32 [ %.246, %72 ], [ 0, %.split.split.preheader ]
-  %.042 = phi ptr [ %80, %72 ], [ %0, %.split.split.preheader ]
+.split.split:                                     ; preds = %.split.split.preheader, %74
+  %switch.tableidx106 = phi i8 [ -18, %74 ], [ %6, %.split.split.preheader ]
+  %.047 = phi i32 [ %.249, %74 ], [ -2, %.split.split.preheader ]
+  %.044 = phi i32 [ %.246, %74 ], [ 0, %.split.split.preheader ]
+  %.042 = phi ptr [ %82, %74 ], [ %0, %.split.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %35 = icmp ult i8 %switch.tableidx, 7
-  br i1 %35, label %switch.lookup, label %switch.edge
+  %37 = icmp ult i8 %switch.tableidx106, 7
+  br i1 %37, label %switch.lookup107, label %switch.edge
 
-switch.lookup:                                    ; preds = %.split.split
-  %36 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.find_firstassertedcu, i64 %36
-  %switch.load = load i64, ptr %switch.gep, align 8
+switch.lookup107:                                 ; preds = %.split.split
+  %38 = zext nneg i8 %switch.tableidx106 to i64
+  %switch.gep108 = getelementptr inbounds nuw i64, ptr @switch.table.find_firstassertedcu.4, i64 %38
+  %switch.load109 = load i64, ptr %switch.gep108, align 8
   br label %switch.edge
 
-switch.edge:                                      ; preds = %.split.split, %switch.lookup
-  %37 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %.split.split ]
-  %38 = getelementptr inbounds nuw i8, ptr %.042, i64 1
-  %39 = getelementptr inbounds nuw i8, ptr %.042, i64 3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
-  %41 = tail call fastcc ptr @first_significant_code(ptr noundef %40, i32 noundef 1)
-  %42 = load i8, ptr %41, align 1, !tbaa !23
-  switch i8 %42, label %.thread [
-    i8 -119, label %43
-    i8 -118, label %43
-    i8 -117, label %43
-    i8 -112, label %43
-    i8 -116, label %43
-    i8 -111, label %43
-    i8 -128, label %43
-    i8 -124, label %43
-    i8 -121, label %43
-    i8 -120, label %43
-    i8 41, label %54
-    i8 29, label %56
-    i8 35, label %56
-    i8 36, label %56
-    i8 43, label %56
-    i8 54, label %62
-    i8 30, label %64
-    i8 48, label %64
-    i8 49, label %64
-    i8 56, label %64
+switch.edge:                                      ; preds = %.split.split, %switch.lookup107
+  %39 = phi i64 [ %switch.load109, %switch.lookup107 ], [ 0, %.split.split ]
+  %40 = getelementptr inbounds nuw i8, ptr %.042, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.042, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
+  %43 = tail call fastcc ptr @first_significant_code(ptr noundef %42, i32 noundef 1)
+  %44 = load i8, ptr %43, align 1, !tbaa !23
+  switch i8 %44, label %.thread [
+    i8 -119, label %45
+    i8 -118, label %45
+    i8 -117, label %45
+    i8 -112, label %45
+    i8 -116, label %45
+    i8 -111, label %45
+    i8 -128, label %45
+    i8 -124, label %45
+    i8 -121, label %45
+    i8 -120, label %45
+    i8 41, label %56
+    i8 29, label %58
+    i8 35, label %58
+    i8 36, label %58
+    i8 43, label %58
+    i8 54, label %64
+    i8 30, label %66
+    i8 48, label %66
+    i8 49, label %66
+    i8 56, label %66
   ]
 
-43:                                               ; preds = %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge
-  %44 = and i8 %42, -5
-  %45 = icmp eq i8 %44, -128
-  %46 = zext i1 %45 to i32
-  %47 = add i32 %2, %46
-  %48 = call fastcc i32 @find_firstassertedcu(ptr noundef %41, ptr noundef %4, i32 noundef %47)
-  %49 = load i32, ptr %4, align 4, !tbaa !22
-  %50 = icmp ugt i32 %49, -3
-  br i1 %50, label %.thread, label %51
+45:                                               ; preds = %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge
+  %46 = and i8 %44, -5
+  %47 = icmp eq i8 %46, -128
+  %48 = zext i1 %47 to i32
+  %49 = add i32 %2, %48
+  %50 = call fastcc i32 @find_firstassertedcu(ptr noundef %43, ptr noundef %4, i32 noundef %49)
+  %51 = load i32, ptr %4, align 4, !tbaa !22
+  %52 = icmp ugt i32 %51, -3
+  br i1 %52, label %.thread, label %53
 
-51:                                               ; preds = %43
-  %52 = icmp ugt i32 %.047, -3
-  br i1 %52, label %72, label %53
+53:                                               ; preds = %45
+  %54 = icmp ugt i32 %.047, -3
+  br i1 %54, label %74, label %55
 
-53:                                               ; preds = %51
-  %.not54 = icmp eq i32 %.044, %48
-  %.not55 = icmp eq i32 %.047, %49
+55:                                               ; preds = %53
+  %.not54 = icmp eq i32 %.044, %50
+  %.not55 = icmp eq i32 %.047, %51
   %or.cond = select i1 %.not54, i1 %.not55, i1 false
-  br i1 %or.cond, label %72, label %.thread
+  br i1 %or.cond, label %74, label %.thread
 
-54:                                               ; preds = %switch.edge
-  %55 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  br label %56
+56:                                               ; preds = %switch.edge
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  br label %58
 
-56:                                               ; preds = %54, %switch.edge, %switch.edge, %switch.edge, %switch.edge
-  %.040 = phi ptr [ %55, %54 ], [ %41, %switch.edge ], [ %41, %switch.edge ], [ %41, %switch.edge ], [ %41, %switch.edge ]
-  %57 = icmp ugt i32 %.047, -3
-  %58 = getelementptr inbounds nuw i8, ptr %.040, i64 1
-  %59 = load i8, ptr %58, align 1, !tbaa !23
-  %60 = zext i8 %59 to i32
-  br i1 %57, label %72, label %61
+58:                                               ; preds = %56, %switch.edge, %switch.edge, %switch.edge, %switch.edge
+  %.040 = phi ptr [ %57, %56 ], [ %43, %switch.edge ], [ %43, %switch.edge ], [ %43, %switch.edge ], [ %43, %switch.edge ]
+  %59 = icmp ugt i32 %.047, -3
+  %60 = getelementptr inbounds nuw i8, ptr %.040, i64 1
+  %61 = load i8, ptr %60, align 1, !tbaa !23
+  %62 = zext i8 %61 to i32
+  br i1 %59, label %74, label %63
 
-61:                                               ; preds = %56
-  %.not53 = icmp eq i32 %.044, %60
-  br i1 %.not53, label %72, label %.thread
+63:                                               ; preds = %58
+  %.not53 = icmp eq i32 %.044, %62
+  br i1 %.not53, label %74, label %.thread
 
-62:                                               ; preds = %switch.edge
-  %63 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  br label %64
+64:                                               ; preds = %switch.edge
+  %65 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  br label %66
 
-64:                                               ; preds = %62, %switch.edge, %switch.edge, %switch.edge, %switch.edge
-  %.141 = phi ptr [ %63, %62 ], [ %41, %switch.edge ], [ %41, %switch.edge ], [ %41, %switch.edge ], [ %41, %switch.edge ]
-  %65 = getelementptr inbounds nuw i8, ptr %.141, i64 1
-  %66 = load i8, ptr %65, align 1, !tbaa !23
-  %67 = zext i8 %66 to i32
-  %68 = icmp slt i8 %66, 0
-  br i1 %68, label %.thread, label %69
+66:                                               ; preds = %64, %switch.edge, %switch.edge, %switch.edge, %switch.edge
+  %.141 = phi ptr [ %65, %64 ], [ %43, %switch.edge ], [ %43, %switch.edge ], [ %43, %switch.edge ], [ %43, %switch.edge ]
+  %67 = getelementptr inbounds nuw i8, ptr %.141, i64 1
+  %68 = load i8, ptr %67, align 1, !tbaa !23
+  %69 = zext i8 %68 to i32
+  %70 = icmp slt i8 %68, 0
+  br i1 %70, label %.thread, label %71
 
-69:                                               ; preds = %64
-  %70 = icmp ugt i32 %.047, -3
-  br i1 %70, label %72, label %71
+71:                                               ; preds = %66
+  %72 = icmp ugt i32 %.047, -3
+  br i1 %72, label %74, label %73
 
-71:                                               ; preds = %69
-  %.not = icmp eq i32 %.044, %67
-  br i1 %.not, label %72, label %.thread
+73:                                               ; preds = %71
+  %.not = icmp eq i32 %.044, %69
+  br i1 %.not, label %74, label %.thread
 
-.thread:                                          ; preds = %switch.edge, %43, %53, %61, %64, %71, %switch.edge.us.us, %14, %23
+.thread:                                          ; preds = %switch.edge, %45, %55, %63, %66, %73, %switch.edge.us.us, %16, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %83
+  br label %85
 
-72:                                               ; preds = %56, %69, %53, %51, %71, %61
-  %.249 = phi i32 [ %.047, %61 ], [ %.047, %71 ], [ %49, %51 ], [ %.047, %53 ], [ 1, %69 ], [ 0, %56 ]
-  %.246 = phi i32 [ %.044, %61 ], [ %.044, %71 ], [ %48, %51 ], [ %.044, %53 ], [ %67, %69 ], [ %60, %56 ]
-  %73 = load i8, ptr %38, align 1, !tbaa !23
-  %74 = zext i8 %73 to i64
-  %75 = shl nuw nsw i64 %74, 8
-  %76 = getelementptr inbounds nuw i8, ptr %.042, i64 2
-  %77 = load i8, ptr %76, align 1, !tbaa !23
-  %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %.042, i64 %75
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %78
+74:                                               ; preds = %58, %71, %55, %53, %73, %63
+  %.249 = phi i32 [ %.047, %63 ], [ %.047, %73 ], [ %51, %53 ], [ %.047, %55 ], [ 1, %71 ], [ 0, %58 ]
+  %.246 = phi i32 [ %.044, %63 ], [ %.044, %73 ], [ %50, %53 ], [ %.044, %55 ], [ %69, %71 ], [ %62, %58 ]
+  %75 = load i8, ptr %40, align 1, !tbaa !23
+  %76 = zext i8 %75 to i64
+  %77 = shl nuw nsw i64 %76, 8
+  %78 = getelementptr inbounds nuw i8, ptr %.042, i64 2
+  %79 = load i8, ptr %78, align 1, !tbaa !23
+  %80 = zext i8 %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %.042, i64 %77
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %81 = load i8, ptr %80, align 1, !tbaa !23
-  %82 = icmp eq i8 %81, 121
-  br i1 %82, label %.split.split, label %.split61.us
+  %83 = load i8, ptr %82, align 1, !tbaa !23
+  %84 = icmp eq i8 %83, 121
+  br i1 %84, label %.split.split, label %.split61.us
 
-.split61.us:                                      ; preds = %72, %24
-  %.us-phi = phi i32 [ %.249.us.us, %24 ], [ %.249, %72 ]
-  %.us-phi62 = phi i32 [ %.246.us.us, %24 ], [ %.246, %72 ]
+.split61.us:                                      ; preds = %74, %26
+  %.us-phi = phi i32 [ %.249.us.us, %26 ], [ %.249, %74 ]
+  %.us-phi62 = phi i32 [ %.246.us.us, %26 ], [ %.246, %74 ]
   store i32 %.us-phi, ptr %1, align 4, !tbaa !22
-  br label %83
+  br label %85
 
-83:                                               ; preds = %.thread, %.split61.us
+85:                                               ; preds = %.thread, %.split61.us
   %.2 = phi i32 [ %.us-phi62, %.split61.us ], [ 0, %.thread ]
   ret i32 %.2
 }
@@ -14036,7 +14033,7 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.handle_escdsw, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i32, ptr @switch.table.handle_escdsw.4, i64 %7
+  %switch.gep14 = getelementptr inbounds nuw i32, ptr @switch.table.handle_escdsw.5, i64 %7
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   %8 = and i32 %switch.load, %3
   %9 = icmp eq i32 %8, 0

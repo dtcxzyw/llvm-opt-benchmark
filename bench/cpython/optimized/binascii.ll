@@ -638,14 +638,14 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 16:                                               ; preds = %10
   %17 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @binascii_a2b_base64._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #5
   %.not28 = icmp eq ptr %17, null
-  br i1 %.not28, label %216, label %.thread
+  br i1 %.not28, label %143, label %.thread
 
 .thread:                                          ; preds = %10, %16
   %18 = phi ptr [ %17, %16 ], [ %1, %10 ]
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = call fastcc i32 @ascii_buffer_converter(ptr noundef %19, ptr noundef %7)
   %.not29 = icmp eq i32 %20, 0
-  br i1 %.not29, label %216, label %21
+  br i1 %.not29, label %143, label %21
 
 21:                                               ; preds = %.thread
   %.not30 = icmp eq i64 %12, 1
@@ -656,7 +656,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = call i32 @PyObject_IsTrue(ptr noundef %24) #5
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %216, label %27
+  br i1 %26, label %143, label %27
 
 27:                                               ; preds = %22, %21
   %.0 = phi i32 [ %25, %22 ], [ 0, %21 ]
@@ -698,428 +698,269 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 44:                                               ; preds = %34
   %.not50.i = icmp eq i64 %.val33, 0
-  br i1 %.not50.i, label %._crit_edge.thread132.i, label %.lr.ph.i
+  br i1 %.not50.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44
   br i1 %35, label %.lr.ph.split.i.preheader, label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.i, %.thread119.i
-  %.039.us.i = phi i64 [ %123, %.thread119.i ], [ 0, %.lr.ph.i ]
-  %.07338.us.i = phi i32 [ %.1.us.i, %.thread119.i ], [ 0, %.lr.ph.i ]
-  %.07437.us.i = phi i8 [ %.175.us.i, %.thread119.i ], [ 0, %.lr.ph.i ]
-  %.07736.us.i = phi i32 [ %.279.us.i, %.thread119.i ], [ 0, %.lr.ph.i ]
-  %.08435.us.i = phi ptr [ %.286.us.i, %.thread119.i ], [ %32, %.lr.ph.i ]
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.i, %76
+  %.039.us.i = phi i64 [ %77, %76 ], [ 0, %.lr.ph.i ]
+  %.07338.us.i = phi i32 [ %.1.us.i, %76 ], [ 0, %.lr.ph.i ]
+  %.07437.us.i = phi i8 [ %.175.us.i, %76 ], [ 0, %.lr.ph.i ]
+  %.07736.us.i = phi i32 [ %.279.us.i, %76 ], [ 0, %.lr.ph.i ]
+  %.08435.us.i = phi ptr [ %.286.us.i, %76 ], [ %32, %.lr.ph.i ]
   %45 = getelementptr i8, ptr %.val32, i64 %.039.us.i
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 61
-  br i1 %47, label %118, label %72
+  br i1 %47, label %70, label %48
 
-.lr.ph.split.us.split.i.jt1:                      ; preds = %.thread119.i.jt1
-  %48 = getelementptr i8, ptr %.val32, i64 %124
-  %49 = load i8, ptr %48, align 1, !tbaa !11
-  %50 = icmp eq i8 %49, 61
-  br i1 %50, label %.thread119.i, label %77
+48:                                               ; preds = %.lr.ph.split.us.split.i
+  %49 = zext i8 %46 to i64
+  %50 = getelementptr i8, ptr @table_a2b_base64, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !11
+  %52 = icmp ugt i8 %51, 63
+  br i1 %52, label %76, label %53
 
-.lr.ph.split.us.split.i.jt0:                      ; preds = %.thread119.i.jt0
-  %51 = getelementptr i8, ptr %.val32, i64 %125
-  %52 = load i8, ptr %51, align 1, !tbaa !11
-  %53 = icmp eq i8 %52, 61
-  br i1 %53, label %.thread119.i, label %82
-
-.lr.ph.split.us.split.i.jt3:                      ; preds = %.thread119.i.jt3
-  %54 = getelementptr i8, ptr %.val32, i64 %126
-  %55 = load i8, ptr %54, align 1, !tbaa !11
-  %56 = icmp eq i8 %55, 61
-  br i1 %56, label %.thread102.i, label %87
-
-.lr.ph.split.us.split.i.jt2:                      ; preds = %.thread119.i.jt2
-  %57 = getelementptr i8, ptr %.val32, i64 %127
-  %58 = load i8, ptr %57, align 1, !tbaa !11
-  %59 = icmp eq i8 %58, 61
-  br i1 %59, label %.thread102.i, label %92
-
-.lr.ph.split.us.split.jt2.i:                      ; preds = %128
-  %60 = getelementptr i8, ptr %.val32, i64 %135
-  %61 = load i8, ptr %60, align 1, !tbaa !11
-  %62 = icmp eq i8 %61, 61
-  br i1 %62, label %.thread119.i.jt2, label %97
-
-.lr.ph.split.us.split.jt3.i:                      ; preds = %136
-  %63 = getelementptr i8, ptr %.val32, i64 %143
-  %64 = load i8, ptr %63, align 1, !tbaa !11
-  %65 = icmp eq i8 %64, 61
-  br i1 %65, label %.split44.us.i, label %102
-
-.lr.ph.split.us.split.jt0.i:                      ; preds = %144
-  %66 = getelementptr i8, ptr %.val32, i64 %149
-  %67 = load i8, ptr %66, align 1, !tbaa !11
-  %68 = icmp eq i8 %67, 61
-  br i1 %68, label %.thread119.i.jt0, label %107
-
-.lr.ph.split.us.split.jt1.i:                      ; preds = %150
-  %69 = getelementptr i8, ptr %.val32, i64 %151
-  %70 = load i8, ptr %69, align 1, !tbaa !11
-  %71 = icmp eq i8 %70, 61
-  br i1 %71, label %.thread119.i.jt1, label %112
-
-72:                                               ; preds = %.lr.ph.split.us.split.i
-  %73 = zext i8 %46 to i64
-  %74 = getelementptr i8, ptr @table_a2b_base64, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !11
-  %76 = icmp ugt i8 %75, 63
-  br i1 %76, label %.thread119.i, label %117
-
-77:                                               ; preds = %.lr.ph.split.us.split.i.jt1
-  %78 = zext i8 %49 to i64
-  %79 = getelementptr i8, ptr @table_a2b_base64, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !11
-  %81 = icmp ugt i8 %80, 63
-  br i1 %81, label %.thread119.i, label %128
-
-82:                                               ; preds = %.lr.ph.split.us.split.i.jt0
-  %83 = zext i8 %52 to i64
-  %84 = getelementptr i8, ptr @table_a2b_base64, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !11
-  %86 = icmp ugt i8 %85, 63
-  br i1 %86, label %.thread119.i, label %150
-
-87:                                               ; preds = %.lr.ph.split.us.split.i.jt3
-  %88 = zext i8 %55 to i64
-  %89 = getelementptr i8, ptr @table_a2b_base64, i64 %88
-  %90 = load i8, ptr %89, align 1, !tbaa !11
-  %91 = icmp ugt i8 %90, 63
-  br i1 %91, label %.thread119.i, label %144
-
-92:                                               ; preds = %.lr.ph.split.us.split.i.jt2
-  %93 = zext i8 %58 to i64
-  %94 = getelementptr i8, ptr @table_a2b_base64, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !11
-  %96 = icmp ugt i8 %95, 63
-  br i1 %96, label %.thread119.i, label %136
-
-97:                                               ; preds = %.lr.ph.split.us.split.jt2.i
-  %98 = zext i8 %61 to i64
-  %99 = getelementptr i8, ptr @table_a2b_base64, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !11
-  %101 = icmp ugt i8 %100, 63
-  br i1 %101, label %.thread119.i.jt2, label %136
-
-102:                                              ; preds = %.lr.ph.split.us.split.jt3.i
-  %103 = zext i8 %64 to i64
-  %104 = getelementptr i8, ptr @table_a2b_base64, i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !11
-  %106 = icmp ugt i8 %105, 63
-  br i1 %106, label %.thread119.i.jt3, label %144
-
-107:                                              ; preds = %.lr.ph.split.us.split.jt0.i
-  %108 = zext i8 %67 to i64
-  %109 = getelementptr i8, ptr @table_a2b_base64, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !11
-  %111 = icmp ugt i8 %110, 63
-  br i1 %111, label %.thread119.i.jt0, label %150
-
-112:                                              ; preds = %.lr.ph.split.us.split.jt1.i
-  %113 = zext i8 %70 to i64
-  %114 = getelementptr i8, ptr @table_a2b_base64, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !11
-  %116 = icmp ugt i8 %115, 63
-  br i1 %116, label %.thread119.i.jt1, label %128
-
-117:                                              ; preds = %72
-  switch i32 %.07736.us.i, label %default.unreachable [
-    i32 0, label %150
-    i32 1, label %128
-    i32 2, label %136
-    i32 3, label %144
+53:                                               ; preds = %48
+  switch i32 %.07736.us.i, label %.unreachabledefault48.i [
+    i32 0, label %76
+    i32 1, label %64
+    i32 2, label %58
+    i32 3, label %54
   ]
 
-118:                                              ; preds = %.lr.ph.split.us.split.i
-  %119 = icmp samesign ugt i32 %.07736.us.i, 1
-  br i1 %119, label %.thread102.i, label %.thread119.i
+54:                                               ; preds = %53
+  %55 = shl i8 %.07437.us.i, 6
+  %56 = or disjoint i8 %51, %55
+  %57 = getelementptr i8, ptr %.08435.us.i, i64 1
+  store i8 %56, ptr %.08435.us.i, align 1, !tbaa !11
+  br label %76
 
-.thread102.i:                                     ; preds = %.lr.ph.split.us.split.i.jt2, %.lr.ph.split.us.split.i.jt3, %118
-  %.039.us85112.i = phi i64 [ %.039.us.i, %118 ], [ %127, %.lr.ph.split.us.split.i.jt2 ], [ %126, %.lr.ph.split.us.split.i.jt3 ]
-  %.07338.us91111.i = phi i32 [ %.07338.us.i, %118 ], [ %.1.us.i.jt2, %.lr.ph.split.us.split.i.jt2 ], [ 0, %.lr.ph.split.us.split.i.jt3 ]
-  %.07437.us92110.i = phi i8 [ %.07437.us.i, %118 ], [ %134, %.lr.ph.split.us.split.i.jt2 ], [ %142, %.lr.ph.split.us.split.i.jt3 ]
-  %.07736.us96109.i = phi i32 [ %.07736.us.i, %118 ], [ 2, %.lr.ph.split.us.split.i.jt2 ], [ 3, %.lr.ph.split.us.split.i.jt3 ]
-  %.08435.us97108.i = phi ptr [ %.08435.us.i, %118 ], [ %133, %.lr.ph.split.us.split.i.jt2 ], [ %141, %.lr.ph.split.us.split.i.jt3 ]
-  %120 = add i32 %.07338.us91111.i, 1
-  %121 = add i32 %.07736.us96109.i, %120
-  %122 = icmp sgt i32 %121, 3
-  br i1 %122, label %.split44.us.i, label %.thread119.i
+58:                                               ; preds = %53
+  %59 = shl i8 %.07437.us.i, 4
+  %60 = lshr i8 %51, 2
+  %61 = or disjoint i8 %60, %59
+  %62 = getelementptr i8, ptr %.08435.us.i, i64 1
+  store i8 %61, ptr %.08435.us.i, align 1, !tbaa !11
+  %63 = and i8 %51, 3
+  br label %76
 
-.thread119.i:                                     ; preds = %.lr.ph.split.us.split.i.jt0, %.lr.ph.split.us.split.i.jt1, %77, %82, %87, %92, %.thread102.i, %118, %72
-  %.039.us86.i = phi i64 [ %.039.us.i, %72 ], [ %.039.us85112.i, %.thread102.i ], [ %.039.us.i, %118 ], [ %127, %92 ], [ %126, %87 ], [ %125, %82 ], [ %124, %77 ], [ %125, %.lr.ph.split.us.split.i.jt0 ], [ %124, %.lr.ph.split.us.split.i.jt1 ]
-  %.286.us.i = phi ptr [ %.08435.us.i, %72 ], [ %.08435.us97108.i, %.thread102.i ], [ %.08435.us.i, %118 ], [ %133, %92 ], [ %141, %87 ], [ %148, %82 ], [ %.286.us.jt1.i, %77 ], [ %148, %.lr.ph.split.us.split.i.jt0 ], [ %.286.us.jt1.i, %.lr.ph.split.us.split.i.jt1 ]
-  %.279.us.i = phi i32 [ %.07736.us.i, %72 ], [ %.07736.us96109.i, %.thread102.i ], [ %.07736.us.i, %118 ], [ 2, %92 ], [ 3, %87 ], [ 0, %82 ], [ 1, %77 ], [ 0, %.lr.ph.split.us.split.i.jt0 ], [ 1, %.lr.ph.split.us.split.i.jt1 ]
-  %.175.us.i = phi i8 [ %.07437.us.i, %72 ], [ %.07437.us92110.i, %.thread102.i ], [ %.07437.us.i, %118 ], [ %134, %92 ], [ %142, %87 ], [ 0, %82 ], [ %.175.us.jt1.i, %77 ], [ 0, %.lr.ph.split.us.split.i.jt0 ], [ %.175.us.jt1.i, %.lr.ph.split.us.split.i.jt1 ]
-  %.1.us.i = phi i32 [ %.07338.us.i, %72 ], [ %120, %.thread102.i ], [ %.07338.us.i, %118 ], [ %.1.us.i.jt2, %92 ], [ 0, %87 ], [ 0, %82 ], [ 0, %77 ], [ 0, %.lr.ph.split.us.split.i.jt0 ], [ 0, %.lr.ph.split.us.split.i.jt1 ]
-  %123 = add nuw i64 %.039.us86.i, 1
-  %exitcond.not.i = icmp eq i64 %123, %.val33
+64:                                               ; preds = %53
+  %65 = shl nuw i8 %.07437.us.i, 2
+  %66 = lshr i8 %51, 4
+  %67 = or disjoint i8 %66, %65
+  %68 = getelementptr i8, ptr %.08435.us.i, i64 1
+  store i8 %67, ptr %.08435.us.i, align 1, !tbaa !11
+  %69 = and i8 %51, 15
+  br label %76
+
+70:                                               ; preds = %.lr.ph.split.us.split.i
+  %71 = icmp samesign ugt i32 %.07736.us.i, 1
+  br i1 %71, label %72, label %76
+
+72:                                               ; preds = %70
+  %73 = add i32 %.07338.us.i, 1
+  %74 = add i32 %.07736.us.i, %73
+  %75 = icmp sgt i32 %74, 3
+  br i1 %75, label %.split44.us.i, label %76
+
+76:                                               ; preds = %72, %70, %64, %58, %54, %53, %48
+  %.286.us.i = phi ptr [ %.08435.us.i, %72 ], [ %.08435.us.i, %70 ], [ %.08435.us.i, %53 ], [ %57, %54 ], [ %62, %58 ], [ %68, %64 ], [ %.08435.us.i, %48 ]
+  %.279.us.i = phi i32 [ %.07736.us.i, %72 ], [ %.07736.us.i, %70 ], [ 1, %53 ], [ 0, %54 ], [ 3, %58 ], [ 2, %64 ], [ %.07736.us.i, %48 ]
+  %.175.us.i = phi i8 [ %.07437.us.i, %72 ], [ %.07437.us.i, %70 ], [ %51, %53 ], [ 0, %54 ], [ %63, %58 ], [ %69, %64 ], [ %.07437.us.i, %48 ]
+  %.1.us.i = phi i32 [ %73, %72 ], [ %.07338.us.i, %70 ], [ %.07736.us.i, %53 ], [ 0, %54 ], [ 0, %58 ], [ 0, %64 ], [ %.07338.us.i, %48 ]
+  %77 = add nuw i64 %.039.us.i, 1
+  %exitcond.not.i = icmp eq i64 %77, %.val33
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !28
 
-.thread119.i.jt1:                                 ; preds = %.lr.ph.split.us.split.jt1.i, %112
-  %124 = add nuw i64 %.039.us87.i, 2
-  %exitcond.not.i.jt1 = icmp eq i64 %124, %.val33
-  br i1 %exitcond.not.i.jt1, label %._crit_edge.thread.i, label %.lr.ph.split.us.split.i.jt1, !llvm.loop !28
-
-.thread119.i.jt0:                                 ; preds = %.lr.ph.split.us.split.jt0.i, %107
-  %125 = add nuw i64 %.039.us88.i, 2
-  %exitcond.not.i.jt0 = icmp eq i64 %125, %.val33
-  br i1 %exitcond.not.i.jt0, label %._crit_edge.thread132.i, label %.lr.ph.split.us.split.i.jt0, !llvm.loop !28
-
-.thread119.i.jt3:                                 ; preds = %102
-  %126 = add nuw i64 %.039.us89.i, 2
-  %exitcond.not.i.jt3 = icmp eq i64 %126, %.val33
-  br i1 %exitcond.not.i.jt3, label %._crit_edge.thread.i, label %.lr.ph.split.us.split.i.jt3, !llvm.loop !28
-
-.thread119.i.jt2:                                 ; preds = %.lr.ph.split.us.split.jt2.i, %97
-  %.1.us.i.jt2 = phi i32 [ 0, %97 ], [ 1, %.lr.ph.split.us.split.jt2.i ]
-  %127 = add nuw i64 %.039.us90.i, 2
-  %exitcond.not.i.jt2 = icmp eq i64 %127, %.val33
-  br i1 %exitcond.not.i.jt2, label %._crit_edge.thread.i, label %.lr.ph.split.us.split.i.jt2, !llvm.loop !28
-
-128:                                              ; preds = %77, %117, %112
-  %129 = phi i8 [ %75, %117 ], [ %115, %112 ], [ %80, %77 ]
-  %.08435.us100.i = phi ptr [ %.08435.us.i, %117 ], [ %.286.us.jt1.i, %112 ], [ %.286.us.jt1.i, %77 ]
-  %.07437.us95.i = phi i8 [ %.07437.us.i, %117 ], [ %.175.us.jt1.i, %112 ], [ %.175.us.jt1.i, %77 ]
-  %.039.us90.i = phi i64 [ %.039.us.i, %117 ], [ %151, %112 ], [ %124, %77 ]
-  %130 = shl nuw i8 %.07437.us95.i, 2
-  %131 = lshr i8 %129, 4
-  %132 = or disjoint i8 %130, %131
-  %133 = getelementptr i8, ptr %.08435.us100.i, i64 1
-  store i8 %132, ptr %.08435.us100.i, align 1, !tbaa !11
-  %134 = and i8 %129, 15
-  %135 = add nuw i64 %.039.us90.i, 1
-  %exitcond.not.jt2.i = icmp eq i64 %135, %.val33
-  br i1 %exitcond.not.jt2.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.split.jt2.i, !llvm.loop !28
-
-136:                                              ; preds = %92, %117, %97
-  %137 = phi i8 [ %75, %117 ], [ %100, %97 ], [ %95, %92 ]
-  %.08435.us99.i = phi ptr [ %.08435.us.i, %117 ], [ %133, %97 ], [ %133, %92 ]
-  %.07437.us94.i = phi i8 [ %.07437.us.i, %117 ], [ %134, %97 ], [ %134, %92 ]
-  %.039.us89.i = phi i64 [ %.039.us.i, %117 ], [ %135, %97 ], [ %127, %92 ]
-  %138 = shl i8 %.07437.us94.i, 4
-  %139 = lshr i8 %137, 2
-  %140 = or disjoint i8 %138, %139
-  %141 = getelementptr i8, ptr %.08435.us99.i, i64 1
-  store i8 %140, ptr %.08435.us99.i, align 1, !tbaa !11
-  %142 = and i8 %137, 3
-  %143 = add nuw i64 %.039.us89.i, 1
-  %exitcond.not.jt3.i = icmp eq i64 %143, %.val33
-  br i1 %exitcond.not.jt3.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.split.jt3.i, !llvm.loop !28
-
-144:                                              ; preds = %87, %117, %102
-  %145 = phi i8 [ %75, %117 ], [ %105, %102 ], [ %90, %87 ]
-  %.08435.us98.i = phi ptr [ %.08435.us.i, %117 ], [ %141, %102 ], [ %141, %87 ]
-  %.07437.us93.i = phi i8 [ %.07437.us.i, %117 ], [ %142, %102 ], [ %142, %87 ]
-  %.039.us88.i = phi i64 [ %.039.us.i, %117 ], [ %143, %102 ], [ %126, %87 ]
-  %146 = shl i8 %.07437.us93.i, 6
-  %147 = or disjoint i8 %146, %145
-  %148 = getelementptr i8, ptr %.08435.us98.i, i64 1
-  store i8 %147, ptr %.08435.us98.i, align 1, !tbaa !11
-  %149 = add nuw i64 %.039.us88.i, 1
-  %exitcond.not.jt0.i = icmp eq i64 %149, %.val33
-  br i1 %exitcond.not.jt0.i, label %._crit_edge.thread132.i, label %.lr.ph.split.us.split.jt0.i, !llvm.loop !28
-
-150:                                              ; preds = %82, %117, %107
-  %.039.us87.i = phi i64 [ %.039.us.i, %117 ], [ %149, %107 ], [ %125, %82 ]
-  %.286.us.jt1.i = phi ptr [ %.08435.us.i, %117 ], [ %148, %107 ], [ %148, %82 ]
-  %.175.us.jt1.i = phi i8 [ %75, %117 ], [ %110, %107 ], [ %85, %82 ]
-  %151 = add nuw i64 %.039.us87.i, 1
-  %exitcond.not.jt1.i = icmp eq i64 %151, %.val33
-  br i1 %exitcond.not.jt1.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.split.jt1.i, !llvm.loop !28
-
-default.unreachable:                              ; preds = %117
+.unreachabledefault48.i:                          ; preds = %53
   unreachable
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %199
-  %.039.i = phi i64 [ %200, %199 ], [ 0, %.lr.ph.split.i.preheader ]
-  %.07338.i = phi i32 [ %.1.i, %199 ], [ 0, %.lr.ph.split.i.preheader ]
-  %.07437.i = phi i8 [ %.175.i, %199 ], [ 0, %.lr.ph.split.i.preheader ]
-  %.07736.i = phi i32 [ %.279.i, %199 ], [ 0, %.lr.ph.split.i.preheader ]
-  %.08435.i = phi ptr [ %.286.i, %199 ], [ %32, %.lr.ph.split.i.preheader ]
-  %.08834.i = phi i8 [ %.189.i, %199 ], [ 0, %.lr.ph.split.i.preheader ]
-  %152 = getelementptr i8, ptr %.val32, i64 %.039.i
-  %153 = load i8, ptr %152, align 1, !tbaa !11
-  %154 = icmp eq i8 %153, 61
-  br i1 %154, label %155, label %169
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %125
+  %.039.i = phi i64 [ %126, %125 ], [ 0, %.lr.ph.split.i.preheader ]
+  %.07338.i = phi i32 [ %.1.i, %125 ], [ 0, %.lr.ph.split.i.preheader ]
+  %.07437.i = phi i8 [ %.175.i, %125 ], [ 0, %.lr.ph.split.i.preheader ]
+  %.07736.i = phi i32 [ %.279.i, %125 ], [ 0, %.lr.ph.split.i.preheader ]
+  %.08435.i = phi ptr [ %.286.i, %125 ], [ %32, %.lr.ph.split.i.preheader ]
+  %.08834.i = phi i8 [ %.189.i, %125 ], [ 0, %.lr.ph.split.i.preheader ]
+  %78 = getelementptr i8, ptr %.val32, i64 %.039.i
+  %79 = load i8, ptr %78, align 1, !tbaa !11
+  %80 = icmp eq i8 %79, 61
+  br i1 %80, label %81, label %95
 
-155:                                              ; preds = %.lr.ph.split.i
-  switch i32 %.07736.i, label %159 [
+81:                                               ; preds = %.lr.ph.split.i
+  switch i32 %.07736.i, label %85 [
     i32 0, label %.split42.i
-    i32 1, label %199
+    i32 1, label %125
   ]
 
-.split42.i:                                       ; preds = %155
-  %156 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  %.not101.i = icmp eq ptr %156, null
-  br i1 %.not101.i, label %.thread15.i, label %157
+.split42.i:                                       ; preds = %81
+  %82 = call ptr @PyModule_GetState(ptr noundef %0) #5
+  %.not101.i = icmp eq ptr %82, null
+  br i1 %.not101.i, label %.thread15.i, label %83
 
-157:                                              ; preds = %.split42.i
-  %158 = load ptr, ptr %156, align 8, !tbaa !3
-  call void @PyErr_SetString(ptr noundef %158, ptr noundef nonnull @.str.23) #5
+83:                                               ; preds = %.split42.i
+  %84 = load ptr, ptr %82, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.23) #5
   br label %.thread15.i
 
-159:                                              ; preds = %155
-  %160 = add i32 %.07338.i, 1
-  %161 = add i32 %.07736.i, %160
-  %162 = icmp sgt i32 %161, 3
-  br i1 %162, label %.split44.us.i, label %199
+85:                                               ; preds = %81
+  %86 = add i32 %.07338.i, 1
+  %87 = add i32 %.07736.i, %86
+  %88 = icmp sgt i32 %87, 3
+  br i1 %88, label %.split44.us.i, label %125
 
-.split44.us.i:                                    ; preds = %.thread102.i, %.lr.ph.split.us.split.jt3.i, %159
-  %.us-phi.i = phi ptr [ %.08435.i, %159 ], [ %.08435.us97108.i, %.thread102.i ], [ %141, %.lr.ph.split.us.split.jt3.i ]
-  %.us-phi45.i = phi i64 [ %.039.i, %159 ], [ %.039.us85112.i, %.thread102.i ], [ %143, %.lr.ph.split.us.split.jt3.i ]
-  %163 = add nuw i64 %.us-phi45.i, 1
-  %164 = icmp ult i64 %163, %.val33
-  %or.cond105.i = select i1 %35, i1 %164, i1 false
-  br i1 %or.cond105.i, label %165, label %._crit_edge.thread132.i
+.split44.us.i:                                    ; preds = %72, %85
+  %.us-phi.i = phi ptr [ %.08435.i, %85 ], [ %.08435.us.i, %72 ]
+  %.us-phi45.i = phi i64 [ %.039.i, %85 ], [ %.039.us.i, %72 ]
+  %89 = add nuw i64 %.us-phi45.i, 1
+  %90 = icmp ult i64 %89, %.val33
+  %or.cond105.i = select i1 %35, i1 %90, i1 false
+  br i1 %or.cond105.i, label %91, label %._crit_edge.thread.i
 
-165:                                              ; preds = %.split44.us.i
-  %166 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  %.not100.i = icmp eq ptr %166, null
-  br i1 %.not100.i, label %.thread15.i, label %167
+91:                                               ; preds = %.split44.us.i
+  %92 = call ptr @PyModule_GetState(ptr noundef %0) #5
+  %.not100.i = icmp eq ptr %92, null
+  br i1 %.not100.i, label %.thread15.i, label %93
 
-167:                                              ; preds = %165
-  %168 = load ptr, ptr %166, align 8, !tbaa !3
-  call void @PyErr_SetString(ptr noundef %168, ptr noundef nonnull @.str.24) #5
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %92, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %94, ptr noundef nonnull @.str.24) #5
   br label %.thread15.i
 
-169:                                              ; preds = %.lr.ph.split.i
-  %170 = zext i8 %153 to i64
-  %171 = getelementptr i8, ptr @table_a2b_base64, i64 %170
-  %172 = load i8, ptr %171, align 1, !tbaa !11
-  %173 = icmp ugt i8 %172, 63
-  br i1 %173, label %.split.i, label %177
+95:                                               ; preds = %.lr.ph.split.i
+  %96 = zext i8 %79 to i64
+  %97 = getelementptr i8, ptr @table_a2b_base64, i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !11
+  %99 = icmp ugt i8 %98, 63
+  br i1 %99, label %.split.i, label %103
 
-.split.i:                                         ; preds = %169
-  %174 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  %.not99.i = icmp eq ptr %174, null
-  br i1 %.not99.i, label %.thread15.i, label %175
+.split.i:                                         ; preds = %95
+  %100 = call ptr @PyModule_GetState(ptr noundef %0) #5
+  %.not99.i = icmp eq ptr %100, null
+  br i1 %.not99.i, label %.thread15.i, label %101
 
-175:                                              ; preds = %.split.i
-  %176 = load ptr, ptr %174, align 8, !tbaa !3
-  call void @PyErr_SetString(ptr noundef %176, ptr noundef nonnull @.str.25) #5
+101:                                              ; preds = %.split.i
+  %102 = load ptr, ptr %100, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %102, ptr noundef nonnull @.str.25) #5
   br label %.thread15.i
 
-177:                                              ; preds = %169
+103:                                              ; preds = %95
   %.not51.i = icmp eq i8 %.08834.i, 0
-  br i1 %.not51.i, label %182, label %178
+  br i1 %.not51.i, label %108, label %104
 
-178:                                              ; preds = %177
-  %179 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  %.not.i = icmp eq ptr %179, null
-  br i1 %.not.i, label %.thread15.i, label %180
+104:                                              ; preds = %103
+  %105 = call ptr @PyModule_GetState(ptr noundef %0) #5
+  %.not.i = icmp eq ptr %105, null
+  br i1 %.not.i, label %.thread15.i, label %106
 
-180:                                              ; preds = %178
-  %181 = load ptr, ptr %179, align 8, !tbaa !3
-  call void @PyErr_SetString(ptr noundef %181, ptr noundef nonnull @.str.26) #5
+106:                                              ; preds = %104
+  %107 = load ptr, ptr %105, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %107, ptr noundef nonnull @.str.26) #5
   br label %.thread15.i
 
-182:                                              ; preds = %177
+108:                                              ; preds = %103
   switch i32 %.07736.i, label %.unreachabledefault49.i [
-    i32 0, label %199
-    i32 1, label %183
-    i32 2, label %189
-    i32 3, label %195
+    i32 0, label %125
+    i32 1, label %109
+    i32 2, label %115
+    i32 3, label %121
   ]
 
-183:                                              ; preds = %182
-  %184 = shl nuw i8 %.07437.i, 2
-  %185 = lshr i8 %172, 4
-  %186 = or disjoint i8 %185, %184
-  %187 = getelementptr i8, ptr %.08435.i, i64 1
-  store i8 %186, ptr %.08435.i, align 1, !tbaa !11
-  %188 = and i8 %172, 15
-  br label %199
+109:                                              ; preds = %108
+  %110 = shl nuw i8 %.07437.i, 2
+  %111 = lshr i8 %98, 4
+  %112 = or disjoint i8 %111, %110
+  %113 = getelementptr i8, ptr %.08435.i, i64 1
+  store i8 %112, ptr %.08435.i, align 1, !tbaa !11
+  %114 = and i8 %98, 15
+  br label %125
 
-189:                                              ; preds = %182
-  %190 = shl i8 %.07437.i, 4
-  %191 = lshr i8 %172, 2
-  %192 = or disjoint i8 %191, %190
-  %193 = getelementptr i8, ptr %.08435.i, i64 1
-  store i8 %192, ptr %.08435.i, align 1, !tbaa !11
-  %194 = and i8 %172, 3
-  br label %199
+115:                                              ; preds = %108
+  %116 = shl i8 %.07437.i, 4
+  %117 = lshr i8 %98, 2
+  %118 = or disjoint i8 %117, %116
+  %119 = getelementptr i8, ptr %.08435.i, i64 1
+  store i8 %118, ptr %.08435.i, align 1, !tbaa !11
+  %120 = and i8 %98, 3
+  br label %125
 
-195:                                              ; preds = %182
-  %196 = shl i8 %.07437.i, 6
-  %197 = or disjoint i8 %172, %196
-  %198 = getelementptr i8, ptr %.08435.i, i64 1
-  store i8 %197, ptr %.08435.i, align 1, !tbaa !11
-  br label %199
+121:                                              ; preds = %108
+  %122 = shl i8 %.07437.i, 6
+  %123 = or disjoint i8 %98, %122
+  %124 = getelementptr i8, ptr %.08435.i, i64 1
+  store i8 %123, ptr %.08435.i, align 1, !tbaa !11
+  br label %125
 
-.unreachabledefault49.i:                          ; preds = %182
+.unreachabledefault49.i:                          ; preds = %108
   unreachable
 
-199:                                              ; preds = %195, %189, %183, %182, %159, %155
-  %.189.i = phi i8 [ 1, %159 ], [ 0, %182 ], [ 0, %195 ], [ 0, %189 ], [ 0, %183 ], [ 1, %155 ]
-  %.286.i = phi ptr [ %.08435.i, %159 ], [ %.08435.i, %182 ], [ %198, %195 ], [ %193, %189 ], [ %187, %183 ], [ %.08435.i, %155 ]
-  %.279.i = phi i32 [ %.07736.i, %159 ], [ 1, %182 ], [ 0, %195 ], [ 3, %189 ], [ 2, %183 ], [ %.07736.i, %155 ]
-  %.175.i = phi i8 [ %.07437.i, %159 ], [ %172, %182 ], [ 0, %195 ], [ %194, %189 ], [ %188, %183 ], [ %.07437.i, %155 ]
-  %.1.i = phi i32 [ %160, %159 ], [ %.07736.i, %182 ], [ 0, %195 ], [ 0, %189 ], [ 0, %183 ], [ %.07338.i, %155 ]
-  %200 = add nuw i64 %.039.i, 1
-  %exitcond68.not.i = icmp eq i64 %200, %.val33
+125:                                              ; preds = %121, %115, %109, %108, %85, %81
+  %.189.i = phi i8 [ 1, %85 ], [ 0, %108 ], [ 0, %121 ], [ 0, %115 ], [ 0, %109 ], [ 1, %81 ]
+  %.286.i = phi ptr [ %.08435.i, %85 ], [ %.08435.i, %108 ], [ %124, %121 ], [ %119, %115 ], [ %113, %109 ], [ %.08435.i, %81 ]
+  %.279.i = phi i32 [ %.07736.i, %85 ], [ 1, %108 ], [ 0, %121 ], [ 3, %115 ], [ 2, %109 ], [ %.07736.i, %81 ]
+  %.175.i = phi i8 [ %.07437.i, %85 ], [ %98, %108 ], [ 0, %121 ], [ %120, %115 ], [ %114, %109 ], [ %.07437.i, %81 ]
+  %.1.i = phi i32 [ %86, %85 ], [ %.07736.i, %108 ], [ 0, %121 ], [ 0, %115 ], [ 0, %109 ], [ %.07338.i, %81 ]
+  %126 = add nuw i64 %.039.i, 1
+  %exitcond68.not.i = icmp eq i64 %126, %.val33
   br i1 %exitcond68.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !28
 
-._crit_edge.i:                                    ; preds = %.thread119.i, %199
-  %.084.lcssa.i = phi ptr [ %.286.i, %199 ], [ %.286.us.i, %.thread119.i ]
-  %.077.lcssa.i = phi i32 [ %.279.i, %199 ], [ %.279.us.i, %.thread119.i ]
+._crit_edge.i:                                    ; preds = %76, %125
+  %.084.lcssa.i = phi ptr [ %.286.i, %125 ], [ %.286.us.i, %76 ]
+  %.077.lcssa.i = phi i32 [ %.279.i, %125 ], [ %.279.us.i, %76 ]
   %.not102.i = icmp eq i32 %.077.lcssa.i, 0
-  br i1 %.not102.i, label %._crit_edge.thread132.i, label %._crit_edge.thread.i
+  br i1 %.not102.i, label %._crit_edge.thread.i, label %127
 
-._crit_edge.thread.i:                             ; preds = %.thread119.i.jt2, %.thread119.i.jt3, %.thread119.i.jt1, %150, %136, %128, %._crit_edge.i
-  %.077.lcssa129.i = phi i32 [ %.077.lcssa.i, %._crit_edge.i ], [ 1, %.thread119.i.jt1 ], [ 3, %.thread119.i.jt3 ], [ 2, %.thread119.i.jt2 ], [ 1, %150 ], [ 3, %136 ], [ 2, %128 ]
-  %.084.lcssa128.i = phi ptr [ %.084.lcssa.i, %._crit_edge.i ], [ %.286.us.jt1.i, %.thread119.i.jt1 ], [ %141, %.thread119.i.jt3 ], [ %133, %.thread119.i.jt2 ], [ %.286.us.jt1.i, %150 ], [ %141, %136 ], [ %133, %128 ]
-  %201 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %.thread15.i, label %203
+127:                                              ; preds = %._crit_edge.i
+  %128 = call ptr @PyModule_GetState(ptr noundef %0) #5
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %.thread15.i, label %130
 
-203:                                              ; preds = %._crit_edge.thread.i
-  %204 = icmp eq i32 %.077.lcssa129.i, 1
-  %205 = load ptr, ptr %201, align 8, !tbaa !3
-  br i1 %204, label %206, label %214
+130:                                              ; preds = %127
+  %131 = icmp eq i32 %.077.lcssa.i, 1
+  %132 = load ptr, ptr %128, align 8, !tbaa !3
+  br i1 %131, label %133, label %141
 
-206:                                              ; preds = %203
-  %207 = ptrtoint ptr %.084.lcssa128.i to i64
-  %208 = ptrtoint ptr %32 to i64
-  %209 = sub i64 %207, %208
-  %210 = sdiv i64 %209, 3
-  %211 = shl i64 %210, 2
-  %212 = or disjoint i64 %211, 1
-  %213 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %205, ptr noundef nonnull @.str.27, i64 noundef %212) #5
+133:                                              ; preds = %130
+  %134 = ptrtoint ptr %.084.lcssa.i to i64
+  %135 = ptrtoint ptr %32 to i64
+  %136 = sub i64 %134, %135
+  %137 = sdiv i64 %136, 3
+  %138 = shl i64 %137, 2
+  %139 = or disjoint i64 %138, 1
+  %140 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %132, ptr noundef nonnull @.str.27, i64 noundef %139) #5
   br label %.thread15.i
 
-214:                                              ; preds = %203
-  call void @PyErr_SetString(ptr noundef %205, ptr noundef nonnull @.str.28) #5
+141:                                              ; preds = %130
+  call void @PyErr_SetString(ptr noundef %132, ptr noundef nonnull @.str.28) #5
   br label %.thread15.i
 
-.thread15.i:                                      ; preds = %214, %206, %._crit_edge.thread.i, %180, %178, %175, %.split.i, %167, %165, %157, %.split42.i, %42, %40
+.thread15.i:                                      ; preds = %141, %133, %127, %106, %104, %101, %.split.i, %93, %91, %83, %.split42.i, %42, %40
   call void @_PyBytesWriter_Dealloc(ptr noundef nonnull %5) #5
   br label %binascii_a2b_base64_impl.exit
 
-._crit_edge.thread132.i:                          ; preds = %.thread119.i.jt0, %144, %._crit_edge.i, %.split44.us.i, %44
-  %.08433.i = phi ptr [ %.us-phi.i, %.split44.us.i ], [ %.084.lcssa.i, %._crit_edge.i ], [ %32, %44 ], [ %148, %144 ], [ %148, %.thread119.i.jt0 ]
-  %215 = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %5, ptr noundef %.08433.i) #5
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.split44.us.i, %44
+  %.08433.i = phi ptr [ %.us-phi.i, %.split44.us.i ], [ %.084.lcssa.i, %._crit_edge.i ], [ %32, %44 ]
+  %142 = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %5, ptr noundef %.08433.i) #5
   br label %binascii_a2b_base64_impl.exit
 
-binascii_a2b_base64_impl.exit:                    ; preds = %27, %.thread15.i, %._crit_edge.thread132.i
-  %.080.i = phi ptr [ null, %27 ], [ null, %.thread15.i ], [ %215, %._crit_edge.thread132.i ]
+binascii_a2b_base64_impl.exit:                    ; preds = %27, %.thread15.i, %._crit_edge.thread.i
+  %.080.i = phi ptr [ null, %27 ], [ null, %.thread15.i ], [ %142, %._crit_edge.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %216
+  br label %143
 
-216:                                              ; preds = %22, %.thread, %16, %binascii_a2b_base64_impl.exit
+143:                                              ; preds = %22, %.thread, %16, %binascii_a2b_base64_impl.exit
   %.023 = phi ptr [ null, %22 ], [ %.080.i, %binascii_a2b_base64_impl.exit ], [ null, %.thread ], [ null, %16 ]
-  %217 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %218 = load ptr, ptr %217, align 8, !tbaa !21
-  %.not31 = icmp eq ptr %218, null
-  br i1 %.not31, label %220, label %219
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %145 = load ptr, ptr %144, align 8, !tbaa !21
+  %.not31 = icmp eq ptr %145, null
+  br i1 %.not31, label %147, label %146
 
-219:                                              ; preds = %216
+146:                                              ; preds = %143
   call void @PyBuffer_Release(ptr noundef nonnull %7) #5
-  br label %220
+  br label %147
 
-220:                                              ; preds = %219, %216
+147:                                              ; preds = %146, %143
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.023

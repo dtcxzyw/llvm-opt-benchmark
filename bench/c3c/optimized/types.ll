@@ -259,191 +259,194 @@ declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @type_to_error_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-tailrecurse:
   %.pre = load i32, ptr %0, align 8
-  switch i32 %.pre, label %78 [
-    i32 0, label %common.ret67
-    i32 1, label %1
-    i32 2, label %1
-    i32 3, label %1
-    i32 4, label %1
-    i32 5, label %1
-    i32 6, label %1
-    i32 7, label %1
-    i32 8, label %1
-    i32 9, label %1
-    i32 10, label %1
-    i32 11, label %1
-    i32 12, label %1
-    i32 14, label %1
-    i32 13, label %1
-    i32 15, label %1
-    i32 16, label %1
-    i32 17, label %1
-    i32 21, label %1
-    i32 39, label %1
-    i32 18, label %1
-    i32 43, label %1
-    i32 41, label %1
-    i32 19, label %1
-    i32 24, label %4
-    i32 30, label %4
-    i32 31, label %4
-    i32 26, label %4
-    i32 27, label %4
-    i32 32, label %4
-    i32 29, label %4
-    i32 28, label %4
-    i32 25, label %tailrecurse.jt25
-    i32 38, label %31
-    i32 37, label %36
-    i32 42, label %44
-    i32 22, label %45
-    i32 20, label %46
-    i32 23, label %46
-    i32 40, label %54
-    i32 33, label %60
-    i32 36, label %68
-    i32 35, label %68
-    i32 34, label %73
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %49, %1
+  %2 = phi i32 [ %.pre, %1 ], [ 25, %49 ]
+  %.tr = phi ptr [ %0, %1 ], [ %51, %49 ]
+  switch i32 %2, label %81 [
+    i32 0, label %common.ret118
+    i32 1, label %3
+    i32 2, label %3
+    i32 3, label %3
+    i32 4, label %3
+    i32 5, label %3
+    i32 6, label %3
+    i32 7, label %3
+    i32 8, label %3
+    i32 9, label %3
+    i32 10, label %3
+    i32 11, label %3
+    i32 12, label %3
+    i32 14, label %3
+    i32 13, label %3
+    i32 15, label %3
+    i32 16, label %3
+    i32 17, label %3
+    i32 21, label %3
+    i32 39, label %3
+    i32 18, label %3
+    i32 43, label %3
+    i32 41, label %3
+    i32 19, label %3
+    i32 24, label %6
+    i32 30, label %6
+    i32 31, label %6
+    i32 26, label %6
+    i32 27, label %6
+    i32 32, label %6
+    i32 29, label %6
+    i32 28, label %6
+    i32 25, label %25
+    i32 38, label %34
+    i32 37, label %39
+    i32 42, label %47
+    i32 22, label %48
+    i32 20, label %49
+    i32 23, label %49
+    i32 40, label %57
+    i32 33, label %63
+    i32 36, label %71
+    i32 35, label %71
+    i32 34, label %76
   ]
 
-1:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
-  br label %common.ret67
+3:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %4 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %5 = load ptr, ptr %4, align 8
+  br label %common.ret118
 
-4:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8
-  %.not33 = icmp eq ptr %6, null
-  br i1 %.not33, label %13, label %7
+6:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %7 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %8 = load ptr, ptr %7, align 8
+  %.not33 = icmp eq ptr %8, null
+  br i1 %.not33, label %15, label %9
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %9 = load ptr, ptr %8, align 8
-  %.not34 = icmp eq ptr %9, null
-  %. = select i1 %.not34, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %9
-  %10 = load ptr, ptr %., align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %12 = load ptr, ptr %11, align 8
-  %.not35 = icmp eq ptr %12, null
-  br i1 %.not35, label %13, label %16
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %.not34 = icmp eq ptr %11, null
+  %. = select i1 %.not34, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %11
+  %12 = load ptr, ptr %., align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  %14 = load ptr, ptr %13, align 8
+  %.not35 = icmp eq ptr %14, null
+  br i1 %.not35, label %15, label %18
 
-13:                                               ; preds = %7, %4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8
-  br label %common.ret67
+15:                                               ; preds = %9, %6
+  %16 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %17 = load ptr, ptr %16, align 8
+  br label %common.ret118
 
-16:                                               ; preds = %7
+18:                                               ; preds = %9
   tail call void @scratch_buffer_clear() #15
-  %17 = load ptr, ptr %6, align 8
-  tail call void @scratch_buffer_append(ptr noundef %17) #15
-  %18 = load ptr, ptr %8, align 8
-  %.not36 = icmp eq ptr %18, null
-  %.38 = select i1 %.not36, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %18
-  %19 = load ptr, ptr %.38, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  %21 = load ptr, ptr %20, align 8
-  tail call void @scratch_buffer_append(ptr noundef %21) #15
-  %22 = tail call ptr @scratch_buffer_copy() #15
-  br label %common.ret67
+  %19 = load ptr, ptr %8, align 8
+  tail call void @scratch_buffer_append(ptr noundef %19) #15
+  %20 = load ptr, ptr %10, align 8
+  %.not36 = icmp eq ptr %20, null
+  %.38 = select i1 %.not36, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %20
+  %21 = load ptr, ptr %.38, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
+  %23 = load ptr, ptr %22, align 8
+  tail call void @scratch_buffer_append(ptr noundef %23) #15
+  %24 = tail call ptr @scratch_buffer_copy() #15
+  br label %common.ret118
 
-tailrecurse.jt25:                                 ; preds = %46, %tailrecurse
-  %.tr66 = phi ptr [ %0, %tailrecurse ], [ %48, %46 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.tr66, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %.not32 = icmp eq ptr %24, null
-  br i1 %.not32, label %25, label %28
-
-25:                                               ; preds = %tailrecurse.jt25
-  %26 = getelementptr inbounds nuw i8, ptr %.tr66, i64 16
+25:                                               ; preds = %tailrecurse
+  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %27 = load ptr, ptr %26, align 8
-  br label %common.ret67
+  %.not32 = icmp eq ptr %27, null
+  br i1 %.not32, label %28, label %31
 
-28:                                               ; preds = %tailrecurse.jt25
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %30 = load ptr, ptr %29, align 8
+  br label %common.ret118
+
+31:                                               ; preds = %25
   tail call void @scratch_buffer_clear() #15
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.6) #15
-  %29 = load ptr, ptr %23, align 8
-  tail call fastcc void @type_append_func_to_scratch(ptr noundef %29)
-  %30 = tail call ptr @scratch_buffer_copy() #15
-  br label %common.ret67
+  %32 = load ptr, ptr %26, align 8
+  tail call fastcc void @type_append_func_to_scratch(ptr noundef %32)
+  %33 = tail call ptr @scratch_buffer_copy() #15
+  br label %common.ret118
 
-common.ret67:                                     ; preds = %54, %45, %44, %28, %25, %16, %13, %1, %tailrecurse, %73, %68, %60, %57, %51, %36, %31
-  %common.ret67.op = phi ptr [ %35, %31 ], [ %43, %36 ], [ %53, %51 ], [ %59, %57 ], [ %67, %60 ], [ %72, %68 ], [ %77, %73 ], [ %3, %1 ], [ %22, %16 ], [ %15, %13 ], [ %30, %28 ], [ %27, %25 ], [ @.str.9, %44 ], [ @.str.10, %45 ], [ @.str.12, %54 ], [ @.str.5, %tailrecurse ]
-  ret ptr %common.ret67.op
+common.ret118:                                    ; preds = %57, %48, %47, %31, %28, %18, %15, %3, %tailrecurse, %76, %71, %63, %60, %54, %39, %34
+  %common.ret118.op = phi ptr [ %38, %34 ], [ %46, %39 ], [ %56, %54 ], [ %62, %60 ], [ %70, %63 ], [ %75, %71 ], [ %80, %76 ], [ %5, %3 ], [ %24, %18 ], [ %17, %15 ], [ %33, %31 ], [ %30, %28 ], [ @.str.9, %47 ], [ @.str.10, %48 ], [ @.str.12, %57 ], [ @.str.5, %tailrecurse ]
+  ret ptr %common.ret118.op
 
-31:                                               ; preds = %tailrecurse
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr @type_to_error_string(ptr noundef %33)
-  %35 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.7, ptr noundef %34) #15
-  br label %common.ret67
+34:                                               ; preds = %tailrecurse
+  %35 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call ptr @type_to_error_string(ptr noundef %36)
+  %38 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.7, ptr noundef %37) #15
+  br label %common.ret118
 
-36:                                               ; preds = %tailrecurse
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @type_to_error_string(ptr noundef %38)
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load i32, ptr %40, align 8
-  %42 = zext i32 %41 to i64
-  %43 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.8, ptr noundef %39, i64 noundef %42) #15
-  br label %common.ret67
+39:                                               ; preds = %tailrecurse
+  %40 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call ptr @type_to_error_string(ptr noundef %41)
+  %43 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
+  %44 = load i32, ptr %43, align 8
+  %45 = zext i32 %44 to i64
+  %46 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.8, ptr noundef %42, i64 noundef %45) #15
+  br label %common.ret118
 
-44:                                               ; preds = %tailrecurse
-  br label %common.ret67
+47:                                               ; preds = %tailrecurse
+  br label %common.ret118
 
-45:                                               ; preds = %tailrecurse
-  br label %common.ret67
+48:                                               ; preds = %tailrecurse
+  br label %common.ret118
 
-46:                                               ; preds = %tailrecurse, %tailrecurse
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 25
-  br i1 %50, label %tailrecurse.jt25, label %51
+49:                                               ; preds = %tailrecurse, %tailrecurse
+  %50 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, 25
+  br i1 %53, label %tailrecurse, label %54
 
-51:                                               ; preds = %46
-  %52 = tail call ptr @type_to_error_string(ptr noundef nonnull %48)
-  %53 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.11, ptr noundef %52) #15
-  br label %common.ret67
+54:                                               ; preds = %49
+  %55 = tail call ptr @type_to_error_string(ptr noundef nonnull %51)
+  %56 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.11, ptr noundef %55) #15
+  br label %common.ret118
 
-54:                                               ; preds = %tailrecurse
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %.not = icmp eq ptr %56, null
-  br i1 %.not, label %common.ret67, label %57
+57:                                               ; preds = %tailrecurse
+  %58 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %59 = load ptr, ptr %58, align 8
+  %.not = icmp eq ptr %59, null
+  br i1 %.not, label %common.ret118, label %60
 
-57:                                               ; preds = %54
-  %58 = tail call ptr @type_to_error_string(ptr noundef nonnull %56)
-  %59 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.13, ptr noundef %58) #15
-  br label %common.ret67
+60:                                               ; preds = %57
+  %61 = tail call ptr @type_to_error_string(ptr noundef nonnull %59)
+  %62 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.13, ptr noundef %61) #15
+  br label %common.ret118
 
-60:                                               ; preds = %tailrecurse
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @type_to_error_string(ptr noundef %62)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %65 = load i32, ptr %64, align 8
-  %66 = zext i32 %65 to i64
-  %67 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.14, ptr noundef %63, i64 noundef %66) #15
-  br label %common.ret67
+63:                                               ; preds = %tailrecurse
+  %64 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call ptr @type_to_error_string(ptr noundef %65)
+  %67 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
+  %68 = load i32, ptr %67, align 8
+  %69 = zext i32 %68 to i64
+  %70 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.14, ptr noundef %66, i64 noundef %69) #15
+  br label %common.ret118
 
-68:                                               ; preds = %tailrecurse, %tailrecurse
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call ptr @type_to_error_string(ptr noundef %70)
-  %72 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %71) #15
-  br label %common.ret67
+71:                                               ; preds = %tailrecurse, %tailrecurse
+  %72 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call ptr @type_to_error_string(ptr noundef %73)
+  %75 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %74) #15
+  br label %common.ret118
 
-73:                                               ; preds = %tailrecurse
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call ptr @type_to_error_string(ptr noundef %75)
-  %77 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.16, ptr noundef %76) #15
-  br label %common.ret67
+76:                                               ; preds = %tailrecurse
+  %77 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call ptr @type_to_error_string(ptr noundef %78)
+  %80 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.16, ptr noundef %79) #15
+  br label %common.ret118
 
-78:                                               ; preds = %tailrecurse
+81:                                               ; preds = %tailrecurse
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_to_error_string, ptr noundef nonnull @.str.2, i32 noundef 267) #14
   unreachable
 }

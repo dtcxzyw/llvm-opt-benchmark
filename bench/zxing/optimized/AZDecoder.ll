@@ -2040,7 +2040,7 @@ _ZN5ZXing5AztecL8GetTableEc.exit.i.i:             ; preds = %542, %541, %540, %5
   %543 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 6
   %544 = load i8, ptr %543, align 1, !tbaa !3, !noalias !96
   %545 = icmp eq i8 %544, 76
-  %spec.select = select i1 %545, i32 %.0.i55.i.i, i32 %.031110.i.i
+  %spec.select.i.i = select i1 %545, i32 %.0.i55.i.i, i32 %.031110.i.i
   br label %_ZN5ZXing7Content9push_backEh.exit69.i.i
 
 546:                                              ; preds = %switch.lookup
@@ -2337,10 +2337,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !96
   br label %.body.i
 
-_ZN5ZXing7Content9push_backEh.exit69.i.i:         ; preds = %_ZN5ZXing7Content9push_backEh.exit.i.i, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i, %590, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i, %568, %473
-  %.sroa.12.3.i.i = phi ptr [ %550, %590 ], [ %516, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %550, %568 ], [ %550, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i ], [ %.sroa.12.1.i.i, %473 ], [ %.sroa.12.4.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i ], [ %516, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i ], [ %475, %_ZN5ZXing7Content9push_backEh.exit.i.i ]
-  %.132.i.i = phi i32 [ %.030111.i.i, %590 ], [ %.030111.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %.030111.i.i, %568 ], [ %.030111.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i ], [ %.030111.i.i, %473 ], [ %.030111.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i ], [ %.0.i55.i.i, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i ], [ %.030111.i.i, %_ZN5ZXing7Content9push_backEh.exit.i.i ]
-  %.1.i.i = phi i32 [ %.030111.i.i, %590 ], [ %.030111.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %.030111.i.i, %568 ], [ %.030111.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i ], [ %.030111.i.i, %473 ], [ %.030111.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i ], [ %spec.select, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i ], [ %.030111.i.i, %_ZN5ZXing7Content9push_backEh.exit.i.i ]
+_ZN5ZXing7Content9push_backEh.exit69.i.i:         ; preds = %_ZN5ZXing7Content9push_backEh.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i, %590, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i, %568, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i, %473
+  %.sroa.12.3.i.i = phi ptr [ %516, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i ], [ %550, %590 ], [ %516, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %550, %568 ], [ %550, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i ], [ %.sroa.12.1.i.i, %473 ], [ %.sroa.12.4.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i ], [ %475, %_ZN5ZXing7Content9push_backEh.exit.i.i ]
+  %.132.i.i = phi i32 [ %.0.i55.i.i, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i ], [ %.030111.i.i, %590 ], [ %.030111.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %.030111.i.i, %568 ], [ %.030111.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i ], [ %.030111.i.i, %473 ], [ %.030111.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i ], [ %.030111.i.i, %_ZN5ZXing7Content9push_backEh.exit.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN5ZXing5AztecL8GetTableEc.exit.i.i ], [ %.030111.i.i, %590 ], [ %.030111.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %.030111.i.i, %568 ], [ %.030111.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i68.i.i ], [ %.030111.i.i, %473 ], [ %.030111.i.i, %_ZN5ZXing5AztecL13ParseECIValueERNS_12BitArrayViewEi.exit.i.i ], [ %.030111.i.i, %_ZN5ZXing7Content9push_backEh.exit.i.i ]
   %648 = ptrtoint ptr %.sroa.12.3.i.i to i64
   %649 = sub i64 %427, %648
   %650 = trunc i64 %649 to i32

@@ -928,7 +928,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18: ; preds
   store i64 %71, ptr %17, align 8, !tbaa !52
   %79 = call noundef i64 @_ZNK4LIEF10SpanStream4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
   %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0, label %.lr.ph
+  br i1 %.not, label %.loopexit90, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76, %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit
   %80 = load i64, ptr %27, align 8, !tbaa !52
@@ -1045,17 +1045,13 @@ _ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push
   %124 = load ptr, ptr %123, align 8
   %125 = call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
   %126 = icmp ult i64 %121, %125
-  br i1 %126, label %.lr.ph, label %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0
+  br i1 %126, label %.lr.ph, label %.loopexit90
 
-_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0: ; preds = %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit, %76
+.loopexit90:                                      ; preds = %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge
 
-.loopexit:                                        ; preds = %.lr.ph, %73
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.critedge
-
-.backedge:                                        ; preds = %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18
+.backedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18, %.loopexit90
   %127 = load i64, ptr %17, align 8, !tbaa !52
   %128 = load ptr, ptr %2, align 8, !tbaa !24
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -1063,6 +1059,10 @@ _ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push
   %131 = call noundef i64 %130(ptr noundef nonnull align 8 dereferenceable(24) %2) #24
   %132 = icmp ult i64 %127, %131
   br i1 %132, label %35, label %.critedge, !llvm.loop !61
+
+.loopexit:                                        ; preds = %.lr.ph, %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %.critedge
 
 .critedge:                                        ; preds = %.backedge, %.loopexit, %3, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit18.thread
   ret void

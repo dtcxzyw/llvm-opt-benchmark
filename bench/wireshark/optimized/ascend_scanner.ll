@@ -137,7 +137,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %64
 
-64:                                               ; preds = %.backedge, %50
+64:                                               ; preds = %.backedge816, %50
   %65 = load ptr, ptr %51, align 8
   %66 = load i8, ptr %52, align 8
   store i8 %66, ptr %65, align 1
@@ -214,18 +214,18 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %105 = sext i16 %104 to i32
   %106 = getelementptr i8, ptr %.1283, i64 1
   %.not311 = icmp eq i16 %104, 488
-  br i1 %.not311, label %.preheader.sink.split, label %68, !llvm.loop !8
+  br i1 %.not311, label %.backedge.sink.split815, label %68, !llvm.loop !8
 
-.preheader.sink.split:                            ; preds = %._crit_edge, %.preheader.sink.split.backedge
-  %.1290.ph = phi ptr [ %.1290.ph.be, %.preheader.sink.split.backedge ], [ %.0289, %._crit_edge ]
+.backedge.sink.split815:                          ; preds = %._crit_edge, %.backedge.sink.split815.backedge
+  %.1290.ph = phi ptr [ %.1290.ph.be, %.backedge.sink.split815.backedge ], [ %.0289, %._crit_edge ]
   %107 = load ptr, ptr %55, align 8
   %108 = load i32, ptr %54, align 8
-  br label %.preheader
+  br label %.backedge
 
-.preheader:                                       ; preds = %.preheader.backedge, %.preheader.sink.split
-  %.1290 = phi ptr [ %.1290.ph, %.preheader.sink.split ], [ %575, %.preheader.backedge ]
-  %.2284 = phi ptr [ %107, %.preheader.sink.split ], [ %573, %.preheader.backedge ]
-  %.3 = phi i32 [ %108, %.preheader.sink.split ], [ %.3.be, %.preheader.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split815
+  %.1290 = phi ptr [ %.1290.ph, %.backedge.sink.split815 ], [ %575, %.backedge.backedge ]
+  %.2284 = phi ptr [ %107, %.backedge.sink.split815 ], [ %573, %.backedge.backedge ]
+  %.3 = phi i32 [ %108, %.backedge.sink.split815 ], [ %.3.be, %.backedge.backedge ]
   %109 = sext i32 %.3 to i64
   %110 = getelementptr i16, ptr @yy_accept, i64 %109
   %111 = load i16, ptr %110, align 2
@@ -242,8 +242,8 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   store ptr %.2284, ptr %51, align 8
   br label %118
 
-118:                                              ; preds = %.preheader, %yy_get_previous_state.exit335.jt10
-  %.0293 = phi i32 [ %622, %yy_get_previous_state.exit335.jt10 ], [ %112, %.preheader ]
+118:                                              ; preds = %yy_get_previous_state.exit335, %.backedge
+  %.0293 = phi i32 [ %112, %.backedge ], [ %622, %yy_get_previous_state.exit335 ]
   switch i32 %.0293, label %623 [
     i32 0, label %119
     i32 1, label %121
@@ -314,7 +314,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
 119:                                              ; preds = %118
   %120 = load i8, ptr %52, align 8
   store i8 %120, ptr %.2284, align 1
-  br label %.preheader.sink.split.backedge
+  br label %.backedge.sink.split815.backedge
 
 121:                                              ; preds = %118
   %122 = load i32, ptr %57, align 8
@@ -597,7 +597,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 92
   store i32 %281, ptr %283, align 4
   store i32 43, ptr %53, align 4
-  br label %.backedge
+  br label %.backedge816
 
 284:                                              ; preds = %118
   %285 = load i32, ptr %57, align 8
@@ -605,7 +605,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 92
   store i32 %285, ptr %287, align 4
   store i32 13, ptr %53, align 4
-  br label %.backedge
+  br label %.backedge816
 
 288:                                              ; preds = %118
   %289 = load i32, ptr %57, align 8
@@ -785,7 +785,7 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %395 = load ptr, ptr %0, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 92
   store i32 %394, ptr %396, align 4
-  br label %.backedge
+  br label %.backedge816
 
 397:                                              ; preds = %118
   %398 = load i32, ptr %57, align 8
@@ -796,9 +796,9 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %402 = sext i32 %398 to i64
   %403 = load ptr, ptr %63, align 8
   %404 = tail call i64 @fwrite(ptr noundef %401, i64 noundef %402, i64 noundef 1, ptr noundef %403)
-  br label %.backedge
+  br label %.backedge816
 
-.backedge:                                        ; preds = %397, %393, %284, %280
+.backedge816:                                     ; preds = %397, %393, %284, %280
   br label %64
 
 405:                                              ; preds = %118
@@ -850,8 +850,8 @@ define hidden range(i32 0, 20) i32 @ascend_lex(ptr noundef %0) local_unnamed_add
   %436 = xor i64 %435, -1
   %437 = add i64 %436, %434
   %438 = load ptr, ptr %56, align 8
-  %sext738 = shl i64 %437, 32
-  %439 = ashr exact i64 %sext738, 32
+  %sext756 = shl i64 %437, 32
+  %439 = ashr exact i64 %sext756, 32
   %440 = getelementptr i8, ptr %438, i64 %439
   store ptr %440, ptr %51, align 8
   %441 = load i32, ptr %53, align 4
@@ -975,13 +975,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %506 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i320
   %507 = load i16, ptr %506, align 2
   switch i16 %507, label %508 [
-    i16 488, label %.preheader.sink.split.backedge
-    i16 0, label %.preheader.sink.split.backedge
+    i16 488, label %.backedge.sink.split815.backedge
+    i16 0, label %.backedge.sink.split815.backedge
   ]
 
-.preheader.sink.split.backedge:                   ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
+.backedge.sink.split815.backedge:                 ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
   %.1290.ph.be = phi ptr [ %.1290, %119 ], [ %438, %yy_try_NUL_trans.exit ], [ %438, %yy_try_NUL_trans.exit ]
-  br label %.preheader.sink.split
+  br label %.backedge.sink.split815
 
 508:                                              ; preds = %yy_try_NUL_trans.exit
   %509 = sext i16 %507 to i32
@@ -989,10 +989,16 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   store ptr %510, ptr %51, align 8
   br label %.loopexit353.backedge
 
+.loopexit353.backedge:                            ; preds = %._crit_edge.i332, %508, %513
+  %.0289.be = phi ptr [ %518, %513 ], [ %438, %508 ], [ %518, %._crit_edge.i332 ]
+  %.0282.be = phi ptr [ %520, %513 ], [ %510, %508 ], [ %520, %._crit_edge.i332 ]
+  %.0281.be = phi i32 [ %521, %513 ], [ %509, %508 ], [ %562, %._crit_edge.i332 ]
+  br label %.loopexit353
+
 511:                                              ; preds = %425
   %512 = tail call fastcc i32 @yy_get_next_buffer(ptr noundef %0)
   switch i32 %512, label %default.unreachable712 [
-    i32 1, label %yy_get_previous_state.exit335.jt10
+    i32 1, label %yy_get_previous_state.exit335
     i32 0, label %513
     i32 2, label %564
   ]
@@ -1003,19 +1009,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %516 = xor i64 %515, -1
   %517 = add i64 %516, %514
   %518 = load ptr, ptr %56, align 8
-  %sext739 = shl i64 %517, 32
-  %519 = ashr exact i64 %sext739, 32
+  %sext757 = shl i64 %517, 32
+  %519 = ashr exact i64 %sext757, 32
   %520 = getelementptr i8, ptr %518, i64 %519
   store ptr %520, ptr %51, align 8
   %521 = load i32, ptr %53, align 4
   %522 = icmp ult ptr %518, %520
   br i1 %522, label %.lr.ph31.i322, label %.loopexit353.backedge
-
-.loopexit353.backedge:                            ; preds = %._crit_edge.i332, %513, %508
-  %.0289.be = phi ptr [ %438, %508 ], [ %518, %513 ], [ %518, %._crit_edge.i332 ]
-  %.0282.be = phi ptr [ %510, %508 ], [ %520, %513 ], [ %520, %._crit_edge.i332 ]
-  %.0281.be = phi i32 [ %509, %508 ], [ %521, %513 ], [ %562, %._crit_edge.i332 ]
-  br label %.loopexit353
 
 .lr.ph31.i322:                                    ; preds = %513, %._crit_edge.i332
   %.02129.i323 = phi i32 [ %562, %._crit_edge.i332 ], [ %521, %513 ]
@@ -1105,11 +1105,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %574 = load i32, ptr %53, align 4
   %575 = load ptr, ptr %56, align 8
   %576 = icmp ult ptr %575, %573
-  br i1 %576, label %.lr.ph31.i337, label %.preheader.backedge
+  br i1 %576, label %.lr.ph31.i337, label %.backedge.backedge
 
-.preheader.backedge:                              ; preds = %._crit_edge.i347, %564
+.backedge.backedge:                               ; preds = %._crit_edge.i347, %564
   %.3.be = phi i32 [ %574, %564 ], [ %616, %._crit_edge.i347 ]
-  br label %.preheader
+  br label %.backedge
 
 .lr.ph31.i337:                                    ; preds = %564, %._crit_edge.i347
   %.02129.i338 = phi i32 [ %616, %._crit_edge.i347 ], [ %574, %564 ]
@@ -1183,12 +1183,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i318, %488
   %616 = sext i16 %615 to i32
   %617 = getelementptr i8, ptr %.02328.i339, i64 1
   %exitcond.not.i349 = icmp eq ptr %617, %573
-  br i1 %exitcond.not.i349, label %.preheader.backedge, label %.lr.ph31.i337, !llvm.loop !10
+  br i1 %exitcond.not.i349, label %.backedge.backedge, label %.lr.ph31.i337, !llvm.loop !10
 
 default.unreachable712:                           ; preds = %511
   unreachable
 
-yy_get_previous_state.exit335.jt10:               ; preds = %511
+yy_get_previous_state.exit335:                    ; preds = %511
   store i32 0, ptr %62, align 8
   %618 = load ptr, ptr %56, align 8
   store ptr %618, ptr %51, align 8

@@ -9479,7 +9479,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
   br label %78
 
 78:                                               ; preds = %.lr.ph228, %.backedge
-  %79 = phi ptr [ %53, %.lr.ph228 ], [ %387, %.backedge ]
+  %79 = phi ptr [ %53, %.lr.ph228 ], [ %386, %.backedge ]
   %80 = load ptr, ptr %57, align 8, !tbaa !329, !noalias !330
   %81 = icmp eq ptr %79, %80
   br i1 %81, label %84, label %82
@@ -9531,7 +9531,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 100:                                              ; preds = %52
   %101 = landingpad { ptr, i32 }
           cleanup
-  br label %407
+  br label %406
 
 102:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit
   %103 = invoke noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE7GetAxisEjRKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %.sroa.0.0.copyload189, ptr noundef nonnull align 8 dereferenceable(24) %98, i32 noundef %.sroa.5.0.copyload191)
@@ -9545,7 +9545,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 106:                                              ; preds = %102
   %107 = landingpad { ptr, i32 }
           cleanup
-  br label %407
+  br label %406
 
 108:                                              ; preds = %104
   %109 = zext i32 %103 to i64
@@ -9943,17 +9943,17 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodeNumberEiPj.exit: ; pre
   %330 = lshr i32 %.sroa.0.0.copyload189, 1
   %331 = load i32, ptr %6, align 4, !tbaa !88
   %332 = icmp ult i32 %330, %331
-  br i1 %332, label %.loopexit207.jt1, label %337
+  br i1 %332, label %.loopexit207, label %337
 
 333:                                              ; preds = %312
   %334 = landingpad { ptr, i32 }
           cleanup
-  br label %407
+  br label %406
 
 335:                                              ; preds = %318
   %336 = landingpad { ptr, i32 }
           cleanup
-  br label %390
+  br label %389
 
 337:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodeNumberEiPj.exit
   %338 = sub nuw nsw i32 %330, %331
@@ -10037,17 +10037,17 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 371:                                              ; preds = %353
   %372 = landingpad { ptr, i32 }
           cleanup
-  br label %390
+  br label %389
 
 373:                                              ; preds = %370
   %374 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %390
+  br label %389
 
 375:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit, %362
   %.not102 = icmp eq i32 %.0, 0
-  br i1 %.not102, label %386, label %376
+  br i1 %.not102, label %.loopexit207.thread287, label %376
 
 376:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -10073,78 +10073,78 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit153: ; preds = %380, %383
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %386
+  br label %.loopexit207.thread287
 
 384:                                              ; preds = %383
   %385 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %390
-
-386:                                              ; preds = %375, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit153
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.backedge
+  br label %389
 
 ..loopexit207_crit_edge:                          ; preds = %.loopexit, %.lr.ph224.split.us
   br label %.backedge, !llvm.loop !338
 
-.loopexit207.jt1:                                 ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodeNumberEiPj.exit
+.loopexit207.thread287:                           ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit153, %375
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %.backedge
+
+.loopexit207:                                     ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodeNumberEiPj.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread202
 
-.backedge:                                        ; preds = %.loopexit205, %386, %..loopexit207_crit_edge, %.preheader206, %.preheader208
-  %387 = load ptr, ptr %44, align 8, !tbaa !328
-  %388 = load ptr, ptr %54, align 8, !tbaa !328
-  %389 = icmp eq ptr %387, %388
-  br i1 %389, label %.thread202, label %78, !llvm.loop !338
+.backedge:                                        ; preds = %.loopexit205, %.preheader208, %.preheader206, %..loopexit207_crit_edge, %.loopexit207.thread287
+  %386 = load ptr, ptr %44, align 8, !tbaa !328
+  %387 = load ptr, ptr %54, align 8, !tbaa !328
+  %388 = icmp eq ptr %386, %387
+  br i1 %388, label %.thread202, label %78, !llvm.loop !338
 
-390:                                              ; preds = %371, %373, %384, %335
+389:                                              ; preds = %371, %373, %384, %335
   %.pn.pn = phi { ptr, i32 } [ %336, %335 ], [ %385, %384 ], [ %374, %373 ], [ %372, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %407
+  br label %406
 
-.thread202:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %104, %308, %216, %228, %.loopexit207.jt1, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
-  %391 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %.loopexit207.jt1 ], [ false, %228 ], [ false, %216 ], [ true, %.backedge ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %104 ], [ false, %308 ]
-  %392 = load ptr, ptr %5, align 8, !tbaa !343
-  %.not.i.i.i154 = icmp eq ptr %392, null
-  br i1 %.not.i.i.i154, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit, label %393
+.thread202:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %104, %308, %216, %228, %.loopexit207, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+  %390 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %.loopexit207 ], [ false, %228 ], [ false, %216 ], [ true, %.backedge ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %104 ], [ false, %308 ]
+  %391 = load ptr, ptr %5, align 8, !tbaa !343
+  %.not.i.i.i154 = icmp eq ptr %391, null
+  br i1 %.not.i.i.i154, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit, label %392
 
-393:                                              ; preds = %.thread202
-  %394 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %395 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %396 = load ptr, ptr %395, align 8, !tbaa !344
-  %397 = load ptr, ptr %394, align 8, !tbaa !335
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  %399 = icmp ult ptr %396, %398
-  br i1 %399, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
+392:                                              ; preds = %.thread202
+  %393 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %394 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %395 = load ptr, ptr %394, align 8, !tbaa !344
+  %396 = load ptr, ptr %393, align 8, !tbaa !335
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %398 = icmp ult ptr %395, %397
+  br i1 %398, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %393, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %401, %.lr.ph.i.i.i.i ], [ %396, %393 ]
-  %400 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !334
-  call void @_ZdlPvm(ptr noundef %400, i64 noundef 504) #25
-  %401 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %402 = icmp ult ptr %.06.i.i.i.i, %397
-  br i1 %402, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !345
+.lr.ph.i.i.i.i:                                   ; preds = %392, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %400, %.lr.ph.i.i.i.i ], [ %395, %392 ]
+  %399 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !334
+  call void @_ZdlPvm(ptr noundef %399, i64 noundef 504) #25
+  %400 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %401 = icmp ult ptr %.06.i.i.i.i, %396
+  br i1 %401, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !345
 
 _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !343
   br label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, %393
-  %403 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i ], [ %392, %393 ]
-  %404 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %405 = load i64, ptr %404, align 8, !tbaa !346
-  %406 = shl i64 %405, 3
-  call void @_ZdlPvm(ptr noundef %403, i64 noundef %406) #25
+_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, %392
+  %402 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i ], [ %391, %392 ]
+  %403 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %404 = load i64, ptr %403, align 8, !tbaa !346
+  %405 = shl i64 %404, 3
+  call void @_ZdlPvm(ptr noundef %402, i64 noundef %405) #25
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds = %.thread202, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %391
+  ret i1 %390
 
-407:                                              ; preds = %106, %333, %390, %100
-  %.pn108.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %107, %106 ], [ %.pn.pn, %390 ], [ %334, %333 ]
+406:                                              ; preds = %106, %333, %389, %100
+  %.pn108.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %107, %106 ], [ %.pn.pn, %389 ], [ %334, %333 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10808,7 +10808,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
   br label %78
 
 78:                                               ; preds = %.lr.ph224, %.backedge
-  %79 = phi ptr [ %53, %.lr.ph224 ], [ %386, %.backedge ]
+  %79 = phi ptr [ %53, %.lr.ph224 ], [ %385, %.backedge ]
   %80 = load ptr, ptr %57, align 8, !tbaa !360, !noalias !361
   %81 = icmp eq ptr %79, %80
   br i1 %81, label %84, label %82
@@ -10860,7 +10860,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 100:                                              ; preds = %52
   %101 = landingpad { ptr, i32 }
           cleanup
-  br label %406
+  br label %405
 
 102:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit
   %103 = load i32, ptr %9, align 4, !tbaa !187
@@ -11266,17 +11266,17 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodeNumberEiPj.exit: ; pre
   %329 = lshr i32 %.sroa.0.0.copyload186, 1
   %330 = load i32, ptr %6, align 4, !tbaa !88
   %331 = icmp ult i32 %329, %330
-  br i1 %331, label %.loopexit204.jt1, label %336
+  br i1 %331, label %.loopexit204, label %336
 
 332:                                              ; preds = %312
   %333 = landingpad { ptr, i32 }
           cleanup
-  br label %406
+  br label %405
 
 334:                                              ; preds = %317
   %335 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 336:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodeNumberEiPj.exit
   %337 = sub nuw nsw i32 %329, %330
@@ -11360,17 +11360,17 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 370:                                              ; preds = %352
   %371 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 372:                                              ; preds = %369
   %373 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %389
+  br label %388
 
 374:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit, %361
   %.not100 = icmp eq i32 %.0, 0
-  br i1 %.not100, label %385, label %375
+  br i1 %.not100, label %.loopexit204.thread283, label %375
 
 375:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -11396,78 +11396,78 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit150: ; preds = %379, %382
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %385
+  br label %.loopexit204.thread283
 
 383:                                              ; preds = %382
   %384 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %389
-
-385:                                              ; preds = %374, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit150
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.backedge
+  br label %388
 
 ..loopexit204_crit_edge:                          ; preds = %.loopexit, %.lr.ph220.split.us
   br label %.backedge, !llvm.loop !368
 
-.loopexit204.jt1:                                 ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodeNumberEiPj.exit
+.loopexit204.thread283:                           ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit150, %374
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %.backedge
+
+.loopexit204:                                     ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodeNumberEiPj.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread199
 
-.backedge:                                        ; preds = %.loopexit202, %385, %..loopexit204_crit_edge, %.preheader203, %.preheader205
-  %386 = load ptr, ptr %44, align 8, !tbaa !359
-  %387 = load ptr, ptr %54, align 8, !tbaa !359
-  %388 = icmp eq ptr %386, %387
-  br i1 %388, label %.thread199, label %78, !llvm.loop !368
+.backedge:                                        ; preds = %.loopexit202, %.preheader205, %.preheader203, %..loopexit204_crit_edge, %.loopexit204.thread283
+  %385 = load ptr, ptr %44, align 8, !tbaa !359
+  %386 = load ptr, ptr %54, align 8, !tbaa !359
+  %387 = icmp eq ptr %385, %386
+  br i1 %387, label %.thread199, label %78, !llvm.loop !368
 
-389:                                              ; preds = %370, %372, %383, %334
+388:                                              ; preds = %370, %372, %383, %334
   %.pn.pn = phi { ptr, i32 } [ %335, %334 ], [ %384, %383 ], [ %373, %372 ], [ %371, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %406
+  br label %405
 
-.thread199:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %102, %308, %216, %228, %.loopexit204.jt1, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
-  %390 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %.loopexit204.jt1 ], [ false, %228 ], [ false, %216 ], [ true, %.backedge ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %102 ], [ false, %308 ]
-  %391 = load ptr, ptr %5, align 8, !tbaa !373
-  %.not.i.i.i151 = icmp eq ptr %391, null
-  br i1 %.not.i.i.i151, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit, label %392
+.thread199:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %102, %308, %216, %228, %.loopexit204, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+  %389 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %.loopexit204 ], [ false, %228 ], [ false, %216 ], [ true, %.backedge ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %102 ], [ false, %308 ]
+  %390 = load ptr, ptr %5, align 8, !tbaa !373
+  %.not.i.i.i151 = icmp eq ptr %390, null
+  br i1 %.not.i.i.i151, label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit, label %391
 
-392:                                              ; preds = %.thread199
-  %393 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %394 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %395 = load ptr, ptr %394, align 8, !tbaa !374
-  %396 = load ptr, ptr %393, align 8, !tbaa !366
-  %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
-  %398 = icmp ult ptr %395, %397
-  br i1 %398, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
+391:                                              ; preds = %.thread199
+  %392 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %393 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %394 = load ptr, ptr %393, align 8, !tbaa !374
+  %395 = load ptr, ptr %392, align 8, !tbaa !366
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
+  %397 = icmp ult ptr %394, %396
+  br i1 %397, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %392, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %400, %.lr.ph.i.i.i.i ], [ %395, %392 ]
-  %399 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !365
-  call void @_ZdlPvm(ptr noundef %399, i64 noundef 504) #25
-  %400 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %401 = icmp ult ptr %.06.i.i.i.i, %396
-  br i1 %401, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !375
+.lr.ph.i.i.i.i:                                   ; preds = %391, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %399, %.lr.ph.i.i.i.i ], [ %394, %391 ]
+  %398 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !365
+  call void @_ZdlPvm(ptr noundef %398, i64 noundef 504) #25
+  %399 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %400 = icmp ult ptr %.06.i.i.i.i, %395
+  br i1 %400, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !375
 
 _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !373
   br label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, %392
-  %402 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i ], [ %391, %392 ]
-  %403 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %404 = load i64, ptr %403, align 8, !tbaa !376
-  %405 = shl i64 %404, 3
-  call void @_ZdlPvm(ptr noundef %402, i64 noundef %405) #25
+_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, %391
+  %401 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i ], [ %390, %391 ]
+  %402 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %403 = load i64, ptr %402, align 8, !tbaa !376
+  %404 = shl i64 %403, 3
+  call void @_ZdlPvm(ptr noundef %401, i64 noundef %404) #25
   br label %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds = %.thread199, %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %390
+  ret i1 %389
 
-406:                                              ; preds = %389, %332, %100
-  %.pn106.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn.pn, %389 ], [ %333, %332 ]
+405:                                              ; preds = %388, %332, %100
+  %.pn106.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn.pn, %388 ], [ %333, %332 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

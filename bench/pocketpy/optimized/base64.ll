@@ -288,142 +288,149 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i
   %wide.trip.count.i.i = zext i32 %17 to i64
-  br label %.lr.ph.jt0.i.i
+  br label %.lr.ph.i.i
 
-22:                                               ; preds = %44
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.next.jt2.i.i
-  %24 = load i8, ptr %23, align 1
-  %25 = shl i8 %46, 2
-  %26 = and i8 %25, 60
-  %27 = zext nneg i8 %26 to i32
-  %28 = zext i8 %24 to i32
-  %29 = lshr i32 %28, 6
-  %30 = or disjoint i32 %29, %27
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = or disjoint i32 %.0374460.i.i, 3
-  %35 = zext i32 %54 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %20, i64 %35
-  store i8 %33, ptr %36, align 1
-  %37 = and i32 %28, 63
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %41 = add i32 %.0374460.i.i, 4
-  %42 = zext i32 %34 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %20, i64 %42
-  store i8 %40, ptr %43, align 1
-  %indvars.iv.next.jt0.i.i = add nuw nsw i64 %indvars.iv.next.jt0.sink.i.i, 3
-  %exitcond.not.jt0.i.i = icmp eq i64 %indvars.iv.next.jt0.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.jt0.i.i, label %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i, label %.lr.ph.jt0.i.i, !llvm.loop !4
+.lr.ph.i.i:                                       ; preds = %48, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %48 ]
+  %.046.i.i = phi i8 [ 0, %.lr.ph.preheader.i.i ], [ %23, %48 ]
+  %.03645.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %48 ]
+  %.03744.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %51, %48 ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i.i
+  %23 = load i8, ptr %22, align 1
+  switch i32 %.03645.i.i, label %default.unreachable [
+    i32 0, label %24
+    i32 1, label %27
+    i32 2, label %33
+  ]
 
-44:                                               ; preds = %.lr.ph.jt0.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.next.jt1.i.i
-  %46 = load i8, ptr %45, align 1
-  %47 = shl i8 %58, 4
-  %48 = and i8 %47, 48
-  %49 = lshr i8 %46, 4
-  %50 = or disjoint i8 %49, %48
-  %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = or disjoint i32 %.0374460.i.i, 2
-  %55 = zext i32 %63 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %20, i64 %55
-  store i8 %53, ptr %56, align 1
-  %indvars.iv.next.jt2.i.i = add nuw nsw i64 %indvars.iv.next.jt0.sink.i.i, 2
-  %exitcond.not.jt2.i.i = icmp eq i64 %indvars.iv.next.jt2.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.jt2.i.i, label %._crit_edge.i.i, label %22, !llvm.loop !4
+24:                                               ; preds = %.lr.ph.i.i
+  %25 = lshr i8 %23, 2
+  %26 = zext nneg i8 %25 to i64
+  br label %48
 
-.lr.ph.jt0.i.i:                                   ; preds = %22, %.lr.ph.preheader.i.i
-  %indvars.iv.next.jt0.sink.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.jt0.i.i, %22 ]
-  %.0374460.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %41, %22 ]
-  %57 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.next.jt0.sink.i.i
-  %58 = load i8, ptr %57, align 1
-  %59 = lshr i8 %58, 2
-  %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = or disjoint i32 %.0374460.i.i, 1
-  %64 = zext i32 %.0374460.i.i to i64
-  %65 = getelementptr inbounds nuw i8, ptr %20, i64 %64
-  store i8 %62, ptr %65, align 1
-  %indvars.iv.next.jt1.i.i = add nuw nsw i64 %indvars.iv.next.jt0.sink.i.i, 1
-  %exitcond.not.jt1.i.i = icmp eq i64 %indvars.iv.next.jt1.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.jt1.i.i, label %66, label %44, !llvm.loop !4
+27:                                               ; preds = %.lr.ph.i.i
+  %28 = shl i8 %.046.i.i, 4
+  %29 = and i8 %28, 48
+  %30 = lshr i8 %23, 4
+  %31 = or disjoint i8 %30, %29
+  %32 = zext nneg i8 %31 to i64
+  br label %48
 
-66:                                               ; preds = %.lr.ph.jt0.i.i
-  %67 = shl i8 %58, 4
-  %68 = and i8 %67, 48
-  %69 = zext nneg i8 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %69
-  %71 = load i8, ptr %70, align 16
-  %72 = or disjoint i32 %.0374460.i.i, 2
-  %73 = zext i32 %63 to i64
+33:                                               ; preds = %.lr.ph.i.i
+  %34 = shl i8 %.046.i.i, 2
+  %35 = and i8 %34, 60
+  %36 = zext nneg i8 %35 to i32
+  %37 = zext i8 %23 to i32
+  %38 = lshr i32 %37, 6
+  %39 = or disjoint i32 %38, %36
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = add i32 %.03744.i.i, 1
+  %44 = zext i32 %.03744.i.i to i64
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 %44
+  store i8 %42, ptr %45, align 1
+  %46 = and i32 %37, 63
+  %47 = zext nneg i32 %46 to i64
+  br label %48
+
+default.unreachable:                              ; preds = %.lr.ph.i.i
+  unreachable
+
+48:                                               ; preds = %33, %27, %24
+  %.sink.i.i = phi i64 [ %47, %33 ], [ %32, %27 ], [ %26, %24 ]
+  %.sink58.i.i = phi i32 [ 2, %33 ], [ 1, %27 ], [ 1, %24 ]
+  %.sink57.i.i = phi i32 [ %43, %33 ], [ %.03744.i.i, %27 ], [ %.03744.i.i, %24 ]
+  %.1.i.i = phi i32 [ 0, %33 ], [ 2, %27 ], [ 1, %24 ]
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %.sink.i.i
+  %50 = load i8, ptr %49, align 1
+  %51 = add i32 %.sink58.i.i, %.03744.i.i
+  %52 = zext i32 %.sink57.i.i to i64
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 %52
+  store i8 %50, ptr %53, align 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !4
+
+._crit_edge.i.i:                                  ; preds = %48
+  switch i32 %.1.i.i, label %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i [
+    i32 1, label %54
+    i32 2, label %63
+  ]
+
+54:                                               ; preds = %._crit_edge.i.i
+  %55 = shl i8 %23, 4
+  %56 = and i8 %55, 48
+  %57 = zext nneg i8 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %57
+  %59 = load i8, ptr %58, align 16
+  %60 = add i32 %51, 1
+  %61 = zext i32 %51 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %20, i64 %61
+  store i8 %59, ptr %62, align 1
+  br label %._crit_edge.thread.sink.split.i.i
+
+63:                                               ; preds = %._crit_edge.i.i
+  %64 = shl i8 %23, 2
+  %65 = and i8 %64, 60
+  %66 = zext nneg i8 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %66
+  %68 = load i8, ptr %67, align 4
+  br label %._crit_edge.thread.sink.split.i.i
+
+._crit_edge.thread.sink.split.i.i:                ; preds = %63, %54
+  %.sink67.i.i = phi i32 [ 1, %63 ], [ 2, %54 ]
+  %.138.lcssa.sink.i.i = phi i32 [ %51, %63 ], [ %60, %54 ]
+  %.sink64.i.i = phi i8 [ %68, %63 ], [ 61, %54 ]
+  %.sink63.i.i = phi i32 [ 2, %63 ], [ 3, %54 ]
+  %69 = add i32 %.sink67.i.i, %51
+  %70 = zext i32 %.138.lcssa.sink.i.i to i64
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 %70
+  store i8 %.sink64.i.i, ptr %71, align 1
+  %72 = add i32 %.sink63.i.i, %51
+  %73 = zext i32 %69 to i64
   %74 = getelementptr inbounds nuw i8, ptr %20, i64 %73
-  store i8 %71, ptr %74, align 1
-  br label %._crit_edge.thread.sink.split.i.i
-
-._crit_edge.i.i:                                  ; preds = %44
-  %75 = shl i8 %46, 2
-  %76 = and i8 %75, 60
-  %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %77
-  %79 = load i8, ptr %78, align 4
-  br label %._crit_edge.thread.sink.split.i.i
-
-._crit_edge.thread.sink.split.i.i:                ; preds = %._crit_edge.i.i, %66
-  %.lcssa37.sink.i = phi i32 [ %54, %._crit_edge.i.i ], [ %72, %66 ]
-  %.sink.i = phi i8 [ %79, %._crit_edge.i.i ], [ 61, %66 ]
-  %80 = zext i32 %.lcssa37.sink.i to i64
-  %81 = getelementptr inbounds nuw i8, ptr %20, i64 %80
-  store i8 %.sink.i, ptr %81, align 1
-  %.2.ph.i.i = add i32 %.0374460.i.i, 4
-  %.sink.i.i = or disjoint i32 %.0374460.i.i, 3
-  %82 = zext i32 %.sink.i.i to i64
-  %83 = getelementptr inbounds nuw i8, ptr %20, i64 %82
-  store i8 61, ptr %83, align 1
+  store i8 61, ptr %74, align 1
   br label %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i
 
-_ZN4pkpyL13base64_encodeEPKhjPc.exit.i:           ; preds = %22, %._crit_edge.thread.sink.split.i.i, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %.2.i.i = phi i32 [ 0, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ %.2.ph.i.i, %._crit_edge.thread.sink.split.i.i ], [ %41, %22 ]
-  %84 = zext i32 %.2.i.i to i64
-  %85 = getelementptr inbounds nuw i8, ptr %20, i64 %84
-  store i8 0, ptr %85, align 1
+_ZN4pkpyL13base64_encodeEPKhjPc.exit.i:           ; preds = %._crit_edge.thread.sink.split.i.i, %._crit_edge.i.i, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i
+  %.2.i.i = phi i32 [ %51, %._crit_edge.i.i ], [ 0, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ %72, %._crit_edge.thread.sink.split.i.i ]
+  %75 = zext i32 %.2.i.i to i64
+  %76 = getelementptr inbounds nuw i8, ptr %20, i64 %75
+  store i8 0, ptr %76, align 1
   store ptr %20, ptr %4, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.2.i.i, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5BytesEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %87, i16 16, ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i unwind label %92
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %.2.i.i, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5BytesEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %78, i16 16, ptr noundef nonnull align 8 dereferenceable(12) %4)
+          to label %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i unwind label %83
 
 _ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i
-  %89 = load ptr, ptr %4, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %91
+  %80 = load ptr, ptr %4, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %82
 
-91:                                               ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %89) #20
+82:                                               ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %80) #20
   br label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit"
 
-92:                                               ; preds = %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i
-  %93 = landingpad { ptr, i32 }
+83:                                               ; preds = %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %94 = load ptr, ptr %4, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %_ZN4pkpy5BytesD2Ev.exit9.i, label %96
+  %85 = load ptr, ptr %4, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %_ZN4pkpy5BytesD2Ev.exit9.i, label %87
 
-96:                                               ; preds = %92
-  call void @_ZdaPv(ptr noundef nonnull %94) #20
+87:                                               ; preds = %83
+  call void @_ZdaPv(ptr noundef nonnull %85) #20
   br label %_ZN4pkpy5BytesD2Ev.exit9.i
 
-_ZN4pkpy5BytesD2Ev.exit9.i:                       ; preds = %96, %92
-  resume { ptr, i32 } %93
+_ZN4pkpy5BytesD2Ev.exit9.i:                       ; preds = %87, %83
+  resume { ptr, i32 } %84
 
-"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %91
+"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %88
+  ret ptr %79
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

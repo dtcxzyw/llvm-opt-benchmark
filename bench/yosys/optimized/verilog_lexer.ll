@@ -520,8 +520,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %199 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %200
 
-200:                                              ; preds = %4996, %194
-  %.01399 = phi i32 [ 0, %194 ], [ %.11400, %4996 ]
+200:                                              ; preds = %4995, %194
+  %.01399 = phi i32 [ 0, %194 ], [ %.11400, %4995 ]
   store i32 0, ptr @_ZL11yy_more_len, align 4, !tbaa !27
   %.b1605 = load i1, ptr @_ZL12yy_more_flag, align 4
   %.pre4606 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !43
@@ -547,11 +547,18 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store i32 %209, ptr %210, align 4, !tbaa !27
   br label %.loopexit2570
 
-.loopexit2570:                                    ; preds = %_ZL21yy_get_previous_statev.exit2551, %207
-  %_ZL12yy_state_ptr.promoted = phi ptr [ %211, %207 ], [ %_ZL12yy_state_ptr.promoted.pre, %_ZL21yy_get_previous_statev.exit2551 ]
-  %.01188 = phi ptr [ %.pre4606, %207 ], [ %.41192.jt4, %_ZL21yy_get_previous_statev.exit2551 ]
-  %.01180 = phi ptr [ %.pre4606, %207 ], [ %.71187.jt4, %_ZL21yy_get_previous_statev.exit2551 ]
-  %.01104 = phi i32 [ %209, %207 ], [ %.7.jt4, %_ZL21yy_get_previous_statev.exit2551 ]
+.loopexit2570.loopexit:                           ; preds = %4868, %4872, %._crit_edge25.i2550
+  %.41192.ph4906 = phi ptr [ %4886, %._crit_edge25.i2550 ], [ %4886, %4872 ], [ %4802, %4868 ]
+  %.71187.ph4907 = phi ptr [ %4880, %._crit_edge25.i2550 ], [ %4880, %4872 ], [ %4869, %4868 ]
+  %.7.ph = phi i32 [ %4924, %._crit_edge25.i2550 ], [ %4881, %4872 ], [ %4866, %4868 ]
+  %_ZL12yy_state_ptr.promoted.pre = load ptr, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
+  br label %.loopexit2570
+
+.loopexit2570:                                    ; preds = %.loopexit2570.loopexit, %207
+  %_ZL12yy_state_ptr.promoted = phi ptr [ %211, %207 ], [ %_ZL12yy_state_ptr.promoted.pre, %.loopexit2570.loopexit ]
+  %.01188 = phi ptr [ %.pre4606, %207 ], [ %.41192.ph4906, %.loopexit2570.loopexit ]
+  %.01180 = phi ptr [ %.pre4606, %207 ], [ %.71187.ph4907, %.loopexit2570.loopexit ]
+  %.01104 = phi i32 [ %209, %207 ], [ %.7.ph, %.loopexit2570.loopexit ]
   br label %212
 
 212:                                              ; preds = %._crit_edge, %.loopexit2570
@@ -616,10 +623,16 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %.not1616 = icmp eq i16 %251, 4532
   br i1 %.not1616, label %.preheader, label %212, !llvm.loop !48
 
-.preheader:                                       ; preds = %._crit_edge, %_ZL16yy_try_NUL_transi.exit.thread
-  %252 = phi ptr [ %.pre4608, %_ZL16yy_try_NUL_transi.exit.thread ], [ %247, %._crit_edge ]
-  %.11189 = phi ptr [ %.41192.jt9, %_ZL16yy_try_NUL_transi.exit.thread ], [ %.01188, %._crit_edge ]
-  %.21182 = phi ptr [ %.71187.jt9, %_ZL16yy_try_NUL_transi.exit.thread ], [ %248, %._crit_edge ]
+.preheader.loopexit:                              ; preds = %._crit_edge.i2536, %_ZL16yy_try_NUL_transi.exit, %4928, %._crit_edge25.i2564
+  %.41192.ph = phi ptr [ %4944, %._crit_edge25.i2564 ], [ %4944, %4928 ], [ %4802, %_ZL16yy_try_NUL_transi.exit ], [ %4802, %._crit_edge.i2536 ]
+  %.71187.ph = phi ptr [ %4937, %._crit_edge25.i2564 ], [ %4937, %4928 ], [ %4796, %_ZL16yy_try_NUL_transi.exit ], [ %4796, %._crit_edge.i2536 ]
+  %.pre4608 = load ptr, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
+  br label %.preheader
+
+.preheader:                                       ; preds = %._crit_edge, %.preheader.loopexit
+  %252 = phi ptr [ %.pre4608, %.preheader.loopexit ], [ %247, %._crit_edge ]
+  %.11189 = phi ptr [ %.41192.ph, %.preheader.loopexit ], [ %.01188, %._crit_edge ]
+  %.21182 = phi ptr [ %.71187.ph, %.preheader.loopexit ], [ %248, %._crit_edge ]
   %253 = getelementptr inbounds i8, ptr %252, i64 -4
   store ptr %253, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
   %254 = load i32, ptr %253, align 4, !tbaa !27
@@ -735,20 +748,20 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store i8 0, ptr %.41184, align 1, !tbaa !18
   store ptr %.41184, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !43
   %.not1619 = icmp eq i32 %.01207, 189
-  br i1 %.not1619, label %.preheader4898.preheader, label %310
+  br i1 %.not1619, label %.loopexit2572.preheader, label %310
 
 310:                                              ; preds = %300
   %311 = sext i32 %.01207 to i64
   %312 = getelementptr inbounds i32, ptr @_ZL21yy_rule_can_match_eol, i64 %311
   %313 = load i32, ptr %312, align 4, !tbaa !27
   %.not1620 = icmp eq i32 %313, 0
-  br i1 %.not1620, label %.preheader4898.preheader, label %314
+  br i1 %.not1620, label %.loopexit2572.preheader, label %314
 
 314:                                              ; preds = %310
   %315 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !27
   %316 = load i32, ptr @frontend_verilog_yyleng, align 4, !tbaa !27
   %317 = icmp slt i32 %315, %316
-  br i1 %317, label %.lr.ph3049, label %.preheader4898.preheader
+  br i1 %317, label %.lr.ph3049, label %.loopexit2572.preheader
 
 .lr.ph3049:                                       ; preds = %314
   %frontend_verilog_yylineno.promoted = load i32, ptr @frontend_verilog_yylineno, align 4
@@ -774,14 +787,14 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %328 = phi i32 [ %321, %320 ], [ %326, %325 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader4898.preheader, label %320, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit2572.preheader, label %320, !llvm.loop !50
 
-.preheader4898.preheader:                         ; preds = %327, %300, %310, %314
-  br label %.preheader4898
+.loopexit2572.preheader:                          ; preds = %327, %314, %310, %300
+  br label %.loopexit2572
 
-.preheader4898:                                   ; preds = %.preheader4898.preheader, %4986
-  %.11208 = phi i32 [ %4994, %4986 ], [ %.01207, %.preheader4898.preheader ]
-  switch i32 %.11208, label %4995 [
+.loopexit2572:                                    ; preds = %.loopexit2572.preheader, %_ZL16yy_try_NUL_transi.exit.thread
+  %.11208 = phi i32 [ %4993, %_ZL16yy_try_NUL_transi.exit.thread ], [ %.01207, %.loopexit2572.preheader ]
+  switch i32 %.11208, label %4994 [
     i32 1, label %329
     i32 2, label %373
     i32 3, label %401
@@ -980,7 +993,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
     i32 189, label %4767
   ]
 
-329:                                              ; preds = %.preheader4898
+329:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %330 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %330, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1091,9 +1104,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2169: ; preds = %3
   store i32 0, ptr %1, align 4, !tbaa !54
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 0, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
-  br label %4996
+  br label %4995
 
-373:                                              ; preds = %.preheader4898
+373:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %374, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1143,7 +1156,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_ba
   store i32 %394, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %394, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
   store ptr %392, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND8ln_stackE, i64 8), align 8, !tbaa !60
-  br label %4996
+  br label %4995
 
 395:                                              ; preds = %377
   %396 = add nsw i32 %378, 1
@@ -1161,7 +1174,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_ba
   %indvars.iv.next4122 = add nuw nsw i64 %indvars.iv4121, 1
   br label %377, !llvm.loop !61
 
-401:                                              ; preds = %.preheader4898
+401:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %402 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %402, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1317,7 +1330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2175: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %4996
+  br label %4995
 
 454:                                              ; preds = %.critedge7
   %455 = landingpad { ptr, i32 }
@@ -1342,9 +1355,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %4997
+  br label %4996
 
-462:                                              ; preds = %.preheader4898
+462:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %463 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %463, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1386,7 +1399,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4604 = add nuw nsw i64 %indvars.iv4603, 1
   br label %466, !llvm.loop !67
 
-478:                                              ; preds = %.preheader4898
+478:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %479 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %479, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1408,7 +1421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 486:                                              ; preds = %482
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 487:                                              ; preds = %482
   %488 = add nsw i32 %483, 1
@@ -1426,7 +1439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4116 = add nuw nsw i64 %indvars.iv4115, 1
   br label %482, !llvm.loop !68
 
-493:                                              ; preds = %.preheader4898
+493:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %494 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %494, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1448,7 +1461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 501:                                              ; preds = %497
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 502:                                              ; preds = %497
   %503 = add nsw i32 %498, 1
@@ -1466,7 +1479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4113 = add nuw nsw i64 %indvars.iv4112, 1
   br label %497, !llvm.loop !69
 
-508:                                              ; preds = %.preheader4898
+508:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %509 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %509, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1488,7 +1501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 516:                                              ; preds = %512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 517:                                              ; preds = %512
   %518 = add nsw i32 %513, 1
@@ -1506,7 +1519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4110 = add nuw nsw i64 %indvars.iv4109, 1
   br label %512, !llvm.loop !70
 
-523:                                              ; preds = %.preheader4898
+523:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %524 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %524, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1582,7 +1595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 546:                                              ; preds = %544
   store i8 0, ptr @_ZN5Yosys16VERILOG_FRONTEND20default_nettype_wireE, align 1, !tbaa !74
-  br label %4996
+  br label %4995
 
 547:                                              ; preds = %544
   %548 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11311, ptr noundef nonnull dereferenceable(5) @.str.5) #43
@@ -1591,13 +1604,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 549:                                              ; preds = %547
   store i8 1, ptr @_ZN5Yosys16VERILOG_FRONTEND20default_nettype_wireE, align 1, !tbaa !74
-  br label %4996
+  br label %4995
 
 550:                                              ; preds = %547
   call void (ptr, ...) @_Z24frontend_verilog_yyerrorPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull %.11311)
-  br label %4996
+  br label %4995
 
-551:                                              ; preds = %.preheader4898
+551:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %552 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %552, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1619,7 +1632,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 559:                                              ; preds = %555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 560:                                              ; preds = %555
   %561 = add nsw i32 %556, 1
@@ -1637,7 +1650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4104 = add nuw nsw i64 %indvars.iv4103, 1
   br label %555, !llvm.loop !76
 
-566:                                              ; preds = %.preheader4898
+566:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %567 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %567, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1659,7 +1672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 
 574:                                              ; preds = %570
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 575:                                              ; preds = %570
   %576 = add nsw i32 %571, 1
@@ -1677,7 +1690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4101 = add nuw nsw i64 %indvars.iv4100, 1
   br label %570, !llvm.loop !77
 
-581:                                              ; preds = %.preheader4898
+581:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %582 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %582, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1700,7 +1713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
 589:                                              ; preds = %585
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   call void (ptr, ...) @_Z24frontend_verilog_yyerrorPKcz(ptr noundef nonnull @.str.7, ptr noundef nonnull %584)
-  br label %4996
+  br label %4995
 
 590:                                              ; preds = %585
   %591 = add nsw i32 %586, 1
@@ -1718,7 +1731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4098 = add nuw nsw i64 %indvars.iv4097, 1
   br label %585, !llvm.loop !78
 
-596:                                              ; preds = %.preheader4898
+596:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %597 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %597, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1758,7 +1771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4601 = add nuw nsw i64 %indvars.iv4600, 1
   br label %600, !llvm.loop !79
 
-611:                                              ; preds = %.preheader4898
+611:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %612 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %612, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1798,7 +1811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4598 = add nuw nsw i64 %indvars.iv4597, 1
   br label %615, !llvm.loop !80
 
-626:                                              ; preds = %.preheader4898
+626:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %627 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %627, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1838,7 +1851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4595 = add nuw nsw i64 %indvars.iv4594, 1
   br label %630, !llvm.loop !81
 
-641:                                              ; preds = %.preheader4898
+641:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %642 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %642, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1878,7 +1891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4592 = add nuw nsw i64 %indvars.iv4591, 1
   br label %645, !llvm.loop !82
 
-656:                                              ; preds = %.preheader4898
+656:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %657 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %657, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1918,7 +1931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4589 = add nuw nsw i64 %indvars.iv4588, 1
   br label %660, !llvm.loop !83
 
-671:                                              ; preds = %.preheader4898
+671:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %672 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %672, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -1958,7 +1971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4586 = add nuw nsw i64 %indvars.iv4585, 1
   br label %675, !llvm.loop !84
 
-686:                                              ; preds = %.preheader4898
+686:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %687 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %687, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2001,7 +2014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4583 = add nuw nsw i64 %indvars.iv4582, 1
   br label %690, !llvm.loop !87
 
-704:                                              ; preds = %.preheader4898
+704:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %705 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %705, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2041,7 +2054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4580 = add nuw nsw i64 %indvars.iv4579, 1
   br label %708, !llvm.loop !88
 
-719:                                              ; preds = %.preheader4898
+719:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %720 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %720, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2081,7 +2094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178: ; preds = %4
   %indvars.iv.next4577 = add nuw nsw i64 %indvars.iv4576, 1
   br label %723, !llvm.loop !89
 
-734:                                              ; preds = %.preheader4898
+734:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %735 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %735, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2180,9 +2193,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2184: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZdlPvm(ptr noundef nonnull %754, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-772:                                              ; preds = %.preheader4898
+772:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %773 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %773, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2281,9 +2294,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2190: ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZdlPvm(ptr noundef nonnull %792, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-810:                                              ; preds = %.preheader4898
+810:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %811 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %811, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2382,9 +2395,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2196: ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZdlPvm(ptr noundef nonnull %830, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-848:                                              ; preds = %.preheader4898
+848:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %849 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %849, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2483,9 +2496,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2202: ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZdlPvm(ptr noundef nonnull %868, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-886:                                              ; preds = %.preheader4898
+886:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %887 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %887, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2584,9 +2597,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZdlPvm(ptr noundef nonnull %906, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-924:                                              ; preds = %.preheader4898
+924:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %925 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %925, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2626,7 +2639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4559 = add nuw nsw i64 %indvars.iv4558, 1
   br label %928, !llvm.loop !95
 
-939:                                              ; preds = %.preheader4898
+939:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %940 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %940, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2666,7 +2679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4556 = add nuw nsw i64 %indvars.iv4555, 1
   br label %943, !llvm.loop !96
 
-954:                                              ; preds = %.preheader4898
+954:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %955 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %955, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2706,7 +2719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4553 = add nuw nsw i64 %indvars.iv4552, 1
   br label %958, !llvm.loop !97
 
-969:                                              ; preds = %.preheader4898
+969:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %970 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %970, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2746,7 +2759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4550 = add nuw nsw i64 %indvars.iv4549, 1
   br label %973, !llvm.loop !98
 
-984:                                              ; preds = %.preheader4898
+984:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %985 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %985, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2786,7 +2799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4547 = add nuw nsw i64 %indvars.iv4546, 1
   br label %988, !llvm.loop !99
 
-999:                                              ; preds = %.preheader4898
+999:                                              ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1000 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1000, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2826,7 +2839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4544 = add nuw nsw i64 %indvars.iv4543, 1
   br label %1003, !llvm.loop !100
 
-1014:                                             ; preds = %.preheader4898
+1014:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1015 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1015, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2866,7 +2879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4541 = add nuw nsw i64 %indvars.iv4540, 1
   br label %1018, !llvm.loop !101
 
-1029:                                             ; preds = %.preheader4898
+1029:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1030 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1030, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2906,7 +2919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4538 = add nuw nsw i64 %indvars.iv4537, 1
   br label %1033, !llvm.loop !102
 
-1044:                                             ; preds = %.preheader4898
+1044:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1045 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1045, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2946,7 +2959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4535 = add nuw nsw i64 %indvars.iv4534, 1
   br label %1048, !llvm.loop !103
 
-1059:                                             ; preds = %.preheader4898
+1059:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1060 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1060, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -2986,7 +2999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4532 = add nuw nsw i64 %indvars.iv4531, 1
   br label %1063, !llvm.loop !104
 
-1074:                                             ; preds = %.preheader4898
+1074:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1075 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1075, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3026,7 +3039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4529 = add nuw nsw i64 %indvars.iv4528, 1
   br label %1078, !llvm.loop !105
 
-1089:                                             ; preds = %.preheader4898
+1089:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1090 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1090, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3066,7 +3079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4526 = add nuw nsw i64 %indvars.iv4525, 1
   br label %1093, !llvm.loop !106
 
-1104:                                             ; preds = %.preheader4898
+1104:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1105, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3106,7 +3119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4523 = add nuw nsw i64 %indvars.iv4522, 1
   br label %1108, !llvm.loop !107
 
-1119:                                             ; preds = %.preheader4898
+1119:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1120, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3146,7 +3159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4520 = add nuw nsw i64 %indvars.iv4519, 1
   br label %1123, !llvm.loop !108
 
-1134:                                             ; preds = %.preheader4898
+1134:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1135, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3186,7 +3199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4517 = add nuw nsw i64 %indvars.iv4516, 1
   br label %1138, !llvm.loop !109
 
-1149:                                             ; preds = %.preheader4898
+1149:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1150, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3226,7 +3239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4514 = add nuw nsw i64 %indvars.iv4513, 1
   br label %1153, !llvm.loop !110
 
-1164:                                             ; preds = %.preheader4898
+1164:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1165, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3266,7 +3279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4511 = add nuw nsw i64 %indvars.iv4510, 1
   br label %1168, !llvm.loop !111
 
-1179:                                             ; preds = %.preheader4898
+1179:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1180, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3306,7 +3319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4508 = add nuw nsw i64 %indvars.iv4507, 1
   br label %1183, !llvm.loop !112
 
-1194:                                             ; preds = %.preheader4898
+1194:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1195 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1195, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3346,7 +3359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4505 = add nuw nsw i64 %indvars.iv4504, 1
   br label %1198, !llvm.loop !113
 
-1209:                                             ; preds = %.preheader4898
+1209:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1210, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3386,7 +3399,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4502 = add nuw nsw i64 %indvars.iv4501, 1
   br label %1213, !llvm.loop !114
 
-1224:                                             ; preds = %.preheader4898
+1224:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1225, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3426,7 +3439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4499 = add nuw nsw i64 %indvars.iv4498, 1
   br label %1228, !llvm.loop !115
 
-1239:                                             ; preds = %.preheader4898
+1239:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1240, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3466,7 +3479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4496 = add nuw nsw i64 %indvars.iv4495, 1
   br label %1243, !llvm.loop !116
 
-1254:                                             ; preds = %.preheader4898
+1254:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1255 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1255, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3506,7 +3519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4493 = add nuw nsw i64 %indvars.iv4492, 1
   br label %1258, !llvm.loop !117
 
-1269:                                             ; preds = %.preheader4898
+1269:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1270 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1270, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3546,7 +3559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %9
   %indvars.iv.next4490 = add nuw nsw i64 %indvars.iv4489, 1
   br label %1273, !llvm.loop !118
 
-1284:                                             ; preds = %.preheader4898
+1284:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1285 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1285, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3645,9 +3658,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2214: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZdlPvm(ptr noundef nonnull %1304, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1322:                                             ; preds = %.preheader4898
+1322:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1323 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1323, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3746,9 +3759,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2220: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZdlPvm(ptr noundef nonnull %1342, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1360:                                             ; preds = %.preheader4898
+1360:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1361, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3847,9 +3860,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2226: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZdlPvm(ptr noundef nonnull %1380, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1398:                                             ; preds = %.preheader4898
+1398:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1399 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1399, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -3948,9 +3961,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2232: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZdlPvm(ptr noundef nonnull %1418, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1436:                                             ; preds = %.preheader4898
+1436:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1437, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4049,9 +4062,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2238: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZdlPvm(ptr noundef nonnull %1456, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1474:                                             ; preds = %.preheader4898
+1474:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1475 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1475, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4150,9 +4163,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2244: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZdlPvm(ptr noundef nonnull %1494, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1512:                                             ; preds = %.preheader4898
+1512:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1513 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1513, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4248,9 +4261,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2250: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZdlPvm(ptr noundef nonnull %1529, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1547:                                             ; preds = %.preheader4898
+1547:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1548 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1548, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4352,9 +4365,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2256: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_ZdlPvm(ptr noundef nonnull %1569, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1587:                                             ; preds = %.preheader4898
+1587:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1588 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1588, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4456,9 +4469,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2262: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @_ZdlPvm(ptr noundef nonnull %1609, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1627:                                             ; preds = %.preheader4898
+1627:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1628 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1628, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4560,9 +4573,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2268: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZdlPvm(ptr noundef nonnull %1649, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1667:                                             ; preds = %.preheader4898
+1667:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1668 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1668, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4664,9 +4677,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2274: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZdlPvm(ptr noundef nonnull %1689, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1707:                                             ; preds = %.preheader4898
+1707:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1708 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1708, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4768,9 +4781,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2280: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZdlPvm(ptr noundef nonnull %1729, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1747:                                             ; preds = %.preheader4898
+1747:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1748 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1748, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4872,9 +4885,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2286: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZdlPvm(ptr noundef nonnull %1769, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1787:                                             ; preds = %.preheader4898
+1787:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1788 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1788, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -4976,9 +4989,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2292: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZdlPvm(ptr noundef nonnull %1809, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1827:                                             ; preds = %.preheader4898
+1827:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1828 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1828, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5080,9 +5093,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2298: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZdlPvm(ptr noundef nonnull %1849, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1867:                                             ; preds = %.preheader4898
+1867:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1868 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1868, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5184,9 +5197,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @_ZdlPvm(ptr noundef nonnull %1889, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1907:                                             ; preds = %.preheader4898
+1907:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1908 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1908, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5288,9 +5301,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2310: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @_ZdlPvm(ptr noundef nonnull %1929, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1947:                                             ; preds = %.preheader4898
+1947:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1948 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1948, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5389,9 +5402,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2316: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @_ZdlPvm(ptr noundef nonnull %1967, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-1985:                                             ; preds = %.preheader4898
+1985:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %1986 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %1986, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5490,9 +5503,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2322: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @_ZdlPvm(ptr noundef nonnull %2005, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2023:                                             ; preds = %.preheader4898
+2023:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2024 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2024, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5591,9 +5604,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2328: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @_ZdlPvm(ptr noundef nonnull %2043, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2061:                                             ; preds = %.preheader4898
+2061:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2062 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2062, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5692,9 +5705,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2334: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @_ZdlPvm(ptr noundef nonnull %2081, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2099:                                             ; preds = %.preheader4898
+2099:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2100, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5793,9 +5806,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2340: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @_ZdlPvm(ptr noundef nonnull %2119, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2137:                                             ; preds = %.preheader4898
+2137:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2138, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5894,9 +5907,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2346: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @_ZdlPvm(ptr noundef nonnull %2157, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2175:                                             ; preds = %.preheader4898
+2175:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2176, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -5995,9 +6008,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2352: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   call void @_ZdlPvm(ptr noundef nonnull %2195, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2213:                                             ; preds = %.preheader4898
+2213:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2214 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2214, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6096,9 +6109,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2358: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @_ZdlPvm(ptr noundef nonnull %2233, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2251:                                             ; preds = %.preheader4898
+2251:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2252, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6197,9 +6210,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2364: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @_ZdlPvm(ptr noundef nonnull %2271, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2289:                                             ; preds = %.preheader4898
+2289:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2290 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2290, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6301,9 +6314,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2370: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @_ZdlPvm(ptr noundef nonnull %2311, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2329:                                             ; preds = %.preheader4898
+2329:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2330 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2330, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6405,9 +6418,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @_ZdlPvm(ptr noundef nonnull %2351, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2369:                                             ; preds = %.preheader4898
+2369:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2370 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2370, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6447,7 +6460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4403 = add nuw nsw i64 %indvars.iv4402, 1
   br label %2373, !llvm.loop !147
 
-2384:                                             ; preds = %.preheader4898
+2384:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2385, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6487,7 +6500,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4400 = add nuw nsw i64 %indvars.iv4399, 1
   br label %2388, !llvm.loop !148
 
-2399:                                             ; preds = %.preheader4898
+2399:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2400 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2400, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6527,7 +6540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4397 = add nuw nsw i64 %indvars.iv4396, 1
   br label %2403, !llvm.loop !149
 
-2414:                                             ; preds = %.preheader4898
+2414:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2415 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2415, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6567,7 +6580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4394 = add nuw nsw i64 %indvars.iv4393, 1
   br label %2418, !llvm.loop !150
 
-2429:                                             ; preds = %.preheader4898
+2429:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2430 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2430, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6607,7 +6620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4391 = add nuw nsw i64 %indvars.iv4390, 1
   br label %2433, !llvm.loop !151
 
-2444:                                             ; preds = %.preheader4898
+2444:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2445 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2445, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6647,7 +6660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4388 = add nuw nsw i64 %indvars.iv4387, 1
   br label %2448, !llvm.loop !152
 
-2459:                                             ; preds = %.preheader4898
+2459:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2460 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2460, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6687,7 +6700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4385 = add nuw nsw i64 %indvars.iv4384, 1
   br label %2463, !llvm.loop !153
 
-2474:                                             ; preds = %.preheader4898
+2474:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2475 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2475, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6727,7 +6740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4382 = add nuw nsw i64 %indvars.iv4381, 1
   br label %2478, !llvm.loop !154
 
-2489:                                             ; preds = %.preheader4898
+2489:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2490 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2490, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6767,7 +6780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4379 = add nuw nsw i64 %indvars.iv4378, 1
   br label %2493, !llvm.loop !155
 
-2504:                                             ; preds = %.preheader4898
+2504:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2505 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2505, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6807,7 +6820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4376 = add nuw nsw i64 %indvars.iv4375, 1
   br label %2508, !llvm.loop !156
 
-2519:                                             ; preds = %.preheader4898
+2519:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2520 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2520, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6847,7 +6860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4373 = add nuw nsw i64 %indvars.iv4372, 1
   br label %2523, !llvm.loop !157
 
-2534:                                             ; preds = %.preheader4898
+2534:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2535 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2535, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6887,7 +6900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376: ; preds = %2
   %indvars.iv.next4370 = add nuw nsw i64 %indvars.iv4369, 1
   br label %2538, !llvm.loop !158
 
-2549:                                             ; preds = %.preheader4898
+2549:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2550 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2550, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -6986,9 +6999,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2382: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @_ZdlPvm(ptr noundef nonnull %2569, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2587:                                             ; preds = %.preheader4898
+2587:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2588 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2588, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7028,7 +7041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2382: ; preds = %2
   %indvars.iv.next4364 = add nuw nsw i64 %indvars.iv4363, 1
   br label %2591, !llvm.loop !160
 
-2602:                                             ; preds = %.preheader4898
+2602:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2603 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2603, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7068,7 +7081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2382: ; preds = %2
   %indvars.iv.next4361 = add nuw nsw i64 %indvars.iv4360, 1
   br label %2606, !llvm.loop !161
 
-2617:                                             ; preds = %.preheader4898
+2617:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2618 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2618, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7167,9 +7180,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2388: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @_ZdlPvm(ptr noundef nonnull %2637, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2655:                                             ; preds = %.preheader4898
+2655:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2656 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2656, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7268,9 +7281,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2394: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @_ZdlPvm(ptr noundef nonnull %2675, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2693:                                             ; preds = %.preheader4898
+2693:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2694 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2694, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7369,9 +7382,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2400: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @_ZdlPvm(ptr noundef nonnull %2713, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2731:                                             ; preds = %.preheader4898
+2731:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2732 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2732, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7470,9 +7483,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2406: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @_ZdlPvm(ptr noundef nonnull %2751, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2769:                                             ; preds = %.preheader4898
+2769:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2770 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2770, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7571,9 +7584,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @_ZdlPvm(ptr noundef nonnull %2789, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2807:                                             ; preds = %.preheader4898
+2807:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2808 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2808, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7626,9 +7639,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @_ZdlPvm(ptr noundef nonnull %2816, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2826:                                             ; preds = %.preheader4898
+2826:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2827 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2827, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7681,9 +7694,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @_ZdlPvm(ptr noundef nonnull %2835, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2845:                                             ; preds = %.preheader4898
+2845:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2846 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2846, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7737,9 +7750,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @_ZdlPvm(ptr noundef nonnull %2854, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2864:                                             ; preds = %.preheader4898
+2864:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2865 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2865, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7793,9 +7806,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @_ZdlPvm(ptr noundef nonnull %2873, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2883:                                             ; preds = %.preheader4898
+2883:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2884 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2884, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7848,9 +7861,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   call void @_ZdlPvm(ptr noundef nonnull %2892, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2902:                                             ; preds = %.preheader4898
+2902:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2903 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2903, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7903,9 +7916,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @_ZdlPvm(ptr noundef nonnull %2911, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-2921:                                             ; preds = %.preheader4898
+2921:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2922 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2922, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7928,7 +7941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
 2929:                                             ; preds = %2925
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   store i32 5, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
 2930:                                             ; preds = %2925
   %2931 = add nsw i32 %2926, 1
@@ -7946,7 +7959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4095 = add nuw nsw i64 %indvars.iv4094, 1
   br label %2925, !llvm.loop !173
 
-2936:                                             ; preds = %.preheader4898
+2936:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2937 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2937, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -7970,7 +7983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   store i1 true, ptr @_ZL12yy_more_flag, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 2945:                                             ; preds = %2940
   %2946 = add nsw i32 %2941, 1
@@ -7988,7 +8001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4092 = add nuw nsw i64 %indvars.iv4091, 1
   br label %2940, !llvm.loop !174
 
-2951:                                             ; preds = %.preheader4898
+2951:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %2952 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %2952, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8160,9 +8173,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @_ZdlPvm(ptr noundef nonnull %3016, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3020:                                             ; preds = %.preheader4898
+3020:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3021 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3021, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8186,7 +8199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   store i1 true, ptr @_ZL12yy_more_flag, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 3029:                                             ; preds = %3024
   %3030 = add nsw i32 %3025, 1
@@ -8204,7 +8217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4089 = add nuw nsw i64 %indvars.iv4088, 1
   br label %3024, !llvm.loop !177
 
-3035:                                             ; preds = %.preheader4898
+3035:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3036 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3036, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8257,9 +8270,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   call void @_ZdlPvm(ptr noundef nonnull %3044, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3054:                                             ; preds = %.preheader4898
+3054:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3055 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3055, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8299,7 +8312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4316 = add nuw nsw i64 %indvars.iv4315, 1
   br label %3058, !llvm.loop !179
 
-3069:                                             ; preds = %.preheader4898
+3069:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3070 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3070, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8339,7 +8352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4313 = add nuw nsw i64 %indvars.iv4312, 1
   br label %3073, !llvm.loop !180
 
-3084:                                             ; preds = %.preheader4898
+3084:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3085 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3085, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8392,9 +8405,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @_ZdlPvm(ptr noundef nonnull %3093, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3103:                                             ; preds = %.preheader4898
+3103:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3104, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8463,9 +8476,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @_ZdlPvm(ptr noundef nonnull %3124, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3128:                                             ; preds = %.preheader4898
+3128:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3129, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8518,9 +8531,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @_ZdlPvm(ptr noundef nonnull %3137, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3147:                                             ; preds = %.preheader4898
+3147:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3148, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8560,7 +8573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4304 = add nuw nsw i64 %indvars.iv4303, 1
   br label %3151, !llvm.loop !184
 
-3162:                                             ; preds = %.preheader4898
+3162:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3163, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8600,7 +8613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412: ; preds = %2
   %indvars.iv.next4301 = add nuw nsw i64 %indvars.iv4300, 1
   br label %3166, !llvm.loop !185
 
-3177:                                             ; preds = %.preheader4898
+3177:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3178, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -8872,9 +8885,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2430: ; preds = %3276, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2428, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2418
   %.pn1806.pn = phi { ptr, i32 } [ %.pn1801, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2418 ], [ %.pn1806, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2428 ], [ %.pn1806, %3276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
-  br label %4997
+  br label %4996
 
-3282:                                             ; preds = %.preheader4898
+3282:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3283, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9084,9 +9097,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2448: ; preds = %3350, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2446, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2436
   %.pn1796.pn = phi { ptr, i32 } [ %.pn1792, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2436 ], [ %.pn1796, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2446 ], [ %.pn1796, %3350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
-  br label %4997
+  br label %4996
 
-3356:                                             ; preds = %.preheader4898
+3356:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3357, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9177,9 +9190,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @_ZdlPvm(ptr noundef nonnull %3365, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3389:                                             ; preds = %.preheader4898
+3389:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3390, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9227,9 +9240,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 
 3405:                                             ; preds = %3404, %3397
   store i32 7, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
-3406:                                             ; preds = %.preheader4898
+3406:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3407 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3407, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9251,7 +9264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 
 3414:                                             ; preds = %3410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 3415:                                             ; preds = %3410
   %3416 = add nsw i32 %3411, 1
@@ -9269,7 +9282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4083 = add nuw nsw i64 %indvars.iv4082, 1
   br label %3410, !llvm.loop !191
 
-3421:                                             ; preds = %.preheader4898
+3421:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3422 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3422, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9291,7 +9304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 
 3429:                                             ; preds = %3425
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 3430:                                             ; preds = %3425
   %3431 = add nsw i32 %3426, 1
@@ -9309,7 +9322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4080 = add nuw nsw i64 %indvars.iv4079, 1
   br label %3425, !llvm.loop !192
 
-3436:                                             ; preds = %.preheader4898
+3436:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3437, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9332,7 +9345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 3444:                                             ; preds = %3440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
 3445:                                             ; preds = %3440
   %3446 = add nsw i32 %3441, 1
@@ -9350,7 +9363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4077 = add nuw nsw i64 %indvars.iv4076, 1
   br label %3440, !llvm.loop !193
 
-3451:                                             ; preds = %.preheader4898
+3451:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3452 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3452, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9373,7 +9386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 3459:                                             ; preds = %3455
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   store i32 9, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
 3460:                                             ; preds = %3455
   %3461 = add nsw i32 %3456, 1
@@ -9391,7 +9404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4074 = add nuw nsw i64 %indvars.iv4073, 1
   br label %3455, !llvm.loop !194
 
-3466:                                             ; preds = %.preheader4898
+3466:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3467 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3467, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9437,7 +9450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   store i1 true, ptr @_ZZ22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEE15printed_warning_0, align 1
   br label %.loopexit
 
-3482:                                             ; preds = %.preheader4898
+3482:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3483 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3483, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9483,7 +9496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   store i1 true, ptr @_ZZ22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEE15printed_warning_1, align 1
   br label %.loopexit
 
-3498:                                             ; preds = %.preheader4898
+3498:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3499 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3499, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9505,7 +9518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 
 3506:                                             ; preds = %3502
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 3507:                                             ; preds = %3502
   %3508 = add nsw i32 %3503, 1
@@ -9523,7 +9536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4071 = add nuw nsw i64 %indvars.iv4070, 1
   br label %3502, !llvm.loop !197
 
-3513:                                             ; preds = %.preheader4898
+3513:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3514 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3514, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9546,7 +9559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
 3521:                                             ; preds = %3517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
 3522:                                             ; preds = %3517
   %3523 = add nsw i32 %3518, 1
@@ -9564,7 +9577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4068 = add nuw nsw i64 %indvars.iv4067, 1
   br label %3517, !llvm.loop !198
 
-3528:                                             ; preds = %.preheader4898
+3528:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3529 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3529, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9605,7 +9618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454: ; preds = %3
   %indvars.iv.next4278 = add nuw nsw i64 %indvars.iv4277, 1
   br label %3532, !llvm.loop !199
 
-3543:                                             ; preds = %.preheader4898
+3543:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3544 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3544, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9696,9 +9709,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   call void @_ZdlPvm(ptr noundef nonnull %3552, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3576:                                             ; preds = %.preheader4898
+3576:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3577 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3577, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9720,7 +9733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
 
 3584:                                             ; preds = %3580
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 3585:                                             ; preds = %3580
   %3586 = add nsw i32 %3581, 1
@@ -9738,7 +9751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4065 = add nuw nsw i64 %indvars.iv4064, 1
   br label %3580, !llvm.loop !201
 
-3591:                                             ; preds = %.preheader4898
+3591:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3592 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3592, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9781,7 +9794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4272 = add nuw nsw i64 %indvars.iv4271, 1
   br label %3595, !llvm.loop !202
 
-3608:                                             ; preds = %.preheader4898
+3608:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3609 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3609, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9823,7 +9836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4269 = add nuw nsw i64 %indvars.iv4268, 1
   br label %3612, !llvm.loop !203
 
-3625:                                             ; preds = %.preheader4898
+3625:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3626 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3626, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9876,9 +9889,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @_ZdlPvm(ptr noundef nonnull %3634, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-3644:                                             ; preds = %.preheader4898
+3644:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3645 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3645, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9918,7 +9931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4263 = add nuw nsw i64 %indvars.iv4262, 1
   br label %3648, !llvm.loop !205
 
-3659:                                             ; preds = %.preheader4898
+3659:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3660 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3660, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9958,7 +9971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4260 = add nuw nsw i64 %indvars.iv4259, 1
   br label %3663, !llvm.loop !206
 
-3674:                                             ; preds = %.preheader4898
+3674:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3675 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3675, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -9998,7 +10011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4257 = add nuw nsw i64 %indvars.iv4256, 1
   br label %3678, !llvm.loop !207
 
-3689:                                             ; preds = %.preheader4898
+3689:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3690 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3690, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10038,7 +10051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4254 = add nuw nsw i64 %indvars.iv4253, 1
   br label %3693, !llvm.loop !208
 
-3704:                                             ; preds = %.preheader4898
+3704:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3705 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3705, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10078,7 +10091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4251 = add nuw nsw i64 %indvars.iv4250, 1
   br label %3708, !llvm.loop !209
 
-3719:                                             ; preds = %.preheader4898
+3719:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3720 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3720, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10118,7 +10131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4248 = add nuw nsw i64 %indvars.iv4247, 1
   br label %3723, !llvm.loop !210
 
-3734:                                             ; preds = %.preheader4898
+3734:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3735 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3735, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10158,7 +10171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4245 = add nuw nsw i64 %indvars.iv4244, 1
   br label %3738, !llvm.loop !211
 
-3749:                                             ; preds = %.preheader4898
+3749:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3750 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3750, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10198,7 +10211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4242 = add nuw nsw i64 %indvars.iv4241, 1
   br label %3753, !llvm.loop !212
 
-3764:                                             ; preds = %.preheader4898
+3764:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3765 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3765, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10238,7 +10251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4239 = add nuw nsw i64 %indvars.iv4238, 1
   br label %3768, !llvm.loop !213
 
-3779:                                             ; preds = %.preheader4898
+3779:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3780 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3780, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10278,7 +10291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4236 = add nuw nsw i64 %indvars.iv4235, 1
   br label %3783, !llvm.loop !214
 
-3794:                                             ; preds = %.preheader4898
+3794:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3795 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3795, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10318,7 +10331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4233 = add nuw nsw i64 %indvars.iv4232, 1
   br label %3798, !llvm.loop !215
 
-3809:                                             ; preds = %.preheader4898
+3809:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3810 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3810, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10358,7 +10371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4230 = add nuw nsw i64 %indvars.iv4229, 1
   br label %3813, !llvm.loop !216
 
-3824:                                             ; preds = %.preheader4898
+3824:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3825 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3825, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10398,7 +10411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4227 = add nuw nsw i64 %indvars.iv4226, 1
   br label %3828, !llvm.loop !217
 
-3839:                                             ; preds = %.preheader4898
+3839:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3840 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3840, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10438,7 +10451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4224 = add nuw nsw i64 %indvars.iv4223, 1
   br label %3843, !llvm.loop !218
 
-3854:                                             ; preds = %.preheader4898
+3854:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3855 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3855, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10478,7 +10491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4221 = add nuw nsw i64 %indvars.iv4220, 1
   br label %3858, !llvm.loop !219
 
-3869:                                             ; preds = %.preheader4898
+3869:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3870 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3870, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10518,7 +10531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4218 = add nuw nsw i64 %indvars.iv4217, 1
   br label %3873, !llvm.loop !220
 
-3884:                                             ; preds = %.preheader4898
+3884:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3885 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3885, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10558,7 +10571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4215 = add nuw nsw i64 %indvars.iv4214, 1
   br label %3888, !llvm.loop !221
 
-3899:                                             ; preds = %.preheader4898
+3899:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3900 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3900, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10598,7 +10611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4212 = add nuw nsw i64 %indvars.iv4211, 1
   br label %3903, !llvm.loop !222
 
-3914:                                             ; preds = %.preheader4898
+3914:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3915 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3915, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10638,7 +10651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4209 = add nuw nsw i64 %indvars.iv4208, 1
   br label %3918, !llvm.loop !223
 
-3929:                                             ; preds = %.preheader4898
+3929:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3930 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3930, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10678,7 +10691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4206 = add nuw nsw i64 %indvars.iv4205, 1
   br label %3933, !llvm.loop !224
 
-3944:                                             ; preds = %.preheader4898
+3944:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3945 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3945, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10718,7 +10731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4203 = add nuw nsw i64 %indvars.iv4202, 1
   br label %3948, !llvm.loop !225
 
-3959:                                             ; preds = %.preheader4898
+3959:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3960 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3960, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10758,7 +10771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4200 = add nuw nsw i64 %indvars.iv4199, 1
   br label %3963, !llvm.loop !226
 
-3974:                                             ; preds = %.preheader4898
+3974:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3975 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3975, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10798,7 +10811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4197 = add nuw nsw i64 %indvars.iv4196, 1
   br label %3978, !llvm.loop !227
 
-3989:                                             ; preds = %.preheader4898
+3989:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %3990 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %3990, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10838,7 +10851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4194 = add nuw nsw i64 %indvars.iv4193, 1
   br label %3993, !llvm.loop !228
 
-4004:                                             ; preds = %.preheader4898
+4004:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4005 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4005, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10878,7 +10891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4191 = add nuw nsw i64 %indvars.iv4190, 1
   br label %4008, !llvm.loop !229
 
-4019:                                             ; preds = %.preheader4898
+4019:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4020 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4020, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10918,7 +10931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4188 = add nuw nsw i64 %indvars.iv4187, 1
   br label %4023, !llvm.loop !230
 
-4034:                                             ; preds = %.preheader4898
+4034:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4035 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4035, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10958,7 +10971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4185 = add nuw nsw i64 %indvars.iv4184, 1
   br label %4038, !llvm.loop !231
 
-4049:                                             ; preds = %.preheader4898
+4049:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4050 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4050, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -10998,7 +11011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460: ; preds = %3
   %indvars.iv.next4182 = add nuw nsw i64 %indvars.iv4181, 1
   br label %4053, !llvm.loop !232
 
-4064:                                             ; preds = %.preheader4898
+4064:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4065 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4065, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11097,9 +11110,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2466: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @_ZdlPvm(ptr noundef nonnull %4084, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4102:                                             ; preds = %.preheader4898
+4102:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4103, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11198,9 +11211,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2472: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @_ZdlPvm(ptr noundef nonnull %4122, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4140:                                             ; preds = %.preheader4898
+4140:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4141, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11299,9 +11312,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2478: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   call void @_ZdlPvm(ptr noundef nonnull %4160, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4178:                                             ; preds = %.preheader4898
+4178:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4179, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11400,9 +11413,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2484: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
   call void @_ZdlPvm(ptr noundef nonnull %4198, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4216:                                             ; preds = %.preheader4898
+4216:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4217 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4217, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11501,9 +11514,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2490: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @_ZdlPvm(ptr noundef nonnull %4236, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4254:                                             ; preds = %.preheader4898
+4254:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4255 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4255, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11602,9 +11615,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2496: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @_ZdlPvm(ptr noundef nonnull %4274, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4292:                                             ; preds = %.preheader4898
+4292:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4293 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4293, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11703,9 +11716,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2502: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @_ZdlPvm(ptr noundef nonnull %4312, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4330:                                             ; preds = %.preheader4898
+4330:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4331 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4331, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11804,9 +11817,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2508: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
   call void @_ZdlPvm(ptr noundef nonnull %4350, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4368:                                             ; preds = %.preheader4898
+4368:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4369 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4369, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -11905,9 +11918,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2514: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
   call void @_ZdlPvm(ptr noundef nonnull %4388, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4406:                                             ; preds = %.preheader4898
+4406:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4407 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4407, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12006,9 +12019,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2520: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
   call void @_ZdlPvm(ptr noundef nonnull %4426, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4444:                                             ; preds = %.preheader4898
+4444:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4445 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4445, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12107,9 +12120,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2526: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @_ZdlPvm(ptr noundef nonnull %4464, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4482:                                             ; preds = %.preheader4898
+4482:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4483 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4483, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12208,9 +12221,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call void @_ZdlPvm(ptr noundef nonnull %4502, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4520:                                             ; preds = %.preheader4898
+4520:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4521 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4521, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12268,9 +12281,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
   call void @_ZdlPvm(ptr noundef nonnull %4538, i64 noundef 32) #38
-  br label %4997
+  br label %4996
 
-4542:                                             ; preds = %.preheader4898
+4542:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4543 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4543, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12313,7 +12326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4143 = add nuw nsw i64 %indvars.iv4142, 1
   br label %4546, !llvm.loop !246
 
-4559:                                             ; preds = %.preheader4898
+4559:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4560 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4560, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12353,7 +12366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4140 = add nuw nsw i64 %indvars.iv4139, 1
   br label %4563, !llvm.loop !247
 
-4574:                                             ; preds = %.preheader4898
+4574:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4575 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4575, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12393,7 +12406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4137 = add nuw nsw i64 %indvars.iv4136, 1
   br label %4578, !llvm.loop !248
 
-4589:                                             ; preds = %.preheader4898
+4589:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4590 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4590, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12433,7 +12446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4134 = add nuw nsw i64 %indvars.iv4133, 1
   br label %4593, !llvm.loop !249
 
-4604:                                             ; preds = %.preheader4898
+4604:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4605 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4605, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12459,7 +12472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %4614 = add nsw i32 %4613, -1
   %4615 = sdiv i32 %4614, 2
   store i32 3, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
 4616:                                             ; preds = %4608
   %4617 = add nsw i32 %4609, 1
@@ -12477,7 +12490,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4062 = add nuw nsw i64 %indvars.iv4061, 1
   br label %4608, !llvm.loop !250
 
-4622:                                             ; preds = %.preheader4898
+4622:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4623 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4623, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12499,7 +12512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 
 4630:                                             ; preds = %4626
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 4631:                                             ; preds = %4626
   %4632 = add nsw i32 %4627, 1
@@ -12517,7 +12530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4059 = add nuw nsw i64 %indvars.iv4058, 1
   br label %4626, !llvm.loop !251
 
-4637:                                             ; preds = %.preheader4898
+4637:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4638 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4638, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12539,7 +12552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 
 4645:                                             ; preds = %4641
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 4646:                                             ; preds = %4641
   %4647 = add nsw i32 %4642, 1
@@ -12557,7 +12570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4056 = add nuw nsw i64 %indvars.iv4055, 1
   br label %4641, !llvm.loop !252
 
-4652:                                             ; preds = %.preheader4898
+4652:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4653 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4653, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12582,7 +12595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %4661 = shl nuw nsw i32 %.01399, 1
   %4662 = or disjoint i32 %4661, 1
   store i32 %4662, ptr @_ZL8yy_start, align 4, !tbaa !27
-  br label %4996
+  br label %4995
 
 4663:                                             ; preds = %4656
   %4664 = add nsw i32 %4657, 1
@@ -12600,7 +12613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4053 = add nuw nsw i64 %indvars.iv4052, 1
   br label %4656, !llvm.loop !253
 
-4669:                                             ; preds = %.preheader4898
+4669:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4670 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4670, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12622,7 +12635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 
 4677:                                             ; preds = %4673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 4678:                                             ; preds = %4673
   %4679 = add nsw i32 %4674, 1
@@ -12640,7 +12653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4050 = add nuw nsw i64 %indvars.iv4049, 1
   br label %4673, !llvm.loop !254
 
-4684:                                             ; preds = %.preheader4898
+4684:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4685 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4685, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12662,7 +12675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 
 4692:                                             ; preds = %4688
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 4693:                                             ; preds = %4688
   %4694 = add nsw i32 %4689, 1
@@ -12680,7 +12693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4047 = add nuw nsw i64 %indvars.iv4046, 1
   br label %4688, !llvm.loop !255
 
-4699:                                             ; preds = %.preheader4898
+4699:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4700 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4700, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12702,7 +12715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
 
 4707:                                             ; preds = %4703
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
-  br label %4996
+  br label %4995
 
 4708:                                             ; preds = %4703
   %4709 = add nsw i32 %4704, 1
@@ -12720,7 +12733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4044 = add nuw nsw i64 %indvars.iv4043, 1
   br label %4703, !llvm.loop !256
 
-4714:                                             ; preds = %.preheader4898
+4714:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4715 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4715, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12762,7 +12775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4131 = add nuw nsw i64 %indvars.iv4130, 1
   br label %4718, !llvm.loop !257
 
-4731:                                             ; preds = %.preheader4898
+4731:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4732 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4732, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12805,7 +12818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4128 = add nuw nsw i64 %indvars.iv4127, 1
   br label %4735, !llvm.loop !258
 
-4748:                                             ; preds = %.preheader4898
+4748:                                             ; preds = %.loopexit2572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false), !tbaa.struct !51
   %4749 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4, !tbaa !52
   store i32 %4749, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4, !tbaa !54
@@ -12831,7 +12844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %4758 = sext i32 %4757 to i64
   %4759 = load ptr, ptr @frontend_verilog_yyout, align 8, !tbaa !29
   %4760 = call i64 @fwrite(ptr noundef nonnull %4751, i64 noundef %4758, i64 noundef 1, ptr noundef %4759)
-  br label %4996
+  br label %4995
 
 4761:                                             ; preds = %4752
   %4762 = add nsw i32 %4753, 1
@@ -12849,7 +12862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532: ; preds = %4
   %indvars.iv.next4041 = add nuw nsw i64 %indvars.iv4040, 1
   br label %4752, !llvm.loop !259
 
-4767:                                             ; preds = %.preheader4898
+4767:                                             ; preds = %.loopexit2572
   %4768 = load ptr, ptr @frontend_verilog_yytext, align 8, !tbaa !43
   %4769 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !18
   store i8 %4769, ptr %.41184, align 1, !tbaa !18
@@ -13009,7 +13022,7 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %4788, %._crit_edge2
   %4863 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i2537
   %4864 = load i16, ptr %4863, align 2, !tbaa !45
   %4865 = icmp eq i16 %4864, 947
-  br i1 %4865, label %_ZL16yy_try_NUL_transi.exit.thread, label %_ZL16yy_try_NUL_transi.exit
+  br i1 %4865, label %.preheader.loopexit, label %_ZL16yy_try_NUL_transi.exit
 
 _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
   %4866 = sext i16 %4864 to i32
@@ -13017,17 +13030,17 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
   store ptr %4867, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
   store i32 %4866, ptr %4844, align 4, !tbaa !27
   %.not1622 = icmp eq i16 %4864, 0
-  br i1 %.not1622, label %_ZL16yy_try_NUL_transi.exit.thread, label %4868
+  br i1 %.not1622, label %.preheader.loopexit, label %4868
 
 4868:                                             ; preds = %_ZL16yy_try_NUL_transi.exit
   %4869 = getelementptr inbounds nuw i8, ptr %4796, i64 1
   store ptr %4869, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !43
-  br label %_ZL21yy_get_previous_statev.exit2551
+  br label %.loopexit2570.loopexit
 
 4870:                                             ; preds = %4781
   %4871 = call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
   switch i32 %4871, label %default.unreachable4892 [
-    i32 1, label %4986
+    i32 1, label %_ZL16yy_try_NUL_transi.exit.thread
     i32 0, label %4872
     i32 2, label %4928
   ]
@@ -13051,7 +13064,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
   %4885 = sext i32 %4884 to i64
   %4886 = getelementptr inbounds i8, ptr %4878, i64 %4885
   %4887 = icmp slt i32 %4884, %4877
-  br i1 %4887, label %.lr.ph24.i2539, label %_ZL21yy_get_previous_statev.exit2551
+  br i1 %4887, label %.lr.ph24.i2539, label %.loopexit2570.loopexit
 
 .lr.ph24.i2539:                                   ; preds = %4872, %._crit_edge.i2548
   %.01422.i2540 = phi ptr [ %4926, %._crit_edge.i2548 ], [ %4886, %4872 ]
@@ -13121,7 +13134,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 
 ._crit_edge25.i2550:                              ; preds = %._crit_edge.i2548
   store ptr %4925, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
-  br label %_ZL21yy_get_previous_statev.exit2551
+  br label %.loopexit2570.loopexit
 
 4928:                                             ; preds = %4870
   %4929 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !31
@@ -13144,7 +13157,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
   %4943 = sext i32 %4942 to i64
   %4944 = getelementptr inbounds i8, ptr %4941, i64 %4943
   %4945 = icmp ult ptr %4944, %4937
-  br i1 %4945, label %.lr.ph24.i2553, label %_ZL16yy_try_NUL_transi.exit.thread
+  br i1 %4945, label %.lr.ph24.i2553, label %.preheader.loopexit
 
 .lr.ph24.i2553:                                   ; preds = %4928, %._crit_edge.i2562
   %.01422.i2554 = phi ptr [ %4984, %._crit_edge.i2562 ], [ %4944, %4928 ]
@@ -13214,50 +13227,37 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2536
 
 ._crit_edge25.i2564:                              ; preds = %._crit_edge.i2562
   store ptr %4983, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
-  br label %_ZL16yy_try_NUL_transi.exit.thread
+  br label %.preheader.loopexit
 
 default.unreachable4892:                          ; preds = %4870
   unreachable
 
-_ZL16yy_try_NUL_transi.exit.thread:               ; preds = %._crit_edge25.i2564, %4928, %_ZL16yy_try_NUL_transi.exit, %._crit_edge.i2536
-  %.41192.jt9 = phi ptr [ %4802, %._crit_edge.i2536 ], [ %4802, %_ZL16yy_try_NUL_transi.exit ], [ %4944, %4928 ], [ %4944, %._crit_edge25.i2564 ]
-  %.71187.jt9 = phi ptr [ %4796, %._crit_edge.i2536 ], [ %4796, %_ZL16yy_try_NUL_transi.exit ], [ %4937, %4928 ], [ %4937, %._crit_edge25.i2564 ]
-  %.pre4608 = load ptr, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
-  br label %.preheader
+_ZL16yy_try_NUL_transi.exit.thread:               ; preds = %4870
+  %4986 = load ptr, ptr @frontend_verilog_yytext, align 8, !tbaa !43
+  %4987 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !27
+  %4988 = sext i32 %4987 to i64
+  %4989 = getelementptr inbounds i8, ptr %4986, i64 %4988
+  store ptr %4989, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !43
+  %4990 = load i32, ptr @_ZL8yy_start, align 4, !tbaa !27
+  %4991 = add nsw i32 %4990, -1
+  %4992 = sdiv i32 %4991, 2
+  %4993 = add nuw nsw i32 %4992, 190
+  br label %.loopexit2572
 
-_ZL21yy_get_previous_statev.exit2551:             ; preds = %._crit_edge25.i2550, %4872, %4868
-  %.41192.jt4 = phi ptr [ %4802, %4868 ], [ %4886, %4872 ], [ %4886, %._crit_edge25.i2550 ]
-  %.71187.jt4 = phi ptr [ %4869, %4868 ], [ %4880, %4872 ], [ %4880, %._crit_edge25.i2550 ]
-  %.7.jt4 = phi i32 [ %4866, %4868 ], [ %4881, %4872 ], [ %4924, %._crit_edge25.i2550 ]
-  %_ZL12yy_state_ptr.promoted.pre = load ptr, ptr @_ZL12yy_state_ptr, align 8, !tbaa !26
-  br label %.loopexit2570
-
-4986:                                             ; preds = %4870
-  %4987 = load ptr, ptr @frontend_verilog_yytext, align 8, !tbaa !43
-  %4988 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !27
-  %4989 = sext i32 %4988 to i64
-  %4990 = getelementptr inbounds i8, ptr %4987, i64 %4989
-  store ptr %4990, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !43
-  %4991 = load i32, ptr @_ZL8yy_start, align 4, !tbaa !27
-  %4992 = add nsw i32 %4991, -1
-  %4993 = sdiv i32 %4992, 2
-  %4994 = add nuw nsw i32 %4993, 190
-  br label %.preheader4898
-
-4995:                                             ; preds = %.preheader4898
+4994:                                             ; preds = %.loopexit2572
   call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.14) #40
   unreachable
 
-4996:                                             ; preds = %546, %550, %549, %4756, %4707, %4692, %4677, %4660, %4645, %4630, %4612, %3584, %3521, %3506, %3459, %3444, %3429, %3414, %3405, %3028, %2944, %2929, %589, %574, %559, %516, %501, %486, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2175, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_backEv.exit, %.thread2568
+4995:                                             ; preds = %546, %550, %549, %4756, %4707, %4692, %4677, %4660, %4645, %4630, %4612, %3584, %3521, %3506, %3459, %3444, %3429, %3414, %3405, %3028, %2944, %2929, %589, %574, %559, %516, %501, %486, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2175, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_backEv.exit, %.thread2568
   %.11400 = phi i32 [ %.01399, %.thread2568 ], [ %.01399, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_backEv.exit ], [ %.01399, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2175 ], [ %.01399, %486 ], [ %.01399, %501 ], [ %.01399, %516 ], [ %.01399, %559 ], [ %.01399, %574 ], [ %.01399, %589 ], [ %.01399, %2929 ], [ %.01399, %2944 ], [ %.01399, %3028 ], [ %.01399, %3405 ], [ %.01399, %3414 ], [ %.01399, %3429 ], [ %.01399, %3444 ], [ %.01399, %3459 ], [ %.01399, %3506 ], [ %.01399, %3521 ], [ %.01399, %3584 ], [ %4615, %4612 ], [ %.01399, %4630 ], [ %.01399, %4645 ], [ %.01399, %4660 ], [ %.01399, %4677 ], [ %.01399, %4692 ], [ %.01399, %4707 ], [ %.01399, %4756 ], [ %.01399, %549 ], [ %.01399, %550 ], [ %.01399, %546 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, i64 16, i1 false)
   br label %200, !llvm.loop !264
 
-.loopexit:                                        ; preds = %.preheader4898, %.preheader4898, %.preheader4898, %.preheader4898, %.preheader4898, %.preheader4898, %.preheader4898, %4550, %4490, %4452, %4414, %4376, %4338, %4300, %4262, %4224, %4186, %4148, %4110, %4072, %3490, %3497, %3474, %3481, %2777, %2739, %2701, %2663, %2625, %2557, %2337, %2297, %2259, %2221, %2183, %2145, %2107, %2069, %2031, %1993, %1955, %1915, %1875, %1835, %1795, %1755, %1715, %1675, %1635, %1595, %1555, %1520, %1482, %1444, %1406, %1368, %1330, %1292, %894, %856, %818, %780, %742, %4739, %4722, %4597, %4582, %4567, %4539, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2529, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2523, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2517, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2511, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2505, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2493, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2487, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2475, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2469, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2463, %4057, %4042, %4027, %4012, %3997, %3982, %3967, %3952, %3937, %3922, %3907, %3892, %3877, %3862, %3847, %3832, %3817, %3802, %3787, %3772, %3757, %3742, %3727, %3712, %3697, %3682, %3667, %3652, %3641, %3616, %3599, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2457, %3536, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2451, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2427, %3170, %3155, %3144, %3125, %3100, %3077, %3062, %3051, %3017, %2918, %2899, %2880, %2861, %2842, %2823, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2403, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2397, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2385, %2610, %2595, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2379, %2542, %2527, %2512, %2497, %2482, %2467, %2452, %2437, %2422, %2407, %2392, %2377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2373, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2367, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2355, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2289, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2253, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2211, %1277, %1262, %1247, %1232, %1217, %1202, %1187, %1172, %1157, %1142, %1127, %1112, %1097, %1082, %1067, %1052, %1037, %1022, %1007, %992, %977, %962, %947, %932, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2181, %727, %712, %694, %679, %664, %649, %634, %619, %604
-  %.0 = phi i32 [ 280, %604 ], [ 281, %619 ], [ 326, %634 ], [ 327, %649 ], [ 328, %664 ], [ 329, %679 ], [ %697, %694 ], [ 332, %712 ], [ 333, %727 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2181 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2187 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2193 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2199 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2205 ], [ 282, %932 ], [ 283, %947 ], [ 284, %962 ], [ 303, %977 ], [ 304, %992 ], [ 305, %1007 ], [ 309, %1022 ], [ 310, %1037 ], [ 311, %1052 ], [ 312, %1067 ], [ 313, %1082 ], [ 317, %1097 ], [ 318, %1112 ], [ 319, %1127 ], [ 321, %1142 ], [ 322, %1157 ], [ 323, %1172 ], [ 324, %1187 ], [ 325, %1202 ], [ 336, %1217 ], [ 337, %1232 ], [ 314, %1247 ], [ 315, %1262 ], [ 320, %1277 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2211 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2217 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2223 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2229 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2235 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2241 ], [ 263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2247 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2253 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2259 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2265 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2271 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2277 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2283 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2289 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2295 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2301 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2307 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2313 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2319 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2325 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2331 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2337 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2343 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2349 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2355 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2361 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2367 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2373 ], [ 293, %2377 ], [ 294, %2392 ], [ 295, %2407 ], [ 296, %2422 ], [ 296, %2437 ], [ 298, %2452 ], [ 298, %2467 ], [ 297, %2482 ], [ 297, %2497 ], [ 299, %2512 ], [ 301, %2527 ], [ 302, %2542 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2379 ], [ 338, %2595 ], [ 339, %2610 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2385 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2397 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2403 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2409 ], [ 260, %2823 ], [ 268, %2842 ], [ 266, %2861 ], [ 267, %2880 ], [ 261, %2899 ], [ 261, %2918 ], [ 258, %3017 ], [ 262, %3051 ], [ 342, %3062 ], [ 343, %3077 ], [ 259, %3100 ], [ 259, %3125 ], [ 265, %3144 ], [ 344, %3155 ], [ 345, %3170 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2427 ], [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2445 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2451 ], [ 316, %3536 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2457 ], [ %3601, %3599 ], [ %3618, %3616 ], [ 259, %3641 ], [ 276, %3652 ], [ 277, %3667 ], [ 278, %3682 ], [ 279, %3697 ], [ 399, %3712 ], [ 384, %3727 ], [ 385, %3742 ], [ 389, %3757 ], [ 390, %3772 ], [ 393, %3787 ], [ 394, %3802 ], [ 391, %3817 ], [ 392, %3832 ], [ 388, %3847 ], [ 386, %3862 ], [ 387, %3877 ], [ 387, %3892 ], [ 395, %3907 ], [ 396, %3922 ], [ 397, %3937 ], [ 398, %3952 ], [ 400, %3967 ], [ 287, %3982 ], [ 356, %3997 ], [ 357, %4012 ], [ 346, %4027 ], [ 347, %4042 ], [ 292, %4057 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2463 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2469 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2475 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2481 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2487 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2493 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2499 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2505 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2511 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2517 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2523 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2529 ], [ 264, %4539 ], [ 383, %4567 ], [ 383, %4582 ], [ 383, %4597 ], [ %4724, %4722 ], [ %4741, %4739 ], [ 285, %742 ], [ 286, %780 ], [ 288, %818 ], [ 289, %856 ], [ 290, %894 ], [ 358, %1292 ], [ 359, %1330 ], [ 360, %1368 ], [ 307, %1406 ], [ 306, %1444 ], [ 308, %1482 ], [ 325, %1520 ], [ 271, %1555 ], [ 272, %1595 ], [ 274, %1635 ], [ 273, %1675 ], [ 348, %1715 ], [ 351, %1755 ], [ 352, %1795 ], [ 353, %1835 ], [ 354, %1875 ], [ 382, %1915 ], [ 275, %1955 ], [ 300, %1993 ], [ 291, %2031 ], [ 300, %2069 ], [ 364, %2107 ], [ 365, %2145 ], [ 366, %2183 ], [ 367, %2221 ], [ 368, %2259 ], [ 355, %2297 ], [ 355, %2337 ], [ 363, %2557 ], [ 349, %2625 ], [ 350, %2663 ], [ 361, %2701 ], [ 369, %2739 ], [ 362, %2777 ], [ 340, %3481 ], [ 340, %3474 ], [ 341, %3497 ], [ 341, %3490 ], [ 370, %4072 ], [ 371, %4110 ], [ 373, %4148 ], [ 374, %4186 ], [ 372, %4224 ], [ 375, %4262 ], [ 376, %4300 ], [ 377, %4338 ], [ 378, %4376 ], [ 379, %4414 ], [ 380, %4452 ], [ 381, %4490 ], [ %., %4550 ], [ 0, %.preheader4898 ], [ 0, %.preheader4898 ], [ 0, %.preheader4898 ], [ 0, %.preheader4898 ], [ 0, %.preheader4898 ], [ 0, %.preheader4898 ], [ 0, %.preheader4898 ]
+.loopexit:                                        ; preds = %.loopexit2572, %.loopexit2572, %.loopexit2572, %.loopexit2572, %.loopexit2572, %.loopexit2572, %.loopexit2572, %4550, %4490, %4452, %4414, %4376, %4338, %4300, %4262, %4224, %4186, %4148, %4110, %4072, %3490, %3497, %3474, %3481, %2777, %2739, %2701, %2663, %2625, %2557, %2337, %2297, %2259, %2221, %2183, %2145, %2107, %2069, %2031, %1993, %1955, %1915, %1875, %1835, %1795, %1755, %1715, %1675, %1635, %1595, %1555, %1520, %1482, %1444, %1406, %1368, %1330, %1292, %894, %856, %818, %780, %742, %4739, %4722, %4597, %4582, %4567, %4539, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2529, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2523, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2517, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2511, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2505, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2493, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2487, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2475, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2469, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2463, %4057, %4042, %4027, %4012, %3997, %3982, %3967, %3952, %3937, %3922, %3907, %3892, %3877, %3862, %3847, %3832, %3817, %3802, %3787, %3772, %3757, %3742, %3727, %3712, %3697, %3682, %3667, %3652, %3641, %3616, %3599, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2457, %3536, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2451, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2427, %3170, %3155, %3144, %3125, %3100, %3077, %3062, %3051, %3017, %2918, %2899, %2880, %2861, %2842, %2823, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2403, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2397, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2385, %2610, %2595, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2379, %2542, %2527, %2512, %2497, %2482, %2467, %2452, %2437, %2422, %2407, %2392, %2377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2373, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2367, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2355, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2289, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2253, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2211, %1277, %1262, %1247, %1232, %1217, %1202, %1187, %1172, %1157, %1142, %1127, %1112, %1097, %1082, %1067, %1052, %1037, %1022, %1007, %992, %977, %962, %947, %932, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2181, %727, %712, %694, %679, %664, %649, %634, %619, %604
+  %.0 = phi i32 [ 280, %604 ], [ 281, %619 ], [ 326, %634 ], [ 327, %649 ], [ 328, %664 ], [ 329, %679 ], [ %697, %694 ], [ 332, %712 ], [ 333, %727 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2181 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2187 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2193 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2199 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2205 ], [ 282, %932 ], [ 283, %947 ], [ 284, %962 ], [ 303, %977 ], [ 304, %992 ], [ 305, %1007 ], [ 309, %1022 ], [ 310, %1037 ], [ 311, %1052 ], [ 312, %1067 ], [ 313, %1082 ], [ 317, %1097 ], [ 318, %1112 ], [ 319, %1127 ], [ 321, %1142 ], [ 322, %1157 ], [ 323, %1172 ], [ 324, %1187 ], [ 325, %1202 ], [ 336, %1217 ], [ 337, %1232 ], [ 314, %1247 ], [ 315, %1262 ], [ 320, %1277 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2211 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2217 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2223 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2229 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2235 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2241 ], [ 263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2247 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2253 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2259 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2265 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2271 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2277 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2283 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2289 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2295 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2301 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2307 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2313 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2319 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2325 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2331 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2337 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2343 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2349 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2355 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2361 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2367 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2373 ], [ 293, %2377 ], [ 294, %2392 ], [ 295, %2407 ], [ 296, %2422 ], [ 296, %2437 ], [ 298, %2452 ], [ 298, %2467 ], [ 297, %2482 ], [ 297, %2497 ], [ 299, %2512 ], [ 301, %2527 ], [ 302, %2542 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2379 ], [ 338, %2595 ], [ 339, %2610 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2385 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2397 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2403 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2409 ], [ 260, %2823 ], [ 268, %2842 ], [ 266, %2861 ], [ 267, %2880 ], [ 261, %2899 ], [ 261, %2918 ], [ 258, %3017 ], [ 262, %3051 ], [ 342, %3062 ], [ 343, %3077 ], [ 259, %3100 ], [ 259, %3125 ], [ 265, %3144 ], [ 344, %3155 ], [ 345, %3170 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2427 ], [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2445 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2451 ], [ 316, %3536 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2457 ], [ %3601, %3599 ], [ %3618, %3616 ], [ 259, %3641 ], [ 276, %3652 ], [ 277, %3667 ], [ 278, %3682 ], [ 279, %3697 ], [ 399, %3712 ], [ 384, %3727 ], [ 385, %3742 ], [ 389, %3757 ], [ 390, %3772 ], [ 393, %3787 ], [ 394, %3802 ], [ 391, %3817 ], [ 392, %3832 ], [ 388, %3847 ], [ 386, %3862 ], [ 387, %3877 ], [ 387, %3892 ], [ 395, %3907 ], [ 396, %3922 ], [ 397, %3937 ], [ 398, %3952 ], [ 400, %3967 ], [ 287, %3982 ], [ 356, %3997 ], [ 357, %4012 ], [ 346, %4027 ], [ 347, %4042 ], [ 292, %4057 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2463 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2469 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2475 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2481 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2487 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2493 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2499 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2505 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2511 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2517 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2523 ], [ 259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2529 ], [ 264, %4539 ], [ 383, %4567 ], [ 383, %4582 ], [ 383, %4597 ], [ %4724, %4722 ], [ %4741, %4739 ], [ 285, %742 ], [ 286, %780 ], [ 288, %818 ], [ 289, %856 ], [ 290, %894 ], [ 358, %1292 ], [ 359, %1330 ], [ 360, %1368 ], [ 307, %1406 ], [ 306, %1444 ], [ 308, %1482 ], [ 325, %1520 ], [ 271, %1555 ], [ 272, %1595 ], [ 274, %1635 ], [ 273, %1675 ], [ 348, %1715 ], [ 351, %1755 ], [ 352, %1795 ], [ 353, %1835 ], [ 354, %1875 ], [ 382, %1915 ], [ 275, %1955 ], [ 300, %1993 ], [ 291, %2031 ], [ 300, %2069 ], [ 364, %2107 ], [ 365, %2145 ], [ 366, %2183 ], [ 367, %2221 ], [ 368, %2259 ], [ 355, %2297 ], [ 355, %2337 ], [ 363, %2557 ], [ 349, %2625 ], [ 350, %2663 ], [ 361, %2701 ], [ 369, %2739 ], [ 362, %2777 ], [ 340, %3481 ], [ 340, %3474 ], [ 341, %3497 ], [ 341, %3490 ], [ 370, %4072 ], [ 371, %4110 ], [ 373, %4148 ], [ 374, %4186 ], [ 372, %4224 ], [ 375, %4262 ], [ 376, %4300 ], [ 377, %4338 ], [ 378, %4376 ], [ 379, %4414 ], [ 380, %4452 ], [ 381, %4490 ], [ %., %4550 ], [ 0, %.loopexit2572 ], [ 0, %.loopexit2572 ], [ 0, %.loopexit2572 ], [ 0, %.loopexit2572 ], [ 0, %.loopexit2572 ], [ 0, %.loopexit2572 ], [ 0, %.loopexit2572 ]
   ret i32 %.0
 
-4997:                                             ; preds = %4540, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2526, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2520, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2514, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2502, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2496, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2490, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2484, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2478, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2466, %3642, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454, %3145, %3126, %3101, %3052, %2919, %2900, %2881, %2862, %2843, %2824, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2400, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2394, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2388, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2370, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2352, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2346, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2328, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2298, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2292, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2274, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2268, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2250, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2430, %3018, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178
+4996:                                             ; preds = %4540, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2526, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2520, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2514, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2502, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2496, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2490, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2484, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2478, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2466, %3642, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454, %3145, %3126, %3101, %3052, %2919, %2900, %2881, %2862, %2843, %2824, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2400, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2394, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2388, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2370, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2352, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2346, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2328, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2298, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2292, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2274, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2268, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2250, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2430, %3018, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178
   %.pn2127.pn = phi { ptr, i32 } [ %.pn2127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2178 ], [ %.pn2078, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2184 ], [ %.pn2074, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2190 ], [ %.pn2070, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2196 ], [ %.pn2066, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2202 ], [ %.pn2062, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208 ], [ %.pn2010, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2214 ], [ %.pn2006, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2220 ], [ %.pn2002, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2226 ], [ %.pn1998, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2232 ], [ %.pn1994, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2238 ], [ %.pn1990, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2244 ], [ %.pn1986, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2250 ], [ %.pn1981, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2256 ], [ %.pn1977, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2262 ], [ %.pn1973, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2268 ], [ %.pn1969, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2274 ], [ %.pn1965, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2280 ], [ %.pn1961, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2286 ], [ %.pn1957, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2292 ], [ %.pn1953, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2298 ], [ %.pn1949, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304 ], [ %.pn1945, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2310 ], [ %.pn1941, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2316 ], [ %.pn1937, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2322 ], [ %.pn1933, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2328 ], [ %.pn1929, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2334 ], [ %.pn1925, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2340 ], [ %.pn1921, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2346 ], [ %.pn1917, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2352 ], [ %.pn1913, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2358 ], [ %.pn1909, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2364 ], [ %.pn1905, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2370 ], [ %.pn1901, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2376 ], [ %.pn1873, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2382 ], [ %.pn1865, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2388 ], [ %.pn1861, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2394 ], [ %.pn1857, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2400 ], [ %.pn1853, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2406 ], [ %.pn1849, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2412 ], [ %2825, %2824 ], [ %2844, %2843 ], [ %2863, %2862 ], [ %2882, %2881 ], [ %2901, %2900 ], [ %2920, %2919 ], [ %3019, %3018 ], [ %3053, %3052 ], [ %3102, %3101 ], [ %3127, %3126 ], [ %3146, %3145 ], [ %.pn1806.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2430 ], [ %.pn1796.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2448 ], [ %.pn1788, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2454 ], [ %.pn1764, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2460 ], [ %3643, %3642 ], [ %.pn1696, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2466 ], [ %.pn1692, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2472 ], [ %.pn1688, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2478 ], [ %.pn1684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2484 ], [ %.pn1680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2490 ], [ %.pn1676, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2496 ], [ %.pn1672, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2502 ], [ %.pn1668, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2508 ], [ %.pn1664, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2514 ], [ %.pn1660, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2520 ], [ %.pn1656, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2526 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2532 ], [ %4541, %4540 ]
   resume { ptr, i32 } %.pn2127.pn
 }

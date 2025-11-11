@@ -7446,86 +7446,84 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %call3.i4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %currentHeaderValue_) #27
   %add.ptr.i5 = getelementptr inbounds i8, ptr %call.i2, i64 %call3.i4
   %cmp.not26.i = icmp eq i64 %call3.i4, 0
-  br i1 %cmp.not26.i, label %if.end16, label %sw.bb.us.i
+  br i1 %cmp.not26.i, label %if.end16, label %for.body.us.i
 
-sw.bb38.us.i:                                     ; preds = %sw.bb38.us.i.lr.ph, %for.inc.us.i.jt3.backedge
-  %incdec.ptr47.us.i.jt344 = phi ptr [ %incdec.ptr47.us.i.jt341, %sw.bb38.us.i.lr.ph ], [ %incdec.ptr47.us.i.jt3, %for.inc.us.i.jt3.backedge ]
-  %p.1.us.i.jt343 = phi ptr [ %incdec.ptr47.us.i.jt2, %sw.bb38.us.i.lr.ph ], [ %incdec.ptr47.us.i.jt344, %for.inc.us.i.jt3.backedge ]
-  %1 = load i8, ptr %incdec.ptr47.us.i.jt344, align 1
-  switch i8 %1, label %for.inc.us.i.jt0 [
-    i8 32, label %for.inc.us.i.jt3.backedge
-    i8 9, label %for.inc.us.i.jt3.backedge
+for.body.us.i:                                    ; preds = %cond.end, %for.inc.us.i
+  %p.030.us.i = phi ptr [ %incdec.ptr47.us.i, %for.inc.us.i ], [ %call.i2, %cond.end ]
+  %state.029.us.i = phi i32 [ %state.1.us.i, %for.inc.us.i ], [ 0, %cond.end ]
+  %quote.028.us.i = phi i1 [ %quote.1.us.i, %for.inc.us.i ], [ false, %cond.end ]
+  %1 = load i8, ptr %p.030.us.i, align 1
+  switch i32 %state.029.us.i, label %for.body.us.unreachabledefault.i [
+    i32 0, label %sw.bb.us.i
+    i32 1, label %sw.bb25.us.i
+    i32 2, label %sw.bb30.us.i
+    i32 3, label %sw.bb38.us.i
   ]
 
-for.inc.us.i.jt3.backedge:                        ; preds = %sw.bb38.us.i, %sw.bb38.us.i
-  %incdec.ptr47.us.i.jt3 = getelementptr inbounds nuw i8, ptr %incdec.ptr47.us.i.jt344, i64 1
-  %cmp.not.us.i.jt3 = icmp eq ptr %incdec.ptr47.us.i.jt3, %add.ptr.i5
-  br i1 %cmp.not.us.i.jt3, label %for.inc.us.i.jt3.if.end16.loopexit_crit_edge, label %sw.bb38.us.i, !llvm.loop !61
-
-sw.bb30.us.i:                                     ; preds = %for.inc.us.i.jt2
-  %2 = load i8, ptr %incdec.ptr47.us.i.jt2, align 1
-  switch i8 %2, label %if.then4 [
-    i8 32, label %for.inc.us.i.jt3.preheader
-    i8 9, label %for.inc.us.i.jt3.preheader
+sw.bb38.us.i:                                     ; preds = %for.body.us.i
+  switch i8 %1, label %if.then44.us.i [
+    i8 32, label %for.inc.us.i
+    i8 9, label %for.inc.us.i
   ]
 
-for.inc.us.i.jt3.preheader:                       ; preds = %sw.bb30.us.i, %sw.bb30.us.i
-  %incdec.ptr47.us.i.jt341 = getelementptr inbounds nuw i8, ptr %p.030.us.i23, i64 3
-  %cmp.not.us.i.jt342 = icmp eq ptr %incdec.ptr47.us.i.jt341, %add.ptr.i5
-  br i1 %cmp.not.us.i.jt342, label %for.inc.us.i.jt3.preheader.if.end16.loopexit_crit_edge, label %sw.bb38.us.i.lr.ph, !llvm.loop !61
+if.then44.us.i:                                   ; preds = %sw.bb38.us.i
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %p.030.us.i, i64 -1
+  br label %for.inc.us.i
 
-sw.bb38.us.i.lr.ph:                               ; preds = %for.inc.us.i.jt3.preheader
-  br label %sw.bb38.us.i, !llvm.loop !61
+sw.bb30.us.i:                                     ; preds = %for.body.us.i
+  switch i8 %1, label %if.then4 [
+    i8 32, label %for.inc.us.i
+    i8 9, label %for.inc.us.i
+  ]
 
-sw.bb25.us.i:                                     ; preds = %for.inc.us.i.jt1
-  %3 = load i8, ptr %incdec.ptr47.us.i.jt1, align 1
-  %cmp27.not.us.i = icmp eq i8 %3, 10
-  br i1 %cmp27.not.us.i, label %for.inc.us.i.jt2, label %if.then4
+sw.bb25.us.i:                                     ; preds = %for.body.us.i
+  %cmp27.not.us.i = icmp eq i8 %1, 10
+  br i1 %cmp27.not.us.i, label %for.inc.us.i, label %if.then4
 
-sw.bb.us.i:                                       ; preds = %cond.end, %for.inc.us.i.jt0
-  %quote.028.us.i27 = phi i1 [ %quote.1.us.i.jt0, %for.inc.us.i.jt0 ], [ false, %cond.end ]
-  %p.030.us.i23 = phi ptr [ %incdec.ptr47.us.i.jt0, %for.inc.us.i.jt0 ], [ %call.i2, %cond.end ]
-  %4 = load i8, ptr %p.030.us.i23, align 1
-  switch i8 %4, label %sw.default.us.i [
-    i8 92, label %for.inc.us.i.jt0
+sw.bb.us.i:                                       ; preds = %for.body.us.i
+  switch i8 %1, label %sw.default.us.i [
+    i8 92, label %sw.bb5.us.i
     i8 34, label %sw.bb9.us.i
-    i8 13, label %for.inc.us.i.jt1
+    i8 13, label %for.inc.us.i
   ]
 
 sw.bb9.us.i:                                      ; preds = %sw.bb.us.i
-  %frombool.us.i = xor i1 %quote.028.us.i27, true
-  br label %for.inc.us.i.jt0
+  %frombool.us.i = xor i1 %quote.028.us.i, true
+  br label %for.inc.us.i
+
+sw.bb5.us.i:                                      ; preds = %sw.bb.us.i
+  br label %for.inc.us.i
 
 sw.default.us.i:                                  ; preds = %sw.bb.us.i
-  %cmp13.us.i = icmp ult i8 %4, 32
-  %cmp15.not.us.i = icmp ne i8 %4, 9
+  %cmp13.us.i = icmp ult i8 %1, 32
+  %cmp15.not.us.i = icmp ne i8 %1, 9
   %or.cond18.not21.us.i = and i1 %cmp13.us.i, %cmp15.not.us.i
-  %5 = icmp ugt i8 %4, 126
-  %or.cond.i = or i1 %5, %or.cond18.not21.us.i
-  br i1 %or.cond.i, label %if.then4, label %for.inc.us.i.jt0
+  %2 = icmp ugt i8 %1, 126
+  %or.cond.i = or i1 %2, %or.cond18.not21.us.i
+  br i1 %or.cond.i, label %if.then4, label %for.inc.us.i
 
-for.inc.us.i.jt2:                                 ; preds = %sw.bb25.us.i
-  %incdec.ptr47.us.i.jt2 = getelementptr inbounds nuw i8, ptr %p.030.us.i23, i64 2
-  %cmp.not.us.i.jt2 = icmp eq ptr %incdec.ptr47.us.i.jt2, %add.ptr.i5
-  br i1 %cmp.not.us.i.jt2, label %if.then4, label %sw.bb30.us.i, !llvm.loop !61
+for.inc.us.i:                                     ; preds = %sw.default.us.i, %sw.bb5.us.i, %sw.bb9.us.i, %sw.bb.us.i, %sw.bb25.us.i, %sw.bb30.us.i, %sw.bb30.us.i, %if.then44.us.i, %sw.bb38.us.i, %sw.bb38.us.i
+  %escape.2.us.i = phi i1 [ false, %sw.bb9.us.i ], [ false, %if.then44.us.i ], [ false, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.bb5.us.i ], [ false, %sw.bb.us.i ], [ false, %sw.bb25.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.default.us.i ]
+  %quote.1.us.i = phi i1 [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.028.us.i, %if.then44.us.i ], [ %quote.028.us.i, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.bb5.us.i ], [ %quote.028.us.i, %sw.bb.us.i ], [ %quote.028.us.i, %sw.bb25.us.i ], [ %quote.028.us.i, %sw.bb30.us.i ], [ %quote.028.us.i, %sw.bb30.us.i ], [ %quote.028.us.i, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.default.us.i ]
+  %state.1.us.i = phi i32 [ 0, %sw.bb9.us.i ], [ 0, %if.then44.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.bb5.us.i ], [ 1, %sw.bb.us.i ], [ 2, %sw.bb25.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.default.us.i ]
+  %p.1.us.i = phi ptr [ %p.030.us.i, %sw.bb9.us.i ], [ %incdec.ptr.us.i, %if.then44.us.i ], [ %p.030.us.i, %sw.bb38.us.i ], [ %p.030.us.i, %sw.bb5.us.i ], [ %p.030.us.i, %sw.bb.us.i ], [ %p.030.us.i, %sw.bb25.us.i ], [ %p.030.us.i, %sw.bb30.us.i ], [ %p.030.us.i, %sw.bb30.us.i ], [ %p.030.us.i, %sw.bb38.us.i ], [ %p.030.us.i, %sw.default.us.i ]
+  %incdec.ptr47.us.i = getelementptr inbounds nuw i8, ptr %p.1.us.i, i64 1
+  %cmp.not.us.i = icmp eq ptr %incdec.ptr47.us.i, %add.ptr.i5
+  br i1 %cmp.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !61
 
-for.inc.us.i.jt1:                                 ; preds = %sw.bb.us.i
-  %incdec.ptr47.us.i.jt1 = getelementptr inbounds nuw i8, ptr %p.030.us.i23, i64 1
-  %cmp.not.us.i.jt1 = icmp eq ptr %incdec.ptr47.us.i.jt1, %add.ptr.i5
-  br i1 %cmp.not.us.i.jt1, label %if.then4, label %sw.bb25.us.i, !llvm.loop !61
+for.body.us.unreachabledefault.i:                 ; preds = %for.body.us.i
+  unreachable
 
-for.inc.us.i.jt0:                                 ; preds = %sw.bb38.us.i, %sw.bb.us.i, %sw.default.us.i, %sw.bb9.us.i
-  %escape.2.us.i.jt0 = phi i1 [ false, %sw.bb9.us.i ], [ false, %sw.default.us.i ], [ %quote.028.us.i27, %sw.bb.us.i ], [ false, %sw.bb38.us.i ]
-  %quote.1.us.i.jt0 = phi i1 [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.028.us.i27, %sw.default.us.i ], [ %quote.028.us.i27, %sw.bb.us.i ], [ %quote.028.us.i27, %sw.bb38.us.i ]
-  %p.1.us.i.jt0 = phi ptr [ %p.030.us.i23, %sw.bb9.us.i ], [ %p.030.us.i23, %sw.default.us.i ], [ %p.030.us.i23, %sw.bb.us.i ], [ %p.1.us.i.jt343, %sw.bb38.us.i ]
-  %incdec.ptr47.us.i.jt0 = getelementptr inbounds nuw i8, ptr %p.1.us.i.jt0, i64 1
-  %cmp.not.us.i.jt0 = icmp eq ptr %incdec.ptr47.us.i.jt0, %add.ptr.i5
-  br i1 %cmp.not.us.i.jt0, label %for.end.i, label %sw.bb.us.i, !llvm.loop !61
+for.end.i:                                        ; preds = %for.inc.us.i
+  br i1 %escape.2.us.i, label %if.then4, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit
 
-for.end.i:                                        ; preds = %for.inc.us.i.jt0
-  br i1 %escape.2.us.i.jt0, label %if.then4, label %if.end16
+_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit: ; preds = %for.end.i
+  switch i32 %state.1.us.i, label %if.then4 [
+    i32 3, label %if.end16
+    i32 0, label %if.end16
+  ]
 
-if.then4:                                         ; preds = %for.inc.us.i.jt2, %for.inc.us.i.jt1, %sw.bb30.us.i, %sw.bb25.us.i, %sw.default.us.i, %for.end.i
+if.then4:                                         ; preds = %sw.bb30.us.i, %sw.bb25.us.i, %sw.default.us.i, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %for.end.i
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp5, ptr noundef nonnull @.str.2, i32 noundef 913, i32 noundef 2)
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp5)
           to label %invoke.cont unwind label %lpad
@@ -7549,32 +7547,26 @@ invoke.cont10:                                    ; preds = %invoke.cont7
   br label %return
 
 lpad:                                             ; preds = %invoke.cont7, %invoke.cont, %if.then4
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp5) #27
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %3
 
-for.inc.us.i.jt3.preheader.if.end16.loopexit_crit_edge: ; preds = %for.inc.us.i.jt3.preheader
-  br label %if.end16, !llvm.loop !61
-
-for.inc.us.i.jt3.if.end16.loopexit_crit_edge:     ; preds = %for.inc.us.i.jt3.backedge
-  br label %if.end16, !llvm.loop !61
-
-if.end16:                                         ; preds = %for.inc.us.i.jt3.preheader.if.end16.loopexit_crit_edge, %for.inc.us.i.jt3.if.end16.loopexit_crit_edge, %for.end.i, %cond.end, %entry
+if.end16:                                         ; preds = %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %cond.end, %entry
   %currentHeaderName_17 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call18 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %currentHeaderName_17) #27
   br i1 %call18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16
   %currentHeaderNameStringPiece_20 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %7 = load ptr, ptr %currentHeaderNameStringPiece_20, align 8
+  %4 = load ptr, ptr %currentHeaderNameStringPiece_20, align 8
   %e_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %8 = load ptr, ptr %e_.i8, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %5 = load ptr, ptr %e_.i8, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %currentHeaderValue_24 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  tail call void @_ZN8proxygen11HTTPHeaders12addFromCodecEPKcmONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %hdrs, ptr noundef %7, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 8 dereferenceable(32) %currentHeaderValue_24)
+  tail call void @_ZN8proxygen11HTTPHeaders12addFromCodecEPKcmONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %hdrs, ptr noundef %4, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 8 dereferenceable(32) %currentHeaderValue_24)
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16

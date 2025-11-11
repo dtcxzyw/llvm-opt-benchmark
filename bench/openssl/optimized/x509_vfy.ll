@@ -4785,1200 +4785,1104 @@ define internal fastcc i32 @verify_chain(ptr noundef nonnull %0) unnamed_addr #0
   %.not316.i = icmp eq i32 %9, 1
   %28 = icmp sgt i32 %.0165.i, 0
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %30 = load ptr, ptr %7, align 8, !tbaa !56
-  %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %30, i32 noundef 0) #10
-  %32 = load ptr, ptr %24, align 8, !tbaa !49
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !88
-  %35 = and i64 %34, 16
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %53, label %74
+  br label %30
 
-37:                                               ; preds = %380
-  %38 = load ptr, ptr %7, align 8, !tbaa !56
-  %39 = call ptr @OPENSSL_sk_value(ptr noundef %38, i32 noundef %381) #10
-  %40 = load ptr, ptr %24, align 8, !tbaa !49
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !88
-  %43 = and i64 %42, 16
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %57, label %75
+30:                                               ; preds = %339, %.lr.ph.i
+  %.0166290.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %339 ]
+  %.0167287.i = phi i32 [ 0, %.lr.ph.i ], [ %340, %339 ]
+  %.0168286.i = phi i32 [ 0, %.lr.ph.i ], [ %.1169.i, %339 ]
+  %.0170285.i = phi i32 [ -1, %.lr.ph.i ], [ %.1171.i, %339 ]
+  %31 = load ptr, ptr %7, align 8, !tbaa !56
+  %32 = call ptr @OPENSSL_sk_value(ptr noundef %31, i32 noundef %.0167287.i) #10
+  %33 = load ptr, ptr %24, align 8, !tbaa !49
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load i64, ptr %34, align 8, !tbaa !88
+  %36 = and i64 %35, 16
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %45
 
-45:                                               ; preds = %382
-  %46 = load ptr, ptr %7, align 8, !tbaa !56
-  %47 = call ptr @OPENSSL_sk_value(ptr noundef %46, i32 noundef %384) #10
-  %48 = load ptr, ptr %24, align 8, !tbaa !49
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !88
-  %51 = and i64 %50, 16
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %61, label %76
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 232
+  %40 = load i32, ptr %39, align 8, !tbaa !3
+  %41 = and i32 %40, 512
+  %.not178.i = icmp eq i32 %41, 0
+  br i1 %.not178.i, label %45, label %verify_cb_cert.exit.i
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = getelementptr inbounds nuw i8, ptr %31, i64 232
-  %55 = load i32, ptr %54, align 8, !tbaa !3
-  %56 = and i32 %55, 512
-  %.not178.i = icmp eq i32 %56, 0
-  br i1 %.not178.i, label %74, label %verify_cb_cert.exit.i
-
-57:                                               ; preds = %37
-  %58 = getelementptr inbounds nuw i8, ptr %39, i64 232
-  %59 = load i32, ptr %58, align 8, !tbaa !3
-  %60 = and i32 %59, 512
-  %.not178.jt1.i = icmp eq i32 %60, 0
-  br i1 %.not178.jt1.i, label %75, label %verify_cb_cert.exit.jt1.i
-
-61:                                               ; preds = %45
-  %62 = getelementptr inbounds nuw i8, ptr %47, i64 232
-  %63 = load i32, ptr %62, align 8, !tbaa !3
-  %64 = and i32 %63, 512
-  %.not178.jt0.i = icmp eq i32 %64, 0
-  br i1 %.not178.jt0.i, label %76, label %verify_cb_cert.exit.jt0.i
-
-verify_cb_cert.exit.i:                            ; preds = %53
-  store i32 0, ptr %22, align 4, !tbaa !55
-  store ptr %31, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit.i:                            ; preds = %38
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 34, ptr %26, align 8, !tbaa !58
-  %65 = load ptr, ptr %27, align 8, !tbaa !59
-  %66 = tail call i32 %65(i32 noundef 0, ptr noundef nonnull %0) #10
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %check_extensions.exit.thread, label %74
+  %42 = load ptr, ptr %27, align 8, !tbaa !59
+  %43 = call i32 %42(i32 noundef 0, ptr noundef nonnull %0) #10
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %check_extensions.exit.thread, label %45
 
-verify_cb_cert.exit.jt1.i:                        ; preds = %57
-  store i32 %381, ptr %22, align 4, !tbaa !55
-  store ptr %39, ptr %25, align 8, !tbaa !57
-  store i32 34, ptr %26, align 8, !tbaa !58
-  %68 = load ptr, ptr %27, align 8, !tbaa !59
-  %69 = call i32 %68(i32 noundef 0, ptr noundef nonnull %0) #10
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %check_extensions.exit.thread, label %75
+45:                                               ; preds = %verify_cb_cert.exit.i, %38, %30
+  br i1 %.0164.i, label %46, label %53
 
-verify_cb_cert.exit.jt0.i:                        ; preds = %61
-  store i32 %384, ptr %22, align 4, !tbaa !55
-  store ptr %47, ptr %25, align 8, !tbaa !57
-  store i32 34, ptr %26, align 8, !tbaa !58
-  %71 = load ptr, ptr %27, align 8, !tbaa !59
-  %72 = call i32 %71(i32 noundef 0, ptr noundef nonnull %0) #10
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %check_extensions.exit.thread, label %76
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 232
+  %48 = load i32, ptr %47, align 8, !tbaa !3
+  %49 = and i32 %48, 1024
+  %.not180.i = icmp eq i32 %49, 0
+  br i1 %.not180.i, label %53, label %verify_cb_cert.exit205.i
 
-74:                                               ; preds = %verify_cb_cert.exit.i, %53, %.lr.ph.i
-  br i1 %.0164.i, label %77, label %98
-
-75:                                               ; preds = %verify_cb_cert.exit.jt1.i, %57, %37
-  br i1 %.0164.i, label %81, label %125
-
-76:                                               ; preds = %verify_cb_cert.exit.jt0.i, %61, %45
-  br i1 %.0164.i, label %85, label %114
-
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %31, i64 232
-  %79 = load i32, ptr %78, align 8, !tbaa !3
-  %80 = and i32 %79, 1024
-  %.not180.i = icmp eq i32 %80, 0
-  br i1 %.not180.i, label %98, label %verify_cb_cert.exit205.i
-
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %39, i64 232
-  %83 = load i32, ptr %82, align 8, !tbaa !3
-  %84 = and i32 %83, 1024
-  %.not180.jt1.i = icmp eq i32 %84, 0
-  br i1 %.not180.jt1.i, label %125, label %verify_cb_cert.exit205.jt1.i
-
-85:                                               ; preds = %76
-  %86 = getelementptr inbounds nuw i8, ptr %47, i64 232
-  %87 = load i32, ptr %86, align 8, !tbaa !3
-  %88 = and i32 %87, 1024
-  %.not180.jt0.i = icmp eq i32 %88, 0
-  br i1 %.not180.jt0.i, label %114, label %verify_cb_cert.exit205.jt0.i
-
-verify_cb_cert.exit205.i:                         ; preds = %77
-  store i32 0, ptr %22, align 4, !tbaa !55
-  store ptr %31, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit205.i:                         ; preds = %46
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 40, ptr %26, align 8, !tbaa !58
-  %89 = load ptr, ptr %27, align 8, !tbaa !59
-  %90 = tail call i32 %89(i32 noundef 0, ptr noundef nonnull %0) #10
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %check_extensions.exit.thread, label %98
+  %50 = load ptr, ptr %27, align 8, !tbaa !59
+  %51 = call i32 %50(i32 noundef 0, ptr noundef nonnull %0) #10
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %check_extensions.exit.thread, label %53
 
-verify_cb_cert.exit205.jt1.i:                     ; preds = %81
-  store i32 %381, ptr %22, align 4, !tbaa !55
-  store ptr %39, ptr %25, align 8, !tbaa !57
-  store i32 40, ptr %26, align 8, !tbaa !58
-  %92 = load ptr, ptr %27, align 8, !tbaa !59
-  %93 = call i32 %92(i32 noundef 0, ptr noundef nonnull %0) #10
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %check_extensions.exit.thread, label %125
+53:                                               ; preds = %verify_cb_cert.exit205.i, %46, %45
+  %54 = call i32 @X509_check_ca(ptr noundef %32) #10
+  switch i32 %.0170285.i, label %79 [
+    i32 -1, label %55
+    i32 0, label %70
+  ]
 
-verify_cb_cert.exit205.jt0.i:                     ; preds = %85
-  store i32 %384, ptr %22, align 4, !tbaa !55
-  store ptr %47, ptr %25, align 8, !tbaa !57
-  store i32 40, ptr %26, align 8, !tbaa !58
-  %95 = load ptr, ptr %27, align 8, !tbaa !59
-  %96 = call i32 %95(i32 noundef 0, ptr noundef nonnull %0) #10
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %check_extensions.exit.thread, label %114
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %24, align 8, !tbaa !49
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load i64, ptr %57, align 8, !tbaa !88
+  %59 = and i64 %58, 32
+  %60 = icmp ne i64 %59, 0
+  %61 = icmp ugt i32 %54, 1
+  %or.cond3.i = select i1 %60, i1 %61, i1 false
+  br i1 %or.cond3.i, label %62, label %100
 
-98:                                               ; preds = %verify_cb_cert.exit205.i, %77, %74
-  %99 = tail call i32 @X509_check_ca(ptr noundef %31) #10
-  %100 = load ptr, ptr %24, align 8, !tbaa !49
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load i64, ptr %101, align 8, !tbaa !88
-  %103 = and i64 %102, 32
-  %104 = icmp ne i64 %103, 0
-  %105 = icmp ugt i32 %99, 1
-  %or.cond3.i = select i1 %104, i1 %105, i1 false
-  br i1 %or.cond3.i, label %106, label %.outer.i.preheader
+62:                                               ; preds = %55
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  %.not.i206.i = icmp eq ptr %32, null
+  br i1 %.not.i206.i, label %63, label %verify_cb_cert.exit207.i
 
-106:                                              ; preds = %98
-  store i32 0, ptr %22, align 4, !tbaa !55
-  %.not.i206.i = icmp eq ptr %31, null
-  br i1 %.not.i206.i, label %107, label %verify_cb_cert.exit207.i
-
-107:                                              ; preds = %106
-  %108 = load ptr, ptr %7, align 8, !tbaa !56
-  %109 = tail call ptr @OPENSSL_sk_value(ptr noundef %108, i32 noundef 0) #10
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %7, align 8, !tbaa !56
+  %65 = call ptr @OPENSSL_sk_value(ptr noundef %64, i32 noundef %.0167287.i) #10
   br label %verify_cb_cert.exit207.i
 
-verify_cb_cert.exit207.i:                         ; preds = %107, %106
-  %110 = phi ptr [ %109, %107 ], [ %31, %106 ]
-  store ptr %110, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit207.i:                         ; preds = %63, %62
+  %66 = phi ptr [ %65, %63 ], [ %32, %62 ]
+  store ptr %66, ptr %25, align 8, !tbaa !57
   store i32 79, ptr %26, align 8, !tbaa !58
-  %111 = load ptr, ptr %27, align 8, !tbaa !59
-  %112 = tail call i32 %111(i32 noundef 0, ptr noundef nonnull %0) #10
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %check_extensions.exit.thread, label %.outer.i.preheader
+  %67 = load ptr, ptr %27, align 8, !tbaa !59
+  %68 = call i32 %67(i32 noundef 0, ptr noundef nonnull %0) #10
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %check_extensions.exit.thread, label %100
 
-.outer.i.preheader:                               ; preds = %verify_cb_cert.exit207.i, %98
-  br label %.outer.i
+70:                                               ; preds = %53
+  %.not181.i = icmp eq i32 %54, 0
+  br i1 %.not181.i, label %100, label %71
 
-114:                                              ; preds = %verify_cb_cert.exit205.jt0.i, %85, %76
-  %115 = call i32 @X509_check_ca(ptr noundef %47) #10
-  %.not181.i = icmp eq i32 %115, 0
-  br i1 %.not181.i, label %.outer.i.backedge, label %117
+71:                                               ; preds = %70
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  %.not.i208.i = icmp eq ptr %32, null
+  br i1 %.not.i208.i, label %72, label %verify_cb_cert.exit209.i
 
-.outer.i:                                         ; preds = %.outer.i.backedge, %.outer.i.preheader
-  %.ph.i = phi ptr [ %31, %.outer.i.preheader ], [ %47, %.outer.i.backedge ]
-  %.0168286339.ph.i = phi i32 [ 0, %.outer.i.preheader ], [ %.1169.i, %.outer.i.backedge ]
-  %.0167287336.ph.i = phi i32 [ 0, %.outer.i.preheader ], [ %384, %.outer.i.backedge ]
-  %.0166290333.ph.i = phi i32 [ 0, %.outer.i.preheader ], [ %383, %.outer.i.backedge ]
-  %116 = sext i32 %.0166290333.ph.i to i64
-  br label %.backedge.i
-
-117:                                              ; preds = %114
-  store i32 %384, ptr %22, align 4, !tbaa !55
-  %.not.i208.i = icmp eq ptr %47, null
-  br i1 %.not.i208.i, label %118, label %verify_cb_cert.exit209.i
-
-118:                                              ; preds = %117
-  %119 = load ptr, ptr %7, align 8, !tbaa !56
-  %120 = call ptr @OPENSSL_sk_value(ptr noundef %119, i32 noundef %384) #10
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %7, align 8, !tbaa !56
+  %74 = call ptr @OPENSSL_sk_value(ptr noundef %73, i32 noundef %.0167287.i) #10
   br label %verify_cb_cert.exit209.i
 
-verify_cb_cert.exit209.i:                         ; preds = %118, %117
-  %121 = phi ptr [ %120, %118 ], [ %47, %117 ]
-  store ptr %121, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit209.i:                         ; preds = %72, %71
+  %75 = phi ptr [ %74, %72 ], [ %32, %71 ]
+  store ptr %75, ptr %25, align 8, !tbaa !57
   store i32 37, ptr %26, align 8, !tbaa !58
-  %122 = load ptr, ptr %27, align 8, !tbaa !59
-  %123 = call i32 %122(i32 noundef 0, ptr noundef nonnull %0) #10
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %check_extensions.exit.thread, label %.outer.i.backedge
+  %76 = load ptr, ptr %27, align 8, !tbaa !59
+  %77 = call i32 %76(i32 noundef 0, ptr noundef nonnull %0) #10
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %check_extensions.exit.thread, label %100
 
-.outer.i.backedge:                                ; preds = %verify_cb_cert.exit209.i, %114
-  br label %.outer.i
+79:                                               ; preds = %53
+  %80 = icmp eq i32 %54, 0
+  br i1 %80, label %92, label %81
 
-125:                                              ; preds = %verify_cb_cert.exit205.jt1.i, %81, %75
-  %126 = call i32 @X509_check_ca(ptr noundef %39) #10
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %139, label %128
+81:                                               ; preds = %79
+  %82 = add nuw nsw i32 %.0167287.i, 1
+  %83 = icmp slt i32 %82, %9
+  br i1 %83, label %91, label %84
 
-128:                                              ; preds = %125
-  %129 = add nuw nsw i32 %.0167287336.i, 2
-  %130 = icmp slt i32 %129, %9
-  br i1 %130, label %138, label %131
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %24, align 8, !tbaa !49
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %87 = load i64, ptr %86, align 8, !tbaa !88
+  %88 = and i64 %87, 32
+  %89 = icmp ne i64 %88, 0
+  %90 = icmp ne i32 %54, 1
+  %or.cond5.i = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond5.i, label %92, label %100
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %24, align 8, !tbaa !49
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %134 = load i64, ptr %133, align 8, !tbaa !88
-  %135 = and i64 %134, 32
-  %136 = icmp ne i64 %135, 0
-  %137 = icmp ne i32 %126, 1
-  %or.cond5.i = and i1 %137, %136
-  br i1 %or.cond5.i, label %139, label %.backedge.i.backedge
+91:                                               ; preds = %81
+  %.old4.not.i = icmp eq i32 %54, 1
+  br i1 %.old4.not.i, label %100, label %92
 
-138:                                              ; preds = %128
-  %.old4.not.i = icmp eq i32 %126, 1
-  br i1 %.old4.not.i, label %.backedge.i.backedge, label %139
+92:                                               ; preds = %91, %84, %79
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  %.not.i210.i = icmp eq ptr %32, null
+  br i1 %.not.i210.i, label %93, label %verify_cb_cert.exit211.i
 
-139:                                              ; preds = %138, %131, %125
-  store i32 %381, ptr %22, align 4, !tbaa !55
-  %.not.i210.i = icmp eq ptr %39, null
-  br i1 %.not.i210.i, label %140, label %verify_cb_cert.exit211.i
-
-140:                                              ; preds = %139
-  %141 = load ptr, ptr %7, align 8, !tbaa !56
-  %142 = call ptr @OPENSSL_sk_value(ptr noundef %141, i32 noundef %381) #10
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %7, align 8, !tbaa !56
+  %95 = call ptr @OPENSSL_sk_value(ptr noundef %94, i32 noundef %.0167287.i) #10
   br label %verify_cb_cert.exit211.i
 
-verify_cb_cert.exit211.i:                         ; preds = %140, %139
-  %143 = phi ptr [ %142, %140 ], [ %39, %139 ]
-  store ptr %143, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit211.i:                         ; preds = %93, %92
+  %96 = phi ptr [ %95, %93 ], [ %32, %92 ]
+  store ptr %96, ptr %25, align 8, !tbaa !57
   store i32 79, ptr %26, align 8, !tbaa !58
-  %144 = load ptr, ptr %27, align 8, !tbaa !59
-  %145 = call i32 %144(i32 noundef 0, ptr noundef nonnull %0) #10
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %check_extensions.exit.thread, label %.backedge.i.backedge
+  %97 = load ptr, ptr %27, align 8, !tbaa !59
+  %98 = call i32 %97(i32 noundef 0, ptr noundef nonnull %0) #10
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %check_extensions.exit.thread, label %100
 
-.backedge.i.backedge:                             ; preds = %verify_cb_cert.exit211.i, %138, %131
-  br label %.backedge.i
+100:                                              ; preds = %verify_cb_cert.exit211.i, %91, %84, %verify_cb_cert.exit209.i, %70, %verify_cb_cert.exit207.i, %55
+  br i1 %.not316.i, label %.thread277.i, label %101
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %.outer.i
-  %147 = phi ptr [ %.ph.i, %.outer.i ], [ %39, %.backedge.i.backedge ]
-  %.0170285342.i = phi i32 [ 0, %.outer.i ], [ 1, %.backedge.i.backedge ]
-  %.0168286339.i = phi i32 [ %.0168286339.ph.i, %.outer.i ], [ %.1169.i, %.backedge.i.backedge ]
-  %.0167287336.i = phi i32 [ %.0167287336.ph.i, %.outer.i ], [ %381, %.backedge.i.backedge ]
-  br i1 %.not316.i, label %.thread277.i, label %148
-
-148:                                              ; preds = %.backedge.i
-  %149 = call ptr @X509_get0_pubkey(ptr noundef %147) #10
+101:                                              ; preds = %100
+  %102 = call ptr @X509_get0_pubkey(ptr noundef %32) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %156, label %151
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %109, label %104
 
-151:                                              ; preds = %148
-  %152 = call i32 @EVP_PKEY_get_id(ptr noundef nonnull %149) #10
-  %.not.i212.i = icmp eq i32 %152, 408
-  br i1 %.not.i212.i, label %153, label %.thread275.i
+104:                                              ; preds = %101
+  %105 = call i32 @EVP_PKEY_get_id(ptr noundef nonnull %102) #10
+  %.not.i212.i = icmp eq i32 %105, 408
+  br i1 %.not.i212.i, label %106, label %.thread275.i
 
-.thread275.i:                                     ; preds = %151
+.thread275.i:                                     ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread.i
 
-153:                                              ; preds = %151
-  %154 = call i32 @EVP_PKEY_get_int_param(ptr noundef nonnull %149, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #10
-  %155 = icmp eq i32 %154, 1
-  br i1 %155, label %164, label %156
+106:                                              ; preds = %104
+  %107 = call i32 @EVP_PKEY_get_int_param(ptr noundef nonnull %102, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #10
+  %108 = icmp eq i32 %107, 1
+  br i1 %108, label %117, label %109
 
-156:                                              ; preds = %153, %148
+109:                                              ; preds = %106, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  %.not.i214.i = icmp eq ptr %147, null
-  br i1 %.not.i214.i, label %157, label %verify_cb_cert.exit215.i
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  %.not.i214.i = icmp eq ptr %32, null
+  br i1 %.not.i214.i, label %110, label %verify_cb_cert.exit215.i
 
-157:                                              ; preds = %156
-  %158 = load ptr, ptr %7, align 8, !tbaa !56
-  %159 = call ptr @OPENSSL_sk_value(ptr noundef %158, i32 noundef %.0167287336.i) #10
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %7, align 8, !tbaa !56
+  %112 = call ptr @OPENSSL_sk_value(ptr noundef %111, i32 noundef %.0167287.i) #10
   br label %verify_cb_cert.exit215.i
 
-verify_cb_cert.exit215.i:                         ; preds = %157, %156
-  %160 = phi ptr [ %159, %157 ], [ %147, %156 ]
-  store ptr %160, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit215.i:                         ; preds = %110, %109
+  %113 = phi ptr [ %112, %110 ], [ %32, %109 ]
+  store ptr %113, ptr %25, align 8, !tbaa !57
   store i32 1, ptr %26, align 8, !tbaa !58
-  %161 = load ptr, ptr %27, align 8, !tbaa !59
-  %162 = call i32 %161(i32 noundef 0, ptr noundef nonnull %0) #10
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %check_extensions.exit.thread, label %.thread.i
+  %114 = load ptr, ptr %27, align 8, !tbaa !59
+  %115 = call i32 %114(i32 noundef 0, ptr noundef nonnull %0) #10
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %check_extensions.exit.thread, label %.thread.i
 
-164:                                              ; preds = %153
-  %165 = load i32, ptr %3, align 4
-  %.not6.i.not.i = icmp eq i32 %165, 0
+117:                                              ; preds = %106
+  %118 = load i32, ptr %3, align 4
+  %.not6.i.not.i = icmp eq i32 %118, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not6.i.not.i, label %.thread.i, label %166
+  br i1 %.not6.i.not.i, label %.thread.i, label %119
 
-166:                                              ; preds = %164
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  %.not.i217.i = icmp eq ptr %147, null
-  br i1 %.not.i217.i, label %167, label %verify_cb_cert.exit218.i
+119:                                              ; preds = %117
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  %.not.i217.i = icmp eq ptr %32, null
+  br i1 %.not.i217.i, label %120, label %verify_cb_cert.exit218.i
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %7, align 8, !tbaa !56
-  %169 = call ptr @OPENSSL_sk_value(ptr noundef %168, i32 noundef %.0167287336.i) #10
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %7, align 8, !tbaa !56
+  %122 = call ptr @OPENSSL_sk_value(ptr noundef %121, i32 noundef %.0167287.i) #10
   br label %verify_cb_cert.exit218.i
 
-verify_cb_cert.exit218.i:                         ; preds = %167, %166
-  %170 = phi ptr [ %169, %167 ], [ %147, %166 ]
-  store ptr %170, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit218.i:                         ; preds = %120, %119
+  %123 = phi ptr [ %122, %120 ], [ %32, %119 ]
+  store ptr %123, ptr %25, align 8, !tbaa !57
   store i32 94, ptr %26, align 8, !tbaa !58
-  %171 = load ptr, ptr %27, align 8, !tbaa !59
-  %172 = call i32 %171(i32 noundef 0, ptr noundef nonnull %0) #10
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %check_extensions.exit.thread, label %.thread.i
+  %124 = load ptr, ptr %27, align 8, !tbaa !59
+  %125 = call i32 %124(i32 noundef 0, ptr noundef nonnull %0) #10
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %check_extensions.exit.thread, label %.thread.i
 
-.thread.i:                                        ; preds = %verify_cb_cert.exit218.i, %164, %verify_cb_cert.exit215.i, %.thread275.i
-  %174 = load ptr, ptr %24, align 8, !tbaa !49
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
-  %176 = load i64, ptr %175, align 8, !tbaa !88
-  %177 = and i64 %176, 32
-  %.not283.i = icmp eq i64 %177, 0
-  br i1 %.not283.i, label %.thread277.i, label %178
+.thread.i:                                        ; preds = %verify_cb_cert.exit218.i, %117, %verify_cb_cert.exit215.i, %.thread275.i
+  %127 = load ptr, ptr %24, align 8, !tbaa !49
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %129 = load i64, ptr %128, align 8, !tbaa !88
+  %130 = and i64 %129, 32
+  %.not283.i = icmp eq i64 %130, 0
+  br i1 %.not283.i, label %.thread277.i, label %131
 
-178:                                              ; preds = %.thread.i
-  %179 = getelementptr inbounds nuw i8, ptr %147, i64 216
-  %180 = load i64, ptr %179, align 8, !tbaa !180
-  %.not182.i = icmp eq i64 %180, -1
-  br i1 %.not182.i, label %197, label %181
+131:                                              ; preds = %.thread.i
+  %132 = getelementptr inbounds nuw i8, ptr %32, i64 216
+  %133 = load i64, ptr %132, align 8, !tbaa !180
+  %.not182.i = icmp eq i64 %133, -1
+  br i1 %.not182.i, label %150, label %134
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw i8, ptr %147, i64 232
-  %183 = load i32, ptr %182, align 8, !tbaa !3
-  %184 = and i32 %183, 16
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %verify_cb_cert.exit221.i, label %189
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds nuw i8, ptr %32, i64 232
+  %136 = load i32, ptr %135, align 8, !tbaa !3
+  %137 = and i32 %136, 16
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %verify_cb_cert.exit221.i, label %142
 
-verify_cb_cert.exit221.i:                         ; preds = %181
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit221.i:                         ; preds = %134
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 80, ptr %26, align 8, !tbaa !58
-  %186 = load ptr, ptr %27, align 8, !tbaa !59
-  %187 = call i32 %186(i32 noundef 0, ptr noundef nonnull %0) #10
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %check_extensions.exit.thread, label %189
+  %139 = load ptr, ptr %27, align 8, !tbaa !59
+  %140 = call i32 %139(i32 noundef 0, ptr noundef nonnull %0) #10
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %check_extensions.exit.thread, label %142
 
-189:                                              ; preds = %verify_cb_cert.exit221.i, %181
-  %190 = getelementptr inbounds nuw i8, ptr %147, i64 236
-  %191 = load i32, ptr %190, align 4, !tbaa !165
-  %192 = and i32 %191, 4
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %verify_cb_cert.exit224.i, label %197
+142:                                              ; preds = %verify_cb_cert.exit221.i, %134
+  %143 = getelementptr inbounds nuw i8, ptr %32, i64 236
+  %144 = load i32, ptr %143, align 4, !tbaa !165
+  %145 = and i32 %144, 4
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %verify_cb_cert.exit224.i, label %150
 
-verify_cb_cert.exit224.i:                         ; preds = %189
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit224.i:                         ; preds = %142
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 81, ptr %26, align 8, !tbaa !58
-  %194 = load ptr, ptr %27, align 8, !tbaa !59
-  %195 = call i32 %194(i32 noundef 0, ptr noundef nonnull %0) #10
-  %196 = icmp eq i32 %195, 0
-  br i1 %196, label %check_extensions.exit.thread, label %197
+  %147 = load ptr, ptr %27, align 8, !tbaa !59
+  %148 = call i32 %147(i32 noundef 0, ptr noundef nonnull %0) #10
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %check_extensions.exit.thread, label %150
 
-197:                                              ; preds = %verify_cb_cert.exit224.i, %189, %178
-  %198 = getelementptr inbounds nuw i8, ptr %147, i64 232
-  %199 = load i32, ptr %198, align 8, !tbaa !3
-  %200 = and i32 %199, 65553
-  %or.cond203.i = icmp eq i32 %200, 17
-  br i1 %or.cond203.i, label %verify_cb_cert.exit227.i, label %204
+150:                                              ; preds = %verify_cb_cert.exit224.i, %142, %131
+  %151 = getelementptr inbounds nuw i8, ptr %32, i64 232
+  %152 = load i32, ptr %151, align 8, !tbaa !3
+  %153 = and i32 %152, 65553
+  %or.cond203.i = icmp eq i32 %153, 17
+  br i1 %or.cond203.i, label %verify_cb_cert.exit227.i, label %157
 
-verify_cb_cert.exit227.i:                         ; preds = %197
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit227.i:                         ; preds = %150
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 89, ptr %26, align 8, !tbaa !58
-  %201 = load ptr, ptr %27, align 8, !tbaa !59
-  %202 = call i32 %201(i32 noundef 0, ptr noundef nonnull %0) #10
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %check_extensions.exit.thread, label %verify_cb_cert.exit227._crit_edge.i
+  %154 = load ptr, ptr %27, align 8, !tbaa !59
+  %155 = call i32 %154(i32 noundef 0, ptr noundef nonnull %0) #10
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %check_extensions.exit.thread, label %verify_cb_cert.exit227._crit_edge.i
 
 verify_cb_cert.exit227._crit_edge.i:              ; preds = %verify_cb_cert.exit227.i
-  %.pre.i = load i32, ptr %198, align 8, !tbaa !3
-  br label %204
+  %.pre.i = load i32, ptr %151, align 8, !tbaa !3
+  br label %157
 
-204:                                              ; preds = %verify_cb_cert.exit227._crit_edge.i, %197
-  %205 = phi i32 [ %.pre.i, %verify_cb_cert.exit227._crit_edge.i ], [ %199, %197 ]
-  %206 = and i32 %205, 16
-  %.not185.i = icmp eq i32 %206, 0
-  br i1 %.not185.i, label %213, label %207
+157:                                              ; preds = %verify_cb_cert.exit227._crit_edge.i, %150
+  %158 = phi i32 [ %.pre.i, %verify_cb_cert.exit227._crit_edge.i ], [ %152, %150 ]
+  %159 = and i32 %158, 16
+  %.not185.i = icmp eq i32 %159, 0
+  br i1 %.not185.i, label %166, label %160
 
-207:                                              ; preds = %204
-  %208 = and i32 %205, 2
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %verify_cb_cert.exit230.i, label %220
+160:                                              ; preds = %157
+  %161 = and i32 %158, 2
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %verify_cb_cert.exit230.i, label %173
 
-verify_cb_cert.exit230.i:                         ; preds = %207
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit230.i:                         ; preds = %160
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 92, ptr %26, align 8, !tbaa !58
-  %210 = load ptr, ptr %27, align 8, !tbaa !59
-  %211 = call i32 %210(i32 noundef 0, ptr noundef nonnull %0) #10
-  %212 = icmp eq i32 %211, 0
-  br i1 %212, label %check_extensions.exit.thread, label %220
+  %163 = load ptr, ptr %27, align 8, !tbaa !59
+  %164 = call i32 %163(i32 noundef 0, ptr noundef nonnull %0) #10
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %check_extensions.exit.thread, label %173
 
-213:                                              ; preds = %204
-  %214 = getelementptr inbounds nuw i8, ptr %147, i64 236
-  %215 = load i32, ptr %214, align 4, !tbaa !165
-  %216 = and i32 %215, 4
-  %.not186.i = icmp eq i32 %216, 0
-  br i1 %.not186.i, label %220, label %verify_cb_cert.exit233.i
+166:                                              ; preds = %157
+  %167 = getelementptr inbounds nuw i8, ptr %32, i64 236
+  %168 = load i32, ptr %167, align 4, !tbaa !165
+  %169 = and i32 %168, 4
+  %.not186.i = icmp eq i32 %169, 0
+  br i1 %.not186.i, label %173, label %verify_cb_cert.exit233.i
 
-verify_cb_cert.exit233.i:                         ; preds = %213
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit233.i:                         ; preds = %166
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 82, ptr %26, align 8, !tbaa !58
-  %217 = load ptr, ptr %27, align 8, !tbaa !59
-  %218 = call i32 %217(i32 noundef 0, ptr noundef nonnull %0) #10
-  %219 = icmp eq i32 %218, 0
-  br i1 %219, label %check_extensions.exit.thread, label %220
+  %170 = load ptr, ptr %27, align 8, !tbaa !59
+  %171 = call i32 %170(i32 noundef 0, ptr noundef nonnull %0) #10
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %check_extensions.exit.thread, label %173
 
-220:                                              ; preds = %verify_cb_cert.exit233.i, %213, %verify_cb_cert.exit230.i, %207
-  %221 = call ptr @X509_get_issuer_name(ptr noundef nonnull %147) #10
-  %222 = call i32 @X509_NAME_entry_count(ptr noundef %221) #10
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %verify_cb_cert.exit236.i, label %227
+173:                                              ; preds = %verify_cb_cert.exit233.i, %166, %verify_cb_cert.exit230.i, %160
+  %174 = call ptr @X509_get_issuer_name(ptr noundef nonnull %32) #10
+  %175 = call i32 @X509_NAME_entry_count(ptr noundef %174) #10
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %verify_cb_cert.exit236.i, label %180
 
-verify_cb_cert.exit236.i:                         ; preds = %220
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit236.i:                         ; preds = %173
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 83, ptr %26, align 8, !tbaa !58
-  %224 = load ptr, ptr %27, align 8, !tbaa !59
-  %225 = call i32 %224(i32 noundef 0, ptr noundef nonnull %0) #10
-  %226 = icmp eq i32 %225, 0
-  br i1 %226, label %check_extensions.exit.thread, label %227
+  %177 = load ptr, ptr %27, align 8, !tbaa !59
+  %178 = call i32 %177(i32 noundef 0, ptr noundef nonnull %0) #10
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %check_extensions.exit.thread, label %180
 
-227:                                              ; preds = %verify_cb_cert.exit236.i, %220
-  %228 = load i32, ptr %198, align 8, !tbaa !3
-  %229 = and i32 %228, 16
-  %.not187.i = icmp eq i32 %229, 0
-  br i1 %.not187.i, label %230, label %238
+180:                                              ; preds = %verify_cb_cert.exit236.i, %173
+  %181 = load i32, ptr %151, align 8, !tbaa !3
+  %182 = and i32 %181, 16
+  %.not187.i = icmp eq i32 %182, 0
+  br i1 %.not187.i, label %183, label %191
 
-230:                                              ; preds = %227
-  %231 = getelementptr inbounds nuw i8, ptr %147, i64 236
-  %232 = load i32, ptr %231, align 4, !tbaa !165
-  %233 = and i32 %232, 2
-  %.not188.i = icmp eq i32 %233, 0
-  br i1 %.not188.i, label %234, label %238
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds nuw i8, ptr %32, i64 236
+  %185 = load i32, ptr %184, align 4, !tbaa !165
+  %186 = and i32 %185, 2
+  %.not188.i = icmp eq i32 %186, 0
+  br i1 %.not188.i, label %187, label %191
 
-234:                                              ; preds = %230
-  %235 = getelementptr inbounds nuw i8, ptr %147, i64 280
-  %236 = load ptr, ptr %235, align 8, !tbaa !181
-  %237 = icmp eq ptr %236, null
-  br i1 %237, label %238, label %245
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds nuw i8, ptr %32, i64 280
+  %189 = load ptr, ptr %188, align 8, !tbaa !181
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %191, label %198
 
-238:                                              ; preds = %234, %230, %227
-  %239 = call ptr @X509_get_subject_name(ptr noundef nonnull %147) #10
-  %240 = call i32 @X509_NAME_entry_count(ptr noundef %239) #10
-  %241 = icmp eq i32 %240, 0
-  br i1 %241, label %verify_cb_cert.exit239.i, label %245
+191:                                              ; preds = %187, %183, %180
+  %192 = call ptr @X509_get_subject_name(ptr noundef nonnull %32) #10
+  %193 = call i32 @X509_NAME_entry_count(ptr noundef %192) #10
+  %194 = icmp eq i32 %193, 0
+  br i1 %194, label %verify_cb_cert.exit239.i, label %198
 
-verify_cb_cert.exit239.i:                         ; preds = %238
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit239.i:                         ; preds = %191
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 84, ptr %26, align 8, !tbaa !58
-  %242 = load ptr, ptr %27, align 8, !tbaa !59
-  %243 = call i32 %242(i32 noundef 0, ptr noundef nonnull %0) #10
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %check_extensions.exit.thread, label %245
+  %195 = load ptr, ptr %27, align 8, !tbaa !59
+  %196 = call i32 %195(i32 noundef 0, ptr noundef nonnull %0) #10
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %check_extensions.exit.thread, label %198
 
-245:                                              ; preds = %verify_cb_cert.exit239.i, %238, %234
-  %246 = call ptr @X509_get_subject_name(ptr noundef nonnull %147) #10
-  %247 = call i32 @X509_NAME_entry_count(ptr noundef %246) #10
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %259
+198:                                              ; preds = %verify_cb_cert.exit239.i, %191, %187
+  %199 = call ptr @X509_get_subject_name(ptr noundef nonnull %32) #10
+  %200 = call i32 @X509_NAME_entry_count(ptr noundef %199) #10
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %212
 
-249:                                              ; preds = %245
-  %250 = getelementptr inbounds nuw i8, ptr %147, i64 280
-  %251 = load ptr, ptr %250, align 8, !tbaa !181
-  %.not189.i = icmp eq ptr %251, null
-  br i1 %.not189.i, label %259, label %252
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %32, i64 280
+  %204 = load ptr, ptr %203, align 8, !tbaa !181
+  %.not189.i = icmp eq ptr %204, null
+  br i1 %.not189.i, label %212, label %205
+
+205:                                              ; preds = %202
+  %206 = load i32, ptr %151, align 8, !tbaa !3
+  %207 = and i32 %206, 524288
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %verify_cb_cert.exit242.i, label %212
+
+verify_cb_cert.exit242.i:                         ; preds = %205
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
+  store i32 88, ptr %26, align 8, !tbaa !58
+  %209 = load ptr, ptr %27, align 8, !tbaa !59
+  %210 = call i32 %209(i32 noundef 0, ptr noundef nonnull %0) #10
+  %211 = icmp eq i32 %210, 0
+  br i1 %211, label %check_extensions.exit.thread, label %212
+
+212:                                              ; preds = %verify_cb_cert.exit242.i, %205, %202, %198
+  %213 = getelementptr inbounds nuw i8, ptr %32, i64 280
+  %214 = load ptr, ptr %213, align 8, !tbaa !181
+  %.not190.i = icmp eq ptr %214, null
+  br i1 %.not190.i, label %221, label %215
+
+215:                                              ; preds = %212
+  %216 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %214) #10
+  %217 = icmp slt i32 %216, 1
+  br i1 %217, label %verify_cb_cert.exit245.i, label %221
+
+verify_cb_cert.exit245.i:                         ; preds = %215
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
+  store i32 87, ptr %26, align 8, !tbaa !58
+  %218 = load ptr, ptr %27, align 8, !tbaa !59
+  %219 = call i32 %218(i32 noundef 0, ptr noundef nonnull %0) #10
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %check_extensions.exit.thread, label %221
+
+221:                                              ; preds = %verify_cb_cert.exit245.i, %215, %212
+  %222 = getelementptr inbounds nuw i8, ptr %32, i64 136
+  %223 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %224 = call i32 @X509_ALGOR_cmp(ptr noundef nonnull %222, ptr noundef nonnull %223) #10
+  %.not191.i = icmp eq i32 %224, 0
+  br i1 %.not191.i, label %228, label %verify_cb_cert.exit248.i
+
+verify_cb_cert.exit248.i:                         ; preds = %221
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
+  store i32 78, ptr %26, align 8, !tbaa !58
+  %225 = load ptr, ptr %27, align 8, !tbaa !59
+  %226 = call i32 %225(i32 noundef 0, ptr noundef nonnull %0) #10
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %check_extensions.exit.thread, label %228
+
+228:                                              ; preds = %verify_cb_cert.exit248.i, %221
+  %229 = getelementptr inbounds nuw i8, ptr %32, i64 256
+  %230 = load ptr, ptr %229, align 8, !tbaa !182
+  %.not192.i = icmp eq ptr %230, null
+  br i1 %.not192.i, label %237, label %231
+
+231:                                              ; preds = %228
+  %232 = load i32, ptr %151, align 8, !tbaa !3
+  %233 = and i32 %232, 131072
+  %.not193.i = icmp eq i32 %233, 0
+  br i1 %.not193.i, label %237, label %verify_cb_cert.exit251.i
+
+verify_cb_cert.exit251.i:                         ; preds = %231
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
+  store i32 90, ptr %26, align 8, !tbaa !58
+  %234 = load ptr, ptr %27, align 8, !tbaa !59
+  %235 = call i32 %234(i32 noundef 0, ptr noundef nonnull %0) #10
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %check_extensions.exit.thread, label %237
+
+237:                                              ; preds = %verify_cb_cert.exit251.i, %231, %228
+  %238 = getelementptr inbounds nuw i8, ptr %32, i64 248
+  %239 = load ptr, ptr %238, align 8, !tbaa !183
+  %.not194.i = icmp eq ptr %239, null
+  br i1 %.not194.i, label %246, label %240
+
+240:                                              ; preds = %237
+  %241 = load i32, ptr %151, align 8, !tbaa !3
+  %242 = and i32 %241, 262144
+  %.not195.i = icmp eq i32 %242, 0
+  br i1 %.not195.i, label %246, label %verify_cb_cert.exit254.i
+
+verify_cb_cert.exit254.i:                         ; preds = %240
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
+  store i32 91, ptr %26, align 8, !tbaa !58
+  %243 = load ptr, ptr %27, align 8, !tbaa !59
+  %244 = call i32 %243(i32 noundef 0, ptr noundef nonnull %0) #10
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %check_extensions.exit.thread, label %246
+
+246:                                              ; preds = %verify_cb_cert.exit254.i, %240, %237
+  %247 = call i64 @X509_get_version(ptr noundef nonnull %32) #10
+  %248 = icmp sgt i64 %247, 1
+  br i1 %248, label %249, label %270
+
+249:                                              ; preds = %246
+  %250 = add nuw nsw i32 %.0167287.i, 1
+  %251 = icmp slt i32 %250, %9
+  br i1 %251, label %252, label %261
 
 252:                                              ; preds = %249
-  %253 = load i32, ptr %198, align 8, !tbaa !3
-  %254 = and i32 %253, 524288
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %verify_cb_cert.exit242.i, label %259
+  %253 = load ptr, ptr %229, align 8, !tbaa !182
+  %254 = icmp eq ptr %253, null
+  br i1 %254, label %verify_cb_cert.exit257.i, label %255
 
-verify_cb_cert.exit242.i:                         ; preds = %252
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
-  store i32 88, ptr %26, align 8, !tbaa !58
-  %256 = load ptr, ptr %27, align 8, !tbaa !59
-  %257 = call i32 %256(i32 noundef 0, ptr noundef nonnull %0) #10
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %check_extensions.exit.thread, label %259
+255:                                              ; preds = %252
+  %256 = load ptr, ptr %253, align 8, !tbaa !184
+  %257 = icmp eq ptr %256, null
+  br i1 %257, label %verify_cb_cert.exit257.i, label %261
 
-259:                                              ; preds = %verify_cb_cert.exit242.i, %252, %249, %245
-  %260 = getelementptr inbounds nuw i8, ptr %147, i64 280
-  %261 = load ptr, ptr %260, align 8, !tbaa !181
-  %.not190.i = icmp eq ptr %261, null
-  br i1 %.not190.i, label %268, label %262
-
-262:                                              ; preds = %259
-  %263 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %261) #10
-  %264 = icmp slt i32 %263, 1
-  br i1 %264, label %verify_cb_cert.exit245.i, label %268
-
-verify_cb_cert.exit245.i:                         ; preds = %262
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
-  store i32 87, ptr %26, align 8, !tbaa !58
-  %265 = load ptr, ptr %27, align 8, !tbaa !59
-  %266 = call i32 %265(i32 noundef 0, ptr noundef nonnull %0) #10
-  %267 = icmp eq i32 %266, 0
-  br i1 %267, label %check_extensions.exit.thread, label %268
-
-268:                                              ; preds = %verify_cb_cert.exit245.i, %262, %259
-  %269 = getelementptr inbounds nuw i8, ptr %147, i64 136
-  %270 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  %271 = call i32 @X509_ALGOR_cmp(ptr noundef nonnull %269, ptr noundef nonnull %270) #10
-  %.not191.i = icmp eq i32 %271, 0
-  br i1 %.not191.i, label %275, label %verify_cb_cert.exit248.i
-
-verify_cb_cert.exit248.i:                         ; preds = %268
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
-  store i32 78, ptr %26, align 8, !tbaa !58
-  %272 = load ptr, ptr %27, align 8, !tbaa !59
-  %273 = call i32 %272(i32 noundef 0, ptr noundef nonnull %0) #10
-  %274 = icmp eq i32 %273, 0
-  br i1 %274, label %check_extensions.exit.thread, label %275
-
-275:                                              ; preds = %verify_cb_cert.exit248.i, %268
-  %276 = getelementptr inbounds nuw i8, ptr %147, i64 256
-  %277 = load ptr, ptr %276, align 8, !tbaa !182
-  %.not192.i = icmp eq ptr %277, null
-  br i1 %.not192.i, label %284, label %278
-
-278:                                              ; preds = %275
-  %279 = load i32, ptr %198, align 8, !tbaa !3
-  %280 = and i32 %279, 131072
-  %.not193.i = icmp eq i32 %280, 0
-  br i1 %.not193.i, label %284, label %verify_cb_cert.exit251.i
-
-verify_cb_cert.exit251.i:                         ; preds = %278
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
-  store i32 90, ptr %26, align 8, !tbaa !58
-  %281 = load ptr, ptr %27, align 8, !tbaa !59
-  %282 = call i32 %281(i32 noundef 0, ptr noundef nonnull %0) #10
-  %283 = icmp eq i32 %282, 0
-  br i1 %283, label %check_extensions.exit.thread, label %284
-
-284:                                              ; preds = %verify_cb_cert.exit251.i, %278, %275
-  %285 = getelementptr inbounds nuw i8, ptr %147, i64 248
-  %286 = load ptr, ptr %285, align 8, !tbaa !183
-  %.not194.i = icmp eq ptr %286, null
-  br i1 %.not194.i, label %293, label %287
-
-287:                                              ; preds = %284
-  %288 = load i32, ptr %198, align 8, !tbaa !3
-  %289 = and i32 %288, 262144
-  %.not195.i = icmp eq i32 %289, 0
-  br i1 %.not195.i, label %293, label %verify_cb_cert.exit254.i
-
-verify_cb_cert.exit254.i:                         ; preds = %287
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
-  store i32 91, ptr %26, align 8, !tbaa !58
-  %290 = load ptr, ptr %27, align 8, !tbaa !59
-  %291 = call i32 %290(i32 noundef 0, ptr noundef nonnull %0) #10
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %check_extensions.exit.thread, label %293
-
-293:                                              ; preds = %verify_cb_cert.exit254.i, %287, %284
-  %294 = call i64 @X509_get_version(ptr noundef nonnull %147) #10
-  %295 = icmp sgt i64 %294, 1
-  br i1 %295, label %296, label %317
-
-296:                                              ; preds = %293
-  %297 = add nuw nsw i32 %.0167287336.i, 1
-  %298 = icmp slt i32 %297, %9
-  br i1 %298, label %299, label %308
-
-299:                                              ; preds = %296
-  %300 = load ptr, ptr %276, align 8, !tbaa !182
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %verify_cb_cert.exit257.i, label %302
-
-302:                                              ; preds = %299
-  %303 = load ptr, ptr %300, align 8, !tbaa !184
-  %304 = icmp eq ptr %303, null
-  br i1 %304, label %verify_cb_cert.exit257.i, label %308
-
-verify_cb_cert.exit257.i:                         ; preds = %302, %299
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit257.i:                         ; preds = %255, %252
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 85, ptr %26, align 8, !tbaa !58
-  %305 = load ptr, ptr %27, align 8, !tbaa !59
-  %306 = call i32 %305(i32 noundef 0, ptr noundef nonnull %0) #10
-  %307 = icmp eq i32 %306, 0
-  br i1 %307, label %check_extensions.exit.thread, label %308
+  %258 = load ptr, ptr %27, align 8, !tbaa !59
+  %259 = call i32 %258(i32 noundef 0, ptr noundef nonnull %0) #10
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %check_extensions.exit.thread, label %261
 
-308:                                              ; preds = %verify_cb_cert.exit257.i, %302, %296
-  %309 = load i32, ptr %198, align 8, !tbaa !3
-  %310 = and i32 %309, 16
-  %.not196.i = icmp eq i32 %310, 0
-  br i1 %.not196.i, label %.thread277.i, label %311
+261:                                              ; preds = %verify_cb_cert.exit257.i, %255, %249
+  %262 = load i32, ptr %151, align 8, !tbaa !3
+  %263 = and i32 %262, 16
+  %.not196.i = icmp eq i32 %263, 0
+  br i1 %.not196.i, label %.thread277.i, label %264
 
-311:                                              ; preds = %308
-  %312 = load ptr, ptr %285, align 8, !tbaa !183
-  %313 = icmp eq ptr %312, null
-  br i1 %313, label %verify_cb_cert.exit260.i, label %.thread277.i
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %238, align 8, !tbaa !183
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %verify_cb_cert.exit260.i, label %.thread277.i
 
-verify_cb_cert.exit260.i:                         ; preds = %311
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit260.i:                         ; preds = %264
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 86, ptr %26, align 8, !tbaa !58
-  %314 = load ptr, ptr %27, align 8, !tbaa !59
-  %315 = call i32 %314(i32 noundef 0, ptr noundef nonnull %0) #10
-  %316 = icmp eq i32 %315, 0
-  br i1 %316, label %check_extensions.exit.thread, label %.thread277.i
+  %267 = load ptr, ptr %27, align 8, !tbaa !59
+  %268 = call i32 %267(i32 noundef 0, ptr noundef nonnull %0) #10
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %check_extensions.exit.thread, label %.thread277.i
 
-317:                                              ; preds = %293
-  %318 = call ptr @X509_get0_extensions(ptr noundef nonnull %147) #10
-  %319 = call i32 @OPENSSL_sk_num(ptr noundef %318) #10
-  %320 = icmp sgt i32 %319, 0
-  br i1 %320, label %verify_cb_cert.exit263.i, label %.thread277.i
+270:                                              ; preds = %246
+  %271 = call ptr @X509_get0_extensions(ptr noundef nonnull %32) #10
+  %272 = call i32 @OPENSSL_sk_num(ptr noundef %271) #10
+  %273 = icmp sgt i32 %272, 0
+  br i1 %273, label %verify_cb_cert.exit263.i, label %.thread277.i
 
-verify_cb_cert.exit263.i:                         ; preds = %317
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit263.i:                         ; preds = %270
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 93, ptr %26, align 8, !tbaa !58
-  %321 = load ptr, ptr %27, align 8, !tbaa !59
-  %322 = call i32 %321(i32 noundef 0, ptr noundef nonnull %0) #10
-  %323 = icmp eq i32 %322, 0
-  br i1 %323, label %check_extensions.exit.thread, label %.thread277.i
+  %274 = load ptr, ptr %27, align 8, !tbaa !59
+  %275 = call i32 %274(i32 noundef 0, ptr noundef nonnull %0) #10
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %check_extensions.exit.thread, label %.thread277.i
 
-.thread277.i:                                     ; preds = %verify_cb_cert.exit263.i, %317, %verify_cb_cert.exit260.i, %311, %308, %.thread.i, %.backedge.i
-  br i1 %28, label %324, label %check_purpose.exit.thread.i
+.thread277.i:                                     ; preds = %verify_cb_cert.exit263.i, %270, %verify_cb_cert.exit260.i, %264, %261, %.thread.i, %100
+  br i1 %28, label %277, label %check_purpose.exit.thread.i
 
-324:                                              ; preds = %.thread277.i
-  %325 = load i32, ptr %29, align 4, !tbaa !86
-  %.not.i264.i = icmp slt i32 %.0167287336.i, %325
-  br i1 %.not.i264.i, label %.thread.i.i, label %326
+277:                                              ; preds = %.thread277.i
+  %278 = load i32, ptr %29, align 4, !tbaa !86
+  %.not.i264.i = icmp slt i32 %.0167287.i, %278
+  br i1 %.not.i264.i, label %.thread.i.i, label %279
 
-326:                                              ; preds = %324
-  %327 = load ptr, ptr %24, align 8, !tbaa !49
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 32
-  %329 = load i32, ptr %328, align 8, !tbaa !125
-  %330 = icmp eq i32 %.0165.i, %329
-  br i1 %330, label %331, label %.thread.i.i
+279:                                              ; preds = %277
+  %280 = load ptr, ptr %24, align 8, !tbaa !49
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
+  %282 = load i32, ptr %281, align 8, !tbaa !125
+  %283 = icmp eq i32 %.0165.i, %282
+  br i1 %283, label %284, label %.thread.i.i
 
-331:                                              ; preds = %326
-  %332 = getelementptr inbounds nuw i8, ptr %327, i64 36
-  %333 = load i32, ptr %332, align 4, !tbaa !126
-  %334 = call i32 @X509_check_trust(ptr noundef %147, i32 noundef %333, i32 noundef 4) #10
-  switch i32 %334, label %.thread.i.i [
+284:                                              ; preds = %279
+  %285 = getelementptr inbounds nuw i8, ptr %280, i64 36
+  %286 = load i32, ptr %285, align 4, !tbaa !126
+  %287 = call i32 @X509_check_trust(ptr noundef %32, i32 noundef %286, i32 noundef 4) #10
+  switch i32 %287, label %.thread.i.i [
     i32 1, label %check_purpose.exit.thread.i
-    i32 2, label %342
+    i32 2, label %297
   ]
 
-.thread.i.i:                                      ; preds = %331, %326, %324
-  %335 = call i32 @X509_check_purpose(ptr noundef %147, i32 noundef range(i32 1, -2147483648) %.0165.i, i32 noundef %.0170285342.i) #10
-  switch i32 %335, label %336 [
+.thread.i.i:                                      ; preds = %284, %279, %277
+  %288 = icmp sgt i32 %.0170285.i, 0
+  %289 = zext i1 %288 to i32
+  %290 = call i32 @X509_check_purpose(ptr noundef %32, i32 noundef range(i32 1, -2147483648) %.0165.i, i32 noundef %289) #10
+  switch i32 %290, label %291 [
     i32 1, label %check_purpose.exit.thread.i
-    i32 0, label %342
+    i32 0, label %297
   ]
 
-336:                                              ; preds = %.thread.i.i
-  %337 = load ptr, ptr %24, align 8, !tbaa !49
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
-  %339 = load i64, ptr %338, align 8, !tbaa !88
-  %340 = and i64 %339, 32
-  %341 = icmp eq i64 %340, 0
-  br i1 %341, label %check_purpose.exit.thread.i, label %342
+291:                                              ; preds = %.thread.i.i
+  %292 = load ptr, ptr %24, align 8, !tbaa !49
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 24
+  %294 = load i64, ptr %293, align 8, !tbaa !88
+  %295 = and i64 %294, 32
+  %296 = icmp eq i64 %295, 0
+  br i1 %296, label %check_purpose.exit.thread.i, label %297
 
-342:                                              ; preds = %336, %.thread.i.i, %331
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  %.not.i.i.i = icmp eq ptr %147, null
-  br i1 %.not.i.i.i, label %343, label %check_purpose.exit.i
+297:                                              ; preds = %291, %.thread.i.i, %284
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  %.not.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i, label %298, label %check_purpose.exit.i
 
-343:                                              ; preds = %342
-  %344 = load ptr, ptr %7, align 8, !tbaa !56
-  %345 = call ptr @OPENSSL_sk_value(ptr noundef %344, i32 noundef %.0167287336.i) #10
+298:                                              ; preds = %297
+  %299 = load ptr, ptr %7, align 8, !tbaa !56
+  %300 = call ptr @OPENSSL_sk_value(ptr noundef %299, i32 noundef %.0167287.i) #10
   br label %check_purpose.exit.i
 
-check_purpose.exit.i:                             ; preds = %343, %342
-  %346 = phi ptr [ %345, %343 ], [ %147, %342 ]
-  store ptr %346, ptr %25, align 8, !tbaa !57
+check_purpose.exit.i:                             ; preds = %298, %297
+  %301 = phi ptr [ %300, %298 ], [ %32, %297 ]
+  store ptr %301, ptr %25, align 8, !tbaa !57
   store i32 26, ptr %26, align 8, !tbaa !58
-  %347 = load ptr, ptr %27, align 8, !tbaa !59
-  %348 = call i32 %347(i32 noundef 0, ptr noundef nonnull %0) #10
-  %.not197.i = icmp eq i32 %348, 0
+  %302 = load ptr, ptr %27, align 8, !tbaa !59
+  %303 = call i32 %302(i32 noundef 0, ptr noundef nonnull %0) #10
+  %.not197.i = icmp eq i32 %303, 0
   br i1 %.not197.i, label %check_extensions.exit.thread, label %check_purpose.exit.thread.i
 
-check_purpose.exit.thread.i:                      ; preds = %check_purpose.exit.i, %336, %.thread.i.i, %331, %.thread277.i
-  %349 = icmp samesign ugt i32 %.0167287336.i, 1
-  br i1 %349, label %350, label %360
+check_purpose.exit.thread.i:                      ; preds = %check_purpose.exit.i, %291, %.thread.i.i, %284, %.thread277.i
+  %304 = icmp samesign ugt i32 %.0167287.i, 1
+  br i1 %304, label %305, label %316
 
-350:                                              ; preds = %check_purpose.exit.thread.i
-  %351 = getelementptr inbounds nuw i8, ptr %147, i64 216
-  %352 = load i64, ptr %351, align 8, !tbaa !180
-  %.not198.i = icmp eq i64 %352, -1
-  br i1 %.not198.i, label %.thread281.i, label %353
+305:                                              ; preds = %check_purpose.exit.thread.i
+  %306 = getelementptr inbounds nuw i8, ptr %32, i64 216
+  %307 = load i64, ptr %306, align 8, !tbaa !180
+  %.not198.i = icmp eq i64 %307, -1
+  br i1 %.not198.i, label %.thread281.i, label %308
 
-353:                                              ; preds = %350
-  %354 = sext i32 %.0168286339.i to i64
-  %355 = add nsw i64 %352, %116
-  %356 = icmp slt i64 %355, %354
-  br i1 %356, label %verify_cb_cert.exit267.i, label %.thread281.i
+308:                                              ; preds = %305
+  %309 = sext i32 %.0168286.i to i64
+  %310 = sext i32 %.0166290.i to i64
+  %311 = add nsw i64 %307, %310
+  %312 = icmp slt i64 %311, %309
+  br i1 %312, label %verify_cb_cert.exit267.i, label %.thread281.i
 
-verify_cb_cert.exit267.i:                         ; preds = %353
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit267.i:                         ; preds = %308
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 25, ptr %26, align 8, !tbaa !58
-  %357 = load ptr, ptr %27, align 8, !tbaa !59
-  %358 = call i32 %357(i32 noundef 0, ptr noundef nonnull %0) #10
-  %359 = icmp eq i32 %358, 0
-  br i1 %359, label %check_extensions.exit.thread, label %.thread281.i
+  %313 = load ptr, ptr %27, align 8, !tbaa !59
+  %314 = call i32 %313(i32 noundef 0, ptr noundef nonnull %0) #10
+  %315 = icmp eq i32 %314, 0
+  br i1 %315, label %check_extensions.exit.thread, label %.thread281.i
 
-360:                                              ; preds = %check_purpose.exit.thread.i
-  %.not199.i = icmp eq i32 %.0167287336.i, 0
+316:                                              ; preds = %check_purpose.exit.thread.i
+  %.not199.i = icmp eq i32 %.0167287.i, 0
   br i1 %.not199.i, label %._crit_edge317.i, label %.thread281.i
 
-._crit_edge317.i:                                 ; preds = %360
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %147, i64 232
+._crit_edge317.i:                                 ; preds = %316
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %32, i64 232
   %.pre318.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !3
-  br label %366
+  br label %322
 
-.thread281.i:                                     ; preds = %360, %verify_cb_cert.exit267.i, %353, %350
-  %361 = getelementptr inbounds nuw i8, ptr %147, i64 232
-  %362 = load i32, ptr %361, align 8, !tbaa !3
-  %363 = lshr i32 %362, 5
-  %364 = and i32 %363, 1
-  %365 = xor i32 %364, 1
-  %spec.select.i = add nsw i32 %365, %.0168286339.i
-  br label %366
+.thread281.i:                                     ; preds = %316, %verify_cb_cert.exit267.i, %308, %305
+  %317 = getelementptr inbounds nuw i8, ptr %32, i64 232
+  %318 = load i32, ptr %317, align 8, !tbaa !3
+  %319 = lshr i32 %318, 5
+  %320 = and i32 %319, 1
+  %321 = xor i32 %320, 1
+  %spec.select.i = add nsw i32 %321, %.0168286.i
+  br label %322
 
-366:                                              ; preds = %.thread281.i, %._crit_edge317.i
-  %367 = phi i32 [ %.pre318.i, %._crit_edge317.i ], [ %362, %.thread281.i ]
-  %.1169.i = phi i32 [ %.0168286339.i, %._crit_edge317.i ], [ %spec.select.i, %.thread281.i ]
-  %368 = and i32 %367, 1024
-  %.not200.i = icmp eq i32 %368, 0
-  br i1 %.not200.i, label %380, label %369
+322:                                              ; preds = %.thread281.i, %._crit_edge317.i
+  %323 = phi i32 [ %.pre318.i, %._crit_edge317.i ], [ %318, %.thread281.i ]
+  %.1169.i = phi i32 [ %.0168286.i, %._crit_edge317.i ], [ %spec.select.i, %.thread281.i ]
+  %324 = and i32 %323, 1024
+  %.not200.i = icmp eq i32 %324, 0
+  br i1 %.not200.i, label %339, label %325
 
-369:                                              ; preds = %366
-  %370 = getelementptr inbounds nuw i8, ptr %147, i64 224
-  %371 = load i64, ptr %370, align 8, !tbaa !186
-  %.not201.i = icmp eq i64 %371, -1
-  br i1 %.not201.i, label %382, label %372
+325:                                              ; preds = %322
+  %326 = getelementptr inbounds nuw i8, ptr %32, i64 224
+  %327 = load i64, ptr %326, align 8, !tbaa !186
+  %.not201.i = icmp eq i64 %327, -1
+  br i1 %.not201.i, label %337, label %328
 
-372:                                              ; preds = %369
-  %373 = icmp slt i64 %371, %116
-  br i1 %373, label %verify_cb_cert.exit270.i, label %377
+328:                                              ; preds = %325
+  %329 = sext i32 %.0166290.i to i64
+  %330 = icmp slt i64 %327, %329
+  br i1 %330, label %verify_cb_cert.exit270.i, label %334
 
-verify_cb_cert.exit270.i:                         ; preds = %372
-  store i32 %.0167287336.i, ptr %22, align 4, !tbaa !55
-  store ptr %147, ptr %25, align 8, !tbaa !57
+verify_cb_cert.exit270.i:                         ; preds = %328
+  store i32 %.0167287.i, ptr %22, align 4, !tbaa !55
+  store ptr %32, ptr %25, align 8, !tbaa !57
   store i32 38, ptr %26, align 8, !tbaa !58
-  %374 = load ptr, ptr %27, align 8, !tbaa !59
-  %375 = call i32 %374(i32 noundef 0, ptr noundef nonnull %0) #10
-  %376 = icmp eq i32 %375, 0
-  br i1 %376, label %check_extensions.exit.thread, label %verify_cb_cert.exit270._crit_edge.i
+  %331 = load ptr, ptr %27, align 8, !tbaa !59
+  %332 = call i32 %331(i32 noundef 0, ptr noundef nonnull %0) #10
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %check_extensions.exit.thread, label %verify_cb_cert.exit270._crit_edge.i
 
 verify_cb_cert.exit270._crit_edge.i:              ; preds = %verify_cb_cert.exit270.i
-  %.pre319.i = load i64, ptr %370, align 8, !tbaa !186
-  br label %377
+  %.pre319.i = load i64, ptr %326, align 8, !tbaa !186
+  br label %334
 
-377:                                              ; preds = %verify_cb_cert.exit270._crit_edge.i, %372
-  %378 = phi i64 [ %.pre319.i, %verify_cb_cert.exit270._crit_edge.i ], [ %371, %372 ]
-  %379 = trunc i64 %378 to i32
-  br label %382
+334:                                              ; preds = %verify_cb_cert.exit270._crit_edge.i, %328
+  %335 = phi i64 [ %.pre319.i, %verify_cb_cert.exit270._crit_edge.i ], [ %327, %328 ]
+  %336 = trunc i64 %335 to i32
+  br label %337
 
-380:                                              ; preds = %366
-  %381 = add nuw nsw i32 %.0167287336.i, 1
-  %exitcond.not.jt1.i = icmp eq i32 %381, %9
-  br i1 %exitcond.not.jt1.i, label %check_extensions.exit, label %37, !llvm.loop !187
+337:                                              ; preds = %334, %325
+  %.1.i = phi i32 [ %336, %334 ], [ %.0166290.i, %325 ]
+  %338 = add nsw i32 %.1.i, 1
+  br label %339
 
-382:                                              ; preds = %377, %369
-  %.1.i = phi i32 [ %379, %377 ], [ %.0166290333.ph.i, %369 ]
-  %383 = add nsw i32 %.1.i, 1
-  %384 = add nuw nsw i32 %.0167287336.i, 1
-  %exitcond.not.jt0.i = icmp eq i32 %384, %9
-  br i1 %exitcond.not.jt0.i, label %check_extensions.exit, label %45, !llvm.loop !187
+339:                                              ; preds = %337, %322
+  %.1171.i = phi i32 [ 0, %337 ], [ 1, %322 ]
+  %.2.i = phi i32 [ %338, %337 ], [ %.0166290.i, %322 ]
+  %340 = add nuw nsw i32 %.0167287.i, 1
+  %exitcond.not.i = icmp eq i32 %340, %9
+  br i1 %exitcond.not.i, label %check_extensions.exit, label %30, !llvm.loop !187
 
-check_extensions.exit:                            ; preds = %382, %380, %21
-  %385 = load ptr, ptr %7, align 8, !tbaa !56
-  %386 = call i32 @OPENSSL_sk_num(ptr noundef %385) #10
-  %387 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %388 = load ptr, ptr %387, align 8, !tbaa !49
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 44
-  %390 = load i32, ptr %389, align 4, !tbaa !50
-  %391 = icmp sgt i32 %390, 0
-  %392 = icmp sgt i32 %386, 0
-  %or.cond.i = select i1 %391, i1 %392, i1 false
+check_extensions.exit:                            ; preds = %339, %21
+  %341 = load ptr, ptr %7, align 8, !tbaa !56
+  %342 = call i32 @OPENSSL_sk_num(ptr noundef %341) #10
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %344 = load ptr, ptr %343, align 8, !tbaa !49
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 44
+  %346 = load i32, ptr %345, align 4, !tbaa !50
+  %347 = icmp sgt i32 %346, 0
+  %348 = icmp sgt i32 %342, 0
+  %or.cond.i = select i1 %347, i1 %348, i1 false
   br i1 %or.cond.i, label %.lr.ph.i50, label %check_auth_level.exit
 
 .lr.ph.i50:                                       ; preds = %check_extensions.exit
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %396 = add nsw i32 %386, -1
-  br label %397
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %352 = add nsw i32 %342, -1
+  br label %353
 
-397:                                              ; preds = %.critedge.i, %.lr.ph.i50
-  %.02242.i = phi i32 [ 0, %.lr.ph.i50 ], [ %439, %.critedge.i ]
-  %398 = load ptr, ptr %7, align 8, !tbaa !56
-  %399 = call ptr @OPENSSL_sk_value(ptr noundef %398, i32 noundef %.02242.i) #10
+353:                                              ; preds = %.critedge.i, %.lr.ph.i50
+  %.02242.i = phi i32 [ 0, %.lr.ph.i50 ], [ %395, %.critedge.i ]
+  %354 = load ptr, ptr %7, align 8, !tbaa !56
+  %355 = call ptr @OPENSSL_sk_value(ptr noundef %354, i32 noundef %.02242.i) #10
   %.not.i51 = icmp eq i32 %.02242.i, 0
-  br i1 %.not.i51, label %check_cert_key_level.exit.thread32.i, label %400
+  br i1 %.not.i51, label %check_cert_key_level.exit.thread32.i, label %356
 
-400:                                              ; preds = %397
-  %401 = call ptr @X509_get0_pubkey(ptr noundef %399) #10
-  %.val.i.i = load ptr, ptr %387, align 8, !tbaa !49
-  %402 = getelementptr i8, ptr %.val.i.i, i64 44
-  %.val.val.i.i = load i32, ptr %402, align 4, !tbaa !50
-  %403 = icmp slt i32 %.val.val.i.i, 1
-  br i1 %403, label %check_cert_key_level.exit.thread32.i, label %404
+356:                                              ; preds = %353
+  %357 = call ptr @X509_get0_pubkey(ptr noundef %355) #10
+  %.val.i.i = load ptr, ptr %343, align 8, !tbaa !49
+  %358 = getelementptr i8, ptr %.val.i.i, i64 44
+  %.val.val.i.i = load i32, ptr %358, align 4, !tbaa !50
+  %359 = icmp slt i32 %.val.val.i.i, 1
+  br i1 %359, label %check_cert_key_level.exit.thread32.i, label %360
 
-404:                                              ; preds = %400
-  %405 = icmp eq ptr %401, null
-  br i1 %405, label %check_cert_key_level.exit.thread.i, label %check_cert_key_level.exit.i
+360:                                              ; preds = %356
+  %361 = icmp eq ptr %357, null
+  br i1 %361, label %check_cert_key_level.exit.thread.i, label %check_cert_key_level.exit.i
 
-check_cert_key_level.exit.i:                      ; preds = %404
-  %406 = call i32 @llvm.umin.i32(i32 %.val.val.i.i, i32 5)
-  %407 = call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %401) #10
-  %408 = zext nneg i32 %406 to i64
-  %409 = getelementptr i32, ptr @minbits_table, i64 %408
-  %410 = getelementptr i8, ptr %409, i64 -4
-  %411 = load i32, ptr %410, align 4, !tbaa !54
-  %.not40.i = icmp slt i32 %407, %411
+check_cert_key_level.exit.i:                      ; preds = %360
+  %362 = call i32 @llvm.umin.i32(i32 %.val.val.i.i, i32 5)
+  %363 = call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %357) #10
+  %364 = zext nneg i32 %362 to i64
+  %365 = getelementptr i32, ptr @minbits_table, i64 %364
+  %366 = getelementptr i8, ptr %365, i64 -4
+  %367 = load i32, ptr %366, align 4, !tbaa !54
+  %.not40.i = icmp slt i32 %363, %367
   br i1 %.not40.i, label %check_cert_key_level.exit.thread.i, label %check_cert_key_level.exit.thread32.i
 
-check_cert_key_level.exit.thread.i:               ; preds = %check_cert_key_level.exit.i, %404
+check_cert_key_level.exit.thread.i:               ; preds = %check_cert_key_level.exit.i, %360
   store i32 %.02242.i, ptr %22, align 4, !tbaa !55
-  %.not.i.i = icmp eq ptr %399, null
-  br i1 %.not.i.i, label %412, label %verify_cb_cert.exit.i52
+  %.not.i.i = icmp eq ptr %355, null
+  br i1 %.not.i.i, label %368, label %verify_cb_cert.exit.i53
 
-412:                                              ; preds = %check_cert_key_level.exit.thread.i
-  %413 = load ptr, ptr %7, align 8, !tbaa !56
-  %414 = call ptr @OPENSSL_sk_value(ptr noundef %413, i32 noundef %.02242.i) #10
-  br label %verify_cb_cert.exit.i52
+368:                                              ; preds = %check_cert_key_level.exit.thread.i
+  %369 = load ptr, ptr %7, align 8, !tbaa !56
+  %370 = call ptr @OPENSSL_sk_value(ptr noundef %369, i32 noundef %.02242.i) #10
+  br label %verify_cb_cert.exit.i53
 
-verify_cb_cert.exit.i52:                          ; preds = %412, %check_cert_key_level.exit.thread.i
-  %415 = phi ptr [ %414, %412 ], [ %399, %check_cert_key_level.exit.thread.i ]
-  store ptr %415, ptr %393, align 8, !tbaa !57
-  store i32 67, ptr %394, align 8, !tbaa !58
-  %416 = load ptr, ptr %395, align 8, !tbaa !59
-  %417 = call i32 %416(i32 noundef 0, ptr noundef nonnull %0) #10
-  %418 = icmp eq i32 %417, 0
-  br i1 %418, label %check_extensions.exit.thread, label %check_cert_key_level.exit.thread32.i
+verify_cb_cert.exit.i53:                          ; preds = %368, %check_cert_key_level.exit.thread.i
+  %371 = phi ptr [ %370, %368 ], [ %355, %check_cert_key_level.exit.thread.i ]
+  store ptr %371, ptr %349, align 8, !tbaa !57
+  store i32 67, ptr %350, align 8, !tbaa !58
+  %372 = load ptr, ptr %351, align 8, !tbaa !59
+  %373 = call i32 %372(i32 noundef 0, ptr noundef nonnull %0) #10
+  %374 = icmp eq i32 %373, 0
+  br i1 %374, label %check_extensions.exit.thread, label %check_cert_key_level.exit.thread32.i
 
-check_cert_key_level.exit.thread32.i:             ; preds = %verify_cb_cert.exit.i52, %check_cert_key_level.exit.i, %400, %397
-  %419 = icmp slt i32 %.02242.i, %396
-  br i1 %419, label %420, label %.critedge.i
+check_cert_key_level.exit.thread32.i:             ; preds = %verify_cb_cert.exit.i53, %check_cert_key_level.exit.i, %356, %353
+  %375 = icmp slt i32 %.02242.i, %352
+  br i1 %375, label %376, label %.critedge.i
 
-420:                                              ; preds = %check_cert_key_level.exit.thread32.i
-  %.val.i = load ptr, ptr %387, align 8, !tbaa !49
-  %421 = getelementptr i8, ptr %.val.i, i64 44
-  %.val.val.i = load i32, ptr %421, align 4, !tbaa !50
+376:                                              ; preds = %check_cert_key_level.exit.thread32.i
+  %.val.i = load ptr, ptr %343, align 8, !tbaa !49
+  %377 = getelementptr i8, ptr %.val.i, i64 44
+  %.val.val.i = load i32, ptr %377, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !54
-  %422 = icmp slt i32 %.val.val.i, 1
-  br i1 %422, label %check_sig_level.exit.thread37.i, label %423
+  %378 = icmp slt i32 %.val.val.i, 1
+  br i1 %378, label %check_sig_level.exit.thread37.i, label %379
 
-check_sig_level.exit.thread37.i:                  ; preds = %420
+check_sig_level.exit.thread37.i:                  ; preds = %376
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge.i
 
-423:                                              ; preds = %420
-  %424 = call i32 @X509_get_signature_info(ptr noundef %399, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #10
-  %.not.i26.i = icmp eq i32 %424, 0
+379:                                              ; preds = %376
+  %380 = call i32 @X509_get_signature_info(ptr noundef %355, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #10
+  %.not.i26.i = icmp eq i32 %380, 0
   br i1 %.not.i26.i, label %check_sig_level.exit.thread.i, label %check_sig_level.exit.i
 
-check_sig_level.exit.thread.i:                    ; preds = %423
+check_sig_level.exit.thread.i:                    ; preds = %379
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %431
+  br label %387
 
-check_sig_level.exit.i:                           ; preds = %423
-  %425 = call i32 @llvm.umin.i32(i32 %.val.val.i, i32 5)
-  %426 = load i32, ptr %2, align 4, !tbaa !54
-  %427 = zext nneg i32 %425 to i64
-  %428 = getelementptr i32, ptr @minbits_table, i64 %427
-  %429 = getelementptr i8, ptr %428, i64 -4
-  %430 = load i32, ptr %429, align 4, !tbaa !54
-  %.not41.i = icmp slt i32 %426, %430
+check_sig_level.exit.i:                           ; preds = %379
+  %381 = call i32 @llvm.umin.i32(i32 %.val.val.i, i32 5)
+  %382 = load i32, ptr %2, align 4, !tbaa !54
+  %383 = zext nneg i32 %381 to i64
+  %384 = getelementptr i32, ptr @minbits_table, i64 %383
+  %385 = getelementptr i8, ptr %384, i64 -4
+  %386 = load i32, ptr %385, align 4, !tbaa !54
+  %.not41.i = icmp slt i32 %382, %386
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not41.i, label %431, label %.critedge.i
+  br i1 %.not41.i, label %387, label %.critedge.i
 
-431:                                              ; preds = %check_sig_level.exit.i, %check_sig_level.exit.thread.i
+387:                                              ; preds = %check_sig_level.exit.i, %check_sig_level.exit.thread.i
   store i32 %.02242.i, ptr %22, align 4, !tbaa !55
-  %.not.i28.i = icmp eq ptr %399, null
-  br i1 %.not.i28.i, label %432, label %verify_cb_cert.exit29.i
+  %.not.i28.i = icmp eq ptr %355, null
+  br i1 %.not.i28.i, label %388, label %verify_cb_cert.exit29.i
 
-432:                                              ; preds = %431
-  %433 = load ptr, ptr %7, align 8, !tbaa !56
-  %434 = call ptr @OPENSSL_sk_value(ptr noundef %433, i32 noundef %.02242.i) #10
+388:                                              ; preds = %387
+  %389 = load ptr, ptr %7, align 8, !tbaa !56
+  %390 = call ptr @OPENSSL_sk_value(ptr noundef %389, i32 noundef %.02242.i) #10
   br label %verify_cb_cert.exit29.i
 
-verify_cb_cert.exit29.i:                          ; preds = %432, %431
-  %435 = phi ptr [ %434, %432 ], [ %399, %431 ]
-  store ptr %435, ptr %393, align 8, !tbaa !57
-  store i32 68, ptr %394, align 8, !tbaa !58
-  %436 = load ptr, ptr %395, align 8, !tbaa !59
-  %437 = call i32 %436(i32 noundef 0, ptr noundef nonnull %0) #10
-  %438 = icmp eq i32 %437, 0
-  br i1 %438, label %check_extensions.exit.thread, label %.critedge.i
+verify_cb_cert.exit29.i:                          ; preds = %388, %387
+  %391 = phi ptr [ %390, %388 ], [ %355, %387 ]
+  store ptr %391, ptr %349, align 8, !tbaa !57
+  store i32 68, ptr %350, align 8, !tbaa !58
+  %392 = load ptr, ptr %351, align 8, !tbaa !59
+  %393 = call i32 %392(i32 noundef 0, ptr noundef nonnull %0) #10
+  %394 = icmp eq i32 %393, 0
+  br i1 %394, label %check_extensions.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %verify_cb_cert.exit29.i, %check_sig_level.exit.i, %check_sig_level.exit.thread37.i, %check_cert_key_level.exit.thread32.i
-  %439 = add nuw nsw i32 %.02242.i, 1
-  %exitcond.not.i = icmp eq i32 %439, %386
-  br i1 %exitcond.not.i, label %check_auth_level.exit, label %397, !llvm.loop !188
+  %395 = add nuw nsw i32 %.02242.i, 1
+  %exitcond.not.i52 = icmp eq i32 %395, %342
+  br i1 %exitcond.not.i52, label %check_auth_level.exit, label %353, !llvm.loop !188
 
 check_auth_level.exit:                            ; preds = %.critedge.i, %check_extensions.exit
-  %440 = call fastcc i32 @check_id(ptr noundef %0)
-  %.not.not45 = icmp eq i32 %440, 0
-  br i1 %.not.not45, label %check_extensions.exit.thread, label %441
+  %396 = call fastcc i32 @check_id(ptr noundef %0)
+  %.not.not45 = icmp eq i32 %396, 0
+  br i1 %.not.not45, label %check_extensions.exit.thread, label %397
 
-441:                                              ; preds = %check_auth_level.exit
-  %442 = load ptr, ptr %7, align 8, !tbaa !56
-  %443 = call i32 @X509_get_pubkey_parameters(ptr noundef null, ptr noundef %442)
-  %.not = icmp eq i32 %443, 0
-  br i1 %.not, label %check_extensions.exit.thread, label %444
+397:                                              ; preds = %check_auth_level.exit
+  %398 = load ptr, ptr %7, align 8, !tbaa !56
+  %399 = call i32 @X509_get_pubkey_parameters(ptr noundef null, ptr noundef %398)
+  %.not = icmp eq i32 %399, 0
+  br i1 %.not, label %check_extensions.exit.thread, label %400
 
-444:                                              ; preds = %441
-  %445 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %446 = load ptr, ptr %445, align 8, !tbaa !134
-  %447 = call i32 %446(ptr noundef nonnull %0) #10
-  %448 = icmp slt i32 %447, 1
-  br i1 %448, label %check_extensions.exit.thread, label %449
+400:                                              ; preds = %397
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %402 = load ptr, ptr %401, align 8, !tbaa !134
+  %403 = call i32 %402(ptr noundef nonnull %0) #10
+  %404 = icmp slt i32 %403, 1
+  br i1 %404, label %check_extensions.exit.thread, label %405
 
-449:                                              ; preds = %444
-  %450 = load ptr, ptr %7, align 8, !tbaa !56
-  %451 = load ptr, ptr %387, align 8, !tbaa !49
-  %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
-  %453 = load i64, ptr %452, align 8, !tbaa !88
-  %454 = call i32 @X509_chain_check_suiteb(ptr noundef nonnull %22, ptr noundef null, ptr noundef %450, i64 noundef %453) #10
-  %.not46 = icmp eq i32 %454, 0
-  br i1 %.not46, label %464, label %verify_cb_cert.exit
+405:                                              ; preds = %400
+  %406 = load ptr, ptr %7, align 8, !tbaa !56
+  %407 = load ptr, ptr %343, align 8, !tbaa !49
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 24
+  %409 = load i64, ptr %408, align 8, !tbaa !88
+  %410 = call i32 @X509_chain_check_suiteb(ptr noundef nonnull %22, ptr noundef null, ptr noundef %406, i64 noundef %409) #10
+  %.not46 = icmp eq i32 %410, 0
+  br i1 %.not46, label %420, label %verify_cb_cert.exit
 
-verify_cb_cert.exit:                              ; preds = %449
-  %455 = load i32, ptr %22, align 4, !tbaa !55
-  %456 = load ptr, ptr %7, align 8, !tbaa !56
-  %457 = call ptr @OPENSSL_sk_value(ptr noundef %456, i32 noundef %455) #10
-  %458 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %457, ptr %458, align 8, !tbaa !57
-  %459 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %454, ptr %459, align 8, !tbaa !58
-  %460 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %461 = load ptr, ptr %460, align 8, !tbaa !59
-  %462 = call i32 %461(i32 noundef 0, ptr noundef nonnull %0) #10
-  %463 = icmp eq i32 %462, 0
-  br i1 %463, label %check_extensions.exit.thread, label %464
+verify_cb_cert.exit:                              ; preds = %405
+  %411 = load i32, ptr %22, align 4, !tbaa !55
+  %412 = load ptr, ptr %7, align 8, !tbaa !56
+  %413 = call ptr @OPENSSL_sk_value(ptr noundef %412, i32 noundef %411) #10
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %413, ptr %414, align 8, !tbaa !57
+  %415 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 %410, ptr %415, align 8, !tbaa !58
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %417 = load ptr, ptr %416, align 8, !tbaa !59
+  %418 = call i32 %417(i32 noundef 0, ptr noundef nonnull %0) #10
+  %419 = icmp eq i32 %418, 0
+  br i1 %419, label %check_extensions.exit.thread, label %420
 
-464:                                              ; preds = %verify_cb_cert.exit, %449
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %466 = load ptr, ptr %465, align 8, !tbaa !85
-  %.not47 = icmp eq ptr %466, null
-  br i1 %.not47, label %469, label %467
+420:                                              ; preds = %verify_cb_cert.exit, %405
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %422 = load ptr, ptr %421, align 8, !tbaa !85
+  %.not47 = icmp eq ptr %422, null
+  br i1 %.not47, label %425, label %423
 
-467:                                              ; preds = %464
-  %468 = call i32 %466(ptr noundef nonnull %0) #10
-  br label %471
+423:                                              ; preds = %420
+  %424 = call i32 %422(ptr noundef nonnull %0) #10
+  br label %427
 
-469:                                              ; preds = %464
-  %470 = call i32 @internal_verify(ptr noundef nonnull %0)
-  br label %471
+425:                                              ; preds = %420
+  %426 = call i32 @internal_verify(ptr noundef nonnull %0)
+  br label %427
 
-471:                                              ; preds = %469, %467
-  %472 = phi i32 [ %468, %467 ], [ %470, %469 ]
-  %473 = icmp slt i32 %472, 1
-  br i1 %473, label %check_extensions.exit.thread, label %474
+427:                                              ; preds = %425, %423
+  %428 = phi i32 [ %424, %423 ], [ %426, %425 ]
+  %429 = icmp slt i32 %428, 1
+  br i1 %429, label %check_extensions.exit.thread, label %430
 
-474:                                              ; preds = %471
-  %475 = load ptr, ptr %7, align 8, !tbaa !56
-  %476 = call i32 @OPENSSL_sk_num(ptr noundef %475) #10
-  %477 = icmp sgt i32 %476, 0
-  br i1 %477, label %.lr.ph122.i, label %check_name_constraints.exit
+430:                                              ; preds = %427
+  %431 = load ptr, ptr %7, align 8, !tbaa !56
+  %432 = call i32 @OPENSSL_sk_num(ptr noundef %431) #10
+  %433 = icmp sgt i32 %432, 0
+  br i1 %433, label %.lr.ph122.i, label %check_name_constraints.exit
 
-.lr.ph122.i:                                      ; preds = %474
-  %478 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %481
+.lr.ph122.i:                                      ; preds = %430
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br label %437
 
-481:                                              ; preds = %.loopexit.i, %.lr.ph122.i
-  %.067.in120.i = phi i32 [ %476, %.lr.ph122.i ], [ %.067121.i, %.loopexit.i ]
+437:                                              ; preds = %.loopexit.i, %.lr.ph122.i
+  %.067.in120.i = phi i32 [ %432, %.lr.ph122.i ], [ %.067121.i, %.loopexit.i ]
   %.067121.i = add nsw i32 %.067.in120.i, -1
-  %482 = load ptr, ptr %7, align 8, !tbaa !56
-  %483 = call ptr @OPENSSL_sk_value(ptr noundef %482, i32 noundef %.067121.i) #10
-  %.not.i54 = icmp eq i32 %.067121.i, 0
-  %.phi.trans.insert.i55 = getelementptr inbounds nuw i8, ptr %483, i64 232
-  %.pre.i56 = load i32, ptr %.phi.trans.insert.i55, align 8, !tbaa !3
-  %484 = and i32 %.pre.i56, 32
-  %.not81.i = icmp eq i32 %484, 0
-  %or.cond135.i = select i1 %.not.i54, i1 true, i1 %.not81.i
+  %438 = load ptr, ptr %7, align 8, !tbaa !56
+  %439 = call ptr @OPENSSL_sk_value(ptr noundef %438, i32 noundef %.067121.i) #10
+  %.not.i55 = icmp eq i32 %.067121.i, 0
+  %.phi.trans.insert.i56 = getelementptr inbounds nuw i8, ptr %439, i64 232
+  %.pre.i57 = load i32, ptr %.phi.trans.insert.i56, align 8, !tbaa !3
+  %440 = and i32 %.pre.i57, 32
+  %.not81.i = icmp eq i32 %440, 0
+  %or.cond135.i = select i1 %.not.i55, i1 true, i1 %.not81.i
   br i1 %or.cond135.i, label %._crit_edge.i, label %.loopexit.i
 
-._crit_edge.i:                                    ; preds = %481
-  %485 = and i32 %.pre.i56, 1024
-  %.not82.i = icmp eq i32 %485, 0
-  br i1 %.not82.i, label %518, label %486
+._crit_edge.i:                                    ; preds = %437
+  %441 = and i32 %.pre.i57, 1024
+  %.not82.i = icmp eq i32 %441, 0
+  br i1 %.not82.i, label %474, label %442
 
-486:                                              ; preds = %._crit_edge.i
-  %487 = call ptr @X509_get_subject_name(ptr noundef nonnull %483) #10
-  %488 = call ptr @X509_get_issuer_name(ptr noundef nonnull %483) #10
-  %489 = call i32 @X509_NAME_entry_count(ptr noundef %487) #10
-  %490 = add nsw i32 %489, -1
-  %491 = icmp slt i32 %489, 2
-  br i1 %491, label %verify_cb_cert.exit.i57, label %492
+442:                                              ; preds = %._crit_edge.i
+  %443 = call ptr @X509_get_subject_name(ptr noundef nonnull %439) #10
+  %444 = call ptr @X509_get_issuer_name(ptr noundef nonnull %439) #10
+  %445 = call i32 @X509_NAME_entry_count(ptr noundef %443) #10
+  %446 = add nsw i32 %445, -1
+  %447 = icmp slt i32 %445, 2
+  br i1 %447, label %verify_cb_cert.exit.i58, label %448
 
-492:                                              ; preds = %486
-  %493 = call i32 @X509_NAME_entry_count(ptr noundef %487) #10
-  %494 = call i32 @X509_NAME_entry_count(ptr noundef %488) #10
-  %495 = add nsw i32 %494, 1
-  %.not83.i = icmp eq i32 %493, %495
-  br i1 %.not83.i, label %496, label %verify_cb_cert.exit.i57
+448:                                              ; preds = %442
+  %449 = call i32 @X509_NAME_entry_count(ptr noundef %443) #10
+  %450 = call i32 @X509_NAME_entry_count(ptr noundef %444) #10
+  %451 = add nsw i32 %450, 1
+  %.not83.i = icmp eq i32 %449, %451
+  br i1 %.not83.i, label %452, label %verify_cb_cert.exit.i58
 
-496:                                              ; preds = %492
-  %497 = call ptr @X509_NAME_get_entry(ptr noundef %487, i32 noundef %490) #10
-  %498 = call i32 @X509_NAME_ENTRY_set(ptr noundef %497) #10
-  %499 = add nsw i32 %489, -2
-  %500 = call ptr @X509_NAME_get_entry(ptr noundef %487, i32 noundef %499) #10
-  %501 = call i32 @X509_NAME_ENTRY_set(ptr noundef %500) #10
-  %502 = icmp eq i32 %498, %501
-  br i1 %502, label %verify_cb_cert.exit.i57, label %503
+452:                                              ; preds = %448
+  %453 = call ptr @X509_NAME_get_entry(ptr noundef %443, i32 noundef %446) #10
+  %454 = call i32 @X509_NAME_ENTRY_set(ptr noundef %453) #10
+  %455 = add nsw i32 %445, -2
+  %456 = call ptr @X509_NAME_get_entry(ptr noundef %443, i32 noundef %455) #10
+  %457 = call i32 @X509_NAME_ENTRY_set(ptr noundef %456) #10
+  %458 = icmp eq i32 %454, %457
+  br i1 %458, label %verify_cb_cert.exit.i58, label %459
 
-503:                                              ; preds = %496
-  %504 = call ptr @X509_NAME_dup(ptr noundef %487) #10
-  %505 = icmp eq ptr %504, null
-  br i1 %505, label %506, label %507
+459:                                              ; preds = %452
+  %460 = call ptr @X509_NAME_dup(ptr noundef %443) #10
+  %461 = icmp eq ptr %460, null
+  br i1 %461, label %462, label %463
 
-506:                                              ; preds = %503
+462:                                              ; preds = %459
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 835, ptr noundef nonnull @__func__.check_name_constraints) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524301, ptr noundef null) #10
-  store i32 17, ptr %479, align 8, !tbaa !58
+  store i32 17, ptr %435, align 8, !tbaa !58
   br label %check_extensions.exit.thread
 
-507:                                              ; preds = %503
-  %508 = call ptr @X509_NAME_delete_entry(ptr noundef nonnull %504, i32 noundef %490) #10
-  %509 = call ptr @X509_NAME_ENTRY_get_object(ptr noundef %508) #10
-  %510 = call i32 @OBJ_obj2nid(ptr noundef %509) #10
-  %.not84.i = icmp eq i32 %510, 13
-  br i1 %.not84.i, label %511, label %513
+463:                                              ; preds = %459
+  %464 = call ptr @X509_NAME_delete_entry(ptr noundef nonnull %460, i32 noundef %446) #10
+  %465 = call ptr @X509_NAME_ENTRY_get_object(ptr noundef %464) #10
+  %466 = call i32 @OBJ_obj2nid(ptr noundef %465) #10
+  %.not84.i = icmp eq i32 %466, 13
+  br i1 %.not84.i, label %467, label %469
 
-511:                                              ; preds = %507
-  %512 = call i32 @X509_NAME_cmp(ptr noundef nonnull %504, ptr noundef %488) #10
-  %.not85.i = icmp eq i32 %512, 0
-  br i1 %.not85.i, label %514, label %513
+467:                                              ; preds = %463
+  %468 = call i32 @X509_NAME_cmp(ptr noundef nonnull %460, ptr noundef %444) #10
+  %.not85.i = icmp eq i32 %468, 0
+  br i1 %.not85.i, label %470, label %469
 
-513:                                              ; preds = %511, %507
-  br label %514
+469:                                              ; preds = %467, %463
+  br label %470
 
-514:                                              ; preds = %513, %511
-  %.not86.i = phi i1 [ false, %513 ], [ true, %511 ]
-  %.169.i = phi i32 [ 72, %513 ], [ 0, %511 ]
-  call void @X509_NAME_ENTRY_free(ptr noundef %508) #10
-  call void @X509_NAME_free(ptr noundef nonnull %504) #10
-  br i1 %.not86.i, label %518, label %verify_cb_cert.exit.i57
+470:                                              ; preds = %469, %467
+  %.not86.i = phi i1 [ false, %469 ], [ true, %467 ]
+  %.169.i = phi i32 [ 72, %469 ], [ 0, %467 ]
+  call void @X509_NAME_ENTRY_free(ptr noundef %464) #10
+  call void @X509_NAME_free(ptr noundef nonnull %460) #10
+  br i1 %.not86.i, label %474, label %verify_cb_cert.exit.i58
 
-verify_cb_cert.exit.i57:                          ; preds = %514, %496, %492, %486
-  %.06896.i = phi i32 [ %.169.i, %514 ], [ 72, %486 ], [ 72, %492 ], [ 72, %496 ]
+verify_cb_cert.exit.i58:                          ; preds = %470, %452, %448, %442
+  %.06896.i = phi i32 [ %.169.i, %470 ], [ 72, %442 ], [ 72, %448 ], [ 72, %452 ]
   store i32 %.067121.i, ptr %22, align 4, !tbaa !55
-  store ptr %483, ptr %478, align 8, !tbaa !57
-  store i32 %.06896.i, ptr %479, align 8, !tbaa !58
-  %515 = load ptr, ptr %480, align 8, !tbaa !59
-  %516 = call i32 %515(i32 noundef 0, ptr noundef nonnull %0) #10
-  %517 = icmp eq i32 %516, 0
-  br i1 %517, label %check_extensions.exit.thread, label %518
+  store ptr %439, ptr %434, align 8, !tbaa !57
+  store i32 %.06896.i, ptr %435, align 8, !tbaa !58
+  %471 = load ptr, ptr %436, align 8, !tbaa !59
+  %472 = call i32 %471(i32 noundef 0, ptr noundef nonnull %0) #10
+  %473 = icmp eq i32 %472, 0
+  br i1 %473, label %check_extensions.exit.thread, label %474
 
-518:                                              ; preds = %verify_cb_cert.exit.i57, %514, %._crit_edge.i
-  %519 = load ptr, ptr %7, align 8, !tbaa !56
-  %520 = call i32 @OPENSSL_sk_num(ptr noundef %519) #10
-  %521 = icmp sgt i32 %520, %.067.in120.i
-  br i1 %521, label %.lr.ph.i58, label %.loopexit.i
+474:                                              ; preds = %verify_cb_cert.exit.i58, %470, %._crit_edge.i
+  %475 = load ptr, ptr %7, align 8, !tbaa !56
+  %476 = call i32 @OPENSSL_sk_num(ptr noundef %475) #10
+  %477 = icmp sgt i32 %476, %.067.in120.i
+  br i1 %477, label %.lr.ph.i59, label %.loopexit.i
 
-.lr.ph.i58:                                       ; preds = %518, %.thread105.i
-  %.070118.in.i = phi i32 [ %.070118.i, %.thread105.i ], [ %520, %518 ]
+.lr.ph.i59:                                       ; preds = %474, %.thread105.i
+  %.070118.in.i = phi i32 [ %.070118.i, %.thread105.i ], [ %476, %474 ]
   %.070118.i = add nsw i32 %.070118.in.i, -1
-  %522 = load ptr, ptr %7, align 8, !tbaa !56
-  %523 = call ptr @OPENSSL_sk_value(ptr noundef %522, i32 noundef %.070118.i) #10
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 288
-  %525 = load ptr, ptr %524, align 8, !tbaa !189
-  %.not87.i = icmp eq ptr %525, null
-  br i1 %.not87.i, label %.thread105.i, label %526
+  %478 = load ptr, ptr %7, align 8, !tbaa !56
+  %479 = call ptr @OPENSSL_sk_value(ptr noundef %478, i32 noundef %.070118.i) #10
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 288
+  %481 = load ptr, ptr %480, align 8, !tbaa !189
+  %.not87.i = icmp eq ptr %481, null
+  br i1 %.not87.i, label %.thread105.i, label %482
 
-526:                                              ; preds = %.lr.ph.i58
-  %527 = call i32 @NAME_CONSTRAINTS_check(ptr noundef %483, ptr noundef nonnull %525) #10
-  %528 = or i32 %527, %.067121.i
-  %or.cond.i59 = icmp eq i32 %528, 0
-  br i1 %or.cond.i59, label %529, label %550
+482:                                              ; preds = %.lr.ph.i59
+  %483 = call i32 @NAME_CONSTRAINTS_check(ptr noundef %439, ptr noundef nonnull %481) #10
+  %484 = or i32 %483, %.067121.i
+  %or.cond.i60 = icmp eq i32 %484, 0
+  br i1 %or.cond.i60, label %485, label %506
 
-529:                                              ; preds = %526
-  %530 = load ptr, ptr %387, align 8, !tbaa !49
-  %531 = getelementptr inbounds nuw i8, ptr %530, i64 64
-  %532 = load i32, ptr %531, align 8, !tbaa !190
-  %533 = and i32 %532, 32
-  %534 = icmp eq i32 %533, 0
-  br i1 %534, label %535, label %.thread105.i
+485:                                              ; preds = %482
+  %486 = load ptr, ptr %343, align 8, !tbaa !49
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 64
+  %488 = load i32, ptr %487, align 8, !tbaa !190
+  %489 = and i32 %488, 32
+  %490 = icmp eq i32 %489, 0
+  br i1 %490, label %491, label %.thread105.i
 
-535:                                              ; preds = %529
-  %536 = and i32 %532, 1
-  %.not88.i = icmp eq i32 %536, 0
-  br i1 %.not88.i, label %537, label %has_san_id.exit.thread.i
+491:                                              ; preds = %485
+  %492 = and i32 %488, 1
+  %.not88.i = icmp eq i32 %492, 0
+  br i1 %.not88.i, label %493, label %has_san_id.exit.thread.i
 
-537:                                              ; preds = %535
-  %538 = call ptr @X509_get_ext_d2i(ptr noundef %483, i32 noundef 85, ptr noundef null, ptr noundef null) #10
-  %539 = icmp eq ptr %538, null
-  br i1 %539, label %has_san_id.exit.thread.i, label %.preheader.i.i
+493:                                              ; preds = %491
+  %494 = call ptr @X509_get_ext_d2i(ptr noundef %439, i32 noundef 85, ptr noundef null, ptr noundef null) #10
+  %495 = icmp eq ptr %494, null
+  br i1 %495, label %has_san_id.exit.thread.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %537
-  %540 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %538) #10
-  %541 = icmp sgt i32 %540, 0
-  br i1 %541, label %.lr.ph.i.i, label %has_san_id.exit.thread102.i
+.preheader.i.i:                                   ; preds = %493
+  %496 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %494) #10
+  %497 = icmp sgt i32 %496, 0
+  br i1 %497, label %.lr.ph.i.i, label %has_san_id.exit.thread102.i
 
-542:                                              ; preds = %.lr.ph.i.i
-  %543 = add nuw nsw i32 %.01316.i.i, 1
-  %544 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %538) #10
-  %545 = icmp slt i32 %543, %544
-  br i1 %545, label %.lr.ph.i.i, label %has_san_id.exit.thread102.i, !llvm.loop !191
+498:                                              ; preds = %.lr.ph.i.i
+  %499 = add nuw nsw i32 %.01316.i.i, 1
+  %500 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %494) #10
+  %501 = icmp slt i32 %499, %500
+  br i1 %501, label %.lr.ph.i.i, label %has_san_id.exit.thread102.i, !llvm.loop !191
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %542
-  %.01316.i.i = phi i32 [ %543, %542 ], [ 0, %.preheader.i.i ]
-  %546 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %538, i32 noundef %.01316.i.i) #10
-  %547 = load i32, ptr %546, align 8, !tbaa !192
-  %548 = icmp eq i32 %547, 2
-  br i1 %548, label %has_san_id.exit.i, label %542
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %498
+  %.01316.i.i = phi i32 [ %499, %498 ], [ 0, %.preheader.i.i ]
+  %502 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %494, i32 noundef %.01316.i.i) #10
+  %503 = load i32, ptr %502, align 8, !tbaa !192
+  %504 = icmp eq i32 %503, 2
+  br i1 %504, label %has_san_id.exit.i, label %498
 
-has_san_id.exit.thread102.i:                      ; preds = %542, %.preheader.i.i
-  call void @GENERAL_NAMES_free(ptr noundef nonnull %538) #10
+has_san_id.exit.thread102.i:                      ; preds = %498, %.preheader.i.i
+  call void @GENERAL_NAMES_free(ptr noundef nonnull %494) #10
   br label %has_san_id.exit.thread.i
 
 has_san_id.exit.i:                                ; preds = %.lr.ph.i.i
-  call void @GENERAL_NAMES_free(ptr noundef nonnull %538) #10
+  call void @GENERAL_NAMES_free(ptr noundef nonnull %494) #10
   br label %.thread105.i
 
-has_san_id.exit.thread.i:                         ; preds = %has_san_id.exit.thread102.i, %537, %535
-  %549 = call i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %483, ptr noundef nonnull %525) #10
-  br label %550
+has_san_id.exit.thread.i:                         ; preds = %has_san_id.exit.thread102.i, %493, %491
+  %505 = call i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %439, ptr noundef nonnull %481) #10
+  br label %506
 
-550:                                              ; preds = %has_san_id.exit.thread.i, %526
-  %.064.i = phi i32 [ %549, %has_san_id.exit.thread.i ], [ %527, %526 ]
+506:                                              ; preds = %has_san_id.exit.thread.i, %482
+  %.064.i = phi i32 [ %505, %has_san_id.exit.thread.i ], [ %483, %482 ]
   switch i32 %.064.i, label %verify_cb_cert.exit93.i [
     i32 0, label %.thread105.i
     i32 17, label %check_extensions.exit.thread
   ]
 
-verify_cb_cert.exit93.i:                          ; preds = %550
+verify_cb_cert.exit93.i:                          ; preds = %506
   store i32 %.067121.i, ptr %22, align 4, !tbaa !55
-  store ptr %483, ptr %478, align 8, !tbaa !57
-  store i32 %.064.i, ptr %479, align 8, !tbaa !58
-  %551 = load ptr, ptr %480, align 8, !tbaa !59
-  %552 = call i32 %551(i32 noundef 0, ptr noundef nonnull %0) #10
-  %553 = icmp eq i32 %552, 0
-  br i1 %553, label %check_extensions.exit.thread, label %.thread105.i
+  store ptr %439, ptr %434, align 8, !tbaa !57
+  store i32 %.064.i, ptr %435, align 8, !tbaa !58
+  %507 = load ptr, ptr %436, align 8, !tbaa !59
+  %508 = call i32 %507(i32 noundef 0, ptr noundef nonnull %0) #10
+  %509 = icmp eq i32 %508, 0
+  br i1 %509, label %check_extensions.exit.thread, label %.thread105.i
 
-.thread105.i:                                     ; preds = %verify_cb_cert.exit93.i, %550, %has_san_id.exit.i, %529, %.lr.ph.i58
-  %554 = icmp sgt i32 %.070118.i, %.067.in120.i
-  br i1 %554, label %.lr.ph.i58, label %.loopexit.i, !llvm.loop !194
+.thread105.i:                                     ; preds = %verify_cb_cert.exit93.i, %506, %has_san_id.exit.i, %485, %.lr.ph.i59
+  %510 = icmp sgt i32 %.070118.i, %.067.in120.i
+  br i1 %510, label %.lr.ph.i59, label %.loopexit.i, !llvm.loop !194
 
-.loopexit.i:                                      ; preds = %.thread105.i, %518, %481
-  %555 = icmp sgt i32 %.067.in120.i, 1
-  br i1 %555, label %481, label %check_name_constraints.exit, !llvm.loop !195
+.loopexit.i:                                      ; preds = %.thread105.i, %474, %437
+  %511 = icmp sgt i32 %.067.in120.i, 1
+  br i1 %511, label %437, label %check_name_constraints.exit, !llvm.loop !195
 
-check_name_constraints.exit:                      ; preds = %.loopexit.i, %474
-  %556 = call i32 @X509v3_asid_validate_path(ptr noundef nonnull %0) #10
-  %557 = icmp slt i32 %556, 1
-  br i1 %557, label %check_extensions.exit.thread, label %558
+check_name_constraints.exit:                      ; preds = %.loopexit.i, %430
+  %512 = call i32 @X509v3_asid_validate_path(ptr noundef nonnull %0) #10
+  %513 = icmp slt i32 %512, 1
+  br i1 %513, label %check_extensions.exit.thread, label %514
 
-558:                                              ; preds = %check_name_constraints.exit
-  %559 = call i32 @X509v3_addr_validate_path(ptr noundef nonnull %0) #10
-  %560 = icmp slt i32 %559, 1
-  br i1 %560, label %check_extensions.exit.thread, label %561
+514:                                              ; preds = %check_name_constraints.exit
+  %515 = call i32 @X509v3_addr_validate_path(ptr noundef nonnull %0) #10
+  %516 = icmp slt i32 %515, 1
+  br i1 %516, label %check_extensions.exit.thread, label %517
 
-561:                                              ; preds = %558
-  %562 = load ptr, ptr %387, align 8, !tbaa !49
-  %563 = getelementptr inbounds nuw i8, ptr %562, i64 24
-  %564 = load i64, ptr %563, align 8, !tbaa !88
-  %565 = and i64 %564, 128
-  %.not48 = icmp eq i64 %565, 0
-  br i1 %.not48, label %check_extensions.exit.thread, label %566
+517:                                              ; preds = %514
+  %518 = load ptr, ptr %343, align 8, !tbaa !49
+  %519 = getelementptr inbounds nuw i8, ptr %518, i64 24
+  %520 = load i64, ptr %519, align 8, !tbaa !88
+  %521 = and i64 %520, 128
+  %.not48 = icmp eq i64 %521, 0
+  br i1 %.not48, label %check_extensions.exit.thread, label %522
 
-566:                                              ; preds = %561
-  %567 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %568 = load ptr, ptr %567, align 8, !tbaa !138
-  %569 = call i32 %568(ptr noundef nonnull %0) #10
+522:                                              ; preds = %517
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %524 = load ptr, ptr %523, align 8, !tbaa !138
+  %525 = call i32 %524(ptr noundef nonnull %0) #10
   br label %check_extensions.exit.thread
 
-check_extensions.exit.thread:                     ; preds = %verify_cb_cert.exit.jt0.i, %verify_cb_cert.exit205.jt0.i, %verify_cb_cert.exit270.i, %verify_cb_cert.exit209.i, %verify_cb_cert.exit.jt1.i, %verify_cb_cert.exit205.jt1.i, %verify_cb_cert.exit267.i, %check_purpose.exit.i, %verify_cb_cert.exit263.i, %verify_cb_cert.exit260.i, %verify_cb_cert.exit257.i, %verify_cb_cert.exit254.i, %verify_cb_cert.exit251.i, %verify_cb_cert.exit248.i, %verify_cb_cert.exit245.i, %verify_cb_cert.exit242.i, %verify_cb_cert.exit239.i, %verify_cb_cert.exit236.i, %verify_cb_cert.exit233.i, %verify_cb_cert.exit230.i, %verify_cb_cert.exit227.i, %verify_cb_cert.exit224.i, %verify_cb_cert.exit221.i, %verify_cb_cert.exit218.i, %verify_cb_cert.exit215.i, %verify_cb_cert.exit211.i, %verify_cb_cert.exit.i52, %verify_cb_cert.exit29.i, %verify_cb_cert.exit.i57, %verify_cb_cert.exit93.i, %550, %506, %verify_cb_cert.exit207.i, %verify_cb_cert.exit205.i, %verify_cb_cert.exit.i, %561, %566, %558, %check_name_constraints.exit, %471, %verify_cb_cert.exit, %1, %check_auth_level.exit, %441, %444
-  %.031 = phi i32 [ %4, %1 ], [ 0, %check_auth_level.exit ], [ -1, %441 ], [ %447, %444 ], [ 0, %verify_cb_cert.exit ], [ %472, %471 ], [ %556, %check_name_constraints.exit ], [ %559, %558 ], [ %569, %566 ], [ %559, %561 ], [ 0, %verify_cb_cert.exit.i ], [ 0, %verify_cb_cert.exit205.i ], [ 0, %verify_cb_cert.exit207.i ], [ -1, %506 ], [ -1, %550 ], [ 0, %verify_cb_cert.exit93.i ], [ 0, %verify_cb_cert.exit.i57 ], [ 0, %verify_cb_cert.exit29.i ], [ 0, %verify_cb_cert.exit.i52 ], [ 0, %verify_cb_cert.exit211.i ], [ 0, %verify_cb_cert.exit215.i ], [ 0, %verify_cb_cert.exit218.i ], [ 0, %verify_cb_cert.exit221.i ], [ 0, %verify_cb_cert.exit224.i ], [ 0, %verify_cb_cert.exit227.i ], [ 0, %verify_cb_cert.exit230.i ], [ 0, %verify_cb_cert.exit233.i ], [ 0, %verify_cb_cert.exit236.i ], [ 0, %verify_cb_cert.exit239.i ], [ 0, %verify_cb_cert.exit242.i ], [ 0, %verify_cb_cert.exit245.i ], [ 0, %verify_cb_cert.exit248.i ], [ 0, %verify_cb_cert.exit251.i ], [ 0, %verify_cb_cert.exit254.i ], [ 0, %verify_cb_cert.exit257.i ], [ 0, %verify_cb_cert.exit260.i ], [ 0, %verify_cb_cert.exit263.i ], [ 0, %check_purpose.exit.i ], [ 0, %verify_cb_cert.exit267.i ], [ 0, %verify_cb_cert.exit205.jt1.i ], [ 0, %verify_cb_cert.exit.jt1.i ], [ 0, %verify_cb_cert.exit209.i ], [ 0, %verify_cb_cert.exit270.i ], [ 0, %verify_cb_cert.exit205.jt0.i ], [ 0, %verify_cb_cert.exit.jt0.i ]
+check_extensions.exit.thread:                     ; preds = %verify_cb_cert.exit.i, %verify_cb_cert.exit205.i, %verify_cb_cert.exit207.i, %verify_cb_cert.exit209.i, %verify_cb_cert.exit211.i, %verify_cb_cert.exit215.i, %verify_cb_cert.exit218.i, %verify_cb_cert.exit221.i, %verify_cb_cert.exit224.i, %verify_cb_cert.exit227.i, %verify_cb_cert.exit230.i, %verify_cb_cert.exit233.i, %verify_cb_cert.exit236.i, %verify_cb_cert.exit239.i, %verify_cb_cert.exit242.i, %verify_cb_cert.exit245.i, %verify_cb_cert.exit248.i, %verify_cb_cert.exit251.i, %verify_cb_cert.exit254.i, %verify_cb_cert.exit257.i, %verify_cb_cert.exit260.i, %verify_cb_cert.exit263.i, %check_purpose.exit.i, %verify_cb_cert.exit267.i, %verify_cb_cert.exit270.i, %verify_cb_cert.exit.i53, %verify_cb_cert.exit29.i, %verify_cb_cert.exit.i58, %verify_cb_cert.exit93.i, %506, %462, %517, %522, %514, %check_name_constraints.exit, %427, %verify_cb_cert.exit, %1, %check_auth_level.exit, %397, %400
+  %.031 = phi i32 [ %4, %1 ], [ 0, %check_auth_level.exit ], [ -1, %397 ], [ %403, %400 ], [ 0, %verify_cb_cert.exit ], [ %428, %427 ], [ %512, %check_name_constraints.exit ], [ %515, %514 ], [ %525, %522 ], [ %515, %517 ], [ -1, %462 ], [ -1, %506 ], [ 0, %verify_cb_cert.exit93.i ], [ 0, %verify_cb_cert.exit.i58 ], [ 0, %verify_cb_cert.exit29.i ], [ 0, %verify_cb_cert.exit.i53 ], [ 0, %verify_cb_cert.exit270.i ], [ 0, %verify_cb_cert.exit267.i ], [ 0, %check_purpose.exit.i ], [ 0, %verify_cb_cert.exit263.i ], [ 0, %verify_cb_cert.exit260.i ], [ 0, %verify_cb_cert.exit257.i ], [ 0, %verify_cb_cert.exit254.i ], [ 0, %verify_cb_cert.exit251.i ], [ 0, %verify_cb_cert.exit248.i ], [ 0, %verify_cb_cert.exit245.i ], [ 0, %verify_cb_cert.exit242.i ], [ 0, %verify_cb_cert.exit239.i ], [ 0, %verify_cb_cert.exit236.i ], [ 0, %verify_cb_cert.exit233.i ], [ 0, %verify_cb_cert.exit230.i ], [ 0, %verify_cb_cert.exit227.i ], [ 0, %verify_cb_cert.exit224.i ], [ 0, %verify_cb_cert.exit221.i ], [ 0, %verify_cb_cert.exit218.i ], [ 0, %verify_cb_cert.exit215.i ], [ 0, %verify_cb_cert.exit211.i ], [ 0, %verify_cb_cert.exit209.i ], [ 0, %verify_cb_cert.exit207.i ], [ 0, %verify_cb_cert.exit205.i ], [ 0, %verify_cb_cert.exit.i ]
   ret i32 %.031
 }
 

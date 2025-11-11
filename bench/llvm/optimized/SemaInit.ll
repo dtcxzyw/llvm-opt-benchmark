@@ -42035,9 +42035,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeE
   %.sink7.i120.sroa.gep194 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sink7.i125.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sink7.i125.sroa.gep195 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %38, label %.preheader298, label %39
+  br i1 %38, label %.preheader299, label %39
 
-.preheader298:                                    ; preds = %39, %9
+.preheader299:                                    ; preds = %39, %9
   br label %46
 
 39:                                               ; preds = %9
@@ -42046,15 +42046,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeE
   %41 = tail call i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %2) #22
   %42 = load ptr, ptr %0, align 8, !tbaa !1085
   %43 = tail call fastcc noundef zeroext i1 @_ZL24checkDestructorReferenceN5clang8QualTypeENS_14SourceLocationERNS_4SemaE(i64 %.sroa.0.0.copyload.i, i32 %41, ptr noundef nonnull align 8 dereferenceable(17504) %42)
-  br i1 %43, label %44, label %.preheader298
+  br i1 %43, label %44, label %.preheader299
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %45, align 8, !tbaa !1063
   br label %657
 
-46:                                               ; preds = %.preheader298, %46
-  %.01121.i = phi ptr [ %48, %46 ], [ %1, %.preheader298 ]
+46:                                               ; preds = %.preheader299, %46
+  %.01121.i = phi ptr [ %48, %46 ], [ %1, %.preheader299 ]
   %47 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !1092
   %.not.i = icmp eq ptr %48, null
@@ -42965,8 +42965,8 @@ _ZN4llvm5APIntD2Ev.exit134:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %477 = icmp ult i32 %476, 65
   %478 = load ptr, ptr %25, align 8
   %479 = icmp eq ptr %478, null
-  %or.cond259 = select i1 %477, i1 true, i1 %479
-  br i1 %or.cond259, label %_ZN4llvm5APIntD2Ev.exit135, label %_ZN4llvm5APIntD2Ev.exit135.sink.split
+  %or.cond260 = select i1 %477, i1 true, i1 %479
+  br i1 %or.cond260, label %_ZN4llvm5APIntD2Ev.exit135, label %_ZN4llvm5APIntD2Ev.exit135.sink.split
 
 480:                                              ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.thread
   store i32 %442, ptr %331, align 8, !tbaa !1157
@@ -43059,8 +43059,8 @@ _ZN4llvm5APIntD2Ev.exit140:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %514 = icmp ult i32 %513, 65
   %515 = load ptr, ptr %28, align 8
   %516 = icmp eq ptr %515, null
-  %or.cond261 = select i1 %514, i1 true, i1 %516
-  br i1 %or.cond261, label %_ZN4llvm5APIntD2Ev.exit135, label %_ZN4llvm5APIntD2Ev.exit135.sink.split
+  %or.cond262 = select i1 %514, i1 true, i1 %516
+  br i1 %or.cond262, label %_ZN4llvm5APIntD2Ev.exit135, label %_ZN4llvm5APIntD2Ev.exit135.sink.split
 
 _ZN4llvm5APIntD2Ev.exit135.sink.split:            ; preds = %_ZN4llvm5APIntD2Ev.exit140, %_ZN4llvm5APIntD2Ev.exit134
   %.sink = phi ptr [ %478, %_ZN4llvm5APIntD2Ev.exit134 ], [ %515, %_ZN4llvm5APIntD2Ev.exit140 ]
@@ -43152,7 +43152,7 @@ _ZN4llvm6APSIntaSERKS0_.exit144:                  ; preds = %531, %533
   %559 = load i8, ptr %36, align 1, !range !1017
   %560 = trunc nuw i8 %559 to i1
   %or.cond105 = select i1 %558, i1 true, i1 %560
-  br i1 %or.cond105, label %.thread257, label %561
+  br i1 %or.cond105, label %.thread258, label %561
 
 561:                                              ; preds = %548
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -43178,11 +43178,11 @@ _ZN4llvm6APSIntC2Ejb.exit147:                     ; preds = %561
   br i1 %567, label %_ZN4llvm6APSIntC2Ejb.exit147._crit_edge, label %_ZNK4llvm6APSInteqERKS0_.exit149
 
 _ZN4llvm6APSIntC2Ejb.exit147._crit_edge:          ; preds = %_ZN4llvm6APSIntC2Ejb.exit147
-  %.pre262 = load i64, ptr %29, align 8, !tbaa !676
+  %.pre263 = load i64, ptr %29, align 8, !tbaa !676
   br label %569
 
 569:                                              ; preds = %_ZN4llvm6APSIntC2Ejb.exit147._crit_edge, %_ZN4llvm6APSIntC2Ejb.exit147.thread
-  %570 = phi i64 [ %.pre262, %_ZN4llvm6APSIntC2Ejb.exit147._crit_edge ], [ 0, %_ZN4llvm6APSIntC2Ejb.exit147.thread ]
+  %570 = phi i64 [ %.pre263, %_ZN4llvm6APSIntC2Ejb.exit147._crit_edge ], [ 0, %_ZN4llvm6APSIntC2Ejb.exit147.thread ]
   %571 = load i64, ptr %20, align 8, !tbaa !676
   %572 = icmp eq i64 %571, %570
   br i1 %572, label %574, label %599
@@ -43266,12 +43266,12 @@ _ZNK5clang17InitializedEntity24isVariableLengthArrayNewEv.exit.thread: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.pre215 = load i8, ptr %545, align 8, !tbaa !1063, !range !1017
   %611 = trunc nuw i8 %.pre215 to i1
-  br i1 %611, label %_ZNK5clang17InitializedEntity24isVariableLengthArrayNewEv.exit167.thread, label %.thread257
+  br i1 %611, label %_ZNK5clang17InitializedEntity24isVariableLengthArrayNewEv.exit167.thread, label %.thread258
 
-.thread257:                                       ; preds = %548, %610
+.thread258:                                       ; preds = %548, %610
   br i1 %.not96.not, label %620, label %612
 
-612:                                              ; preds = %.thread257
+612:                                              ; preds = %.thread258
   %613 = load i8, ptr %262, align 4, !tbaa !1159, !range !1017, !noundef !1018
   %614 = trunc nuw i8 %613 to i1
   br i1 %614, label %615, label %617
@@ -43289,7 +43289,7 @@ _ZNK4llvm6APSIntltERKS0_.exit:                    ; preds = %615, %617
   %619 = icmp slt i32 %.in.i156, 0
   br i1 %619, label %642, label %620
 
-620:                                              ; preds = %_ZNK4llvm6APSIntltERKS0_.exit, %.thread257
+620:                                              ; preds = %_ZNK4llvm6APSIntltERKS0_.exit, %.thread258
   %621 = load i32, ptr %1, align 8, !tbaa !1088
   %622 = icmp eq i32 %621, 8
   br i1 %622, label %623, label %_ZNK5clang17InitializedEntity24isVariableLengthArrayNewEv.exit167.thread

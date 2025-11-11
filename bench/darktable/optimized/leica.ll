@@ -407,7 +407,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 27:                                               ; preds = %4
   %28 = call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef -10, i32 noundef 1)
   %29 = icmp eq i32 %2, 13312
-  %spec.select = select i1 %29, i32 13312, i32 -2
+  %. = select i1 %29, i32 13312, i32 -2
   br label %.thread109
 
 30:                                               ; preds = %4
@@ -451,9 +451,9 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %49 = add i32 %48, -8
   br label %.thread109
 
-.thread109:                                       ; preds = %27, %30, %30, %30, %30, %30, %40, %.thread
-  %.071 = phi i32 [ %.1108, %.thread ], [ 0, %40 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %spec.select, %27 ]
-  %.0 = phi i32 [ %49, %.thread ], [ %1, %40 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %27 ]
+.thread109:                                       ; preds = %30, %30, %30, %30, %30, %40, %27, %.thread
+  %.071 = phi i32 [ %.1108, %.thread ], [ %., %27 ], [ 0, %40 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ]
+  %.0 = phi i32 [ %49, %.thread ], [ %1, %27 ], [ %1, %40 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ]
   call void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.071)
   %50 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %51 = icmp ugt i16 %50, 1000

@@ -16936,10 +16936,7 @@ _ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i:    ; preds = %152, %_ZN3sat9looka
 .noexc17:                                         ; preds = %.noexc16
   %163 = load i8, ptr %15, align 8, !tbaa !95, !range !241, !noundef !242
   %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %.lr.ph.i, label %_ZN3sat9lookahead9backtrackER7svectorINS_7literalEjE.exit.jt2, !llvm.loop !385
-
-_ZN3sat9lookahead9backtrackER7svectorINS_7literalEjE.exit.jt2: ; preds = %.noexc17
-  br label %.backedge, !llvm.loop !388
+  br i1 %164, label %.lr.ph.i, label %.backedge, !llvm.loop !385
 
 .loopexit42:                                      ; preds = %_ZN3sat9lookahead10inc_istampEv.exit, %41
   %lpad.loopexit44 = landingpad { ptr, i32 }
@@ -16976,9 +16973,9 @@ _ZN3sat9lookahead9backtrackER7svectorINS_7literalEjE.exit.jt2: ; preds = %.noexc
   br i1 %166, label %.thread, label %167
 
 167:                                              ; preds = %165
-  %168 = load i32, ptr %19, align 8, !tbaa !389
+  %168 = load i32, ptr %19, align 8, !tbaa !388
   %169 = add i32 %168, 1
-  store i32 %169, ptr %19, align 8, !tbaa !389
+  store i32 %169, ptr %19, align 8, !tbaa !388
   %170 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %171 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -17022,7 +17019,7 @@ _ZN3sat9lookahead9backtrackER7svectorINS_7literalEjE.exit.jt2: ; preds = %.noexc
   %186 = getelementptr inbounds i8, ptr %181, i64 -8
   %187 = load i32, ptr %186, align 4, !tbaa !87
   %188 = icmp eq i32 %185, %187
-  br i1 %188, label %189, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
+  br i1 %188, label %189, label %.thread60
 
 189:                                              ; preds = %183, %180
   invoke void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -17032,9 +17029,9 @@ _ZN3sat9lookahead9backtrackER7svectorINS_7literalEjE.exit.jt2: ; preds = %.noexc
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !86
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !87
-  br label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
+  br label %.thread60
 
-_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %183, %.noexc18
+.thread60:                                        ; preds = %.noexc18, %183
   %190 = phi i32 [ %.pre2.i, %.noexc18 ], [ %185, %183 ]
   %191 = phi ptr [ %.pre.i, %.noexc18 ], [ %181, %183 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 -4
@@ -17045,8 +17042,8 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %183, %.noexc18
   store i32 %195, ptr %192, align 4, !tbaa !87
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN3sat9lookahead9backtrackER7svectorINS_7literalEjE.exit.jt2, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
-  br label %22, !llvm.loop !388
+.backedge:                                        ; preds = %.noexc17, %.thread60
+  br label %22, !llvm.loop !389
 
 .thread:                                          ; preds = %165, %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i
   %.136.ph = phi i32 [ -1, %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i ], [ 1, %165 ]
@@ -17067,10 +17064,10 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %183, %.noexc18
   unreachable
 
 _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %.lr.ph.i, %.thread, %196
-  %.13662 = phi i32 [ %.136.ph, %.thread ], [ %.136.ph, %196 ], [ -1, %.lr.ph.i ]
+  %.13665 = phi i32 [ %.136.ph, %.thread ], [ %.136.ph, %196 ], [ -1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 %10, ptr %9, align 8, !tbaa !92
-  ret i32 %.13662
+  ret i32 %.13665
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit42, %.loopexit.split-lp43, %52
   %.pn = phi { ptr, i32 } [ %.pn.i, %52 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit37, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit40, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -18638,9 +18635,9 @@ _ZN3sat9lookahead10init_modelEv.exit:             ; preds = %_ZN6vectorI5lboolLb
 
 461:                                              ; preds = %388
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %463 = load i32, ptr %462, align 8, !tbaa !389
+  %463 = load i32, ptr %462, align 8, !tbaa !388
   %464 = add i32 %463, 1
-  store i32 %464, ptr %462, align 8, !tbaa !389
+  store i32 %464, ptr %462, align 8, !tbaa !388
   %465 = load i32, ptr %139, align 4, !tbaa !90
   invoke void @_ZN3sat9lookahead4pushENS_7literalEj(ptr noundef nonnull align 8 dereferenceable(1160) %0, i32 %storemerge.lcssa.i.i, i32 noundef %465)
           to label %466 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -23599,7 +23596,7 @@ _ZNK6vectorIN3sat9lookahead6prefixELb0EjE4sizeEv.exit: ; preds = %2, %6
   %16 = load i32, ptr %9, align 8, !tbaa !351
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.67, i32 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %18 = load i32, ptr %17, align 8, !tbaa !389
+  %18 = load i32, ptr %17, align 8, !tbaa !388
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.68, i32 noundef %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1012
   %20 = load i32, ptr %19, align 4, !tbaa !355
@@ -27440,8 +27437,8 @@ attributes #33 = { builtin allocsize(0) }
 !385 = distinct !{!385, !89}
 !386 = !{!61, !5, i64 0}
 !387 = distinct !{!387, !89}
-!388 = distinct !{!388, !89}
-!389 = !{!9, !11, i64 1008}
+!388 = !{!9, !11, i64 1008}
+!389 = distinct !{!389, !89}
 !390 = !{!9, !11, i64 1080}
 !391 = distinct !{!391, !89}
 !392 = !{!9, !11, i64 1076}

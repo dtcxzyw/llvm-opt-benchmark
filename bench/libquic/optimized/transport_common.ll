@@ -787,8 +787,9 @@ _Z20SocketSetNonBlockingib.exit.preheader:        ; preds = %8
   %18 = add nsw i32 %1, 1
   br label %_Z20SocketSetNonBlockingib.exit.outer
 
-_Z20SocketSetNonBlockingib.exit.outer:            ; preds = %.thread.jt0, %_Z20SocketSetNonBlockingib.exit.preheader
-  %.043.ph = phi i1 [ false, %.thread.jt0 ], [ true, %_Z20SocketSetNonBlockingib.exit.preheader ]
+_Z20SocketSetNonBlockingib.exit.outer:            ; preds = %_Z20SocketSetNonBlockingib.exit.outer.backedge, %_Z20SocketSetNonBlockingib.exit.preheader
+  %.043.ph = phi i1 [ true, %_Z20SocketSetNonBlockingib.exit.preheader ], [ %.144, %_Z20SocketSetNonBlockingib.exit.outer.backedge ]
+  %.1.ph = phi i1 [ undef, %_Z20SocketSetNonBlockingib.exit.preheader ], [ %.2, %_Z20SocketSetNonBlockingib.exit.outer.backedge ]
   br label %_Z20SocketSetNonBlockingib.exit
 
 19:                                               ; preds = %8
@@ -796,7 +797,7 @@ _Z20SocketSetNonBlockingib.exit.outer:            ; preds = %.thread.jt0, %_Z20S
   %21 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr %20) #23
   br label %_Z20SocketSetNonBlockingib.exit.thread
 
-_Z20SocketSetNonBlockingib.exit:                  ; preds = %_Z20SocketSetNonBlockingib.exit.backedge, %_Z20SocketSetNonBlockingib.exit.outer
+_Z20SocketSetNonBlockingib.exit:                  ; preds = %_Z20SocketSetNonBlockingib.exit.outer, %78
   br i1 %.043.ph, label %22, label %25
 
 22:                                               ; preds = %_Z20SocketSetNonBlockingib.exit
@@ -821,7 +822,7 @@ _Z20SocketSetNonBlockingib.exit:                  ; preds = %_Z20SocketSetNonBlo
   %31 = load i64, ptr %3, align 8, !tbaa !20
   %32 = and i64 %31, 1
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %77, label %33
+  br i1 %.not, label %78, label %33
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -831,7 +832,7 @@ _Z20SocketSetNonBlockingib.exit:                  ; preds = %_Z20SocketSetNonBlo
   %35 = call i64 @read(i32 noundef 0, ptr noundef nonnull %4, i64 noundef 512)
   switch i64 %35, label %.critedge [
     i64 -1, label %36
-    i64 0, label %.thread.jt0
+    i64 0, label %40
   ]
 
 36:                                               ; preds = %34
@@ -840,152 +841,160 @@ _Z20SocketSetNonBlockingib.exit:                  ; preds = %_Z20SocketSetNonBlo
   %39 = icmp eq i32 %38, 4
   br i1 %39, label %34, label %.critedge.thread, !llvm.loop !45
 
+40:                                               ; preds = %34
+  %41 = load i64, ptr %3, align 8, !tbaa !20
+  %42 = and i64 %41, -2
+  store i64 %42, ptr %3, align 8, !tbaa !20
+  %43 = call i32 @shutdown(i32 noundef %1, i32 noundef 1) #19
+  br label %.thread, !llvm.loop !47
+
 .critedge:                                        ; preds = %34
-  %40 = icmp slt i64 %35, 0
-  br i1 %40, label %.critedge.thread, label %41
+  %44 = icmp slt i64 %35, 0
+  br i1 %44, label %.critedge.thread, label %45
 
 .critedge.thread:                                 ; preds = %.critedge, %36
   call void @perror(ptr noundef nonnull @.str.20) #23
-  br label %.thread.jt1
+  br label %.thread
 
-41:                                               ; preds = %.critedge
-  %42 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread.jt1, label %44
+45:                                               ; preds = %.critedge
+  %46 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %.thread, label %48
 
-44:                                               ; preds = %41
-  %45 = and i32 %42, 2147481599
-  %46 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 4, i32 noundef %45)
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %_Z20SocketSetNonBlockingib.exit65, label %48
+48:                                               ; preds = %45
+  %49 = and i32 %46, 2147481599
+  %50 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 4, i32 noundef %49)
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_Z20SocketSetNonBlockingib.exit65, label %52
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr @stderr, align 8, !tbaa !29
-  %50 = call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr %49) #23
-  br label %.thread.jt1
+52:                                               ; preds = %48
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !29
+  %54 = call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr %53) #23
+  br label %.thread
 
-_Z20SocketSetNonBlockingib.exit65:                ; preds = %44
-  %51 = trunc i64 %35 to i32
-  %52 = call i32 @SSL_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %51)
-  %53 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.thread.jt1, label %55
+_Z20SocketSetNonBlockingib.exit65:                ; preds = %48
+  %55 = trunc i64 %35 to i32
+  %56 = call i32 @SSL_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %55)
+  %57 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3, i32 noundef 0)
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %.thread, label %59
 
-55:                                               ; preds = %_Z20SocketSetNonBlockingib.exit65
-  %56 = or i32 %53, 2048
-  %57 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 4, i32 noundef %56)
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %_Z20SocketSetNonBlockingib.exit67, label %59
+59:                                               ; preds = %_Z20SocketSetNonBlockingib.exit65
+  %60 = or i32 %57, 2048
+  %61 = call i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 4, i32 noundef %60)
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %_Z20SocketSetNonBlockingib.exit67, label %63
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !29
-  %61 = call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr %60) #23
-  br label %.thread.jt1
+63:                                               ; preds = %59
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !29
+  %65 = call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr %64) #23
+  br label %.thread
 
-_Z20SocketSetNonBlockingib.exit67:                ; preds = %55
-  %62 = icmp slt i32 %52, 1
-  br i1 %62, label %63, label %68
+_Z20SocketSetNonBlockingib.exit67:                ; preds = %59
+  %66 = icmp slt i32 %56, 1
+  br i1 %66, label %67, label %72
 
-63:                                               ; preds = %_Z20SocketSetNonBlockingib.exit67
-  %64 = call i32 @SSL_get_error(ptr noundef %0, i32 noundef %52)
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !29
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.21, i32 noundef %64) #22
-  %67 = load ptr, ptr @stderr, align 8, !tbaa !29
-  call void @ERR_print_errors_cb(ptr noundef nonnull @_Z18PrintErrorCallbackPKcmPv, ptr noundef %67)
-  br label %.thread.jt1
-
-68:                                               ; preds = %_Z20SocketSetNonBlockingib.exit67
-  %69 = zext nneg i32 %52 to i64
-  %.not61 = icmp eq i64 %35, %69
-  br i1 %.not61, label %76, label %70
-
-70:                                               ; preds = %68
+67:                                               ; preds = %_Z20SocketSetNonBlockingib.exit67
+  %68 = call i32 @SSL_get_error(ptr noundef %0, i32 noundef %56)
+  %69 = load ptr, ptr @stderr, align 8, !tbaa !29
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.21, i32 noundef %68) #22
   %71 = load ptr, ptr @stderr, align 8, !tbaa !29
-  %72 = call i64 @fwrite(ptr nonnull @.str.22, i64 28, i64 1, ptr %71) #23
-  br label %.thread.jt1
+  call void @ERR_print_errors_cb(ptr noundef nonnull @_Z18PrintErrorCallbackPKcmPv, ptr noundef %71)
+  br label %.thread
 
-.thread.jt0:                                      ; preds = %34
-  %73 = load i64, ptr %3, align 8, !tbaa !20
-  %74 = and i64 %73, -2
-  store i64 %74, ptr %3, align 8, !tbaa !20
-  %75 = call i32 @shutdown(i32 noundef %1, i32 noundef 1) #19
+72:                                               ; preds = %_Z20SocketSetNonBlockingib.exit67
+  %73 = zext nneg i32 %56 to i64
+  %.not61 = icmp eq i64 %35, %73
+  br i1 %.not61, label %77, label %74
+
+74:                                               ; preds = %72
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !29
+  %76 = call i64 @fwrite(ptr nonnull @.str.22, i64 28, i64 1, ptr %75) #23
+  br label %.thread
+
+.thread:                                          ; preds = %45, %_Z20SocketSetNonBlockingib.exit65, %40, %.critedge.thread, %67, %74, %52, %63
+  %.149.ph = phi i32 [ 1, %74 ], [ 1, %67 ], [ 1, %.critedge.thread ], [ 8, %40 ], [ 1, %52 ], [ 1, %63 ], [ 1, %_Z20SocketSetNonBlockingib.exit65 ], [ 1, %45 ]
+  %.346.ph = phi i1 [ %.043.ph, %74 ], [ %.043.ph, %67 ], [ %.043.ph, %.critedge.thread ], [ false, %40 ], [ %.043.ph, %52 ], [ %.043.ph, %63 ], [ %.043.ph, %_Z20SocketSetNonBlockingib.exit65 ], [ %.043.ph, %45 ]
+  %.4.ph = phi i1 [ false, %74 ], [ false, %67 ], [ false, %.critedge.thread ], [ %.1.ph, %40 ], [ false, %52 ], [ false, %63 ], [ false, %_Z20SocketSetNonBlockingib.exit65 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %104
+
+77:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %78
+
+78:                                               ; preds = %77, %30
+  %79 = load i64, ptr %17, align 8, !tbaa !20
+  %80 = and i64 %79, %14
+  %.not62 = icmp eq i64 %80, 0
+  br i1 %.not62, label %_Z20SocketSetNonBlockingib.exit, label %81, !llvm.loop !47
+
+81:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %82 = call i32 @SSL_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 512)
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %84, label %91
+
+84:                                               ; preds = %81
+  %85 = call i32 @SSL_get_error(ptr noundef %0, i32 noundef %82)
+  %86 = icmp eq i32 %85, 2
+  br i1 %86, label %103, label %87, !llvm.loop !47
+
+87:                                               ; preds = %84
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !29
+  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.23, i32 noundef %85) #22
+  %90 = load ptr, ptr @stderr, align 8, !tbaa !29
+  call void @ERR_print_errors_cb(ptr noundef nonnull @_Z18PrintErrorCallbackPKcmPv, ptr noundef %90)
+  br label %103
+
+91:                                               ; preds = %81
+  %92 = icmp eq i32 %82, 0
+  br i1 %92, label %103, label %.preheader
+
+.preheader:                                       ; preds = %91
+  %93 = zext nneg i32 %82 to i64
+  br label %94
+
+94:                                               ; preds = %.preheader, %97
+  %95 = call i64 @write(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %93)
+  %96 = icmp eq i64 %95, -1
+  br i1 %96, label %97, label %.critedge3
+
+97:                                               ; preds = %94
+  %98 = tail call ptr @__errno_location() #24
+  %99 = load i32, ptr %98, align 4, !tbaa !34
+  %100 = icmp eq i32 %99, 4
+  br i1 %100, label %94, label %.critedge3.thread, !llvm.loop !48
+
+.critedge3:                                       ; preds = %94
+  %.not63 = icmp eq i64 %95, %93
+  br i1 %.not63, label %103, label %.critedge3.thread
+
+.critedge3.thread:                                ; preds = %97, %.critedge3
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !29
+  %102 = call i64 @fwrite(ptr nonnull @.str.24, i64 23, i64 1, ptr %101) #23
+  br label %103
+
+103:                                              ; preds = %.critedge3.thread, %.critedge3, %91, %87, %84
+  %.452 = phi i32 [ 1, %87 ], [ 8, %84 ], [ 1, %91 ], [ 1, %.critedge3.thread ], [ 0, %.critedge3 ]
+  %.8 = phi i1 [ false, %87 ], [ %.1.ph, %84 ], [ true, %91 ], [ false, %.critedge3.thread ], [ %.1.ph, %.critedge3 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %104
+
+104:                                              ; preds = %.thread, %103
+  %.048 = phi i32 [ %.452, %103 ], [ %.149.ph, %.thread ]
+  %.144 = phi i1 [ %.043.ph, %103 ], [ %.346.ph, %.thread ]
+  %.2 = phi i1 [ %.8, %103 ], [ %.4.ph, %.thread ]
+  switch i32 %.048, label %_Z20SocketSetNonBlockingib.exit.thread [
+    i32 0, label %_Z20SocketSetNonBlockingib.exit.outer.backedge
+    i32 8, label %_Z20SocketSetNonBlockingib.exit.outer.backedge
+  ]
+
+_Z20SocketSetNonBlockingib.exit.outer.backedge:   ; preds = %104, %104
   br label %_Z20SocketSetNonBlockingib.exit.outer, !llvm.loop !47
 
-.thread.jt1:                                      ; preds = %_Z20SocketSetNonBlockingib.exit65, %41, %59, %48, %.critedge.thread, %63, %70
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_Z20SocketSetNonBlockingib.exit.thread
-
-76:                                               ; preds = %68
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %77
-
-77:                                               ; preds = %76, %30
-  %78 = load i64, ptr %17, align 8, !tbaa !20
-  %79 = and i64 %78, %14
-  %.not62 = icmp eq i64 %79, 0
-  br i1 %.not62, label %_Z20SocketSetNonBlockingib.exit.backedge, label %80
-
-_Z20SocketSetNonBlockingib.exit.backedge:         ; preds = %77, %102
-  br label %_Z20SocketSetNonBlockingib.exit, !llvm.loop !47
-
-80:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %81 = call i32 @SSL_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 512)
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %83, label %90
-
-83:                                               ; preds = %80
-  %84 = call i32 @SSL_get_error(ptr noundef %0, i32 noundef %81)
-  %85 = icmp eq i32 %84, 2
-  br i1 %85, label %102, label %86, !llvm.loop !47
-
-86:                                               ; preds = %83
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !29
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.23, i32 noundef %84) #22
-  %89 = load ptr, ptr @stderr, align 8, !tbaa !29
-  call void @ERR_print_errors_cb(ptr noundef nonnull @_Z18PrintErrorCallbackPKcmPv, ptr noundef %89)
-  br label %.loopexit
-
-90:                                               ; preds = %80
-  %91 = icmp eq i32 %81, 0
-  br i1 %91, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %90
-  %92 = zext nneg i32 %81 to i64
-  br label %93
-
-93:                                               ; preds = %.preheader, %96
-  %94 = call i64 @write(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %92)
-  %95 = icmp eq i64 %94, -1
-  br i1 %95, label %96, label %.critedge3
-
-96:                                               ; preds = %93
-  %97 = tail call ptr @__errno_location() #24
-  %98 = load i32, ptr %97, align 4, !tbaa !34
-  %99 = icmp eq i32 %98, 4
-  br i1 %99, label %93, label %.critedge3.thread, !llvm.loop !48
-
-.critedge3:                                       ; preds = %93
-  %.not63 = icmp eq i64 %94, %92
-  br i1 %.not63, label %102, label %.critedge3.thread
-
-.critedge3.thread:                                ; preds = %.critedge3, %96
-  %100 = load ptr, ptr @stderr, align 8, !tbaa !29
-  %101 = call i64 @fwrite(ptr nonnull @.str.24, i64 23, i64 1, ptr %100) #23
-  br label %.loopexit
-
-102:                                              ; preds = %.critedge3, %83
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_Z20SocketSetNonBlockingib.exit.backedge
-
-.loopexit:                                        ; preds = %90, %.critedge3.thread, %86
-  %.8.jt1 = phi i1 [ false, %86 ], [ false, %.critedge3.thread ], [ true, %90 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_Z20SocketSetNonBlockingib.exit.thread
-
-_Z20SocketSetNonBlockingib.exit.thread:           ; preds = %.loopexit, %.thread.jt1, %19, %2, %.thread75
-  %.0 = phi i1 [ false, %.thread75 ], [ false, %2 ], [ false, %19 ], [ %.8.jt1, %.loopexit ], [ false, %.thread.jt1 ]
+_Z20SocketSetNonBlockingib.exit.thread:           ; preds = %104, %19, %2, %.thread75
+  %.0 = phi i1 [ false, %.thread75 ], [ false, %2 ], [ false, %19 ], [ %.2, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

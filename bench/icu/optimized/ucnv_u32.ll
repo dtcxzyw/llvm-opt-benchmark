@@ -1682,249 +1682,218 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
 .outer103.split.us.lr.ph.lr.ph:                   ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = icmp eq ptr %10, null
-  %16 = load i32, ptr %1, align 4, !tbaa !30
-  %17 = icmp sgt i32 %16, 0
-  br label %.outer103.split.us
+  br label %.outer103.split.us.lr.ph
 
-.outer103.split.us:                               ; preds = %.outer, %.outer103.split.us.lr.ph.lr.ph
+.outer103.split.us.lr.ph:                         ; preds = %.outer103.split.us.lr.ph.lr.ph, %.outer
   %.0.ph179 = phi ptr [ %6, %.outer103.split.us.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.089.ph178 = phi i32 [ %12, %.outer103.split.us.lr.ph.lr.ph ], [ %.2, %.outer ]
+  %.091.ph177 = phi i32 [ 0, %.outer103.split.us.lr.ph.lr.ph ], [ %.192, %.outer ]
+  br label %.outer103.split.us
+
+.outer103.split.us:                               ; preds = %.outer103.split.us.lr.ph, %.outer103
+  %.0.ph105171 = phi ptr [ %.0.ph179, %.outer103.split.us.lr.ph ], [ %42, %.outer103 ]
+  %.089.ph104170 = phi i32 [ %.089.ph178, %.outer103.split.us.lr.ph ], [ 8, %.outer103 ]
+  %16 = load i32, ptr %1, align 4, !tbaa !30
+  %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.critedge, label %.outer103.split.us.split
 
-.outer103.split.us.jt9:                           ; preds = %.outer.jt9
-  %18 = load i32, ptr %1, align 4, !tbaa !30
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.critedge, label %.split128.us
-
-.outer103.split.us.jt8:                           ; preds = %.outer.jt8, %.outer103
-  %.091.ph177214 = phi i32 [ 0, %.outer103 ], [ %.192.jt8, %.outer.jt8 ]
-  %.0.ph105171.jt8 = phi ptr [ %47, %.outer103 ], [ %.1.jt8, %.outer.jt8 ]
-  %20 = load i32, ptr %1, align 4, !tbaa !30
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.critedge, label %.split125.us
-
-.outer103.split.us.jt5:                           ; preds = %.outer.jt5
-  %22 = load i32, ptr %1, align 4, !tbaa !30
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.critedge, label %.split.us
-
-.outer103.split.us.split:                         ; preds = %.outer103.split.us
-  switch i32 %.089.ph178, label %.outer [
-    i32 0, label %24
+.outer103.split.us.split:                         ; preds = %.outer103.split.us, %18
+  %.089.us = phi i32 [ 8, %18 ], [ %.089.ph104170, %.outer103.split.us ]
+  switch i32 %.089.us, label %.outer [
+    i32 0, label %18
     i32 1, label %.split.us
     i32 2, label %.split.us
     i32 3, label %.split.us
     i32 5, label %.split.us
     i32 6, label %.split.us
     i32 7, label %.split.us
-    i32 8, label %.split125.us.loopexit
+    i32 8, label %.split125.us
     i32 9, label %.split128.us
   ]
 
-24:                                               ; preds = %.outer103.split.us.split
-  %25 = load i8, ptr %.0.ph179, align 1, !tbaa !23
-  switch i8 %25, label %.split125.us.loopexit [
-    i8 0, label %.loopexit102.split.us.loopexit
-    i8 -1, label %.outer.jt5
+18:                                               ; preds = %.outer103.split.us.split
+  %19 = load i8, ptr %.0.ph105171, align 1, !tbaa !23
+  switch i8 %19, label %.outer103.split.us.split [
+    i8 0, label %.loopexit102.split.us
+    i8 -1, label %.loopexit102.split.us.loopexit242
   ], !llvm.loop !58
 
-.split.us:                                        ; preds = %.outer103.split.us.jt5, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split
-  %.0.ph105171217 = phi ptr [ %.0.ph179, %.outer103.split.us.split ], [ %.0.ph179, %.outer103.split.us.split ], [ %.0.ph179, %.outer103.split.us.split ], [ %.0.ph179, %.outer103.split.us.split ], [ %.0.ph179, %.outer103.split.us.split ], [ %.0.ph179, %.outer103.split.us.split ], [ %74, %.outer103.split.us.jt5 ]
-  %.089.us207 = phi i32 [ %.089.ph178, %.outer103.split.us.split ], [ %.089.ph178, %.outer103.split.us.split ], [ %.089.ph178, %.outer103.split.us.split ], [ %.089.ph178, %.outer103.split.us.split ], [ %.089.ph178, %.outer103.split.us.split ], [ %.089.ph178, %.outer103.split.us.split ], [ %.190.jt5, %.outer103.split.us.jt5 ]
-  %26 = load i8, ptr %.0.ph105171217, align 1, !tbaa !23
-  %27 = zext nneg i32 %.089.us207 to i64
-  %28 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !23
-  %30 = icmp eq i8 %26, %29
-  br i1 %30, label %31, label %46
+.split.us:                                        ; preds = %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split
+  %20 = load i8, ptr %.0.ph105171, align 1, !tbaa !23
+  %21 = zext nneg i32 %.089.us to i64
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !23
+  %24 = icmp eq i8 %20, %23
+  br i1 %24, label %26, label %41
 
-.split125.us.loopexit:                            ; preds = %24, %.outer103.split.us.split
-  br label %.split125.us
+.split125.us:                                     ; preds = %.outer103.split.us.split
+  store ptr %.0.ph105171, ptr %5, align 8, !tbaa !3
+  br i1 %15, label %58, label %59
 
-.split125.us:                                     ; preds = %.split125.us.loopexit, %.outer103.split.us.jt8
-  %.0.ph105171220 = phi ptr [ %.0.ph105171.jt8, %.outer103.split.us.jt8 ], [ %.0.ph179, %.split125.us.loopexit ]
-  %.091.ph177216 = phi i32 [ %.091.ph177214, %.outer103.split.us.jt8 ], [ 0, %.split125.us.loopexit ]
-  store ptr %.0.ph105171220, ptr %5, align 8, !tbaa !3
-  br i1 %15, label %63, label %64
+.split128.us:                                     ; preds = %.outer103.split.us.split
+  store ptr %.0.ph105171, ptr %5, align 8, !tbaa !3
+  br i1 %15, label %62, label %63
 
-.split128.us:                                     ; preds = %.outer103.split.us.split, %.outer103.split.us.jt9
-  %.0.ph105171218 = phi ptr [ %.1.jt9, %.outer103.split.us.jt9 ], [ %.0.ph179, %.outer103.split.us.split ]
-  %.091.ph177213 = phi i32 [ %.192.jt9, %.outer103.split.us.jt9 ], [ 0, %.outer103.split.us.split ]
-  store ptr %.0.ph105171218, ptr %5, align 8, !tbaa !3
-  br i1 %15, label %67, label %68
+.loopexit102.split.us.loopexit242:                ; preds = %18
+  br label %.loopexit102.split.us
 
-.loopexit102.split.us.loopexit:                   ; preds = %24
-  br label %.outer.jt5
+.loopexit102.split.us:                            ; preds = %18, %.loopexit102.split.us.loopexit242
+  %.190 = phi i32 [ 5, %.loopexit102.split.us.loopexit242 ], [ 1, %18 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0.ph105171, i64 1
+  br label %.outer
 
-31:                                               ; preds = %.split.us
-  %32 = add nuw nsw i32 %.089.us207, 1
-  %33 = getelementptr inbounds nuw i8, ptr %.0.ph105171217, i64 1
-  switch i32 %.089.us207, label %.outer [
-    i32 3, label %34
-    i32 7, label %40
+26:                                               ; preds = %.split.us
+  %27 = add nuw nsw i32 %.089.us, 1
+  %28 = getelementptr inbounds nuw i8, ptr %.0.ph105171, i64 1
+  switch i32 %.089.us, label %.outer [
+    i32 3, label %29
+    i32 7, label %35
   ]
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %5, align 8, !tbaa !3
-  %36 = ptrtoint ptr %33 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %36, %37
-  %39 = trunc i64 %38 to i32
-  br label %.outer.jt8
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = ptrtoint ptr %28 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = trunc i64 %33 to i32
+  br label %.outer
 
-40:                                               ; preds = %31
-  %41 = load ptr, ptr %5, align 8, !tbaa !3
-  %42 = ptrtoint ptr %33 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = trunc i64 %44 to i32
-  br label %.outer.jt9
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %37 = ptrtoint ptr %28 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = trunc i64 %39 to i32
+  br label %.outer
 
-46:                                               ; preds = %.split.us
-  %47 = load ptr, ptr %5, align 8, !tbaa !3
-  %48 = ptrtoint ptr %.0.ph105171217 to i64
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = trunc i64 %50 to i32
-  %52 = and i32 %.089.us207, 3
-  %53 = icmp eq i32 %52, %51
-  br i1 %53, label %.outer103, label %54
+41:                                               ; preds = %.split.us
+  %42 = load ptr, ptr %5, align 8, !tbaa !3
+  %43 = ptrtoint ptr %.0.ph105171 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = trunc i64 %45 to i32
+  %47 = and i32 %.089.us, 3
+  %48 = icmp eq i32 %47, %46
+  br i1 %48, label %.outer103, label %49
 
-54:                                               ; preds = %46
-  %55 = load i8, ptr %14, align 2, !tbaa !59
-  %56 = and i32 %.089.us207, 4
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %57
-  store ptr %58, ptr %5, align 8, !tbaa !3
-  %59 = sub nsw i32 %52, %51
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %58, i64 %60
-  store ptr %61, ptr %7, align 8, !tbaa !14
+49:                                               ; preds = %41
+  %50 = load i8, ptr %14, align 2, !tbaa !59
+  %51 = and i32 %.089.us, 4
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %52
+  store ptr %53, ptr %5, align 8, !tbaa !3
+  %54 = sub nsw i32 %47, %46
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+  store ptr %56, ptr %7, align 8, !tbaa !14
   store i8 0, ptr %14, align 2, !tbaa !59
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1)
   store ptr %8, ptr %7, align 8, !tbaa !14
-  store i8 %55, ptr %14, align 2, !tbaa !59
+  store i8 %50, ptr %14, align 2, !tbaa !59
   br label %.outer103
 
-.outer103:                                        ; preds = %46, %54
-  %62 = icmp ult ptr %47, %8
-  br i1 %62, label %.outer103.split.us.jt8, label %.critedge
+.outer103:                                        ; preds = %41, %49
+  %57 = icmp ult ptr %42, %8
+  br i1 %57, label %.outer103.split.us, label %.critedge
 
-63:                                               ; preds = %.split125.us
+58:                                               ; preds = %.split125.us
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %65
+  br label %60
 
-64:                                               ; preds = %.split125.us
+59:                                               ; preds = %.split125.us
   tail call void @_ZL44T_UConverter_toUnicode_UTF32_BE_OFFSET_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %65
+  br label %60
 
-65:                                               ; preds = %64, %63
-  %66 = load ptr, ptr %5, align 8, !tbaa !3
-  br label %.outer.jt8
+60:                                               ; preds = %59, %58
+  %61 = load ptr, ptr %5, align 8, !tbaa !3
+  br label %.outer
 
-67:                                               ; preds = %.split128.us
+62:                                               ; preds = %.split128.us
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %69
+  br label %64
 
-68:                                               ; preds = %.split128.us
+63:                                               ; preds = %.split128.us
   tail call void @_ZL44T_UConverter_toUnicode_UTF32_LE_OFFSET_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %69
+  br label %64
 
-69:                                               ; preds = %68, %67
-  %70 = load ptr, ptr %5, align 8, !tbaa !3
-  br label %.outer.jt9
+64:                                               ; preds = %63, %62
+  %65 = load ptr, ptr %5, align 8, !tbaa !3
+  br label %.outer
 
-.outer:                                           ; preds = %.outer103.split.us.split, %31
-  %.2 = phi i32 [ %32, %31 ], [ %.089.ph178, %.outer103.split.us.split ]
-  %.1 = phi ptr [ %33, %31 ], [ %.0.ph179, %.outer103.split.us.split ]
-  %71 = icmp ult ptr %.1, %8
-  br i1 %71, label %.outer103.split.us, label %.critedge, !llvm.loop !58
+.outer:                                           ; preds = %.outer103.split.us.split, %26, %35, %29, %64, %60, %.loopexit102.split.us
+  %.192 = phi i32 [ %.091.ph177, %.loopexit102.split.us ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %60 ], [ %.091.ph177, %64 ], [ %.091.ph177, %26 ], [ %.091.ph177, %.outer103.split.us.split ]
+  %.2 = phi i32 [ %.190, %.loopexit102.split.us ], [ 8, %29 ], [ 9, %35 ], [ 8, %60 ], [ 9, %64 ], [ %27, %26 ], [ %.089.us, %.outer103.split.us.split ]
+  %.1 = phi ptr [ %25, %.loopexit102.split.us ], [ %28, %29 ], [ %28, %35 ], [ %61, %60 ], [ %65, %64 ], [ %28, %26 ], [ %.0.ph105171, %.outer103.split.us.split ]
+  %66 = icmp ult ptr %.1, %8
+  br i1 %66, label %.outer103.split.us.lr.ph, label %.critedge, !llvm.loop !58
 
-.outer.jt9:                                       ; preds = %69, %40
-  %.192.jt9 = phi i32 [ %45, %40 ], [ %.091.ph177213, %69 ]
-  %.1.jt9 = phi ptr [ %33, %40 ], [ %70, %69 ]
-  %72 = icmp ult ptr %.1.jt9, %8
-  br i1 %72, label %.outer103.split.us.jt9, label %.critedge, !llvm.loop !58
+.critedge:                                        ; preds = %.outer, %.outer103, %.outer103.split.us
+  %.us-phi = phi i32 [ %.091.ph177, %.outer103.split.us ], [ %.091.ph177, %.outer103 ], [ %.192, %.outer ]
+  %.us-phi119 = phi ptr [ %42, %.outer103 ], [ %.0.ph105171, %.outer103.split.us ], [ %.1, %.outer ]
+  %.us-phi120 = phi i32 [ 8, %.outer103 ], [ %.089.ph104170, %.outer103.split.us ], [ %.2, %.outer ]
+  %67 = icmp ne ptr %10, null
+  %68 = icmp ne i32 %.us-phi, 0
+  %or.cond = select i1 %67, i1 %68, i1 false
+  br i1 %or.cond, label %69, label %.loopexit
 
-.outer.jt8:                                       ; preds = %65, %34
-  %.192.jt8 = phi i32 [ %39, %34 ], [ %.091.ph177216, %65 ]
-  %.1.jt8 = phi ptr [ %33, %34 ], [ %66, %65 ]
-  %73 = icmp ult ptr %.1.jt8, %8
-  br i1 %73, label %.outer103.split.us.jt8, label %.critedge, !llvm.loop !58
+69:                                               ; preds = %.critedge
+  %70 = load ptr, ptr %9, align 8, !tbaa !32
+  %71 = icmp ult ptr %10, %70
+  br i1 %71, label %.lr.ph, label %.loopexit
 
-.outer.jt5:                                       ; preds = %.loopexit102.split.us.loopexit, %24
-  %.190.jt5 = phi i32 [ 1, %.loopexit102.split.us.loopexit ], [ 5, %24 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.0.ph179, i64 1
-  %75 = icmp ult ptr %74, %8
-  br i1 %75, label %.outer103.split.us.jt5, label %.critedge, !llvm.loop !58
+.lr.ph:                                           ; preds = %69, %.lr.ph
+  %.088183 = phi ptr [ %72, %.lr.ph ], [ %10, %69 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.088183, i64 4
+  %73 = load i32, ptr %.088183, align 4, !tbaa !34
+  %74 = add nsw i32 %73, %.us-phi
+  store i32 %74, ptr %.088183, align 4, !tbaa !34
+  %75 = icmp ult ptr %72, %70
+  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
-.critedge:                                        ; preds = %.outer, %.outer.jt5, %.outer103.split.us, %.outer103.split.us.jt5, %.outer.jt8, %.outer.jt9, %.outer103, %.outer103.split.us.jt8, %.outer103.split.us.jt9
-  %.us-phi = phi i32 [ %.192.jt9, %.outer103.split.us.jt9 ], [ %.091.ph177214, %.outer103.split.us.jt8 ], [ 0, %.outer103 ], [ %.192.jt9, %.outer.jt9 ], [ %.192.jt8, %.outer.jt8 ], [ 0, %.outer103.split.us.jt5 ], [ 0, %.outer103.split.us ], [ 0, %.outer.jt5 ], [ 0, %.outer ]
-  %.us-phi119 = phi ptr [ %.1.jt9, %.outer103.split.us.jt9 ], [ %.0.ph105171.jt8, %.outer103.split.us.jt8 ], [ %47, %.outer103 ], [ %.1.jt9, %.outer.jt9 ], [ %.1.jt8, %.outer.jt8 ], [ %.1, %.outer ], [ %74, %.outer.jt5 ], [ %.0.ph179, %.outer103.split.us ], [ %74, %.outer103.split.us.jt5 ]
-  %.us-phi120 = phi i32 [ 9, %.outer103.split.us.jt9 ], [ 8, %.outer103.split.us.jt8 ], [ 8, %.outer103 ], [ 9, %.outer.jt9 ], [ 8, %.outer.jt8 ], [ %.2, %.outer ], [ %.190.jt5, %.outer.jt5 ], [ %.089.ph178, %.outer103.split.us ], [ %.190.jt5, %.outer103.split.us.jt5 ]
-  %76 = icmp ne ptr %10, null
-  %77 = icmp ne i32 %.us-phi, 0
-  %or.cond = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond, label %78, label %.loopexit
+.loopexit:                                        ; preds = %.lr.ph, %2, %69, %.critedge
+  %.us-phi120212 = phi i32 [ %.us-phi120, %69 ], [ %.us-phi120, %.critedge ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
+  %.us-phi119211 = phi ptr [ %.us-phi119, %69 ], [ %.us-phi119, %.critedge ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
+  store ptr %.us-phi119211, ptr %5, align 8, !tbaa !3
+  %76 = icmp eq ptr %.us-phi119211, %8
+  br i1 %76, label %77, label %90
 
-78:                                               ; preds = %.critedge
-  %79 = load ptr, ptr %9, align 8, !tbaa !32
-  %80 = icmp ult ptr %10, %79
-  br i1 %80, label %.lr.ph, label %.loopexit
+77:                                               ; preds = %.loopexit
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %79 = load i8, ptr %78, align 2, !tbaa !59
+  %.not100 = icmp eq i8 %79, 0
+  br i1 %.not100, label %90, label %80
 
-.lr.ph:                                           ; preds = %78, %.lr.ph
-  %.088183 = phi ptr [ %81, %.lr.ph ], [ %10, %78 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.088183, i64 4
-  %82 = load i32, ptr %.088183, align 4, !tbaa !34
-  %83 = add nsw i32 %82, %.us-phi
-  store i32 %83, ptr %.088183, align 4, !tbaa !34
-  %84 = icmp ult ptr %81, %79
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !60
-
-.loopexit:                                        ; preds = %.lr.ph, %2, %78, %.critedge
-  %.us-phi120226 = phi i32 [ %.us-phi120, %78 ], [ %.us-phi120, %.critedge ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
-  %.us-phi119225 = phi ptr [ %.us-phi119, %78 ], [ %.us-phi119, %.critedge ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
-  store ptr %.us-phi119225, ptr %5, align 8, !tbaa !3
-  %85 = icmp eq ptr %.us-phi119225, %8
-  br i1 %85, label %86, label %99
-
-86:                                               ; preds = %.loopexit
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %88 = load i8, ptr %87, align 2, !tbaa !59
-  %.not100 = icmp eq i8 %88, 0
-  br i1 %.not100, label %99, label %89
-
-89:                                               ; preds = %86
-  switch i32 %.us-phi120226, label %92 [
-    i32 0, label %99
-    i32 8, label %90
-    i32 9, label %91
+80:                                               ; preds = %77
+  switch i32 %.us-phi120212, label %83 [
+    i32 0, label %90
+    i32 8, label %81
+    i32 9, label %82
   ]
 
-90:                                               ; preds = %89
+81:                                               ; preds = %80
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef %1)
-  br label %99
+  br label %90
 
-91:                                               ; preds = %89
+82:                                               ; preds = %80
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef %1)
-  br label %99
+  br label %90
 
-92:                                               ; preds = %89
-  %93 = and i32 %.us-phi120226, 4
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %94
-  store ptr %95, ptr %5, align 8, !tbaa !3
-  %96 = and i32 %.us-phi120226, 3
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %97
-  store ptr %98, ptr %7, align 8, !tbaa !14
+83:                                               ; preds = %80
+  %84 = and i32 %.us-phi120212, 4
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %85
+  store ptr %86, ptr %5, align 8, !tbaa !3
+  %87 = and i32 %.us-phi120212, 3
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %88
+  store ptr %89, ptr %7, align 8, !tbaa !14
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef %1)
-  store ptr %.us-phi119225, ptr %5, align 8, !tbaa !3
+  store ptr %.us-phi119211, ptr %5, align 8, !tbaa !3
   store ptr %8, ptr %7, align 8, !tbaa !14
-  br label %99
+  br label %90
 
-99:                                               ; preds = %89, %90, %91, %92, %86, %.loopexit
-  %.3 = phi i32 [ 8, %92 ], [ %.us-phi120226, %89 ], [ 8, %90 ], [ 9, %91 ], [ %.us-phi120226, %86 ], [ %.us-phi120226, %.loopexit ]
+90:                                               ; preds = %80, %81, %82, %83, %77, %.loopexit
+  %.3 = phi i32 [ 8, %83 ], [ %.us-phi120212, %80 ], [ 8, %81 ], [ 9, %82 ], [ %.us-phi120212, %77 ], [ %.us-phi120212, %.loopexit ]
   store i32 %.3, ptr %11, align 4, !tbaa !57
   ret void
 }

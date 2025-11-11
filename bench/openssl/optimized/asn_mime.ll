@@ -1098,692 +1098,634 @@ define internal fastcc ptr @mime_parse_hdr(ptr noundef %0) unnamed_addr #0 {
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader198
 
-.preheader198:                                    ; preds = %1, %.critedge.thread
-  %.074 = phi ptr [ %.3, %.critedge.thread ], [ null, %1 ]
+.preheader198:                                    ; preds = %1, %183
+  %.074 = phi ptr [ %.3, %183 ], [ null, %1 ]
+  %.0 = phi i32 [ %.1, %183 ], [ 0, %1 ]
   %5 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1024) #6
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %190
+  br i1 %6, label %7, label %185
 
 7:                                                ; preds = %.preheader198
   %.not = icmp eq ptr %.074, null
-  br i1 %.not, label %.preheader473, label %8
+  br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %7
   %9 = load i8, ptr %2, align 16, !tbaa !6
   %10 = sext i8 %9 to i32
   %11 = call i32 @ossl_ctype_check(i32 noundef %10, i32 noundef 8) #6
   %.not88 = icmp eq i32 %11, 0
-  br i1 %.not88, label %.preheader473, label %21
-
-.preheader473:                                    ; preds = %7, %8
-  br label %23
-
-spec.select93.si.unfold.false.jt5:                ; preds = %.loopexit380, %spec.select93.si.unfold.false.jt5
-  %.072331 = phi ptr [ %12, %spec.select93.si.unfold.false.jt5 ], [ %.072327, %.loopexit380 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.072331, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !6
-  switch i8 %13, label %spec.select93.si.unfold.false.jt5 [
-    i8 13, label %.critedge.thread
-    i8 10, label %.critedge.thread
-    i8 0, label %.critedge.thread
-    i8 34, label %.fold.split
-  ]
-
-.fold.split:                                      ; preds = %spec.select93.si.unfold.false.jt5, %.loopexit380, %strip_ends.exit131
-  %.072330 = phi ptr [ %.072.jt3, %strip_ends.exit131 ], [ %.072327, %.loopexit380 ], [ %12, %spec.select93.si.unfold.false.jt5 ]
-  %.180.jt4 = phi ptr [ %108, %strip_ends.exit131 ], [ %.079305, %.loopexit380 ], [ %.079305, %spec.select93.si.unfold.false.jt5 ]
-  %.178.jt4 = phi ptr [ %.0.i1.i129, %strip_ends.exit131 ], [ %.077312, %.loopexit380 ], [ %.077312, %spec.select93.si.unfold.false.jt5 ]
-  %.276.jt4 = phi ptr [ %.175.jt3, %strip_ends.exit131 ], [ %.175319, %.loopexit380 ], [ %.175319, %spec.select93.si.unfold.false.jt5 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.072330, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !6
-  switch i8 %15, label %.loopexit380 [
-    i8 13, label %.preheader195.preheader
-    i8 10, label %.preheader195.preheader
-    i8 0, label %.preheader195.preheader
-  ]
-
-spec.select.si.unfold.false.jt6:                  ; preds = %spec.select.si.unfold.false.jt6, %.preheader385
-  %.072329 = phi ptr [ %.072329.ph, %.preheader385 ], [ %16, %spec.select.si.unfold.false.jt6 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.072329, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !6
-  switch i8 %17, label %spec.select.si.unfold.false.jt6 [
-    i8 13, label %.critedge.thread
-    i8 10, label %.critedge.thread
-    i8 0, label %.critedge.thread
-    i8 41, label %.preheader375
-  ]
-
-18:                                               ; preds = %strip_ends.exit, %.loopexit377
-  %.072333 = phi ptr [ %.072324, %.loopexit377 ], [ %.072.jt1, %strip_ends.exit ]
-  %.180.jt2 = phi ptr [ %.079302, %.loopexit377 ], [ %50, %strip_ends.exit ]
-  %.178.jt2 = phi ptr [ %.077309, %.loopexit377 ], [ %.0.i1.i, %strip_ends.exit ]
-  %.276.jt2 = phi ptr [ %.175316, %.loopexit377 ], [ %.074, %strip_ends.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.072333, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !6
-  switch i8 %20, label %.loopexit377 [
-    i8 13, label %.preheader.preheader
-    i8 10, label %.preheader.preheader
-    i8 0, label %.preheader.preheader
-  ]
-
-21:                                               ; preds = %8, %137
-  %.079.jt3 = phi ptr [ %.180.jt3, %137 ], [ %2, %8 ]
-  %.175.jt3 = phi ptr [ %.276.jt3, %137 ], [ %.074, %8 ]
-  %.072.jt3 = phi ptr [ %138, %137 ], [ %2, %8 ]
-  %22 = load i8, ptr %.072.jt3, align 1, !tbaa !6
-  switch i8 %22, label %137 [
-    i8 13, label %.critedge.thread
-    i8 10, label %.critedge.thread
-    i8 0, label %.critedge.thread
-    i8 61, label %84
-  ]
-
-23:                                               ; preds = %.preheader473, %139
-  %.072.jt1 = phi ptr [ %140, %139 ], [ %2, %.preheader473 ]
-  %24 = load i8, ptr %.072.jt1, align 1, !tbaa !6
-  switch i8 %24, label %139 [
-    i8 13, label %.critedge.thread
-    i8 10, label %.critedge.thread
-    i8 0, label %.critedge.thread
-    i8 58, label %26
-  ]
-
-25:                                               ; preds = %.preheader375
-  br i1 %83, label %.loopexit380, label %.loopexit377
-
-26:                                               ; preds = %23
-  store i8 0, ptr %.072.jt1, align 1, !tbaa !6
-  br label %27
-
-27:                                               ; preds = %35, %26
-  %.08.i.i = phi ptr [ %2, %26 ], [ %36, %35 ]
-  %28 = load i8, ptr %.08.i.i, align 1, !tbaa !6
-  switch i8 %28, label %32 [
-    i8 0, label %strip_ends.exit
-    i8 34, label %29
-  ]
-
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !6
-  %.not12.i.i = icmp eq i8 %31, 0
-  br i1 %.not12.i.i, label %strip_ends.exit, label %strip_start.exit.i
-
-32:                                               ; preds = %27
-  %33 = sext i8 %28 to i32
-  %34 = call i32 @ossl_ctype_check(i32 noundef %33, i32 noundef 8) #6
-  %.not11.i.i = icmp eq i32 %34, 0
-  br i1 %.not11.i.i, label %strip_start.exit.i, label %35
-
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
-  br label %27, !llvm.loop !50
-
-strip_start.exit.i:                               ; preds = %32, %29
-  %.0.i.i = phi ptr [ %30, %29 ], [ %.08.i.i, %32 ]
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #7
-  %.not1823.i.i = icmp slt i64 %37, 1
-  br i1 %.not1823.i.i, label %strip_ends.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %strip_start.exit.i
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %37
-  %.01522.i.i = getelementptr inbounds i8, ptr %38, i64 -1
-  %39 = load i8, ptr %.01522.i.i, align 1, !tbaa !6
-  %40 = icmp eq i8 %39, 34
-  br i1 %40, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i
-
-.lr.ph.i.i:                                       ; preds = %49
-  %41 = load i8, ptr %.015.i.i, align 1, !tbaa !6
-  %42 = icmp eq i8 %41, 34
-  br i1 %42, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !51
-
-.lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.01525.i.lcssa.i = phi ptr [ %.01522.i.i, %.lr.ph.preheader.i.i ], [ %.015.i.i, %.lr.ph.i.i ]
-  %.pn24.i.lcssa.i = phi ptr [ %38, %.lr.ph.preheader.i.i ], [ %.01525.i9.i, %.lr.ph.i.i ]
-  %43 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i, i64 -2
-  %44 = icmp eq ptr %43, %.0.i.i
-  br i1 %44, label %strip_ends.exit, label %45
-
-45:                                               ; preds = %.lr.ph.i._crit_edge.i
-  store i8 0, ptr %.01525.i.lcssa.i, align 1, !tbaa !6
-  br label %strip_ends.exit
-
-.lr.ph.i:                                         ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %46 = phi i8 [ %41, %.lr.ph.i.i ], [ %39, %.lr.ph.preheader.i.i ]
-  %.01525.i9.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %.01522.i.i, %.lr.ph.preheader.i.i ]
-  %47 = sext i8 %46 to i32
-  %48 = call i32 @ossl_ctype_check(i32 noundef %47, i32 noundef 8) #6
-  %.not19.i.i = icmp eq i32 %48, 0
-  br i1 %.not19.i.i, label %strip_ends.exit, label %49
-
-49:                                               ; preds = %.lr.ph.i
-  store i8 0, ptr %.01525.i9.i, align 1, !tbaa !6
-  %.015.i.i = getelementptr inbounds i8, ptr %.01525.i9.i, i64 -1
-  %.not18.i.i = icmp ult ptr %.015.i.i, %.0.i.i
-  br i1 %.not18.i.i, label %strip_ends.exit, label %.lr.ph.i.i, !llvm.loop !51
-
-strip_ends.exit:                                  ; preds = %27, %.lr.ph.i, %49, %29, %strip_start.exit.i, %.lr.ph.i._crit_edge.i, %45
-  %.0.i1.i = phi ptr [ %.0.i.i, %45 ], [ null, %.lr.ph.i._crit_edge.i ], [ null, %strip_start.exit.i ], [ null, %29 ], [ %.0.i.i, %.lr.ph.i ], [ null, %49 ], [ null, %27 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.072.jt1, i64 1
-  br label %18
-
-.loopexit377:                                     ; preds = %25, %18
-  %51 = phi i8 [ %20, %18 ], [ %136, %25 ]
-  %.072324 = phi ptr [ %19, %18 ], [ %135, %25 ]
-  %.175316 = phi ptr [ %.276.jt2, %18 ], [ %.276.jt6.ph, %25 ]
-  %.077309 = phi ptr [ %.178.jt2, %18 ], [ %.178.jt6.ph, %25 ]
-  %.079302 = phi ptr [ %.180.jt2, %18 ], [ %.180.jt6.ph, %25 ]
-  switch i8 %51, label %18 [
-    i8 59, label %52
-    i8 40, label %.preheader385
-  ]
-
-52:                                               ; preds = %.loopexit377
-  store i8 0, ptr %.072324, align 1, !tbaa !6
-  br label %53
-
-53:                                               ; preds = %61, %52
-  %.08.i.i94 = phi ptr [ %.079302, %52 ], [ %62, %61 ]
-  %54 = load i8, ptr %.08.i.i94, align 1, !tbaa !6
-  switch i8 %54, label %58 [
-    i8 0, label %strip_ends.exit112
-    i8 34, label %55
-  ]
-
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %.08.i.i94, i64 1
-  %57 = load i8, ptr %56, align 1, !tbaa !6
-  %.not12.i.i95 = icmp eq i8 %57, 0
-  br i1 %.not12.i.i95, label %strip_ends.exit112, label %strip_start.exit.i96
-
-58:                                               ; preds = %53
-  %59 = sext i8 %54 to i32
-  %60 = call i32 @ossl_ctype_check(i32 noundef %59, i32 noundef 8) #6
-  %.not11.i.i111 = icmp eq i32 %60, 0
-  br i1 %.not11.i.i111, label %strip_start.exit.i96, label %61
-
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %.08.i.i94, i64 1
-  br label %53, !llvm.loop !50
-
-strip_start.exit.i96:                             ; preds = %58, %55
-  %.0.i.i97 = phi ptr [ %56, %55 ], [ %.08.i.i94, %58 ]
-  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i97) #7
-  %.not1823.i.i98 = icmp slt i64 %63, 1
-  br i1 %.not1823.i.i98, label %strip_ends.exit112, label %.lr.ph.preheader.i.i99
-
-.lr.ph.preheader.i.i99:                           ; preds = %strip_start.exit.i96
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i97, i64 %63
-  %.01522.i.i100 = getelementptr inbounds i8, ptr %64, i64 -1
-  %65 = load i8, ptr %.01522.i.i100, align 1, !tbaa !6
-  %66 = icmp eq i8 %65, 34
-  br i1 %66, label %.lr.ph.i._crit_edge.i107, label %.lr.ph.i101
-
-.lr.ph.i.i106:                                    ; preds = %75
-  %67 = load i8, ptr %.015.i.i104, align 1, !tbaa !6
-  %68 = icmp eq i8 %67, 34
-  br i1 %68, label %.lr.ph.i._crit_edge.i107, label %.lr.ph.i101, !llvm.loop !51
-
-.lr.ph.i._crit_edge.i107:                         ; preds = %.lr.ph.i.i106, %.lr.ph.preheader.i.i99
-  %.01525.i.lcssa.i108 = phi ptr [ %.01522.i.i100, %.lr.ph.preheader.i.i99 ], [ %.015.i.i104, %.lr.ph.i.i106 ]
-  %.pn24.i.lcssa.i109 = phi ptr [ %64, %.lr.ph.preheader.i.i99 ], [ %.01525.i9.i102, %.lr.ph.i.i106 ]
-  %69 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i109, i64 -2
-  %70 = icmp eq ptr %69, %.0.i.i97
-  br i1 %70, label %strip_ends.exit112, label %71
-
-71:                                               ; preds = %.lr.ph.i._crit_edge.i107
-  store i8 0, ptr %.01525.i.lcssa.i108, align 1, !tbaa !6
-  br label %strip_ends.exit112
-
-.lr.ph.i101:                                      ; preds = %.lr.ph.preheader.i.i99, %.lr.ph.i.i106
-  %72 = phi i8 [ %67, %.lr.ph.i.i106 ], [ %65, %.lr.ph.preheader.i.i99 ]
-  %.01525.i9.i102 = phi ptr [ %.015.i.i104, %.lr.ph.i.i106 ], [ %.01522.i.i100, %.lr.ph.preheader.i.i99 ]
-  %73 = sext i8 %72 to i32
-  %74 = call i32 @ossl_ctype_check(i32 noundef %73, i32 noundef 8) #6
-  %.not19.i.i103 = icmp eq i32 %74, 0
-  br i1 %.not19.i.i103, label %strip_ends.exit112, label %75
-
-75:                                               ; preds = %.lr.ph.i101
-  store i8 0, ptr %.01525.i9.i102, align 1, !tbaa !6
-  %.015.i.i104 = getelementptr inbounds i8, ptr %.01525.i9.i102, i64 -1
-  %.not18.i.i105 = icmp ult ptr %.015.i.i104, %.0.i.i97
-  br i1 %.not18.i.i105, label %strip_ends.exit112, label %.lr.ph.i.i106, !llvm.loop !51
-
-strip_ends.exit112:                               ; preds = %53, %.lr.ph.i101, %75, %55, %strip_start.exit.i96, %.lr.ph.i._crit_edge.i107, %71
-  %.0.i1.i110 = phi ptr [ %.0.i.i97, %71 ], [ null, %.lr.ph.i._crit_edge.i107 ], [ null, %strip_start.exit.i96 ], [ null, %55 ], [ %.0.i.i97, %.lr.ph.i101 ], [ null, %75 ], [ null, %53 ]
-  %76 = call fastcc ptr @mime_hdr_new(ptr noundef %.077309, ptr noundef %.0.i1.i110)
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %mime_hdr_free.exit, label %78
-
-78:                                               ; preds = %strip_ends.exit112
-  %79 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %3, ptr noundef nonnull %76) #6
-  %.not92 = icmp eq i32 %79, 0
-  br i1 %.not92, label %.loopexit197, label %80
-
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i8, ptr %.072324, i64 1
-  br label %137
-
-.preheader385:                                    ; preds = %.loopexit380, %.loopexit377
-  %.072329.ph = phi ptr [ %.072324, %.loopexit377 ], [ %.072327, %.loopexit380 ]
-  %.180.jt6.ph = phi ptr [ %.079302, %.loopexit377 ], [ %.079305, %.loopexit380 ]
-  %.178.jt6.ph = phi ptr [ %.077309, %.loopexit377 ], [ %.077312, %.loopexit380 ]
-  %.276.jt6.ph = phi ptr [ %.175316, %.loopexit377 ], [ %.175319, %.loopexit380 ]
-  %82 = phi i1 [ true, %.loopexit377 ], [ false, %.loopexit380 ]
-  %83 = phi i1 [ false, %.loopexit377 ], [ true, %.loopexit380 ]
-  br label %spec.select.si.unfold.false.jt6
-
-84:                                               ; preds = %21
-  store i8 0, ptr %.072.jt3, align 1, !tbaa !6
-  br label %85
-
-85:                                               ; preds = %93, %84
-  %.08.i.i113 = phi ptr [ %.079.jt3, %84 ], [ %94, %93 ]
-  %86 = load i8, ptr %.08.i.i113, align 1, !tbaa !6
-  switch i8 %86, label %90 [
-    i8 0, label %strip_ends.exit131
-    i8 34, label %87
-  ]
-
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %.08.i.i113, i64 1
-  %89 = load i8, ptr %88, align 1, !tbaa !6
-  %.not12.i.i114 = icmp eq i8 %89, 0
-  br i1 %.not12.i.i114, label %strip_ends.exit131, label %strip_start.exit.i115
-
-90:                                               ; preds = %85
-  %91 = sext i8 %86 to i32
-  %92 = call i32 @ossl_ctype_check(i32 noundef %91, i32 noundef 8) #6
-  %.not11.i.i130 = icmp eq i32 %92, 0
-  br i1 %.not11.i.i130, label %strip_start.exit.i115, label %93
-
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %.08.i.i113, i64 1
-  br label %85, !llvm.loop !50
-
-strip_start.exit.i115:                            ; preds = %90, %87
-  %.0.i.i116 = phi ptr [ %88, %87 ], [ %.08.i.i113, %90 ]
-  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i116) #7
-  %.not1823.i.i117 = icmp slt i64 %95, 1
-  br i1 %.not1823.i.i117, label %strip_ends.exit131, label %.lr.ph.preheader.i.i118
-
-.lr.ph.preheader.i.i118:                          ; preds = %strip_start.exit.i115
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i116, i64 %95
-  %.01522.i.i119 = getelementptr inbounds i8, ptr %96, i64 -1
-  %97 = load i8, ptr %.01522.i.i119, align 1, !tbaa !6
-  %98 = icmp eq i8 %97, 34
-  br i1 %98, label %.lr.ph.i._crit_edge.i126, label %.lr.ph.i120
-
-.lr.ph.i.i125:                                    ; preds = %107
-  %99 = load i8, ptr %.015.i.i123, align 1, !tbaa !6
-  %100 = icmp eq i8 %99, 34
-  br i1 %100, label %.lr.ph.i._crit_edge.i126, label %.lr.ph.i120, !llvm.loop !51
-
-.lr.ph.i._crit_edge.i126:                         ; preds = %.lr.ph.i.i125, %.lr.ph.preheader.i.i118
-  %.01525.i.lcssa.i127 = phi ptr [ %.01522.i.i119, %.lr.ph.preheader.i.i118 ], [ %.015.i.i123, %.lr.ph.i.i125 ]
-  %.pn24.i.lcssa.i128 = phi ptr [ %96, %.lr.ph.preheader.i.i118 ], [ %.01525.i9.i121, %.lr.ph.i.i125 ]
-  %101 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i128, i64 -2
-  %102 = icmp eq ptr %101, %.0.i.i116
-  br i1 %102, label %strip_ends.exit131, label %103
-
-103:                                              ; preds = %.lr.ph.i._crit_edge.i126
-  store i8 0, ptr %.01525.i.lcssa.i127, align 1, !tbaa !6
-  br label %strip_ends.exit131
-
-.lr.ph.i120:                                      ; preds = %.lr.ph.preheader.i.i118, %.lr.ph.i.i125
-  %104 = phi i8 [ %99, %.lr.ph.i.i125 ], [ %97, %.lr.ph.preheader.i.i118 ]
-  %.01525.i9.i121 = phi ptr [ %.015.i.i123, %.lr.ph.i.i125 ], [ %.01522.i.i119, %.lr.ph.preheader.i.i118 ]
-  %105 = sext i8 %104 to i32
-  %106 = call i32 @ossl_ctype_check(i32 noundef %105, i32 noundef 8) #6
-  %.not19.i.i122 = icmp eq i32 %106, 0
-  br i1 %.not19.i.i122, label %strip_ends.exit131, label %107
-
-107:                                              ; preds = %.lr.ph.i120
-  store i8 0, ptr %.01525.i9.i121, align 1, !tbaa !6
-  %.015.i.i123 = getelementptr inbounds i8, ptr %.01525.i9.i121, i64 -1
-  %.not18.i.i124 = icmp ult ptr %.015.i.i123, %.0.i.i116
-  br i1 %.not18.i.i124, label %strip_ends.exit131, label %.lr.ph.i.i125, !llvm.loop !51
-
-strip_ends.exit131:                               ; preds = %85, %.lr.ph.i120, %107, %87, %strip_start.exit.i115, %.lr.ph.i._crit_edge.i126, %103
-  %.0.i1.i129 = phi ptr [ %.0.i.i116, %103 ], [ null, %.lr.ph.i._crit_edge.i126 ], [ null, %strip_start.exit.i115 ], [ null, %87 ], [ %.0.i.i116, %.lr.ph.i120 ], [ null, %107 ], [ null, %85 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.072.jt3, i64 1
-  br label %.fold.split
-
-.loopexit380:                                     ; preds = %25, %.fold.split
-  %109 = phi i8 [ %15, %.fold.split ], [ %136, %25 ]
-  %.072327 = phi ptr [ %14, %.fold.split ], [ %135, %25 ]
-  %.175319 = phi ptr [ %.276.jt4, %.fold.split ], [ %.276.jt6.ph, %25 ]
-  %.077312 = phi ptr [ %.178.jt4, %.fold.split ], [ %.178.jt6.ph, %25 ]
-  %.079305 = phi ptr [ %.180.jt4, %.fold.split ], [ %.180.jt6.ph, %25 ]
-  switch i8 %109, label %.fold.split [
-    i8 59, label %110
-    i8 34, label %spec.select93.si.unfold.false.jt5
-    i8 40, label %.preheader385
-  ]
-
-110:                                              ; preds = %.loopexit380
-  store i8 0, ptr %.072327, align 1, !tbaa !6
-  br label %111
-
-111:                                              ; preds = %119, %110
-  %.08.i.i132 = phi ptr [ %.079305, %110 ], [ %120, %119 ]
-  %112 = load i8, ptr %.08.i.i132, align 1, !tbaa !6
-  switch i8 %112, label %116 [
-    i8 0, label %strip_ends.exit150
-    i8 34, label %113
-  ]
-
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %.08.i.i132, i64 1
-  %115 = load i8, ptr %114, align 1, !tbaa !6
-  %.not12.i.i133 = icmp eq i8 %115, 0
-  br i1 %.not12.i.i133, label %strip_ends.exit150, label %strip_start.exit.i134
-
-116:                                              ; preds = %111
-  %117 = sext i8 %112 to i32
-  %118 = call i32 @ossl_ctype_check(i32 noundef %117, i32 noundef 8) #6
-  %.not11.i.i149 = icmp eq i32 %118, 0
-  br i1 %.not11.i.i149, label %strip_start.exit.i134, label %119
-
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds nuw i8, ptr %.08.i.i132, i64 1
-  br label %111, !llvm.loop !50
-
-strip_start.exit.i134:                            ; preds = %116, %113
-  %.0.i.i135 = phi ptr [ %114, %113 ], [ %.08.i.i132, %116 ]
-  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i135) #7
-  %.not1823.i.i136 = icmp slt i64 %121, 1
-  br i1 %.not1823.i.i136, label %strip_ends.exit150, label %.lr.ph.preheader.i.i137
-
-.lr.ph.preheader.i.i137:                          ; preds = %strip_start.exit.i134
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 %121
-  %.01522.i.i138 = getelementptr inbounds i8, ptr %122, i64 -1
-  %123 = load i8, ptr %.01522.i.i138, align 1, !tbaa !6
-  %124 = icmp eq i8 %123, 34
-  br i1 %124, label %.lr.ph.i._crit_edge.i145, label %.lr.ph.i139
-
-.lr.ph.i.i144:                                    ; preds = %133
-  %125 = load i8, ptr %.015.i.i142, align 1, !tbaa !6
-  %126 = icmp eq i8 %125, 34
-  br i1 %126, label %.lr.ph.i._crit_edge.i145, label %.lr.ph.i139, !llvm.loop !51
-
-.lr.ph.i._crit_edge.i145:                         ; preds = %.lr.ph.i.i144, %.lr.ph.preheader.i.i137
-  %.01525.i.lcssa.i146 = phi ptr [ %.01522.i.i138, %.lr.ph.preheader.i.i137 ], [ %.015.i.i142, %.lr.ph.i.i144 ]
-  %.pn24.i.lcssa.i147 = phi ptr [ %122, %.lr.ph.preheader.i.i137 ], [ %.01525.i9.i140, %.lr.ph.i.i144 ]
-  %127 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i147, i64 -2
-  %128 = icmp eq ptr %127, %.0.i.i135
-  br i1 %128, label %strip_ends.exit150, label %129
-
-129:                                              ; preds = %.lr.ph.i._crit_edge.i145
-  store i8 0, ptr %.01525.i.lcssa.i146, align 1, !tbaa !6
-  br label %strip_ends.exit150
-
-.lr.ph.i139:                                      ; preds = %.lr.ph.preheader.i.i137, %.lr.ph.i.i144
-  %130 = phi i8 [ %125, %.lr.ph.i.i144 ], [ %123, %.lr.ph.preheader.i.i137 ]
-  %.01525.i9.i140 = phi ptr [ %.015.i.i142, %.lr.ph.i.i144 ], [ %.01522.i.i138, %.lr.ph.preheader.i.i137 ]
-  %131 = sext i8 %130 to i32
-  %132 = call i32 @ossl_ctype_check(i32 noundef %131, i32 noundef 8) #6
-  %.not19.i.i141 = icmp eq i32 %132, 0
-  br i1 %.not19.i.i141, label %strip_ends.exit150, label %133
-
-133:                                              ; preds = %.lr.ph.i139
-  store i8 0, ptr %.01525.i9.i140, align 1, !tbaa !6
-  %.015.i.i142 = getelementptr inbounds i8, ptr %.01525.i9.i140, i64 -1
-  %.not18.i.i143 = icmp ult ptr %.015.i.i142, %.0.i.i135
-  br i1 %.not18.i.i143, label %strip_ends.exit150, label %.lr.ph.i.i144, !llvm.loop !51
-
-strip_ends.exit150:                               ; preds = %111, %.lr.ph.i139, %133, %113, %strip_start.exit.i134, %.lr.ph.i._crit_edge.i145, %129
-  %.0.i1.i148 = phi ptr [ %.0.i.i135, %129 ], [ null, %.lr.ph.i._crit_edge.i145 ], [ null, %strip_start.exit.i134 ], [ null, %113 ], [ %.0.i.i135, %.lr.ph.i139 ], [ null, %133 ], [ null, %111 ]
-  call fastcc void @mime_hdr_addparam(ptr noundef %.175319, ptr noundef %.077312, ptr noundef %.0.i1.i148)
-  %134 = getelementptr inbounds nuw i8, ptr %.072327, i64 1
-  br label %137
-
-.preheader375:                                    ; preds = %spec.select.si.unfold.false.jt6
-  %135 = getelementptr inbounds nuw i8, ptr %.072329, i64 2
-  %136 = load i8, ptr %135, align 1, !tbaa !6
-  switch i8 %136, label %25 [
+  br i1 %.not88, label %12, label %.preheader385
+
+12:                                               ; preds = %8, %7
+  br label %.preheader385
+
+.preheader385:                                    ; preds = %8, %12
+  %.168.ph = phi i32 [ 1, %12 ], [ 3, %8 ]
+  br label %13
+
+13:                                               ; preds = %.preheader385, %133
+  %.079 = phi ptr [ %.180, %133 ], [ %2, %.preheader385 ]
+  %.077 = phi ptr [ %.178, %133 ], [ null, %.preheader385 ]
+  %.175 = phi ptr [ %.276, %133 ], [ %.074, %.preheader385 ]
+  %.072 = phi ptr [ %134, %133 ], [ %2, %.preheader385 ]
+  %.168 = phi i32 [ %.269, %133 ], [ %.168.ph, %.preheader385 ]
+  %.1 = phi i32 [ %.2, %133 ], [ %.0, %.preheader385 ]
+  %14 = load i8, ptr %.072, align 1, !tbaa !6
+  switch i8 %14, label %15 [
     i8 13, label %.critedge
     i8 10, label %.critedge
     i8 0, label %.critedge
   ]
 
-137:                                              ; preds = %21, %strip_ends.exit150, %80
-  %.072332 = phi ptr [ %.072327, %strip_ends.exit150 ], [ %.072324, %80 ], [ %.072.jt3, %21 ]
-  %.180.jt3 = phi ptr [ %134, %strip_ends.exit150 ], [ %81, %80 ], [ %.079.jt3, %21 ]
-  %.276.jt3 = phi ptr [ %.175319, %strip_ends.exit150 ], [ %76, %80 ], [ %.175.jt3, %21 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.072332, i64 1
-  br label %21, !llvm.loop !52
-
-139:                                              ; preds = %23
-  %140 = getelementptr inbounds nuw i8, ptr %.072.jt1, i64 1
-  br label %23, !llvm.loop !52
-
-.critedge:                                        ; preds = %.preheader375, %.preheader375, %.preheader375
-  br i1 %82, label %.preheader.preheader, label %.preheader195.preheader
-
-.preheader195.preheader:                          ; preds = %.critedge, %.fold.split, %.fold.split, %.fold.split
-  %.079300374 = phi ptr [ %.180.jt6.ph, %.critedge ], [ %.180.jt4, %.fold.split ], [ %.180.jt4, %.fold.split ], [ %.180.jt4, %.fold.split ]
-  %.077307373 = phi ptr [ %.178.jt6.ph, %.critedge ], [ %.178.jt4, %.fold.split ], [ %.178.jt4, %.fold.split ], [ %.178.jt4, %.fold.split ]
-  %.175314372 = phi ptr [ %.276.jt6.ph, %.critedge ], [ %.276.jt4, %.fold.split ], [ %.276.jt4, %.fold.split ], [ %.276.jt4, %.fold.split ]
-  %.072321371 = phi ptr [ %135, %.critedge ], [ %14, %.fold.split ], [ %14, %.fold.split ], [ %14, %.fold.split ]
-  br label %.preheader195
-
-.preheader.preheader:                             ; preds = %.critedge, %18, %18, %18
-  %.079300361 = phi ptr [ %.180.jt6.ph, %.critedge ], [ %.180.jt2, %18 ], [ %.180.jt2, %18 ], [ %.180.jt2, %18 ]
-  %.077307360 = phi ptr [ %.178.jt6.ph, %.critedge ], [ %.178.jt2, %18 ], [ %.178.jt2, %18 ], [ %.178.jt2, %18 ]
-  %.072321359 = phi ptr [ %135, %.critedge ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ]
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %148
-  %.08.i.i151 = phi ptr [ %149, %148 ], [ %.079300361, %.preheader.preheader ]
-  %141 = load i8, ptr %.08.i.i151, align 1, !tbaa !6
-  switch i8 %141, label %145 [
-    i8 0, label %strip_ends.exit169
-    i8 34, label %142
+15:                                               ; preds = %13
+  switch i32 %.168, label %133 [
+    i32 1, label %16
+    i32 2, label %43
+    i32 6, label %75
+    i32 3, label %77
+    i32 4, label %104
+    i32 5, label %131
   ]
 
-142:                                              ; preds = %.preheader
-  %143 = getelementptr inbounds nuw i8, ptr %.08.i.i151, i64 1
-  %144 = load i8, ptr %143, align 1, !tbaa !6
-  %.not12.i.i152 = icmp eq i8 %144, 0
+16:                                               ; preds = %15
+  %17 = icmp eq i8 %14, 58
+  br i1 %17, label %18, label %133
+
+18:                                               ; preds = %16
+  store i8 0, ptr %.072, align 1, !tbaa !6
+  br label %19
+
+19:                                               ; preds = %27, %18
+  %.08.i.i = phi ptr [ %.079, %18 ], [ %28, %27 ]
+  %20 = load i8, ptr %.08.i.i, align 1, !tbaa !6
+  switch i8 %20, label %24 [
+    i8 0, label %strip_ends.exit
+    i8 34, label %21
+  ]
+
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !6
+  %.not12.i.i = icmp eq i8 %23, 0
+  br i1 %.not12.i.i, label %strip_ends.exit, label %strip_start.exit.i
+
+24:                                               ; preds = %19
+  %25 = sext i8 %20 to i32
+  %26 = call i32 @ossl_ctype_check(i32 noundef %25, i32 noundef 8) #6
+  %.not11.i.i = icmp eq i32 %26, 0
+  br i1 %.not11.i.i, label %strip_start.exit.i, label %27
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
+  br label %19, !llvm.loop !50
+
+strip_start.exit.i:                               ; preds = %24, %21
+  %.0.i.i = phi ptr [ %22, %21 ], [ %.08.i.i, %24 ]
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #7
+  %.not1823.i.i = icmp slt i64 %29, 1
+  br i1 %.not1823.i.i, label %strip_ends.exit, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %strip_start.exit.i
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %29
+  %.01522.i.i = getelementptr inbounds i8, ptr %30, i64 -1
+  %31 = load i8, ptr %.01522.i.i, align 1, !tbaa !6
+  %32 = icmp eq i8 %31, 34
+  br i1 %32, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i.i:                                       ; preds = %41
+  %33 = load i8, ptr %.015.i.i, align 1, !tbaa !6
+  %34 = icmp eq i8 %33, 34
+  br i1 %34, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !51
+
+.lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.01525.i.lcssa.i = phi ptr [ %.01522.i.i, %.lr.ph.preheader.i.i ], [ %.015.i.i, %.lr.ph.i.i ]
+  %.pn24.i.lcssa.i = phi ptr [ %30, %.lr.ph.preheader.i.i ], [ %.01525.i9.i, %.lr.ph.i.i ]
+  %35 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i, i64 -2
+  %36 = icmp eq ptr %35, %.0.i.i
+  br i1 %36, label %strip_ends.exit, label %37
+
+37:                                               ; preds = %.lr.ph.i._crit_edge.i
+  store i8 0, ptr %.01525.i.lcssa.i, align 1, !tbaa !6
+  br label %strip_ends.exit
+
+.lr.ph.i:                                         ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
+  %38 = phi i8 [ %33, %.lr.ph.i.i ], [ %31, %.lr.ph.preheader.i.i ]
+  %.01525.i9.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %.01522.i.i, %.lr.ph.preheader.i.i ]
+  %39 = sext i8 %38 to i32
+  %40 = call i32 @ossl_ctype_check(i32 noundef %39, i32 noundef 8) #6
+  %.not19.i.i = icmp eq i32 %40, 0
+  br i1 %.not19.i.i, label %strip_ends.exit, label %41
+
+41:                                               ; preds = %.lr.ph.i
+  store i8 0, ptr %.01525.i9.i, align 1, !tbaa !6
+  %.015.i.i = getelementptr inbounds i8, ptr %.01525.i9.i, i64 -1
+  %.not18.i.i = icmp ult ptr %.015.i.i, %.0.i.i
+  br i1 %.not18.i.i, label %strip_ends.exit, label %.lr.ph.i.i, !llvm.loop !51
+
+strip_ends.exit:                                  ; preds = %19, %.lr.ph.i, %41, %21, %strip_start.exit.i, %.lr.ph.i._crit_edge.i, %37
+  %.0.i1.i = phi ptr [ %.0.i.i, %37 ], [ null, %.lr.ph.i._crit_edge.i ], [ null, %strip_start.exit.i ], [ null, %21 ], [ %.0.i.i, %.lr.ph.i ], [ null, %41 ], [ null, %19 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.072, i64 1
+  br label %133
+
+43:                                               ; preds = %15
+  switch i8 %14, label %133 [
+    i8 59, label %44
+    i8 40, label %74
+  ]
+
+44:                                               ; preds = %43
+  store i8 0, ptr %.072, align 1, !tbaa !6
+  br label %45
+
+45:                                               ; preds = %53, %44
+  %.08.i.i94 = phi ptr [ %.079, %44 ], [ %54, %53 ]
+  %46 = load i8, ptr %.08.i.i94, align 1, !tbaa !6
+  switch i8 %46, label %50 [
+    i8 0, label %strip_ends.exit112
+    i8 34, label %47
+  ]
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %.08.i.i94, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !6
+  %.not12.i.i95 = icmp eq i8 %49, 0
+  br i1 %.not12.i.i95, label %strip_ends.exit112, label %strip_start.exit.i96
+
+50:                                               ; preds = %45
+  %51 = sext i8 %46 to i32
+  %52 = call i32 @ossl_ctype_check(i32 noundef %51, i32 noundef 8) #6
+  %.not11.i.i111 = icmp eq i32 %52, 0
+  br i1 %.not11.i.i111, label %strip_start.exit.i96, label %53
+
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %.08.i.i94, i64 1
+  br label %45, !llvm.loop !50
+
+strip_start.exit.i96:                             ; preds = %50, %47
+  %.0.i.i97 = phi ptr [ %48, %47 ], [ %.08.i.i94, %50 ]
+  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i97) #7
+  %.not1823.i.i98 = icmp slt i64 %55, 1
+  br i1 %.not1823.i.i98, label %strip_ends.exit112, label %.lr.ph.preheader.i.i99
+
+.lr.ph.preheader.i.i99:                           ; preds = %strip_start.exit.i96
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i97, i64 %55
+  %.01522.i.i100 = getelementptr inbounds i8, ptr %56, i64 -1
+  %57 = load i8, ptr %.01522.i.i100, align 1, !tbaa !6
+  %58 = icmp eq i8 %57, 34
+  br i1 %58, label %.lr.ph.i._crit_edge.i107, label %.lr.ph.i101
+
+.lr.ph.i.i106:                                    ; preds = %67
+  %59 = load i8, ptr %.015.i.i104, align 1, !tbaa !6
+  %60 = icmp eq i8 %59, 34
+  br i1 %60, label %.lr.ph.i._crit_edge.i107, label %.lr.ph.i101, !llvm.loop !51
+
+.lr.ph.i._crit_edge.i107:                         ; preds = %.lr.ph.i.i106, %.lr.ph.preheader.i.i99
+  %.01525.i.lcssa.i108 = phi ptr [ %.01522.i.i100, %.lr.ph.preheader.i.i99 ], [ %.015.i.i104, %.lr.ph.i.i106 ]
+  %.pn24.i.lcssa.i109 = phi ptr [ %56, %.lr.ph.preheader.i.i99 ], [ %.01525.i9.i102, %.lr.ph.i.i106 ]
+  %61 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i109, i64 -2
+  %62 = icmp eq ptr %61, %.0.i.i97
+  br i1 %62, label %strip_ends.exit112, label %63
+
+63:                                               ; preds = %.lr.ph.i._crit_edge.i107
+  store i8 0, ptr %.01525.i.lcssa.i108, align 1, !tbaa !6
+  br label %strip_ends.exit112
+
+.lr.ph.i101:                                      ; preds = %.lr.ph.preheader.i.i99, %.lr.ph.i.i106
+  %64 = phi i8 [ %59, %.lr.ph.i.i106 ], [ %57, %.lr.ph.preheader.i.i99 ]
+  %.01525.i9.i102 = phi ptr [ %.015.i.i104, %.lr.ph.i.i106 ], [ %.01522.i.i100, %.lr.ph.preheader.i.i99 ]
+  %65 = sext i8 %64 to i32
+  %66 = call i32 @ossl_ctype_check(i32 noundef %65, i32 noundef 8) #6
+  %.not19.i.i103 = icmp eq i32 %66, 0
+  br i1 %.not19.i.i103, label %strip_ends.exit112, label %67
+
+67:                                               ; preds = %.lr.ph.i101
+  store i8 0, ptr %.01525.i9.i102, align 1, !tbaa !6
+  %.015.i.i104 = getelementptr inbounds i8, ptr %.01525.i9.i102, i64 -1
+  %.not18.i.i105 = icmp ult ptr %.015.i.i104, %.0.i.i97
+  br i1 %.not18.i.i105, label %strip_ends.exit112, label %.lr.ph.i.i106, !llvm.loop !51
+
+strip_ends.exit112:                               ; preds = %45, %.lr.ph.i101, %67, %47, %strip_start.exit.i96, %.lr.ph.i._crit_edge.i107, %63
+  %.0.i1.i110 = phi ptr [ %.0.i.i97, %63 ], [ null, %.lr.ph.i._crit_edge.i107 ], [ null, %strip_start.exit.i96 ], [ null, %47 ], [ %.0.i.i97, %.lr.ph.i101 ], [ null, %67 ], [ null, %45 ]
+  %68 = call fastcc ptr @mime_hdr_new(ptr noundef %.077, ptr noundef %.0.i1.i110)
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %mime_hdr_free.exit, label %70
+
+70:                                               ; preds = %strip_ends.exit112
+  %71 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %3, ptr noundef nonnull %68) #6
+  %.not92 = icmp eq i32 %71, 0
+  br i1 %.not92, label %.loopexit197, label %72
+
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %.072, i64 1
+  br label %133
+
+74:                                               ; preds = %43
+  br label %133
+
+75:                                               ; preds = %15
+  %76 = icmp eq i8 %14, 41
+  %spec.select = select i1 %76, i32 %.1, i32 6
+  br label %133
+
+77:                                               ; preds = %15
+  %78 = icmp eq i8 %14, 61
+  br i1 %78, label %79, label %133
+
+79:                                               ; preds = %77
+  store i8 0, ptr %.072, align 1, !tbaa !6
+  br label %80
+
+80:                                               ; preds = %88, %79
+  %.08.i.i113 = phi ptr [ %.079, %79 ], [ %89, %88 ]
+  %81 = load i8, ptr %.08.i.i113, align 1, !tbaa !6
+  switch i8 %81, label %85 [
+    i8 0, label %strip_ends.exit131
+    i8 34, label %82
+  ]
+
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw i8, ptr %.08.i.i113, i64 1
+  %84 = load i8, ptr %83, align 1, !tbaa !6
+  %.not12.i.i114 = icmp eq i8 %84, 0
+  br i1 %.not12.i.i114, label %strip_ends.exit131, label %strip_start.exit.i115
+
+85:                                               ; preds = %80
+  %86 = sext i8 %81 to i32
+  %87 = call i32 @ossl_ctype_check(i32 noundef %86, i32 noundef 8) #6
+  %.not11.i.i130 = icmp eq i32 %87, 0
+  br i1 %.not11.i.i130, label %strip_start.exit.i115, label %88
+
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %.08.i.i113, i64 1
+  br label %80, !llvm.loop !50
+
+strip_start.exit.i115:                            ; preds = %85, %82
+  %.0.i.i116 = phi ptr [ %83, %82 ], [ %.08.i.i113, %85 ]
+  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i116) #7
+  %.not1823.i.i117 = icmp slt i64 %90, 1
+  br i1 %.not1823.i.i117, label %strip_ends.exit131, label %.lr.ph.preheader.i.i118
+
+.lr.ph.preheader.i.i118:                          ; preds = %strip_start.exit.i115
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i116, i64 %90
+  %.01522.i.i119 = getelementptr inbounds i8, ptr %91, i64 -1
+  %92 = load i8, ptr %.01522.i.i119, align 1, !tbaa !6
+  %93 = icmp eq i8 %92, 34
+  br i1 %93, label %.lr.ph.i._crit_edge.i126, label %.lr.ph.i120
+
+.lr.ph.i.i125:                                    ; preds = %102
+  %94 = load i8, ptr %.015.i.i123, align 1, !tbaa !6
+  %95 = icmp eq i8 %94, 34
+  br i1 %95, label %.lr.ph.i._crit_edge.i126, label %.lr.ph.i120, !llvm.loop !51
+
+.lr.ph.i._crit_edge.i126:                         ; preds = %.lr.ph.i.i125, %.lr.ph.preheader.i.i118
+  %.01525.i.lcssa.i127 = phi ptr [ %.01522.i.i119, %.lr.ph.preheader.i.i118 ], [ %.015.i.i123, %.lr.ph.i.i125 ]
+  %.pn24.i.lcssa.i128 = phi ptr [ %91, %.lr.ph.preheader.i.i118 ], [ %.01525.i9.i121, %.lr.ph.i.i125 ]
+  %96 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i128, i64 -2
+  %97 = icmp eq ptr %96, %.0.i.i116
+  br i1 %97, label %strip_ends.exit131, label %98
+
+98:                                               ; preds = %.lr.ph.i._crit_edge.i126
+  store i8 0, ptr %.01525.i.lcssa.i127, align 1, !tbaa !6
+  br label %strip_ends.exit131
+
+.lr.ph.i120:                                      ; preds = %.lr.ph.preheader.i.i118, %.lr.ph.i.i125
+  %99 = phi i8 [ %94, %.lr.ph.i.i125 ], [ %92, %.lr.ph.preheader.i.i118 ]
+  %.01525.i9.i121 = phi ptr [ %.015.i.i123, %.lr.ph.i.i125 ], [ %.01522.i.i119, %.lr.ph.preheader.i.i118 ]
+  %100 = sext i8 %99 to i32
+  %101 = call i32 @ossl_ctype_check(i32 noundef %100, i32 noundef 8) #6
+  %.not19.i.i122 = icmp eq i32 %101, 0
+  br i1 %.not19.i.i122, label %strip_ends.exit131, label %102
+
+102:                                              ; preds = %.lr.ph.i120
+  store i8 0, ptr %.01525.i9.i121, align 1, !tbaa !6
+  %.015.i.i123 = getelementptr inbounds i8, ptr %.01525.i9.i121, i64 -1
+  %.not18.i.i124 = icmp ult ptr %.015.i.i123, %.0.i.i116
+  br i1 %.not18.i.i124, label %strip_ends.exit131, label %.lr.ph.i.i125, !llvm.loop !51
+
+strip_ends.exit131:                               ; preds = %80, %.lr.ph.i120, %102, %82, %strip_start.exit.i115, %.lr.ph.i._crit_edge.i126, %98
+  %.0.i1.i129 = phi ptr [ %.0.i.i116, %98 ], [ null, %.lr.ph.i._crit_edge.i126 ], [ null, %strip_start.exit.i115 ], [ null, %82 ], [ %.0.i.i116, %.lr.ph.i120 ], [ null, %102 ], [ null, %80 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.072, i64 1
+  br label %133
+
+104:                                              ; preds = %15
+  switch i8 %14, label %.fold.split [
+    i8 59, label %105
+    i8 34, label %133
+    i8 40, label %130
+  ]
+
+105:                                              ; preds = %104
+  store i8 0, ptr %.072, align 1, !tbaa !6
+  br label %106
+
+106:                                              ; preds = %114, %105
+  %.08.i.i132 = phi ptr [ %.079, %105 ], [ %115, %114 ]
+  %107 = load i8, ptr %.08.i.i132, align 1, !tbaa !6
+  switch i8 %107, label %111 [
+    i8 0, label %strip_ends.exit150
+    i8 34, label %108
+  ]
+
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds nuw i8, ptr %.08.i.i132, i64 1
+  %110 = load i8, ptr %109, align 1, !tbaa !6
+  %.not12.i.i133 = icmp eq i8 %110, 0
+  br i1 %.not12.i.i133, label %strip_ends.exit150, label %strip_start.exit.i134
+
+111:                                              ; preds = %106
+  %112 = sext i8 %107 to i32
+  %113 = call i32 @ossl_ctype_check(i32 noundef %112, i32 noundef 8) #6
+  %.not11.i.i149 = icmp eq i32 %113, 0
+  br i1 %.not11.i.i149, label %strip_start.exit.i134, label %114
+
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds nuw i8, ptr %.08.i.i132, i64 1
+  br label %106, !llvm.loop !50
+
+strip_start.exit.i134:                            ; preds = %111, %108
+  %.0.i.i135 = phi ptr [ %109, %108 ], [ %.08.i.i132, %111 ]
+  %116 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i135) #7
+  %.not1823.i.i136 = icmp slt i64 %116, 1
+  br i1 %.not1823.i.i136, label %strip_ends.exit150, label %.lr.ph.preheader.i.i137
+
+.lr.ph.preheader.i.i137:                          ; preds = %strip_start.exit.i134
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 %116
+  %.01522.i.i138 = getelementptr inbounds i8, ptr %117, i64 -1
+  %118 = load i8, ptr %.01522.i.i138, align 1, !tbaa !6
+  %119 = icmp eq i8 %118, 34
+  br i1 %119, label %.lr.ph.i._crit_edge.i145, label %.lr.ph.i139
+
+.lr.ph.i.i144:                                    ; preds = %128
+  %120 = load i8, ptr %.015.i.i142, align 1, !tbaa !6
+  %121 = icmp eq i8 %120, 34
+  br i1 %121, label %.lr.ph.i._crit_edge.i145, label %.lr.ph.i139, !llvm.loop !51
+
+.lr.ph.i._crit_edge.i145:                         ; preds = %.lr.ph.i.i144, %.lr.ph.preheader.i.i137
+  %.01525.i.lcssa.i146 = phi ptr [ %.01522.i.i138, %.lr.ph.preheader.i.i137 ], [ %.015.i.i142, %.lr.ph.i.i144 ]
+  %.pn24.i.lcssa.i147 = phi ptr [ %117, %.lr.ph.preheader.i.i137 ], [ %.01525.i9.i140, %.lr.ph.i.i144 ]
+  %122 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i147, i64 -2
+  %123 = icmp eq ptr %122, %.0.i.i135
+  br i1 %123, label %strip_ends.exit150, label %124
+
+124:                                              ; preds = %.lr.ph.i._crit_edge.i145
+  store i8 0, ptr %.01525.i.lcssa.i146, align 1, !tbaa !6
+  br label %strip_ends.exit150
+
+.lr.ph.i139:                                      ; preds = %.lr.ph.preheader.i.i137, %.lr.ph.i.i144
+  %125 = phi i8 [ %120, %.lr.ph.i.i144 ], [ %118, %.lr.ph.preheader.i.i137 ]
+  %.01525.i9.i140 = phi ptr [ %.015.i.i142, %.lr.ph.i.i144 ], [ %.01522.i.i138, %.lr.ph.preheader.i.i137 ]
+  %126 = sext i8 %125 to i32
+  %127 = call i32 @ossl_ctype_check(i32 noundef %126, i32 noundef 8) #6
+  %.not19.i.i141 = icmp eq i32 %127, 0
+  br i1 %.not19.i.i141, label %strip_ends.exit150, label %128
+
+128:                                              ; preds = %.lr.ph.i139
+  store i8 0, ptr %.01525.i9.i140, align 1, !tbaa !6
+  %.015.i.i142 = getelementptr inbounds i8, ptr %.01525.i9.i140, i64 -1
+  %.not18.i.i143 = icmp ult ptr %.015.i.i142, %.0.i.i135
+  br i1 %.not18.i.i143, label %strip_ends.exit150, label %.lr.ph.i.i144, !llvm.loop !51
+
+strip_ends.exit150:                               ; preds = %106, %.lr.ph.i139, %128, %108, %strip_start.exit.i134, %.lr.ph.i._crit_edge.i145, %124
+  %.0.i1.i148 = phi ptr [ %.0.i.i135, %124 ], [ null, %.lr.ph.i._crit_edge.i145 ], [ null, %strip_start.exit.i134 ], [ null, %108 ], [ %.0.i.i135, %.lr.ph.i139 ], [ null, %128 ], [ null, %106 ]
+  call fastcc void @mime_hdr_addparam(ptr noundef %.175, ptr noundef %.077, ptr noundef %.0.i1.i148)
+  %129 = getelementptr inbounds nuw i8, ptr %.072, i64 1
+  br label %133
+
+130:                                              ; preds = %104
+  br label %133
+
+131:                                              ; preds = %15
+  %132 = icmp eq i8 %14, 34
+  %spec.select93 = select i1 %132, i32 4, i32 5
+  br label %133
+
+.fold.split:                                      ; preds = %104
+  br label %133
+
+133:                                              ; preds = %131, %75, %104, %.fold.split, %43, %15, %strip_ends.exit, %16, %74, %72, %strip_ends.exit131, %77, %130, %strip_ends.exit150
+  %.180 = phi ptr [ %.079, %15 ], [ %42, %strip_ends.exit ], [ %.079, %16 ], [ %73, %72 ], [ %.079, %74 ], [ %103, %strip_ends.exit131 ], [ %.079, %77 ], [ %129, %strip_ends.exit150 ], [ %.079, %130 ], [ %.079, %43 ], [ %.079, %75 ], [ %.079, %104 ], [ %.079, %.fold.split ], [ %.079, %131 ]
+  %.178 = phi ptr [ %.077, %15 ], [ %.0.i1.i, %strip_ends.exit ], [ %.077, %16 ], [ null, %72 ], [ %.077, %74 ], [ %.0.i1.i129, %strip_ends.exit131 ], [ %.077, %77 ], [ null, %strip_ends.exit150 ], [ %.077, %130 ], [ %.077, %43 ], [ %.077, %75 ], [ %.077, %104 ], [ %.077, %.fold.split ], [ %.077, %131 ]
+  %.276 = phi ptr [ %.175, %15 ], [ %.175, %strip_ends.exit ], [ %.175, %16 ], [ %68, %72 ], [ %.175, %74 ], [ %.175, %strip_ends.exit131 ], [ %.175, %77 ], [ %.175, %strip_ends.exit150 ], [ %.175, %130 ], [ %.175, %43 ], [ %.175, %75 ], [ %.175, %104 ], [ %.175, %.fold.split ], [ %.175, %131 ]
+  %.269 = phi i32 [ %.168, %15 ], [ 2, %strip_ends.exit ], [ 1, %16 ], [ 3, %72 ], [ 6, %74 ], [ 4, %strip_ends.exit131 ], [ 3, %77 ], [ 3, %strip_ends.exit150 ], [ 6, %130 ], [ 2, %43 ], [ %spec.select, %75 ], [ 5, %104 ], [ 4, %.fold.split ], [ %spec.select93, %131 ]
+  %.2 = phi i32 [ %.1, %15 ], [ %.1, %strip_ends.exit ], [ %.1, %16 ], [ %.1, %72 ], [ 2, %74 ], [ %.1, %strip_ends.exit131 ], [ %.1, %77 ], [ %.1, %strip_ends.exit150 ], [ 4, %130 ], [ %.1, %43 ], [ %.1, %75 ], [ %.1, %104 ], [ %.1, %.fold.split ], [ %.1, %131 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.072, i64 1
+  br label %13, !llvm.loop !52
+
+.critedge:                                        ; preds = %13, %13, %13
+  switch i32 %.168, label %183 [
+    i32 2, label %.preheader
+    i32 4, label %.preheader195
+  ]
+
+.preheader:                                       ; preds = %.critedge, %142
+  %.08.i.i151 = phi ptr [ %143, %142 ], [ %.079, %.critedge ]
+  %135 = load i8, ptr %.08.i.i151, align 1, !tbaa !6
+  switch i8 %135, label %139 [
+    i8 0, label %strip_ends.exit169
+    i8 34, label %136
+  ]
+
+136:                                              ; preds = %.preheader
+  %137 = getelementptr inbounds nuw i8, ptr %.08.i.i151, i64 1
+  %138 = load i8, ptr %137, align 1, !tbaa !6
+  %.not12.i.i152 = icmp eq i8 %138, 0
   br i1 %.not12.i.i152, label %strip_ends.exit169, label %strip_start.exit.i153
 
-145:                                              ; preds = %.preheader
-  %146 = sext i8 %141 to i32
-  %147 = call i32 @ossl_ctype_check(i32 noundef %146, i32 noundef 8) #6
-  %.not11.i.i168 = icmp eq i32 %147, 0
-  br i1 %.not11.i.i168, label %strip_start.exit.i153, label %148
+139:                                              ; preds = %.preheader
+  %140 = sext i8 %135 to i32
+  %141 = call i32 @ossl_ctype_check(i32 noundef %140, i32 noundef 8) #6
+  %.not11.i.i168 = icmp eq i32 %141, 0
+  br i1 %.not11.i.i168, label %strip_start.exit.i153, label %142
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds nuw i8, ptr %.08.i.i151, i64 1
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw i8, ptr %.08.i.i151, i64 1
   br label %.preheader, !llvm.loop !50
 
-strip_start.exit.i153:                            ; preds = %145, %142
-  %.0.i.i154 = phi ptr [ %143, %142 ], [ %.08.i.i151, %145 ]
-  %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i154) #7
-  %.not1823.i.i155 = icmp slt i64 %150, 1
+strip_start.exit.i153:                            ; preds = %139, %136
+  %.0.i.i154 = phi ptr [ %137, %136 ], [ %.08.i.i151, %139 ]
+  %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i154) #7
+  %.not1823.i.i155 = icmp slt i64 %144, 1
   br i1 %.not1823.i.i155, label %strip_ends.exit169, label %.lr.ph.preheader.i.i156
 
 .lr.ph.preheader.i.i156:                          ; preds = %strip_start.exit.i153
-  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i154, i64 %150
-  %.01522.i.i157 = getelementptr inbounds i8, ptr %151, i64 -1
-  %152 = load i8, ptr %.01522.i.i157, align 1, !tbaa !6
-  %153 = icmp eq i8 %152, 34
-  br i1 %153, label %.lr.ph.i._crit_edge.i164, label %.lr.ph.i158
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i154, i64 %144
+  %.01522.i.i157 = getelementptr inbounds i8, ptr %145, i64 -1
+  %146 = load i8, ptr %.01522.i.i157, align 1, !tbaa !6
+  %147 = icmp eq i8 %146, 34
+  br i1 %147, label %.lr.ph.i._crit_edge.i164, label %.lr.ph.i158
 
-.lr.ph.i.i163:                                    ; preds = %162
-  %154 = load i8, ptr %.015.i.i161, align 1, !tbaa !6
-  %155 = icmp eq i8 %154, 34
-  br i1 %155, label %.lr.ph.i._crit_edge.i164, label %.lr.ph.i158, !llvm.loop !51
+.lr.ph.i.i163:                                    ; preds = %156
+  %148 = load i8, ptr %.015.i.i161, align 1, !tbaa !6
+  %149 = icmp eq i8 %148, 34
+  br i1 %149, label %.lr.ph.i._crit_edge.i164, label %.lr.ph.i158, !llvm.loop !51
 
 .lr.ph.i._crit_edge.i164:                         ; preds = %.lr.ph.i.i163, %.lr.ph.preheader.i.i156
   %.01525.i.lcssa.i165 = phi ptr [ %.01522.i.i157, %.lr.ph.preheader.i.i156 ], [ %.015.i.i161, %.lr.ph.i.i163 ]
-  %.pn24.i.lcssa.i166 = phi ptr [ %151, %.lr.ph.preheader.i.i156 ], [ %.01525.i9.i159, %.lr.ph.i.i163 ]
-  %156 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i166, i64 -2
-  %157 = icmp eq ptr %156, %.0.i.i154
-  br i1 %157, label %strip_ends.exit169, label %158
+  %.pn24.i.lcssa.i166 = phi ptr [ %145, %.lr.ph.preheader.i.i156 ], [ %.01525.i9.i159, %.lr.ph.i.i163 ]
+  %150 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i166, i64 -2
+  %151 = icmp eq ptr %150, %.0.i.i154
+  br i1 %151, label %strip_ends.exit169, label %152
 
-158:                                              ; preds = %.lr.ph.i._crit_edge.i164
+152:                                              ; preds = %.lr.ph.i._crit_edge.i164
   store i8 0, ptr %.01525.i.lcssa.i165, align 1, !tbaa !6
   br label %strip_ends.exit169
 
 .lr.ph.i158:                                      ; preds = %.lr.ph.preheader.i.i156, %.lr.ph.i.i163
-  %159 = phi i8 [ %154, %.lr.ph.i.i163 ], [ %152, %.lr.ph.preheader.i.i156 ]
+  %153 = phi i8 [ %148, %.lr.ph.i.i163 ], [ %146, %.lr.ph.preheader.i.i156 ]
   %.01525.i9.i159 = phi ptr [ %.015.i.i161, %.lr.ph.i.i163 ], [ %.01522.i.i157, %.lr.ph.preheader.i.i156 ]
-  %160 = sext i8 %159 to i32
-  %161 = call i32 @ossl_ctype_check(i32 noundef %160, i32 noundef 8) #6
-  %.not19.i.i160 = icmp eq i32 %161, 0
-  br i1 %.not19.i.i160, label %strip_ends.exit169, label %162
+  %154 = sext i8 %153 to i32
+  %155 = call i32 @ossl_ctype_check(i32 noundef %154, i32 noundef 8) #6
+  %.not19.i.i160 = icmp eq i32 %155, 0
+  br i1 %.not19.i.i160, label %strip_ends.exit169, label %156
 
-162:                                              ; preds = %.lr.ph.i158
+156:                                              ; preds = %.lr.ph.i158
   store i8 0, ptr %.01525.i9.i159, align 1, !tbaa !6
   %.015.i.i161 = getelementptr inbounds i8, ptr %.01525.i9.i159, i64 -1
   %.not18.i.i162 = icmp ult ptr %.015.i.i161, %.0.i.i154
   br i1 %.not18.i.i162, label %strip_ends.exit169, label %.lr.ph.i.i163, !llvm.loop !51
 
-strip_ends.exit169:                               ; preds = %.preheader, %.lr.ph.i158, %162, %142, %strip_start.exit.i153, %.lr.ph.i._crit_edge.i164, %158
-  %.0.i1.i167 = phi ptr [ %.0.i.i154, %158 ], [ null, %.lr.ph.i._crit_edge.i164 ], [ null, %strip_start.exit.i153 ], [ null, %142 ], [ %.0.i.i154, %.lr.ph.i158 ], [ null, %162 ], [ null, %.preheader ]
-  %163 = call fastcc ptr @mime_hdr_new(ptr noundef %.077307360, ptr noundef %.0.i1.i167)
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %mime_hdr_free.exit, label %165
+strip_ends.exit169:                               ; preds = %.preheader, %.lr.ph.i158, %156, %136, %strip_start.exit.i153, %.lr.ph.i._crit_edge.i164, %152
+  %.0.i1.i167 = phi ptr [ %.0.i.i154, %152 ], [ null, %.lr.ph.i._crit_edge.i164 ], [ null, %strip_start.exit.i153 ], [ null, %136 ], [ %.0.i.i154, %.lr.ph.i158 ], [ null, %156 ], [ null, %.preheader ]
+  %157 = call fastcc ptr @mime_hdr_new(ptr noundef %.077, ptr noundef %.0.i1.i167)
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %mime_hdr_free.exit, label %159
 
-165:                                              ; preds = %strip_ends.exit169
-  %166 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %3, ptr noundef nonnull %163) #6
-  %.not89 = icmp eq i32 %166, 0
-  br i1 %.not89, label %.loopexit197, label %.critedge.thread
+159:                                              ; preds = %strip_ends.exit169
+  %160 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %3, ptr noundef nonnull %157) #6
+  %.not89 = icmp eq i32 %160, 0
+  br i1 %.not89, label %.loopexit197, label %183
 
-.preheader195:                                    ; preds = %.preheader195.preheader, %174
-  %.08.i.i170 = phi ptr [ %175, %174 ], [ %.079300374, %.preheader195.preheader ]
-  %167 = load i8, ptr %.08.i.i170, align 1, !tbaa !6
-  switch i8 %167, label %171 [
+.preheader195:                                    ; preds = %.critedge, %168
+  %.08.i.i170 = phi ptr [ %169, %168 ], [ %.079, %.critedge ]
+  %161 = load i8, ptr %.08.i.i170, align 1, !tbaa !6
+  switch i8 %161, label %165 [
     i8 0, label %strip_ends.exit188
-    i8 34, label %168
+    i8 34, label %162
   ]
 
-168:                                              ; preds = %.preheader195
-  %169 = getelementptr inbounds nuw i8, ptr %.08.i.i170, i64 1
-  %170 = load i8, ptr %169, align 1, !tbaa !6
-  %.not12.i.i171 = icmp eq i8 %170, 0
+162:                                              ; preds = %.preheader195
+  %163 = getelementptr inbounds nuw i8, ptr %.08.i.i170, i64 1
+  %164 = load i8, ptr %163, align 1, !tbaa !6
+  %.not12.i.i171 = icmp eq i8 %164, 0
   br i1 %.not12.i.i171, label %strip_ends.exit188, label %strip_start.exit.i172
 
-171:                                              ; preds = %.preheader195
-  %172 = sext i8 %167 to i32
-  %173 = call i32 @ossl_ctype_check(i32 noundef %172, i32 noundef 8) #6
-  %.not11.i.i187 = icmp eq i32 %173, 0
-  br i1 %.not11.i.i187, label %strip_start.exit.i172, label %174
+165:                                              ; preds = %.preheader195
+  %166 = sext i8 %161 to i32
+  %167 = call i32 @ossl_ctype_check(i32 noundef %166, i32 noundef 8) #6
+  %.not11.i.i187 = icmp eq i32 %167, 0
+  br i1 %.not11.i.i187, label %strip_start.exit.i172, label %168
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds nuw i8, ptr %.08.i.i170, i64 1
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds nuw i8, ptr %.08.i.i170, i64 1
   br label %.preheader195, !llvm.loop !50
 
-strip_start.exit.i172:                            ; preds = %171, %168
-  %.0.i.i173 = phi ptr [ %169, %168 ], [ %.08.i.i170, %171 ]
-  %176 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i173) #7
-  %.not1823.i.i174 = icmp slt i64 %176, 1
+strip_start.exit.i172:                            ; preds = %165, %162
+  %.0.i.i173 = phi ptr [ %163, %162 ], [ %.08.i.i170, %165 ]
+  %170 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i173) #7
+  %.not1823.i.i174 = icmp slt i64 %170, 1
   br i1 %.not1823.i.i174, label %strip_ends.exit188, label %.lr.ph.preheader.i.i175
 
 .lr.ph.preheader.i.i175:                          ; preds = %strip_start.exit.i172
-  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i173, i64 %176
-  %.01522.i.i176 = getelementptr inbounds i8, ptr %177, i64 -1
-  %178 = load i8, ptr %.01522.i.i176, align 1, !tbaa !6
-  %179 = icmp eq i8 %178, 34
-  br i1 %179, label %.lr.ph.i._crit_edge.i183, label %.lr.ph.i177
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i.i173, i64 %170
+  %.01522.i.i176 = getelementptr inbounds i8, ptr %171, i64 -1
+  %172 = load i8, ptr %.01522.i.i176, align 1, !tbaa !6
+  %173 = icmp eq i8 %172, 34
+  br i1 %173, label %.lr.ph.i._crit_edge.i183, label %.lr.ph.i177
 
-.lr.ph.i.i182:                                    ; preds = %188
-  %180 = load i8, ptr %.015.i.i180, align 1, !tbaa !6
-  %181 = icmp eq i8 %180, 34
-  br i1 %181, label %.lr.ph.i._crit_edge.i183, label %.lr.ph.i177, !llvm.loop !51
+.lr.ph.i.i182:                                    ; preds = %182
+  %174 = load i8, ptr %.015.i.i180, align 1, !tbaa !6
+  %175 = icmp eq i8 %174, 34
+  br i1 %175, label %.lr.ph.i._crit_edge.i183, label %.lr.ph.i177, !llvm.loop !51
 
 .lr.ph.i._crit_edge.i183:                         ; preds = %.lr.ph.i.i182, %.lr.ph.preheader.i.i175
   %.01525.i.lcssa.i184 = phi ptr [ %.01522.i.i176, %.lr.ph.preheader.i.i175 ], [ %.015.i.i180, %.lr.ph.i.i182 ]
-  %.pn24.i.lcssa.i185 = phi ptr [ %177, %.lr.ph.preheader.i.i175 ], [ %.01525.i9.i178, %.lr.ph.i.i182 ]
-  %182 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i185, i64 -2
-  %183 = icmp eq ptr %182, %.0.i.i173
-  br i1 %183, label %strip_ends.exit188, label %184
+  %.pn24.i.lcssa.i185 = phi ptr [ %171, %.lr.ph.preheader.i.i175 ], [ %.01525.i9.i178, %.lr.ph.i.i182 ]
+  %176 = getelementptr inbounds i8, ptr %.pn24.i.lcssa.i185, i64 -2
+  %177 = icmp eq ptr %176, %.0.i.i173
+  br i1 %177, label %strip_ends.exit188, label %178
 
-184:                                              ; preds = %.lr.ph.i._crit_edge.i183
+178:                                              ; preds = %.lr.ph.i._crit_edge.i183
   store i8 0, ptr %.01525.i.lcssa.i184, align 1, !tbaa !6
   br label %strip_ends.exit188
 
 .lr.ph.i177:                                      ; preds = %.lr.ph.preheader.i.i175, %.lr.ph.i.i182
-  %185 = phi i8 [ %180, %.lr.ph.i.i182 ], [ %178, %.lr.ph.preheader.i.i175 ]
+  %179 = phi i8 [ %174, %.lr.ph.i.i182 ], [ %172, %.lr.ph.preheader.i.i175 ]
   %.01525.i9.i178 = phi ptr [ %.015.i.i180, %.lr.ph.i.i182 ], [ %.01522.i.i176, %.lr.ph.preheader.i.i175 ]
-  %186 = sext i8 %185 to i32
-  %187 = call i32 @ossl_ctype_check(i32 noundef %186, i32 noundef 8) #6
-  %.not19.i.i179 = icmp eq i32 %187, 0
-  br i1 %.not19.i.i179, label %strip_ends.exit188, label %188
+  %180 = sext i8 %179 to i32
+  %181 = call i32 @ossl_ctype_check(i32 noundef %180, i32 noundef 8) #6
+  %.not19.i.i179 = icmp eq i32 %181, 0
+  br i1 %.not19.i.i179, label %strip_ends.exit188, label %182
 
-188:                                              ; preds = %.lr.ph.i177
+182:                                              ; preds = %.lr.ph.i177
   store i8 0, ptr %.01525.i9.i178, align 1, !tbaa !6
   %.015.i.i180 = getelementptr inbounds i8, ptr %.01525.i9.i178, i64 -1
   %.not18.i.i181 = icmp ult ptr %.015.i.i180, %.0.i.i173
   br i1 %.not18.i.i181, label %strip_ends.exit188, label %.lr.ph.i.i182, !llvm.loop !51
 
-strip_ends.exit188:                               ; preds = %.preheader195, %.lr.ph.i177, %188, %168, %strip_start.exit.i172, %.lr.ph.i._crit_edge.i183, %184
-  %.0.i1.i186 = phi ptr [ %.0.i.i173, %184 ], [ null, %.lr.ph.i._crit_edge.i183 ], [ null, %strip_start.exit.i172 ], [ null, %168 ], [ %.0.i.i173, %.lr.ph.i177 ], [ null, %188 ], [ null, %.preheader195 ]
-  call fastcc void @mime_hdr_addparam(ptr noundef %.175314372, ptr noundef %.077307373, ptr noundef %.0.i1.i186)
-  br label %.critedge.thread
+strip_ends.exit188:                               ; preds = %.preheader195, %.lr.ph.i177, %182, %162, %strip_start.exit.i172, %.lr.ph.i._crit_edge.i183, %178
+  %.0.i1.i186 = phi ptr [ %.0.i.i173, %178 ], [ null, %.lr.ph.i._crit_edge.i183 ], [ null, %strip_start.exit.i172 ], [ null, %162 ], [ %.0.i.i173, %.lr.ph.i177 ], [ null, %182 ], [ null, %.preheader195 ]
+  call fastcc void @mime_hdr_addparam(ptr noundef %.175, ptr noundef %.077, ptr noundef %.0.i1.i186)
+  br label %183
 
-.critedge.thread:                                 ; preds = %23, %23, %23, %spec.select.si.unfold.false.jt6, %spec.select.si.unfold.false.jt6, %spec.select.si.unfold.false.jt6, %spec.select93.si.unfold.false.jt5, %spec.select93.si.unfold.false.jt5, %spec.select93.si.unfold.false.jt5, %21, %21, %21, %165, %strip_ends.exit188
-  %.072321349 = phi ptr [ %.072321371, %strip_ends.exit188 ], [ %.072321359, %165 ], [ %.072.jt3, %21 ], [ %.072.jt3, %21 ], [ %.072.jt3, %21 ], [ %12, %spec.select93.si.unfold.false.jt5 ], [ %12, %spec.select93.si.unfold.false.jt5 ], [ %12, %spec.select93.si.unfold.false.jt5 ], [ %16, %spec.select.si.unfold.false.jt6 ], [ %16, %spec.select.si.unfold.false.jt6 ], [ %16, %spec.select.si.unfold.false.jt6 ], [ %.072.jt1, %23 ], [ %.072.jt1, %23 ], [ %.072.jt1, %23 ]
-  %.3 = phi ptr [ %.175314372, %strip_ends.exit188 ], [ %163, %165 ], [ %.175.jt3, %21 ], [ %.175.jt3, %21 ], [ %.175.jt3, %21 ], [ %.175319, %spec.select93.si.unfold.false.jt5 ], [ %.175319, %spec.select93.si.unfold.false.jt5 ], [ %.175319, %spec.select93.si.unfold.false.jt5 ], [ %.276.jt6.ph, %spec.select.si.unfold.false.jt6 ], [ %.276.jt6.ph, %spec.select.si.unfold.false.jt6 ], [ %.276.jt6.ph, %spec.select.si.unfold.false.jt6 ], [ %.074, %23 ], [ %.074, %23 ], [ %.074, %23 ]
-  %189 = icmp eq ptr %.072321349, %2
-  br i1 %189, label %190, label %.preheader198, !llvm.loop !53
+183:                                              ; preds = %.critedge, %159, %strip_ends.exit188
+  %.3 = phi ptr [ %.175, %strip_ends.exit188 ], [ %157, %159 ], [ %.175, %.critedge ]
+  %184 = icmp eq ptr %.072, %2
+  br i1 %184, label %185, label %.preheader198, !llvm.loop !53
 
-190:                                              ; preds = %.critedge.thread, %.preheader198
+185:                                              ; preds = %183, %.preheader198
   call void @OPENSSL_sk_sort(ptr noundef nonnull %3) #6
-  %191 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #6
-  %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %.lr.ph, label %.loopexit
+  %186 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #6
+  %187 = icmp sgt i32 %186, 0
+  br i1 %187, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %190, %198
-  %.071233 = phi i32 [ %199, %198 ], [ 0, %190 ]
-  %193 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.071233) #6
-  %.not90 = icmp eq ptr %193, null
-  br i1 %.not90, label %198, label %194
+.lr.ph:                                           ; preds = %185, %193
+  %.071233 = phi i32 [ %194, %193 ], [ 0, %185 ]
+  %188 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.071233) #6
+  %.not90 = icmp eq ptr %188, null
+  br i1 %.not90, label %193, label %189
 
-194:                                              ; preds = %.lr.ph
-  %195 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  %196 = load ptr, ptr %195, align 8, !tbaa !48
-  %.not91 = icmp eq ptr %196, null
-  br i1 %.not91, label %198, label %197
+189:                                              ; preds = %.lr.ph
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %191 = load ptr, ptr %190, align 8, !tbaa !48
+  %.not91 = icmp eq ptr %191, null
+  br i1 %.not91, label %193, label %192
 
-197:                                              ; preds = %194
-  call void @OPENSSL_sk_sort(ptr noundef nonnull %196) #6
-  br label %198
+192:                                              ; preds = %189
+  call void @OPENSSL_sk_sort(ptr noundef nonnull %191) #6
+  br label %193
 
-198:                                              ; preds = %.lr.ph, %194, %197
-  %199 = add nuw nsw i32 %.071233, 1
-  %200 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #6
-  %201 = icmp slt i32 %199, %200
-  br i1 %201, label %.lr.ph, label %.loopexit, !llvm.loop !54
+193:                                              ; preds = %.lr.ph, %189, %192
+  %194 = add nuw nsw i32 %.071233, 1
+  %195 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #6
+  %196 = icmp slt i32 %194, %195
+  br i1 %196, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
-.loopexit197:                                     ; preds = %165, %78
-  %.073 = phi ptr [ %76, %78 ], [ %163, %165 ]
-  %202 = load ptr, ptr %.073, align 8, !tbaa !41
-  call void @CRYPTO_free(ptr noundef %202, ptr noundef nonnull @.str, i32 noundef 970) #6
-  %203 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %204 = load ptr, ptr %203, align 8, !tbaa !44
-  call void @CRYPTO_free(ptr noundef %204, ptr noundef nonnull @.str, i32 noundef 971) #6
-  %205 = getelementptr inbounds nuw i8, ptr %.073, i64 16
-  %206 = load ptr, ptr %205, align 8, !tbaa !48
-  %.not.i = icmp eq ptr %206, null
-  br i1 %.not.i, label %208, label %207
+.loopexit197:                                     ; preds = %159, %70
+  %.073 = phi ptr [ %68, %70 ], [ %157, %159 ]
+  %197 = load ptr, ptr %.073, align 8, !tbaa !41
+  call void @CRYPTO_free(ptr noundef %197, ptr noundef nonnull @.str, i32 noundef 970) #6
+  %198 = getelementptr inbounds nuw i8, ptr %.073, i64 8
+  %199 = load ptr, ptr %198, align 8, !tbaa !44
+  call void @CRYPTO_free(ptr noundef %199, ptr noundef nonnull @.str, i32 noundef 971) #6
+  %200 = getelementptr inbounds nuw i8, ptr %.073, i64 16
+  %201 = load ptr, ptr %200, align 8, !tbaa !48
+  %.not.i = icmp eq ptr %201, null
+  br i1 %.not.i, label %203, label %202
 
-207:                                              ; preds = %.loopexit197
-  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %206, ptr noundef nonnull @mime_param_free) #6
-  br label %208
+202:                                              ; preds = %.loopexit197
+  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %201, ptr noundef nonnull @mime_param_free) #6
+  br label %203
 
-208:                                              ; preds = %207, %.loopexit197
+203:                                              ; preds = %202, %.loopexit197
   call void @CRYPTO_free(ptr noundef nonnull %.073, ptr noundef nonnull @.str, i32 noundef 974) #6
   br label %mime_hdr_free.exit
 
-mime_hdr_free.exit:                               ; preds = %strip_ends.exit169, %strip_ends.exit112, %208
+mime_hdr_free.exit:                               ; preds = %strip_ends.exit169, %strip_ends.exit112, %203
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %3, ptr noundef nonnull @mime_hdr_free) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %198, %190, %1, %mime_hdr_free.exit
-  %.070 = phi ptr [ null, %mime_hdr_free.exit ], [ null, %1 ], [ %3, %190 ], [ %3, %198 ]
+.loopexit:                                        ; preds = %193, %185, %1, %mime_hdr_free.exit
+  %.070 = phi ptr [ null, %mime_hdr_free.exit ], [ null, %1 ], [ %3, %185 ], [ %3, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.070
 }

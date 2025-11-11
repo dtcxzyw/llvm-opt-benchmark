@@ -1958,12 +1958,12 @@ define hidden noundef ptr @loal_from_file(ptr noundef %0) local_unnamed_addr #0 
 
 13:                                               ; preds = %1
   %14 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef 1, ptr noundef nonnull @.str.12)
-  br label %161
+  br label %124
 
 15:                                               ; preds = %1
   %16 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.13)
   %.not122 = icmp eq ptr %16, null
-  br i1 %.not122, label %157, label %.preheader
+  br i1 %.not122, label %120, label %.preheader
 
 .preheader:                                       ; preds = %15
   %17 = tail call i32 @fgetc(ptr noundef nonnull %16)
@@ -1975,576 +1975,462 @@ define hidden noundef ptr @loal_from_file(ptr noundef %0) local_unnamed_addr #0 
   %19 = getelementptr i8, ptr %10, i64 1
   %.not.i130 = icmp eq ptr %9, null
   %.str.6..i = select i1 %.not.i130, ptr @.str.6, ptr %9
-  %20 = tail call i32 @feof(ptr noundef nonnull %16) #13
-  %.not124 = icmp eq i32 %20, 0
-  br i1 %.not124, label %54, label %.loopexit226
+  br label %20
 
-21:                                               ; preds = %.lr.ph497, %.backedge.jt1.backedge
-  %22 = phi i8 [ %143, %.lr.ph497 ], [ %91, %.backedge.jt1.backedge ]
-  %23 = phi i32 [ %142, %.lr.ph497 ], [ %90, %.backedge.jt1.backedge ]
-  %spec.select221496 = phi i32 [ %spec.select221.ph, %.lr.ph497 ], [ %spec.select.jt1, %.backedge.jt1.backedge ]
-  %24 = tail call i32 @feof(ptr noundef nonnull %16) #13
-  %.not124.jt1 = icmp eq i32 %24, 0
-  br i1 %.not124.jt1, label %81, label %.loopexit226
+default.unreachable197:                           ; preds = %37
+  unreachable
 
-25:                                               ; preds = %.lr.ph494, %.backedge.jt3.backedge
-  %26 = phi i8 [ %116, %.lr.ph494 ], [ %155, %.backedge.jt3.backedge ]
-  %27 = phi i32 [ %115, %.lr.ph494 ], [ %154, %.backedge.jt3.backedge ]
-  %.0118.be.jt3493 = phi i32 [ 0, %.lr.ph494 ], [ %151, %.backedge.jt3.backedge ]
-  %spec.select222492 = phi i32 [ %spec.select.jt2, %.lr.ph494 ], [ %spec.select.jt3, %.backedge.jt3.backedge ]
-  %28 = tail call i32 @feof(ptr noundef nonnull %16) #13
-  %.not124.jt3 = icmp eq i32 %28, 0
-  br i1 %.not124.jt3, label %42, label %.loopexit226
+20:                                               ; preds = %.lr.ph, %.backedge
+  %21 = phi i8 [ %18, %.lr.ph ], [ %42, %.backedge ]
+  %22 = phi i32 [ %17, %.lr.ph ], [ %41, %.backedge ]
+  %.0164 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.0114163 = phi ptr [ null, %.lr.ph ], [ %.0114.be, %.backedge ]
+  %.0117162 = phi i8 [ 63, %.lr.ph ], [ %.0117.be, %.backedge ]
+  %.0118161 = phi i32 [ 0, %.lr.ph ], [ %.0118.be, %.backedge ]
+  %.0119160 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %.backedge ]
+  %23 = tail call i32 @feof(ptr noundef nonnull %16) #13
+  %.not124 = icmp eq i32 %23, 0
+  br i1 %.not124, label %30, label %24
 
-29:                                               ; preds = %.backedge.jt4
-  %30 = tail call i32 @feof(ptr noundef nonnull %16) #13
-  %.not124.jt4 = icmp eq i32 %30, 0
-  br i1 %.not124.jt4, label %56, label %.loopexit226
+24:                                               ; preds = %20
+  %25 = tail call i32 @ferror(ptr noundef nonnull %16) #13
+  %.not127 = icmp eq i32 %25, 0
+  br i1 %.not127, label %.loopexit, label %26
 
-31:                                               ; preds = %.lr.ph490, %.backedge.jt2
-  %32 = phi i8 [ %77, %.lr.ph490 ], [ %121, %.backedge.jt2 ]
-  %33 = phi i32 [ %78, %.lr.ph490 ], [ %120, %.backedge.jt2 ]
-  %.0118.be.jt2489 = phi i32 [ 1, %.lr.ph490 ], [ %117, %.backedge.jt2 ]
-  %spec.select224488 = phi i32 [ %spec.select224.ph499, %.lr.ph490 ], [ %spec.select.jt2, %.backedge.jt2 ]
-  %34 = tail call i32 @feof(ptr noundef nonnull %16) #13
-  %.not124.jt2 = icmp eq i32 %34, 0
-  br i1 %.not124.jt2, label %46, label %.loopexit226
+26:                                               ; preds = %24
+  %27 = tail call ptr @__errno_location() #16
+  %28 = load i32, ptr %27, align 4
+  tail call void @report_read_failure(ptr noundef %0, i32 noundef %28)
+  %29 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %.0119160, ptr noundef nonnull @.str.14, ptr noundef %0)
+  br label %124
 
-35:                                               ; preds = %.backedge.jt0
-  %36 = tail call i32 @feof(ptr noundef nonnull %16) #13
-  %.not124.jt0 = icmp eq i32 %36, 0
-  br i1 %.not124.jt0, label %50, label %.loopexit226
+30:                                               ; preds = %20
+  %sext = shl i32 %22, 24
+  %31 = ashr exact i32 %sext, 24
+  %32 = icmp eq i32 %sext, 167772160
+  %33 = zext i1 %32 to i32
+  %spec.select = add i32 %.0119160, %33
+  %34 = icmp sgt i32 %.0118161, 8190
+  br i1 %34, label %35, label %37
 
-.loopexit226:                                     ; preds = %35, %29, %31, %25, %21, %.lr.ph
-  %.0119160214 = phi i32 [ 1, %.lr.ph ], [ %spec.select221496, %21 ], [ %spec.select222492, %25 ], [ %spec.select224488, %31 ], [ %spec.select225, %29 ], [ %spec.select223, %35 ]
-  %.0114163198 = phi ptr [ null, %.lr.ph ], [ %68, %21 ], [ %68, %25 ], [ %68, %31 ], [ %.0114163204, %29 ], [ %.0114.be.jt0, %35 ]
-  %37 = tail call i32 @ferror(ptr noundef nonnull %16) #13
-  %.not127 = icmp eq i32 %37, 0
-  br i1 %.not127, label %.loopexit, label %38
+35:                                               ; preds = %30
+  %36 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %spec.select, ptr noundef nonnull @.str.15)
+  br label %124
 
-38:                                               ; preds = %.loopexit226
-  %39 = tail call ptr @__errno_location() #16
-  %40 = load i32, ptr %39, align 4
-  tail call void @report_read_failure(ptr noundef %0, i32 noundef %40)
-  %41 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163198, i32 noundef %.0119160214, ptr noundef nonnull @.str.14, ptr noundef %0)
-  br label %161
+37:                                               ; preds = %30
+  switch i32 %.0164, label %default.unreachable197 [
+    i32 4, label %38
+    i32 0, label %39
+    i32 1, label %55
+    i32 2, label %72
+    i32 3, label %90
+  ], !llvm.loop !23
 
-42:                                               ; preds = %25
-  %sext.jt3 = shl i32 %27, 24
-  %43 = icmp eq i32 %sext.jt3, 167772160
-  %44 = zext i1 %43 to i32
-  %spec.select.jt3 = add i32 %spec.select222492, %44
-  %45 = icmp samesign ugt i32 %.0118.be.jt3493, 8190
-  br i1 %45, label %.loopexit229, label %126
+38:                                               ; preds = %37
+  %spec.select128 = select i1 %32, i32 0, i32 %.0118161
+  %spec.select129 = select i1 %32, i32 0, i32 4
+  br label %.backedge
 
-46:                                               ; preds = %31
-  %sext.jt2 = shl i32 %33, 24
-  %47 = icmp eq i32 %sext.jt2, 167772160
-  %48 = zext i1 %47 to i32
-  %spec.select.jt2 = add i32 %spec.select224488, %48
-  %49 = icmp samesign ugt i32 %.0118.be.jt2489, 8190
-  br i1 %49, label %.loopexit229, label %104
-
-50:                                               ; preds = %35
-  %sext.jt0 = shl i32 %64, 24
-  %51 = icmp eq i32 %sext.jt0, 167772160
-  %52 = zext i1 %51 to i32
-  %spec.select.jt0 = add i32 %spec.select223, %52
-  br label %59
-
-.loopexit229:                                     ; preds = %46, %42
-  %spec.select215 = phi i32 [ %spec.select.jt3, %42 ], [ %spec.select.jt2, %46 ]
-  %53 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %68, i32 noundef %spec.select215, ptr noundef nonnull @.str.15)
-  br label %161
-
-54:                                               ; preds = %.lr.ph
-  %sext = shl i32 %17, 24
-  %55 = icmp eq i32 %sext, 167772160
-  %spec.select = select i1 %55, i32 2, i32 1
-  br label %59
-
-56:                                               ; preds = %29
-  %sext.jt4.mask = and i32 %62, 255
-  %57 = icmp eq i32 %sext.jt4.mask, 10
-  %58 = zext i1 %57 to i32
-  %spec.select.jt4 = add i32 %spec.select225, %58
-  br i1 %57, label %.backedge.jt0, label %.backedge.jt4
-
-59:                                               ; preds = %50, %54
-  %spec.select220 = phi i32 [ %spec.select, %54 ], [ %spec.select.jt0, %50 ]
-  %.in = phi i32 [ %sext, %54 ], [ %sext.jt0, %50 ]
-  %.0114163204 = phi ptr [ null, %54 ], [ %.0114.be.jt0, %50 ]
-  %60 = phi i8 [ %18, %54 ], [ %65, %50 ]
-  %61 = ashr exact i32 %.in, 24
-  switch i32 %61, label %79 [
-    i32 32, label %.backedge.jt0
-    i32 9, label %.backedge.jt0
-    i32 10, label %.backedge.jt0
-    i32 65, label %66
-    i32 66, label %66
-    i32 67, label %66
-    i32 68, label %66
-    i32 69, label %66
-    i32 70, label %66
-    i32 71, label %66
-    i32 72, label %66
-    i32 73, label %66
-    i32 74, label %66
-    i32 75, label %66
-    i32 76, label %66
-    i32 77, label %66
-    i32 78, label %66
-    i32 79, label %66
-    i32 80, label %66
-    i32 81, label %66
-    i32 82, label %66
-    i32 83, label %66
-    i32 84, label %66
-    i32 85, label %66
-    i32 86, label %66
-    i32 87, label %66
-    i32 88, label %66
-    i32 89, label %66
-    i32 90, label %66
-    i32 97, label %66
-    i32 98, label %66
-    i32 99, label %66
-    i32 100, label %66
-    i32 101, label %66
-    i32 102, label %66
-    i32 103, label %66
-    i32 104, label %66
-    i32 105, label %66
-    i32 106, label %66
-    i32 107, label %66
-    i32 108, label %66
-    i32 109, label %66
-    i32 110, label %66
-    i32 111, label %66
-    i32 112, label %66
-    i32 113, label %66
-    i32 114, label %66
-    i32 115, label %66
-    i32 116, label %66
-    i32 117, label %66
-    i32 118, label %66
-    i32 119, label %66
-    i32 120, label %66
-    i32 121, label %66
-    i32 122, label %66
-    i32 95, label %66
-    i32 48, label %66
-    i32 49, label %66
-    i32 50, label %66
-    i32 51, label %66
-    i32 52, label %66
-    i32 53, label %66
-    i32 54, label %66
-    i32 55, label %66
-    i32 56, label %66
-    i32 57, label %66
-    i32 46, label %66
-    i32 35, label %.backedge.jt4
+39:                                               ; preds = %37
+  switch i32 %31, label %53 [
+    i32 32, label %40
+    i32 9, label %40
+    i32 10, label %.backedge
+    i32 65, label %43
+    i32 66, label %43
+    i32 67, label %43
+    i32 68, label %43
+    i32 69, label %43
+    i32 70, label %43
+    i32 71, label %43
+    i32 72, label %43
+    i32 73, label %43
+    i32 74, label %43
+    i32 75, label %43
+    i32 76, label %43
+    i32 77, label %43
+    i32 78, label %43
+    i32 79, label %43
+    i32 80, label %43
+    i32 81, label %43
+    i32 82, label %43
+    i32 83, label %43
+    i32 84, label %43
+    i32 85, label %43
+    i32 86, label %43
+    i32 87, label %43
+    i32 88, label %43
+    i32 89, label %43
+    i32 90, label %43
+    i32 97, label %43
+    i32 98, label %43
+    i32 99, label %43
+    i32 100, label %43
+    i32 101, label %43
+    i32 102, label %43
+    i32 103, label %43
+    i32 104, label %43
+    i32 105, label %43
+    i32 106, label %43
+    i32 107, label %43
+    i32 108, label %43
+    i32 109, label %43
+    i32 110, label %43
+    i32 111, label %43
+    i32 112, label %43
+    i32 113, label %43
+    i32 114, label %43
+    i32 115, label %43
+    i32 116, label %43
+    i32 117, label %43
+    i32 118, label %43
+    i32 119, label %43
+    i32 120, label %43
+    i32 121, label %43
+    i32 122, label %43
+    i32 95, label %43
+    i32 48, label %43
+    i32 49, label %43
+    i32 50, label %43
+    i32 51, label %43
+    i32 52, label %43
+    i32 53, label %43
+    i32 54, label %43
+    i32 55, label %43
+    i32 56, label %43
+    i32 57, label %43
+    i32 46, label %43
+    i32 35, label %52
   ]
 
-.backedge.jt4:                                    ; preds = %59, %56
-  %spec.select225 = phi i32 [ %spec.select.jt4, %56 ], [ %spec.select220, %59 ]
-  %62 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %63 = and i32 %62, 255
-  %.not123.jt4 = icmp eq i32 %63, 0
-  br i1 %.not123.jt4, label %.loopexit, label %29, !llvm.loop !23
+40:                                               ; preds = %39, %39
+  br label %.backedge
 
-.backedge.jt0:                                    ; preds = %56, %59, %59, %59, %94
-  %spec.select223 = phi i32 [ %spec.select220, %59 ], [ %spec.select.jt1, %94 ], [ %spec.select220, %59 ], [ %spec.select220, %59 ], [ %spec.select.jt4, %56 ]
-  %.0114.be.jt0 = phi ptr [ %.0114163204, %59 ], [ %68, %94 ], [ %.0114163204, %59 ], [ %.0114163204, %59 ], [ %.0114163204, %56 ]
-  %64 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %65 = trunc i32 %64 to i8
-  %.not123.jt0 = icmp eq i8 %65, 0
-  br i1 %.not123.jt0, label %.loopexit, label %35, !llvm.loop !23
+.backedge:                                        ; preds = %97, %108, %73, %78, %55, %55, %56, %58, %40, %43, %52, %61, %62, %79, %82, %91, %115, %39, %38
+  %.0118.be = phi i32 [ %.0118161, %40 ], [ 1, %43 ], [ %.0118161, %52 ], [ 1, %61 ], [ 0, %62 ], [ 0, %79 ], [ %83, %82 ], [ %116, %115 ], [ %94, %91 ], [ %spec.select128, %38 ], [ 0, %39 ], [ 0, %58 ], [ 0, %56 ], [ 0, %55 ], [ 0, %55 ], [ 0, %78 ], [ 0, %73 ], [ 0, %108 ], [ 0, %97 ]
+  %.0117.be = phi i8 [ %.0117162, %40 ], [ %.0117162, %43 ], [ %.0117162, %52 ], [ %.0117162, %61 ], [ %.0117162, %62 ], [ %21, %79 ], [ %.0117162, %82 ], [ %.0117162, %115 ], [ %.0117162, %91 ], [ %.0117162, %38 ], [ %.0117162, %39 ], [ %.0117162, %58 ], [ %.0117162, %56 ], [ %.0117162, %55 ], [ %.0117162, %55 ], [ 63, %78 ], [ 63, %73 ], [ %.0117162, %108 ], [ %.0117162, %97 ]
+  %.0114.be = phi ptr [ %.0114163, %40 ], [ %45, %43 ], [ %.0114163, %52 ], [ %.0114163, %61 ], [ %.0114163, %62 ], [ %.0114163, %79 ], [ %.0114163, %82 ], [ %.0114163, %115 ], [ %.0114163, %91 ], [ %.0114163, %38 ], [ %.0114163, %39 ], [ %.0114163, %58 ], [ %.0114163, %56 ], [ %.0114163, %55 ], [ %.0114163, %55 ], [ %.0114163, %78 ], [ %.0114163, %73 ], [ %.0114163, %108 ], [ %.0114163, %97 ]
+  %.0.be = phi i32 [ 0, %40 ], [ 2, %43 ], [ 4, %52 ], [ 2, %61 ], [ 0, %62 ], [ 3, %79 ], [ 2, %82 ], [ 3, %115 ], [ 3, %91 ], [ %spec.select129, %38 ], [ 0, %39 ], [ 1, %58 ], [ 1, %56 ], [ 1, %55 ], [ 1, %55 ], [ 1, %78 ], [ 1, %73 ], [ 1, %108 ], [ 1, %97 ]
+  %41 = tail call i32 @fgetc(ptr noundef nonnull %16)
+  %42 = trunc i32 %41 to i8
+  %.not123 = icmp eq i8 %42, 0
+  br i1 %.not123, label %.loopexit, label %20, !llvm.loop !23
 
-66:                                               ; preds = %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59
-  store i8 %60, ptr %10, align 1
+43:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39
+  store i8 %21, ptr %10, align 1
   store i8 0, ptr %19, align 1
-  %67 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %9, i64 noundef 8192, i32 noundef 2, i64 noundef 8192, ptr noundef nonnull @.str.16, ptr noundef %0, i32 noundef %spec.select220)
-  %68 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
-  %69 = load ptr, ptr @avp_strings, align 8
-  %70 = tail call ptr @scs_subscribe(ptr noundef %69, ptr noundef nonnull %.str.6..i)
-  store ptr %70, ptr %68, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store ptr %72, ptr %74, align 8
-  %75 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %76 = trunc i32 %75 to i8
-  %.not123.jt2487498 = icmp eq i8 %76, 0
-  br i1 %.not123.jt2487498, label %..backedge.jt2.outer..loopexit.loopexit367_crit_edge_crit_edge, label %.lr.ph490.lr.ph, !llvm.loop !23
+  %44 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %9, i64 noundef 8192, i32 noundef 2, i64 noundef 8192, ptr noundef nonnull @.str.16, ptr noundef %0, i32 noundef %spec.select)
+  %45 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
+  %46 = load ptr, ptr @avp_strings, align 8
+  %47 = tail call ptr @scs_subscribe(ptr noundef %46, ptr noundef nonnull %.str.6..i)
+  store ptr %47, ptr %45, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i32 0, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store ptr %49, ptr %51, align 8
+  br label %.backedge
 
-.lr.ph490.lr.ph:                                  ; preds = %66
-  br label %.lr.ph490, !llvm.loop !23
+52:                                               ; preds = %39
+  br label %.backedge
 
-.lr.ph490:                                        ; preds = %.lr.ph490.lr.ph, %.backedge.jt2.outer
-  %77 = phi i8 [ %76, %.lr.ph490.lr.ph ], [ %93, %.backedge.jt2.outer ]
-  %78 = phi i32 [ %75, %.lr.ph490.lr.ph ], [ %92, %.backedge.jt2.outer ]
-  %spec.select224.ph499 = phi i32 [ %spec.select220, %.lr.ph490.lr.ph ], [ %spec.select.jt1, %.backedge.jt2.outer ]
-  br label %31, !llvm.loop !23
+53:                                               ; preds = %39
+  %54 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %spec.select, ptr noundef nonnull @.str.17, i32 noundef %31)
+  br label %124
 
-79:                                               ; preds = %59
-  %80 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163204, i32 noundef %spec.select220, ptr noundef nonnull @.str.17, i32 noundef %61)
-  br label %161
-
-81:                                               ; preds = %21
-  %sext.jt1 = shl i32 %23, 24
-  %82 = ashr exact i32 %sext.jt1, 24
-  %83 = icmp eq i32 %sext.jt1, 167772160
-  %84 = zext i1 %83 to i32
-  %spec.select.jt1 = add i32 %spec.select221496, %84
+55:                                               ; preds = %37
   store i8 0, ptr %10, align 1
-  switch i32 %82, label %102 [
-    i32 92, label %85
-    i32 32, label %.backedge.jt1.backedge
-    i32 9, label %.backedge.jt1.backedge
-    i32 65, label %.backedge.jt2.outer
-    i32 66, label %.backedge.jt2.outer
-    i32 67, label %.backedge.jt2.outer
-    i32 68, label %.backedge.jt2.outer
-    i32 69, label %.backedge.jt2.outer
-    i32 70, label %.backedge.jt2.outer
-    i32 71, label %.backedge.jt2.outer
-    i32 72, label %.backedge.jt2.outer
-    i32 73, label %.backedge.jt2.outer
-    i32 74, label %.backedge.jt2.outer
-    i32 75, label %.backedge.jt2.outer
-    i32 76, label %.backedge.jt2.outer
-    i32 77, label %.backedge.jt2.outer
-    i32 78, label %.backedge.jt2.outer
-    i32 79, label %.backedge.jt2.outer
-    i32 80, label %.backedge.jt2.outer
-    i32 81, label %.backedge.jt2.outer
-    i32 82, label %.backedge.jt2.outer
-    i32 83, label %.backedge.jt2.outer
-    i32 84, label %.backedge.jt2.outer
-    i32 85, label %.backedge.jt2.outer
-    i32 86, label %.backedge.jt2.outer
-    i32 87, label %.backedge.jt2.outer
-    i32 88, label %.backedge.jt2.outer
-    i32 89, label %.backedge.jt2.outer
-    i32 90, label %.backedge.jt2.outer
-    i32 97, label %.backedge.jt2.outer
-    i32 98, label %.backedge.jt2.outer
-    i32 99, label %.backedge.jt2.outer
-    i32 100, label %.backedge.jt2.outer
-    i32 101, label %.backedge.jt2.outer
-    i32 102, label %.backedge.jt2.outer
-    i32 103, label %.backedge.jt2.outer
-    i32 104, label %.backedge.jt2.outer
-    i32 105, label %.backedge.jt2.outer
-    i32 106, label %.backedge.jt2.outer
-    i32 107, label %.backedge.jt2.outer
-    i32 108, label %.backedge.jt2.outer
-    i32 109, label %.backedge.jt2.outer
-    i32 110, label %.backedge.jt2.outer
-    i32 111, label %.backedge.jt2.outer
-    i32 112, label %.backedge.jt2.outer
-    i32 113, label %.backedge.jt2.outer
-    i32 114, label %.backedge.jt2.outer
-    i32 115, label %.backedge.jt2.outer
-    i32 116, label %.backedge.jt2.outer
-    i32 117, label %.backedge.jt2.outer
-    i32 118, label %.backedge.jt2.outer
-    i32 119, label %.backedge.jt2.outer
-    i32 120, label %.backedge.jt2.outer
-    i32 121, label %.backedge.jt2.outer
-    i32 122, label %.backedge.jt2.outer
-    i32 95, label %.backedge.jt2.outer
-    i32 48, label %.backedge.jt2.outer
-    i32 49, label %.backedge.jt2.outer
-    i32 50, label %.backedge.jt2.outer
-    i32 51, label %.backedge.jt2.outer
-    i32 52, label %.backedge.jt2.outer
-    i32 53, label %.backedge.jt2.outer
-    i32 54, label %.backedge.jt2.outer
-    i32 55, label %.backedge.jt2.outer
-    i32 56, label %.backedge.jt2.outer
-    i32 57, label %.backedge.jt2.outer
-    i32 46, label %.backedge.jt2.outer
-    i32 10, label %94
+  switch i32 %31, label %70 [
+    i32 92, label %56
+    i32 32, label %.backedge
+    i32 9, label %.backedge
+    i32 65, label %61
+    i32 66, label %61
+    i32 67, label %61
+    i32 68, label %61
+    i32 69, label %61
+    i32 70, label %61
+    i32 71, label %61
+    i32 72, label %61
+    i32 73, label %61
+    i32 74, label %61
+    i32 75, label %61
+    i32 76, label %61
+    i32 77, label %61
+    i32 78, label %61
+    i32 79, label %61
+    i32 80, label %61
+    i32 81, label %61
+    i32 82, label %61
+    i32 83, label %61
+    i32 84, label %61
+    i32 85, label %61
+    i32 86, label %61
+    i32 87, label %61
+    i32 88, label %61
+    i32 89, label %61
+    i32 90, label %61
+    i32 97, label %61
+    i32 98, label %61
+    i32 99, label %61
+    i32 100, label %61
+    i32 101, label %61
+    i32 102, label %61
+    i32 103, label %61
+    i32 104, label %61
+    i32 105, label %61
+    i32 106, label %61
+    i32 107, label %61
+    i32 108, label %61
+    i32 109, label %61
+    i32 110, label %61
+    i32 111, label %61
+    i32 112, label %61
+    i32 113, label %61
+    i32 114, label %61
+    i32 115, label %61
+    i32 116, label %61
+    i32 117, label %61
+    i32 118, label %61
+    i32 119, label %61
+    i32 120, label %61
+    i32 121, label %61
+    i32 122, label %61
+    i32 95, label %61
+    i32 48, label %61
+    i32 49, label %61
+    i32 50, label %61
+    i32 51, label %61
+    i32 52, label %61
+    i32 53, label %61
+    i32 54, label %61
+    i32 55, label %61
+    i32 56, label %61
+    i32 57, label %61
+    i32 46, label %61
+    i32 10, label %62
   ]
 
-85:                                               ; preds = %81
-  %86 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %sext125 = shl i32 %86, 24
+56:                                               ; preds = %55
+  %57 = tail call i32 @fgetc(ptr noundef nonnull %16)
+  %sext125 = shl i32 %57, 24
   %.not126 = icmp eq i32 %sext125, 167772160
-  br i1 %.not126, label %.backedge.jt1.backedge, label %87
+  br i1 %.not126, label %.backedge, label %58
 
-87:                                               ; preds = %85
-  %88 = ashr exact i32 %sext125, 24
-  %89 = tail call i32 @ungetc(i32 noundef %88, ptr noundef nonnull %16)
-  br label %.backedge.jt1.backedge
+58:                                               ; preds = %56
+  %59 = ashr exact i32 %sext125, 24
+  %60 = tail call i32 @ungetc(i32 noundef %59, ptr noundef nonnull %16)
+  br label %.backedge
 
-.backedge.jt1.backedge:                           ; preds = %87, %85, %81, %81
-  %90 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %91 = trunc i32 %90 to i8
-  %.not123.jt1 = icmp eq i8 %91, 0
-  br i1 %.not123.jt1, label %.backedge.jt1..loopexit.loopexit_crit_edge, label %21, !llvm.loop !23
-
-.backedge.jt2.outer:                              ; preds = %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81
-  store i8 %22, ptr %10, align 1
+61:                                               ; preds = %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55
+  store i8 %21, ptr %10, align 1
   store i8 0, ptr %19, align 1
+  br label %.backedge
+
+62:                                               ; preds = %55
+  %63 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
+  store ptr %.0114163, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %5, ptr %64, align 8
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store ptr %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr %63, ptr %67, align 8
+  store ptr %63, ptr %7, align 8
+  %68 = load i32, ptr %8, align 8
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %8, align 8
+  br label %.backedge
+
+70:                                               ; preds = %55
+  %71 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %spec.select, ptr noundef nonnull @.str.17, i32 noundef %31)
+  br label %124
+
+72:                                               ; preds = %37
+  switch i32 %31, label %88 [
+    i32 59, label %73
+    i32 61, label %79
+    i32 94, label %79
+    i32 36, label %79
+    i32 126, label %79
+    i32 60, label %79
+    i32 62, label %79
+    i32 63, label %79
+    i32 124, label %79
+    i32 38, label %79
+    i32 33, label %79
+    i32 65, label %82
+    i32 66, label %82
+    i32 67, label %82
+    i32 68, label %82
+    i32 69, label %82
+    i32 70, label %82
+    i32 71, label %82
+    i32 72, label %82
+    i32 73, label %82
+    i32 74, label %82
+    i32 75, label %82
+    i32 76, label %82
+    i32 77, label %82
+    i32 78, label %82
+    i32 79, label %82
+    i32 80, label %82
+    i32 81, label %82
+    i32 82, label %82
+    i32 83, label %82
+    i32 84, label %82
+    i32 85, label %82
+    i32 86, label %82
+    i32 87, label %82
+    i32 88, label %82
+    i32 89, label %82
+    i32 90, label %82
+    i32 97, label %82
+    i32 98, label %82
+    i32 99, label %82
+    i32 100, label %82
+    i32 101, label %82
+    i32 102, label %82
+    i32 103, label %82
+    i32 104, label %82
+    i32 105, label %82
+    i32 106, label %82
+    i32 107, label %82
+    i32 108, label %82
+    i32 109, label %82
+    i32 110, label %82
+    i32 111, label %82
+    i32 112, label %82
+    i32 113, label %82
+    i32 114, label %82
+    i32 115, label %82
+    i32 116, label %82
+    i32 117, label %82
+    i32 118, label %82
+    i32 119, label %82
+    i32 120, label %82
+    i32 121, label %82
+    i32 122, label %82
+    i32 95, label %82
+    i32 48, label %82
+    i32 49, label %82
+    i32 50, label %82
+    i32 51, label %82
+    i32 52, label %82
+    i32 53, label %82
+    i32 54, label %82
+    i32 55, label %82
+    i32 56, label %82
+    i32 57, label %82
+    i32 46, label %82
+    i32 10, label %86
+  ]
+
+73:                                               ; preds = %72
+  %74 = sext i32 %.0118161 to i64
+  %75 = getelementptr i8, ptr %10, i64 %74
+  store i8 0, ptr %75, align 1
+  store i8 0, ptr %11, align 1
+  %76 = tail call ptr @new_avp(ptr noundef %10, ptr noundef %11, i8 noundef signext 63)
+  %77 = tail call zeroext i1 @insert_avp(ptr noundef %.0114163, ptr noundef %76)
+  br i1 %77, label %.backedge, label %78
+
+78:                                               ; preds = %73
+  tail call void @delete_avp(ptr noundef %76)
+  br label %.backedge
+
+79:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72, %72, %72
+  %80 = sext i32 %.0118161 to i64
+  %81 = getelementptr i8, ptr %10, i64 %80
+  store i8 0, ptr %81, align 1
+  br label %.backedge
+
+82:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72
+  %83 = add nsw i32 %.0118161, 1
+  %84 = sext i32 %.0118161 to i64
+  %85 = getelementptr i8, ptr %10, i64 %84
+  store i8 %21, ptr %85, align 1
+  br label %.backedge
+
+86:                                               ; preds = %72
+  %87 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %spec.select, ptr noundef nonnull @.str.18)
+  br label %124
+
+88:                                               ; preds = %72
+  %89 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %spec.select, ptr noundef nonnull @.str.19, i32 noundef %31)
+  br label %124
+
+90:                                               ; preds = %37
+  switch i32 %31, label %115 [
+    i32 92, label %91
+    i32 59, label %97
+    i32 10, label %113
+  ]
+
+91:                                               ; preds = %90
   %92 = tail call i32 @fgetc(ptr noundef nonnull %16)
   %93 = trunc i32 %92 to i8
-  %.not123.jt2487 = icmp eq i8 %93, 0
-  br i1 %.not123.jt2487, label %.backedge.jt2.outer..backedge.jt2.outer..loopexit.loopexit367_crit_edge_crit_edge, label %.lr.ph490, !llvm.loop !23
+  %94 = add nsw i32 %.0118161, 1
+  %95 = sext i32 %.0118161 to i64
+  %96 = getelementptr i8, ptr %11, i64 %95
+  store i8 %93, ptr %96, align 1
+  br label %.backedge
 
-94:                                               ; preds = %81
-  %95 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
-  store ptr %68, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %5, ptr %96, align 8
-  %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr %97, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %95, ptr %99, align 8
-  store ptr %95, ptr %7, align 8
-  %100 = load i32, ptr %8, align 8
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %8, align 8
-  br label %.backedge.jt0
+97:                                               ; preds = %90
+  %98 = sext i32 %.0118161 to i64
+  %99 = getelementptr i8, ptr %11, i64 %98
+  store i8 0, ptr %99, align 1
+  %100 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
+  %101 = load ptr, ptr @avp_strings, align 8
+  %102 = tail call ptr @scs_subscribe(ptr noundef %101, ptr noundef %10)
+  store ptr %102, ptr %100, align 8
+  %103 = load ptr, ptr @avp_strings, align 8
+  %104 = tail call ptr @scs_subscribe(ptr noundef %103, ptr noundef %11)
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store ptr %104, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  store i8 %.0117162, ptr %106, align 8
+  %107 = tail call zeroext i1 @insert_avp(ptr noundef %.0114163, ptr noundef %100)
+  br i1 %107, label %.backedge, label %108
 
-102:                                              ; preds = %81
-  %103 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %68, i32 noundef %spec.select.jt1, ptr noundef nonnull @.str.17, i32 noundef %82)
-  br label %161
+108:                                              ; preds = %97
+  %109 = load ptr, ptr @avp_strings, align 8
+  %110 = load ptr, ptr %100, align 8
+  tail call void @scs_unsubscribe(ptr noundef %109, ptr noundef %110)
+  %111 = load ptr, ptr @avp_strings, align 8
+  %112 = load ptr, ptr %105, align 8
+  tail call void @scs_unsubscribe(ptr noundef %111, ptr noundef %112)
+  tail call void @g_slice_free1(i64 noundef 40, ptr noundef %100)
+  br label %.backedge
 
-104:                                              ; preds = %46
-  %105 = ashr exact i32 %sext.jt2, 24
-  switch i32 %105, label %124 [
-    i32 59, label %106
-    i32 61, label %112
-    i32 94, label %112
-    i32 36, label %112
-    i32 126, label %112
-    i32 60, label %112
-    i32 62, label %112
-    i32 63, label %112
-    i32 124, label %112
-    i32 38, label %112
-    i32 33, label %112
-    i32 65, label %.backedge.jt2
-    i32 66, label %.backedge.jt2
-    i32 67, label %.backedge.jt2
-    i32 68, label %.backedge.jt2
-    i32 69, label %.backedge.jt2
-    i32 70, label %.backedge.jt2
-    i32 71, label %.backedge.jt2
-    i32 72, label %.backedge.jt2
-    i32 73, label %.backedge.jt2
-    i32 74, label %.backedge.jt2
-    i32 75, label %.backedge.jt2
-    i32 76, label %.backedge.jt2
-    i32 77, label %.backedge.jt2
-    i32 78, label %.backedge.jt2
-    i32 79, label %.backedge.jt2
-    i32 80, label %.backedge.jt2
-    i32 81, label %.backedge.jt2
-    i32 82, label %.backedge.jt2
-    i32 83, label %.backedge.jt2
-    i32 84, label %.backedge.jt2
-    i32 85, label %.backedge.jt2
-    i32 86, label %.backedge.jt2
-    i32 87, label %.backedge.jt2
-    i32 88, label %.backedge.jt2
-    i32 89, label %.backedge.jt2
-    i32 90, label %.backedge.jt2
-    i32 97, label %.backedge.jt2
-    i32 98, label %.backedge.jt2
-    i32 99, label %.backedge.jt2
-    i32 100, label %.backedge.jt2
-    i32 101, label %.backedge.jt2
-    i32 102, label %.backedge.jt2
-    i32 103, label %.backedge.jt2
-    i32 104, label %.backedge.jt2
-    i32 105, label %.backedge.jt2
-    i32 106, label %.backedge.jt2
-    i32 107, label %.backedge.jt2
-    i32 108, label %.backedge.jt2
-    i32 109, label %.backedge.jt2
-    i32 110, label %.backedge.jt2
-    i32 111, label %.backedge.jt2
-    i32 112, label %.backedge.jt2
-    i32 113, label %.backedge.jt2
-    i32 114, label %.backedge.jt2
-    i32 115, label %.backedge.jt2
-    i32 116, label %.backedge.jt2
-    i32 117, label %.backedge.jt2
-    i32 118, label %.backedge.jt2
-    i32 119, label %.backedge.jt2
-    i32 120, label %.backedge.jt2
-    i32 121, label %.backedge.jt2
-    i32 122, label %.backedge.jt2
-    i32 95, label %.backedge.jt2
-    i32 48, label %.backedge.jt2
-    i32 49, label %.backedge.jt2
-    i32 50, label %.backedge.jt2
-    i32 51, label %.backedge.jt2
-    i32 52, label %.backedge.jt2
-    i32 53, label %.backedge.jt2
-    i32 54, label %.backedge.jt2
-    i32 55, label %.backedge.jt2
-    i32 56, label %.backedge.jt2
-    i32 57, label %.backedge.jt2
-    i32 46, label %.backedge.jt2
-    i32 10, label %122
-  ]
+113:                                              ; preds = %90
+  %114 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %.0114163, i32 noundef %spec.select, ptr noundef nonnull @.str.20)
+  br label %124
 
-106:                                              ; preds = %104
-  %107 = zext nneg i32 %.0118.be.jt2489 to i64
-  %108 = getelementptr i8, ptr %10, i64 %107
-  store i8 0, ptr %108, align 1
-  store i8 0, ptr %11, align 1
-  %109 = tail call ptr @new_avp(ptr noundef %10, ptr noundef %11, i8 noundef signext 63)
-  %110 = tail call zeroext i1 @insert_avp(ptr noundef %68, ptr noundef %109)
-  br i1 %110, label %.backedge.jt1.preheader, label %111
+115:                                              ; preds = %90
+  %116 = add nsw i32 %.0118161, 1
+  %117 = sext i32 %.0118161 to i64
+  %118 = getelementptr i8, ptr %11, i64 %117
+  store i8 %21, ptr %118, align 1
+  br label %.backedge
 
-111:                                              ; preds = %106
-  tail call void @delete_avp(ptr noundef %109)
-  br label %.backedge.jt1.preheader
+.loopexit:                                        ; preds = %.backedge, %.preheader, %24
+  %119 = tail call i32 @fclose(ptr noundef nonnull %16)
+  br label %124
 
-112:                                              ; preds = %104, %104, %104, %104, %104, %104, %104, %104, %104, %104
-  %113 = zext nneg i32 %.0118.be.jt2489 to i64
-  %114 = getelementptr i8, ptr %10, i64 %113
-  store i8 0, ptr %114, align 1
-  %115 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %116 = trunc i32 %115 to i8
-  %.not123.jt3491 = icmp eq i8 %116, 0
-  br i1 %.not123.jt3491, label %..loopexit.loopexit365_crit_edge, label %.lr.ph494, !llvm.loop !23
+120:                                              ; preds = %15
+  %121 = tail call ptr @__errno_location() #16
+  %122 = load i32, ptr %121, align 4
+  tail call void @report_open_failure(ptr noundef %0, i32 noundef %122, i1 noundef zeroext false)
+  %123 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef %0)
+  br label %124
 
-.lr.ph494:                                        ; preds = %112
-  br label %25, !llvm.loop !23
-
-.backedge.jt2:                                    ; preds = %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104
-  %117 = add nuw nsw i32 %.0118.be.jt2489, 1
-  %118 = zext nneg i32 %.0118.be.jt2489 to i64
-  %119 = getelementptr i8, ptr %10, i64 %118
-  store i8 %32, ptr %119, align 1
-  %120 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %121 = trunc i32 %120 to i8
-  %.not123.jt2 = icmp eq i8 %121, 0
-  br i1 %.not123.jt2, label %.backedge.jt2..loopexit.loopexit367_crit_edge, label %31, !llvm.loop !23
-
-122:                                              ; preds = %104
-  %123 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %68, i32 noundef %spec.select.jt2, ptr noundef nonnull @.str.18)
-  br label %161
-
-124:                                              ; preds = %104
-  %125 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %68, i32 noundef %spec.select.jt2, ptr noundef nonnull @.str.19, i32 noundef %105)
-  br label %161
-
-126:                                              ; preds = %42
-  %127 = ashr exact i32 %sext.jt3, 24
-  switch i32 %127, label %.backedge.jt3.backedge [
-    i32 92, label %128
-    i32 59, label %131
-    i32 10, label %149
-  ]
-
-128:                                              ; preds = %126
-  %129 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %130 = trunc i32 %129 to i8
-  br label %.backedge.jt3.backedge
-
-131:                                              ; preds = %126
-  %132 = zext nneg i32 %.0118.be.jt3493 to i64
-  %133 = getelementptr i8, ptr %11, i64 %132
-  store i8 0, ptr %133, align 1
-  %134 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
-  %135 = load ptr, ptr @avp_strings, align 8
-  %136 = tail call ptr @scs_subscribe(ptr noundef %135, ptr noundef %10)
-  store ptr %136, ptr %134, align 8
-  %137 = load ptr, ptr @avp_strings, align 8
-  %138 = tail call ptr @scs_subscribe(ptr noundef %137, ptr noundef %11)
-  %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  store ptr %138, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store i8 %32, ptr %140, align 8
-  %141 = tail call zeroext i1 @insert_avp(ptr noundef %68, ptr noundef %134)
-  br i1 %141, label %.backedge.jt1.preheader, label %144
-
-.backedge.jt1.preheader:                          ; preds = %111, %106, %144, %131
-  %spec.select221.ph = phi i32 [ %spec.select.jt2, %111 ], [ %spec.select.jt2, %106 ], [ %spec.select.jt3, %144 ], [ %spec.select.jt3, %131 ]
-  %142 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %143 = trunc i32 %142 to i8
-  %.not123.jt1495 = icmp eq i8 %143, 0
-  br i1 %.not123.jt1495, label %.backedge.jt1.preheader..loopexit.loopexit_crit_edge, label %.lr.ph497, !llvm.loop !23
-
-.lr.ph497:                                        ; preds = %.backedge.jt1.preheader
-  br label %21, !llvm.loop !23
-
-144:                                              ; preds = %131
-  %145 = load ptr, ptr @avp_strings, align 8
-  %146 = load ptr, ptr %134, align 8
-  tail call void @scs_unsubscribe(ptr noundef %145, ptr noundef %146)
-  %147 = load ptr, ptr @avp_strings, align 8
-  %148 = load ptr, ptr %139, align 8
-  tail call void @scs_unsubscribe(ptr noundef %147, ptr noundef %148)
-  tail call void @g_slice_free1(i64 noundef 40, ptr noundef %134)
-  br label %.backedge.jt1.preheader
-
-149:                                              ; preds = %126
-  %150 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %68, i32 noundef %spec.select.jt3, ptr noundef nonnull @.str.20)
-  br label %161
-
-.backedge.jt3.backedge:                           ; preds = %126, %128
-  %.sink = phi i8 [ %130, %128 ], [ %26, %126 ]
-  %151 = add nuw nsw i32 %.0118.be.jt3493, 1
-  %152 = zext nneg i32 %.0118.be.jt3493 to i64
-  %153 = getelementptr i8, ptr %11, i64 %152
-  store i8 %.sink, ptr %153, align 1
-  %154 = tail call i32 @fgetc(ptr noundef nonnull %16)
-  %155 = trunc i32 %154 to i8
-  %.not123.jt3 = icmp eq i8 %155, 0
-  br i1 %.not123.jt3, label %.backedge.jt3..loopexit.loopexit365_crit_edge, label %25, !llvm.loop !23
-
-.backedge.jt1.preheader..loopexit.loopexit_crit_edge: ; preds = %.backedge.jt1.preheader
-  br label %.loopexit, !llvm.loop !23
-
-.backedge.jt1..loopexit.loopexit_crit_edge:       ; preds = %.backedge.jt1.backedge
-  br label %.loopexit, !llvm.loop !23
-
-..loopexit.loopexit365_crit_edge:                 ; preds = %112
-  br label %.loopexit, !llvm.loop !23
-
-.backedge.jt3..loopexit.loopexit365_crit_edge:    ; preds = %.backedge.jt3.backedge
-  br label %.loopexit, !llvm.loop !23
-
-..backedge.jt2.outer..loopexit.loopexit367_crit_edge_crit_edge: ; preds = %66
-  br label %.backedge.jt2.outer..loopexit.loopexit367_crit_edge, !llvm.loop !23
-
-.backedge.jt2.outer..backedge.jt2.outer..loopexit.loopexit367_crit_edge_crit_edge: ; preds = %.backedge.jt2.outer
-  br label %.backedge.jt2.outer..loopexit.loopexit367_crit_edge, !llvm.loop !23
-
-.backedge.jt2.outer..loopexit.loopexit367_crit_edge: ; preds = %.backedge.jt2.outer..backedge.jt2.outer..loopexit.loopexit367_crit_edge_crit_edge, %..backedge.jt2.outer..loopexit.loopexit367_crit_edge_crit_edge
-  br label %.loopexit, !llvm.loop !23
-
-.backedge.jt2..loopexit.loopexit367_crit_edge:    ; preds = %.backedge.jt2
-  br label %.loopexit, !llvm.loop !23
-
-.loopexit:                                        ; preds = %.backedge.jt0, %.backedge.jt4, %.backedge.jt2.outer..loopexit.loopexit367_crit_edge, %.backedge.jt2..loopexit.loopexit367_crit_edge, %..loopexit.loopexit365_crit_edge, %.backedge.jt3..loopexit.loopexit365_crit_edge, %.backedge.jt1.preheader..loopexit.loopexit_crit_edge, %.backedge.jt1..loopexit.loopexit_crit_edge, %.preheader, %.loopexit226
-  %156 = tail call i32 @fclose(ptr noundef nonnull %16)
-  br label %161
-
-157:                                              ; preds = %15
-  %158 = tail call ptr @__errno_location() #16
-  %159 = load i32, ptr %158, align 4
-  tail call void @report_open_failure(ptr noundef %0, i32 noundef %159, i1 noundef zeroext false)
-  %160 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef %0)
-  br label %161
-
-161:                                              ; preds = %13, %38, %.loopexit229, %79, %102, %122, %124, %149, %157, %.loopexit
-  %.0115 = phi ptr [ %2, %.loopexit ], [ %41, %38 ], [ %53, %.loopexit229 ], [ %80, %79 ], [ %103, %102 ], [ %125, %124 ], [ %123, %122 ], [ %150, %149 ], [ %160, %157 ], [ %14, %13 ]
+124:                                              ; preds = %13, %26, %35, %53, %70, %86, %88, %113, %120, %.loopexit
+  %.0115 = phi ptr [ %2, %.loopexit ], [ %29, %26 ], [ %36, %35 ], [ %54, %53 ], [ %71, %70 ], [ %89, %88 ], [ %87, %86 ], [ %114, %113 ], [ %123, %120 ], [ %14, %13 ]
   tail call void @g_free(ptr noundef %9)
   tail call void @g_free(ptr noundef %10)
   tail call void @g_free(ptr noundef %11)

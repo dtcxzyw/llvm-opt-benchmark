@@ -4098,14 +4098,14 @@ define dso_local range(i32 -1, 1) i32 @finalize_object_file_flags(ptr noundef %0
   %.not31 = icmp eq i32 %7, 0
   br i1 %.not31, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3, %64
-  %.025.us = phi i32 [ %66, %64 ], [ 0, %3 ]
+.split.us:                                        ; preds = %3, %62
+  %.025.us = phi i32 [ %63, %62 ], [ 0, %3 ]
   %8 = load i32, ptr @object_creation_mode, align 4, !tbaa !44
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %.split.us
-  %11 = tail call i32 @link(ptr noundef %0, ptr noundef %1) #27
+  %11 = call i32 @link(ptr noundef %0, ptr noundef %1) #27
   %.not.us = icmp eq i32 %11, 0
   br i1 %.not.us, label %.loopexit.sink.split, label %12
 
@@ -4123,7 +4123,7 @@ define dso_local range(i32 -1, 1) i32 @finalize_object_file_flags(ptr noundef %0
   br i1 %.not27.us, label %.thread43.us, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @rename(ptr noundef %0, ptr noundef %1) #27
+  %18 = call i32 @rename(ptr noundef %0, ptr noundef %1) #27
   %.not28.us = icmp eq i32 %18, 0
   br i1 %.not28.us, label %.loopexit, label %19
 
@@ -4142,12 +4142,12 @@ define dso_local range(i32 -1, 1) i32 @finalize_object_file_flags(ptr noundef %0
 .thread43.us:                                     ; preds = %22, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #27
+  %23 = call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #27
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.split52.us, label %25
 
 25:                                               ; preds = %.thread43.us
-  %26 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef 0) #27
+  %26 = call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef 0) #27
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %53, label %.preheader.i.us
 
@@ -4182,11 +4182,11 @@ define dso_local range(i32 -1, 1) i32 @finalize_object_file_flags(ptr noundef %0
 _.exit46.i.us:                                    ; preds = %37, %35
   %.0.i45.i.us = phi ptr [ %38, %37 ], [ @.str.91, %35 ]
   %39 = call i32 (ptr, ...) @error(ptr noundef %.0.i45.i.us, ptr noundef %0, ptr noundef %1) #27
-  br label %.thread50.i.us.jt4294967295
+  br label %.thread50.i.us
 
 40:                                               ; preds = %34
   %41 = icmp samesign ult i64 %28, 4096
-  br i1 %41, label %check_collision.exit.us.jt0, label %.preheader.i.us
+  br i1 %41, label %.thread50.i.us, label %.preheader.i.us
 
 42:                                               ; preds = %30
   %43 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
@@ -4200,7 +4200,7 @@ _.exit46.i.us:                                    ; preds = %37, %35
 _.exit43.i.us:                                    ; preds = %44, %42
   %.0.i42.i.us = phi ptr [ %45, %44 ], [ @.str.90, %42 ]
   %46 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i42.i.us, ptr noundef %1) #27
-  br label %.thread50.i.us.jt4294967295
+  br label %.thread50.i.us
 
 47:                                               ; preds = %.preheader.i.us
   %48 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
@@ -4214,167 +4214,162 @@ _.exit43.i.us:                                    ; preds = %44, %42
 _.exit40.i.us:                                    ; preds = %49, %47
   %.0.i39.i.us = phi ptr [ %50, %49 ], [ @.str.90, %47 ]
   %51 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i39.i.us, ptr noundef %0) #27
-  br label %.thread50.i.us.jt4294967295
+  br label %.thread50.i.us
 
-.thread50.i.us.jt4294967295:                      ; preds = %_.exit40.i.us, %_.exit43.i.us, %_.exit46.i.us
+.thread50.i.us:                                   ; preds = %40, %_.exit40.i.us, %_.exit43.i.us, %_.exit46.i.us
+  %.02556.i.us = phi i32 [ -1, %_.exit46.i.us ], [ -1, %_.exit43.i.us ], [ -1, %_.exit40.i.us ], [ 0, %40 ]
   %52 = call i32 @close(i32 noundef %23) #27
-  br label %check_collision.exit.us.jt4294967295
+  br label %check_collision.exit.us
 
 53:                                               ; preds = %25
   %54 = tail call ptr @__errno_location() #29
   %55 = load i32, ptr %54, align 4, !tbaa !44
   %.not33.i.us = icmp eq i32 %55, 2
-  br i1 %.not33.i.us, label %64, label %56
+  br i1 %.not33.i.us, label %check_collision.exit.us, label %56
 
 56:                                               ; preds = %53
   %57 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not4.i35.i.us = icmp eq i32 %57, 0
-  br i1 %.not4.i35.i.us, label %.thread50.thread.i.us.jt4294967295, label %58
+  br i1 %.not4.i35.i.us, label %_.exit37.i.us, label %58
 
 58:                                               ; preds = %56
-  %59 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #27
-  br label %.thread50.thread.i.us.jt4294967295
+  %59 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #27
+  br label %_.exit37.i.us
 
-.thread50.thread.i.us.jt4294967295:               ; preds = %56, %58
+_.exit37.i.us:                                    ; preds = %58, %56
   %.0.i36.i.us = phi ptr [ %59, %58 ], [ @.str.47, %56 ]
-  %60 = tail call i32 (ptr, ...) @error_errno(ptr noundef %.0.i36.i.us, ptr noundef %1) #27
-  br label %check_collision.exit.us.jt4294967295
+  %60 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i36.i.us, ptr noundef %1) #27
+  br label %check_collision.exit.us
 
-check_collision.exit.us.jt0:                      ; preds = %40
-  %61 = call i32 @close(i32 noundef %23) #27
-  %62 = call i32 @close(i32 noundef %26) #27
+check_collision.exit.us:                          ; preds = %53, %_.exit37.i.us, %.thread50.i.us
+  %.sink = phi i32 [ %26, %.thread50.i.us ], [ %23, %_.exit37.i.us ], [ %23, %53 ]
+  %.0255563.i.us = phi i32 [ %.02556.i.us, %.thread50.i.us ], [ -1, %_.exit37.i.us ], [ -2, %53 ]
+  %61 = call i32 @close(i32 noundef %.sink) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit.sink.split
+  switch i32 %.0255563.i.us, label %.loopexit46 [
+    i32 -2, label %62
+    i32 0, label %.loopexit.sink.split
+  ]
 
-check_collision.exit.us.jt4294967295:             ; preds = %.thread50.thread.i.us.jt4294967295, %.thread50.i.us.jt4294967295
-  %.lcssa62.sink = phi i32 [ %23, %.thread50.thread.i.us.jt4294967295 ], [ %26, %.thread50.i.us.jt4294967295 ]
-  %63 = call i32 @close(i32 noundef %.lcssa62.sink) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit46
-
-64:                                               ; preds = %53
-  %65 = tail call i32 @close(i32 noundef %23) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %66 = add nuw nsw i32 %.025.us, 1
-  %exitcond = icmp eq i32 %66, 7
+62:                                               ; preds = %check_collision.exit.us
+  %63 = add nuw nsw i32 %.025.us, 1
+  %exitcond = icmp eq i32 %63, 7
   br i1 %exitcond, label %.split54.us, label %.split.us
 
 .split:                                           ; preds = %3
-  %67 = load i32, ptr @object_creation_mode, align 4, !tbaa !44
-  %68 = icmp eq i32 %67, 1
-  br i1 %68, label %74, label %69
+  %64 = load i32, ptr @object_creation_mode, align 4, !tbaa !44
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %71, label %66
 
-69:                                               ; preds = %.split
-  %70 = tail call i32 @link(ptr noundef %0, ptr noundef %1) #27
-  %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %.loopexit.sink.split, label %71
+66:                                               ; preds = %.split
+  %67 = tail call i32 @link(ptr noundef %0, ptr noundef %1) #27
+  %.not = icmp eq i32 %67, 0
+  br i1 %.not, label %.loopexit.sink.split, label %68
 
-71:                                               ; preds = %69
-  %72 = tail call ptr @__errno_location() #29
-  %73 = load i32, ptr %72, align 4, !tbaa !44
-  switch i32 %73, label %74 [
-    i32 17, label %81
-    i32 0, label %81
+68:                                               ; preds = %66
+  %69 = tail call ptr @__errno_location() #29
+  %70 = load i32, ptr %69, align 4, !tbaa !44
+  switch i32 %70, label %71 [
+    i32 17, label %78
+    i32 0, label %78
   ]
 
-74:                                               ; preds = %71, %.split
-  %75 = call i32 @stat64(ptr noundef %1, ptr noundef nonnull %6) #27
-  %.not27 = icmp eq i32 %75, 0
-  br i1 %.not27, label %.loopexit.sink.split, label %76
+71:                                               ; preds = %68, %.split
+  %72 = call i32 @stat64(ptr noundef %1, ptr noundef nonnull %6) #27
+  %.not27 = icmp eq i32 %72, 0
+  br i1 %.not27, label %.loopexit.sink.split, label %73
 
-76:                                               ; preds = %74
-  %77 = tail call i32 @rename(ptr noundef %0, ptr noundef %1) #27
-  %.not28 = icmp eq i32 %77, 0
-  br i1 %.not28, label %.loopexit, label %78
+73:                                               ; preds = %71
+  %74 = tail call i32 @rename(ptr noundef %0, ptr noundef %1) #27
+  %.not28 = icmp eq i32 %74, 0
+  br i1 %.not28, label %.loopexit, label %75
 
-78:                                               ; preds = %76
-  %79 = tail call ptr @__errno_location() #29
-  %80 = load i32, ptr %79, align 4, !tbaa !44
-  br label %81
+75:                                               ; preds = %73
+  %76 = tail call ptr @__errno_location() #29
+  %77 = load i32, ptr %76, align 4, !tbaa !44
+  br label %78
 
-81:                                               ; preds = %71, %71, %78
-  %.1 = phi i32 [ %80, %78 ], [ %73, %71 ], [ %73, %71 ]
+78:                                               ; preds = %68, %68, %75
+  %.1 = phi i32 [ %77, %75 ], [ %70, %68 ], [ %70, %68 ]
   switch i32 %.1, label %.split48.us [
     i32 0, label %.loopexit
     i32 17, label %.loopexit.sink.split
   ]
 
-.split48.us:                                      ; preds = %22, %81
-  %82 = tail call ptr @__errno_location() #29
-  %83 = load i32, ptr %82, align 4, !tbaa !44
-  %84 = tail call i32 @unlink_or_warn(ptr noundef %0) #27
-  store i32 %83, ptr %82, align 4, !tbaa !44
-  %85 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i = icmp eq i32 %85, 0
-  br i1 %.not4.i, label %_.exit, label %86
+.split48.us:                                      ; preds = %22, %78
+  %79 = tail call ptr @__errno_location() #29
+  %80 = load i32, ptr %79, align 4, !tbaa !44
+  %81 = call i32 @unlink_or_warn(ptr noundef %0) #27
+  store i32 %80, ptr %79, align 4, !tbaa !44
+  %82 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not4.i = icmp eq i32 %82, 0
+  br i1 %.not4.i, label %_.exit, label %83
 
-86:                                               ; preds = %.split48.us
-  %87 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #27
+83:                                               ; preds = %.split48.us
+  %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #27
   br label %_.exit
 
-_.exit:                                           ; preds = %.split48.us, %86
-  %.0.i = phi ptr [ %87, %86 ], [ @.str.28, %.split48.us ]
-  %88 = tail call i32 (ptr, ...) @error_errno(ptr noundef %.0.i, ptr noundef %1) #27
+_.exit:                                           ; preds = %.split48.us, %83
+  %.0.i = phi ptr [ %84, %83 ], [ @.str.28, %.split48.us ]
+  %85 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i, ptr noundef %1) #27
   br label %.loopexit46
 
 .split52.us:                                      ; preds = %.thread43.us
-  %89 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i.i = icmp eq i32 %89, 0
-  br i1 %.not4.i.i, label %check_collision.exit.thread, label %90
+  %86 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not4.i.i = icmp eq i32 %86, 0
+  br i1 %.not4.i.i, label %check_collision.exit.thread, label %87
 
-90:                                               ; preds = %.split52.us
-  %91 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #27
+87:                                               ; preds = %.split52.us
+  %88 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #27
   br label %check_collision.exit.thread
 
-check_collision.exit.thread:                      ; preds = %.split52.us, %90
-  %.0.i.i = phi ptr [ %91, %90 ], [ @.str.47, %.split52.us ]
-  %92 = tail call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i, ptr noundef %0) #27
+check_collision.exit.thread:                      ; preds = %.split52.us, %87
+  %.0.i.i = phi ptr [ %88, %87 ], [ @.str.47, %.split52.us ]
+  %89 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i, ptr noundef %0) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit46
 
-.split54.us:                                      ; preds = %64
-  %93 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i34 = icmp eq i32 %93, 0
-  br i1 %.not4.i34, label %_.exit36, label %94
+.split54.us:                                      ; preds = %62
+  %90 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not4.i34 = icmp eq i32 %90, 0
+  br i1 %.not4.i34, label %_.exit36, label %91
 
-94:                                               ; preds = %.split54.us
-  %95 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #27
+91:                                               ; preds = %.split54.us
+  %92 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #27
   br label %_.exit36
 
-_.exit36:                                         ; preds = %.split54.us, %94
-  %.0.i35 = phi ptr [ %95, %94 ], [ @.str.29, %.split54.us ]
-  %96 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i35, ptr noundef %1) #27
+_.exit36:                                         ; preds = %.split54.us, %91
+  %.0.i35 = phi ptr [ %92, %91 ], [ @.str.29, %.split54.us ]
+  %93 = call i32 (ptr, ...) @error(ptr noundef %.0.i35, ptr noundef %1) #27
   br label %.loopexit46
 
-.loopexit.sink.split:                             ; preds = %10, %81, %74, %check_collision.exit.us.jt0, %69
-  %97 = call i32 @unlink_or_warn(ptr noundef %0) #27
+.loopexit.sink.split:                             ; preds = %check_collision.exit.us, %10, %78, %71, %66
+  %94 = call i32 @unlink_or_warn(ptr noundef %0) #27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %17, %.loopexit.sink.split, %76, %81
-  %98 = call i32 @adjust_shared_perm(ptr noundef %1) #27
-  %.not33 = icmp eq i32 %98, 0
-  br i1 %.not33, label %.loopexit46, label %99
+.loopexit:                                        ; preds = %22, %17, %.loopexit.sink.split, %73, %78
+  %95 = call i32 @adjust_shared_perm(ptr noundef %1) #27
+  %.not33 = icmp eq i32 %95, 0
+  br i1 %.not33, label %.loopexit46, label %96
 
-99:                                               ; preds = %.loopexit
-  %100 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i37 = icmp eq i32 %100, 0
-  br i1 %.not4.i37, label %_.exit39, label %101
+96:                                               ; preds = %.loopexit
+  %97 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not4.i37 = icmp eq i32 %97, 0
+  br i1 %.not4.i37, label %_.exit39, label %98
 
-101:                                              ; preds = %99
-  %102 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #27
+98:                                               ; preds = %96
+  %99 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #27
   br label %_.exit39
 
-_.exit39:                                         ; preds = %99, %101
-  %.0.i38 = phi ptr [ %102, %101 ], [ @.str.30, %99 ]
-  %103 = call i32 (ptr, ...) @error(ptr noundef %.0.i38, ptr noundef %1) #27
+_.exit39:                                         ; preds = %96, %98
+  %.0.i38 = phi ptr [ %99, %98 ], [ @.str.30, %96 ]
+  %100 = call i32 (ptr, ...) @error(ptr noundef %.0.i38, ptr noundef %1) #27
   br label %.loopexit46
 
-.loopexit46:                                      ; preds = %check_collision.exit.us.jt4294967295, %check_collision.exit.thread, %.loopexit, %_.exit39, %_.exit36, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit39 ], [ -1, %_.exit36 ], [ 0, %.loopexit ], [ -1, %check_collision.exit.thread ], [ -1, %check_collision.exit.us.jt4294967295 ]
+.loopexit46:                                      ; preds = %check_collision.exit.us, %check_collision.exit.thread, %.loopexit, %_.exit39, %_.exit36, %_.exit
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit39 ], [ -1, %_.exit36 ], [ 0, %.loopexit ], [ -1, %check_collision.exit.thread ], [ -1, %check_collision.exit.us ]
   ret i32 %.0
 }
 

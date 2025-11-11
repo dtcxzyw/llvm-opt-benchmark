@@ -255,7 +255,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br i1 %cmp21, label %while.body.us90, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %sw.bb69.us
-  %source.063.us = phi ptr [ %source.252.us214, %sw.bb69.us ], [ %0, %while.body.lr.ph ]
+  %source.063.us = phi ptr [ %source.252.us, %sw.bb69.us ], [ %0, %while.body.lr.ph ]
   %target.061.us = phi ptr [ %add.ptr76.us, %sw.bb69.us ], [ %1, %while.body.lr.ph ]
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %source.063.us, i64 2
   %2 = load i16, ptr %source.063.us, align 2
@@ -266,11 +266,11 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 if.else20.us:                                     ; preds = %while.body.us
   %cmp31.us = icmp ult i16 %2, 128
-  br i1 %cmp31.us, label %if.end46.us.jt1, label %if.else33.us
+  br i1 %cmp31.us, label %if.end46.us, label %if.else33.us
 
 if.else33.us:                                     ; preds = %if.else20.us
   %cmp34.us = icmp ult i16 %2, 2048
-  br i1 %cmp34.us, label %if.end46.us.jt2, label %if.end46.us.jt3
+  br i1 %cmp34.us, label %if.end46.us, label %if.else36.us
 
 if.then.us:                                       ; preds = %while.body.us
   %cmp3.us = icmp ult ptr %incdec.ptr.us, %sourceEnd
@@ -280,78 +280,86 @@ if.then4.us:                                      ; preds = %if.then.us
   %4 = load i16, ptr %incdec.ptr.us, align 2
   %5 = and i16 %4, -1024
   %or.cond1.us = icmp eq i16 %5, -9216
-  br i1 %or.cond1.us, label %if.else36.us, label %if.end46.us.jt3
+  br i1 %or.cond1.us, label %if.then9.us, label %if.else36.us
 
-if.else36.us:                                     ; preds = %if.then4.us
-  %add.ptr.us.jt4 = getelementptr inbounds nuw i8, ptr %target.061.us, i64 4
-  %cmp48.us.jt4 = icmp ugt ptr %add.ptr.us.jt4, %targetEnd
-  br i1 %cmp48.us.jt4, label %while.end, label %sw.bb.us
-
-if.end46.us.jt3:                                  ; preds = %if.then4.us, %if.else33.us
-  %add.ptr.us.jt3 = getelementptr inbounds nuw i8, ptr %target.061.us, i64 3
-  %cmp48.us.jt3 = icmp ugt ptr %add.ptr.us.jt3, %targetEnd
-  br i1 %cmp48.us.jt3, label %while.end, label %sw.bb57.us
-
-if.end46.us.jt2:                                  ; preds = %if.else33.us
-  %add.ptr.us.jt2 = getelementptr inbounds nuw i8, ptr %target.061.us, i64 2
-  %cmp48.us.jt2 = icmp ugt ptr %add.ptr.us.jt2, %targetEnd
-  br i1 %cmp48.us.jt2, label %while.end, label %sw.bb63.us
-
-if.end46.us.jt1:                                  ; preds = %if.else20.us
-  %add.ptr.us.jt1 = getelementptr inbounds nuw i8, ptr %target.061.us, i64 1
-  %cmp48.us.jt1 = icmp ugt ptr %add.ptr.us.jt1, %targetEnd
-  br i1 %cmp48.us.jt1, label %while.end, label %sw.bb69.us
-
-sw.bb.us:                                         ; preds = %if.else36.us
-  %incdec.ptr12.us = getelementptr inbounds nuw i8, ptr %source.063.us, i64 4
+if.then9.us:                                      ; preds = %if.then4.us
+  %conv5.us = zext i16 %4 to i32
   %sub.us = shl nuw nsw i32 %conv.us, 10
   %sub10.us = add nsw i32 %sub.us, -56613888
-  %conv5.us = zext i16 %4 to i32
   %add11.us = add nuw nsw i32 %sub10.us, %conv5.us
-  %6 = trunc i16 %4 to i8
+  %incdec.ptr12.us = getelementptr inbounds nuw i8, ptr %source.063.us, i64 4
+  br label %if.else36.us
+
+if.else36.us:                                     ; preds = %if.then4.us, %if.then9.us, %if.else33.us
+  %ch.04957.us = phi i32 [ %conv.us, %if.else33.us ], [ %add11.us, %if.then9.us ], [ %conv.us, %if.then4.us ]
+  %source.25156.us = phi ptr [ %incdec.ptr.us, %if.else33.us ], [ %incdec.ptr12.us, %if.then9.us ], [ %incdec.ptr.us, %if.then4.us ]
+  %cmp37.us = icmp samesign ult i32 %ch.04957.us, 65536
+  %spec.select.us = select i1 %cmp37.us, i16 3, i16 4
+  br label %if.end46.us
+
+if.end46.us:                                      ; preds = %if.else36.us, %if.else33.us, %if.else20.us
+  %source.252.us = phi ptr [ %incdec.ptr.us, %if.else20.us ], [ %incdec.ptr.us, %if.else33.us ], [ %source.25156.us, %if.else36.us ]
+  %ch.050.us = phi i32 [ %conv.us, %if.else20.us ], [ %conv.us, %if.else33.us ], [ %ch.04957.us, %if.else36.us ]
+  %bytesToWrite.0.us = phi i16 [ 1, %if.else20.us ], [ 2, %if.else33.us ], [ %spec.select.us, %if.else36.us ]
+  %idx.ext.us = zext nneg i16 %bytesToWrite.0.us to i64
+  %add.ptr.us = getelementptr inbounds nuw i8, ptr %target.061.us, i64 %idx.ext.us
+  %cmp48.us = icmp ugt ptr %add.ptr.us, %targetEnd
+  br i1 %cmp48.us, label %while.end, label %if.end53.us
+
+if.end53.us:                                      ; preds = %if.end46.us
+  switch i16 %bytesToWrite.0.us, label %if.end53.us.unreachabledefault [
+    i16 4, label %sw.bb.us
+    i16 3, label %sw.bb57.us
+    i16 2, label %sw.bb63.us
+    i16 1, label %sw.bb69.us
+  ]
+
+sw.bb.us:                                         ; preds = %if.end53.us
+  %6 = trunc i32 %ch.050.us to i8
   %7 = and i8 %6, 63
   %conv55.us = or disjoint i8 %7, -128
-  %incdec.ptr56.us = getelementptr inbounds nuw i8, ptr %target.061.us, i64 3
+  %incdec.ptr56.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 -1
   store i8 %conv55.us, ptr %incdec.ptr56.us, align 1
-  %shr.us = lshr i32 %add11.us, 6
+  %shr.us = lshr i32 %ch.050.us, 6
   br label %sw.bb57.us
 
-sw.bb57.us:                                       ; preds = %if.end46.us.jt3, %sw.bb.us
-  %idx.ext.us216 = phi i64 [ 4, %sw.bb.us ], [ 3, %if.end46.us.jt3 ]
-  %source.252.us213 = phi ptr [ %incdec.ptr12.us, %sw.bb.us ], [ %incdec.ptr.us, %if.end46.us.jt3 ]
-  %ch.2.us = phi i32 [ %shr.us, %sw.bb.us ], [ %conv.us, %if.end46.us.jt3 ]
+sw.bb57.us:                                       ; preds = %sw.bb.us, %if.end53.us
+  %ch.2.us = phi i32 [ %shr.us, %sw.bb.us ], [ %ch.050.us, %if.end53.us ]
+  %target.3.us = phi ptr [ %incdec.ptr56.us, %sw.bb.us ], [ %add.ptr.us, %if.end53.us ]
   %8 = trunc i32 %ch.2.us to i8
   %9 = and i8 %8, 63
   %conv60.us = or disjoint i8 %9, -128
-  %incdec.ptr61.us = getelementptr inbounds nuw i8, ptr %target.061.us, i64 2
+  %incdec.ptr61.us = getelementptr inbounds i8, ptr %target.3.us, i64 -1
   store i8 %conv60.us, ptr %incdec.ptr61.us, align 1
   %shr62.us = lshr i32 %ch.2.us, 6
   br label %sw.bb63.us
 
-sw.bb63.us:                                       ; preds = %if.end46.us.jt2, %sw.bb57.us
-  %idx.ext.us215 = phi i64 [ %idx.ext.us216, %sw.bb57.us ], [ 2, %if.end46.us.jt2 ]
-  %source.252.us212 = phi ptr [ %source.252.us213, %sw.bb57.us ], [ %incdec.ptr.us, %if.end46.us.jt2 ]
-  %ch.3.us = phi i32 [ %shr62.us, %sw.bb57.us ], [ %conv.us, %if.end46.us.jt2 ]
+sw.bb63.us:                                       ; preds = %sw.bb57.us, %if.end53.us
+  %ch.3.us = phi i32 [ %shr62.us, %sw.bb57.us ], [ %ch.050.us, %if.end53.us ]
+  %target.4.us = phi ptr [ %incdec.ptr61.us, %sw.bb57.us ], [ %add.ptr.us, %if.end53.us ]
   %10 = trunc i32 %ch.3.us to i8
   %11 = and i8 %10, 63
   %conv66.us = or disjoint i8 %11, -128
-  %incdec.ptr67.us = getelementptr inbounds nuw i8, ptr %target.061.us, i64 1
+  %incdec.ptr67.us = getelementptr inbounds i8, ptr %target.4.us, i64 -1
   store i8 %conv66.us, ptr %incdec.ptr67.us, align 1
   %shr68.us = lshr i32 %ch.3.us, 6
   br label %sw.bb69.us
 
-sw.bb69.us:                                       ; preds = %if.end46.us.jt1, %sw.bb63.us
-  %idx.ext.us217 = phi i64 [ %idx.ext.us215, %sw.bb63.us ], [ 1, %if.end46.us.jt1 ]
-  %source.252.us214 = phi ptr [ %source.252.us212, %sw.bb63.us ], [ %incdec.ptr.us, %if.end46.us.jt1 ]
-  %ch.4.us = phi i32 [ %shr68.us, %sw.bb63.us ], [ %conv.us, %if.end46.us.jt1 ]
-  %arrayidx.us = getelementptr inbounds nuw i8, ptr @_ZN4llvhL13firstByteMarkE, i64 %idx.ext.us217
+sw.bb69.us:                                       ; preds = %sw.bb63.us, %if.end53.us
+  %ch.4.us = phi i32 [ %shr68.us, %sw.bb63.us ], [ %ch.050.us, %if.end53.us ]
+  %target.5.us = phi ptr [ %incdec.ptr67.us, %sw.bb63.us ], [ %add.ptr.us, %if.end53.us ]
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr @_ZN4llvhL13firstByteMarkE, i64 %idx.ext.us
   %12 = load i8, ptr %arrayidx.us, align 1
   %13 = trunc i32 %ch.4.us to i8
   %conv72.us = or i8 %12, %13
-  store i8 %conv72.us, ptr %target.061.us, align 1
-  %add.ptr76.us = getelementptr inbounds nuw i8, ptr %target.061.us, i64 %idx.ext.us217
-  %cmp.us = icmp ult ptr %source.252.us214, %sourceEnd
+  %incdec.ptr73.us = getelementptr inbounds i8, ptr %target.5.us, i64 -1
+  store i8 %conv72.us, ptr %incdec.ptr73.us, align 1
+  %add.ptr76.us = getelementptr inbounds nuw i8, ptr %incdec.ptr73.us, i64 %idx.ext.us
+  %cmp.us = icmp ult ptr %source.252.us, %sourceEnd
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !7
+
+if.end53.us.unreachabledefault:                   ; preds = %if.end53.us
+  unreachable
 
 default.unreachable:                              ; preds = %if.end53.us124
   unreachable
@@ -462,10 +470,10 @@ sw.bb69.us141:                                    ; preds = %sw.bb63.us135, %if.
   %cmp.us148 = icmp ult ptr %source.252.us118, %sourceEnd
   br i1 %cmp.us148, label %while.body.us90, label %while.end, !llvm.loop !7
 
-while.end:                                        ; preds = %sw.bb69.us, %if.then.us, %if.end46.us.jt1, %if.end46.us.jt2, %if.end46.us.jt3, %if.else36.us, %sw.bb69.us141, %if.then4.us103, %if.then.us101, %while.body.us90, %if.end46.us117, %entry
-  %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.061.us92, %if.end46.us117 ], [ %target.061.us92, %while.body.us90 ], [ %target.061.us92, %if.then.us101 ], [ %target.061.us92, %if.then4.us103 ], [ %add.ptr76.us147, %sw.bb69.us141 ], [ %target.061.us, %if.else36.us ], [ %target.061.us, %if.end46.us.jt3 ], [ %target.061.us, %if.end46.us.jt2 ], [ %target.061.us, %if.end46.us.jt1 ], [ %target.061.us, %if.then.us ], [ %add.ptr76.us, %sw.bb69.us ]
-  %source.0.lcssa = phi ptr [ %0, %entry ], [ %source.063.us91, %if.end46.us117 ], [ %source.063.us91, %while.body.us90 ], [ %source.063.us91, %if.then.us101 ], [ %source.063.us91, %if.then4.us103 ], [ %source.252.us118, %sw.bb69.us141 ], [ %source.063.us, %if.else36.us ], [ %source.063.us, %if.end46.us.jt3 ], [ %source.063.us, %if.end46.us.jt2 ], [ %source.063.us, %if.end46.us.jt1 ], [ %source.063.us, %if.then.us ], [ %source.252.us214, %sw.bb69.us ]
-  %result.0 = phi i32 [ 0, %entry ], [ 2, %if.end46.us117 ], [ 3, %while.body.us90 ], [ 1, %if.then.us101 ], [ 3, %if.then4.us103 ], [ 0, %sw.bb69.us141 ], [ 2, %if.else36.us ], [ 2, %if.end46.us.jt3 ], [ 2, %if.end46.us.jt2 ], [ 2, %if.end46.us.jt1 ], [ 1, %if.then.us ], [ 0, %sw.bb69.us ]
+while.end:                                        ; preds = %sw.bb69.us, %if.then.us, %if.end46.us, %sw.bb69.us141, %if.then4.us103, %if.then.us101, %while.body.us90, %if.end46.us117, %entry
+  %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.061.us92, %if.end46.us117 ], [ %target.061.us92, %while.body.us90 ], [ %target.061.us92, %if.then.us101 ], [ %target.061.us92, %if.then4.us103 ], [ %add.ptr76.us147, %sw.bb69.us141 ], [ %target.061.us, %if.end46.us ], [ %target.061.us, %if.then.us ], [ %add.ptr76.us, %sw.bb69.us ]
+  %source.0.lcssa = phi ptr [ %0, %entry ], [ %source.063.us91, %if.end46.us117 ], [ %source.063.us91, %while.body.us90 ], [ %source.063.us91, %if.then.us101 ], [ %source.063.us91, %if.then4.us103 ], [ %source.252.us118, %sw.bb69.us141 ], [ %source.063.us, %if.end46.us ], [ %source.063.us, %if.then.us ], [ %source.252.us, %sw.bb69.us ]
+  %result.0 = phi i32 [ 0, %entry ], [ 2, %if.end46.us117 ], [ 3, %while.body.us90 ], [ 1, %if.then.us101 ], [ 3, %if.then4.us103 ], [ 0, %sw.bb69.us141 ], [ 2, %if.end46.us ], [ 1, %if.then.us ], [ 0, %sw.bb69.us ]
   store ptr %source.0.lcssa, ptr %sourceStart, align 8
   store ptr %target.0.lcssa, ptr %targetStart, align 8
   ret i32 %result.0
@@ -484,93 +492,92 @@ while.body.lr.ph:                                 ; preds = %entry
   br i1 %cmp1, label %while.body, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %sw.bb44.us
-  %result.038.us = phi i32 [ %result.2.us62, %sw.bb44.us ], [ 0, %while.body.lr.ph ]
+  %result.038.us = phi i32 [ %result.2.us, %sw.bb44.us ], [ 0, %while.body.lr.ph ]
   %source.037.us = phi ptr [ %incdec.ptr.us, %sw.bb44.us ], [ %0, %while.body.lr.ph ]
   %target.036.us = phi ptr [ %add.ptr51.us, %sw.bb44.us ], [ %1, %while.body.lr.ph ]
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %source.037.us, i64 4
   %2 = load i32, ptr %source.037.us, align 4
   %cmp7.us = icmp ult i32 %2, 128
-  br i1 %cmp7.us, label %if.end21.us.jt1, label %if.else.us
+  br i1 %cmp7.us, label %if.end21.us, label %if.else.us
 
 if.else.us:                                       ; preds = %while.body.us
   %cmp9.us = icmp ult i32 %2, 2048
-  br i1 %cmp9.us, label %if.end21.us.jt2, label %if.else11.us
+  br i1 %cmp9.us, label %if.end21.us, label %if.else11.us
 
 if.else11.us:                                     ; preds = %if.else.us
   %cmp12.us = icmp ult i32 %2, 65536
-  br i1 %cmp12.us, label %if.end21.us.jt3, label %if.else14.us
+  br i1 %cmp12.us, label %if.end21.us, label %if.else14.us
 
 if.else14.us:                                     ; preds = %if.else11.us
   %cmp15.us = icmp ult i32 %2, 1114112
-  br i1 %cmp15.us, label %if.end21.us.jt4, label %if.end21.us.jt3
+  %..us = select i1 %cmp15.us, i32 %2, i32 65533
+  %.32.us = select i1 %cmp15.us, i16 4, i16 3
+  %result.0..us = select i1 %cmp15.us, i32 %result.038.us, i32 3
+  br label %if.end21.us
 
-if.end21.us.jt4:                                  ; preds = %if.else14.us
-  %add.ptr.us.jt4 = getelementptr inbounds nuw i8, ptr %target.036.us, i64 4
-  %cmp22.us.jt4 = icmp ugt ptr %add.ptr.us.jt4, %targetEnd
-  br i1 %cmp22.us.jt4, label %while.end, label %sw.bb.us
+if.end21.us:                                      ; preds = %if.else14.us, %if.else11.us, %if.else.us, %while.body.us
+  %ch.0.us = phi i32 [ %2, %while.body.us ], [ %2, %if.else.us ], [ %2, %if.else11.us ], [ %..us, %if.else14.us ]
+  %bytesToWrite.0.us = phi i16 [ 1, %while.body.us ], [ 2, %if.else.us ], [ 3, %if.else11.us ], [ %.32.us, %if.else14.us ]
+  %result.2.us = phi i32 [ %result.038.us, %while.body.us ], [ %result.038.us, %if.else.us ], [ %result.038.us, %if.else11.us ], [ %result.0..us, %if.else14.us ]
+  %idx.ext.us = zext nneg i16 %bytesToWrite.0.us to i64
+  %add.ptr.us = getelementptr inbounds nuw i8, ptr %target.036.us, i64 %idx.ext.us
+  %cmp22.us = icmp ugt ptr %add.ptr.us, %targetEnd
+  br i1 %cmp22.us, label %while.end, label %if.end28.us
 
-if.end21.us.jt3:                                  ; preds = %if.else14.us, %if.else11.us
-  %ch.0.us.jt3 = phi i32 [ %2, %if.else11.us ], [ 65533, %if.else14.us ]
-  %result.2.us.jt3 = phi i32 [ %result.038.us, %if.else11.us ], [ 3, %if.else14.us ]
-  %add.ptr.us.jt3 = getelementptr inbounds nuw i8, ptr %target.036.us, i64 3
-  %cmp22.us.jt3 = icmp ugt ptr %add.ptr.us.jt3, %targetEnd
-  br i1 %cmp22.us.jt3, label %while.end, label %sw.bb32.us
+if.end28.us:                                      ; preds = %if.end21.us
+  switch i16 %bytesToWrite.0.us, label %if.end28.us.unreachabledefault [
+    i16 4, label %sw.bb.us
+    i16 3, label %sw.bb32.us
+    i16 2, label %sw.bb38.us
+    i16 1, label %sw.bb44.us
+  ]
 
-if.end21.us.jt2:                                  ; preds = %if.else.us
-  %add.ptr.us.jt2 = getelementptr inbounds nuw i8, ptr %target.036.us, i64 2
-  %cmp22.us.jt2 = icmp ugt ptr %add.ptr.us.jt2, %targetEnd
-  br i1 %cmp22.us.jt2, label %while.end, label %sw.bb38.us
-
-if.end21.us.jt1:                                  ; preds = %while.body.us
-  %add.ptr.us.jt1 = getelementptr inbounds nuw i8, ptr %target.036.us, i64 1
-  %cmp22.us.jt1 = icmp ugt ptr %add.ptr.us.jt1, %targetEnd
-  br i1 %cmp22.us.jt1, label %while.end, label %sw.bb44.us
-
-sw.bb.us:                                         ; preds = %if.end21.us.jt4
-  %3 = trunc i32 %2 to i8
+sw.bb.us:                                         ; preds = %if.end28.us
+  %3 = trunc i32 %ch.0.us to i8
   %4 = and i8 %3, 63
   %conv30.us = or disjoint i8 %4, -128
-  %incdec.ptr31.us = getelementptr inbounds nuw i8, ptr %target.036.us, i64 3
+  %incdec.ptr31.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 -1
   store i8 %conv30.us, ptr %incdec.ptr31.us, align 1
-  %shr.us = lshr i32 %2, 6
+  %shr.us = lshr i32 %ch.0.us, 6
   br label %sw.bb32.us
 
-sw.bb32.us:                                       ; preds = %if.end21.us.jt3, %sw.bb.us
-  %idx.ext.us63 = phi i64 [ 4, %sw.bb.us ], [ 3, %if.end21.us.jt3 ]
-  %result.2.us60 = phi i32 [ %result.038.us, %sw.bb.us ], [ %result.2.us.jt3, %if.end21.us.jt3 ]
-  %ch.1.us = phi i32 [ %shr.us, %sw.bb.us ], [ %ch.0.us.jt3, %if.end21.us.jt3 ]
+sw.bb32.us:                                       ; preds = %sw.bb.us, %if.end28.us
+  %target.3.us = phi ptr [ %incdec.ptr31.us, %sw.bb.us ], [ %add.ptr.us, %if.end28.us ]
+  %ch.1.us = phi i32 [ %shr.us, %sw.bb.us ], [ %ch.0.us, %if.end28.us ]
   %5 = trunc i32 %ch.1.us to i8
   %6 = and i8 %5, 63
   %conv35.us = or disjoint i8 %6, -128
-  %incdec.ptr36.us = getelementptr inbounds nuw i8, ptr %target.036.us, i64 2
+  %incdec.ptr36.us = getelementptr inbounds i8, ptr %target.3.us, i64 -1
   store i8 %conv35.us, ptr %incdec.ptr36.us, align 1
   %shr37.us = lshr i32 %ch.1.us, 6
   br label %sw.bb38.us
 
-sw.bb38.us:                                       ; preds = %if.end21.us.jt2, %sw.bb32.us
-  %idx.ext.us64 = phi i64 [ %idx.ext.us63, %sw.bb32.us ], [ 2, %if.end21.us.jt2 ]
-  %result.2.us61 = phi i32 [ %result.2.us60, %sw.bb32.us ], [ %result.038.us, %if.end21.us.jt2 ]
-  %ch.2.us = phi i32 [ %shr37.us, %sw.bb32.us ], [ %2, %if.end21.us.jt2 ]
+sw.bb38.us:                                       ; preds = %sw.bb32.us, %if.end28.us
+  %target.4.us = phi ptr [ %incdec.ptr36.us, %sw.bb32.us ], [ %add.ptr.us, %if.end28.us ]
+  %ch.2.us = phi i32 [ %shr37.us, %sw.bb32.us ], [ %ch.0.us, %if.end28.us ]
   %7 = trunc i32 %ch.2.us to i8
   %8 = and i8 %7, 63
   %conv41.us = or disjoint i8 %8, -128
-  %incdec.ptr42.us = getelementptr inbounds nuw i8, ptr %target.036.us, i64 1
+  %incdec.ptr42.us = getelementptr inbounds i8, ptr %target.4.us, i64 -1
   store i8 %conv41.us, ptr %incdec.ptr42.us, align 1
   %shr43.us = lshr i32 %ch.2.us, 6
   br label %sw.bb44.us
 
-sw.bb44.us:                                       ; preds = %if.end21.us.jt1, %sw.bb38.us
-  %idx.ext.us65 = phi i64 [ %idx.ext.us64, %sw.bb38.us ], [ 1, %if.end21.us.jt1 ]
-  %result.2.us62 = phi i32 [ %result.2.us61, %sw.bb38.us ], [ %result.038.us, %if.end21.us.jt1 ]
-  %ch.3.us = phi i32 [ %shr43.us, %sw.bb38.us ], [ %2, %if.end21.us.jt1 ]
-  %arrayidx.us = getelementptr inbounds nuw i8, ptr @_ZN4llvhL13firstByteMarkE, i64 %idx.ext.us65
+sw.bb44.us:                                       ; preds = %sw.bb38.us, %if.end28.us
+  %target.5.us = phi ptr [ %incdec.ptr42.us, %sw.bb38.us ], [ %add.ptr.us, %if.end28.us ]
+  %ch.3.us = phi i32 [ %shr43.us, %sw.bb38.us ], [ %ch.0.us, %if.end28.us ]
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr @_ZN4llvhL13firstByteMarkE, i64 %idx.ext.us
   %9 = load i8, ptr %arrayidx.us, align 1
   %10 = trunc i32 %ch.3.us to i8
   %conv47.us = or i8 %9, %10
-  store i8 %conv47.us, ptr %target.036.us, align 1
-  %add.ptr51.us = getelementptr inbounds nuw i8, ptr %target.036.us, i64 %idx.ext.us65
+  %incdec.ptr48.us = getelementptr inbounds i8, ptr %target.5.us, i64 -1
+  store i8 %conv47.us, ptr %incdec.ptr48.us, align 1
+  %add.ptr51.us = getelementptr inbounds nuw i8, ptr %incdec.ptr48.us, i64 %idx.ext.us
   %cmp.us = icmp ult ptr %incdec.ptr.us, %sourceEnd
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !8
+
+if.end28.us.unreachabledefault:                   ; preds = %if.end28.us
+  unreachable
 
 default.unreachable:                              ; preds = %if.end28
   unreachable
@@ -665,10 +672,10 @@ sw.bb44:                                          ; preds = %sw.bb38, %if.end28
   %cmp = icmp ult ptr %incdec.ptr, %sourceEnd
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
-while.end:                                        ; preds = %sw.bb44.us, %if.end21.us.jt1, %if.end21.us.jt2, %if.end21.us.jt3, %if.end21.us.jt4, %sw.bb44, %while.body, %if.end21, %entry
-  %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.036, %if.end21 ], [ %target.036, %while.body ], [ %add.ptr51, %sw.bb44 ], [ %target.036.us, %if.end21.us.jt4 ], [ %target.036.us, %if.end21.us.jt3 ], [ %target.036.us, %if.end21.us.jt2 ], [ %target.036.us, %if.end21.us.jt1 ], [ %add.ptr51.us, %sw.bb44.us ]
-  %source.0.lcssa = phi ptr [ %0, %entry ], [ %source.037, %if.end21 ], [ %source.037, %while.body ], [ %incdec.ptr, %sw.bb44 ], [ %source.037.us, %if.end21.us.jt4 ], [ %source.037.us, %if.end21.us.jt3 ], [ %source.037.us, %if.end21.us.jt2 ], [ %source.037.us, %if.end21.us.jt1 ], [ %incdec.ptr.us, %sw.bb44.us ]
-  %result.1 = phi i32 [ 0, %entry ], [ 2, %if.end21 ], [ 3, %while.body ], [ %result.2, %sw.bb44 ], [ 2, %if.end21.us.jt4 ], [ 2, %if.end21.us.jt3 ], [ 2, %if.end21.us.jt2 ], [ 2, %if.end21.us.jt1 ], [ %result.2.us62, %sw.bb44.us ]
+while.end:                                        ; preds = %sw.bb44.us, %if.end21.us, %sw.bb44, %while.body, %if.end21, %entry
+  %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.036, %if.end21 ], [ %target.036, %while.body ], [ %add.ptr51, %sw.bb44 ], [ %target.036.us, %if.end21.us ], [ %add.ptr51.us, %sw.bb44.us ]
+  %source.0.lcssa = phi ptr [ %0, %entry ], [ %source.037, %if.end21 ], [ %source.037, %while.body ], [ %incdec.ptr, %sw.bb44 ], [ %source.037.us, %if.end21.us ], [ %incdec.ptr.us, %sw.bb44.us ]
+  %result.1 = phi i32 [ 0, %entry ], [ 2, %if.end21 ], [ 3, %while.body ], [ %result.2, %sw.bb44 ], [ 2, %if.end21.us ], [ %result.2.us, %sw.bb44.us ]
   store ptr %source.0.lcssa, ptr %sourceStart, align 8
   store ptr %target.0.lcssa, ptr %targetStart, align 8
   ret i32 %result.1

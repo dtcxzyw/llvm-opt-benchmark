@@ -124,6 +124,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_pana_flags.flag_fields = internal constant [7 x ptr] [ptr @hf_pana_flag_r, ptr @hf_pana_flag_s, ptr @hf_pana_flag_c, ptr @hf_pana_flag_a, ptr @hf_pana_flag_p, ptr @hf_pana_flag_i, ptr null], align 16
 @.str.74 = private unnamed_addr constant [43 x i8] c"%s (%s) length: %d bytes (%d padded bytes)\00", align 1
 @.str.75 = private unnamed_addr constant [8 x i8] c"%s (%u)\00", align 1
+@.str.76 = private unnamed_addr constant [12 x i8] c"Grouped AVP\00", align 1
 @.str.77 = private unnamed_addr constant [15 x i8] c"Value: %d (%s)\00", align 1
 @.str.78 = private unnamed_addr constant [23 x i8] c"AVP Value (EAP packet)\00", align 1
 @.str.79 = private unnamed_addr constant [34 x i8] c"%s:%u: failed assertion \22%s\22 (%s)\00", align 1
@@ -606,9 +607,9 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %204
-  %.0138 = phi i32 [ %208, %204 ], [ 0, %3 ]
-  %.0127137 = phi i32 [ %209, %204 ], [ %4, %3 ]
+.lr.ph:                                           ; preds = %3, %102
+  %.0138 = phi i32 [ %104, %102 ], [ 0, %3 ]
+  %.0127137 = phi i32 [ %105, %102 ], [ %4, %3 ]
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0138)
   %7 = add i32 %.0138, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7)
@@ -626,262 +627,180 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
   %14 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
   %15 = add nuw nsw i32 %11, 12
   %16 = icmp eq i32 %14, 0
-  br i1 %16, label %17, label %pana_avp_get_type.exit.jt1
+  br i1 %16, label %17, label %pana_avp_get_type.exit
 
 17:                                               ; preds = %.thread, %13
   %18 = phi i32 [ %12, %.thread ], [ %15, %13 ]
-  switch i16 %6, label %pana_avp_get_type.exit.jt1 [
-    i16 13, label %pana_avp_get_type.exit.jt4
-    i16 2, label %pana_avp_get_type.exit.jt12
-    i16 3, label %pana_avp_get_type.exit.jt4
-    i16 4, label %pana_avp_get_type.exit.jt2
-    i16 11, label %pana_avp_get_type.exit.jt14
-    i16 6, label %pana_avp_get_type.exit.jt4
-    i16 7, label %pana_avp_get_type.exit.jt13
-    i16 8, label %pana_avp_get_type.exit.jt4
-    i16 9, label %pana_avp_get_type.exit.jt10
+  switch i16 %6, label %24 [
+    i16 13, label %19
+    i16 2, label %pana_avp_get_type.exit
+    i16 3, label %19
+    i16 4, label %20
+    i16 11, label %23
+    i16 6, label %19
+    i16 7, label %21
+    i16 8, label %19
+    i16 9, label %22
   ]
 
-pana_avp_get_type.exit.jt12:                      ; preds = %17
-  %19 = sub nsw i32 0, %11
-  %20 = and i32 %19, 3
-  %21 = add nuw nsw i32 %18, %20
-  %22 = load i32, ptr @ett_pana_avp_info, align 4
-  %23 = zext nneg i16 %6 to i32
-  %24 = tail call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %25 = tail call ptr @val_to_str(i32 noundef 12, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %26 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %24, ptr noundef %25, i32 noundef %18, i32 noundef %21)
-  %27 = load i32, ptr @hf_pana_avp_code, align 4
-  %28 = tail call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %23, ptr noundef nonnull @.str.75, ptr noundef %28, i32 noundef %23)
-  %30 = load i32, ptr @hf_pana_avp_flags, align 4
-  %31 = load i32, ptr @ett_pana_avp_flags, align 4
-  %32 = zext i16 %8 to i64
-  %33 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %26, ptr noundef %0, i32 noundef %7, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %32, i32 noundef 12)
-  %34 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %34, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %36 = add i32 %.0138, 6
-  %37 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef 0)
-  %39 = add i32 %.0138, 8
-  br i1 %.not, label %192, label %167
+19:                                               ; preds = %17, %17, %17, %17
+  br label %pana_avp_get_type.exit
 
-pana_avp_get_type.exit.jt14:                      ; preds = %17
-  %40 = sub nsw i32 0, %11
-  %41 = and i32 %40, 3
-  %42 = add nuw nsw i32 %18, %41
-  %43 = load i32, ptr @ett_pana_avp_info, align 4
-  %44 = zext nneg i16 %6 to i32
-  %45 = tail call ptr @val_to_str(i32 noundef %44, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %46 = tail call ptr @val_to_str(i32 noundef 14, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %47 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %42, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %45, ptr noundef %46, i32 noundef %18, i32 noundef %42)
-  %48 = load i32, ptr @hf_pana_avp_code, align 4
-  %49 = tail call ptr @val_to_str(i32 noundef %44, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %50 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %44, ptr noundef nonnull @.str.75, ptr noundef %49, i32 noundef %44)
-  %51 = load i32, ptr @hf_pana_avp_flags, align 4
-  %52 = load i32, ptr @ett_pana_avp_flags, align 4
-  %53 = zext i16 %8 to i64
-  %54 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %47, ptr noundef %0, i32 noundef %7, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %53, i32 noundef 12)
-  %55 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %55, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %57 = add i32 %.0138, 6
-  %58 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef 0)
-  %60 = add i32 %.0138, 8
-  br i1 %.not, label %200, label %167
+20:                                               ; preds = %17
+  br label %pana_avp_get_type.exit
 
-pana_avp_get_type.exit.jt10:                      ; preds = %17
-  %61 = sub nsw i32 0, %11
-  %62 = and i32 %61, 3
-  %63 = add nuw nsw i32 %18, %62
-  %64 = load i32, ptr @ett_pana_avp_info, align 4
-  %65 = zext nneg i16 %6 to i32
-  %66 = tail call ptr @val_to_str(i32 noundef %65, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %67 = tail call ptr @val_to_str(i32 noundef 10, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %68 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %63, i32 noundef %64, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %66, ptr noundef %67, i32 noundef %18, i32 noundef %63)
-  %69 = load i32, ptr @hf_pana_avp_code, align 4
-  %70 = tail call ptr @val_to_str(i32 noundef %65, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %65, ptr noundef nonnull @.str.75, ptr noundef %70, i32 noundef %65)
-  %72 = load i32, ptr @hf_pana_avp_flags, align 4
-  %73 = load i32, ptr @ett_pana_avp_flags, align 4
-  %74 = zext i16 %8 to i64
-  %75 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %68, ptr noundef %0, i32 noundef %7, i32 noundef %72, i32 noundef %73, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %74, i32 noundef 12)
-  %76 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %76, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %78 = add i32 %.0138, 6
-  %79 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef 0)
-  %81 = add i32 %.0138, 8
-  br i1 %.not, label %184, label %167
+21:                                               ; preds = %17
+  br label %pana_avp_get_type.exit
 
-pana_avp_get_type.exit.jt13:                      ; preds = %17
-  %82 = sub nsw i32 0, %11
-  %83 = and i32 %82, 3
-  %84 = add nuw nsw i32 %18, %83
-  %85 = load i32, ptr @ett_pana_avp_info, align 4
-  %86 = zext nneg i16 %6 to i32
-  %87 = tail call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %88 = tail call ptr @val_to_str(i32 noundef 13, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %89 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %84, i32 noundef %85, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %87, ptr noundef %88, i32 noundef %18, i32 noundef %84)
-  %90 = load i32, ptr @hf_pana_avp_code, align 4
-  %91 = tail call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %89, i32 noundef %90, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %86, ptr noundef nonnull @.str.75, ptr noundef %91, i32 noundef %86)
-  %93 = load i32, ptr @hf_pana_avp_flags, align 4
-  %94 = load i32, ptr @ett_pana_avp_flags, align 4
-  %95 = zext i16 %8 to i64
-  %96 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %89, ptr noundef %0, i32 noundef %7, i32 noundef %93, i32 noundef %94, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %95, i32 noundef 12)
-  %97 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %97, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %99 = add i32 %.0138, 6
-  %100 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0)
-  %102 = add i32 %.0138, 8
-  br i1 %.not, label %187, label %167
+22:                                               ; preds = %17
+  br label %pana_avp_get_type.exit
 
-pana_avp_get_type.exit.jt2:                       ; preds = %17
-  %103 = sub nsw i32 0, %11
-  %104 = and i32 %103, 3
-  %105 = add nuw nsw i32 %18, %104
-  %106 = load i32, ptr @ett_pana_avp_info, align 4
-  %107 = zext nneg i16 %6 to i32
-  %108 = tail call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %109 = tail call ptr @val_to_str(i32 noundef 2, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %110 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %105, i32 noundef %106, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %108, ptr noundef %109, i32 noundef %18, i32 noundef %105)
-  %111 = load i32, ptr @hf_pana_avp_code, align 4
-  %112 = tail call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %113 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %110, i32 noundef %111, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %107, ptr noundef nonnull @.str.75, ptr noundef %112, i32 noundef %107)
-  %114 = load i32, ptr @hf_pana_avp_flags, align 4
-  %115 = load i32, ptr @ett_pana_avp_flags, align 4
-  %116 = zext i16 %8 to i64
-  %117 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %110, ptr noundef %0, i32 noundef %7, i32 noundef %114, i32 noundef %115, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %116, i32 noundef 12)
-  %118 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %118, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %120 = add i32 %.0138, 6
-  %121 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 2, i32 noundef 0)
-  %123 = add i32 %.0138, 8
-  br i1 %.not, label %178, label %167
+23:                                               ; preds = %17
+  br label %pana_avp_get_type.exit
 
-pana_avp_get_type.exit.jt4:                       ; preds = %17, %17, %17, %17
-  %124 = sub nsw i32 0, %11
-  %125 = and i32 %124, 3
-  %126 = add nuw nsw i32 %18, %125
-  %127 = load i32, ptr @ett_pana_avp_info, align 4
-  %128 = zext nneg i16 %6 to i32
-  %129 = tail call ptr @val_to_str(i32 noundef %128, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %130 = tail call ptr @val_to_str(i32 noundef 4, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %131 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %126, i32 noundef %127, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %129, ptr noundef %130, i32 noundef %18, i32 noundef %126)
-  %132 = load i32, ptr @hf_pana_avp_code, align 4
-  %133 = tail call ptr @val_to_str(i32 noundef %128, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %134 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %131, i32 noundef %132, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %128, ptr noundef nonnull @.str.75, ptr noundef %133, i32 noundef %128)
-  %135 = load i32, ptr @hf_pana_avp_flags, align 4
-  %136 = load i32, ptr @ett_pana_avp_flags, align 4
-  %137 = zext i16 %8 to i64
-  %138 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %131, ptr noundef %0, i32 noundef %7, i32 noundef %135, i32 noundef %136, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %137, i32 noundef 12)
-  %139 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %139, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %141 = add i32 %.0138, 6
-  %142 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0)
-  %144 = add i32 %.0138, 8
-  br i1 %.not, label %181, label %167
+24:                                               ; preds = %17
+  br label %pana_avp_get_type.exit
 
-pana_avp_get_type.exit.jt1:                       ; preds = %17, %13
-  %145 = phi i32 [ %15, %13 ], [ %18, %17 ]
-  %146 = sub nsw i32 0, %11
-  %147 = and i32 %146, 3
-  %148 = add nuw nsw i32 %145, %147
-  %149 = load i32, ptr @ett_pana_avp_info, align 4
-  %150 = zext i16 %6 to i32
-  %151 = tail call ptr @val_to_str(i32 noundef %150, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %152 = tail call ptr @val_to_str(i32 noundef 1, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
-  %153 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %148, i32 noundef %149, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %151, ptr noundef %152, i32 noundef %145, i32 noundef %148)
-  %154 = load i32, ptr @hf_pana_avp_code, align 4
-  %155 = tail call ptr @val_to_str(i32 noundef %150, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %156 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %150, ptr noundef nonnull @.str.75, ptr noundef %155, i32 noundef %150)
-  %157 = load i32, ptr @hf_pana_avp_flags, align 4
-  %158 = load i32, ptr @ett_pana_avp_flags, align 4
-  %159 = zext i16 %8 to i64
-  %160 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %153, ptr noundef %0, i32 noundef %7, i32 noundef %157, i32 noundef %158, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %159, i32 noundef 12)
-  %161 = load i32, ptr @hf_pana_avp_data_length, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %161, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %163 = add i32 %.0138, 6
-  %164 = load i32, ptr @hf_pana_avp_reserved, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 2, i32 noundef 0)
-  %166 = add i32 %.0138, 8
-  br i1 %.not, label %175, label %167
+pana_avp_get_type.exit:                           ; preds = %13, %17, %19, %20, %21, %22, %23, %24
+  %25 = phi i32 [ %18, %24 ], [ %18, %19 ], [ %18, %20 ], [ %18, %21 ], [ %18, %22 ], [ %18, %23 ], [ %18, %17 ], [ %15, %13 ]
+  %.0.i = phi i32 [ 1, %24 ], [ 4, %19 ], [ 2, %20 ], [ 13, %21 ], [ 10, %22 ], [ 14, %23 ], [ 12, %17 ], [ 1, %13 ]
+  %26 = sub nsw i32 0, %11
+  %27 = and i32 %26, 3
+  %28 = add nuw nsw i32 %25, %27
+  %29 = load i32, ptr @ett_pana_avp_info, align 4
+  %30 = zext i16 %6 to i32
+  %31 = tail call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
+  %32 = tail call ptr @val_to_str(i32 noundef %.0.i, ptr noundef nonnull @avp_type_names, ptr noundef nonnull @.str.63)
+  %33 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0138, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef %31, ptr noundef %32, i32 noundef %25, i32 noundef %28)
+  %34 = load i32, ptr @hf_pana_avp_code, align 4
+  %35 = tail call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
+  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.0138, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.75, ptr noundef %35, i32 noundef %30)
+  %37 = load i32, ptr @hf_pana_avp_flags, align 4
+  %38 = load i32, ptr @ett_pana_avp_flags, align 4
+  %39 = zext i16 %8 to i64
+  %40 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %33, ptr noundef %0, i32 noundef %7, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @dissect_pana_avp_flags.flag_fields, i64 noundef %39, i32 noundef 12)
+  %41 = load i32, ptr @hf_pana_avp_data_length, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %41, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
+  %43 = add i32 %.0138, 6
+  %44 = load i32, ptr @hf_pana_avp_reserved, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef 0)
+  %46 = add i32 %.0138, 8
+  br i1 %.not, label %51, label %47
 
-167:                                              ; preds = %pana_avp_get_type.exit.jt12, %pana_avp_get_type.exit.jt14, %pana_avp_get_type.exit.jt10, %pana_avp_get_type.exit.jt13, %pana_avp_get_type.exit.jt2, %pana_avp_get_type.exit.jt4, %pana_avp_get_type.exit.jt1
-  %168 = phi i32 [ %39, %pana_avp_get_type.exit.jt12 ], [ %60, %pana_avp_get_type.exit.jt14 ], [ %81, %pana_avp_get_type.exit.jt10 ], [ %102, %pana_avp_get_type.exit.jt13 ], [ %123, %pana_avp_get_type.exit.jt2 ], [ %144, %pana_avp_get_type.exit.jt4 ], [ %166, %pana_avp_get_type.exit.jt1 ]
-  %169 = phi ptr [ %26, %pana_avp_get_type.exit.jt12 ], [ %47, %pana_avp_get_type.exit.jt14 ], [ %68, %pana_avp_get_type.exit.jt10 ], [ %89, %pana_avp_get_type.exit.jt13 ], [ %110, %pana_avp_get_type.exit.jt2 ], [ %131, %pana_avp_get_type.exit.jt4 ], [ %153, %pana_avp_get_type.exit.jt1 ]
-  %170 = phi i32 [ %21, %pana_avp_get_type.exit.jt12 ], [ %42, %pana_avp_get_type.exit.jt14 ], [ %63, %pana_avp_get_type.exit.jt10 ], [ %84, %pana_avp_get_type.exit.jt13 ], [ %105, %pana_avp_get_type.exit.jt2 ], [ %126, %pana_avp_get_type.exit.jt4 ], [ %148, %pana_avp_get_type.exit.jt1 ]
-  %171 = phi i32 [ %20, %pana_avp_get_type.exit.jt12 ], [ %41, %pana_avp_get_type.exit.jt14 ], [ %62, %pana_avp_get_type.exit.jt10 ], [ %83, %pana_avp_get_type.exit.jt13 ], [ %104, %pana_avp_get_type.exit.jt2 ], [ %125, %pana_avp_get_type.exit.jt4 ], [ %147, %pana_avp_get_type.exit.jt1 ]
-  %172 = load i32, ptr @hf_pana_avp_vendorid, align 4
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %172, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef 0)
-  %174 = add i32 %.0138, 12
-  br label %204
+47:                                               ; preds = %pana_avp_get_type.exit
+  %48 = load i32, ptr @hf_pana_avp_vendorid, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %48, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0)
+  %50 = add i32 %.0138, 12
+  br label %102
 
-175:                                              ; preds = %pana_avp_get_type.exit.jt1
-  %176 = load i32, ptr @hf_pana_avp_data_bytes, align 4
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %176, ptr noundef %0, i32 noundef %166, i32 noundef %11, i32 noundef 0)
-  br label %204
+51:                                               ; preds = %pana_avp_get_type.exit
+  switch i32 %.0.i, label %102 [
+    i32 9, label %52
+    i32 11, label %64
+    i32 1, label %67
+    i32 2, label %70
+    i32 4, label %73
+    i32 3, label %76
+    i32 5, label %79
+    i32 10, label %82
+    i32 13, label %85
+    i32 12, label %90
+    i32 14, label %98
+  ]
 
-178:                                              ; preds = %pana_avp_get_type.exit.jt2
-  %179 = load i32, ptr @hf_pana_avp_data_int32, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %179, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0)
-  br label %204
+52:                                               ; preds = %51
+  %53 = load i32, ptr @ett_pana_avp, align 4
+  %54 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %46, i32 noundef %11, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.76)
+  %55 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %56 = sub i32 %55, %46
+  %57 = icmp ugt i32 %56, %11
+  br i1 %57, label %61, label %58
 
-181:                                              ; preds = %pana_avp_get_type.exit.jt4
-  %182 = load i32, ptr @hf_pana_avp_data_uint32, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %182, ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef 0)
-  br label %204
+58:                                               ; preds = %52
+  %59 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %60 = sub i32 %59, %46
+  br label %61
 
-184:                                              ; preds = %pana_avp_get_type.exit.jt10
-  %185 = load i32, ptr @hf_pana_avp_data_enumerated, align 4
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %185, ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef 0)
-  br label %204
+61:                                               ; preds = %52, %58
+  %62 = phi i32 [ %60, %58 ], [ %11, %52 ]
+  %63 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %46, i32 noundef %62, i32 noundef %11)
+  tail call fastcc void @dissect_avps(ptr noundef %63, ptr noundef %1, ptr noundef %54)
+  br label %102
 
-187:                                              ; preds = %pana_avp_get_type.exit.jt13
-  %188 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %102)
-  %189 = load i32, ptr @hf_pana_avp_code, align 4
-  %190 = tail call ptr @val_to_str(i32 noundef %188, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
-  %191 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %89, i32 noundef %189, ptr noundef %0, i32 noundef %102, i32 noundef %11, i32 noundef %188, ptr noundef nonnull @.str.77, i32 noundef %188, ptr noundef %190)
-  br label %204
+64:                                               ; preds = %51
+  %65 = load i32, ptr @hf_pana_avp_data_string, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %65, ptr noundef %0, i32 noundef %46, i32 noundef %11, i32 noundef 2)
+  br label %102
 
-192:                                              ; preds = %pana_avp_get_type.exit.jt12
-  %193 = load i32, ptr @ett_pana_avp, align 4
-  %194 = tail call ptr @proto_tree_add_subtree(ptr noundef %26, ptr noundef %0, i32 noundef %39, i32 noundef %11, i32 noundef %193, ptr noundef null, ptr noundef nonnull @.str.78)
-  %195 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %11)
-  %196 = load ptr, ptr @eap_handle, align 8
-  %.not130 = icmp eq ptr %196, null
-  br i1 %.not130, label %197, label %198
+67:                                               ; preds = %51
+  %68 = load i32, ptr @hf_pana_avp_data_bytes, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %68, ptr noundef %0, i32 noundef %46, i32 noundef %11, i32 noundef 0)
+  br label %102
 
-197:                                              ; preds = %192
+70:                                               ; preds = %51
+  %71 = load i32, ptr @hf_pana_avp_data_int32, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %71, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0)
+  br label %102
+
+73:                                               ; preds = %51
+  %74 = load i32, ptr @hf_pana_avp_data_uint32, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %74, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0)
+  br label %102
+
+76:                                               ; preds = %51
+  %77 = load i32, ptr @hf_pana_avp_data_int64, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %77, ptr noundef %0, i32 noundef %46, i32 noundef 8, i32 noundef 0)
+  br label %102
+
+79:                                               ; preds = %51
+  %80 = load i32, ptr @hf_pana_avp_data_uint64, align 4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %80, ptr noundef %0, i32 noundef %46, i32 noundef 8, i32 noundef 0)
+  br label %102
+
+82:                                               ; preds = %51
+  %83 = load i32, ptr @hf_pana_avp_data_enumerated, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %83, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0)
+  br label %102
+
+85:                                               ; preds = %51
+  %86 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %46)
+  %87 = load i32, ptr @hf_pana_avp_code, align 4
+  %88 = tail call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @avp_code_names, ptr noundef nonnull @.str.63)
+  %89 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %33, i32 noundef %87, ptr noundef %0, i32 noundef %46, i32 noundef %11, i32 noundef %86, ptr noundef nonnull @.str.77, i32 noundef %86, ptr noundef %88)
+  br label %102
+
+90:                                               ; preds = %51
+  %91 = load i32, ptr @ett_pana_avp, align 4
+  %92 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %46, i32 noundef %11, i32 noundef %91, ptr noundef null, ptr noundef nonnull @.str.78)
+  %93 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %46, i32 noundef %11)
+  %94 = load ptr, ptr @eap_handle, align 8
+  %.not130 = icmp eq ptr %94, null
+  br i1 %.not130, label %95, label %96
+
+95:                                               ; preds = %90
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i32 noundef 426, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82) #8
   unreachable
 
-198:                                              ; preds = %192
-  %199 = tail call i32 @call_dissector(ptr noundef nonnull %196, ptr noundef %195, ptr noundef %1, ptr noundef %194)
-  br label %204
+96:                                               ; preds = %90
+  %97 = tail call i32 @call_dissector(ptr noundef nonnull %94, ptr noundef %93, ptr noundef %1, ptr noundef %92)
+  br label %102
 
-200:                                              ; preds = %pana_avp_get_type.exit.jt14
-  %201 = load i32, ptr @ett_pana_avp, align 4
-  %202 = tail call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %60, i32 noundef %11, i32 noundef %201, ptr noundef null, ptr noundef nonnull @.str.83)
-  %203 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %60, i32 noundef %11)
-  tail call fastcc void @dissect_pana_pdu(ptr noundef %203, ptr noundef %1, ptr noundef %202)
-  br label %204
+98:                                               ; preds = %51
+  %99 = load i32, ptr @ett_pana_avp, align 4
+  %100 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %46, i32 noundef %11, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.83)
+  %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %46, i32 noundef %11)
+  tail call fastcc void @dissect_pana_pdu(ptr noundef %101, ptr noundef %1, ptr noundef %100)
+  br label %102
 
-204:                                              ; preds = %167, %175, %178, %181, %184, %187, %198, %200
-  %205 = phi i32 [ %170, %167 ], [ %148, %175 ], [ %105, %178 ], [ %126, %181 ], [ %63, %184 ], [ %84, %187 ], [ %21, %198 ], [ %42, %200 ]
-  %206 = phi i32 [ %171, %167 ], [ %147, %175 ], [ %104, %178 ], [ %125, %181 ], [ %62, %184 ], [ %83, %187 ], [ %20, %198 ], [ %41, %200 ]
-  %.1135 = phi i32 [ %174, %167 ], [ %166, %175 ], [ %123, %178 ], [ %144, %181 ], [ %81, %184 ], [ %102, %187 ], [ %39, %198 ], [ %60, %200 ]
-  %207 = add nuw nsw i32 %206, %11
-  %208 = add i32 %207, %.1135
-  %209 = sub nsw i32 %.0127137, %205
-  %210 = icmp sgt i32 %209, 0
-  br i1 %210, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+102:                                              ; preds = %47, %51, %61, %64, %67, %70, %73, %76, %79, %82, %85, %96, %98
+  %.1135 = phi i32 [ %46, %51 ], [ %46, %61 ], [ %46, %64 ], [ %46, %67 ], [ %46, %70 ], [ %46, %73 ], [ %46, %76 ], [ %46, %79 ], [ %46, %82 ], [ %46, %85 ], [ %46, %96 ], [ %46, %98 ], [ %50, %47 ]
+  %103 = add nuw nsw i32 %27, %11
+  %104 = add i32 %103, %.1135
+  %105 = sub nsw i32 %.0127137, %28
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %204, %3
+._crit_edge:                                      ; preds = %102, %3
   ret void
 }
 
@@ -890,6 +809,9 @@ declare ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef, ptr noundef, i
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1

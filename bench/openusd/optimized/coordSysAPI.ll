@@ -10209,7 +10209,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc57
   %221 = and i1 %220, %219
   br i1 %221, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread101.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread101.thread: ; preds = %213, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %.noexc57
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread101.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %213, %.noexc57
   %222 = load ptr, ptr %194, align 8
   %.not.i.i.i58 = icmp eq ptr %222, null
   br i1 %.not.i.i.i58, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i59

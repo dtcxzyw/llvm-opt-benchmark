@@ -1206,7 +1206,7 @@ define hidden { i64, ptr } @"_ZN125_$LT$async_compression..futures..bufread..gen
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = icmp eq i64 %3, 0
-  br i1 %13, label %133, label %14
+  br i1 %13, label %109, label %14
 
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1234,350 +1234,302 @@ define hidden { i64, ptr } @"_ZN125_$LT$async_compression..futures..bufread..gen
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre.i = load i8, ptr %18, align 8, !range !69, !alias.scope !246, !noalias !251
-  switch i8 %.pre.i, label %default.unreachable [
-    i8 0, label %31
-    i8 1, label %32
+  br label %31
+
+31:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i", %14
+  %32 = phi i8 [ %.pre.i, %14 ], [ %.sroa.05.0.ph.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i" ]
+  %.sroa.02.0.i = phi i1 [ true, %14 ], [ %.sroa.02.1.ph.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i" ]
+  switch i8 %32, label %default.unreachable [
+    i8 0, label %33
+    i8 1, label %34
     i8 2, label %select.unfold.i
-    i8 3, label %41
+    i8 3, label %43
   ]
 
-default.unreachable:                              ; preds = %61, %34, %14
+default.unreachable:                              ; preds = %63, %36, %31
   unreachable
 
-31:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i", %14
-  %.sroa.02.0224.i = phi i1 [ true, %14 ], [ %.sroa.02.1.ph.jt0.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i" ]
-  br i1 %.sroa.02.0224.i, label %.thread114.i, label %49
+33:                                               ; preds = %31
+  br i1 %.sroa.02.0.i, label %.thread114.i, label %51
 
-32:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i", %14
-  %.sroa.02.0223.i = phi i1 [ true, %14 ], [ %.sroa.02.1.ph.jt1.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i" ]
+34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !253
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !253
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8, !noalias !253
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !noalias !253
   call void @_ZN17async_compression5codec5flate7decoder12FlateDecoder6decode17hefd90376cd031ca2E.llvm.6110214326448453520(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i8 noundef 4), !noalias !262
-  %33 = load i8, ptr %10, align 8, !range !78, !noalias !253, !noundef !4
-  %trunc.i.i.i = trunc nuw i8 %33 to i1
-  br i1 %trunc.i.i.i, label %36, label %34
+  %35 = load i8, ptr %10, align 8, !range !78, !noalias !253, !noundef !4
+  %trunc.i.i.i = trunc nuw i8 %35 to i1
+  br i1 %trunc.i.i.i, label %38, label %36
 
-34:                                               ; preds = %32
-  %35 = load i8, ptr %24, align 1, !range !263, !noalias !253, !noundef !4
+36:                                               ; preds = %34
+  %37 = load i8, ptr %24, align 1, !range !263, !noalias !253, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !253
-  switch i8 %35, label %default.unreachable [
-    i8 0, label %102
-    i8 1, label %39
-    i8 2, label %104
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %90
+    i8 1, label %41
+    i8 2, label %92
   ]
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %38 = load ptr, ptr %37, align 8, !noalias !253, !nonnull !4, !noundef !4
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %40 = load ptr, ptr %39, align 8, !noalias !253, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !253
-  br label %103
+  br label %91
 
-39:                                               ; preds = %34
-  %40 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !262
-  br label %103
+41:                                               ; preds = %36
+  %42 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !262
+  br label %91
 
-41:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i", %14
-  %.sroa.02.0222.i = phi i1 [ true, %14 ], [ %.sroa.02.0223.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i" ]
+43:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !264)
-  %42 = load i64, ptr %20, align 8, !alias.scope !267, !noalias !268, !noundef !4
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %select.unfold.i, label %44
+  %44 = load i64, ptr %20, align 8, !alias.scope !267, !noalias !268, !noundef !4
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %select.unfold.i, label %46
 
-44:                                               ; preds = %41
+46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !271
-  %45 = load ptr, ptr %0, align 8, !alias.scope !272, !noalias !275, !noundef !4
-  %46 = icmp eq ptr %45, null
-  %47 = load ptr, ptr %21, align 8, !alias.scope !272, !noalias !275, !nonnull !4, !align !93
-  %.sink.i.i.i = select i1 %46, ptr %47, ptr %0
+  %47 = load ptr, ptr %0, align 8, !alias.scope !272, !noalias !275, !noundef !4
+  %48 = icmp eq ptr %47, null
+  %49 = load ptr, ptr %21, align 8, !alias.scope !272, !noalias !275, !nonnull !4, !align !93
+  %.sink.i.i.i = select i1 %48, ptr %49, ptr %0
   call void @"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hd06d7d42372f8520E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(72) %.sink.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !278
-  %48 = load i64, ptr %8, align 8, !range !95, !noalias !271, !noundef !4
-  %trunc.i.i = trunc nuw i64 %48 to i1
-  br i1 %trunc.i.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit.i", label %110
+  %50 = load i64, ptr %8, align 8, !range !95, !noalias !271, !noundef !4
+  %trunc.i.i = trunc nuw i64 %50 to i1
+  br i1 %trunc.i.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit.i", label %98
 
-"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit.i": ; preds = %44
+"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit.i": ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !271
-  br label %138
+  br label %114
 
-49:                                               ; preds = %31
+51:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !279)
-  %50 = load i64, ptr %20, align 8, !alias.scope !282, !noalias !283, !noundef !4
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %.thread.thread.i, label %52
+  %52 = load i64, ptr %20, align 8, !alias.scope !282, !noalias !283, !noundef !4
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %.thread.thread.i, label %54
 
-52:                                               ; preds = %49
+54:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !286
-  %53 = load ptr, ptr %0, align 8, !alias.scope !287, !noalias !290, !noundef !4
-  %54 = icmp eq ptr %53, null
-  %55 = load ptr, ptr %21, align 8, !alias.scope !287, !noalias !290, !nonnull !4, !align !93
-  %.sink.i.i57.i = select i1 %54, ptr %55, ptr %0
+  %55 = load ptr, ptr %0, align 8, !alias.scope !287, !noalias !290, !noundef !4
+  %56 = icmp eq ptr %55, null
+  %57 = load ptr, ptr %21, align 8, !alias.scope !287, !noalias !290, !nonnull !4, !align !93
+  %.sink.i.i57.i = select i1 %56, ptr %57, ptr %0
   call void @"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hd06d7d42372f8520E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %.sink.i.i57.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !293
-  %56 = load i64, ptr %7, align 8, !range !95, !noalias !286, !noundef !4
-  %trunc.i58.i = trunc nuw i64 %56 to i1
-  br i1 %trunc.i58.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit65.i", label %57
+  %58 = load i64, ptr %7, align 8, !range !95, !noalias !286, !noundef !4
+  %trunc.i58.i = trunc nuw i64 %58 to i1
+  br i1 %trunc.i58.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit65.i", label %59
 
-"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit65.i": ; preds = %52
+"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit65.i": ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !286
-  br label %138
+  br label %114
 
-57:                                               ; preds = %52
+59:                                               ; preds = %54
   %.sroa.01.0.copyload.i59.i = load ptr, ptr %25, align 8, !noalias !286
   %.sroa.3.0.copyload.i61.i = load i64, ptr %.sroa.3.0..sroa_idx.i60.i, align 8, !noalias !286
-  %58 = icmp eq ptr %.sroa.01.0.copyload.i59.i, null
-  %59 = load i64, ptr %20, align 8, !alias.scope !282, !noalias !283
+  %60 = icmp eq ptr %.sroa.01.0.copyload.i59.i, null
+  %61 = load i64, ptr %20, align 8, !alias.scope !282, !noalias !283
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !286
-  br i1 %58, label %136, label %.thread.i
+  br i1 %60, label %112, label %.thread.i
 
-.thread.i:                                        ; preds = %57
-  %.sroa.0.0.sroa.speculated.i.i62.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i61.i, i64 %59)
+.thread.i:                                        ; preds = %59
+  %.sroa.0.0.sroa.speculated.i.i62.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i61.i, i64 %61)
   %.not.i = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i62.i, 0
   br i1 %.not.i, label %.thread.thread.i, label %.thread114.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %49
+.thread.thread.i:                                 ; preds = %.thread.i, %51
   store i8 0, ptr %19, align 1, !alias.scope !246, !noalias !251
-  br label %115
+  br label %103
 
-.thread114.i:                                     ; preds = %.thread.i, %31
-  %.sroa.333.0123.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i62.i, %.thread.i ], [ 0, %31 ]
-  %.sroa.032.0122.i = phi ptr [ %.sroa.01.0.copyload.i59.i, %.thread.i ], [ inttoptr (i64 1 to ptr), %31 ]
+.thread114.i:                                     ; preds = %.thread.i, %33
+  %.sroa.333.0123.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i62.i, %.thread.i ], [ 0, %33 ]
+  %.sroa.032.0122.i = phi ptr [ %.sroa.01.0.copyload.i59.i, %.thread.i ], [ inttoptr (i64 1 to ptr), %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !294
   store ptr %.sroa.032.0122.i, ptr %11, align 8, !noalias !294
   store i64 %.sroa.333.0123.i, ptr %26, align 8, !noalias !294
   store i64 0, ptr %27, align 8, !noalias !294
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !295
   call void @_ZN17async_compression5codec5flate7decoder12FlateDecoder6decode17hefd90376cd031ca2E.llvm.6110214326448453520(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i8 noundef 0), !noalias !306
-  %60 = load i8, ptr %6, align 8, !range !78, !noalias !295, !noundef !4
-  %trunc.i.i66.i = trunc nuw i8 %60 to i1
-  br i1 %trunc.i.i66.i, label %63, label %61
-
-61:                                               ; preds = %.thread114.i
-  %62 = load i8, ptr %28, align 1, !range !263, !noalias !295, !noundef !4
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !295
-  switch i8 %62, label %default.unreachable [
-    i8 0, label %.thread132.jt0.i
-    i8 1, label %65
-    i8 2, label %.thread132.jt1.i
-  ]
+  %62 = load i8, ptr %6, align 8, !range !78, !noalias !295, !noundef !4
+  %trunc.i.i66.i = trunc nuw i8 %62 to i1
+  br i1 %trunc.i.i66.i, label %65, label %63
 
 63:                                               ; preds = %.thread114.i
-  %64 = load ptr, ptr %29, align 8, !noalias !295, !nonnull !4, !noundef !4
+  %64 = load i8, ptr %28, align 1, !range !263, !noalias !295, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !295
-  br label %67
+  switch i8 %64, label %default.unreachable [
+    i8 0, label %.thread132.i
+    i8 1, label %67
+    i8 2, label %69
+  ]
 
-65:                                               ; preds = %61
-  %66 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !306
-  br label %67
+65:                                               ; preds = %.thread114.i
+  %66 = load ptr, ptr %29, align 8, !noalias !295, !nonnull !4, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !295
+  br label %70
 
-67:                                               ; preds = %65, %63
-  %.sroa.772.2.i = phi ptr [ %64, %63 ], [ %66, %65 ]
-  br i1 %.sroa.02.0224.i, label %68, label %101
+67:                                               ; preds = %63
+  %68 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !306
+  br label %70
 
-68:                                               ; preds = %67
+69:                                               ; preds = %63
+  br label %.thread132.i
+
+70:                                               ; preds = %67, %65
+  %.sroa.772.2.i = phi ptr [ %66, %65 ], [ %68, %67 ]
+  br i1 %.sroa.02.0.i, label %71, label %89
+
+71:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !307
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h2010e780b56f0787E.llvm.5062695954853193952(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %.sroa.772.2.i), !noalias !314
-  %69 = load i8, ptr %5, align 8, !range !69, !alias.scope !315, !noalias !307, !noundef !4
-  %70 = icmp eq i8 %69, 3
-  br i1 %70, label %71, label %.thread146.i
+  %72 = load i8, ptr %5, align 8, !range !69, !alias.scope !315, !noalias !307, !noundef !4
+  %73 = icmp eq i8 %72, 3
+  br i1 %73, label %74, label %.thread146.i
 
-71:                                               ; preds = %68
+74:                                               ; preds = %71
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb1c417ff5421cfa6E.llvm.5062695954853193952"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30), !noalias !314
   br label %.thread146.i
 
-.thread146.i:                                     ; preds = %71, %68
+.thread146.i:                                     ; preds = %74, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !307
-  br label %.thread132.jt0.i
+  br label %.thread132.i
 
-.thread132.jt1.i:                                 ; preds = %61
-  call void @llvm.experimental.noalias.scope.decl(metadata !318)
-  %72 = load i64, ptr %26, align 8, !alias.scope !321, !noalias !294, !noundef !4
-  %73 = load i64, ptr %27, align 8, !alias.scope !318, !noalias !294, !noundef !4
-  %74 = icmp ugt i64 %73, %72
-  br i1 %74, label %78, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i"
-
-.thread132.jt0.i:                                 ; preds = %.thread146.i, %61
+.thread132.i:                                     ; preds = %.thread146.i, %69, %63
+  %.sroa.614.2144.i = phi i8 [ 0, %.thread146.i ], [ 1, %69 ], [ %64, %63 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !318)
   %75 = load i64, ptr %26, align 8, !alias.scope !321, !noalias !294, !noundef !4
   %76 = load i64, ptr %27, align 8, !alias.scope !318, !noalias !294, !noundef !4
   %77 = icmp ugt i64 %76, %75
-  br i1 %77, label %78, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i"
+  br i1 %77, label %78, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i"
 
-78:                                               ; preds = %.thread132.jt0.i, %.thread132.jt1.i
-  %79 = phi i64 [ %73, %.thread132.jt1.i ], [ %76, %.thread132.jt0.i ]
-  %80 = phi i64 [ %72, %.thread132.jt1.i ], [ %75, %.thread132.jt0.i ]
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %79, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !324
+78:                                               ; preds = %.thread132.i
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %76, i64 noundef %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !324
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i": ; preds = %.thread132.jt1.i
-  %81 = load i64, ptr %20, align 8, !alias.scope !327, !noalias !251, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i69.jt1.i = call noundef i64 @llvm.umin.i64(i64 %73, i64 %81)
-  %82 = sub i64 %81, %.sroa.0.0.sroa.speculated.i.i69.jt1.i
-  store i64 %82, ptr %20, align 8, !alias.scope !327, !noalias !251
-  %83 = load ptr, ptr %0, align 8, !alias.scope !330, !noalias !251, !noundef !4
-  %84 = icmp eq ptr %83, null
-  %85 = load ptr, ptr %21, align 8, !alias.scope !330, !noalias !251, !nonnull !4, !align !93
-  %.sink9.i.i.jt1.i = select i1 %84, ptr %85, ptr %0
-  %86 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt1.i, i64 56
-  %87 = load i64, ptr %86, align 8, !noundef !4
-  %88 = add i64 %87, %.sroa.0.0.sroa.speculated.i.i69.jt1.i
-  %89 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt1.i, i64 64
-  %90 = load i64, ptr %89, align 8, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i2.i.i.jt1.i = call noundef i64 @llvm.umin.i64(i64 %88, i64 %90)
-  store i64 %.sroa.0.0.sroa.speculated.i.i2.i.i.jt1.i, ptr %86, align 8
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i": ; preds = %.thread132.i
+  %79 = load i64, ptr %20, align 8, !alias.scope !327, !noalias !251, !noundef !4
+  %.sroa.0.0.sroa.speculated.i.i69.i = call noundef i64 @llvm.umin.i64(i64 %76, i64 %79)
+  %80 = sub i64 %79, %.sroa.0.0.sroa.speculated.i.i69.i
+  store i64 %80, ptr %20, align 8, !alias.scope !327, !noalias !251
+  %81 = load ptr, ptr %0, align 8, !alias.scope !330, !noalias !251, !noundef !4
+  %82 = icmp eq ptr %81, null
+  %83 = load ptr, ptr %21, align 8, !alias.scope !330, !noalias !251, !nonnull !4, !align !93
+  %.sink9.i.i.i = select i1 %82, ptr %83, ptr %0
+  %84 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 56
+  %85 = load i64, ptr %84, align 8, !noundef !4
+  %86 = add i64 %85, %.sroa.0.0.sroa.speculated.i.i69.i
+  %87 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 64
+  %88 = load i64, ptr %87, align 8, !noundef !4
+  %.sroa.0.0.sroa.speculated.i.i2.i.i.i = call noundef i64 @llvm.umin.i64(i64 %86, i64 %88)
+  store i64 %.sroa.0.0.sroa.speculated.i.i2.i.i.i, ptr %84, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !294
-  br label %115
+  br label %103
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i": ; preds = %.thread132.jt0.i
-  %91 = load i64, ptr %20, align 8, !alias.scope !327, !noalias !251, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i69.jt0.i = call noundef i64 @llvm.umin.i64(i64 %76, i64 %91)
-  %92 = sub i64 %91, %.sroa.0.0.sroa.speculated.i.i69.jt0.i
-  store i64 %92, ptr %20, align 8, !alias.scope !327, !noalias !251
-  %93 = load ptr, ptr %0, align 8, !alias.scope !330, !noalias !251, !noundef !4
-  %94 = icmp eq ptr %93, null
-  %95 = load ptr, ptr %21, align 8, !alias.scope !330, !noalias !251, !nonnull !4, !align !93
-  %.sink9.i.i.jt0.i = select i1 %94, ptr %95, ptr %0
-  %96 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt0.i, i64 56
-  %97 = load i64, ptr %96, align 8, !noundef !4
-  %98 = add i64 %97, %.sroa.0.0.sroa.speculated.i.i69.jt0.i
-  %99 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt0.i, i64 64
-  %100 = load i64, ptr %99, align 8, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i2.i.i.jt0.i = call noundef i64 @llvm.umin.i64(i64 %98, i64 %100)
-  store i64 %.sroa.0.0.sroa.speculated.i.i2.i.i.jt0.i, ptr %96, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !294
-  br label %123
-
-101:                                              ; preds = %67
+89:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !294
   br label %.sink.split
 
-select.unfold.i:                                  ; preds = %113, %104, %41, %14
+select.unfold.i:                                  ; preds = %101, %92, %43, %31
   store i8 2, ptr %18, align 8, !alias.scope !246, !noalias !251
-  br label %.thread
+  br label %.thread20
 
-102:                                              ; preds = %34
+90:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !253
-  br label %115
+  br label %103
 
-103:                                              ; preds = %39, %36
-  %.sroa.776.2.i = phi ptr [ %38, %36 ], [ %40, %39 ]
+91:                                               ; preds = %41, %38
+  %.sroa.776.2.i = phi ptr [ %40, %38 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !253
   br label %.sink.split
 
-104:                                              ; preds = %34
+92:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !253
-  %105 = load i8, ptr %19, align 1, !range !78, !alias.scope !246, !noalias !251, !noundef !4
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %select.unfold.i
+  %93 = load i8, ptr %19, align 1, !range !78, !alias.scope !246, !noalias !251, !noundef !4
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %95, label %select.unfold.i
 
-107:                                              ; preds = %104
-  %108 = call noundef ptr @"_ZN111_$LT$async_compression..codec..deflate..decoder..DeflateDecoder$u20$as$u20$async_compression..codec..Decode$GT$6reinit17hd635c99882265394E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %119, label %.sink.split
+95:                                               ; preds = %92
+  %96 = call noundef ptr @"_ZN111_$LT$async_compression..codec..deflate..decoder..DeflateDecoder$u20$as$u20$async_compression..codec..Decode$GT$6reinit17hd635c99882265394E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %103, label %.sink.split
 
-110:                                              ; preds = %44
+98:                                               ; preds = %46
   %.sroa.01.0.copyload.i.i = load ptr, ptr %22, align 8, !noalias !271
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !271
-  %111 = load i64, ptr %20, align 8, !alias.scope !267, !noalias !268
+  %99 = load i64, ptr %20, align 8, !alias.scope !267, !noalias !268
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !271
-  %112 = icmp eq ptr %.sroa.01.0.copyload.i.i, null
-  br i1 %112, label %136, label %113
+  %100 = icmp eq ptr %.sroa.01.0.copyload.i.i, null
+  br i1 %100, label %112, label %101
 
-113:                                              ; preds = %110
-  %.sroa.0.0.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i.i, i64 %111)
-  %114 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
-  br i1 %114, label %select.unfold.i, label %123
+101:                                              ; preds = %98
+  %.sroa.0.0.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i.i, i64 %99)
+  %102 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
+  br i1 %102, label %select.unfold.i, label %103
 
-115:                                              ; preds = %102, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i", %.thread.thread.i
-  %.sroa.02.1.ph.jt1.i = phi i1 [ %.sroa.02.0223.i, %102 ], [ false, %.thread.thread.i ], [ false, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i" ]
-  store i8 1, ptr %18, align 8, !alias.scope !246, !noalias !251
+103:                                              ; preds = %101, %95, %90, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i", %.thread.thread.i
+  %.sroa.05.0.ph.i = phi i8 [ 0, %101 ], [ 3, %95 ], [ 1, %90 ], [ 1, %.thread.thread.i ], [ %.sroa.614.2144.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i" ]
+  %.sroa.02.1.ph.i = phi i1 [ %.sroa.02.0.i, %101 ], [ %.sroa.02.0.i, %95 ], [ %.sroa.02.0.i, %90 ], [ false, %.thread.thread.i ], [ false, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i" ]
+  store i8 %.sroa.05.0.ph.i, ptr %18, align 8, !alias.scope !246, !noalias !251
   call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %116 = load i64, ptr %15, align 8, !alias.scope !336, !noalias !339, !noundef !4
-  %117 = load i64, ptr %16, align 8, !alias.scope !340, !noalias !339, !noundef !4
-  %118 = icmp ugt i64 %117, %116
-  br i1 %118, label %127, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i"
+  %104 = load i64, ptr %15, align 8, !alias.scope !336, !noalias !339, !noundef !4
+  %105 = load i64, ptr %16, align 8, !alias.scope !340, !noalias !339, !noundef !4
+  %106 = icmp ugt i64 %105, %104
+  br i1 %106, label %107, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i"
 
-119:                                              ; preds = %107
-  store i8 3, ptr %18, align 8, !alias.scope !246, !noalias !251
-  call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %120 = load i64, ptr %15, align 8, !alias.scope !336, !noalias !339, !noundef !4
-  %121 = load i64, ptr %16, align 8, !alias.scope !340, !noalias !339, !noundef !4
-  %122 = icmp ugt i64 %121, %120
-  br i1 %122, label %127, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i"
-
-123:                                              ; preds = %113, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i"
-  %.sroa.02.1.ph.jt0.i = phi i1 [ %.sroa.02.0222.i, %113 ], [ false, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i" ]
-  store i8 0, ptr %18, align 8, !alias.scope !246, !noalias !251
-  call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %124 = load i64, ptr %15, align 8, !alias.scope !336, !noalias !339, !noundef !4
-  %125 = load i64, ptr %16, align 8, !alias.scope !340, !noalias !339, !noundef !4
-  %126 = icmp ugt i64 %125, %124
-  br i1 %126, label %127, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i"
-
-127:                                              ; preds = %123, %119, %115
-  %128 = phi i64 [ %117, %115 ], [ %121, %119 ], [ %125, %123 ]
-  %129 = phi i64 [ %116, %115 ], [ %120, %119 ], [ %124, %123 ]
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %128, i64 noundef %129, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.177.llvm.3249835872115147093) #38, !noalias !333
+107:                                              ; preds = %103
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %105, i64 noundef %104, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.177.llvm.3249835872115147093) #38, !noalias !333
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i": ; preds = %115
-  %130 = icmp eq i64 %116, %117
-  br i1 %130, label %.thread, label %32
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i": ; preds = %103
+  %108 = icmp eq i64 %104, %105
+  br i1 %108, label %.thread20, label %31
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i": ; preds = %119
-  %131 = icmp eq i64 %120, %121
-  br i1 %131, label %.thread, label %41
-
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i": ; preds = %123
-  %132 = icmp eq i64 %124, %125
-  br i1 %132, label %.thread, label %31
-
-.sink.split:                                      ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit", %136, %107, %103, %101
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %136 ], [ %.sroa.772.2.i, %101 ], [ %.sroa.776.2.i, %103 ], [ %108, %107 ], [ %148, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ]
-  %.sroa.0.0.ph = phi i64 [ 1, %136 ], [ 1, %101 ], [ 1, %103 ], [ 1, %107 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ]
+.sink.split:                                      ; preds = %95, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit", %112, %91, %89
+  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %112 ], [ %.sroa.772.2.i, %89 ], [ %.sroa.776.2.i, %91 ], [ %124, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ], [ %96, %95 ]
+  %.sroa.0.0.ph = phi i64 [ 1, %112 ], [ 1, %89 ], [ 1, %91 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ], [ 1, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %133
+  br label %109
 
-133:                                              ; preds = %.sink.split, %4
+109:                                              ; preds = %.sink.split, %4
   %.sroa.5.0 = phi ptr [ null, %4 ], [ %.sroa.5.0.ph, %.sink.split ]
   %.sroa.0.0 = phi i64 [ 0, %4 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %134 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %135 = insertvalue { i64, ptr } %134, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %135
+  %110 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %111 = insertvalue { i64, ptr } %110, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %111
 
-136:                                              ; preds = %110, %57
-  %.sroa.10.2.i.ph.in = phi i64 [ %.sroa.3.0.copyload.i61.i, %57 ], [ %.sroa.3.0.copyload.i.i, %110 ]
+112:                                              ; preds = %98, %59
+  %.sroa.10.2.i.ph.in = phi i64 [ %.sroa.3.0.copyload.i61.i, %59 ], [ %.sroa.3.0.copyload.i.i, %98 ]
   %.sroa.10.2.i.ph = inttoptr i64 %.sroa.10.2.i.ph.in to ptr
-  %137 = icmp eq i64 %.sroa.10.2.i.ph.in, 0
-  br i1 %137, label %.thread, label %.sink.split
+  %113 = icmp eq i64 %.sroa.10.2.i.ph.in, 0
+  br i1 %113, label %.thread20, label %.sink.split
 
-138:                                              ; preds = %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit65.i", %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit.i"
+114:                                              ; preds = %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit65.i", %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hfef2bf2014f53c72E.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !341)
-  %139 = load i64, ptr %15, align 8, !alias.scope !344, !noundef !4
-  %140 = load i64, ptr %16, align 8, !alias.scope !341, !noundef !4
-  %141 = icmp ugt i64 %140, %139
-  br i1 %141, label %142, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
+  %115 = load i64, ptr %15, align 8, !alias.scope !344, !noundef !4
+  %116 = load i64, ptr %16, align 8, !alias.scope !341, !noundef !4
+  %117 = icmp ugt i64 %116, %115
+  br i1 %117, label %118, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
 
-142:                                              ; preds = %138
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %140, i64 noundef %139, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !347
+118:                                              ; preds = %114
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %116, i64 noundef %115, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !347
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit": ; preds = %138
-  %143 = icmp eq i64 %140, 0
-  br i1 %143, label %.sink.split, label %.thread
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit": ; preds = %114
+  %119 = icmp eq i64 %116, 0
+  br i1 %119, label %.sink.split, label %.thread20
 
-.thread:                                          ; preds = %select.unfold.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i", %136, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
+.thread20:                                        ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i", %select.unfold.i, %112, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !350)
-  %144 = load i64, ptr %15, align 8, !alias.scope !353, !noundef !4
-  %145 = load i64, ptr %16, align 8, !alias.scope !350, !noundef !4
-  %146 = icmp ugt i64 %145, %144
-  br i1 %146, label %147, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13"
+  %120 = load i64, ptr %15, align 8, !alias.scope !353, !noundef !4
+  %121 = load i64, ptr %16, align 8, !alias.scope !350, !noundef !4
+  %122 = icmp ugt i64 %121, %120
+  br i1 %122, label %123, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13"
 
-147:                                              ; preds = %.thread
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %145, i64 noundef %144, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !356
+123:                                              ; preds = %.thread20
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %121, i64 noundef %120, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !356
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13": ; preds = %.thread
-  %148 = inttoptr i64 %145 to ptr
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13": ; preds = %.thread20
+  %124 = inttoptr i64 %121 to ptr
   br label %.sink.split
 }
 
@@ -1592,7 +1544,7 @@ define hidden { i64, ptr } @"_ZN125_$LT$async_compression..futures..bufread..gen
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = icmp eq i64 %3, 0
-  br i1 %13, label %127, label %14
+  br i1 %13, label %103, label %14
 
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1620,342 +1572,294 @@ define hidden { i64, ptr } @"_ZN125_$LT$async_compression..futures..bufread..gen
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load i8, ptr %18, align 8, !range !69, !alias.scope !359, !noalias !364
-  switch i8 %.pre.i, label %default.unreachable [
-    i8 0, label %31
-    i8 1, label %32
+  br label %31
+
+31:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i", %14
+  %32 = phi i8 [ %.pre.i, %14 ], [ %.sroa.05.0.ph.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i" ]
+  %.sroa.02.0.i = phi i1 [ true, %14 ], [ %.sroa.02.1.ph.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i" ]
+  switch i8 %32, label %default.unreachable [
+    i8 0, label %33
+    i8 1, label %34
     i8 2, label %select.unfold.i
-    i8 3, label %41
+    i8 3, label %43
   ]
 
-default.unreachable:                              ; preds = %55, %34, %14
+default.unreachable:                              ; preds = %57, %36, %31
   unreachable
 
-31:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i", %14
-  %.sroa.02.0222.i = phi i1 [ true, %14 ], [ %.sroa.02.1.ph.jt0.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i" ]
-  br i1 %.sroa.02.0222.i, label %.thread112.i, label %46
+33:                                               ; preds = %31
+  br i1 %.sroa.02.0.i, label %.thread112.i, label %48
 
-32:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i", %14
-  %.sroa.02.0221.i = phi i1 [ true, %14 ], [ %.sroa.02.1.ph.jt1.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i" ]
+34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !366
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !366
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8, !noalias !366
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !noalias !366
   call void @_ZN17async_compression5codec5flate7decoder12FlateDecoder6decode17hefd90376cd031ca2E.llvm.6110214326448453520(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i8 noundef 4), !noalias !375
-  %33 = load i8, ptr %10, align 8, !range !78, !noalias !366, !noundef !4
-  %trunc.i.i.i = trunc nuw i8 %33 to i1
-  br i1 %trunc.i.i.i, label %36, label %34
+  %35 = load i8, ptr %10, align 8, !range !78, !noalias !366, !noundef !4
+  %trunc.i.i.i = trunc nuw i8 %35 to i1
+  br i1 %trunc.i.i.i, label %38, label %36
 
-34:                                               ; preds = %32
-  %35 = load i8, ptr %23, align 1, !range !263, !noalias !366, !noundef !4
+36:                                               ; preds = %34
+  %37 = load i8, ptr %23, align 1, !range !263, !noalias !366, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !366
-  switch i8 %35, label %default.unreachable [
-    i8 0, label %96
-    i8 1, label %39
-    i8 2, label %98
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %84
+    i8 1, label %41
+    i8 2, label %86
   ]
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %38 = load ptr, ptr %37, align 8, !noalias !366, !nonnull !4, !noundef !4
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %40 = load ptr, ptr %39, align 8, !noalias !366, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !366
-  br label %97
+  br label %85
 
-39:                                               ; preds = %34
-  %40 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !375
-  br label %97
+41:                                               ; preds = %36
+  %42 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !375
+  br label %85
 
-41:                                               ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i", %14
-  %.sroa.02.0220.i = phi i1 [ true, %14 ], [ %.sroa.02.0221.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i" ]
+43:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !376)
-  %42 = load i64, ptr %20, align 8, !alias.scope !379, !noalias !380, !noundef !4
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %select.unfold.i, label %44
+  %44 = load i64, ptr %20, align 8, !alias.scope !379, !noalias !380, !noundef !4
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %select.unfold.i, label %46
 
-44:                                               ; preds = %41
+46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !383
   call void @"_ZN107_$LT$async_zip..base..read..io..owned..OwnedReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc257d0fa2f44f146E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !384
-  %45 = load i64, ptr %8, align 8, !range !95, !noalias !383, !noundef !4
-  %trunc.i.i = trunc nuw i64 %45 to i1
-  br i1 %trunc.i.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit.i", label %104
+  %47 = load i64, ptr %8, align 8, !range !95, !noalias !383, !noundef !4
+  %trunc.i.i = trunc nuw i64 %47 to i1
+  br i1 %trunc.i.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit.i", label %92
 
-"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit.i": ; preds = %44
+"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit.i": ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !383
-  br label %132
+  br label %108
 
-46:                                               ; preds = %31
+48:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !385)
-  %47 = load i64, ptr %20, align 8, !alias.scope !388, !noalias !389, !noundef !4
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.thread.thread.i, label %49
+  %49 = load i64, ptr %20, align 8, !alias.scope !388, !noalias !389, !noundef !4
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %.thread.thread.i, label %51
 
-49:                                               ; preds = %46
+51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !392
   call void @"_ZN107_$LT$async_zip..base..read..io..owned..OwnedReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc257d0fa2f44f146E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !393
-  %50 = load i64, ptr %7, align 8, !range !95, !noalias !392, !noundef !4
-  %trunc.i57.i = trunc nuw i64 %50 to i1
-  br i1 %trunc.i57.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit64.i", label %51
+  %52 = load i64, ptr %7, align 8, !range !95, !noalias !392, !noundef !4
+  %trunc.i57.i = trunc nuw i64 %52 to i1
+  br i1 %trunc.i57.i, label %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit64.i", label %53
 
-"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit64.i": ; preds = %49
+"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit64.i": ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !392
-  br label %132
+  br label %108
 
-51:                                               ; preds = %49
+53:                                               ; preds = %51
   %.sroa.01.0.copyload.i58.i = load ptr, ptr %24, align 8, !noalias !392
   %.sroa.3.0.copyload.i60.i = load i64, ptr %.sroa.3.0..sroa_idx.i59.i, align 8, !noalias !392
-  %52 = icmp eq ptr %.sroa.01.0.copyload.i58.i, null
-  %53 = load i64, ptr %20, align 8, !alias.scope !388, !noalias !389
+  %54 = icmp eq ptr %.sroa.01.0.copyload.i58.i, null
+  %55 = load i64, ptr %20, align 8, !alias.scope !388, !noalias !389
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !392
-  br i1 %52, label %130, label %.thread.i
+  br i1 %54, label %106, label %.thread.i
 
-.thread.i:                                        ; preds = %51
-  %.sroa.0.0.sroa.speculated.i.i61.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i60.i, i64 %53)
+.thread.i:                                        ; preds = %53
+  %.sroa.0.0.sroa.speculated.i.i61.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i60.i, i64 %55)
   %.not.i = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i61.i, 0
   br i1 %.not.i, label %.thread.thread.i, label %.thread112.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %46
+.thread.thread.i:                                 ; preds = %.thread.i, %48
   store i8 0, ptr %19, align 1, !alias.scope !359, !noalias !364
-  br label %109
+  br label %97
 
-.thread112.i:                                     ; preds = %.thread.i, %31
-  %.sroa.333.0121.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i61.i, %.thread.i ], [ 0, %31 ]
-  %.sroa.032.0120.i = phi ptr [ %.sroa.01.0.copyload.i58.i, %.thread.i ], [ inttoptr (i64 1 to ptr), %31 ]
+.thread112.i:                                     ; preds = %.thread.i, %33
+  %.sroa.333.0121.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i61.i, %.thread.i ], [ 0, %33 ]
+  %.sroa.032.0120.i = phi ptr [ %.sroa.01.0.copyload.i58.i, %.thread.i ], [ inttoptr (i64 1 to ptr), %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !394
   store ptr %.sroa.032.0120.i, ptr %11, align 8, !noalias !394
   store i64 %.sroa.333.0121.i, ptr %25, align 8, !noalias !394
   store i64 0, ptr %26, align 8, !noalias !394
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !395
   call void @_ZN17async_compression5codec5flate7decoder12FlateDecoder6decode17hefd90376cd031ca2E.llvm.6110214326448453520(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i8 noundef 0), !noalias !406
-  %54 = load i8, ptr %6, align 8, !range !78, !noalias !395, !noundef !4
-  %trunc.i.i65.i = trunc nuw i8 %54 to i1
-  br i1 %trunc.i.i65.i, label %57, label %55
-
-55:                                               ; preds = %.thread112.i
-  %56 = load i8, ptr %27, align 1, !range !263, !noalias !395, !noundef !4
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !395
-  switch i8 %56, label %default.unreachable [
-    i8 0, label %.thread130.jt0.i
-    i8 1, label %59
-    i8 2, label %.thread130.jt1.i
-  ]
+  %56 = load i8, ptr %6, align 8, !range !78, !noalias !395, !noundef !4
+  %trunc.i.i65.i = trunc nuw i8 %56 to i1
+  br i1 %trunc.i.i65.i, label %59, label %57
 
 57:                                               ; preds = %.thread112.i
-  %58 = load ptr, ptr %28, align 8, !noalias !395, !nonnull !4, !noundef !4
+  %58 = load i8, ptr %27, align 1, !range !263, !noalias !395, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !395
-  br label %61
+  switch i8 %58, label %default.unreachable [
+    i8 0, label %.thread130.i
+    i8 1, label %61
+    i8 2, label %63
+  ]
 
-59:                                               ; preds = %55
-  %60 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !406
-  br label %61
+59:                                               ; preds = %.thread112.i
+  %60 = load ptr, ptr %28, align 8, !noalias !395, !nonnull !4, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !395
+  br label %64
 
-61:                                               ; preds = %59, %57
-  %.sroa.770.2.i = phi ptr [ %58, %57 ], [ %60, %59 ]
-  br i1 %.sroa.02.0222.i, label %62, label %95
+61:                                               ; preds = %57
+  %62 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17ha96ec4cd2c44eec2E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.a1e7f0033c4e31ceff2f5a65b2d8f1f7.3.llvm.6110214326448453520, i64 noundef 19), !noalias !406
+  br label %64
 
-62:                                               ; preds = %61
+63:                                               ; preds = %57
+  br label %.thread130.i
+
+64:                                               ; preds = %61, %59
+  %.sroa.770.2.i = phi ptr [ %60, %59 ], [ %62, %61 ]
+  br i1 %.sroa.02.0.i, label %65, label %83
+
+65:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !407
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h2010e780b56f0787E.llvm.5062695954853193952(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %.sroa.770.2.i), !noalias !414
-  %63 = load i8, ptr %5, align 8, !range !69, !alias.scope !415, !noalias !407, !noundef !4
-  %64 = icmp eq i8 %63, 3
-  br i1 %64, label %65, label %.thread144.i
+  %66 = load i8, ptr %5, align 8, !range !69, !alias.scope !415, !noalias !407, !noundef !4
+  %67 = icmp eq i8 %66, 3
+  br i1 %67, label %68, label %.thread144.i
 
-65:                                               ; preds = %62
+68:                                               ; preds = %65
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb1c417ff5421cfa6E.llvm.5062695954853193952"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29), !noalias !414
   br label %.thread144.i
 
-.thread144.i:                                     ; preds = %65, %62
+.thread144.i:                                     ; preds = %68, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !407
-  br label %.thread130.jt0.i
+  br label %.thread130.i
 
-.thread130.jt1.i:                                 ; preds = %55
-  call void @llvm.experimental.noalias.scope.decl(metadata !418)
-  %66 = load i64, ptr %25, align 8, !alias.scope !421, !noalias !394, !noundef !4
-  %67 = load i64, ptr %26, align 8, !alias.scope !418, !noalias !394, !noundef !4
-  %68 = icmp ugt i64 %67, %66
-  br i1 %68, label %72, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i"
-
-.thread130.jt0.i:                                 ; preds = %.thread144.i, %55
+.thread130.i:                                     ; preds = %.thread144.i, %63, %57
+  %.sroa.614.2142.i = phi i8 [ 0, %.thread144.i ], [ 1, %63 ], [ %58, %57 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %69 = load i64, ptr %25, align 8, !alias.scope !421, !noalias !394, !noundef !4
   %70 = load i64, ptr %26, align 8, !alias.scope !418, !noalias !394, !noundef !4
   %71 = icmp ugt i64 %70, %69
-  br i1 %71, label %72, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i"
+  br i1 %71, label %72, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i"
 
-72:                                               ; preds = %.thread130.jt0.i, %.thread130.jt1.i
-  %73 = phi i64 [ %67, %.thread130.jt1.i ], [ %70, %.thread130.jt0.i ]
-  %74 = phi i64 [ %66, %.thread130.jt1.i ], [ %69, %.thread130.jt0.i ]
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %73, i64 noundef %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !424
+72:                                               ; preds = %.thread130.i
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %70, i64 noundef %69, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !424
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i": ; preds = %.thread130.jt1.i
-  %75 = load i64, ptr %20, align 8, !alias.scope !427, !noalias !364, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i67.jt1.i = call noundef i64 @llvm.umin.i64(i64 %67, i64 %75)
-  %76 = sub i64 %75, %.sroa.0.0.sroa.speculated.i.i67.jt1.i
-  store i64 %76, ptr %20, align 8, !alias.scope !427, !noalias !364
-  %77 = load ptr, ptr %0, align 8, !alias.scope !430, !noalias !364, !noundef !4
-  %78 = icmp eq ptr %77, null
-  %79 = load ptr, ptr %30, align 8, !alias.scope !430, !noalias !364, !nonnull !4, !align !93
-  %.sink9.i.i.jt1.i = select i1 %78, ptr %79, ptr %0
-  %80 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt1.i, i64 24
-  %81 = load i64, ptr %80, align 8, !noundef !4
-  %82 = add i64 %81, %.sroa.0.0.sroa.speculated.i.i67.jt1.i
-  %83 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt1.i, i64 32
-  %84 = load i64, ptr %83, align 8, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i2.i.i.jt1.i = call noundef i64 @llvm.umin.i64(i64 %82, i64 %84)
-  store i64 %.sroa.0.0.sroa.speculated.i.i2.i.i.jt1.i, ptr %80, align 8
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i": ; preds = %.thread130.i
+  %73 = load i64, ptr %20, align 8, !alias.scope !427, !noalias !364, !noundef !4
+  %.sroa.0.0.sroa.speculated.i.i67.i = call noundef i64 @llvm.umin.i64(i64 %70, i64 %73)
+  %74 = sub i64 %73, %.sroa.0.0.sroa.speculated.i.i67.i
+  store i64 %74, ptr %20, align 8, !alias.scope !427, !noalias !364
+  %75 = load ptr, ptr %0, align 8, !alias.scope !430, !noalias !364, !noundef !4
+  %76 = icmp eq ptr %75, null
+  %77 = load ptr, ptr %30, align 8, !alias.scope !430, !noalias !364, !nonnull !4, !align !93
+  %.sink9.i.i.i = select i1 %76, ptr %77, ptr %0
+  %78 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 24
+  %79 = load i64, ptr %78, align 8, !noundef !4
+  %80 = add i64 %79, %.sroa.0.0.sroa.speculated.i.i67.i
+  %81 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 32
+  %82 = load i64, ptr %81, align 8, !noundef !4
+  %.sroa.0.0.sroa.speculated.i.i2.i.i.i = call noundef i64 @llvm.umin.i64(i64 %80, i64 %82)
+  store i64 %.sroa.0.0.sroa.speculated.i.i2.i.i.i, ptr %78, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !394
-  br label %109
+  br label %97
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i": ; preds = %.thread130.jt0.i
-  %85 = load i64, ptr %20, align 8, !alias.scope !427, !noalias !364, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i67.jt0.i = call noundef i64 @llvm.umin.i64(i64 %70, i64 %85)
-  %86 = sub i64 %85, %.sroa.0.0.sroa.speculated.i.i67.jt0.i
-  store i64 %86, ptr %20, align 8, !alias.scope !427, !noalias !364
-  %87 = load ptr, ptr %0, align 8, !alias.scope !430, !noalias !364, !noundef !4
-  %88 = icmp eq ptr %87, null
-  %89 = load ptr, ptr %30, align 8, !alias.scope !430, !noalias !364, !nonnull !4, !align !93
-  %.sink9.i.i.jt0.i = select i1 %88, ptr %89, ptr %0
-  %90 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt0.i, i64 24
-  %91 = load i64, ptr %90, align 8, !noundef !4
-  %92 = add i64 %91, %.sroa.0.0.sroa.speculated.i.i67.jt0.i
-  %93 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.jt0.i, i64 32
-  %94 = load i64, ptr %93, align 8, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i2.i.i.jt0.i = call noundef i64 @llvm.umin.i64(i64 %92, i64 %94)
-  store i64 %.sroa.0.0.sroa.speculated.i.i2.i.i.jt0.i, ptr %90, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !394
-  br label %117
-
-95:                                               ; preds = %61
+83:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !394
   br label %.sink.split
 
-select.unfold.i:                                  ; preds = %107, %98, %41, %14
+select.unfold.i:                                  ; preds = %95, %86, %43, %31
   store i8 2, ptr %18, align 8, !alias.scope !359, !noalias !364
-  br label %.thread
+  br label %.thread20
 
-96:                                               ; preds = %34
+84:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !366
-  br label %109
+  br label %97
 
-97:                                               ; preds = %39, %36
-  %.sroa.774.2.i = phi ptr [ %38, %36 ], [ %40, %39 ]
+85:                                               ; preds = %41, %38
+  %.sroa.774.2.i = phi ptr [ %40, %38 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !366
   br label %.sink.split
 
-98:                                               ; preds = %34
+86:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !366
-  %99 = load i8, ptr %19, align 1, !range !78, !alias.scope !359, !noalias !364, !noundef !4
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %select.unfold.i
+  %87 = load i8, ptr %19, align 1, !range !78, !alias.scope !359, !noalias !364, !noundef !4
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %select.unfold.i
 
-101:                                              ; preds = %98
-  %102 = call noundef ptr @"_ZN111_$LT$async_compression..codec..deflate..decoder..DeflateDecoder$u20$as$u20$async_compression..codec..Decode$GT$6reinit17hd635c99882265394E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %113, label %.sink.split
+89:                                               ; preds = %86
+  %90 = call noundef ptr @"_ZN111_$LT$async_compression..codec..deflate..decoder..DeflateDecoder$u20$as$u20$async_compression..codec..Decode$GT$6reinit17hd635c99882265394E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %97, label %.sink.split
 
-104:                                              ; preds = %44
+92:                                               ; preds = %46
   %.sroa.01.0.copyload.i.i = load ptr, ptr %21, align 8, !noalias !383
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !383
-  %105 = load i64, ptr %20, align 8, !alias.scope !379, !noalias !380
+  %93 = load i64, ptr %20, align 8, !alias.scope !379, !noalias !380
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !383
-  %106 = icmp eq ptr %.sroa.01.0.copyload.i.i, null
-  br i1 %106, label %130, label %107
+  %94 = icmp eq ptr %.sroa.01.0.copyload.i.i, null
+  br i1 %94, label %106, label %95
 
-107:                                              ; preds = %104
-  %.sroa.0.0.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i.i, i64 %105)
-  %108 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
-  br i1 %108, label %select.unfold.i, label %117
+95:                                               ; preds = %92
+  %.sroa.0.0.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload.i.i, i64 %93)
+  %96 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
+  br i1 %96, label %select.unfold.i, label %97
 
-109:                                              ; preds = %96, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i", %.thread.thread.i
-  %.sroa.02.1.ph.jt1.i = phi i1 [ %.sroa.02.0221.i, %96 ], [ false, %.thread.thread.i ], [ false, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt1.i" ]
-  store i8 1, ptr %18, align 8, !alias.scope !359, !noalias !364
+97:                                               ; preds = %95, %89, %84, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i", %.thread.thread.i
+  %.sroa.05.0.ph.i = phi i8 [ 0, %95 ], [ 3, %89 ], [ 1, %84 ], [ 1, %.thread.thread.i ], [ %.sroa.614.2142.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i" ]
+  %.sroa.02.1.ph.i = phi i1 [ %.sroa.02.0.i, %95 ], [ %.sroa.02.0.i, %89 ], [ %.sroa.02.0.i, %84 ], [ false, %.thread.thread.i ], [ false, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.i" ]
+  store i8 %.sroa.05.0.ph.i, ptr %18, align 8, !alias.scope !359, !noalias !364
   call void @llvm.experimental.noalias.scope.decl(metadata !433)
-  %110 = load i64, ptr %15, align 8, !alias.scope !436, !noalias !439, !noundef !4
-  %111 = load i64, ptr %16, align 8, !alias.scope !440, !noalias !439, !noundef !4
-  %112 = icmp ugt i64 %111, %110
-  br i1 %112, label %121, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i"
+  %98 = load i64, ptr %15, align 8, !alias.scope !436, !noalias !439, !noundef !4
+  %99 = load i64, ptr %16, align 8, !alias.scope !440, !noalias !439, !noundef !4
+  %100 = icmp ugt i64 %99, %98
+  br i1 %100, label %101, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i"
 
-113:                                              ; preds = %101
-  store i8 3, ptr %18, align 8, !alias.scope !359, !noalias !364
-  call void @llvm.experimental.noalias.scope.decl(metadata !433)
-  %114 = load i64, ptr %15, align 8, !alias.scope !436, !noalias !439, !noundef !4
-  %115 = load i64, ptr %16, align 8, !alias.scope !440, !noalias !439, !noundef !4
-  %116 = icmp ugt i64 %115, %114
-  br i1 %116, label %121, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i"
-
-117:                                              ; preds = %107, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i"
-  %.sroa.02.1.ph.jt0.i = phi i1 [ %.sroa.02.0220.i, %107 ], [ false, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17he7f67451e4142193E.exit.jt0.i" ]
-  store i8 0, ptr %18, align 8, !alias.scope !359, !noalias !364
-  call void @llvm.experimental.noalias.scope.decl(metadata !433)
-  %118 = load i64, ptr %15, align 8, !alias.scope !436, !noalias !439, !noundef !4
-  %119 = load i64, ptr %16, align 8, !alias.scope !440, !noalias !439, !noundef !4
-  %120 = icmp ugt i64 %119, %118
-  br i1 %120, label %121, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i"
-
-121:                                              ; preds = %117, %113, %109
-  %122 = phi i64 [ %111, %109 ], [ %115, %113 ], [ %119, %117 ]
-  %123 = phi i64 [ %110, %109 ], [ %114, %113 ], [ %118, %117 ]
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %122, i64 noundef %123, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.177.llvm.3249835872115147093) #38, !noalias !433
+101:                                              ; preds = %97
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %99, i64 noundef %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.177.llvm.3249835872115147093) #38, !noalias !433
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i": ; preds = %109
-  %124 = icmp eq i64 %110, %111
-  br i1 %124, label %.thread, label %32
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i": ; preds = %97
+  %102 = icmp eq i64 %98, %99
+  br i1 %102, label %.thread20, label %31
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i": ; preds = %113
-  %125 = icmp eq i64 %114, %115
-  br i1 %125, label %.thread, label %41
-
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i": ; preds = %117
-  %126 = icmp eq i64 %118, %119
-  br i1 %126, label %.thread, label %31
-
-.sink.split:                                      ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit", %130, %101, %97, %95
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %130 ], [ %.sroa.770.2.i, %95 ], [ %.sroa.774.2.i, %97 ], [ %102, %101 ], [ %142, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ]
-  %.sroa.0.0.ph = phi i64 [ 1, %130 ], [ 1, %95 ], [ 1, %97 ], [ 1, %101 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ]
+.sink.split:                                      ; preds = %89, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit", %106, %85, %83
+  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %106 ], [ %.sroa.770.2.i, %83 ], [ %.sroa.774.2.i, %85 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ], [ %90, %89 ]
+  %.sroa.0.0.ph = phi i64 [ 1, %106 ], [ 1, %83 ], [ 1, %85 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit" ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %127
+  br label %103
 
-127:                                              ; preds = %.sink.split, %4
+103:                                              ; preds = %.sink.split, %4
   %.sroa.5.0 = phi ptr [ null, %4 ], [ %.sroa.5.0.ph, %.sink.split ]
   %.sroa.0.0 = phi i64 [ 0, %4 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %128 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %129 = insertvalue { i64, ptr } %128, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %129
+  %104 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %105 = insertvalue { i64, ptr } %104, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %105
 
-130:                                              ; preds = %104, %51
-  %.sroa.10.2.i.ph.in = phi i64 [ %.sroa.3.0.copyload.i60.i, %51 ], [ %.sroa.3.0.copyload.i.i, %104 ]
+106:                                              ; preds = %92, %53
+  %.sroa.10.2.i.ph.in = phi i64 [ %.sroa.3.0.copyload.i60.i, %53 ], [ %.sroa.3.0.copyload.i.i, %92 ]
   %.sroa.10.2.i.ph = inttoptr i64 %.sroa.10.2.i.ph.in to ptr
-  %131 = icmp eq i64 %.sroa.10.2.i.ph.in, 0
-  br i1 %131, label %.thread, label %.sink.split
+  %107 = icmp eq i64 %.sroa.10.2.i.ph.in, 0
+  br i1 %107, label %.thread20, label %.sink.split
 
-132:                                              ; preds = %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit64.i", %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit.i"
+108:                                              ; preds = %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit64.i", %"_ZN84_$LT$futures_lite..io..Take$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17h0c9b5adf4aa25a08E.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
-  %133 = load i64, ptr %15, align 8, !alias.scope !444, !noundef !4
-  %134 = load i64, ptr %16, align 8, !alias.scope !441, !noundef !4
-  %135 = icmp ugt i64 %134, %133
-  br i1 %135, label %136, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
+  %109 = load i64, ptr %15, align 8, !alias.scope !444, !noundef !4
+  %110 = load i64, ptr %16, align 8, !alias.scope !441, !noundef !4
+  %111 = icmp ugt i64 %110, %109
+  br i1 %111, label %112, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
 
-136:                                              ; preds = %132
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %134, i64 noundef %133, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !447
+112:                                              ; preds = %108
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %110, i64 noundef %109, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !447
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit": ; preds = %132
-  %137 = icmp eq i64 %134, 0
-  br i1 %137, label %.sink.split, label %.thread
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit": ; preds = %108
+  %113 = icmp eq i64 %110, 0
+  br i1 %113, label %.sink.split, label %.thread20
 
-.thread:                                          ; preds = %select.unfold.i, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt0.i", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt3.i", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.jt1.i", %130, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
+.thread20:                                        ; preds = %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$9unwritten17h2a0edbaaad86dd44E.exit.i", %select.unfold.i, %106, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !450)
-  %138 = load i64, ptr %15, align 8, !alias.scope !453, !noundef !4
-  %139 = load i64, ptr %16, align 8, !alias.scope !450, !noundef !4
-  %140 = icmp ugt i64 %139, %138
-  br i1 %140, label %141, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13"
+  %114 = load i64, ptr %15, align 8, !alias.scope !453, !noundef !4
+  %115 = load i64, ptr %16, align 8, !alias.scope !450, !noundef !4
+  %116 = icmp ugt i64 %115, %114
+  br i1 %116, label %117, label %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13"
 
-141:                                              ; preds = %.thread
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %139, i64 noundef %138, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !456
+117:                                              ; preds = %.thread20
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %115, i64 noundef %114, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91f9af4d2f405b1f5ab1d0415cecdb9a.176.llvm.3249835872115147093) #38, !noalias !456
   unreachable
 
-"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13": ; preds = %.thread
-  %142 = inttoptr i64 %139 to ptr
+"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17h55060bb7428b0b20E.exit13": ; preds = %.thread20
+  %118 = inttoptr i64 %115 to ptr
   br label %.sink.split
 }
 

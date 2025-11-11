@@ -160,7 +160,7 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
 
 22:                                               ; preds = %4
   store i8 1, ptr %3, align 1, !tbaa !29
-  br label %413
+  br label %417
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -174,12 +174,12 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
 29:                                               ; preds = %23
   %30 = tail call i32 @Curl_conn_cf_connect(ptr noundef nonnull %25, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #7
   %.not40 = icmp eq i32 %30, 0
-  br i1 %.not40, label %31, label %413
+  br i1 %.not40, label %31, label %417
 
 31:                                               ; preds = %29
   %32 = load i8, ptr %3, align 1, !tbaa !29, !range !32, !noundef !33
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %._crit_edge, label %413
+  br i1 %33, label %._crit_edge, label %417
 
 ._crit_edge:                                      ; preds = %31
   %.pre = load ptr, ptr %16, align 8, !tbaa !4
@@ -410,685 +410,690 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %104, %108
   %132 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %133 = getelementptr inbounds nuw i8, ptr %17, i64 216
   %.pre.i = load i32, ptr %120, align 8, !tbaa !37
-  switch i32 %.pre.i, label %inspect_response.exit.thread114.i [
-    i32 0, label %134
+  br label %134
+
+134:                                              ; preds = %h2_tunnel_go_state.exit67.i, %118
+  %135 = phi i32 [ %.pre.i, %118 ], [ 0, %h2_tunnel_go_state.exit67.i ]
+  %.0.i = phi i32 [ 0, %118 ], [ %.3.ph.i, %h2_tunnel_go_state.exit67.i ]
+  switch i32 %135, label %inspect_response.exit.i [
+    i32 0, label %136
     i32 1, label %h2_tunnel_go_state.exit.i
     i32 2, label %h2_tunnel_go_state.exit70.i
     i32 3, label %H2_CONNECT.exit.thread47.thread
     i32 4, label %.critedge
   ]
 
-H2_CONNECT.exit.thread47.thread:                  ; preds = %118
+H2_CONNECT.exit.thread47.thread:                  ; preds = %134
   store i8 1, ptr %3, align 1, !tbaa !29
-  br label %405
+  br label %409
 
-134:                                              ; preds = %h2_tunnel_go_state.exit67.thread.i, %h2_tunnel_go_state.exit67.i, %118
-  br i1 %.not.i, label %151, label %135
+136:                                              ; preds = %134
+  br i1 %.not.i, label %153, label %137
 
-135:                                              ; preds = %134
-  %136 = load i64, ptr %121, align 2
-  %137 = and i64 %136, 134217728
-  %.not58.i = icmp eq i64 %137, 0
-  br i1 %.not58.i, label %151, label %138
+137:                                              ; preds = %136
+  %138 = load i64, ptr %121, align 2
+  %139 = and i64 %138, 134217728
+  %.not58.i = icmp eq i64 %139, 0
+  br i1 %.not58.i, label %153, label %140
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not59.i = icmp eq ptr %139, null
-  br i1 %.not59.i, label %144, label %140
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not59.i = icmp eq ptr %141, null
+  br i1 %.not59.i, label %146, label %142
 
-140:                                              ; preds = %138
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %142 = load i32, ptr %141, align 8, !tbaa !109
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %144, label %151
+142:                                              ; preds = %140
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %144 = load i32, ptr %143, align 8, !tbaa !109
+  %145 = icmp sgt i32 %144, 0
+  br i1 %145, label %146, label %153
 
-144:                                              ; preds = %138, %140
-  %145 = load ptr, ptr %0, align 8, !tbaa !111
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
-  %147 = load i32, ptr %146, align 4, !tbaa !112
-  %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %149, label %151
+146:                                              ; preds = %140, %142
+  %147 = load ptr, ptr %0, align 8, !tbaa !111
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 12
+  %149 = load i32, ptr %148, align 4, !tbaa !112
+  %150 = icmp sgt i32 %149, 0
+  br i1 %150, label %151, label %153
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %123, align 8, !tbaa !28
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef %150) #7
-  br label %151
+151:                                              ; preds = %146
+  %152 = load ptr, ptr %123, align 8, !tbaa !28
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef %152) #7
+  br label %153
 
-151:                                              ; preds = %149, %144, %140, %135, %134
-  %152 = load ptr, ptr %16, align 8, !tbaa !4
+153:                                              ; preds = %151, %146, %142, %137, %136
+  %154 = load ptr, ptr %16, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !114
-  %153 = call i32 @Curl_http_proxy_create_CONNECT(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2) #7
-  %.not.i.i43 = icmp eq i32 %153, 0
-  br i1 %.not.i.i43, label %154, label %200
+  %155 = call i32 @Curl_http_proxy_create_CONNECT(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1, i32 noundef 2) #7
+  %.not.i.i43 = icmp eq i32 %155, 0
+  br i1 %.not.i.i43, label %156, label %202
 
-154:                                              ; preds = %151
-  %155 = call i32 @Curl_creader_set_null(ptr noundef %1) #7
-  %.not41.i.i = icmp eq i32 %155, 0
-  br i1 %.not41.i.i, label %156, label %200
+156:                                              ; preds = %153
+  %157 = call i32 @Curl_creader_set_null(ptr noundef %1) #7
+  %.not41.i.i = icmp eq i32 %157, 0
+  br i1 %.not41.i.i, label %158, label %202
 
-156:                                              ; preds = %154
-  br i1 %124, label %157, label %170
+158:                                              ; preds = %156
+  br i1 %124, label %159, label %172
 
-157:                                              ; preds = %156
-  %158 = load i64, ptr %121, align 2
-  %159 = and i64 %158, 134217728
-  %.not42.i.i = icmp eq i64 %159, 0
-  br i1 %.not42.i.i, label %170, label %160
+159:                                              ; preds = %158
+  %160 = load i64, ptr %121, align 2
+  %161 = and i64 %160, 134217728
+  %.not42.i.i = icmp eq i64 %161, 0
+  br i1 %.not42.i.i, label %172, label %162
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not43.i.i = icmp eq ptr %161, null
-  br i1 %.not43.i.i, label %166, label %162
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not43.i.i = icmp eq ptr %163, null
+  br i1 %.not43.i.i, label %168, label %164
 
-162:                                              ; preds = %160
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %164 = load i32, ptr %163, align 8, !tbaa !109
-  %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %166, label %170
+164:                                              ; preds = %162
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %166 = load i32, ptr %165, align 8, !tbaa !109
+  %167 = icmp sgt i32 %166, 0
+  br i1 %167, label %168, label %172
 
-166:                                              ; preds = %162, %160
-  %167 = load ptr, ptr %8, align 8, !tbaa !114
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %169 = load ptr, ptr %168, align 8, !tbaa !116
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.35, ptr noundef %169) #7
-  br label %170
+168:                                              ; preds = %164, %162
+  %169 = load ptr, ptr %8, align 8, !tbaa !114
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
+  %171 = load ptr, ptr %170, align 8, !tbaa !116
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.35, ptr noundef %171) #7
+  br label %172
 
-170:                                              ; preds = %166, %162, %157, %156
-  %171 = load ptr, ptr %152, align 8, !tbaa !15
-  %172 = load ptr, ptr %8, align 8, !tbaa !114
+172:                                              ; preds = %168, %164, %159, %158
+  %173 = load ptr, ptr %154, align 8, !tbaa !15
+  %174 = load ptr, ptr %8, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Curl_dynhds_init(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 1048576) #7
-  %173 = call i32 @Curl_http_req_to_h2(ptr noundef nonnull %5, ptr noundef %172, ptr noundef %1) #7
-  %.not.i.i.i = icmp eq i32 %173, 0
-  br i1 %.not.i.i.i, label %174, label %proxy_h2_submit.exit.i.i
+  %175 = call i32 @Curl_http_req_to_h2(ptr noundef nonnull %5, ptr noundef %174, ptr noundef %1) #7
+  %.not.i.i.i = icmp eq i32 %175, 0
+  br i1 %.not.i.i.i, label %176, label %proxy_h2_submit.exit.i.i
 
-174:                                              ; preds = %170
-  %175 = call ptr @Curl_dynhds_to_nva(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
-  %.not28.i.i.i = icmp eq ptr %175, null
-  br i1 %.not28.i.i.i, label %proxy_h2_submit.exit.i.i, label %176
+176:                                              ; preds = %172
+  %177 = call ptr @Curl_dynhds_to_nva(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
+  %.not28.i.i.i = icmp eq ptr %177, null
+  br i1 %.not28.i.i.i, label %proxy_h2_submit.exit.i.i, label %178
 
-176:                                              ; preds = %174
+178:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @tunnel_send_callback, ptr %126, align 8, !tbaa !120
   store ptr %0, ptr %7, align 8, !tbaa !122
-  %177 = load i64, ptr %6, align 8, !tbaa !123
-  %178 = call i32 @nghttp2_submit_request(ptr noundef %171, ptr noundef null, ptr noundef nonnull %175, i64 noundef %177, ptr noundef nonnull %7, ptr noundef nonnull %18) #7
+  %179 = load i64, ptr %6, align 8, !tbaa !123
+  %180 = call i32 @nghttp2_submit_request(ptr noundef %173, ptr noundef null, ptr noundef nonnull %177, i64 noundef %179, ptr noundef nonnull %7, ptr noundef nonnull %18) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %179 = icmp slt i32 %178, 0
-  br i1 %179, label %180, label %proxy_h2_submit.exit.i.i
+  %181 = icmp slt i32 %180, 0
+  br i1 %181, label %182, label %proxy_h2_submit.exit.i.i
 
-180:                                              ; preds = %176
-  %181 = call ptr @nghttp2_strerror(i32 noundef %178) #7
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef %181, i32 noundef %178) #7
+182:                                              ; preds = %178
+  %183 = call ptr @nghttp2_strerror(i32 noundef %180) #7
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef %183, i32 noundef %180) #7
   br label %proxy_h2_submit.exit.i.i
 
-proxy_h2_submit.exit.i.i:                         ; preds = %180, %176, %174, %170
-  %.023.i.i.i = phi ptr [ null, %170 ], [ %175, %180 ], [ null, %174 ], [ %175, %176 ]
-  %.022.i.i.i = phi i32 [ -1, %170 ], [ %178, %180 ], [ -1, %174 ], [ %178, %176 ]
-  %.0.i.i.i = phi i32 [ %173, %170 ], [ 55, %180 ], [ 27, %174 ], [ 0, %176 ]
-  %182 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
-  call void %182(ptr noundef %.023.i.i.i) #7
+proxy_h2_submit.exit.i.i:                         ; preds = %182, %178, %176, %172
+  %.023.i.i.i = phi ptr [ null, %172 ], [ %177, %182 ], [ null, %176 ], [ %177, %178 ]
+  %.022.i.i.i = phi i32 [ -1, %172 ], [ %180, %182 ], [ -1, %176 ], [ %180, %178 ]
+  %.0.i.i.i = phi i32 [ %175, %172 ], [ 55, %182 ], [ 27, %176 ], [ 0, %178 ]
+  %184 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
+  call void %184(ptr noundef %.023.i.i.i) #7
   call void @Curl_dynhds_free(ptr noundef nonnull %5) #7
   store i32 %.022.i.i.i, ptr %125, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %183 = icmp ne i32 %.0.i.i.i, 0
-  %or.cond4.i.i = and i1 %124, %183
-  br i1 %or.cond4.i.i, label %184, label %200
+  %185 = icmp ne i32 %.0.i.i.i, 0
+  %or.cond4.i.i = and i1 %124, %185
+  br i1 %or.cond4.i.i, label %186, label %202
 
-184:                                              ; preds = %proxy_h2_submit.exit.i.i
-  %185 = load i64, ptr %121, align 2
-  %186 = and i64 %185, 134217728
-  %.not44.i.i = icmp eq i64 %186, 0
-  br i1 %.not44.i.i, label %200, label %187
+186:                                              ; preds = %proxy_h2_submit.exit.i.i
+  %187 = load i64, ptr %121, align 2
+  %188 = and i64 %187, 134217728
+  %.not44.i.i = icmp eq i64 %188, 0
+  br i1 %.not44.i.i, label %202, label %189
 
-187:                                              ; preds = %184
-  %188 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not45.i.i = icmp eq ptr %188, null
-  br i1 %.not45.i.i, label %193, label %189
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not45.i.i = icmp eq ptr %190, null
+  br i1 %.not45.i.i, label %195, label %191
 
-189:                                              ; preds = %187
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %191 = load i32, ptr %190, align 8, !tbaa !109
-  %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %193, label %200
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %193 = load i32, ptr %192, align 8, !tbaa !109
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %195, label %202
 
-193:                                              ; preds = %189, %187
-  %194 = load ptr, ptr %0, align 8, !tbaa !111
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 12
-  %196 = load i32, ptr %195, align 4, !tbaa !112
-  %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %198, label %200
+195:                                              ; preds = %191, %189
+  %196 = load ptr, ptr %0, align 8, !tbaa !111
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 12
+  %198 = load i32, ptr %197, align 4, !tbaa !112
+  %199 = icmp sgt i32 %198, 0
+  br i1 %199, label %200, label %202
 
-198:                                              ; preds = %193
-  %199 = call ptr @nghttp2_strerror(i32 noundef %.022.i.i.i) #7
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %.022.i.i.i, ptr noundef %199) #7
-  br label %200
+200:                                              ; preds = %195
+  %201 = call ptr @nghttp2_strerror(i32 noundef %.022.i.i.i) #7
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %.022.i.i.i, ptr noundef %201) #7
+  br label %202
 
-200:                                              ; preds = %198, %193, %189, %184, %proxy_h2_submit.exit.i.i, %154, %151
-  %.0.i.i = phi i32 [ %153, %151 ], [ %155, %154 ], [ %.0.i.i.i, %198 ], [ %.0.i.i.i, %193 ], [ %.0.i.i.i, %189 ], [ %.0.i.i.i, %184 ], [ %.0.i.i.i, %proxy_h2_submit.exit.i.i ]
-  %201 = load ptr, ptr %8, align 8, !tbaa !114
-  %.not46.i.i = icmp eq ptr %201, null
-  br i1 %.not46.i.i, label %203, label %202
+202:                                              ; preds = %200, %195, %191, %186, %proxy_h2_submit.exit.i.i, %156, %153
+  %.0.i.i = phi i32 [ %155, %153 ], [ %157, %156 ], [ %.0.i.i.i, %200 ], [ %.0.i.i.i, %195 ], [ %.0.i.i.i, %191 ], [ %.0.i.i.i, %186 ], [ %.0.i.i.i, %proxy_h2_submit.exit.i.i ]
+  %203 = load ptr, ptr %8, align 8, !tbaa !114
+  %.not46.i.i = icmp eq ptr %203, null
+  br i1 %.not46.i.i, label %205, label %204
 
-202:                                              ; preds = %200
-  call void @Curl_http_req_free(ptr noundef nonnull %201) #7
-  br label %203
+204:                                              ; preds = %202
+  call void @Curl_http_req_free(ptr noundef nonnull %203) #7
+  br label %205
 
-203:                                              ; preds = %202, %200
+205:                                              ; preds = %204, %202
   %.not47.i.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not47.i.i, label %204, label %submit_CONNECT.exit.i
+  br i1 %.not47.i.i, label %206, label %submit_CONNECT.exit.i
 
-submit_CONNECT.exit.i:                            ; preds = %203
+submit_CONNECT.exit.i:                            ; preds = %205
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.37) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %inspect_response.exit.i
 
-204:                                              ; preds = %203
+206:                                              ; preds = %205
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %205 = load i32, ptr %120, align 8, !tbaa !37
-  %206 = icmp eq i32 %205, 1
-  br i1 %206, label %h2_tunnel_go_state.exit.i, label %207
+  %207 = load i32, ptr %120, align 8, !tbaa !37
+  %208 = icmp eq i32 %207, 1
+  br i1 %208, label %h2_tunnel_go_state.exit.i, label %209
 
-207:                                              ; preds = %204
-  br i1 %.not.i, label %224, label %208
+209:                                              ; preds = %206
+  br i1 %.not.i, label %226, label %210
 
-208:                                              ; preds = %207
-  %209 = load i64, ptr %121, align 2
-  %210 = and i64 %209, 134217728
-  %.not98.i.i = icmp eq i64 %210, 0
-  br i1 %.not98.i.i, label %224, label %211
+210:                                              ; preds = %209
+  %211 = load i64, ptr %121, align 2
+  %212 = and i64 %211, 134217728
+  %.not98.i.i = icmp eq i64 %212, 0
+  br i1 %.not98.i.i, label %226, label %213
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not99.i.i = icmp eq ptr %212, null
-  br i1 %.not99.i.i, label %217, label %213
+213:                                              ; preds = %210
+  %214 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not99.i.i = icmp eq ptr %214, null
+  br i1 %.not99.i.i, label %219, label %215
 
-213:                                              ; preds = %211
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %215 = load i32, ptr %214, align 8, !tbaa !109
-  %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %217, label %224
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %217 = load i32, ptr %216, align 8, !tbaa !109
+  %218 = icmp sgt i32 %217, 0
+  br i1 %218, label %219, label %226
 
-217:                                              ; preds = %213, %211
-  %218 = load ptr, ptr %0, align 8, !tbaa !111
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 12
-  %220 = load i32, ptr %219, align 4, !tbaa !112
-  %221 = icmp sgt i32 %220, 0
-  br i1 %221, label %222, label %224
+219:                                              ; preds = %215, %213
+  %220 = load ptr, ptr %0, align 8, !tbaa !111
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 12
+  %222 = load i32, ptr %221, align 4, !tbaa !112
+  %223 = icmp sgt i32 %222, 0
+  br i1 %223, label %224, label %226
 
-222:                                              ; preds = %217
-  %223 = load i32, ptr %125, align 8, !tbaa !38
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.41, i32 noundef %223) #7
-  br label %224
+224:                                              ; preds = %219
+  %225 = load i32, ptr %125, align 8, !tbaa !38
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.41, i32 noundef %225) #7
+  br label %226
 
-224:                                              ; preds = %222, %217, %213, %208, %207
+226:                                              ; preds = %224, %219, %215, %210, %209
   store i32 1, ptr %120, align 8, !tbaa !37
   br label %h2_tunnel_go_state.exit.i
 
-h2_tunnel_go_state.exit.i:                        ; preds = %224, %204, %118
-  %225 = call fastcc i32 @proxy_h2_progress_ingress(ptr noundef nonnull %0, ptr noundef %1)
-  %.not61.i = icmp eq i32 %225, 0
-  br i1 %.not61.i, label %226, label %228
+h2_tunnel_go_state.exit.i:                        ; preds = %226, %206, %134
+  %227 = call fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr noundef %1)
+  %.not61.i = icmp eq i32 %227, 0
+  br i1 %.not61.i, label %228, label %230
 
-226:                                              ; preds = %h2_tunnel_go_state.exit.i
-  %227 = call fastcc i32 @proxy_h2_progress_egress(ptr noundef nonnull %0, ptr noundef %1)
-  br label %228
+228:                                              ; preds = %h2_tunnel_go_state.exit.i
+  %229 = call fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef %1)
+  br label %230
 
-228:                                              ; preds = %226, %h2_tunnel_go_state.exit.i
-  %.2.i = phi i32 [ %225, %h2_tunnel_go_state.exit.i ], [ %227, %226 ]
-  switch i32 %.2.i, label %229 [
-    i32 81, label %250
-    i32 0, label %250
+230:                                              ; preds = %228, %h2_tunnel_go_state.exit.i
+  %.2.i = phi i32 [ %227, %h2_tunnel_go_state.exit.i ], [ %229, %228 ]
+  switch i32 %.2.i, label %231 [
+    i32 81, label %252
+    i32 0, label %252
   ]
 
-229:                                              ; preds = %228
-  %230 = load i32, ptr %120, align 8, !tbaa !37
-  switch i32 %230, label %233 [
+231:                                              ; preds = %230
+  %232 = load i32, ptr %120, align 8, !tbaa !37
+  switch i32 %232, label %235 [
     i32 4, label %inspect_response.exit.i
     i32 1, label %.thread.i
   ]
 
-.thread.i:                                        ; preds = %229
-  %231 = load i32, ptr %128, align 1
-  %232 = and i32 %231, -1025
-  store i32 %232, ptr %128, align 1
-  br label %234
+.thread.i:                                        ; preds = %231
+  %233 = load i32, ptr %128, align 1
+  %234 = and i32 %233, -1025
+  store i32 %234, ptr %128, align 1
+  br label %236
 
-233:                                              ; preds = %229
-  br i1 %.not.i, label %h2_tunnel_go_state.exit67thread-pre-split119.i, label %234
+235:                                              ; preds = %231
+  br i1 %.not.i, label %h2_tunnel_go_state.exit67thread-pre-split119.i, label %236
 
-234:                                              ; preds = %233, %.thread.i
-  %235 = load i64, ptr %121, align 2
-  %236 = and i64 %235, 134217728
-  %.not92.i.i = icmp eq i64 %236, 0
-  br i1 %.not92.i.i, label %h2_tunnel_go_state.exit67thread-pre-split119.i, label %237
+236:                                              ; preds = %235, %.thread.i
+  %237 = load i64, ptr %121, align 2
+  %238 = and i64 %237, 134217728
+  %.not92.i.i = icmp eq i64 %238, 0
+  br i1 %.not92.i.i, label %h2_tunnel_go_state.exit67thread-pre-split119.i, label %239
 
-237:                                              ; preds = %234
-  %238 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not93.i.i = icmp eq ptr %238, null
-  br i1 %.not93.i.i, label %243, label %239
+239:                                              ; preds = %236
+  %240 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not93.i.i = icmp eq ptr %240, null
+  br i1 %.not93.i.i, label %245, label %241
 
-239:                                              ; preds = %237
-  %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %241 = load i32, ptr %240, align 8, !tbaa !109
-  %242 = icmp sgt i32 %241, 0
-  br i1 %242, label %243, label %h2_tunnel_go_state.exit67thread-pre-split119.i
+241:                                              ; preds = %239
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %243 = load i32, ptr %242, align 8, !tbaa !109
+  %244 = icmp sgt i32 %243, 0
+  br i1 %244, label %245, label %h2_tunnel_go_state.exit67thread-pre-split119.i
 
-243:                                              ; preds = %239, %237
-  %244 = load ptr, ptr %0, align 8, !tbaa !111
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 12
-  %246 = load i32, ptr %245, align 4, !tbaa !112
-  %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %248, label %h2_tunnel_go_state.exit67thread-pre-split119.i
+245:                                              ; preds = %239, %241
+  %246 = load ptr, ptr %0, align 8, !tbaa !111
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 12
+  %248 = load i32, ptr %247, align 4, !tbaa !112
+  %249 = icmp sgt i32 %248, 0
+  br i1 %249, label %250, label %h2_tunnel_go_state.exit67thread-pre-split119.i
 
-248:                                              ; preds = %243
-  %249 = load i32, ptr %125, align 8, !tbaa !38
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.45, i32 noundef %249) #7
+250:                                              ; preds = %245
+  %251 = load i32, ptr %125, align 8, !tbaa !38
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.45, i32 noundef %251) #7
   br label %h2_tunnel_go_state.exit67thread-pre-split119.i
 
-250:                                              ; preds = %228, %228
-  %251 = load i8, ptr %127, align 4
-  %252 = and i8 %251, 1
-  %.not62.i = icmp eq i8 %252, 0
-  br i1 %.not62.i, label %inspect_response.exit.thread114.i, label %253
+252:                                              ; preds = %230, %230
+  %253 = load i8, ptr %127, align 4
+  %254 = and i8 %253, 1
+  %.not62.i = icmp eq i8 %254, 0
+  br i1 %.not62.i, label %inspect_response.exit.thread114.i, label %255
 
-253:                                              ; preds = %250
-  %254 = load i32, ptr %120, align 8, !tbaa !37
-  switch i32 %254, label %257 [
+255:                                              ; preds = %252
+  %256 = load i32, ptr %120, align 8, !tbaa !37
+  switch i32 %256, label %259 [
     i32 2, label %h2_tunnel_go_state.exit70.i
     i32 1, label %.thread102.i
   ]
 
-.thread102.i:                                     ; preds = %253
-  %255 = load i32, ptr %128, align 1
-  %256 = and i32 %255, -1025
-  store i32 %256, ptr %128, align 1
-  br label %258
+.thread102.i:                                     ; preds = %255
+  %257 = load i32, ptr %128, align 1
+  %258 = and i32 %257, -1025
+  store i32 %258, ptr %128, align 1
+  br label %260
 
-257:                                              ; preds = %253
-  br i1 %.not.i, label %274, label %258
+259:                                              ; preds = %255
+  br i1 %.not.i, label %276, label %260
 
-258:                                              ; preds = %257, %.thread102.i
-  %259 = load i64, ptr %121, align 2
-  %260 = and i64 %259, 134217728
-  %.not95.i.i = icmp eq i64 %260, 0
-  br i1 %.not95.i.i, label %274, label %261
+260:                                              ; preds = %259, %.thread102.i
+  %261 = load i64, ptr %121, align 2
+  %262 = and i64 %261, 134217728
+  %.not95.i.i = icmp eq i64 %262, 0
+  br i1 %.not95.i.i, label %276, label %263
 
-261:                                              ; preds = %258
-  %262 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not96.i.i = icmp eq ptr %262, null
-  br i1 %.not96.i.i, label %267, label %263
+263:                                              ; preds = %260
+  %264 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not96.i.i = icmp eq ptr %264, null
+  br i1 %.not96.i.i, label %269, label %265
 
-263:                                              ; preds = %261
-  %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %265 = load i32, ptr %264, align 8, !tbaa !109
-  %266 = icmp sgt i32 %265, 0
-  br i1 %266, label %267, label %274
+265:                                              ; preds = %263
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %267 = load i32, ptr %266, align 8, !tbaa !109
+  %268 = icmp sgt i32 %267, 0
+  br i1 %268, label %269, label %276
 
-267:                                              ; preds = %263, %261
-  %268 = load ptr, ptr %0, align 8, !tbaa !111
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 12
-  %270 = load i32, ptr %269, align 4, !tbaa !112
-  %271 = icmp sgt i32 %270, 0
-  br i1 %271, label %272, label %274
+269:                                              ; preds = %263, %265
+  %270 = load ptr, ptr %0, align 8, !tbaa !111
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 12
+  %272 = load i32, ptr %271, align 4, !tbaa !112
+  %273 = icmp sgt i32 %272, 0
+  br i1 %273, label %274, label %276
 
-272:                                              ; preds = %267
-  %273 = load i32, ptr %125, align 8, !tbaa !38
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.42, i32 noundef %273) #7
-  br label %274
+274:                                              ; preds = %269
+  %275 = load i32, ptr %125, align 8, !tbaa !38
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.42, i32 noundef %275) #7
+  br label %276
 
-274:                                              ; preds = %272, %267, %263, %258, %257
+276:                                              ; preds = %274, %269, %265, %260, %259
   store i32 2, ptr %120, align 8, !tbaa !37
   br label %h2_tunnel_go_state.exit70.i
 
-h2_tunnel_go_state.exit70.i:                      ; preds = %274, %253, %118
-  %275 = load ptr, ptr %18, align 8, !tbaa !26
-  %276 = load i32, ptr %275, align 8, !tbaa !124
-  %277 = add i32 %276, -300
-  %278 = icmp ult i32 %277, -100
-  br i1 %278, label %290, label %279
+h2_tunnel_go_state.exit70.i:                      ; preds = %276, %255, %134
+  %277 = load ptr, ptr %18, align 8, !tbaa !26
+  %278 = load i32, ptr %277, align 8, !tbaa !124
+  %279 = add i32 %278, -300
+  %280 = icmp ult i32 %279, -100
+  br i1 %280, label %292, label %281
 
-279:                                              ; preds = %h2_tunnel_go_state.exit70.i
-  br i1 %.not.i, label %.thread.sink.split.i.i, label %280
+281:                                              ; preds = %h2_tunnel_go_state.exit70.i
+  br i1 %.not.i, label %.thread.sink.split.i.i, label %282
 
-280:                                              ; preds = %279
-  %281 = load i64, ptr %121, align 2
-  %282 = and i64 %281, 134217728
-  %.not49.i.i = icmp eq i64 %282, 0
-  br i1 %.not49.i.i, label %.thread.sink.split.i.i, label %283
+282:                                              ; preds = %281
+  %283 = load i64, ptr %121, align 2
+  %284 = and i64 %283, 134217728
+  %.not49.i.i = icmp eq i64 %284, 0
+  br i1 %.not49.i.i, label %.thread.sink.split.i.i, label %285
 
-283:                                              ; preds = %280
-  %284 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not50.i.i = icmp eq ptr %284, null
-  br i1 %.not50.i.i, label %289, label %285
+285:                                              ; preds = %282
+  %286 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not50.i.i = icmp eq ptr %286, null
+  br i1 %.not50.i.i, label %291, label %287
 
-285:                                              ; preds = %283
-  %286 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  %287 = load i32, ptr %286, align 8, !tbaa !109
-  %288 = icmp sgt i32 %287, 0
-  br i1 %288, label %289, label %.thread.sink.split.i.i
+287:                                              ; preds = %285
+  %288 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %289 = load i32, ptr %288, align 8, !tbaa !109
+  %290 = icmp sgt i32 %289, 0
+  br i1 %290, label %291, label %.thread.sink.split.i.i
 
-289:                                              ; preds = %285, %283
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.57, i32 noundef %276) #7
+291:                                              ; preds = %287, %285
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.57, i32 noundef %278) #7
   br label %.thread.sink.split.i.i
 
-290:                                              ; preds = %h2_tunnel_go_state.exit70.i
-  switch i32 %276, label %inspect_response.exit.thread111.i [
-    i32 401, label %292
-    i32 407, label %291
+292:                                              ; preds = %h2_tunnel_go_state.exit70.i
+  switch i32 %278, label %inspect_response.exit.thread111.i [
+    i32 401, label %294
+    i32 407, label %293
   ]
 
-291:                                              ; preds = %290
-  br label %292
+293:                                              ; preds = %292
+  br label %294
 
-292:                                              ; preds = %291, %290
-  %.str.59.sink.i.i = phi ptr [ @.str.59, %291 ], [ @.str.58, %290 ]
-  %293 = getelementptr inbounds nuw i8, ptr %275, i64 16
-  %294 = call ptr @Curl_dynhds_cget(ptr noundef nonnull %293, ptr noundef nonnull %.str.59.sink.i.i) #7
-  %.not.i71.i = icmp eq ptr %294, null
-  br i1 %.not.i71.i, label %inspect_response.exit.thread111.i, label %295
+294:                                              ; preds = %293, %292
+  %.str.59.sink.i.i = phi ptr [ @.str.59, %293 ], [ @.str.58, %292 ]
+  %295 = getelementptr inbounds nuw i8, ptr %277, i64 16
+  %296 = call ptr @Curl_dynhds_cget(ptr noundef nonnull %295, ptr noundef nonnull %.str.59.sink.i.i) #7
+  %.not.i71.i = icmp eq ptr %296, null
+  br i1 %.not.i71.i, label %inspect_response.exit.thread111.i, label %297
 
-295:                                              ; preds = %292
-  br i1 %.not.i, label %313, label %296
+297:                                              ; preds = %294
+  br i1 %.not.i, label %315, label %298
 
-296:                                              ; preds = %295
-  %297 = load i64, ptr %121, align 2
-  %298 = and i64 %297, 134217728
-  %.not44.i73.i = icmp eq i64 %298, 0
-  br i1 %.not44.i73.i, label %313, label %299
+298:                                              ; preds = %297
+  %299 = load i64, ptr %121, align 2
+  %300 = and i64 %299, 134217728
+  %.not44.i73.i = icmp eq i64 %300, 0
+  br i1 %.not44.i73.i, label %315, label %301
 
-299:                                              ; preds = %296
-  %300 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not45.i74.i = icmp eq ptr %300, null
-  br i1 %.not45.i74.i, label %305, label %301
+301:                                              ; preds = %298
+  %302 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not45.i74.i = icmp eq ptr %302, null
+  br i1 %.not45.i74.i, label %307, label %303
 
-301:                                              ; preds = %299
-  %302 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %303 = load i32, ptr %302, align 8, !tbaa !109
-  %304 = icmp sgt i32 %303, 0
-  br i1 %304, label %305, label %313
+303:                                              ; preds = %301
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  %305 = load i32, ptr %304, align 8, !tbaa !109
+  %306 = icmp sgt i32 %305, 0
+  br i1 %306, label %307, label %315
 
-305:                                              ; preds = %301, %299
-  %306 = load ptr, ptr %0, align 8, !tbaa !111
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 12
-  %308 = load i32, ptr %307, align 4, !tbaa !112
-  %309 = icmp sgt i32 %308, 0
-  br i1 %309, label %310, label %313
+307:                                              ; preds = %301, %303
+  %308 = load ptr, ptr %0, align 8, !tbaa !111
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 12
+  %310 = load i32, ptr %309, align 4, !tbaa !112
+  %311 = icmp sgt i32 %310, 0
+  br i1 %311, label %312, label %315
 
-310:                                              ; preds = %305
-  %311 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %312 = load ptr, ptr %311, align 8, !tbaa !126
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %312) #7
-  br label %313
+312:                                              ; preds = %307
+  %313 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  %314 = load ptr, ptr %313, align 8, !tbaa !126
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %314) #7
+  br label %315
 
-313:                                              ; preds = %310, %305, %301, %296, %295
-  %314 = load ptr, ptr %18, align 8, !tbaa !26
-  %315 = load i32, ptr %314, align 8, !tbaa !124
-  %316 = icmp eq i32 %315, 407
-  %317 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %318 = load ptr, ptr %317, align 8, !tbaa !126
-  %319 = call i32 @Curl_http_input_auth(ptr noundef %1, i1 noundef zeroext %316, ptr noundef %318) #7
-  %.not46.i75.i = icmp eq i32 %319, 0
-  br i1 %.not46.i75.i, label %320, label %inspect_response.exit.i
+315:                                              ; preds = %312, %307, %303, %298, %297
+  %316 = load ptr, ptr %18, align 8, !tbaa !26
+  %317 = load i32, ptr %316, align 8, !tbaa !124
+  %318 = icmp eq i32 %317, 407
+  %319 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  %320 = load ptr, ptr %319, align 8, !tbaa !126
+  %321 = call i32 @Curl_http_input_auth(ptr noundef %1, i1 noundef zeroext %318, ptr noundef %320) #7
+  %.not46.i75.i = icmp eq i32 %321, 0
+  br i1 %.not46.i75.i, label %322, label %inspect_response.exit.i
 
-320:                                              ; preds = %313
-  %321 = load ptr, ptr %129, align 8, !tbaa !128
-  %.not47.i76.i = icmp eq ptr %321, null
-  br i1 %.not47.i76.i, label %inspect_response.exit.thread111.i, label %322
+322:                                              ; preds = %315
+  %323 = load ptr, ptr %129, align 8, !tbaa !128
+  %.not47.i76.i = icmp eq ptr %323, null
+  br i1 %.not47.i76.i, label %inspect_response.exit.thread111.i, label %324
 
-322:                                              ; preds = %320
-  %323 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
-  call void %323(ptr noundef nonnull %321) #7
+324:                                              ; preds = %322
+  %325 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
+  call void %325(ptr noundef nonnull %323) #7
   store ptr null, ptr %129, align 8, !tbaa !128
   br label %.thread.sink.split.i.i
 
-.thread.sink.split.i.i:                           ; preds = %322, %289, %285, %280, %279
-  %.sink.i.i = phi i32 [ 0, %322 ], [ 3, %289 ], [ 3, %285 ], [ 3, %280 ], [ 3, %279 ]
-  %324 = load i32, ptr %120, align 8, !tbaa !37
-  %325 = icmp eq i32 %324, %.sink.i.i
-  br i1 %325, label %h2_tunnel_go_state.exit67.i, label %326
+.thread.sink.split.i.i:                           ; preds = %324, %291, %287, %282, %281
+  %.sink.i.i = phi i32 [ 0, %324 ], [ 3, %291 ], [ 3, %287 ], [ 3, %282 ], [ 3, %281 ]
+  %326 = load i32, ptr %120, align 8, !tbaa !37
+  %327 = icmp eq i32 %326, %.sink.i.i
+  br i1 %327, label %h2_tunnel_go_state.exit67.i, label %328
 
-326:                                              ; preds = %.thread.sink.split.i.i
-  %cond.i84.i = icmp eq i32 %324, 1
-  br i1 %cond.i84.i, label %327, label %330
+328:                                              ; preds = %.thread.sink.split.i.i
+  %cond.i84.i = icmp eq i32 %326, 1
+  br i1 %cond.i84.i, label %329, label %332
 
-327:                                              ; preds = %326
-  %328 = load i32, ptr %128, align 1
-  %329 = and i32 %328, -1025
-  store i32 %329, ptr %128, align 1
-  br label %330
+329:                                              ; preds = %328
+  %330 = load i32, ptr %128, align 1
+  %331 = and i32 %330, -1025
+  store i32 %331, ptr %128, align 1
+  br label %332
 
-330:                                              ; preds = %327, %326
-  br i1 %278, label %331, label %351
+332:                                              ; preds = %329, %328
+  br i1 %280, label %333, label %354
 
-331:                                              ; preds = %330
-  br i1 %.not.i, label %h2_tunnel_go_state.exit67.thread.i, label %332
+333:                                              ; preds = %332
+  br i1 %.not.i, label %350, label %334
 
-332:                                              ; preds = %331
-  %333 = load i64, ptr %121, align 2
-  %334 = and i64 %333, 134217728
-  %.not101.i.i = icmp eq i64 %334, 0
-  br i1 %.not101.i.i, label %h2_tunnel_go_state.exit67.thread.i, label %335
+334:                                              ; preds = %333
+  %335 = load i64, ptr %121, align 2
+  %336 = and i64 %335, 134217728
+  %.not101.i.i = icmp eq i64 %336, 0
+  br i1 %.not101.i.i, label %350, label %337
 
-335:                                              ; preds = %332
-  %336 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not102.i.i = icmp eq ptr %336, null
-  br i1 %.not102.i.i, label %341, label %337
+337:                                              ; preds = %334
+  %338 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not102.i.i = icmp eq ptr %338, null
+  br i1 %.not102.i.i, label %343, label %339
 
-337:                                              ; preds = %335
-  %338 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %339 = load i32, ptr %338, align 8, !tbaa !109
-  %340 = icmp sgt i32 %339, 0
-  br i1 %340, label %341, label %h2_tunnel_go_state.exit67.thread.i
+339:                                              ; preds = %337
+  %340 = getelementptr inbounds nuw i8, ptr %338, i64 8
+  %341 = load i32, ptr %340, align 8, !tbaa !109
+  %342 = icmp sgt i32 %341, 0
+  br i1 %342, label %343, label %350
 
-341:                                              ; preds = %337, %335
-  %342 = load ptr, ptr %0, align 8, !tbaa !111
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 12
-  %344 = load i32, ptr %343, align 4, !tbaa !112
-  %345 = icmp sgt i32 %344, 0
-  br i1 %345, label %346, label %h2_tunnel_go_state.exit67.thread.i
+343:                                              ; preds = %337, %339
+  %344 = load ptr, ptr %0, align 8, !tbaa !111
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 12
+  %346 = load i32, ptr %345, align 4, !tbaa !112
+  %347 = icmp sgt i32 %346, 0
+  br i1 %347, label %348, label %350
 
-346:                                              ; preds = %341
-  %347 = load i32, ptr %125, align 8, !tbaa !38
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.40, i32 noundef %347) #7
-  br label %h2_tunnel_go_state.exit67.thread.i
+348:                                              ; preds = %343
+  %349 = load i32, ptr %125, align 8, !tbaa !38
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.40, i32 noundef %349) #7
+  br label %350
 
-h2_tunnel_go_state.exit67.thread.i:               ; preds = %346, %341, %337, %332, %331
-  %348 = load ptr, ptr %18, align 8, !tbaa !26
-  call void @Curl_http_resp_free(ptr noundef %348) #7
+350:                                              ; preds = %348, %343, %339, %334, %333
+  %351 = load ptr, ptr %18, align 8, !tbaa !26
+  call void @Curl_http_resp_free(ptr noundef %351) #7
   call void @Curl_bufq_free(ptr noundef nonnull %132) #7
   call void @Curl_bufq_free(ptr noundef nonnull %133) #7
-  %349 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
-  %350 = load ptr, ptr %123, align 8, !tbaa !28
-  call void %349(ptr noundef %350) #7
+  %352 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
+  %353 = load ptr, ptr %123, align 8, !tbaa !28
+  call void %352(ptr noundef %353) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %18, i8 0, i64 160, i1 false)
-  br label %134
+  br label %h2_tunnel_go_state.exit67.i
 
-351:                                              ; preds = %330
-  br i1 %.not.i, label %.thread.i.i, label %352
+354:                                              ; preds = %332
+  br i1 %.not.i, label %.thread.i.i, label %355
 
-352:                                              ; preds = %351
-  %353 = load i64, ptr %121, align 2
-  %354 = and i64 %353, 134217728
-  %.not88.i.i = icmp eq i64 %354, 0
-  br i1 %.not88.i.i, label %.thread.i.i, label %355
+355:                                              ; preds = %354
+  %356 = load i64, ptr %121, align 2
+  %357 = and i64 %356, 134217728
+  %.not88.i.i = icmp eq i64 %357, 0
+  br i1 %.not88.i.i, label %.thread.i.i, label %358
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not89.i.i = icmp eq ptr %356, null
-  br i1 %.not89.i.i, label %361, label %357
+358:                                              ; preds = %355
+  %359 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not89.i.i = icmp eq ptr %359, null
+  br i1 %.not89.i.i, label %364, label %360
 
-357:                                              ; preds = %355
-  %358 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  %359 = load i32, ptr %358, align 8, !tbaa !109
-  %360 = icmp sgt i32 %359, 0
-  br i1 %360, label %361, label %.thread.i.i
+360:                                              ; preds = %358
+  %361 = getelementptr inbounds nuw i8, ptr %359, i64 8
+  %362 = load i32, ptr %361, align 8, !tbaa !109
+  %363 = icmp sgt i32 %362, 0
+  br i1 %363, label %364, label %.thread.i.i
 
-361:                                              ; preds = %357, %355
-  %362 = load ptr, ptr %0, align 8, !tbaa !111
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 12
-  %364 = load i32, ptr %363, align 4, !tbaa !112
-  %365 = icmp sgt i32 %364, 0
-  br i1 %365, label %366, label %.thread117.i.i
+364:                                              ; preds = %358, %360
+  %365 = load ptr, ptr %0, align 8, !tbaa !111
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 12
+  %367 = load i32, ptr %366, align 4, !tbaa !112
+  %368 = icmp sgt i32 %367, 0
+  br i1 %368, label %369, label %.thread117.i.i
 
-366:                                              ; preds = %361
-  %367 = load i32, ptr %125, align 8, !tbaa !38
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.43, i32 noundef %367) #7
+369:                                              ; preds = %364
+  %370 = load i32, ptr %125, align 8, !tbaa !38
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.43, i32 noundef %370) #7
   %.pre.i.i = load i64, ptr %121, align 2
   %.pre105.i.i = and i64 %.pre.i.i, 134217728
-  %368 = icmp eq i64 %.pre105.i.i, 0
-  br i1 %368, label %.thread.i.i, label %..thread117.i_crit_edge.i
+  %371 = icmp eq i64 %.pre105.i.i, 0
+  br i1 %371, label %.thread.i.i, label %..thread117.i_crit_edge.i
 
-..thread117.i_crit_edge.i:                        ; preds = %366
+..thread117.i_crit_edge.i:                        ; preds = %369
   %.pr.pre.i = load ptr, ptr %122, align 8, !tbaa !108
   br label %.thread117.i.i
 
-.thread117.i.i:                                   ; preds = %..thread117.i_crit_edge.i, %361
-  %.pr.i = phi ptr [ %.pr.pre.i, %..thread117.i_crit_edge.i ], [ %356, %361 ]
+.thread117.i.i:                                   ; preds = %..thread117.i_crit_edge.i, %364
+  %.pr.i = phi ptr [ %.pr.pre.i, %..thread117.i_crit_edge.i ], [ %359, %364 ]
   %.not91.i.i = icmp eq ptr %.pr.i, null
   br i1 %.not91.i.i, label %.thread117.i.thread.i, label %.thread117.i.thread159.i
 
 .thread117.i.thread159.i:                         ; preds = %.thread117.i.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
   %.pre50 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !109
-  %369 = icmp sgt i32 %.pre50, 0
-  br i1 %369, label %.thread117.i.thread.i, label %.thread.i.i
+  %372 = icmp sgt i32 %.pre50, 0
+  br i1 %372, label %.thread117.i.thread.i, label %.thread.i.i
 
 .thread117.i.thread.i:                            ; preds = %.thread117.i.thread159.i, %.thread117.i.i
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #7
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %357, %.thread117.i.thread.i, %.thread117.i.thread159.i, %366, %352, %351
-  %370 = load i8, ptr %130, align 8
-  %371 = and i8 %370, -4
-  %372 = or disjoint i8 %371, 1
-  store i8 %372, ptr %130, align 8
+.thread.i.i:                                      ; preds = %360, %.thread117.i.thread.i, %.thread117.i.thread159.i, %369, %355, %354
+  %373 = load i8, ptr %130, align 8
+  %374 = and i8 %373, -4
+  %375 = or disjoint i8 %374, 1
+  store i8 %375, ptr %130, align 8
   br label %h2_tunnel_go_state.exit67thread-pre-split119.i
 
-h2_tunnel_go_state.exit67thread-pre-split119.i:   ; preds = %.thread.i.i, %248, %243, %239, %234, %233
-  %.sink.i = phi i32 [ %.sink.i.i, %.thread.i.i ], [ 4, %248 ], [ 4, %243 ], [ 4, %239 ], [ 4, %234 ], [ 4, %233 ]
-  %.3.ph.ph.i = phi i32 [ 0, %.thread.i.i ], [ %.2.i, %248 ], [ %.2.i, %243 ], [ %.2.i, %239 ], [ %.2.i, %234 ], [ %.2.i, %233 ]
+h2_tunnel_go_state.exit67thread-pre-split119.i:   ; preds = %.thread.i.i, %250, %245, %241, %236, %235
+  %.sink.i = phi i32 [ %.sink.i.i, %.thread.i.i ], [ 4, %250 ], [ 4, %245 ], [ 4, %241 ], [ 4, %236 ], [ 4, %235 ]
+  %.3.ph.ph.i = phi i32 [ 0, %.thread.i.i ], [ %.2.i, %250 ], [ %.2.i, %245 ], [ %.2.i, %241 ], [ %.2.i, %236 ], [ %.2.i, %235 ]
   store i32 %.sink.i, ptr %120, align 8, !tbaa !37
-  %373 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
-  %374 = load ptr, ptr %131, align 8, !tbaa !129
-  call void %373(ptr noundef %374) #7
+  %376 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
+  %377 = load ptr, ptr %131, align 8, !tbaa !129
+  call void %376(ptr noundef %377) #7
   store ptr null, ptr %131, align 8, !tbaa !129
   %.pr107.pr.i = load i32, ptr %120, align 8, !tbaa !37
   br label %h2_tunnel_go_state.exit67.i
 
-h2_tunnel_go_state.exit67.i:                      ; preds = %h2_tunnel_go_state.exit67thread-pre-split119.i, %.thread.sink.split.i.i
-  %.pr107.i = phi i32 [ %.pr107.pr.i, %h2_tunnel_go_state.exit67thread-pre-split119.i ], [ %.sink.i.i, %.thread.sink.split.i.i ]
-  %.3.ph.i = phi i32 [ %.3.ph.ph.i, %h2_tunnel_go_state.exit67thread-pre-split119.i ], [ 0, %.thread.sink.split.i.i ]
-  %375 = icmp eq i32 %.pr107.i, 0
-  br i1 %375, label %134, label %inspect_response.exit.i, !llvm.loop !130
+h2_tunnel_go_state.exit67.i:                      ; preds = %h2_tunnel_go_state.exit67thread-pre-split119.i, %350, %.thread.sink.split.i.i
+  %378 = phi i32 [ %.pr107.pr.i, %h2_tunnel_go_state.exit67thread-pre-split119.i ], [ 0, %350 ], [ %.sink.i.i, %.thread.sink.split.i.i ]
+  %.3.ph.i = phi i32 [ %.3.ph.ph.i, %h2_tunnel_go_state.exit67thread-pre-split119.i ], [ 0, %350 ], [ 0, %.thread.sink.split.i.i ]
+  %379 = icmp eq i32 %378, 0
+  br i1 %379, label %134, label %inspect_response.exit.i, !llvm.loop !130
 
-inspect_response.exit.i:                          ; preds = %h2_tunnel_go_state.exit67.i, %313, %229, %submit_CONNECT.exit.i
-  %.1.i = phi i32 [ %.0.i.i, %submit_CONNECT.exit.i ], [ %.3.ph.i, %h2_tunnel_go_state.exit67.i ], [ %319, %313 ], [ %.2.i, %229 ]
+inspect_response.exit.i:                          ; preds = %h2_tunnel_go_state.exit67.i, %315, %231, %134, %submit_CONNECT.exit.i
+  %.1.i = phi i32 [ %.0.i.i, %submit_CONNECT.exit.i ], [ %.3.ph.i, %h2_tunnel_go_state.exit67.i ], [ %321, %315 ], [ %.2.i, %231 ], [ %.0.i, %134 ]
   switch i32 %.1.i, label %inspect_response.exit.thread111.i [
     i32 81, label %inspect_response.exit.thread114.i
     i32 0, label %inspect_response.exit.thread114.i
   ]
 
-inspect_response.exit.thread114.i:                ; preds = %inspect_response.exit.i, %inspect_response.exit.i, %250, %118
-  %.1116.i = phi i32 [ %.1.i, %inspect_response.exit.i ], [ %.1.i, %inspect_response.exit.i ], [ 0, %250 ], [ 0, %118 ]
-  %376 = getelementptr inbounds nuw i8, ptr %119, i64 300
-  %377 = load i8, ptr %376, align 4
-  %378 = and i8 %377, 2
-  %.not64.i = icmp eq i8 %378, 0
+inspect_response.exit.thread114.i:                ; preds = %252, %inspect_response.exit.i, %inspect_response.exit.i
+  %.1116.i = phi i32 [ %.1.i, %inspect_response.exit.i ], [ %.1.i, %inspect_response.exit.i ], [ 0, %252 ]
+  %380 = getelementptr inbounds nuw i8, ptr %119, i64 300
+  %381 = load i8, ptr %380, align 4
+  %382 = and i8 %381, 2
+  %.not64.i = icmp eq i8 %382, 0
   br i1 %.not64.i, label %H2_CONNECT.exit, label %inspect_response.exit.thread111.i
 
-inspect_response.exit.thread111.i:                ; preds = %inspect_response.exit.thread114.i, %inspect_response.exit.i, %320, %292, %290
-  %.1113.i = phi i32 [ %.1.i, %inspect_response.exit.i ], [ %.1116.i, %inspect_response.exit.thread114.i ], [ 56, %320 ], [ 56, %292 ], [ 56, %290 ]
-  %379 = load i32, ptr %120, align 8, !tbaa !37
-  switch i32 %379, label %382 [
+inspect_response.exit.thread111.i:                ; preds = %322, %294, %292, %inspect_response.exit.thread114.i, %inspect_response.exit.i
+  %.1113.i = phi i32 [ %.1.i, %inspect_response.exit.i ], [ %.1116.i, %inspect_response.exit.thread114.i ], [ 56, %292 ], [ 56, %294 ], [ 56, %322 ]
+  %383 = load i32, ptr %120, align 8, !tbaa !37
+  switch i32 %383, label %386 [
     i32 4, label %H2_CONNECT.exit
     i32 1, label %.thread117.i
   ]
 
 .thread117.i:                                     ; preds = %inspect_response.exit.thread111.i
-  %380 = load i32, ptr %128, align 1
-  %381 = and i32 %380, -1025
-  store i32 %381, ptr %128, align 1
-  br label %383
+  %384 = load i32, ptr %128, align 1
+  %385 = and i32 %384, -1025
+  store i32 %385, ptr %128, align 1
+  br label %387
 
-382:                                              ; preds = %inspect_response.exit.thread111.i
-  br i1 %.not.i, label %399, label %383
+386:                                              ; preds = %inspect_response.exit.thread111.i
+  br i1 %.not.i, label %403, label %387
 
-383:                                              ; preds = %382, %.thread117.i
-  %384 = load i64, ptr %121, align 2
-  %385 = and i64 %384, 134217728
-  %.not92.i79.i = icmp eq i64 %385, 0
-  br i1 %.not92.i79.i, label %399, label %386
+387:                                              ; preds = %386, %.thread117.i
+  %388 = load i64, ptr %121, align 2
+  %389 = and i64 %388, 134217728
+  %.not92.i79.i = icmp eq i64 %389, 0
+  br i1 %.not92.i79.i, label %403, label %390
 
-386:                                              ; preds = %383
-  %387 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not93.i80.i = icmp eq ptr %387, null
-  br i1 %.not93.i80.i, label %392, label %388
+390:                                              ; preds = %387
+  %391 = load ptr, ptr %122, align 8, !tbaa !108
+  %.not93.i80.i = icmp eq ptr %391, null
+  br i1 %.not93.i80.i, label %396, label %392
 
-388:                                              ; preds = %386
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %390 = load i32, ptr %389, align 8, !tbaa !109
-  %391 = icmp sgt i32 %390, 0
-  br i1 %391, label %392, label %399
+392:                                              ; preds = %390
+  %393 = getelementptr inbounds nuw i8, ptr %391, i64 8
+  %394 = load i32, ptr %393, align 8, !tbaa !109
+  %395 = icmp sgt i32 %394, 0
+  br i1 %395, label %396, label %403
 
-392:                                              ; preds = %386, %388
-  %393 = load ptr, ptr %0, align 8, !tbaa !111
-  %394 = getelementptr inbounds nuw i8, ptr %393, i64 12
-  %395 = load i32, ptr %394, align 4, !tbaa !112
-  %396 = icmp sgt i32 %395, 0
-  br i1 %396, label %397, label %399
+396:                                              ; preds = %390, %392
+  %397 = load ptr, ptr %0, align 8, !tbaa !111
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 12
+  %399 = load i32, ptr %398, align 4, !tbaa !112
+  %400 = icmp sgt i32 %399, 0
+  br i1 %400, label %401, label %403
 
-397:                                              ; preds = %392
-  %398 = load i32, ptr %125, align 8, !tbaa !38
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.45, i32 noundef %398) #7
-  br label %399
+401:                                              ; preds = %396
+  %402 = load i32, ptr %125, align 8, !tbaa !38
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.45, i32 noundef %402) #7
+  br label %403
 
-399:                                              ; preds = %397, %392, %388, %383, %382
+403:                                              ; preds = %401, %396, %392, %387, %386
   store i32 4, ptr %120, align 8, !tbaa !37
-  %400 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
-  %401 = load ptr, ptr %131, align 8, !tbaa !129
-  call void %400(ptr noundef %401) #7
+  %404 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
+  %405 = load ptr, ptr %131, align 8, !tbaa !129
+  call void %404(ptr noundef %405) #7
   store ptr null, ptr %131, align 8, !tbaa !129
   br label %H2_CONNECT.exit
 
-H2_CONNECT.exit:                                  ; preds = %399, %inspect_response.exit.thread111.i, %inspect_response.exit.thread114.i
-  %.037 = phi i32 [ %.1116.i, %inspect_response.exit.thread114.i ], [ %.1113.i, %inspect_response.exit.thread111.i ], [ %.1113.i, %399 ]
-  %402 = icmp eq i32 %.037, 0
-  br i1 %402, label %H2_CONNECT.exit.thread47, label %.critedge
+H2_CONNECT.exit:                                  ; preds = %403, %inspect_response.exit.thread111.i, %inspect_response.exit.thread114.i
+  %.037 = phi i32 [ %.1116.i, %inspect_response.exit.thread114.i ], [ %.1113.i, %inspect_response.exit.thread111.i ], [ %.1113.i, %403 ]
+  %406 = icmp eq i32 %.037, 0
+  br i1 %406, label %H2_CONNECT.exit.thread47, label %.critedge
 
 H2_CONNECT.exit.thread47:                         ; preds = %H2_CONNECT.exit
   %.pre51 = load i32, ptr %120, align 8, !tbaa !37
-  %403 = icmp eq i32 %.pre51, 3
-  %404 = zext i1 %403 to i8
-  store i8 %404, ptr %3, align 1, !tbaa !29
-  br i1 %403, label %405, label %410
+  %407 = icmp eq i32 %.pre51, 3
+  %408 = zext i1 %407 to i8
+  store i8 %408, ptr %3, align 1, !tbaa !29
+  br i1 %407, label %409, label %414
 
-405:                                              ; preds = %H2_CONNECT.exit.thread47.thread, %H2_CONNECT.exit.thread47
-  %406 = load i8, ptr %19, align 4
-  %407 = or i8 %406, 1
-  store i8 %407, ptr %19, align 4
-  %408 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %409 = call i32 @Curl_req_soft_reset(ptr noundef nonnull %408, ptr noundef %1) #7
+409:                                              ; preds = %H2_CONNECT.exit.thread47.thread, %H2_CONNECT.exit.thread47
+  %410 = load i8, ptr %19, align 4
+  %411 = or i8 %410, 1
+  store i8 %411, ptr %19, align 4
+  %412 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %413 = call i32 @Curl_req_soft_reset(ptr noundef nonnull %412, ptr noundef %1) #7
   call void @Curl_client_reset(ptr noundef %1) #7
-  br label %410
+  br label %414
 
-.critedge:                                        ; preds = %118, %cf_h2_proxy_ctx_init.exit, %117, %H2_CONNECT.exit
-  %.03746 = phi i32 [ %.037, %H2_CONNECT.exit ], [ %.034.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %117 ], [ 56, %118 ]
+.critedge:                                        ; preds = %134, %cf_h2_proxy_ctx_init.exit, %117, %H2_CONNECT.exit
+  %.03746 = phi i32 [ %.037, %H2_CONNECT.exit ], [ %.034.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %117 ], [ 56, %134 ]
   store i8 0, ptr %3, align 1, !tbaa !29
-  br label %410
+  br label %414
 
-410:                                              ; preds = %.critedge, %H2_CONNECT.exit.thread47, %405
-  %.03745 = phi i32 [ %.03746, %.critedge ], [ 0, %H2_CONNECT.exit.thread47 ], [ 0, %405 ]
-  %411 = load ptr, ptr %16, align 8, !tbaa !4
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %412, align 8, !tbaa !13
-  br label %413
+414:                                              ; preds = %.critedge, %H2_CONNECT.exit.thread47, %409
+  %.03745 = phi i32 [ %.03746, %.critedge ], [ 0, %H2_CONNECT.exit.thread47 ], [ 0, %409 ]
+  %415 = load ptr, ptr %16, align 8, !tbaa !4
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
+  store ptr %.sroa.0.0.copyload, ptr %416, align 8, !tbaa !13
+  br label %417
 
-413:                                              ; preds = %29, %31, %410, %22
-  %.0 = phi i32 [ 0, %22 ], [ %.03745, %410 ], [ 0, %31 ], [ %30, %29 ]
+417:                                              ; preds = %29, %31, %414, %22
+  %.0 = phi i32 [ 0, %22 ], [ %.03745, %414 ], [ 0, %31 ], [ %30, %29 ]
   ret i32 %.0
 }
 

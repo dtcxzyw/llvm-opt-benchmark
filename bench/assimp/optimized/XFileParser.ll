@@ -10597,7 +10597,7 @@ define hidden void @_ZN6Assimp11XFileParser27ParseDataObjectAnimationKeyEPNS_5XF
   %24 = icmp eq i32 %7, 2
   br label %32
 
-._crit_edge:                                      ; preds = %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt2, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt0, %2
+._crit_edge:                                      ; preds = %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.20) #29
@@ -10626,178 +10626,163 @@ _ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit: ; preds = %_ZNSt7__cxx1112
   ret void
 
 32:                                               ; preds = %.lr.ph, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit
-  %.0135 = phi i32 [ 0, %.lr.ph ], [ %192, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit ]
-  %33 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  switch i32 %7, label %191 [
-    i32 0, label %.preheader.preheader
-    i32 1, label %.preheader169
-    i32 2, label %.preheader169
+  %33 = phi i32 [ %7, %.lr.ph ], [ %192, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit ]
+  %.0135 = phi i32 [ 0, %.lr.ph ], [ %193, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit ]
+  %34 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  switch i32 %33, label %191 [
+    i32 0, label %35
+    i32 1, label %78
+    i32 2, label %78
     i32 3, label %136
     i32 4, label %136
   ]
 
-.preheader.preheader:                             ; preds = %32
-  %34 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %.not12242 = icmp eq i32 %34, 4
-  br i1 %.not12242, label %.lr.ph244, label %.preheader._crit_edge
-
-.preheader169:                                    ; preds = %32, %32
-  %35 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %.not11238 = icmp eq i32 %35, 3
-  br i1 %.not11238, label %.lr.ph240, label %.preheader169._crit_edge
-
-.preheader:                                       ; preds = %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt0
+35:                                               ; preds = %32
   %36 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %37 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %.not12 = icmp eq i32 %37, 4
-  br i1 %.not12, label %.lr.ph244, label %.preheader._crit_edge
+  %.not12 = icmp eq i32 %36, 4
+  br i1 %.not12, label %38, label %37
 
-38:                                               ; preds = %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt2
-  %39 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %40 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %.not11 = icmp eq i32 %40, 3
-  br i1 %.not11, label %.lr.ph240, label %.preheader169._crit_edge
-
-.preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
+37:                                               ; preds = %35
   call void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA60_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(60) @.str.62) #30
   unreachable
 
-.lr.ph244:                                        ; preds = %.preheader.preheader, %.preheader
-  %.0135167243 = phi i32 [ %193, %.preheader ], [ %.0135, %.preheader.preheader ]
-  %41 = phi i32 [ %36, %.preheader ], [ %33, %.preheader.preheader ]
-  %42 = uitofp i32 %41 to double
+38:                                               ; preds = %35
+  %39 = uitofp i32 %34 to double
+  %40 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %41 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %42 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %43 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %44 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %45 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %46 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %47 = load ptr, ptr %21, align 8
-  %48 = load ptr, ptr %22, align 8
-  %.not.i13 = icmp eq ptr %47, %48
-  br i1 %.not.i13, label %52, label %49
+  %44 = load ptr, ptr %21, align 8
+  %45 = load ptr, ptr %22, align 8
+  %.not.i13 = icmp eq ptr %44, %45
+  br i1 %.not.i13, label %49, label %46
 
-49:                                               ; preds = %.lr.ph244
-  store double %42, ptr %47, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store float %43, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 12
-  store float %44, ptr %.sroa.8118.0..sroa_idx, align 4
-  %.sroa.10121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store float %45, ptr %.sroa.10121.0..sroa_idx, align 8
-  %.sroa.12124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 20
-  store float %46, ptr %.sroa.12124.0..sroa_idx, align 4
-  %.sroa.14127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 24
+46:                                               ; preds = %38
+  store double %39, ptr %44, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store float %40, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.8118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 12
+  store float %41, ptr %.sroa.8118.0..sroa_idx, align 4
+  %.sroa.10121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store float %42, ptr %.sroa.10121.0..sroa_idx, align 8
+  %.sroa.12124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 20
+  store float %43, ptr %.sroa.12124.0..sroa_idx, align 4
+  %.sroa.14127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i32 1, ptr %.sroa.14127.0..sroa_idx, align 8
-  %50 = load ptr, ptr %21, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store ptr %51, ptr %21, align 8
+  %47 = load ptr, ptr %21, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store ptr %48, ptr %21, align 8
   br label %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit
 
-52:                                               ; preds = %.lr.ph244
-  %53 = load ptr, ptr %20, align 8
-  %54 = ptrtoint ptr %47 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = icmp eq i64 %56, 9223372036854775776
-  br i1 %57, label %58, label %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i
+49:                                               ; preds = %38
+  %50 = load ptr, ptr %20, align 8
+  %51 = ptrtoint ptr %44 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = icmp eq i64 %53, 9223372036854775776
+  br i1 %54, label %55, label %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
-58:                                               ; preds = %52
+55:                                               ; preds = %49
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.114) #30
   unreachable
 
-_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %52
-  %59 = ashr exact i64 %56, 5
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
-  %60 = add nsw i64 %.sroa.speculated.i.i.i, %59
-  %61 = icmp ult i64 %60, %59
-  %62 = call i64 @llvm.umin.i64(i64 %60, i64 288230376151711743)
-  %63 = select i1 %61, i64 288230376151711743, i64 %62
-  %.not.i.i.i = icmp ne i64 %63, 0
+_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %49
+  %56 = ashr exact i64 %53, 5
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %56, i64 1)
+  %57 = add nsw i64 %.sroa.speculated.i.i.i, %56
+  %58 = icmp ult i64 %57, %56
+  %59 = call i64 @llvm.umin.i64(i64 %57, i64 288230376151711743)
+  %60 = select i1 %58, i64 288230376151711743, i64 %59
+  %.not.i.i.i = icmp ne i64 %60, 0
   call void @llvm.assume(i1 %.not.i.i.i)
-  %64 = shl nuw nsw i64 %63, 5
-  %65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #31
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %56
-  store double %42, ptr %66, align 8
-  %.sroa.6.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store float %43, ptr %.sroa.6.0..sroa_idx116, align 8
-  %.sroa.8118.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  store float %44, ptr %.sroa.8118.0..sroa_idx119, align 4
-  %.sroa.10121.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store float %45, ptr %.sroa.10121.0..sroa_idx122, align 8
-  %.sroa.12124.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %66, i64 20
-  store float %46, ptr %.sroa.12124.0..sroa_idx125, align 4
-  %.sroa.14127.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %61 = shl nuw nsw i64 %60, 5
+  %62 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %61) #31
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %53
+  store double %39, ptr %63, align 8
+  %.sroa.6.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store float %40, ptr %.sroa.6.0..sroa_idx116, align 8
+  %.sroa.8118.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  store float %41, ptr %.sroa.8118.0..sroa_idx119, align 4
+  %.sroa.10121.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store float %42, ptr %.sroa.10121.0..sroa_idx122, align 8
+  %.sroa.12124.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  store float %43, ptr %.sroa.12124.0..sroa_idx125, align 4
+  %.sroa.14127.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 1, ptr %.sroa.14127.0..sroa_idx128, align 8
-  %.not10.i.i.i.i.i = icmp eq ptr %53, %47
+  %.not10.i.i.i.i.i = icmp eq ptr %50, %44
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i ], [ %65, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i.i ], [ %53, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.012.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %62, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %50, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i, i64 32, i1 false), !alias.scope !49
-  %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
-  %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %67, %47
+  %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %64, %44
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !53
 
 _ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %65, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %68, %.lr.ph.i.i.i.i.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
-  %.not.i23.i.i = icmp eq ptr %53, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %70
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %62, %_ZNKSt6vectorI9aiQuatKeySaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %65, %.lr.ph.i.i.i.i.i ]
+  %66 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %.not.i23.i.i = icmp eq ptr %50, null
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %67
 
-70:                                               ; preds = %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %56) #32
+67:                                               ; preds = %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %53) #32
   br label %_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
-_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
-  store ptr %65, ptr %20, align 8
-  store ptr %69, ptr %21, align 8
-  %71 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %65, i64 %63
-  store ptr %71, ptr %22, align 8
+_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
+  store ptr %62, ptr %20, align 8
+  store ptr %66, ptr %21, align 8
+  %68 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %62, i64 %60
+  store ptr %68, ptr %22, align 8
   br label %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit
 
-_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit: ; preds = %49, %_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
-  %72 = load i8, ptr %12, align 8, !range !5, !noundef !6
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt0, label %74
+_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit: ; preds = %46, %_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
+  %69 = load i8, ptr %12, align 8, !range !5, !noundef !6
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, label %71
 
-74:                                               ; preds = %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit
+71:                                               ; preds = %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.46) #29
-  %.not.i14 = icmp eq i32 %75, 0
-  %76 = load ptr, ptr %4, align 8
-  %77 = icmp eq ptr %76, %23
-  br i1 %77, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15
+  %72 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.46) #29
+  %.not.i14 = icmp eq i32 %72, 0
+  %73 = load ptr, ptr %4, align 8
+  %74 = icmp eq ptr %73, %23
+  br i1 %74, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15: ; preds = %74
-  %78 = load i64, ptr %23, align 8
-  %79 = add i64 %78, 1
-  call void @_ZdlPvm(ptr noundef %76, i64 noundef %79) #32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15: ; preds = %71
+  %75 = load i64, ptr %23, align 8
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %73, i64 noundef %76) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16: ; preds = %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16: ; preds = %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not.i14, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt0, label %80
+  br i1 %.not.i14, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, label %77
 
-80:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16
+77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16
   call void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA20_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(20) @.str.72) #30
   unreachable
 
-.preheader169._crit_edge:                         ; preds = %.preheader169, %38
+78:                                               ; preds = %32, %32
+  %79 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %.not11 = icmp eq i32 %79, 3
+  br i1 %.not11, label %81, label %80
+
+80:                                               ; preds = %78
   call void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA56_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(56) @.str.63) #30
   unreachable
 
-.lr.ph240:                                        ; preds = %.preheader169, %38
-  %.0135166239 = phi i32 [ %194, %38 ], [ %.0135, %.preheader169 ]
-  %81 = phi i32 [ %39, %38 ], [ %33, %.preheader169 ]
-  %82 = uitofp i32 %81 to double
+81:                                               ; preds = %78
+  %82 = uitofp i32 %34 to double
   %83 = call { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %.fca.0.extract = extractvalue { <2 x float>, float } %83, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %83, 1
   br i1 %24, label %84, label %110
 
-84:                                               ; preds = %.lr.ph240
+84:                                               ; preds = %81
   %85 = load ptr, ptr %18, align 8
   %86 = load ptr, ptr %19, align 8
   %.not.i18 = icmp eq ptr %85, %86
@@ -10814,7 +10799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16: ; preds = %7
   %88 = load ptr, ptr %18, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %89, ptr %18, align 8
-  br label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt2
+  br label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit
 
 90:                                               ; preds = %84
   %91 = load ptr, ptr %17, align 8
@@ -10874,9 +10859,9 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   store ptr %107, ptr %18, align 8
   %109 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %103, i64 %101
   store ptr %109, ptr %19, align 8
-  br label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt2
+  br label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit
 
-110:                                              ; preds = %.lr.ph240
+110:                                              ; preds = %81
   %111 = load ptr, ptr %15, align 8
   %112 = load ptr, ptr %16, align 8
   %.not.i28 = icmp eq ptr %111, %112
@@ -10965,7 +10950,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   unreachable
 
 139:                                              ; preds = %136
-  %140 = uitofp i32 %33 to double
+  %140 = uitofp i32 %34 to double
   %141 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %142 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %143 = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
@@ -11144,24 +11129,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54: ; preds = %1
   call void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA18_KcRjRA15_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(18) @.str.65, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(15) @.str.66) #30
   unreachable
 
-_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54, %_ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE9push_backERKS2_.exit, %113, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i40
-  %.0135168 = phi i32 [ %.0135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54 ], [ %.0135, %_ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE9push_backERKS2_.exit ], [ %.0135166239, %113 ], [ %.0135166239, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i40 ]
+_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54, %_ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE9push_backERKS2_.exit, %87, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %113, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16, %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit
+  %192 = phi i32 [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54 ], [ %33, %_ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE9push_backERKS2_.exit ], [ 2, %87 ], [ 2, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %7, %113 ], [ %7, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i40 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16 ], [ 0, %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit ]
   call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %192 = add nuw i32 %.0135168, 1
-  %exitcond.not = icmp eq i32 %192, %8
+  %193 = add nuw i32 %.0135, 1
+  %exitcond.not = icmp eq i32 %193, %8
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !68
-
-_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt0: ; preds = %_ZNSt6vectorI9aiQuatKeySaIS0_EE9push_backERKS0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i16
-  call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %193 = add nuw i32 %.0135167243, 1
-  %exitcond.not.jt0 = icmp eq i32 %193, %8
-  br i1 %exitcond.not.jt0, label %._crit_edge, label %.preheader, !llvm.loop !68
-
-_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit.jt2: ; preds = %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %87
-  call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %194 = add nuw i32 %.0135166239, 1
-  %exitcond.not.jt2 = icmp eq i32 %194, %8
-  br i1 %exitcond.not.jt2, label %._crit_edge, label %38, !llvm.loop !68
 }
 
 ; Function Attrs: mustprogress noreturn uwtable

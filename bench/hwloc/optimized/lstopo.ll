@@ -3225,7 +3225,9 @@ sub_01003:                                        ; preds = %934
   %972 = call ptr @getenv(ptr noundef nonnull @.str.255) #30
   %973 = icmp ne ptr %972, null
   %or.cond27.not = and i1 %.not670, %973
-  br i1 %or.cond27.not, label %.thread922, label %..si.unfold.false
+  %output_x11.output_console = select i1 %or.cond27.not, ptr @output_x11, ptr @output_console
+  %. = select i1 %or.cond27.not, i32 1, i32 2
+  br label %.thread922
 
 974:                                              ; preds = %.thread909
   %975 = call ptr @getenv(ptr noundef nonnull @.str.255) #30
@@ -3275,14 +3277,11 @@ sub_01003:                                        ; preds = %934
   %992 = call i64 @fwrite(ptr nonnull @.str.257, i64 26, i64 1, ptr %991) #36
   br label %.loopexit1045
 
-..si.unfold.false:                                ; preds = %971
-  br label %.thread922
-
-.thread922:                                       ; preds = %971, %..si.unfold.false, %.thread909, %.tail1002, %.tail1002.thread, %974, %989, %988, %987, %986, %985, %984, %983, %982, %981, %980, %979
-  %.3916925.ph = phi ptr [ @.str, %.tail1002 ], [ @.str, %.tail1002.thread ], [ %.3, %974 ], [ %.3, %989 ], [ %.3, %988 ], [ %.3, %987 ], [ %.3, %986 ], [ %.3, %985 ], [ %.3, %984 ], [ %.3, %983 ], [ %.3, %982 ], [ %.3, %981 ], [ %.3, %980 ], [ %.3, %979 ], [ %.3920, %971 ], [ %.3, %.thread909 ], [ %.3920, %..si.unfold.false ]
-  %.1614.ph = phi i1 [ false, %.tail1002 ], [ false, %.tail1002.thread ], [ true, %974 ], [ true, %989 ], [ true, %988 ], [ true, %987 ], [ true, %986 ], [ true, %985 ], [ true, %984 ], [ true, %983 ], [ true, %982 ], [ true, %981 ], [ true, %980 ], [ true, %979 ], [ true, %971 ], [ false, %.thread909 ], [ false, %..si.unfold.false ]
-  %.1594.ph = phi ptr [ @output_console, %.tail1002 ], [ @output_console, %.tail1002.thread ], [ @output_x11, %974 ], [ @output_shmem, %989 ], [ @output_xml, %988 ], [ @output_nativesvg, %987 ], [ @output_cairosvg, %986 ], [ @output_ps, %985 ], [ @output_pdf, %984 ], [ @output_png, %983 ], [ @output_fig, %982 ], [ @output_tikz, %981 ], [ @output_ascii, %980 ], [ @output_synthetic, %979 ], [ @output_x11, %971 ], [ @output_console, %.thread909 ], [ @output_console, %..si.unfold.false ]
-  %.6.ph = phi i32 [ 2, %.tail1002 ], [ 2, %.tail1002.thread ], [ 1, %974 ], [ %.2582, %989 ], [ %.2582, %988 ], [ %.2582, %987 ], [ 11, %986 ], [ %.2582, %985 ], [ %.2582, %984 ], [ %.2582, %983 ], [ %.2582, %982 ], [ %.2582, %981 ], [ %.2582, %980 ], [ %.2582, %979 ], [ 1, %971 ], [ %.2582, %.thread909 ], [ 2, %..si.unfold.false ]
+.thread922:                                       ; preds = %.thread909, %.tail1002, %.tail1002.thread, %974, %989, %988, %987, %986, %985, %984, %983, %982, %981, %980, %979, %971
+  %.3916925.ph = phi ptr [ @.str, %.tail1002 ], [ @.str, %.tail1002.thread ], [ %.3, %974 ], [ %.3, %989 ], [ %.3, %988 ], [ %.3, %987 ], [ %.3, %986 ], [ %.3, %985 ], [ %.3, %984 ], [ %.3, %983 ], [ %.3, %982 ], [ %.3, %981 ], [ %.3, %980 ], [ %.3, %979 ], [ %.3920, %971 ], [ %.3, %.thread909 ]
+  %.1614.ph = phi i1 [ false, %.tail1002 ], [ false, %.tail1002.thread ], [ true, %974 ], [ true, %989 ], [ true, %988 ], [ true, %987 ], [ true, %986 ], [ true, %985 ], [ true, %984 ], [ true, %983 ], [ true, %982 ], [ true, %981 ], [ true, %980 ], [ true, %979 ], [ %or.cond27.not, %971 ], [ false, %.thread909 ]
+  %.1594.ph = phi ptr [ @output_console, %.tail1002 ], [ @output_console, %.tail1002.thread ], [ @output_x11, %974 ], [ @output_shmem, %989 ], [ @output_xml, %988 ], [ @output_nativesvg, %987 ], [ @output_cairosvg, %986 ], [ @output_ps, %985 ], [ @output_pdf, %984 ], [ @output_png, %983 ], [ @output_fig, %982 ], [ @output_tikz, %981 ], [ @output_ascii, %980 ], [ @output_synthetic, %979 ], [ %output_x11.output_console, %971 ], [ @output_console, %.thread909 ]
+  %.6.ph = phi i32 [ 2, %.tail1002 ], [ 2, %.tail1002.thread ], [ 1, %974 ], [ %.2582, %989 ], [ %.2582, %988 ], [ %.2582, %987 ], [ 11, %986 ], [ %.2582, %985 ], [ %.2582, %984 ], [ %.2582, %983 ], [ %.2582, %982 ], [ %.2582, %981 ], [ %.2582, %980 ], [ %.2582, %979 ], [ %., %971 ], [ %.2582, %.thread909 ]
   %.pr = load i32, ptr %38, align 8, !tbaa !33
   %993 = icmp sgt i32 %.pr, 1
   br i1 %993, label %997, label %1004

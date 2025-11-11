@@ -4645,7 +4645,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPNS_11DbgVariableELj1EjNS_
   br i1 %.not20.i, label %.preheader.i, label %51
 
 69:                                               ; preds = %.backedge.i, %.lr.ph33.i
-  %70 = phi i32 [ %68, %.lr.ph33.i ], [ %442, %.backedge.i ]
+  %70 = phi i32 [ %68, %.lr.ph33.i ], [ %439, %.backedge.i ]
   %71 = load ptr, ptr %11, align 8, !tbaa !25, !noalias !776
   %72 = zext i32 %70 to i64
   %73 = getelementptr inbounds nuw %"class.llvm::PointerIntPair.854", ptr %71, i64 %72
@@ -4744,7 +4744,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11DbgVariableELb1EE9push_backES2_.exit.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !804
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !804
   %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %439
+  br i1 %122, label %123, label %440
 
 123:                                              ; preds = %120
   %124 = load ptr, ptr %17, align 8, !tbaa !788, !noalias !776
@@ -5404,20 +5404,20 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_15DILocalVariableEPNS_11DbgVaria
   %.not22.i = icmp eq ptr %438, %386
   br i1 %.not22.i, label %._crit_edge.loopexit.i, label %.lr.ph30.i
 
-439:                                              ; preds = %120
-  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !776
-  %440 = load i32, ptr %14, align 8, !noalias !776
-  %441 = and i32 %440, 1
-  %.not.i.i.i46.i = icmp eq i32 %441, 0
-  br i1 %.not.i.i.i46.i, label %443, label %_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit.i
-
 .backedge.i:                                      ; preds = %_ZN4llvm11SmallVectorIPKNS_10DIVariableELj2EED2Ev.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11DbgVariableELb1EE9push_backES2_.exit.i, %_ZNK4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !776
-  %442 = load i32, ptr %37, align 8, !tbaa !26, !noalias !776
-  %.not.i.i = icmp eq i32 %442, 0
+  %439 = load i32, ptr %37, align 8, !tbaa !26, !noalias !776
+  %.not.i.i = icmp eq i32 %439, 0
   br i1 %.not.i.i, label %.critedge.i, label %69, !llvm.loop !799
 
-443:                                              ; preds = %439
+440:                                              ; preds = %120
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !776
+  %441 = load i32, ptr %14, align 8, !noalias !776
+  %442 = and i32 %441, 1
+  %.not.i.i.i46.i = icmp eq i32 %442, 0
+  br i1 %.not.i.i.i46.i, label %443, label %_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit.i
+
+443:                                              ; preds = %440
   %444 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %445 = load ptr, ptr %444, align 8, !tbaa !814, !noalias !776
   %446 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -5427,7 +5427,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_15DILocalVariableEPNS_11DbgVaria
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %445, i64 noundef %449, i64 noundef 8) #26
   br label %_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit.i
 
-_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit.i: ; preds = %443, %439
+_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit.i: ; preds = %443, %440
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !776
   %450 = load i32, ptr %13, align 8, !noalias !776
   %451 = and i32 %450, 1
@@ -5464,8 +5464,8 @@ _ZN4llvm13SmallDenseMapIPKNS_15DILocalVariableEPNS_11DbgVariableELj4ENS_12DenseM
   br i1 %465, label %_ZL13sortLocalVarsRN4llvm15SmallVectorImplIPNS_11DbgVariableEEE.exit, label %_ZN4llvm11SmallVectorIPNS_11DbgVariableELj8EED2Ev.exit.sink.split.i
 
 .critedge.i:                                      ; preds = %.backedge.i, %.preheader.i, %.preheader.thread.i
-  %.phi.trans.insert3.i.i103.i = phi ptr [ %.phi.trans.insert3.i.i97.i, %.preheader.thread.i ], [ %.phi.trans.insert3.i.i.i, %.preheader.i ], [ %.phi.trans.insert3.i.i.i, %.backedge.i ]
-  %.phi.trans.insert.i.i.ptr102.i = phi ptr [ %.phi.trans.insert.i.i.ptr96.i, %.preheader.thread.i ], [ %.phi.trans.insert.i.i.ptr.i, %.preheader.i ], [ %.phi.trans.insert.i.i.ptr.i, %.backedge.i ]
+  %.phi.trans.insert3.i.i100.i = phi ptr [ %.phi.trans.insert3.i.i97.i, %.preheader.thread.i ], [ %.phi.trans.insert3.i.i.i, %.preheader.i ], [ %.phi.trans.insert3.i.i.i, %.backedge.i ]
+  %.phi.trans.insert.i.i.ptr99.i = phi ptr [ %.phi.trans.insert.i.i.ptr96.i, %.preheader.thread.i ], [ %.phi.trans.insert.i.i.ptr.i, %.preheader.i ], [ %.phi.trans.insert.i.i.ptr.i, %.backedge.i ]
   %466 = load i32, ptr %14, align 8, !noalias !776
   %467 = and i32 %466, 1
   %.not.i.i.i50.i = icmp eq i32 %467, 0
@@ -5506,8 +5506,8 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13Dens
   br i1 %.not.i.i54.i, label %486, label %_ZN4llvm13SmallDenseMapIPKNS_15DILocalVariableEPNS_11DbgVariableELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit55.i
 
 486:                                              ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit53.i
-  %487 = load ptr, ptr %.phi.trans.insert.i.i.ptr102.i, align 8, !tbaa !818, !noalias !776
-  %488 = load i32, ptr %.phi.trans.insert3.i.i103.i, align 8, !tbaa !821, !noalias !776
+  %487 = load ptr, ptr %.phi.trans.insert.i.i.ptr99.i, align 8, !tbaa !818, !noalias !776
+  %488 = load i32, ptr %.phi.trans.insert3.i.i100.i, align 8, !tbaa !821, !noalias !776
   %489 = zext i32 %488 to i64
   %490 = shl nuw nsw i64 %489, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %487, i64 noundef %490, i64 noundef 8) #26

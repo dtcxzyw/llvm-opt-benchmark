@@ -2231,7 +2231,7 @@ get_varint.exit150:                               ; preds = %47, %51, %54, %57
 
 .thread197:                                       ; preds = %get_varint.exit150
   %83 = tail call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %2, ptr noundef nonnull @ei_bitcoin_script_len, ptr noundef %0, i32 noundef %44, i32 noundef %.1)
-  br label %226
+  br label %230
 
 84:                                               ; preds = %get_varint.exit150
   %85 = load i32, ptr @hf_msg_tx_in_sig_script, align 4
@@ -2345,7 +2345,7 @@ get_varint.exit154:                               ; preds = %114, %118, %121, %1
 
 143:                                              ; preds = %get_varint.exit154
   %144 = tail call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %2, ptr noundef nonnull @ei_bitcoin_script_len, ptr noundef %0, i32 noundef %111, i32 noundef %.3189)
-  br label %226
+  br label %230
 
 145:                                              ; preds = %get_varint.exit154
   %146 = load i32, ptr @hf_msg_tx_out_script, align 4
@@ -2362,7 +2362,7 @@ get_varint.exit154:                               ; preds = %114, %118, %121, %1
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge213, %._crit_edge219
-  %.0193 = phi i64 [ %222, %._crit_edge219 ], [ %.sink.i, %._crit_edge213 ]
+  %.0193 = phi i64 [ %226, %._crit_edge219 ], [ %.sink.i, %._crit_edge213 ]
   %.7 = phi i32 [ %.8.lcssa, %._crit_edge219 ], [ %.4139.lcssa, %._crit_edge213 ]
   %151 = load i32, ptr @hf_msg_tx_witness, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %151, ptr noundef %0, i32 noundef %.7, i32 noundef -1, i32 noundef 0)
@@ -2410,97 +2410,97 @@ get_varint.exit156:                               ; preds = %157, %161, %164, %1
   br i1 %.not148215, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %get_varint.exit156, %add_varint_item.exit
-  %.8217 = phi i32 [ %220, %add_varint_item.exit ], [ %173, %get_varint.exit156 ]
-  %.0191216 = phi i64 [ %221, %add_varint_item.exit ], [ %.sink.i155, %get_varint.exit156 ]
+  %.8217 = phi i32 [ %224, %add_varint_item.exit ], [ %173, %get_varint.exit156 ]
+  %.0191216 = phi i64 [ %225, %add_varint_item.exit ], [ %.sink.i155, %get_varint.exit156 ]
   %174 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.8217)
   %175 = icmp ult i8 %174, -3
-  br i1 %175, label %get_varint.exit158.jt1, label %176
+  br i1 %175, label %178, label %176
 
 176:                                              ; preds = %.lr.ph218
   %177 = add i32 %.8217, 1
-  switch i8 %174, label %get_varint.exit158.jt9 [
-    i8 -3, label %get_varint.exit158.jt3
-    i8 -2, label %get_varint.exit158.jt5
+  switch i8 %174, label %208 [
+    i8 -3, label %187
+    i8 -2, label %198
   ]
 
-get_varint.exit158.jt5:                           ; preds = %176
-  %178 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %177)
+178:                                              ; preds = %.lr.ph218
   %179 = load i32, ptr @hf_msg_tx_witness_component, align 4
-  %180 = add i32 %178, 5
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %179, ptr noundef %0, i32 noundef %.8217, i32 noundef %180, i32 noundef 0)
-  %182 = load i32, ptr @ett_tx_witness_component_list, align 4
-  %183 = tail call ptr @proto_item_add_subtree(ptr noundef %181, i32 noundef %182)
-  %184 = load i32, ptr @hf_msg_tx_witness_component_length32, align 4
-  %185 = add i32 %.8217, 1
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef -2147483648)
+  %180 = zext i8 %174 to i32
+  %181 = add nuw nsw i32 %180, 1
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %179, ptr noundef %0, i32 noundef %.8217, i32 noundef %181, i32 noundef 0)
+  %183 = load i32, ptr @ett_tx_witness_component_list, align 4
+  %184 = tail call ptr @proto_item_add_subtree(ptr noundef %182, i32 noundef %183)
+  %185 = load i32, ptr @hf_msg_tx_witness_component_length8, align 4
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %0, i32 noundef %.8217, i32 noundef 1, i32 noundef -2147483648)
   br label %add_varint_item.exit
 
-get_varint.exit158.jt3:                           ; preds = %176
-  %187 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %177)
-  %188 = load i32, ptr @hf_msg_tx_witness_component, align 4
-  %189 = zext i16 %187 to i32
-  %190 = add nuw nsw i32 %189, 3
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %188, ptr noundef %0, i32 noundef %.8217, i32 noundef %190, i32 noundef 0)
-  %192 = load i32, ptr @ett_tx_witness_component_list, align 4
-  %193 = tail call ptr @proto_item_add_subtree(ptr noundef %191, i32 noundef %192)
-  %194 = load i32, ptr @hf_msg_tx_witness_component_length16, align 4
-  %195 = add i32 %.8217, 1
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %0, i32 noundef %195, i32 noundef 2, i32 noundef -2147483648)
+187:                                              ; preds = %176
+  %188 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %177)
+  %189 = load i32, ptr @hf_msg_tx_witness_component, align 4
+  %190 = zext i16 %188 to i32
+  %191 = add nuw nsw i32 %190, 3
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %189, ptr noundef %0, i32 noundef %.8217, i32 noundef %191, i32 noundef 0)
+  %193 = load i32, ptr @ett_tx_witness_component_list, align 4
+  %194 = tail call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193)
+  %195 = load i32, ptr @hf_msg_tx_witness_component_length16, align 4
+  %196 = add i32 %.8217, 1
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %0, i32 noundef %196, i32 noundef 2, i32 noundef -2147483648)
   br label %add_varint_item.exit
 
-get_varint.exit158.jt9:                           ; preds = %176
-  %197 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %177)
-  %198 = load i32, ptr @hf_msg_tx_witness_component, align 4
-  %199 = trunc i64 %197 to i32
-  %200 = add i32 %199, 9
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %198, ptr noundef %0, i32 noundef %.8217, i32 noundef %200, i32 noundef 0)
-  %202 = load i32, ptr @ett_tx_witness_component_list, align 4
-  %203 = tail call ptr @proto_item_add_subtree(ptr noundef %201, i32 noundef %202)
-  %204 = load i32, ptr @hf_msg_tx_witness_component_length64, align 4
-  %205 = add i32 %.8217, 1
-  %206 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %0, i32 noundef %205, i32 noundef 8, i32 noundef -2147483648)
+198:                                              ; preds = %176
+  %199 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %177)
+  %200 = load i32, ptr @hf_msg_tx_witness_component, align 4
+  %201 = add i32 %199, 5
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %200, ptr noundef %0, i32 noundef %.8217, i32 noundef %201, i32 noundef 0)
+  %203 = load i32, ptr @ett_tx_witness_component_list, align 4
+  %204 = tail call ptr @proto_item_add_subtree(ptr noundef %202, i32 noundef %203)
+  %205 = load i32, ptr @hf_msg_tx_witness_component_length32, align 4
+  %206 = add i32 %.8217, 1
+  %207 = tail call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %205, ptr noundef %0, i32 noundef %206, i32 noundef 4, i32 noundef -2147483648)
   br label %add_varint_item.exit
 
-get_varint.exit158.jt1:                           ; preds = %.lr.ph218
-  %207 = load i32, ptr @hf_msg_tx_witness_component, align 4
-  %208 = zext i8 %174 to i32
-  %209 = add nuw nsw i32 %208, 1
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %207, ptr noundef %0, i32 noundef %.8217, i32 noundef %209, i32 noundef 0)
-  %211 = load i32, ptr @ett_tx_witness_component_list, align 4
-  %212 = tail call ptr @proto_item_add_subtree(ptr noundef %210, i32 noundef %211)
-  %213 = load i32, ptr @hf_msg_tx_witness_component_length8, align 4
-  %214 = tail call ptr @proto_tree_add_item(ptr noundef %212, i32 noundef %213, ptr noundef %0, i32 noundef %.8217, i32 noundef 1, i32 noundef -2147483648)
+208:                                              ; preds = %176
+  %209 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %177)
+  %210 = load i32, ptr @hf_msg_tx_witness_component, align 4
+  %211 = trunc i64 %209 to i32
+  %212 = add i32 %211, 9
+  %213 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %210, ptr noundef %0, i32 noundef %.8217, i32 noundef %212, i32 noundef 0)
+  %214 = load i32, ptr @ett_tx_witness_component_list, align 4
+  %215 = tail call ptr @proto_item_add_subtree(ptr noundef %213, i32 noundef %214)
+  %216 = load i32, ptr @hf_msg_tx_witness_component_length64, align 4
+  %217 = add i32 %.8217, 1
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %216, ptr noundef %0, i32 noundef %217, i32 noundef 8, i32 noundef -2147483648)
   br label %add_varint_item.exit
 
-add_varint_item.exit:                             ; preds = %get_varint.exit158.jt1, %get_varint.exit158.jt3, %get_varint.exit158.jt5, %get_varint.exit158.jt9
-  %215 = phi ptr [ %212, %get_varint.exit158.jt1 ], [ %193, %get_varint.exit158.jt3 ], [ %183, %get_varint.exit158.jt5 ], [ %203, %get_varint.exit158.jt9 ]
-  %216 = phi i32 [ %208, %get_varint.exit158.jt1 ], [ %189, %get_varint.exit158.jt3 ], [ %178, %get_varint.exit158.jt5 ], [ %199, %get_varint.exit158.jt9 ]
-  %.0190246 = phi i32 [ 1, %get_varint.exit158.jt1 ], [ 3, %get_varint.exit158.jt3 ], [ 5, %get_varint.exit158.jt5 ], [ 9, %get_varint.exit158.jt9 ]
-  %217 = add i32 %.0190246, %.8217
-  %218 = load i32, ptr @hf_msg_tx_witness_component_data, align 4
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %218, ptr noundef %0, i32 noundef %217, i32 noundef %216, i32 noundef 0)
-  %220 = add i32 %217, %216
-  %221 = add i64 %.0191216, -1
-  %.not148 = icmp eq i64 %221, 0
+add_varint_item.exit:                             ; preds = %178, %187, %198, %208
+  %219 = phi ptr [ %184, %178 ], [ %194, %187 ], [ %204, %198 ], [ %215, %208 ]
+  %220 = phi i32 [ %180, %178 ], [ %190, %187 ], [ %199, %198 ], [ %211, %208 ]
+  %.0190248 = phi i32 [ 1, %178 ], [ 3, %187 ], [ 5, %198 ], [ 9, %208 ]
+  %221 = add i32 %.0190248, %.8217
+  %222 = load i32, ptr @hf_msg_tx_witness_component_data, align 4
+  %223 = tail call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %222, ptr noundef %0, i32 noundef %221, i32 noundef %220, i32 noundef 0)
+  %224 = add i32 %221, %220
+  %225 = add i64 %.0191216, -1
+  %.not148 = icmp eq i64 %225, 0
   br i1 %.not148, label %._crit_edge219, label %.lr.ph218, !llvm.loop !21
 
 ._crit_edge219:                                   ; preds = %add_varint_item.exit, %get_varint.exit156
-  %.8.lcssa = phi i32 [ %173, %get_varint.exit156 ], [ %220, %add_varint_item.exit ]
+  %.8.lcssa = phi i32 [ %173, %get_varint.exit156 ], [ %224, %add_varint_item.exit ]
   tail call void @proto_item_set_end(ptr noundef %152, ptr noundef %0, i32 noundef %.8.lcssa)
-  %222 = add i64 %.0193, -1
-  %.old3.not = icmp eq i64 %222, 0
+  %226 = add i64 %.0193, -1
+  %.old3.not = icmp eq i64 %226, 0
   br i1 %.old3.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge219, %._crit_edge213
   %.6 = phi i32 [ %.4139.lcssa, %._crit_edge213 ], [ %.8.lcssa, %._crit_edge219 ]
-  %223 = load i32, ptr @hf_msg_tx_lock_time, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %223, ptr noundef %0, i32 noundef %.6, i32 noundef 4, i32 noundef -2147483648)
-  %225 = add i32 %.6, 4
-  tail call void @proto_item_set_len(ptr noundef %.0141, i32 noundef %225)
-  br label %226
+  %227 = load i32, ptr @hf_msg_tx_lock_time, align 4
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %227, ptr noundef %0, i32 noundef %.6, i32 noundef 4, i32 noundef -2147483648)
+  %229 = add i32 %.6, 4
+  tail call void @proto_item_set_len(ptr noundef %.0141, i32 noundef %229)
+  br label %230
 
-226:                                              ; preds = %143, %.thread197, %.loopexit
-  %.3 = phi i32 [ 2147483647, %143 ], [ %225, %.loopexit ], [ 2147483647, %.thread197 ]
+230:                                              ; preds = %143, %.thread197, %.loopexit
+  %.3 = phi i32 [ 2147483647, %143 ], [ %229, %.loopexit ], [ 2147483647, %.thread197 ]
   ret i32 %.3
 }
 

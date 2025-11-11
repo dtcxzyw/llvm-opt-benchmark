@@ -1119,11 +1119,11 @@ which_edge.exit101:                               ; preds = %38
   %or.cond50.i = or i1 %or.cond21.i, %or.cond49.i
   %or.cond23.i = and i1 %28, %46
   %or.cond51.i = or i1 %or.cond23.i, %or.cond50.i
-  %spec.select = select i1 %or.cond51.i, i32 2, i32 4
+  %spec.select.i = select i1 %or.cond51.i, i32 2, i32 4
   br label %which_direction.exit
 
-which_direction.exit:                             ; preds = %52, %which_edge.exit101, %40, %.thread116, %.thread160, %48, %50
-  %.0.i102 = phi i32 [ 1, %.thread116 ], [ 1, %40 ], [ 1, %which_edge.exit101 ], [ 3, %48 ], [ 3, %.thread160 ], [ 0, %50 ], [ %spec.select, %52 ]
+which_direction.exit:                             ; preds = %which_edge.exit101, %40, %.thread116, %.thread160, %48, %50, %52
+  %.0.i102 = phi i32 [ 1, %.thread116 ], [ 1, %40 ], [ 1, %which_edge.exit101 ], [ 3, %48 ], [ 3, %.thread160 ], [ 0, %50 ], [ %spec.select.i, %52 ]
   %54 = sub nsw i32 %32, %12
   %55 = tail call i32 @llvm.abs.i32(i32 %54, i1 true)
   %56 = sub nsw i32 %35, %15
