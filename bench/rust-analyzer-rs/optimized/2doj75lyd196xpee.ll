@@ -1007,21 +1007,19 @@ define void @_ZN3vfs8file_set7FileSet4iter17hebaa466485474a60E(ptr noalias nound
   %7 = getelementptr i8, ptr %4, i64 %6
   %8 = getelementptr i8, ptr %7, i64 1
   %9 = load <16 x i8>, ptr %4, align 16, !noalias !344
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = xor i16 %11, -1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %15 = load i64, ptr %14, align 8, !alias.scope !339, !noalias !342, !noundef !4
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %13 = load i64, ptr %12, align 8, !alias.scope !339, !noalias !342, !noundef !4
   store ptr %4, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store <16 x i1> %10, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %15, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
+  store i64 %13, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
   ret void
 }
 

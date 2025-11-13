@@ -8316,7 +8316,7 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
   %.pn4 = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %54 ]
   %.1 = phi i1 [ false, %41 ], [ %.2, %54 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43) #31
-          to label %114 unwind label %112
+          to label %112 unwind label %110
 
 41:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9833f6b8a9b7d3bfE.exit"
   %42 = landingpad { ptr, i32 }
@@ -8358,7 +8358,7 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.2 = phi i1 [ false, %66 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$typst..visualize..pattern..Pattern$GT$17h052d1905fdbe6d52E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #31
-          to label %40 unwind label %112
+          to label %40 unwind label %110
 
 .loopexit:                                        ; preds = %.preheader.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -8418,15 +8418,13 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
   %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #31
-          to label %54 unwind label %112
+          to label %54 unwind label %110
 
 68:                                               ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
-  %70 = icmp slt <16 x i8> %65, zeroinitializer
-  %71 = bitcast <16 x i1> %70 to i16
-  %72 = xor i16 %71, -1
-  %73 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
-  %74 = getelementptr i8, ptr %73, i64 1
+  %70 = icmp sgt <16 x i8> %65, splat (i8 -1)
+  %71 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
+  %72 = getelementptr i8, ptr %71, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i), !noalias !1335
@@ -8435,145 +8433,145 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %69, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr %74, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %72, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i16 %72, ptr %.sroa.7.0..sroa_idx, align 8
+  store <16 x i1> %70, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.822.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.822.0..sroa_idx, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h517cf1aa3492cf9dE.llvm.7091670428431571743"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %10)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9833f6b8a9b7d3bfE.exit" unwind label %66
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9833f6b8a9b7d3bfE.exit": ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
-  %76 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr %76, ptr %77, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
+  %74 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr %74, ptr %75, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %79 = getelementptr inbounds nuw i8, ptr %34, i64 488
-  %80 = invoke noundef i64 @"_ZN9typst_pdf17Remapper$LT$T$GT$6insert17hb69294dadb2c9706E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %79, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %15)
-          to label %81 unwind label %41
+  %77 = getelementptr inbounds nuw i8, ptr %34, i64 488
+  %78 = invoke noundef i64 @"_ZN9typst_pdf17Remapper$LT$T$GT$6insert17hb69294dadb2c9706E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %77, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %15)
+          to label %79 unwind label %41
 
-81:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9833f6b8a9b7d3bfE.exit"
+79:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9833f6b8a9b7d3bfE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1353)
   call void @llvm.experimental.noalias.scope.decl(metadata !1356)
   call void @llvm.experimental.noalias.scope.decl(metadata !1359)
-  %82 = load ptr, ptr %43, align 8, !alias.scope !1362, !nonnull !4, !noundef !4
-  %83 = atomicrmw sub ptr %82, i64 1 release, align 8, !noalias !1362
-  %84 = icmp eq i64 %83, 1
-  br i1 %84, label %85, label %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit"
+  %80 = load ptr, ptr %43, align 8, !alias.scope !1362, !nonnull !4, !noundef !4
+  %81 = atomicrmw sub ptr %80, i64 1 release, align 8, !noalias !1362
+  %82 = icmp eq i64 %81, 1
+  br i1 %82, label %83, label %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit"
 
-85:                                               ; preds = %81
+83:                                               ; preds = %79
   invoke void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.17057414408856058071(i8 noundef 2)
-          to label %.noexc13 unwind label %86
+          to label %.noexc13 unwind label %84
 
-.noexc13:                                         ; preds = %85
+.noexc13:                                         ; preds = %83
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9215a17e0f96be68E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
-          to label %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit" unwind label %86
+          to label %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit" unwind label %84
 
-86:                                               ; preds = %.noexc13, %85
-  %87 = landingpad { ptr, i32 }
+84:                                               ; preds = %.noexc13, %83
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %88 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %88) #31
-          to label %90 unwind label %112
+  %86 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86) #31
+          to label %88 unwind label %110
 
-"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit": ; preds = %81, %.noexc13
-  %89 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %89)
-          to label %102 unwind label %100
+"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit": ; preds = %79, %.noexc13
+  %87 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87)
+          to label %100 unwind label %98
 
-90:                                               ; preds = %100, %86
-  %.pn6 = phi { ptr, i32 } [ %101, %100 ], [ %87, %86 ]
-  %91 = load i64, ptr %17, align 8, !range !1363, !alias.scope !1364, !noundef !4
-  %92 = icmp eq i64 %91, 2
-  br i1 %92, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit", label %93
+88:                                               ; preds = %98, %84
+  %.pn6 = phi { ptr, i32 } [ %99, %98 ], [ %85, %84 ]
+  %89 = load i64, ptr %17, align 8, !range !1363, !alias.scope !1364, !noundef !4
+  %90 = icmp eq i64 %89, 2
+  br i1 %90, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit", label %91
 
-93:                                               ; preds = %90
-  %94 = icmp ne i64 %91, 0
-  %95 = getelementptr inbounds nuw i8, ptr %17, i64 23
-  %96 = load i8, ptr %95, align 1, !alias.scope !1367
-  %97 = icmp sgt i8 %96, -1
-  %or.cond.i.i.i = select i1 %94, i1 %97, i1 false
-  br i1 %or.cond.i.i.i, label %98, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit"
+91:                                               ; preds = %88
+  %92 = icmp ne i64 %89, 0
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 23
+  %94 = load i8, ptr %93, align 1, !alias.scope !1367
+  %95 = icmp sgt i8 %94, -1
+  %or.cond.i.i.i = select i1 %92, i1 %95, i1 false
+  br i1 %or.cond.i.i.i, label %96, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit"
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %99)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit" unwind label %112
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %97)
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit" unwind label %110
+
+98:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit"
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  br label %88
 
 100:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit"
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  br label %90
+  %101 = load i64, ptr %17, align 8, !range !1363, !alias.scope !1372, !noundef !4
+  %102 = icmp eq i64 %101, 2
+  br i1 %102, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17", label %103
 
-102:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h07bb31d7ba580e10E.exit"
-  %103 = load i64, ptr %17, align 8, !range !1363, !alias.scope !1372, !noundef !4
-  %104 = icmp eq i64 %103, 2
-  br i1 %104, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17", label %105
+103:                                              ; preds = %100
+  %104 = icmp ne i64 %101, 0
+  %105 = getelementptr inbounds nuw i8, ptr %17, i64 23
+  %106 = load i8, ptr %105, align 1, !alias.scope !1375
+  %107 = icmp sgt i8 %106, -1
+  %or.cond.i.i.i16 = select i1 %104, i1 %107, i1 false
+  br i1 %or.cond.i.i.i16, label %108, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17"
 
-105:                                              ; preds = %102
-  %106 = icmp ne i64 %103, 0
-  %107 = getelementptr inbounds nuw i8, ptr %17, i64 23
-  %108 = load i8, ptr %107, align 1, !alias.scope !1375
-  %109 = icmp sgt i8 %108, -1
-  %or.cond.i.i.i16 = select i1 %106, i1 %109, i1 false
-  br i1 %or.cond.i.i.i16, label %110, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17"
-
-110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %111)
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %109)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17"
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17": ; preds = %102, %105, %110
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit17": ; preds = %100, %103, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  ret i64 %80
+  ret i64 %78
 
-112:                                              ; preds = %125, %98, %127, %114, %86, %66, %54, %40
-  %113 = landingpad { ptr, i32 }
+110:                                              ; preds = %123, %96, %125, %112, %84, %66, %54, %40
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #29
   unreachable
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit": ; preds = %120, %117, %125, %93, %90, %98
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %98 ], [ %.pn6, %90 ], [ %.pn6, %93 ], [ %.pn4, %125 ], [ %.pn4, %117 ], [ %.pn4, %120 ]
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit": ; preds = %118, %115, %123, %91, %88, %96
+  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %96 ], [ %.pn6, %88 ], [ %.pn6, %91 ], [ %.pn4, %123 ], [ %.pn4, %115 ], [ %.pn4, %118 ]
   resume { ptr, i32 } %.pn6.pn
 
-114:                                              ; preds = %40
-  %115 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115) #31
-          to label %116 unwind label %112
+112:                                              ; preds = %40
+  %113 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %113) #31
+          to label %114 unwind label %110
 
-116:                                              ; preds = %114
-  br i1 %.1, label %127, label %117
+114:                                              ; preds = %112
+  br i1 %.1, label %125, label %115
 
-117:                                              ; preds = %127, %116
-  %118 = load i64, ptr %17, align 8, !range !1363, !alias.scope !1380, !noundef !4
-  %119 = icmp eq i64 %118, 2
-  br i1 %119, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit", label %120
+115:                                              ; preds = %125, %114
+  %116 = load i64, ptr %17, align 8, !range !1363, !alias.scope !1380, !noundef !4
+  %117 = icmp eq i64 %116, 2
+  br i1 %117, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit", label %118
 
-120:                                              ; preds = %117
-  %121 = icmp ne i64 %118, 0
-  %122 = getelementptr inbounds nuw i8, ptr %17, i64 23
-  %123 = load i8, ptr %122, align 1, !alias.scope !1383
-  %124 = icmp sgt i8 %123, -1
-  %or.cond.i.i.i18 = select i1 %121, i1 %124, i1 false
-  br i1 %or.cond.i.i.i18, label %125, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit"
+118:                                              ; preds = %115
+  %119 = icmp ne i64 %116, 0
+  %120 = getelementptr inbounds nuw i8, ptr %17, i64 23
+  %121 = load i8, ptr %120, align 1, !alias.scope !1383
+  %122 = icmp sgt i8 %121, -1
+  %or.cond.i.i.i18 = select i1 %119, i1 %122, i1 false
+  br i1 %or.cond.i.i.i18, label %123, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit"
 
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %126)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit" unwind label %112
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %124)
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit" unwind label %110
 
-127:                                              ; preds = %116
-  %128 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$std..collections..hash..map..HashMap$LT$typst_pdf..page..PageResource$C$usize$GT$$GT$17he29f7ff1c23586f9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %128) #31
-          to label %117 unwind label %112
+125:                                              ; preds = %114
+  %126 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$std..collections..hash..map..HashMap$LT$typst_pdf..page..PageResource$C$usize$GT$$GT$17he29f7ff1c23586f9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %126) #31
+          to label %115 unwind label %110
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

@@ -5184,131 +5184,127 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
-  %.0.i24 = phi ptr [ %26, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
-  %.025.i23 = phi ptr [ %25, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
+  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
+  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
   %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %.lr.ph26.preheader ]
   %21 = load <16 x i8>, ptr %.025.i23, align 1, !tbaa !24
-  %22 = icmp slt <16 x i8> %21, zeroinitializer
+  %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
-  %.not18 = icmp eq i16 %23, -1
-  br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph26
-  %24 = xor i16 %23, -1
-  br label %.lr.ph
+  %.not18 = icmp eq i16 %23, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit, %.lr.ph26
-  %.1.i.lcssa = phi i64 [ %.026.i22, %.lr.ph26 ], [ %72, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.025.i23, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1408
+  %.1.i.lcssa = phi i64 [ %.026.i22, %.lr.ph26 ], [ %71, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %.025.i23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1408
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26, !llvm.loop !224
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit
-  %.1.i20 = phi i64 [ %72, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ], [ %.026.i22, %.lr.ph.preheader ]
-  %.sroa.02.019 = phi i16 [ %74, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ], [ %24, %.lr.ph.preheader ]
-  %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.02.019, i1 true)
-  %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i24, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %32 = load ptr, ptr %31, align 8, !tbaa !43
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %34 = icmp eq ptr %32, %33
-  br i1 %34, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+.lr.ph:                                           ; preds = %.lr.ph26, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit
+  %.1.i20 = phi i64 [ %71, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ], [ %.026.i22, %.lr.ph26 ]
+  %.sroa.02.019 = phi i16 [ %73, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit ], [ %23, %.lr.ph26 ]
+  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.02.019, i1 true)
+  %27 = zext nneg i16 %26 to i64
+  %28 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i24, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %31 = load ptr, ptr %30, align 8, !tbaa !43
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %.lr.ph
-  %35 = load i64, ptr %33, align 8, !tbaa !24
-  %36 = add i64 %35, 1
-  tail call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #41
+  %34 = load i64, ptr %32, align 8, !tbaa !24
+  %35 = add i64 %34, 1
+  tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %35) #41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !52
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i, label %39
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  %.not.i.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i, label %38
 
-39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load atomic i64, ptr %40 acquire, align 8
-  %42 = icmp eq i64 %41, 4294967297
-  %43 = trunc i64 %41 to i32
-  br i1 %42, label %44, label %52
+38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %40 = load atomic i64, ptr %39 acquire, align 8
+  %41 = icmp eq i64 %40, 4294967297
+  %42 = trunc i64 %40 to i32
+  br i1 %41, label %43, label %51
 
-44:                                               ; preds = %39
-  store i32 0, ptr %40, align 8, !tbaa !55
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  store i32 0, ptr %45, align 4, !tbaa !58
-  %46 = load ptr, ptr %38, align 8, !tbaa !6
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(16) %38) #39
-  %49 = load ptr, ptr %38, align 8, !tbaa !6
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %38) #39
+43:                                               ; preds = %38
+  store i32 0, ptr %39, align 8, !tbaa !55
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  store i32 0, ptr %44, align 4, !tbaa !58
+  %45 = load ptr, ptr %37, align 8, !tbaa !6
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #39
+  %48 = load ptr, ptr %37, align 8, !tbaa !6
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %50 = load ptr, ptr %49, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %37) #39
   br label %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i
 
-52:                                               ; preds = %39
-  %53 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
-  %.not.i.i.i.i.i.i = icmp eq i8 %53, 0
-  br i1 %.not.i.i.i.i.i.i, label %56, label %54
+51:                                               ; preds = %38
+  %52 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
+  %.not.i.i.i.i.i.i = icmp eq i8 %52, 0
+  br i1 %.not.i.i.i.i.i.i, label %55, label %53
 
-54:                                               ; preds = %52
-  %55 = add nsw i32 %43, -1
-  store i32 %55, ptr %40, align 4, !tbaa !59
+53:                                               ; preds = %51
+  %54 = add nsw i32 %42, -1
+  store i32 %54, ptr %39, align 4, !tbaa !59
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-56:                                               ; preds = %52
-  %57 = atomicrmw volatile add ptr %40, i32 -1 acq_rel, align 4
+55:                                               ; preds = %51
+  %56 = atomicrmw volatile add ptr %39, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %56, %54
-  %.0.i.i.i.i.i.i.i = phi i32 [ %43, %54 ], [ %57, %56 ]
-  %58 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %58, label %59, label %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i, !prof !40
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %55, %53
+  %.0.i.i.i.i.i.i.i = phi i32 [ %42, %53 ], [ %56, %55 ]
+  %57 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %57, label %58, label %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i, !prof !40
 
-59:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #39
+58:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #39
   br label %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i
 
-_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i: ; preds = %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %60 = load ptr, ptr %30, align 8, !tbaa !225
-  %.not.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i, label %_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i, label %61
+_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i: ; preds = %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+  %59 = load ptr, ptr %29, align 8, !tbaa !225
+  %.not.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i.i, label %_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i, label %60
 
-61:                                               ; preds = %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i
-  %62 = load ptr, ptr %60, align 8, !tbaa !6
-  %63 = load ptr, ptr %62, align 8
-  invoke void %63(ptr noundef nonnull align 8 dereferenceable(16) %60)
-          to label %_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i unwind label %64
+60:                                               ; preds = %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i
+  %61 = load ptr, ptr %59, align 8, !tbaa !6
+  %62 = load ptr, ptr %61, align 8
+  invoke void %62(ptr noundef nonnull align 8 dereferenceable(16) %59)
+          to label %_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i unwind label %63
 
-64:                                               ; preds = %61
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %60
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #42
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #42
   unreachable
 
-_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i: ; preds = %61, %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i
-  store ptr null, ptr %30, align 8, !tbaa !225
-  %67 = load ptr, ptr %29, align 8, !tbaa !43
-  %68 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i: ; preds = %60, %_ZN9grpc_core20XdsDependencyManager14EndpointConfigD2Ev.exit.i.i
+  store ptr null, ptr %29, align 8, !tbaa !225
+  %66 = load ptr, ptr %28, align 8, !tbaa !43
+  %67 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %68 = icmp eq ptr %66, %67
+  br i1 %68, label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i
-  %70 = load i64, ptr %68, align 8, !tbaa !24
-  %71 = add i64 %70, 1
-  tail call void @_ZdlPvm(ptr noundef %67, i64 noundef %71) #41
+  %69 = load i64, ptr %67, align 8, !tbaa !24
+  %70 = add i64 %69, 1
+  tail call void @_ZdlPvm(ptr noundef %66, i64 noundef %70) #41
   br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit
 
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEED2Ev.exit: ; preds = %_ZN9grpc_core20XdsDependencyManager8DnsStateD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %72 = add i64 %.1.i20, -1
-  %73 = add i16 %.sroa.02.019, -1
-  %74 = and i16 %73, %.sroa.02.019
-  %.not = icmp eq i16 %74, 0
+  %71 = add i64 %.1.i20, -1
+  %72 = add i16 %.sroa.02.019, -1
+  %73 = and i16 %72, %.sroa.02.019
+  %.not = icmp eq i16 %73, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %.lr.ph30, %17, %7
@@ -5634,111 +5630,107 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %._crit_edge
-  %.0.i34 = phi ptr [ %60, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph36.preheader ]
-  %.025.i33 = phi ptr [ %59, %._crit_edge ], [ %5, %.lr.ph36.preheader ]
+  %.0.i34 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph36.preheader ]
+  %.025.i33 = phi ptr [ %58, %._crit_edge ], [ %5, %.lr.ph36.preheader ]
   %.026.i32 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %54, %.lr.ph36.preheader ]
   %55 = load <16 x i8>, ptr %.025.i33, align 1, !tbaa !24
-  %56 = icmp slt <16 x i8> %55, zeroinitializer
+  %56 = icmp sgt <16 x i8> %55, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
-  %.not28 = icmp eq i16 %57, -1
-  br i1 %.not28, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph36
-  %58 = xor i16 %57, -1
-  br label %.lr.ph
+  %.not28 = icmp eq i16 %57, 0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12, %.lr.ph36
-  %.1.i.lcssa = phi i64 [ %.026.i32, %.lr.ph36 ], [ %98, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.025.i33, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 1408
+  %.1.i.lcssa = phi i64 [ %.026.i32, %.lr.ph36 ], [ %97, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.025.i33, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 1408
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph36, !llvm.loop !227
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12
-  %.1.i30 = phi i64 [ %98, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ], [ %.026.i32, %.lr.ph.preheader ]
-  %.sroa.013.029 = phi i16 [ %100, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ], [ %58, %.lr.ph.preheader ]
-  %61 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.013.029, i1 true)
-  %62 = zext nneg i16 %61 to i64
-  %63 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.212", ptr %.0.i34, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %65 = load ptr, ptr %64, align 8, !tbaa !43
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  %67 = icmp eq ptr %65, %66
-  br i1 %67, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i2
+.lr.ph:                                           ; preds = %.lr.ph36, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12
+  %.1.i30 = phi i64 [ %97, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ], [ %.026.i32, %.lr.ph36 ]
+  %.sroa.013.029 = phi i16 [ %99, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12 ], [ %57, %.lr.ph36 ]
+  %60 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.013.029, i1 true)
+  %61 = zext nneg i16 %60 to i64
+  %62 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.212", ptr %.0.i34, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
+  %64 = load ptr, ptr %63, align 8, !tbaa !43
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 72
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i2: ; preds = %.lr.ph
-  %68 = load i64, ptr %66, align 8, !tbaa !24
-  %69 = add i64 %68, 1
-  tail call void @_ZdlPvm(ptr noundef %65, i64 noundef %69) #41
+  %67 = load i64, ptr %65, align 8, !tbaa !24
+  %68 = add i64 %67, 1
+  tail call void @_ZdlPvm(ptr noundef %64, i64 noundef %68) #41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3: ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i2
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %71 = load ptr, ptr %70, align 8, !tbaa !52
-  %.not.i.i.i.i.i.i.i.i.i.i.i4 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i4, label %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8, label %72
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %70 = load ptr, ptr %69, align 8, !tbaa !52
+  %.not.i.i.i.i.i.i.i.i.i.i.i4 = icmp eq ptr %70, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i4, label %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8, label %71
 
-72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load atomic i64, ptr %73 acquire, align 8
-  %75 = icmp eq i64 %74, 4294967297
-  %76 = trunc i64 %74 to i32
-  br i1 %75, label %77, label %85
+71:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %73 = load atomic i64, ptr %72 acquire, align 8
+  %74 = icmp eq i64 %73, 4294967297
+  %75 = trunc i64 %73 to i32
+  br i1 %74, label %76, label %84
 
-77:                                               ; preds = %72
-  store i32 0, ptr %73, align 8, !tbaa !55
-  %78 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  store i32 0, ptr %78, align 4, !tbaa !58
-  %79 = load ptr, ptr %71, align 8, !tbaa !6
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %71) #39
-  %82 = load ptr, ptr %71, align 8, !tbaa !6
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(16) %71) #39
+76:                                               ; preds = %71
+  store i32 0, ptr %72, align 8, !tbaa !55
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  store i32 0, ptr %77, align 4, !tbaa !58
+  %78 = load ptr, ptr %70, align 8, !tbaa !6
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %70) #39
+  %81 = load ptr, ptr %70, align 8, !tbaa !6
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(16) %70) #39
   br label %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8
 
-85:                                               ; preds = %72
-  %86 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i5 = icmp eq i8 %86, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i5, label %89, label %87
+84:                                               ; preds = %71
+  %85 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i5 = icmp eq i8 %85, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i5, label %88, label %86
 
-87:                                               ; preds = %85
-  %88 = add nsw i32 %76, -1
-  store i32 %88, ptr %73, align 4, !tbaa !59
+86:                                               ; preds = %84
+  %87 = add nsw i32 %75, -1
+  store i32 %87, ptr %72, align 4, !tbaa !59
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6
 
-89:                                               ; preds = %85
-  %90 = atomicrmw volatile add ptr %73, i32 -1 acq_rel, align 4
+88:                                               ; preds = %84
+  %89 = atomicrmw volatile add ptr %72, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6: ; preds = %89, %87
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i7 = phi i32 [ %76, %87 ], [ %90, %89 ]
-  %91 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i7, 1
-  br i1 %91, label %92, label %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8, !prof !40
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6: ; preds = %88, %86
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i7 = phi i32 [ %75, %86 ], [ %89, %88 ]
+  %90 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i7, 1
+  br i1 %90, label %91, label %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8, !prof !40
 
-92:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #39
+91:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #39
   br label %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8
 
-_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8: ; preds = %92, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6, %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3
-  %93 = load ptr, ptr %63, align 8, !tbaa !43
-  %94 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i9
+_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8: ; preds = %91, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i6, %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i3
+  %92 = load ptr, ptr %62, align 8, !tbaa !43
+  %93 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %94 = icmp eq ptr %92, %93
+  br i1 %94, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i9: ; preds = %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8
-  %96 = load i64, ptr %94, align 8, !tbaa !24
-  %97 = add i64 %96, 1
-  tail call void @_ZdlPvm(ptr noundef %93, i64 noundef %97) #41
+  %95 = load i64, ptr %93, align 8, !tbaa !24
+  %96 = add i64 %95, 1
+  tail call void @_ZdlPvm(ptr noundef %92, i64 noundef %96) #41
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit12: ; preds = %_ZN9grpc_core20XdsDependencyManager20EndpointWatcherStateD2Ev.exit.i.i.i.i.i.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i9
-  %98 = add i64 %.1.i30, -1
-  %99 = add i16 %.sroa.013.029, -1
-  %100 = and i16 %99, %.sroa.013.029
-  %.not = icmp eq i16 %100, 0
+  %97 = add i64 %.1.i30, -1
+  %98 = add i16 %.sroa.013.029, -1
+  %99 = and i16 %98, %.sroa.013.029
+  %.not = icmp eq i16 %99, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE7destroyEPNS1_13map_slot_typeIS9_SC_EE.exit, %51, %7
@@ -5804,82 +5796,78 @@ _ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionE
   br label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %._crit_edge
-  %.0.i27 = phi ptr [ %32, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
-  %.025.i26 = phi ptr [ %31, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
+  %.0.i27 = phi ptr [ %31, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
+  %.025.i26 = phi ptr [ %30, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
   %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %26, %.lr.ph29.preheader ]
   %27 = load <16 x i8>, ptr %.025.i26, align 1, !tbaa !24
-  %28 = icmp slt <16 x i8> %27, zeroinitializer
+  %28 = icmp sgt <16 x i8> %27, splat (i8 -1)
   %29 = bitcast <16 x i1> %28 to i16
-  %.not21 = icmp eq i16 %29, -1
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph29
-  %30 = xor i16 %29, -1
-  br label %.lr.ph
+  %.not21 = icmp eq i16 %29, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, %.lr.ph29
-  %.1.i.lcssa = phi i64 [ %.026.i25, %.lr.ph29 ], [ %56, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.025.i26, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 384
+  %.1.i.lcssa = phi i64 [ %.026.i25, %.lr.ph29 ], [ %55, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.025.i26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 384
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29, !llvm.loop !230
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5
-  %.1.i23 = phi i64 [ %56, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %.026.i25, %.lr.ph.preheader ]
-  %.sroa.06.022 = phi i16 [ %58, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %30, %.lr.ph.preheader ]
-  %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.022, i1 true)
-  %34 = zext nneg i16 %33 to i64
-  %35 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.218", ptr %.0.i27, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !228
-  %.not.i3 = icmp eq ptr %37, null
-  br i1 %.not.i3, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, label %38
+.lr.ph:                                           ; preds = %.lr.ph29, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5
+  %.1.i23 = phi i64 [ %55, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %.026.i25, %.lr.ph29 ]
+  %.sroa.06.022 = phi i16 [ %57, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %29, %.lr.ph29 ]
+  %32 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.022, i1 true)
+  %33 = zext nneg i16 %32 to i64
+  %34 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.218", ptr %.0.i27, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !228
+  %.not.i3 = icmp eq ptr %36, null
+  br i1 %.not.i3, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, label %37
 
-38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = atomicrmw sub ptr %39, i64 1 acq_rel, align 8
-  %41 = icmp eq i64 %40, 1
-  br i1 %41, label %42, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, !prof !40
+37:                                               ; preds = %.lr.ph
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %39 = atomicrmw sub ptr %38, i64 1 acq_rel, align 8
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %41, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, !prof !40
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !213
-  %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, label %45
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %43 = load ptr, ptr %42, align 8, !tbaa !213
+  %.not.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, label %44
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = atomicrmw sub ptr %46, i64 1 acq_rel, align 8
-  %48 = icmp eq i64 %47, 1
-  br i1 %48, label %49, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, !prof !40
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %46 = atomicrmw sub ptr %45, i64 1 acq_rel, align 8
+  %47 = icmp eq i64 %46, 1
+  br i1 %47, label %48, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, !prof !40
 
-49:                                               ; preds = %45
-  tail call void @_ZN9grpc_core20XdsDependencyManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %44) #39
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef 448) #41
+48:                                               ; preds = %44
+  tail call void @_ZN9grpc_core20XdsDependencyManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %43) #39
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef 448) #41
   br label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i
 
-_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i: ; preds = %45, %49, %42
-  %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !43
-  %52 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %53 = icmp eq ptr %51, %52
-  br i1 %53, label %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i: ; preds = %44, %48, %41
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !43
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %52 = icmp eq ptr %50, %51
+  br i1 %52, label %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i
-  %54 = load i64, ptr %52, align 8, !tbaa !24
-  %55 = add i64 %54, 1
-  tail call void @_ZdlPvm(ptr noundef %51, i64 noundef %55) #41
+  %53 = load i64, ptr %51, align 8, !tbaa !24
+  %54 = add i64 %53, 1
+  tail call void @_ZdlPvm(ptr noundef %50, i64 noundef %54) #41
   br label %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit
 
 _ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef 56) #41
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef 56) #41
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5
 
-_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5: ; preds = %38, %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit, %.lr.ph
-  %56 = add i64 %.1.i23, -1
-  %57 = add i16 %.sroa.06.022, -1
-  %58 = and i16 %57, %.sroa.06.022
-  %.not = icmp eq i16 %58, 0
+_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5: ; preds = %37, %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit, %.lr.ph
+  %55 = add i64 %.1.i23, -1
+  %56 = add i16 %.sroa.06.022, -1
+  %57 = and i16 %56, %.sroa.06.022
+  %.not = icmp eq i16 %57, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit, %23, %7
@@ -5930,134 +5918,130 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
-  %.0.i24 = phi ptr [ %26, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
-  %.025.i23 = phi ptr [ %25, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
+  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
+  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
   %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %.lr.ph26.preheader ]
   %21 = load <16 x i8>, ptr %.025.i23, align 1, !tbaa !24
-  %22 = icmp slt <16 x i8> %21, zeroinitializer
+  %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
-  %.not18 = icmp eq i16 %23, -1
-  br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph26
-  %24 = xor i16 %23, -1
-  br label %.lr.ph
+  %.not18 = icmp eq i16 %23, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit, %.lr.ph26
-  %.1.i.lcssa = phi i64 [ %.026.i22, %.lr.ph26 ], [ %74, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.025.i23, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1536
+  %.1.i.lcssa = phi i64 [ %.026.i22, %.lr.ph26 ], [ %73, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %.025.i23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1536
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26, !llvm.loop !231
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit
-  %.1.i20 = phi i64 [ %74, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ], [ %.026.i22, %.lr.ph.preheader ]
-  %.sroa.02.019 = phi i16 [ %76, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ], [ %24, %.lr.ph.preheader ]
-  %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.02.019, i1 true)
-  %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.224", ptr %.0.i24, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !43
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %33 = icmp eq ptr %31, %32
-  br i1 %33, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+.lr.ph:                                           ; preds = %.lr.ph26, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit
+  %.1.i20 = phi i64 [ %73, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ], [ %.026.i22, %.lr.ph26 ]
+  %.sroa.02.019 = phi i16 [ %75, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit ], [ %23, %.lr.ph26 ]
+  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.02.019, i1 true)
+  %27 = zext nneg i16 %26 to i64
+  %28 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.224", ptr %.0.i24, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %.lr.ph
-  %34 = load i64, ptr %32, align 8, !tbaa !24
-  %35 = add i64 %34, 1
-  tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %35) #41
+  %33 = load i64, ptr %31, align 8, !tbaa !24
+  %34 = add i64 %33, 1
+  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %34) #41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %37 = load i64, ptr %36, align 8, !tbaa !93
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i, label %62
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %36 = load i64, ptr %35, align 8, !tbaa !93
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i, label %61
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %40 = load ptr, ptr %39, align 8, !tbaa !52
-  %.not.i.i1.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i1.i.i.i, label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i, label %41
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %39 = load ptr, ptr %38, align 8, !tbaa !52
+  %.not.i.i1.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i1.i.i.i, label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i, label %40
 
-41:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load atomic i64, ptr %42 acquire, align 8
-  %44 = icmp eq i64 %43, 4294967297
-  %45 = trunc i64 %43 to i32
-  br i1 %44, label %46, label %54
+40:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load atomic i64, ptr %41 acquire, align 8
+  %43 = icmp eq i64 %42, 4294967297
+  %44 = trunc i64 %42 to i32
+  br i1 %43, label %45, label %53
 
-46:                                               ; preds = %41
-  store i32 0, ptr %42, align 8, !tbaa !55
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 0, ptr %47, align 4, !tbaa !58
-  %48 = load ptr, ptr %40, align 8, !tbaa !6
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %40) #39
-  %51 = load ptr, ptr %40, align 8, !tbaa !6
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %40) #39
+45:                                               ; preds = %40
+  store i32 0, ptr %41, align 8, !tbaa !55
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  store i32 0, ptr %46, align 4, !tbaa !58
+  %47 = load ptr, ptr %39, align 8, !tbaa !6
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #39
+  %50 = load ptr, ptr %39, align 8, !tbaa !6
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %39) #39
   br label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i
 
-54:                                               ; preds = %41
-  %55 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
-  %.not.i.i.i.i.i.i = icmp eq i8 %55, 0
-  br i1 %.not.i.i.i.i.i.i, label %58, label %56
+53:                                               ; preds = %40
+  %54 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
+  %.not.i.i.i.i.i.i = icmp eq i8 %54, 0
+  br i1 %.not.i.i.i.i.i.i, label %57, label %55
 
-56:                                               ; preds = %54
-  %57 = add nsw i32 %45, -1
-  store i32 %57, ptr %42, align 4, !tbaa !59
+55:                                               ; preds = %53
+  %56 = add nsw i32 %44, -1
+  store i32 %56, ptr %41, align 4, !tbaa !59
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-58:                                               ; preds = %54
-  %59 = atomicrmw volatile add ptr %42, i32 -1 acq_rel, align 4
+57:                                               ; preds = %53
+  %58 = atomicrmw volatile add ptr %41, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %58, %56
-  %.0.i.i.i.i.i.i.i = phi i32 [ %45, %56 ], [ %59, %58 ]
-  %60 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %60, label %61, label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i, !prof !40
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %57, %55
+  %.0.i.i.i.i.i.i.i = phi i32 [ %44, %55 ], [ %58, %57 ]
+  %59 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %59, label %60, label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i, !prof !40
 
-61:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #39
+60:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #39
   br label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i
 
-62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %63 = and i64 %37, 1
-  %.not.i.i2.i.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i2.i.i.i, label %64, label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i
+61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+  %62 = and i64 %36, 1
+  %.not.i.i2.i.i.i = icmp eq i64 %62, 0
+  br i1 %.not.i.i2.i.i.i, label %63, label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i
 
-64:                                               ; preds = %62
-  %65 = inttoptr i64 %37 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %65)
-          to label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i unwind label %66
+63:                                               ; preds = %61
+  %64 = inttoptr i64 %36 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %64)
+          to label %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i unwind label %65
 
-66:                                               ; preds = %64
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %63
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  tail call void @__clang_call_terminate(ptr %68) #42
+  %67 = extractvalue { ptr, i32 } %66, 0
+  tail call void @__clang_call_terminate(ptr %67) #42
   unreachable
 
-_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i: ; preds = %64, %62, %61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %46, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
-  %69 = load ptr, ptr %29, align 8, !tbaa !43
-  %70 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %71 = icmp eq ptr %69, %70
-  br i1 %71, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i: ; preds = %63, %61, %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %45, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
+  %68 = load ptr, ptr %28, align 8, !tbaa !43
+  %69 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i
-  %72 = load i64, ptr %70, align 8, !tbaa !24
-  %73 = add i64 %72, 1
-  tail call void @_ZdlPvm(ptr noundef %69, i64 noundef %73) #41
+  %71 = load i64, ptr %69, align 8, !tbaa !24
+  %72 = add i64 %71, 1
+  tail call void @_ZdlPvm(ptr noundef %68, i64 noundef %72) #41
   br label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit
 
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEED2Ev.exit: ; preds = %_ZN9grpc_core20XdsDependencyManager19ClusterWatcherStateD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %74 = add i64 %.1.i20, -1
-  %75 = add i16 %.sroa.02.019, -1
-  %76 = and i16 %75, %.sroa.02.019
-  %.not = icmp eq i16 %76, 0
+  %73 = add i64 %.1.i20, -1
+  %74 = add i16 %.sroa.02.019, -1
+  %75 = and i16 %74, %.sroa.02.019
+  %.not = icmp eq i16 %75, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %.lr.ph30, %17, %7

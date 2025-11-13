@@ -8536,7 +8536,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$rustfmt_nightly..config..f
   br i1 %brmerge, label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3eaf7676e6a64a87E.exit", label %8
 
 "_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3eaf7676e6a64a87E.exit": ; preds = %2, %13, %8
-  %.0.shrunk = phi i1 [ %24, %13 ], [ false, %8 ], [ %.mux, %2 ]
+  %.0.shrunk = phi i1 [ %22, %13 ], [ false, %8 ], [ %.mux, %2 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %2
@@ -8557,21 +8557,19 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$rustfmt_nightly..config..f
   %16 = getelementptr i8, ptr %4, i64 %15
   %17 = getelementptr i8, ptr %16, i64 1
   %18 = load <16 x i8>, ptr %4, align 16, !noalias !1379
-  %19 = icmp slt <16 x i8> %18, zeroinitializer
-  %20 = bitcast <16 x i1> %19 to i16
-  %21 = xor i16 %20, -1
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = icmp sgt <16 x i8> %18, splat (i8 -1)
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %4, ptr %3, align 8, !noalias !1372
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %22, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !1372
+  store ptr %20, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !1372
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %17, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !1372
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %21, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !noalias !1372
+  store <16 x i1> %19, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !noalias !1372
   %.sroa.0.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %10, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !noalias !1372
-  %23 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b10d386fe4fbca6E.llvm.8986235990505969818(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1367
-  %24 = xor i1 %23, true
+  %21 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b10d386fe4fbca6E.llvm.8986235990505969818(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1367
+  %22 = xor i1 %21, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1372
   br label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3eaf7676e6a64a87E.exit"
 }

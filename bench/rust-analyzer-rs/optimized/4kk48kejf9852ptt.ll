@@ -7363,10 +7363,8 @@ define void @"_ZN7base_db5input153_$LT$impl$u20$core..convert..From$LT$base_db..
   %7 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
   %8 = getelementptr i8, ptr %7, i64 1
   %9 = load <16 x i8>, ptr %.sroa.0.sroa.0.0.copyload, align 16, !noalias !1454
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = xor i16 %11, -1
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1465
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %4, align 8, !noalias !1470
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7380,40 +7378,40 @@ define void @"_ZN7base_db5input153_$LT$impl$u20$core..convert..From$LT$base_db..
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %8, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i16 %12, ptr %.sroa.7.0..sroa_idx, align 8
+  store <16 x i1> %10, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.87.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.87.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9b46f2f97eef22b4E.llvm.13102108871640256408"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %5)
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8, !nonnull !13, !noundef !13
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load i64, ptr %16, align 8, !noundef !13
-  invoke void @_ZN4core5slice4sort10merge_sort17h4b0d3ccd2129aaf0E(ptr noalias noundef nonnull align 8 %15, i64 noundef %17, ptr noalias noundef nonnull align 1 %3)
-          to label %_ZN5alloc5slice11stable_sort17h88a3bc94ef82420bE.exit unwind label %18
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !13, !noundef !13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !13
+  invoke void @_ZN4core5slice4sort10merge_sort17h4b0d3ccd2129aaf0E(ptr noalias noundef nonnull align 8 %13, i64 noundef %15, ptr noalias noundef nonnull align 1 %3)
+          to label %_ZN5alloc5slice11stable_sort17h88a3bc94ef82420bE.exit unwind label %16
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$17h40b8b4cc9a32052bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #33
-          to label %22 unwind label %20
+          to label %20 unwind label %18
 
 _ZN5alloc5slice11stable_sort17h88a3bc94ef82420bE.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-22:                                               ; preds = %18
-  resume { ptr, i32 } %19
+20:                                               ; preds = %16
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

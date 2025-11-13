@@ -6291,46 +6291,44 @@ define noalias noundef ptr @"_ZN114_$LT$actix_http..responses..response..Respons
   %25 = getelementptr i8, ptr %22, i64 %24
   %26 = getelementptr i8, ptr %25, i64 1
   %27 = load <16 x i8>, ptr %22, align 16, !noalias !893
-  %28 = icmp slt <16 x i8> %27, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %33 = load i64, ptr %32, align 8, !alias.scope !890, !noalias !891, !noundef !4
+  %28 = icmp sgt <16 x i8> %27, splat (i8 -1)
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %31 = load i64, ptr %30, align 8, !alias.scope !890, !noalias !891, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !898
   store ptr %22, ptr %4, align 8, !noalias !884
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %31, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !884
+  store ptr %29, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !884
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %26, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !884
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %30, ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !884
+  store <16 x i1> %28, ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !884
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !898
   store ptr %3, ptr %5, align 8, !noalias !901
-  %34 = call noundef i64 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h3591aa735ad604fbE.llvm.222537792231950641"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, i64 noundef %33, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !905
+  %32 = call noundef i64 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h3591aa735ad604fbE.llvm.222537792231950641"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, i64 noundef %31, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !905
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !898
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !898
-  %35 = mul i64 %34, 30
-  %36 = add i64 %.sroa.4.1, 256
-  %37 = add i64 %36, %35
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = mul i64 %32, 30
+  %34 = add i64 %.sroa.4.1, 256
+  %35 = add i64 %34, %33
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load i64, ptr %36, align 8, !noundef !4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !4
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load i64, ptr %40, align 8, !noundef !4
-  %42 = sub i64 %41, %39
-  %.not = icmp ugt i64 %37, %42
-  br i1 %.not, label %43, label %44
+  %40 = sub i64 %39, %37
+  %.not = icmp ugt i64 %35, %40
+  br i1 %.not, label %41, label %42
 
-43:                                               ; preds = %21
-  call void @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h32ec46cc31f523baE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %37)
-  br label %44
+41:                                               ; preds = %21
+  call void @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h32ec46cc31f523baE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %35)
+  br label %42
 
-44:                                               ; preds = %21, %43
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 83
-  %46 = load i8, ptr %45, align 1, !range !906, !noundef !4
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %48 = load i16, ptr %47, align 8, !range !871, !noundef !4
-  call void @_ZN10actix_http7helpers17write_status_line17h4d1d98d83ac87ac1E(i8 noundef %46, i16 noundef %48, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+42:                                               ; preds = %21, %41
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 83
+  %44 = load i8, ptr %43, align 1, !range !906, !noundef !4
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %46 = load i16, ptr %45, align 8, !range !871, !noundef !4
+  call void @_ZN10actix_http7helpers17write_status_line17h4d1d98d83ac87ac1E(i8 noundef %44, i16 noundef %46, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1, i64 noundef %.sroa.4.1)
   ret ptr null
 }

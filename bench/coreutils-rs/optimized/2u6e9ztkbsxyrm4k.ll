@@ -79,11 +79,9 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
 
 "_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha43895171cc4e093E.exit": ; preds = %14, %2
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.0.0.copyload.i, i64 16
-  %23 = icmp slt <16 x i8> %5, zeroinitializer
-  %24 = bitcast <16 x i1> %23 to i16
-  %25 = xor i16 %24, -1
-  %26 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload.i, i64 %.sroa.01.sroa.4.0.copyload.i
-  %27 = getelementptr i8, ptr %26, i64 1
+  %23 = icmp sgt <16 x i8> %5, splat (i8 -1)
+  %24 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload.i, i64 %.sroa.01.sroa.4.0.copyload.i
+  %25 = getelementptr i8, ptr %24, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !51
   store i64 %.sroa.01.0.copyload, ptr %3, align 8, !noalias !51
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -95,9 +93,9 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.sroa.6.sroa.4.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %22, ptr %.sroa.6.sroa.4.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
   %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %27, ptr %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
+  store ptr %25, ptr %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
   %.sroa.6.sroa.6.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i16 %25, ptr %.sroa.6.sroa.6.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
+  store <16 x i1> %23, ptr %.sroa.6.sroa.6.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
   %.sroa.711.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %.sroa.01.sroa.6.0.copyload.i, ptr %.sroa.711.0..sroa_idx.i, align 8, !noalias !51
   call void @"_ZN96_$LT$hashbrown..set..IntoIter$LT$K$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha03f94eed3ef5dd6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0), !noalias !31
@@ -201,10 +199,8 @@ define hidden void @"_ZN111_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT
   %4 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload, i64 %.sroa.01.sroa.4.0.copyload
   %5 = getelementptr i8, ptr %4, i64 1
   %6 = load <16 x i8>, ptr %.sroa.01.sroa.0.0.copyload, align 16, !noalias !68
-  %7 = icmp slt <16 x i8> %6, zeroinitializer
-  %8 = bitcast <16 x i1> %7 to i16
-  %9 = xor i16 %8, -1
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.0.0.copyload, i64 16
+  %7 = icmp sgt <16 x i8> %6, splat (i8 -1)
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.0.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !79
   store ptr %.sroa.01.sroa.0.0.copyload, ptr %3, align 8, !noalias !84
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -219,11 +215,11 @@ define hidden void @"_ZN111_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.01.sroa.0.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %10, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %9, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  store <16 x i1> %7, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.01.sroa.6.0.copyload, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)

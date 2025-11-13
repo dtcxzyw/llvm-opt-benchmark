@@ -8250,118 +8250,114 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %._crit_edge
-  %.0.i28 = phi ptr [ %34, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph30.preheader ]
-  %.025.i27 = phi ptr [ %33, %._crit_edge ], [ %5, %.lr.ph30.preheader ]
+  %.0.i28 = phi ptr [ %33, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph30.preheader ]
+  %.025.i27 = phi ptr [ %32, %._crit_edge ], [ %5, %.lr.ph30.preheader ]
   %.026.i26 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %28, %.lr.ph30.preheader ]
   %29 = load <16 x i8>, ptr %.025.i27, align 1, !tbaa !63
-  %30 = icmp slt <16 x i8> %29, zeroinitializer
+  %30 = icmp sgt <16 x i8> %29, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16
-  %.not22 = icmp eq i16 %31, -1
-  br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph30
-  %32 = xor i16 %31, -1
-  br label %.lr.ph
+  %.not22 = icmp eq i16 %31, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6, %.lr.ph30
-  %.1.i.lcssa = phi i64 [ %.026.i26, %.lr.ph30 ], [ %80, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.025.i27, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 640
+  %.1.i.lcssa = phi i64 [ %.026.i26, %.lr.ph30 ], [ %79, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.025.i27, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 640
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph30, !llvm.loop !340
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6
-  %.1.i24 = phi i64 [ %80, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ], [ %.026.i26, %.lr.ph.preheader ]
-  %.sroa.07.023 = phi i16 [ %82, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ], [ %32, %.lr.ph.preheader ]
-  %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.07.023, i1 true)
-  %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i28, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !247
-  %.not.i.i.i.i.i.i.i.i2 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i.i.i.i.i2, label %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i3, label %40
+.lr.ph:                                           ; preds = %.lr.ph30, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6
+  %.1.i24 = phi i64 [ %79, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ], [ %.026.i26, %.lr.ph30 ]
+  %.sroa.07.023 = phi i16 [ %81, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ], [ %31, %.lr.ph30 ]
+  %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.07.023, i1 true)
+  %35 = zext nneg i16 %34 to i64
+  %36 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i28, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !247
+  %.not.i.i.i.i.i.i.i.i2 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i.i.i.i.i2, label %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i3, label %39
 
-40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 176
-  %42 = load i64, ptr %41, align 8, !tbaa !62
-  %43 = icmp ne i64 %42, 0
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp ult i64 %42, 2
-  br i1 %44, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i, label %45
+39:                                               ; preds = %.lr.ph
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 176
+  %41 = load i64, ptr %40, align 8, !tbaa !62
+  %42 = icmp ne i64 %41, 0
+  tail call void @llvm.assume(i1 %42)
+  %43 = icmp ult i64 %41, 2
+  br i1 %43, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i, label %44
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 192
-  %47 = load ptr, ptr %46, align 8, !tbaa !63
-  %48 = getelementptr inbounds nuw i8, ptr %39, i64 184
-  %49 = load i64, ptr %48, align 8, !tbaa !64
-  %50 = and i64 %49, 1
-  %.neg.i.i.i.i.i.i = sub nuw nsw i64 -8, %50
-  %51 = getelementptr inbounds i8, ptr %47, i64 %.neg.i.i.i.i.i.i
-  %52 = add i64 %42, 31
-  %53 = shl i64 %42, 4
-  %54 = add i64 %52, %53
-  %55 = add i64 %54, %50
-  %56 = and i64 %55, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %56) #32
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 192
+  %46 = load ptr, ptr %45, align 8, !tbaa !63
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 184
+  %48 = load i64, ptr %47, align 8, !tbaa !64
+  %49 = and i64 %48, 1
+  %.neg.i.i.i.i.i.i = sub nuw nsw i64 -8, %49
+  %50 = getelementptr inbounds i8, ptr %46, i64 %.neg.i.i.i.i.i.i
+  %51 = add i64 %41, 31
+  %52 = shl i64 %41, 4
+  %53 = add i64 %51, %52
+  %54 = add i64 %53, %49
+  %55 = and i64 %54, -8
+  tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %55) #32
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i: ; preds = %45, %40
-  %57 = getelementptr inbounds nuw i8, ptr %39, i64 144
-  %58 = load i64, ptr %57, align 8, !tbaa !62
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i, label %60
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i: ; preds = %44, %39
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 144
+  %57 = load i64, ptr %56, align 8, !tbaa !62
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i, label %59
 
-60:                                               ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %39, i64 160
-  %62 = load ptr, ptr %61, align 8, !tbaa !63
-  %63 = getelementptr inbounds nuw i8, ptr %39, i64 152
-  %64 = load i64, ptr %63, align 8, !tbaa !64
-  %65 = and i64 %64, 1
-  %.neg.i.i.i.i1.i.i = sub nuw nsw i64 -8, %65
-  %66 = getelementptr inbounds i8, ptr %62, i64 %.neg.i.i.i.i1.i.i
-  %67 = add i64 %58, 31
-  %68 = mul i64 %58, 24
-  %69 = add i64 %67, %68
-  %70 = add i64 %69, %65
-  %71 = and i64 %70, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %71) #32
+59:                                               ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %38, i64 160
+  %61 = load ptr, ptr %60, align 8, !tbaa !63
+  %62 = getelementptr inbounds nuw i8, ptr %38, i64 152
+  %63 = load i64, ptr %62, align 8, !tbaa !64
+  %64 = and i64 %63, 1
+  %.neg.i.i.i.i1.i.i = sub nuw nsw i64 -8, %64
+  %65 = getelementptr inbounds i8, ptr %61, i64 %.neg.i.i.i.i1.i.i
+  %66 = add i64 %57, 31
+  %67 = mul i64 %57, 24
+  %68 = add i64 %66, %67
+  %69 = add i64 %68, %64
+  %70 = and i64 %69, -8
+  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %70) #32
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i: ; preds = %60, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %39, i64 136
-  %73 = load ptr, ptr %72, align 8, !tbaa !327
-  %.not.i.i.i = icmp eq ptr %73, null
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i: ; preds = %59, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEED2Ev.exit.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %38, i64 136
+  %72 = load ptr, ptr %71, align 8, !tbaa !327
+  %.not.i.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool7MessageEEclEPS4_.exit, label %_ZNKSt14default_deleteIA_N6google8protobuf13json_internal12ResolverPool5FieldEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_N6google8protobuf13json_internal12ResolverPool5FieldEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i: ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %73) #32
+  tail call void @_ZdaPv(ptr noundef nonnull %72) #32
   br label %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool7MessageEEclEPS4_.exit
 
 _ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool7MessageEEclEPS4_.exit: ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEED2Ev.exit.i.i, %_ZNKSt14default_deleteIA_N6google8protobuf13json_internal12ResolverPool5FieldEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i
-  store ptr null, ptr %72, align 8, !tbaa !327
-  %74 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  tail call void @_ZN6google8protobuf4TypeD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %74) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef 208) #32
+  store ptr null, ptr %71, align 8, !tbaa !327
+  %73 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  tail call void @_ZN6google8protobuf4TypeD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %73) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 208) #32
   br label %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i3
 
 _ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i3: ; preds = %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool7MessageEEclEPS4_.exit, %.lr.ph
-  store ptr null, ptr %38, align 8, !tbaa !247
-  %75 = load ptr, ptr %37, align 8, !tbaa !24
-  %76 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %77 = icmp eq ptr %75, %76
-  br i1 %77, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i4
+  store ptr null, ptr %37, align 8, !tbaa !247
+  %74 = load ptr, ptr %36, align 8, !tbaa !24
+  %75 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %76 = icmp eq ptr %74, %75
+  br i1 %76, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i4: ; preds = %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i3
-  %78 = load i64, ptr %76, align 8, !tbaa !63
-  %79 = add i64 %78, 1
-  tail call void @_ZdlPvm(ptr noundef %75, i64 noundef %79) #32
+  %77 = load i64, ptr %75, align 8, !tbaa !63
+  %78 = add i64 %77, 1
+  tail call void @_ZdlPvm(ptr noundef %74, i64 noundef %78) #32
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6: ; preds = %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i4
-  %80 = add i64 %.1.i24, -1
-  %81 = add i16 %.sroa.07.023, -1
-  %82 = and i16 %81, %.sroa.07.023
-  %.not = icmp eq i16 %82, 0
+  %79 = add i64 %.1.i24, -1
+  %80 = add i16 %.sroa.07.023, -1
+  %81 = and i16 %80, %.sroa.07.023
+  %.not = icmp eq i16 %81, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit, %25, %7
@@ -8542,83 +8538,79 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %._crit_edge
-  %.0.i30 = phi ptr [ %50, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph32.preheader ]
-  %.025.i29 = phi ptr [ %49, %._crit_edge ], [ %5, %.lr.ph32.preheader ]
+  %.0.i30 = phi ptr [ %49, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph32.preheader ]
+  %.025.i29 = phi ptr [ %48, %._crit_edge ], [ %5, %.lr.ph32.preheader ]
   %.026.i28 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %44, %.lr.ph32.preheader ]
   %45 = load <16 x i8>, ptr %.025.i29, align 1, !tbaa !63
-  %46 = icmp slt <16 x i8> %45, zeroinitializer
+  %46 = icmp sgt <16 x i8> %45, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
-  %.not24 = icmp eq i16 %47, -1
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph32
-  %48 = xor i16 %47, -1
-  br label %.lr.ph
+  %.not24 = icmp eq i16 %47, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8, %.lr.ph32
-  %.1.i.lcssa = phi i64 [ %.026.i28, %.lr.ph32 ], [ %78, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.025.i29, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 640
+  %.1.i.lcssa = phi i64 [ %.026.i28, %.lr.ph32 ], [ %77, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.025.i29, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 640
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph32, !llvm.loop !343
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8
-  %.1.i26 = phi i64 [ %78, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ], [ %.026.i28, %.lr.ph.preheader ]
-  %.sroa.09.025 = phi i16 [ %80, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ], [ %48, %.lr.ph.preheader ]
-  %51 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.09.025, i1 true)
-  %52 = zext nneg i16 %51 to i64
-  %53 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.112", ptr %.0.i30, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !341
-  %.not.i.i.i.i.i.i.i.i2 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i.i.i.i2, label %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i5, label %56
+.lr.ph:                                           ; preds = %.lr.ph32, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8
+  %.1.i26 = phi i64 [ %77, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ], [ %.026.i28, %.lr.ph32 ]
+  %.sroa.09.025 = phi i16 [ %79, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ], [ %47, %.lr.ph32 ]
+  %50 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.09.025, i1 true)
+  %51 = zext nneg i16 %50 to i64
+  %52 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.112", ptr %.0.i30, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %54 = load ptr, ptr %53, align 8, !tbaa !341
+  %.not.i.i.i.i.i.i.i.i2 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i.i.i.i.i.i2, label %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i5, label %55
 
-56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 112
-  %58 = load i64, ptr %57, align 8, !tbaa !62
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool4EnumEEclEPS4_.exit.i.i.i.i.i.i.i.i4, label %60
+55:                                               ; preds = %.lr.ph
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 112
+  %57 = load i64, ptr %56, align 8, !tbaa !62
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool4EnumEEclEPS4_.exit.i.i.i.i.i.i.i.i4, label %59
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 128
-  %62 = load ptr, ptr %61, align 8, !tbaa !63
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 120
-  %64 = load i64, ptr %63, align 8, !tbaa !64
-  %65 = and i64 %64, 1
-  %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i.i3 = sub nuw nsw i64 -8, %65
-  %66 = getelementptr inbounds i8, ptr %62, i64 %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i.i3
-  %67 = add i64 %58, 31
-  %68 = mul i64 %58, 24
-  %69 = add i64 %67, %68
-  %70 = add i64 %69, %65
-  %71 = and i64 %70, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %71) #32
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 128
+  %61 = load ptr, ptr %60, align 8, !tbaa !63
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 120
+  %63 = load i64, ptr %62, align 8, !tbaa !64
+  %64 = and i64 %63, 1
+  %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i.i3 = sub nuw nsw i64 -8, %64
+  %65 = getelementptr inbounds i8, ptr %61, i64 %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i.i3
+  %66 = add i64 %57, 31
+  %67 = mul i64 %57, 24
+  %68 = add i64 %66, %67
+  %69 = add i64 %68, %64
+  %70 = and i64 %69, -8
+  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %70) #32
   br label %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool4EnumEEclEPS4_.exit.i.i.i.i.i.i.i.i4
 
-_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool4EnumEEclEPS4_.exit.i.i.i.i.i.i.i.i4: ; preds = %60, %56
-  %72 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  tail call void @_ZN6google8protobuf4EnumD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %72) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef 144) #32
+_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool4EnumEEclEPS4_.exit.i.i.i.i.i.i.i.i4: ; preds = %59, %55
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  tail call void @_ZN6google8protobuf4EnumD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %71) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef 144) #32
   br label %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i5
 
 _ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i5: ; preds = %_ZNKSt14default_deleteIN6google8protobuf13json_internal12ResolverPool4EnumEEclEPS4_.exit.i.i.i.i.i.i.i.i4, %.lr.ph
-  store ptr null, ptr %54, align 8, !tbaa !341
-  %73 = load ptr, ptr %53, align 8, !tbaa !24
-  %74 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %75 = icmp eq ptr %73, %74
-  br i1 %75, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i6
+  store ptr null, ptr %53, align 8, !tbaa !341
+  %72 = load ptr, ptr %52, align 8, !tbaa !24
+  %73 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %74 = icmp eq ptr %72, %73
+  br i1 %74, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i6: ; preds = %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i5
-  %76 = load i64, ptr %74, align 8, !tbaa !63
-  %77 = add i64 %76, 1
-  tail call void @_ZdlPvm(ptr noundef %73, i64 noundef %77) #32
+  %75 = load i64, ptr %73, align 8, !tbaa !63
+  %76 = add i64 %75, 1
+  tail call void @_ZdlPvm(ptr noundef %72, i64 noundef %76) #32
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8: ; preds = %_ZNSt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteIS4_EED2Ev.exit.i.i.i.i.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i6
-  %78 = add i64 %.1.i26, -1
-  %79 = add i16 %.sroa.09.025, -1
-  %80 = and i16 %79, %.sroa.09.025
-  %.not = icmp eq i16 %80, 0
+  %77 = add i64 %.1.i26, -1
+  %78 = add i16 %.sroa.09.025, -1
+  %79 = and i16 %78, %.sroa.09.025
+  %.not = icmp eq i16 %79, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit, %41, %7
@@ -19534,7 +19526,7 @@ declare noundef ptr @_ZNK6google8protobuf10Descriptor9map_valueEv(ptr noundef no
 define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE15destructor_implEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !62
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %56, label %4
+  br i1 %3, label %55, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19589,67 +19581,63 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %._crit_edge.i, %.lr.ph28.preheader.i
-  %.0.i26.i = phi ptr [ %33, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
-  %.025.i25.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %.lr.ph28.preheader.i ]
+  %.0.i26.i = phi ptr [ %32, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
+  %.025.i25.i = phi ptr [ %31, %._crit_edge.i ], [ %7, %.lr.ph28.preheader.i ]
   %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %27, %.lr.ph28.preheader.i ]
   %28 = load <16 x i8>, ptr %.025.i25.i, align 1, !tbaa !63
-  %29 = icmp slt <16 x i8> %28, zeroinitializer
+  %29 = icmp sgt <16 x i8> %28, splat (i8 -1)
   %30 = bitcast <16 x i1> %29 to i16
-  %.not20.i = icmp eq i16 %30, -1
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.lr.ph28.i
-  %31 = xor i16 %30, -1
-  br label %.lr.ph.i
+  %.not20.i = icmp eq i16 %30, 0
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i, %.lr.ph28.i
-  %.1.i.lcssa.i = phi i64 [ %.026.i24.i, %.lr.ph28.i ], [ %42, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.025.i25.i, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 512
+  %.1.i.lcssa.i = phi i64 [ %.026.i24.i, %.lr.ph28.i ], [ %41, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.025.i25.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 512
   %.not.i.i = icmp eq i64 %.1.i.lcssa.i, 0
   br i1 %.not.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit, label %.lr.ph28.i, !llvm.loop !635
 
-.lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i, %.lr.ph.preheader.i
-  %.1.i22.i = phi i64 [ %42, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ], [ %.026.i24.i, %.lr.ph.preheader.i ]
-  %.sroa.05.021.i = phi i16 [ %44, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ], [ %31, %.lr.ph.preheader.i ]
-  %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.05.021.i, i1 true)
-  %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.i26.i, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !24
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i2.i
+.lr.ph.i:                                         ; preds = %.lr.ph28.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i
+  %.1.i22.i = phi i64 [ %41, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ], [ %.026.i24.i, %.lr.ph28.i ]
+  %.sroa.05.021.i = phi i16 [ %43, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ], [ %30, %.lr.ph28.i ]
+  %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.05.021.i, i1 true)
+  %34 = zext nneg i16 %33 to i64
+  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.i26.i, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %38 = icmp eq ptr %36, %37
+  br i1 %38, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i2.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i2.i: ; preds = %.lr.ph.i
-  %40 = load i64, ptr %38, align 8, !tbaa !63
-  %41 = add i64 %40, 1
-  tail call void @_ZdlPvm(ptr noundef %37, i64 noundef %41) #32
+  %39 = load i64, ptr %37, align 8, !tbaa !63
+  %40 = add i64 %39, 1
+  tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #32
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i: ; preds = %.lr.ph.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i2.i
-  %42 = add i64 %.1.i22.i, -1
-  %43 = add i16 %.sroa.05.021.i, -1
-  %44 = and i16 %43, %.sroa.05.021.i
-  %.not.i1 = icmp eq i16 %44, 0
+  %41 = add i64 %.1.i22.i, -1
+  %42 = add i16 %.sroa.05.021.i, -1
+  %43 = and i16 %42, %.sroa.05.021.i
+  %.not.i1 = icmp eq i16 %43, 0
   br i1 %.not.i1, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit: ; preds = %._crit_edge.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit.i, %9, %24
-  %45 = load i64, ptr %0, align 8, !tbaa !62
-  %46 = load ptr, ptr %6, align 8, !tbaa !63
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !64
-  %49 = and i64 %48, 1
-  %.neg.i.i = sub nuw nsw i64 -8, %49
-  %50 = getelementptr inbounds i8, ptr %46, i64 %.neg.i.i
-  %51 = add i64 %45, 31
-  %52 = shl i64 %45, 5
-  %53 = add i64 %51, %52
-  %54 = add i64 %53, %49
-  %55 = and i64 %54, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %55) #32
-  br label %56
+  %44 = load i64, ptr %0, align 8, !tbaa !62
+  %45 = load ptr, ptr %6, align 8, !tbaa !63
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !64
+  %48 = and i64 %47, 1
+  %.neg.i.i = sub nuw nsw i64 -8, %48
+  %49 = getelementptr inbounds i8, ptr %45, i64 %.neg.i.i
+  %50 = add i64 %44, 31
+  %51 = shl i64 %44, 5
+  %52 = add i64 %50, %51
+  %53 = add i64 %52, %48
+  %54 = and i64 %53, -8
+  tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %54) #32
+  br label %55
 
-56:                                               ; preds = %1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit
+55:                                               ; preds = %1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit
   ret void
 }
 

@@ -69209,26 +69209,24 @@ define hidden noundef zeroext i1 @"_ZN77_$LT$hashbrown..set..HashSet$LT$T$C$S$C$
   %8 = getelementptr i8, ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 1
   %10 = load <16 x i8>, ptr %5, align 16, !noalias !6759
-  %11 = icmp slt <16 x i8> %10, zeroinitializer
-  %12 = bitcast <16 x i1> %11 to i16
-  %13 = xor i16 %12, -1
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !alias.scope !6754, !noalias !6757, !noundef !8
+  %11 = icmp sgt <16 x i8> %10, splat (i8 -1)
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8, !alias.scope !6754, !noalias !6757, !noundef !8
   store ptr %5, ptr %3, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %14, ptr %.sroa.48.0..sroa_idx, align 8
+  store ptr %12, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %.sroa.59.0..sroa_idx, align 8
   %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %13, ptr %.sroa.610.0..sroa_idx, align 8
+  store <16 x i1> %11, ptr %.sroa.610.0..sroa_idx, align 8
   %.sroa.812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %16, ptr %.sroa.812.0..sroa_idx, align 8
-  %17 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet7entries17h59417495b8f26e30E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
+  store i64 %14, ptr %.sroa.812.0..sroa_idx, align 8
+  %15 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet7entries17h59417495b8f26e30E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %18 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugSet6finish17hc0021c8c7adc1b18E(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
+  %16 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugSet6finish17hc0021c8c7adc1b18E(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %18
+  ret i1 %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

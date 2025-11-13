@@ -99346,10 +99346,10 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
   store i8 %storemerge, ptr %11, align 8
   ret void
 
-"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd0db70a9411a867fE.exit": ; preds = %40, %107
-  %.sroa.020.0 = phi i64 [ %.sroa.020.0.copyload21, %107 ], [ -9223372036854775808, %40 ]
-  %.sroa.322.0 = phi ptr [ %.sroa.322.0.copyload24, %107 ], [ %41, %40 ]
-  %.sroa.425.0 = phi i64 [ %.sroa.425.0.copyload27, %107 ], [ undef, %40 ]
+"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd0db70a9411a867fE.exit": ; preds = %40, %105
+  %.sroa.020.0 = phi i64 [ %.sroa.020.0.copyload21, %105 ], [ -9223372036854775808, %40 ]
+  %.sroa.322.0 = phi ptr [ %.sroa.322.0.copyload24, %105 ], [ %41, %40 ]
+  %.sroa.425.0 = phi i64 [ %.sroa.425.0.copyload27, %105 ], [ undef, %40 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.322.0, ptr %.sroa.322.0..sroa_idx, align 8
@@ -99479,7 +99479,7 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN4core3ptr303drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h55e44bc2b54f305cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %68) #48
-          to label %.body unwind label %108
+          to label %.body unwind label %106
 
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc32c047233b6c27aE.exit": ; preds = %65
   %74 = load ptr, ptr %8, align 8, !noundef !4
@@ -99569,29 +99569,27 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
 
 99:                                               ; preds = %"_ZN4core3ptr303drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h55e44bc2b54f305cE.exit"
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %101 = icmp slt <16 x i8> %98, zeroinitializer
-  %102 = bitcast <16 x i1> %101 to i16
-  %103 = xor i16 %102, -1
-  %104 = getelementptr i8, ptr %74, i64 %.sroa.2.0.copyload
-  %105 = getelementptr i8, ptr %104, i64 1
+  %101 = icmp sgt <16 x i8> %98, splat (i8 -1)
+  %102 = getelementptr i8, ptr %74, i64 %.sroa.2.0.copyload
+  %103 = getelementptr i8, ptr %102, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25105
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %74, ptr %106, align 8, !noalias !25111
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %74, ptr %104, align 8, !noalias !25111
   %.sroa.0.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %100, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !25111
   %.sroa.0.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %105, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !25111
+  store ptr %103, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !25111
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i16 %103, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !25111
+  store <16 x i1> %101, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !25111
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %.sroa.4.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !25111
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !25112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd238c8db24767493E.llvm.17591403712083929195"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4)
-          to label %107 unwind label %96
+          to label %105 unwind label %96
 
-107:                                              ; preds = %99
+105:                                              ; preds = %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25112
   %.sroa.020.0.copyload21 = load i64, ptr %9, align 8
   %.sroa.322.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -99601,8 +99599,8 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd0db70a9411a867fE.exit"
 
-108:                                              ; preds = %72
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %72
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
   unreachable
@@ -111645,10 +111643,10 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
   store i8 %storemerge, ptr %11, align 8
   ret void
 
-"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd0db70a9411a867fE.exit": ; preds = %40, %107
-  %.sroa.020.0 = phi i64 [ %.sroa.020.0.copyload21, %107 ], [ -9223372036854775808, %40 ]
-  %.sroa.322.0 = phi ptr [ %.sroa.322.0.copyload24, %107 ], [ %41, %40 ]
-  %.sroa.425.0 = phi i64 [ %.sroa.425.0.copyload27, %107 ], [ undef, %40 ]
+"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd0db70a9411a867fE.exit": ; preds = %40, %105
+  %.sroa.020.0 = phi i64 [ %.sroa.020.0.copyload21, %105 ], [ -9223372036854775808, %40 ]
+  %.sroa.322.0 = phi ptr [ %.sroa.322.0.copyload24, %105 ], [ %41, %40 ]
+  %.sroa.425.0 = phi i64 [ %.sroa.425.0.copyload27, %105 ], [ undef, %40 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.322.0, ptr %.sroa.322.0..sroa_idx, align 8
@@ -111778,7 +111776,7 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN4core3ptr303drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h55e44bc2b54f305cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %68) #48
-          to label %.body unwind label %108
+          to label %.body unwind label %106
 
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc32c047233b6c27aE.exit": ; preds = %65
   %74 = load ptr, ptr %8, align 8, !noundef !4
@@ -111868,29 +111866,27 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
 
 99:                                               ; preds = %"_ZN4core3ptr303drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h55e44bc2b54f305cE.exit"
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %101 = icmp slt <16 x i8> %98, zeroinitializer
-  %102 = bitcast <16 x i1> %101 to i16
-  %103 = xor i16 %102, -1
-  %104 = getelementptr i8, ptr %74, i64 %.sroa.2.0.copyload
-  %105 = getelementptr i8, ptr %104, i64 1
+  %101 = icmp sgt <16 x i8> %98, splat (i8 -1)
+  %102 = getelementptr i8, ptr %74, i64 %.sroa.2.0.copyload
+  %103 = getelementptr i8, ptr %102, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !28075
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %74, ptr %106, align 8, !noalias !28081
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %74, ptr %104, align 8, !noalias !28081
   %.sroa.0.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %100, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !28081
   %.sroa.0.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %105, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !28081
+  store ptr %103, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !28081
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i16 %103, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !28081
+  store <16 x i1> %101, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !28081
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %.sroa.4.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !28081
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !28082
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd238c8db24767493E.llvm.17591403712083929195"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4)
-          to label %107 unwind label %96
+          to label %105 unwind label %96
 
-107:                                              ; preds = %99
+105:                                              ; preds = %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !28082
   %.sroa.020.0.copyload21 = load i64, ptr %9, align 8
   %.sroa.322.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -111900,8 +111896,8 @@ common.ret:                                       ; preds = %95, %"_ZN153_$LT$co
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd0db70a9411a867fE.exit"
 
-108:                                              ; preds = %72
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %72
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
   unreachable

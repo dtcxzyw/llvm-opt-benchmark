@@ -6078,40 +6078,38 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit: ; preds = %"_ZN5row
   %78 = getelementptr i8, ptr %75, i64 %77
   %79 = getelementptr i8, ptr %78, i64 1
   %80 = load <16 x i8>, ptr %75, align 16, !noalias !1389
-  %81 = icmp slt <16 x i8> %80, zeroinitializer
-  %82 = bitcast <16 x i1> %81 to i16
-  %83 = xor i16 %82, -1
-  %84 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %86 = load i64, ptr %85, align 8, !alias.scope !1384, !noalias !1387, !noundef !8
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %88 = load ptr, ptr %87, align 8, !nonnull !8, !align !153, !noundef !8
+  %81 = icmp sgt <16 x i8> %80, splat (i8 -1)
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %84 = load i64, ptr %83, align 8, !alias.scope !1384, !noalias !1387, !noundef !8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %86 = load ptr, ptr %85, align 8, !nonnull !8, !align !153, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %9, ptr %7, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %88, ptr %.sroa.511.0..sroa_idx, align 8
+  store ptr %86, ptr %.sroa.511.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %75, ptr %6, align 8, !noalias !1394
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %84, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !1394
+  store ptr %82, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !1394
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %79, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !1394
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i16 %83, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1394
-  call void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hfe28d9660c16e66dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, i64 noundef %86, ptr noalias noundef nonnull align 8 dereferenceable(24) %7), !noalias !1397
+  store <16 x i1> %81, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1394
+  call void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hfe28d9660c16e66dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, i64 noundef %84, ptr noalias noundef nonnull align 8 dereferenceable(24) %7), !noalias !1397
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %90 = load ptr, ptr %87, align 8, !nonnull !8, !align !153, !noundef !8
+  %88 = load ptr, ptr %85, align 8, !nonnull !8, !align !153, !noundef !8
   store ptr %9, ptr %8, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %0, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %90, ptr %92, align 8
-  call void @_ZN3hir9semantics14SemanticsScope17process_all_names17h6f3736c5be819595E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %89, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b39596380d6f3ffd3d9d41061f2d749f.390)
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %0, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %88, ptr %90, align 8
+  call void @_ZN3hir9semantics14SemanticsScope17process_all_names17h6f3736c5be819595E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %87, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b39596380d6f3ffd3d9d41061f2d749f.390)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split

@@ -2774,44 +2774,42 @@ define noundef align 8 dereferenceable_or_null(88) ptr @_ZN7uv_auth5index7Indexe
   %7 = getelementptr i8, ptr %4, i64 %6
   %8 = getelementptr i8, ptr %7, i64 1
   %9 = load <16 x i8>, ptr %4, align 16, !noalias !491
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = xor i16 %11, -1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !488, !noalias !489, !noundef !25
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load i64, ptr %12, align 8, !alias.scope !488, !noalias !489, !noundef !25
   store ptr %4, ptr %3, align 8, !noalias !483
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %13, ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !483
+  store ptr %11, ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !483
   %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %.sroa.511.0..sroa_idx.i, align 8, !noalias !483
   %.sroa.612.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %12, ptr %.sroa.612.0..sroa_idx.i, align 8, !noalias !483
+  store <16 x i1> %10, ptr %.sroa.612.0..sroa_idx.i, align 8, !noalias !483
   %.sroa.814.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %15, ptr %.sroa.814.0..sroa_idx.i, align 8, !noalias !483
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %.lr.ph.i
+  store i64 %13, ptr %.sroa.814.0..sroa_idx.i, align 8, !noalias !483
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %.lr.ph.i
 
 thread-pre-split.i:                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
   %.pr.i = load i64, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !496, !noalias !503
-  %17 = icmp eq i64 %.pr.i, 0
-  br i1 %17, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %.lr.ph.i
+  %15 = icmp eq i64 %.pr.i, 0
+  br i1 %15, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %thread-pre-split.i
-  %18 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h216dde21f10dd6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3), !noalias !480
-  %19 = load i64, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !496, !noalias !503, !noundef !25
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !496, !noalias !503
-  %21 = icmp eq ptr %18, null
-  br i1 %21, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
+  %16 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h216dde21f10dd6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3), !noalias !480
+  %17 = load i64, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !496, !noalias !503, !noundef !25
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !496, !noalias !503
+  %19 = icmp eq ptr %16, null
+  br i1 %19, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
 
 "_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i": ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %18, i64 -184
-  %23 = call noundef zeroext i1 @_ZN7uv_auth5index5Index13is_prefix_for17h9969dee66b36f7ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1), !noalias !480
-  br i1 %23, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %thread-pre-split.i
+  %20 = getelementptr inbounds i8, ptr %16, i64 -184
+  %21 = call noundef zeroext i1 @_ZN7uv_auth5index5Index13is_prefix_for17h9969dee66b36f7ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1), !noalias !480
+  br i1 %21, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit, label %thread-pre-split.i
 
 _ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit: ; preds = %thread-pre-split.i, %.lr.ph.i, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i", %2
-  %.sroa.0.0.i.i = phi ptr [ null, %2 ], [ %22, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i" ], [ null, %.lr.ph.i ], [ null, %thread-pre-split.i ]
+  %.sroa.0.0.i.i = phi ptr [ null, %2 ], [ %20, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i" ], [ null, %.lr.ph.i ], [ null, %thread-pre-split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !483
   ret ptr %.sroa.0.0.i.i
 }
@@ -2828,54 +2826,52 @@ define noundef range(i8 0, 3) i8 @_ZN7uv_auth5index7Indexes15auth_policy_for17h0
   %7 = getelementptr i8, ptr %4, i64 %6
   %8 = getelementptr i8, ptr %7, i64 1
   %9 = load <16 x i8>, ptr %4, align 16, !noalias !516
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = xor i16 %11, -1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !513, !noalias !514, !noundef !25
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load i64, ptr %12, align 8, !alias.scope !513, !noalias !514, !noundef !25
   store ptr %4, ptr %3, align 8, !noalias !508
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %13, ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !508
+  store ptr %11, ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !508
   %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %.sroa.511.0..sroa_idx.i, align 8, !noalias !508
   %.sroa.612.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %12, ptr %.sroa.612.0..sroa_idx.i, align 8, !noalias !508
+  store <16 x i1> %10, ptr %.sroa.612.0..sroa_idx.i, align 8, !noalias !508
   %.sroa.814.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %15, ptr %.sroa.814.0..sroa_idx.i, align 8, !noalias !508
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, label %.lr.ph.i
+  store i64 %13, ptr %.sroa.814.0..sroa_idx.i, align 8, !noalias !508
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, label %.lr.ph.i
 
 thread-pre-split.i:                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
   %.pr.i = load i64, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !521, !noalias !528
-  %17 = icmp eq i64 %.pr.i, 0
-  br i1 %17, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, label %.lr.ph.i
+  %15 = icmp eq i64 %.pr.i, 0
+  br i1 %15, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %thread-pre-split.i
-  %18 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h216dde21f10dd6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3), !noalias !505
-  %19 = load i64, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !521, !noalias !528, !noundef !25
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !521, !noalias !528
-  %21 = icmp eq ptr %18, null
-  br i1 %21, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
+  %16 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h216dde21f10dd6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3), !noalias !505
+  %17 = load i64, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !521, !noalias !528, !noundef !25
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %.sroa.814.0..sroa_idx.i, align 8, !alias.scope !521, !noalias !528
+  %19 = icmp eq ptr %16, null
+  br i1 %19, label %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
 
 "_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i": ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %18, i64 -184
-  %23 = call noundef zeroext i1 @_ZN7uv_auth5index5Index13is_prefix_for17h9969dee66b36f7ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1), !noalias !505
-  br i1 %23, label %24, label %thread-pre-split.i
+  %20 = getelementptr inbounds i8, ptr %16, i64 -184
+  %21 = call noundef zeroext i1 @_ZN7uv_auth5index5Index13is_prefix_for17h9969dee66b36f7ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1), !noalias !505
+  br i1 %21, label %22, label %thread-pre-split.i
 
 _ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread: ; preds = %thread-pre-split.i, %.lr.ph.i, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !508
-  br label %27
+  br label %25
 
-24:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
+22:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !508
-  %25 = getelementptr inbounds i8, ptr %18, i64 -8
-  %26 = load i8, ptr %25, align 8, !range !400, !noundef !25
-  br label %27
+  %23 = getelementptr inbounds i8, ptr %16, i64 -8
+  %24 = load i8, ptr %23, align 8, !range !400, !noundef !25
+  br label %25
 
-27:                                               ; preds = %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, %24
-  %.sroa.0.0 = phi i8 [ %26, %24 ], [ 0, %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread ]
+25:                                               ; preds = %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread, %22
+  %.sroa.0.0 = phi i8 [ %24, %22 ], [ 0, %_ZN7uv_auth5index7Indexes17find_prefix_index17haf59349855767dcdE.llvm.9275802895842548201.exit.thread ]
   ret i8 %.sroa.0.0
 }
 
@@ -2890,44 +2886,42 @@ define hidden noundef align 8 dereferenceable_or_null(184) ptr @_ZN7uv_auth5inde
   %7 = getelementptr i8, ptr %4, i64 %6
   %8 = getelementptr i8, ptr %7, i64 1
   %9 = load <16 x i8>, ptr %4, align 16, !noalias !535
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = xor i16 %11, -1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !530, !noalias !533, !noundef !25
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load i64, ptr %12, align 8, !alias.scope !530, !noalias !533, !noundef !25
   store ptr %4, ptr %3, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %13, ptr %.sroa.410.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %12, ptr %.sroa.612.0..sroa_idx, align 8
+  store <16 x i1> %10, ptr %.sroa.612.0..sroa_idx, align 8
   %.sroa.814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %15, ptr %.sroa.814.0..sroa_idx, align 8
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %.lr.ph
+  store i64 %13, ptr %.sroa.814.0..sroa_idx, align 8
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %.lr.ph
 
 thread-pre-split:                                 ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i"
   %.pr = load i64, ptr %.sroa.814.0..sroa_idx, align 8, !alias.scope !540, !noalias !547
-  %17 = icmp eq i64 %.pr, 0
-  br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %.lr.ph
+  %15 = icmp eq i64 %.pr, 0
+  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %thread-pre-split
-  %18 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h216dde21f10dd6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
-  %19 = load i64, ptr %.sroa.814.0..sroa_idx, align 8, !alias.scope !540, !noalias !547, !noundef !25
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %.sroa.814.0..sroa_idx, align 8, !alias.scope !540, !noalias !547
-  %21 = icmp eq ptr %18, null
-  br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i"
+  %16 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h216dde21f10dd6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
+  %17 = load i64, ptr %.sroa.814.0..sroa_idx, align 8, !alias.scope !540, !noalias !547, !noundef !25
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %.sroa.814.0..sroa_idx, align 8, !alias.scope !540, !noalias !547
+  %19 = icmp eq ptr %16, null
+  br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i"
 
 "_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i": ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %18, i64 -184
-  %23 = call noundef zeroext i1 @_ZN7uv_auth5index5Index13is_prefix_for17h9969dee66b36f7ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
-  br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %thread-pre-split
+  %20 = getelementptr inbounds i8, ptr %16, i64 -184
+  %21 = call noundef zeroext i1 @_ZN7uv_auth5index5Index13is_prefix_for17h9969dee66b36f7ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
+  br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit, label %thread-pre-split
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h76d1aa3ecea78c2fE.llvm.9275802895842548201.exit: ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i", %.lr.ph, %thread-pre-split, %2
-  %.sroa.0.0.i = phi ptr [ null, %2 ], [ null, %thread-pre-split ], [ null, %.lr.ph ], [ %22, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ null, %2 ], [ null, %thread-pre-split ], [ null, %.lr.ph ], [ %20, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b2522d3cd74702E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0.i
 }

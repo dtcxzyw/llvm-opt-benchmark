@@ -284,7 +284,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 17:                                               ; preds = %12
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h259135f627e24feaE(ptr noundef nonnull align 8 %1)
-          to label %"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit" unwind label %36
+          to label %"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit" unwind label %34
 
 18:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE.exit.thread
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -295,39 +295,37 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %23 = getelementptr i8, ptr %20, i64 %22
   %24 = getelementptr i8, ptr %23, i64 1
   %25 = load <16 x i8>, ptr %20, align 16, !noalias !64
-  %26 = icmp slt <16 x i8> %25, zeroinitializer
-  %27 = bitcast <16 x i1> %26 to i16
-  %28 = xor i16 %27, -1
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %31 = load i64, ptr %30, align 8, !alias.scope !59, !noalias !62, !noundef !4
+  %26 = icmp sgt <16 x i8> %25, splat (i8 -1)
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %29 = load i64, ptr %28, align 8, !alias.scope !59, !noalias !62, !noundef !4
   store ptr %20, ptr %3, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %29, ptr %.sroa.412.0..sroa_idx, align 8
+  store ptr %27, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %24, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %28, ptr %.sroa.614.0..sroa_idx, align 8
+  store <16 x i1> %26, ptr %.sroa.614.0..sroa_idx, align 8
   %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %31, ptr %.sroa.816.0..sroa_idx, align 8
+  store i64 %29, ptr %.sroa.816.0..sroa_idx, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h622af8399d60f8d8E.llvm.12898157133531514445"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9099018cccecedd6E.exit" unwind label %12
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9099018cccecedd6E.exit": ; preds = %18
-  %32 = atomicrmw sub ptr %1, i64 16 release, align 8
-  %33 = and i64 %32, -14
-  %34 = icmp eq i64 %33, 18
-  br i1 %34, label %35, label %"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit3"
+  %30 = atomicrmw sub ptr %1, i64 16 release, align 8
+  %31 = and i64 %30, -14
+  %32 = icmp eq i64 %31, 18
+  br i1 %32, label %33, label %"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit3"
 
-35:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9099018cccecedd6E.exit"
+33:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9099018cccecedd6E.exit"
   tail call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h259135f627e24feaE(ptr noundef nonnull align 8 %1)
   br label %"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit3"
 
-"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit3": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9099018cccecedd6E.exit", %35
+"_ZN4core3ptr147drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h69f57d3f853818a5E.exit3": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9099018cccecedd6E.exit", %33
   ret void
 
-36:                                               ; preds = %17
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %17
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable

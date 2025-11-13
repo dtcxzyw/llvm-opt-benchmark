@@ -2291,23 +2291,21 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   %16 = load <16 x i8>, ptr %11, align 16, !noalias !857
-  %17 = icmp slt <16 x i8> %16, zeroinitializer
-  %18 = bitcast <16 x i1> %17 to i16
-  %19 = xor i16 %18, -1
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !852, !noalias !855, !noundef !4
+  %17 = icmp sgt <16 x i8> %16, splat (i8 -1)
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !852, !noalias !855, !noundef !4
   store ptr %11, ptr %0, align 8, !alias.scope !844, !noalias !862
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %20, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
+  store ptr %18, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %19, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
+  store <16 x i1> %17, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
   %.sroa.0.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %22, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %3, ptr %23, align 8, !alias.scope !844, !noalias !862
+  store i64 %20, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !844, !noalias !862
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %3, ptr %21, align 8, !alias.scope !844, !noalias !862
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !851
   ret void
 }
@@ -2334,23 +2332,21 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   %16 = load <16 x i8>, ptr %11, align 16, !noalias !876
-  %17 = icmp slt <16 x i8> %16, zeroinitializer
-  %18 = bitcast <16 x i1> %17 to i16
-  %19 = xor i16 %18, -1
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !871, !noalias !874, !noundef !4
+  %17 = icmp sgt <16 x i8> %16, splat (i8 -1)
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !871, !noalias !874, !noundef !4
   store ptr %11, ptr %0, align 8, !alias.scope !863, !noalias !881
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %20, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
+  store ptr %18, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %19, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
+  store <16 x i1> %17, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
   %.sroa.0.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %22, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %3, ptr %23, align 8, !alias.scope !863, !noalias !881
+  store i64 %20, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !863, !noalias !881
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %3, ptr %21, align 8, !alias.scope !863, !noalias !881
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !870
   ret void
 }
@@ -17908,21 +17904,19 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4iter17h021fbbb1bdd
   %6 = getelementptr i8, ptr %3, i64 %5
   %7 = getelementptr i8, ptr %6, i64 1
   %8 = load <16 x i8>, ptr %3, align 16, !noalias !4153
-  %9 = icmp slt <16 x i8> %8, zeroinitializer
-  %10 = bitcast <16 x i1> %9 to i16
-  %11 = xor i16 %10, -1
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !noundef !4
+  %9 = icmp sgt <16 x i8> %8, splat (i8 -1)
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = load i64, ptr %11, align 8, !noundef !4
   store ptr %3, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %10, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %11, ptr %.sroa.6.0..sroa_idx, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %14, ptr %15, align 8
+  store <16 x i1> %9, ptr %.sroa.6.0..sroa_idx, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %12, ptr %13, align 8
   ret void
 }
 
@@ -19712,23 +19706,21 @@ define hidden void @"_ZN15tree_sitter_cli8generate10node_types24generate_node_ty
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   %16 = load <16 x i8>, ptr %11, align 16, !noalias !4651
-  %17 = icmp slt <16 x i8> %16, zeroinitializer
-  %18 = bitcast <16 x i1> %17 to i16
-  %19 = xor i16 %18, -1
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !4646, !noalias !4649, !noundef !4
+  %17 = icmp sgt <16 x i8> %16, splat (i8 -1)
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !4646, !noalias !4649, !noundef !4
   store ptr %11, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %20, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store ptr %18, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %19, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store <16 x i1> %17, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %22, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %3, ptr %23, align 8
+  store i64 %20, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %3, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -19771,23 +19763,21 @@ define hidden void @"_ZN15tree_sitter_cli8generate10node_types24generate_node_ty
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   %16 = load <16 x i8>, ptr %11, align 16, !noalias !4661
-  %17 = icmp slt <16 x i8> %16, zeroinitializer
-  %18 = bitcast <16 x i1> %17 to i16
-  %19 = xor i16 %18, -1
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !4656, !noalias !4659, !noundef !4
+  %17 = icmp sgt <16 x i8> %16, splat (i8 -1)
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !4656, !noalias !4659, !noundef !4
   store ptr %11, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %20, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store ptr %18, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %19, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store <16 x i1> %17, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %22, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %3, ptr %23, align 8
+  store i64 %20, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %3, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

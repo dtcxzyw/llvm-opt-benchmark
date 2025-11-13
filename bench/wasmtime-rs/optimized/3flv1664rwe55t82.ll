@@ -8329,10 +8329,8 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   %5 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %.sroa.43.0.copyload
   %6 = getelementptr i8, ptr %5, i64 1
   %7 = load <16 x i8>, ptr %.sroa.0.0.copyload, align 16, !noalias !938
-  %8 = icmp slt <16 x i8> %7, zeroinitializer
-  %9 = bitcast <16 x i1> %8 to i16
-  %10 = xor i16 %9, -1
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
+  %8 = icmp sgt <16 x i8> %7, splat (i8 -1)
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !949
   store ptr %.sroa.0.0.copyload, ptr %4, align 8, !noalias !954
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8347,15 +8345,15 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.0.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %11, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store ptr %9, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %6, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %10, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  store <16 x i1> %8, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.65.0.copyload, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %1, ptr %10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
   ret void
 }

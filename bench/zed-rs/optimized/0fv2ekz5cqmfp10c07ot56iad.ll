@@ -114783,10 +114783,8 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   %6 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %.sroa.4.0.copyload
   %7 = getelementptr i8, ptr %6, i64 1
   %8 = load <16 x i8>, ptr %.sroa.0.0.copyload, align 16, !noalias !18283
-  %9 = icmp slt <16 x i8> %8, zeroinitializer
-  %10 = bitcast <16 x i1> %9 to i16
-  %11 = xor i16 %10, -1
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
+  %9 = icmp sgt <16 x i8> %8, splat (i8 -1)
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !18294
   store ptr %.sroa.0.0.copyload, ptr %4, align 8, !noalias !18299
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -114797,19 +114795,19 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   store i64 %.sroa.6.0.copyload, ptr %.sroa.66.0..sroa_idx7.i, align 8, !noalias !18299
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h61892676147979bcE.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18294
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %.sroa.0.0.copyload, ptr %13, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %.sroa.0.0.copyload, ptr %11, align 8
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %12, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8
+  store ptr %10, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %7, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i16 %11, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8
+  store <16 x i1> %9, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %.sroa.6.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %14, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %1, ptr %12, align 8
   ret void
 }
 

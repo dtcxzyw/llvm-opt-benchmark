@@ -37413,7 +37413,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$std..collections..hash..set..HashSe
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !11
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %8, label %21
+  br i1 %.not, label %8, label %19
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -37424,26 +37424,24 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$std..collections..hash..set..HashSe
   %12 = getelementptr i8, ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 1
   %14 = load <16 x i8>, ptr %9, align 16, !noalias !9325
-  %15 = icmp slt <16 x i8> %14, zeroinitializer
-  %16 = bitcast <16 x i1> %15 to i16
-  %17 = xor i16 %16, -1
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = icmp sgt <16 x i8> %14, splat (i8 -1)
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %9, ptr %3, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %18, ptr %.sroa.48.0..sroa_idx, align 8
+  store ptr %16, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %13, ptr %.sroa.59.0..sroa_idx, align 8
   %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %17, ptr %.sroa.610.0..sroa_idx, align 8
+  store <16 x i1> %15, ptr %.sroa.610.0..sroa_idx, align 8
   %.sroa.812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %5, ptr %.sroa.812.0..sroa_idx, align 8
-  %19 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h81f4319832416b7fE.llvm.8900334472148293471(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-  %20 = xor i1 %19, true
+  %17 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h81f4319832416b7fE.llvm.8900334472148293471(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  %18 = xor i1 %17, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %21
+  br label %19
 
-21:                                               ; preds = %2, %8
-  %.sroa.0.0 = phi i1 [ %20, %8 ], [ false, %2 ]
+19:                                               ; preds = %2, %8
+  %.sroa.0.0 = phi i1 [ %18, %8 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

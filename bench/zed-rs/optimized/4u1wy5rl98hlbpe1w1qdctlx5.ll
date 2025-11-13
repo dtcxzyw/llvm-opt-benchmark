@@ -5229,61 +5229,58 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
 define hidden void @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$3new17h652542e53e9db46cE.llvm.8537221261273048587"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 26)) %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #22 {
   %5 = getelementptr inbounds i8, ptr %1, i64 %3
   %6 = load <16 x i8>, ptr %1, align 16, !noalias !1327
-  %7 = icmp slt <16 x i8> %6, zeroinitializer
-  %8 = bitcast <16 x i1> %7 to i16
-  %9 = xor i16 %8, -1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %9, ptr %11, align 8
+  %7 = icmp sgt <16 x i8> %6, splat (i8 -1)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store <16 x i1> %7, ptr %9, align 8
   store ptr %2, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %13, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %5, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_impl17hf43a91974025d9daE.llvm.8537221261273048587"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #31 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted = load i16, ptr %2, align 8
-  %3 = icmp eq i16 %.promoted, 0
-  %.promoted7 = load ptr, ptr %0, align 8
-  br i1 %3, label %.lr.ph, label %._crit_edge16
+  %3 = load i16, ptr %2, align 8, !noundef !12
+  %4 = icmp eq i16 %3, 0
+  %.promoted = load ptr, ptr %0, align 8
+  br i1 %4, label %.lr.ph, label %._crit_edge13
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted9 = load ptr, ptr %4, align 8
-  br label %5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted8 = load ptr, ptr %5, align 8
+  br label %6
 
-5:                                                ; preds = %.lr.ph, %5
-  %6 = phi ptr [ %.promoted9, %.lr.ph ], [ %12, %5 ]
-  %7 = phi ptr [ %.promoted7, %.lr.ph ], [ %11, %5 ]
-  %8 = load <16 x i8>, ptr %6, align 16, !noalias !1330
-  %9 = icmp slt <16 x i8> %8, zeroinitializer
-  %10 = bitcast <16 x i1> %9 to i16
-  %11 = getelementptr inbounds i8, ptr %7, i64 -128
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = icmp eq i16 %10, -1
-  br i1 %13, label %5, label %._crit_edge
+6:                                                ; preds = %.lr.ph, %6
+  %7 = phi ptr [ %.promoted8, %.lr.ph ], [ %12, %6 ]
+  %8 = phi ptr [ %.promoted, %.lr.ph ], [ %11, %6 ]
+  %9 = load <16 x i8>, ptr %7, align 16, !noalias !1330
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
+  %11 = getelementptr inbounds i8, ptr %8, i64 -128
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.cast = bitcast <16 x i1> %10 to i16
+  %13 = icmp eq i16 %.cast, 0
+  br i1 %13, label %6, label %._crit_edge
 
-._crit_edge:                                      ; preds = %5
-  %14 = xor i16 %10, -1
-  store ptr %12, ptr %4, align 8
+._crit_edge:                                      ; preds = %6
+  store ptr %12, ptr %5, align 8
   store ptr %11, ptr %0, align 8
-  br label %._crit_edge16
+  br label %._crit_edge13
 
-._crit_edge16:                                    ; preds = %1, %._crit_edge
-  %15 = phi ptr [ %11, %._crit_edge ], [ %.promoted7, %1 ]
-  %.lcssa = phi i16 [ %14, %._crit_edge ], [ %.promoted, %1 ]
-  %16 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
-  %17 = zext nneg i16 %16 to i64
-  %18 = add i16 %.lcssa, -1
-  %19 = and i16 %18, %.lcssa
-  store i16 %19, ptr %2, align 8
-  %20 = sub nsw i64 0, %17
-  %21 = getelementptr inbounds i64, ptr %15, i64 %20
-  ret ptr %21
+._crit_edge13:                                    ; preds = %1, %._crit_edge
+  %14 = phi ptr [ %11, %._crit_edge ], [ %.promoted, %1 ]
+  %.lcssa = phi i16 [ %.cast, %._crit_edge ], [ %3, %1 ]
+  %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
+  %16 = zext nneg i16 %15 to i64
+  %17 = add i16 %.lcssa, -1
+  %18 = and i16 %17, %.lcssa
+  store i16 %18, ptr %2, align 8
+  %19 = sub nsw i64 0, %16
+  %20 = getelementptr inbounds i64, ptr %14, i64 %19
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

@@ -36011,7 +36011,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   %.sroa.03.0.i = select i1 %13, i64 %12, i64 %16
   %17 = lshr i64 %.sroa.03.0.i, 1
   %.not.not.i = icmp ult i64 %8, %17
-  br i1 %.not.not.i, label %149, label %21
+  br i1 %.not.not.i, label %147, label %21
 
 18:                                               ; preds = %3
   %19 = tail call { i64, i64 } @_ZN9hashbrown3raw5inner11Fallibility17capacity_overflow17he5879f312e86c22aE(i1 noundef zeroext true), !noalias !8516
@@ -36111,9 +36111,8 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7f
 .preheader.lr.ph:                                 ; preds = %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit
   %64 = load ptr, ptr %0, align 8, !alias.scope !8528, !noalias !8529, !nonnull !5, !noundef !5
   %65 = load <16 x i8>, ptr %64, align 16, !noalias !8530
-  %66 = icmp slt <16 x i8> %65, zeroinitializer
+  %66 = icmp sgt <16 x i8> %65, splat (i8 -1)
   %67 = bitcast <16 x i1> %66 to i16
-  %68 = xor i16 %67, -1
   br label %.preheader
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit.thread: ; preds = %50, %55, %35
@@ -36122,8 +36121,8 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7f
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8520
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17haee5f3506e2c429dE.exit
 
-69:                                               ; preds = %105
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %103
+  %69 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E"(ptr noalias noundef align 8 dereferenceable(56) %5) #61
   br label %common.resume
@@ -36131,407 +36130,403 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7f
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
   %.sroa.011.049 = phi ptr [ %64, %.preheader.lr.ph ], [ %.sroa.011.1.lcssa, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
   %.sroa.5.048 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.5.1.lcssa, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %.sroa.9.047 = phi i64 [ %62, %.preheader.lr.ph ], [ %100, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %.sroa.13.046 = phi i16 [ %68, %.preheader.lr.ph ], [ %98, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %71 = icmp eq i16 %.sroa.13.046, 0
-  br i1 %71, label %.noexc2, label %._crit_edge
+  %.sroa.9.047 = phi i64 [ %62, %.preheader.lr.ph ], [ %98, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
+  %.sroa.13.046 = phi i16 [ %67, %.preheader.lr.ph ], [ %96, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
+  %70 = icmp eq i16 %.sroa.13.046, 0
+  br i1 %70, label %.noexc2, label %._crit_edge
 
 .noexc2:                                          ; preds = %.preheader, %.noexc2
-  %.sroa.011.143 = phi ptr [ %72, %.noexc2 ], [ %.sroa.011.049, %.preheader ]
-  %.sroa.5.142 = phi i64 [ %76, %.noexc2 ], [ %.sroa.5.048, %.preheader ]
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.011.143, i64 16
-  %73 = load <16 x i8>, ptr %72, align 16, !noalias !8533
-  %74 = icmp slt <16 x i8> %73, zeroinitializer
-  %75 = bitcast <16 x i1> %74 to i16
-  %76 = add i64 %.sroa.5.142, 16
-  %77 = icmp eq i16 %75, -1
-  br i1 %77, label %.noexc2, label %._crit_edge.loopexit
+  %.sroa.011.143 = phi ptr [ %71, %.noexc2 ], [ %.sroa.011.049, %.preheader ]
+  %.sroa.5.142 = phi i64 [ %75, %.noexc2 ], [ %.sroa.5.048, %.preheader ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.011.143, i64 16
+  %72 = load <16 x i8>, ptr %71, align 16, !noalias !8533
+  %73 = icmp sgt <16 x i8> %72, splat (i8 -1)
+  %74 = bitcast <16 x i1> %73 to i16
+  %75 = add i64 %.sroa.5.142, 16
+  %76 = icmp eq i16 %74, 0
+  br i1 %76, label %.noexc2, label %._crit_edge
 
 ._crit_edge50:                                    ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit, %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit
-  %78 = sub i64 %.sroa.03.0.i.i, %62
-  store i64 %78, ptr %.sroa.631.sroa.5.0..sroa.631.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !8520
+  %77 = sub i64 %.sroa.03.0.i.i, %62
+  store i64 %77, ptr %.sroa.631.sroa.5.0..sroa.631.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !8520
   store i64 %62, ptr %.sroa.631.sroa.6.0..sroa.631.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !8520
-  br label %79
+  br label %78
 
-79:                                               ; preds = %79, %._crit_edge50
-  %.sroa.0.05.i.i = phi i64 [ 0, %._crit_edge50 ], [ %84, %79 ]
-  %80 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
-  %81 = getelementptr inbounds nuw i64, ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+78:                                               ; preds = %78, %._crit_edge50
+  %.sroa.0.05.i.i = phi i64 [ 0, %._crit_edge50 ], [ %83, %78 ]
+  %79 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
+  %80 = getelementptr inbounds nuw i64, ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+  %81 = load i64, ptr %79, align 8
   %82 = load i64, ptr %80, align 8
-  %83 = load i64, ptr %81, align 8
-  store i64 %83, ptr %80, align 8
-  store i64 %82, ptr %81, align 8
-  %84 = add nuw nsw i64 %.sroa.0.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %84, 4
-  br i1 %exitcond.not.i.i, label %_ZN4core10intrinsics10typed_swap17h099f42f8783b0352E.exit, label %79
+  store i64 %82, ptr %79, align 8
+  store i64 %81, ptr %80, align 8
+  %83 = add nuw nsw i64 %.sroa.0.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %83, 4
+  br i1 %exitcond.not.i.i, label %_ZN4core10intrinsics10typed_swap17h099f42f8783b0352E.exit, label %78
 
-_ZN4core10intrinsics10typed_swap17h099f42f8783b0352E.exit: ; preds = %79
+_ZN4core10intrinsics10typed_swap17h099f42f8783b0352E.exit: ; preds = %78
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8536)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8539)
   %.val1.i.i = load i64, ptr %.sroa.631.sroa.4.0..sroa.631.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !8542, !noundef !5
-  %85 = icmp eq i64 %.val1.i.i, 0
-  br i1 %85, label %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit", label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i.i
+  %84 = icmp eq i64 %.val1.i.i, 0
+  br i1 %84, label %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit", label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i.i
 
 _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i.i: ; preds = %_ZN4core10intrinsics10typed_swap17h099f42f8783b0352E.exit
   %.val.i.i = load ptr, ptr %.sroa.631.0..sroa_idx.i.i, align 8, !alias.scope !8542, !nonnull !5, !noundef !5
-  %86 = shl i64 %.val1.i.i, 3
-  %87 = add i64 %86, 23
-  %88 = and i64 %87, -16
-  %89 = add i64 %.val1.i.i, 17
-  %90 = add nuw i64 %89, %88
-  %91 = icmp ult i64 %90, 9223372036854775793
-  tail call void @llvm.assume(i1 %91)
-  %92 = sub nsw i64 0, %88
-  %93 = getelementptr inbounds i8, ptr %.val.i.i, i64 %92
-  tail call void @__rust_dealloc(ptr noundef nonnull %93, i64 noundef %90, i64 noundef 16) #53, !noalias !8543
+  %85 = shl i64 %.val1.i.i, 3
+  %86 = add i64 %85, 23
+  %87 = and i64 %86, -16
+  %88 = add i64 %.val1.i.i, 17
+  %89 = add nuw i64 %88, %87
+  %90 = icmp ult i64 %89, 9223372036854775793
+  tail call void @llvm.assume(i1 %90)
+  %91 = sub nsw i64 0, %87
+  %92 = getelementptr inbounds i8, ptr %.val.i.i, i64 %91
+  tail call void @__rust_dealloc(ptr noundef nonnull %92, i64 noundef %89, i64 noundef 16) #53, !noalias !8543
   br label %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit"
 
 "_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit": ; preds = %_ZN4core10intrinsics10typed_swap17h099f42f8783b0352E.exit, %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8520
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17haee5f3506e2c429dE.exit
 
-._crit_edge.loopexit:                             ; preds = %.noexc2
-  %94 = xor i16 %75, -1
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %.noexc2, %.preheader
+  %.sroa.13.1.lcssa = phi i16 [ %.sroa.13.046, %.preheader ], [ %74, %.noexc2 ]
+  %.sroa.5.1.lcssa = phi i64 [ %.sroa.5.048, %.preheader ], [ %75, %.noexc2 ]
+  %.sroa.011.1.lcssa = phi ptr [ %.sroa.011.049, %.preheader ], [ %71, %.noexc2 ]
+  %93 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.13.1.lcssa, i1 true)
+  %94 = zext nneg i16 %93 to i64
+  %95 = add i16 %.sroa.13.1.lcssa, -1
+  %96 = and i16 %95, %.sroa.13.1.lcssa
+  %97 = add i64 %.sroa.5.1.lcssa, %94
+  %98 = add i64 %.sroa.9.047, -1
+  %99 = sub nsw i64 0, %97
+  %100 = getelementptr inbounds i64, ptr %64, i64 %99
+  %101 = getelementptr inbounds i8, ptr %100, i64 -8
+  %.val3.i = load i64, ptr %101, align 8, !noalias !8546, !noundef !5
+  %102 = icmp ult i64 %.val3.i, %2
+  br i1 %102, label %104, label %103
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.sroa.13.1.lcssa = phi i16 [ %.sroa.13.046, %.preheader ], [ %94, %._crit_edge.loopexit ]
-  %.sroa.5.1.lcssa = phi i64 [ %.sroa.5.048, %.preheader ], [ %76, %._crit_edge.loopexit ]
-  %.sroa.011.1.lcssa = phi ptr [ %.sroa.011.049, %.preheader ], [ %72, %._crit_edge.loopexit ]
-  %95 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.13.1.lcssa, i1 true)
-  %96 = zext nneg i16 %95 to i64
-  %97 = add i16 %.sroa.13.1.lcssa, -1
-  %98 = and i16 %97, %.sroa.13.1.lcssa
-  %99 = add i64 %.sroa.5.1.lcssa, %96
-  %100 = add i64 %.sroa.9.047, -1
-  %101 = sub nsw i64 0, %99
-  %102 = getelementptr inbounds i64, ptr %64, i64 %101
-  %103 = getelementptr inbounds i8, ptr %102, i64 -8
-  %.val3.i = load i64, ptr %103, align 8, !noalias !8546, !noundef !5
-  %104 = icmp ult i64 %.val3.i, %2
-  br i1 %104, label %106, label %105
-
-105:                                              ; preds = %._crit_edge
+103:                                              ; preds = %._crit_edge
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val3.i, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.139) #62
-          to label %.noexc4 unwind label %69
+          to label %.noexc4 unwind label %68
 
-.noexc4:                                          ; preds = %105
+.noexc4:                                          ; preds = %103
   unreachable
 
-106:                                              ; preds = %._crit_edge
-  %107 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %.val3.i
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 96
-  %109 = load i64, ptr %108, align 8, !noalias !8546, !noundef !5
-  %.sroa.0.09.i = and i64 %58, %109
-  %110 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.09.i
-  %.sroa.0.0.copyload.i810.i = load <16 x i8>, ptr %110, align 1, !noalias !8550
-  %111 = icmp slt <16 x i8> %.sroa.0.0.copyload.i810.i, zeroinitializer
-  %112 = bitcast <16 x i1> %111 to i16
-  %113 = icmp eq i16 %112, 0
-  br i1 %113, label %.lr.ph.i, label %._crit_edge.i
+104:                                              ; preds = %._crit_edge
+  %105 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %.val3.i
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 96
+  %107 = load i64, ptr %106, align 8, !noalias !8546, !noundef !5
+  %.sroa.0.09.i = and i64 %58, %107
+  %108 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.09.i
+  %.sroa.0.0.copyload.i810.i = load <16 x i8>, ptr %108, align 1, !noalias !8550
+  %109 = icmp slt <16 x i8> %.sroa.0.0.copyload.i810.i, zeroinitializer
+  %110 = bitcast <16 x i1> %109 to i16
+  %111 = icmp eq i16 %110, 0
+  br i1 %111, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %106
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.09.i, %106 ], [ %.sroa.0.0.i5, %.lr.ph.i ]
-  %.lcssa.i = phi i16 [ %112, %106 ], [ %132, %.lr.ph.i ]
-  %114 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %115 = zext nneg i16 %114 to i64
-  %116 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %115
-  %117 = and i64 %116, %58
-  %118 = getelementptr inbounds nuw i8, ptr %61, i64 %117
-  %119 = load i8, ptr %118, align 1, !noundef !5
-  %120 = icmp sgt i8 %119, -1
-  br i1 %120, label %121, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %104
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.09.i, %104 ], [ %.sroa.0.0.i5, %.lr.ph.i ]
+  %.lcssa.i = phi i16 [ %110, %104 ], [ %130, %.lr.ph.i ]
+  %112 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
+  %113 = zext nneg i16 %112 to i64
+  %114 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %113
+  %115 = and i64 %114, %58
+  %116 = getelementptr inbounds nuw i8, ptr %61, i64 %115
+  %117 = load i8, ptr %116, align 1, !noundef !5
+  %118 = icmp sgt i8 %117, -1
+  br i1 %118, label %119, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
 
-121:                                              ; preds = %._crit_edge.i
-  %122 = load <16 x i8>, ptr %61, align 16, !noalias !8553
-  %123 = icmp slt <16 x i8> %122, zeroinitializer
-  %124 = bitcast <16 x i1> %123 to i16
-  %125 = icmp ne i16 %124, 0
-  tail call void @llvm.assume(i1 %125)
-  %126 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %124, i1 true)
-  %127 = zext nneg i16 %126 to i64
+119:                                              ; preds = %._crit_edge.i
+  %120 = load <16 x i8>, ptr %61, align 16, !noalias !8553
+  %121 = icmp slt <16 x i8> %120, zeroinitializer
+  %122 = bitcast <16 x i1> %121 to i16
+  %123 = icmp ne i16 %122, 0
+  tail call void @llvm.assume(i1 %123)
+  %124 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %122, i1 true)
+  %125 = zext nneg i16 %124 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
 
-.lr.ph.i:                                         ; preds = %106, %.lr.ph.i
-  %.sroa.0.012.i = phi i64 [ %.sroa.0.0.i5, %.lr.ph.i ], [ %.sroa.0.09.i, %106 ]
-  %.sroa.7.011.i = phi i64 [ %128, %.lr.ph.i ], [ 0, %106 ]
-  %128 = add i64 %.sroa.7.011.i, 16
-  %129 = add i64 %128, %.sroa.0.012.i
-  %.sroa.0.0.i5 = and i64 %129, %58
-  %130 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.0.i5
-  %.sroa.0.0.copyload.i8.i = load <16 x i8>, ptr %130, align 1, !noalias !8550
-  %131 = icmp slt <16 x i8> %.sroa.0.0.copyload.i8.i, zeroinitializer
-  %132 = bitcast <16 x i1> %131 to i16
-  %133 = icmp eq i16 %132, 0
-  br i1 %133, label %.lr.ph.i, label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %104, %.lr.ph.i
+  %.sroa.0.012.i = phi i64 [ %.sroa.0.0.i5, %.lr.ph.i ], [ %.sroa.0.09.i, %104 ]
+  %.sroa.7.011.i = phi i64 [ %126, %.lr.ph.i ], [ 0, %104 ]
+  %126 = add i64 %.sroa.7.011.i, 16
+  %127 = add i64 %126, %.sroa.0.012.i
+  %.sroa.0.0.i5 = and i64 %127, %58
+  %128 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.0.i5
+  %.sroa.0.0.copyload.i8.i = load <16 x i8>, ptr %128, align 1, !noalias !8550
+  %129 = icmp slt <16 x i8> %.sroa.0.0.copyload.i8.i, zeroinitializer
+  %130 = bitcast <16 x i1> %129 to i16
+  %131 = icmp eq i16 %130, 0
+  br i1 %131, label %.lr.ph.i, label %._crit_edge.i
 
-_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit: ; preds = %121, %._crit_edge.i
-  %.sroa.0.0.i4.i = phi i64 [ %127, %121 ], [ %117, %._crit_edge.i ]
-  %134 = lshr i64 %109, 57
-  %135 = trunc nuw nsw i64 %134 to i8
-  %136 = add nsw i64 %.sroa.0.0.i4.i, -16
-  %137 = and i64 %136, %58
-  %138 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.0.i4.i
-  store i8 %135, ptr %138, align 1
-  %139 = getelementptr i8, ptr %61, i64 %137
-  %140 = getelementptr i8, ptr %139, i64 16
-  store i8 %135, ptr %140, align 1
-  %141 = shl i64 %99, 3
-  %142 = sub nuw nsw i64 -8, %141
-  %143 = getelementptr inbounds i8, ptr %64, i64 %142
-  %144 = shl nuw i64 %.sroa.0.0.i4.i, 3
-  %145 = sub nuw nsw i64 -8, %144
-  %146 = getelementptr inbounds i8, ptr %61, i64 %145
-  %147 = load i64, ptr %143, align 1
-  store i64 %147, ptr %146, align 8
-  %148 = icmp eq i64 %100, 0
-  br i1 %148, label %._crit_edge50, label %.preheader
+_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit: ; preds = %119, %._crit_edge.i
+  %.sroa.0.0.i4.i = phi i64 [ %125, %119 ], [ %115, %._crit_edge.i ]
+  %132 = lshr i64 %107, 57
+  %133 = trunc nuw nsw i64 %132 to i8
+  %134 = add nsw i64 %.sroa.0.0.i4.i, -16
+  %135 = and i64 %134, %58
+  %136 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.0.i4.i
+  store i8 %133, ptr %136, align 1
+  %137 = getelementptr i8, ptr %61, i64 %135
+  %138 = getelementptr i8, ptr %137, i64 16
+  store i8 %133, ptr %138, align 1
+  %139 = shl i64 %97, 3
+  %140 = sub nuw nsw i64 -8, %139
+  %141 = getelementptr inbounds i8, ptr %64, i64 %140
+  %142 = shl nuw i64 %.sroa.0.0.i4.i, 3
+  %143 = sub nuw nsw i64 -8, %142
+  %144 = getelementptr inbounds i8, ptr %61, i64 %143
+  %145 = load i64, ptr %141, align 1
+  store i64 %145, ptr %144, align 8
+  %146 = icmp eq i64 %98, 0
+  br i1 %146, label %._crit_edge50, label %.preheader
 
-common.resume:                                    ; preds = %165, %69
-  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %166, %165 ]
+common.resume:                                    ; preds = %163, %68
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %164, %163 ]
   resume { ptr, i32 } %common.resume.op
 
-149:                                              ; preds = %10
+147:                                              ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8556)
   %.val9.i = load ptr, ptr %0, align 8, !alias.scope !8556
   %.not5.i.i = icmp eq i64 %14, 0
   br i1 %.not5.i.i, label %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread, label %.lr.ph.i.i
 
-_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread: ; preds = %149
-  %150 = icmp ne ptr %.val9.i, null
-  tail call void @llvm.assume(i1 %150)
+_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread: ; preds = %147
+  %148 = icmp ne ptr %.val9.i, null
+  tail call void @llvm.assume(i1 %148)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8556
-  br label %260
+  br label %258
 
-.lr.ph.i.i:                                       ; preds = %149
-  %151 = lshr i64 %14, 4
-  %152 = and i64 %14, 15
-  %.not.i.i.i.i = icmp ne i64 %152, 0
-  %153 = zext i1 %.not.i.i.i.i to i64
-  %.sroa.0.0.i.i.i.i = add nuw nsw i64 %151, %153
-  %154 = icmp ne ptr %.val9.i, null
-  tail call void @llvm.assume(i1 %154)
-  br label %158
+.lr.ph.i.i:                                       ; preds = %147
+  %149 = lshr i64 %14, 4
+  %150 = and i64 %14, 15
+  %.not.i.i.i.i = icmp ne i64 %150, 0
+  %151 = zext i1 %.not.i.i.i.i to i64
+  %.sroa.0.0.i.i.i.i = add nuw nsw i64 %149, %151
+  %152 = icmp ne ptr %.val9.i, null
+  tail call void @llvm.assume(i1 %152)
+  br label %156
 
-._crit_edge.i.i:                                  ; preds = %158
+._crit_edge.i.i:                                  ; preds = %156
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %14, i64 16)
   %spec.select63.i = tail call i64 @llvm.umin.i64(i64 %14, i64 16)
-  %155 = getelementptr inbounds i8, ptr %.val9.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %155, ptr nonnull align 1 %.val9.i, i64 %spec.select63.i, i1 false), !noalias !8556
+  %153 = getelementptr inbounds i8, ptr %.val9.i, i64 %spec.select.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %.val9.i, i64 %spec.select63.i, i1 false), !noalias !8556
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8556
-  %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %156, align 8, !noalias !8556
-  %157 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 8, ptr %157, align 8, !noalias !8556
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %154, align 8, !noalias !8556
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 8, ptr %155, align 8, !noalias !8556
   store ptr %0, ptr %4, align 8, !noalias !8556
-  br label %167
+  br label %165
 
-158:                                              ; preds = %158, %.lr.ph.i.i
-  %.sroa.04.07.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i ], [ %160, %158 ]
-  %.sroa.03.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %159, %158 ]
-  %159 = add i64 %.sroa.03.06.i.i, 16
-  %160 = add i64 %.sroa.04.07.i.i, -1
-  %161 = getelementptr inbounds i8, ptr %.val9.i, i64 %.sroa.03.06.i.i
-  %162 = load <16 x i8>, ptr %161, align 16, !noalias !8559
-  %.lobit.i.i.i = ashr <16 x i8> %162, splat (i8 7)
-  %163 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %164 = or <2 x i64> %163, splat (i64 -9187201950435737472)
-  store <2 x i64> %164, ptr %161, align 16, !noalias !8562
-  %.not.i.i = icmp eq i64 %160, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %158
+156:                                              ; preds = %156, %.lr.ph.i.i
+  %.sroa.04.07.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i ], [ %158, %156 ]
+  %.sroa.03.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %157, %156 ]
+  %157 = add i64 %.sroa.03.06.i.i, 16
+  %158 = add i64 %.sroa.04.07.i.i, -1
+  %159 = getelementptr inbounds i8, ptr %.val9.i, i64 %.sroa.03.06.i.i
+  %160 = load <16 x i8>, ptr %159, align 16, !noalias !8559
+  %.lobit.i.i.i = ashr <16 x i8> %160, splat (i8 7)
+  %161 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
+  %162 = or <2 x i64> %161, splat (i64 -9187201950435737472)
+  store <2 x i64> %162, ptr %159, align 16, !noalias !8562
+  %.not.i.i = icmp eq i64 %158, 0
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %156
 
-165:                                              ; preds = %._crit_edge.i6
-  %166 = landingpad { ptr, i32 }
+163:                                              ; preds = %._crit_edge.i6
+  %164 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h59aba77ac7f2a0c8E"(ptr noalias noundef align 8 dereferenceable(24) %4) #61
-          to label %common.resume unwind label %255
+          to label %common.resume unwind label %253
 
-167:                                              ; preds = %254, %._crit_edge.i.i
-  %.sroa.04.019.i = phi i64 [ 0, %._crit_edge.i.i ], [ %168, %254 ]
-  %168 = add nuw i64 %.sroa.04.019.i, 1
-  %169 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
-  %170 = getelementptr inbounds i8, ptr %169, i64 %.sroa.04.019.i
-  %171 = load i8, ptr %170, align 1, !noundef !5
-  %.not.i = icmp eq i8 %171, -128
-  br i1 %.not.i, label %172, label %254
+165:                                              ; preds = %252, %._crit_edge.i.i
+  %.sroa.04.019.i = phi i64 [ 0, %._crit_edge.i.i ], [ %166, %252 ]
+  %166 = add nuw i64 %.sroa.04.019.i, 1
+  %167 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
+  %168 = getelementptr inbounds i8, ptr %167, i64 %.sroa.04.019.i
+  %169 = load i8, ptr %168, align 1, !noundef !5
+  %.not.i = icmp eq i8 %169, -128
+  br i1 %.not.i, label %170, label %252
 
-172:                                              ; preds = %167
-  %173 = shl i64 %.sroa.04.019.i, 3
-  %174 = sub nuw nsw i64 -8, %173
-  %175 = getelementptr inbounds i8, ptr %169, i64 %174
-  %176 = sub nsw i64 0, %.sroa.04.019.i
-  %177 = getelementptr inbounds i64, ptr %169, i64 %176
-  %178 = getelementptr inbounds i8, ptr %177, i64 -8
-  %.val3.i14.i = load i64, ptr %178, align 8, !noalias !8565, !noundef !5
-  %179 = icmp ult i64 %.val3.i14.i, %2
-  br i1 %179, label %.lr.ph.i7, label %._crit_edge.i6
+170:                                              ; preds = %165
+  %171 = shl i64 %.sroa.04.019.i, 3
+  %172 = sub nuw nsw i64 -8, %171
+  %173 = getelementptr inbounds i8, ptr %167, i64 %172
+  %174 = sub nsw i64 0, %.sroa.04.019.i
+  %175 = getelementptr inbounds i64, ptr %167, i64 %174
+  %176 = getelementptr inbounds i8, ptr %175, i64 -8
+  %.val3.i14.i = load i64, ptr %176, align 8, !noalias !8565, !noundef !5
+  %177 = icmp ult i64 %.val3.i14.i, %2
+  br i1 %177, label %.lr.ph.i7, label %._crit_edge.i6
 
 _ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i: ; preds = %.preheader.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8569)
-  %180 = load ptr, ptr %0, align 8, !alias.scope !8571, !noalias !8572, !nonnull !5, !noundef !5
-  %181 = getelementptr inbounds i64, ptr %180, i64 %176
-  %182 = getelementptr inbounds i8, ptr %181, i64 -8
-  %.val3.i.i = load i64, ptr %182, align 8, !noalias !8573, !noundef !5
-  %183 = icmp ult i64 %.val3.i.i, %2
-  br i1 %183, label %.lr.ph.i7, label %._crit_edge.i6
+  %178 = load ptr, ptr %0, align 8, !alias.scope !8571, !noalias !8572, !nonnull !5, !noundef !5
+  %179 = getelementptr inbounds i64, ptr %178, i64 %174
+  %180 = getelementptr inbounds i8, ptr %179, i64 -8
+  %.val3.i.i = load i64, ptr %180, align 8, !noalias !8573, !noundef !5
+  %181 = icmp ult i64 %.val3.i.i, %2
+  br i1 %181, label %.lr.ph.i7, label %._crit_edge.i6
 
-._crit_edge.i6:                                   ; preds = %172, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i
-  %.val3.i.lcssa.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i ], [ %.val3.i14.i, %172 ]
+._crit_edge.i6:                                   ; preds = %170, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i
+  %.val3.i.lcssa.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i ], [ %.val3.i14.i, %170 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val3.i.lcssa.i, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.139) #62
-          to label %.noexc.i unwind label %165
+          to label %.noexc.i unwind label %163
 
 .noexc.i:                                         ; preds = %._crit_edge.i6
   unreachable
 
-.lr.ph.i7:                                        ; preds = %172, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i
-  %.val3.i15.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i ], [ %.val3.i14.i, %172 ]
-  %184 = phi ptr [ %180, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i ], [ %169, %172 ]
-  %185 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %.val3.i15.i
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 96
-  %187 = load i64, ptr %186, align 8, !noalias !8574, !noundef !5
+.lr.ph.i7:                                        ; preds = %170, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i
+  %.val3.i15.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i ], [ %.val3.i14.i, %170 ]
+  %182 = phi ptr [ %178, %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i ], [ %167, %170 ]
+  %183 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %.val3.i15.i
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 96
+  %185 = load i64, ptr %184, align 8, !noalias !8574, !noundef !5
   %.val8.i = load i64, ptr %11, align 8, !alias.scope !8556, !noundef !5
-  %.sroa.0.09.i.i = and i64 %.val8.i, %187
-  %188 = getelementptr inbounds i8, ptr %184, i64 %.sroa.0.09.i.i
-  %.sroa.0.0.copyload.i810.i.i = load <16 x i8>, ptr %188, align 1, !noalias !8576
-  %189 = icmp slt <16 x i8> %.sroa.0.0.copyload.i810.i.i, zeroinitializer
-  %190 = bitcast <16 x i1> %189 to i16
-  %191 = icmp eq i16 %190, 0
-  br i1 %191, label %.lr.ph.i12.i, label %._crit_edge.i11.i
+  %.sroa.0.09.i.i = and i64 %.val8.i, %185
+  %186 = getelementptr inbounds i8, ptr %182, i64 %.sroa.0.09.i.i
+  %.sroa.0.0.copyload.i810.i.i = load <16 x i8>, ptr %186, align 1, !noalias !8576
+  %187 = icmp slt <16 x i8> %.sroa.0.0.copyload.i810.i.i, zeroinitializer
+  %188 = bitcast <16 x i1> %187 to i16
+  %189 = icmp eq i16 %188, 0
+  br i1 %189, label %.lr.ph.i12.i, label %._crit_edge.i11.i
 
 ._crit_edge.i11.i:                                ; preds = %.lr.ph.i12.i, %.lr.ph.i7
   %.sroa.0.0.lcssa.i.i = phi i64 [ %.sroa.0.09.i.i, %.lr.ph.i7 ], [ %.sroa.0.0.i.i10, %.lr.ph.i12.i ]
-  %.lcssa.i.i = phi i16 [ %190, %.lr.ph.i7 ], [ %210, %.lr.ph.i12.i ]
-  %192 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %193 = zext nneg i16 %192 to i64
-  %194 = add i64 %.sroa.0.0.lcssa.i.i, %193
-  %195 = and i64 %194, %.val8.i
-  %196 = getelementptr inbounds i8, ptr %184, i64 %195
-  %197 = load i8, ptr %196, align 1, !noundef !5
-  %198 = icmp sgt i8 %197, -1
-  br i1 %198, label %199, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
+  %.lcssa.i.i = phi i16 [ %188, %.lr.ph.i7 ], [ %208, %.lr.ph.i12.i ]
+  %190 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
+  %191 = zext nneg i16 %190 to i64
+  %192 = add i64 %.sroa.0.0.lcssa.i.i, %191
+  %193 = and i64 %192, %.val8.i
+  %194 = getelementptr inbounds i8, ptr %182, i64 %193
+  %195 = load i8, ptr %194, align 1, !noundef !5
+  %196 = icmp sgt i8 %195, -1
+  br i1 %196, label %197, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
 
-199:                                              ; preds = %._crit_edge.i11.i
-  %200 = load <16 x i8>, ptr %184, align 16, !noalias !8579
-  %201 = icmp slt <16 x i8> %200, zeroinitializer
-  %202 = bitcast <16 x i1> %201 to i16
-  %203 = icmp ne i16 %202, 0
-  tail call void @llvm.assume(i1 %203)
-  %204 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %202, i1 true)
-  %205 = zext nneg i16 %204 to i64
+197:                                              ; preds = %._crit_edge.i11.i
+  %198 = load <16 x i8>, ptr %182, align 16, !noalias !8579
+  %199 = icmp slt <16 x i8> %198, zeroinitializer
+  %200 = bitcast <16 x i1> %199 to i16
+  %201 = icmp ne i16 %200, 0
+  tail call void @llvm.assume(i1 %201)
+  %202 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %200, i1 true)
+  %203 = zext nneg i16 %202 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
 
 .lr.ph.i12.i:                                     ; preds = %.lr.ph.i7, %.lr.ph.i12.i
   %.sroa.0.012.i.i = phi i64 [ %.sroa.0.0.i.i10, %.lr.ph.i12.i ], [ %.sroa.0.09.i.i, %.lr.ph.i7 ]
-  %.sroa.7.011.i.i = phi i64 [ %206, %.lr.ph.i12.i ], [ 0, %.lr.ph.i7 ]
-  %206 = add i64 %.sroa.7.011.i.i, 16
-  %207 = add i64 %206, %.sroa.0.012.i.i
-  %.sroa.0.0.i.i10 = and i64 %207, %.val8.i
-  %208 = getelementptr inbounds i8, ptr %184, i64 %.sroa.0.0.i.i10
-  %.sroa.0.0.copyload.i8.i.i = load <16 x i8>, ptr %208, align 1, !noalias !8576
-  %209 = icmp slt <16 x i8> %.sroa.0.0.copyload.i8.i.i, zeroinitializer
-  %210 = bitcast <16 x i1> %209 to i16
-  %211 = icmp eq i16 %210, 0
-  br i1 %211, label %.lr.ph.i12.i, label %._crit_edge.i11.i
+  %.sroa.7.011.i.i = phi i64 [ %204, %.lr.ph.i12.i ], [ 0, %.lr.ph.i7 ]
+  %204 = add i64 %.sroa.7.011.i.i, 16
+  %205 = add i64 %204, %.sroa.0.012.i.i
+  %.sroa.0.0.i.i10 = and i64 %205, %.val8.i
+  %206 = getelementptr inbounds i8, ptr %182, i64 %.sroa.0.0.i.i10
+  %.sroa.0.0.copyload.i8.i.i = load <16 x i8>, ptr %206, align 1, !noalias !8576
+  %207 = icmp slt <16 x i8> %.sroa.0.0.copyload.i8.i.i, zeroinitializer
+  %208 = bitcast <16 x i1> %207 to i16
+  %209 = icmp eq i16 %208, 0
+  br i1 %209, label %.lr.ph.i12.i, label %._crit_edge.i11.i
 
-_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i: ; preds = %199, %._crit_edge.i11.i
-  %.sroa.0.0.i4.i.i = phi i64 [ %205, %199 ], [ %195, %._crit_edge.i11.i ]
-  %212 = sub i64 %.sroa.04.019.i, %.sroa.0.09.i.i
-  %213 = sub i64 %.sroa.0.0.i4.i.i, %.sroa.0.09.i.i
-  %214 = xor i64 %213, %212
-  %.unshifted.i = and i64 %214, %.val8.i
-  %215 = icmp ult i64 %.unshifted.i, 16
-  br i1 %215, label %230, label %216
+_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i: ; preds = %197, %._crit_edge.i11.i
+  %.sroa.0.0.i4.i.i = phi i64 [ %203, %197 ], [ %193, %._crit_edge.i11.i ]
+  %210 = sub i64 %.sroa.04.019.i, %.sroa.0.09.i.i
+  %211 = sub i64 %.sroa.0.0.i4.i.i, %.sroa.0.09.i.i
+  %212 = xor i64 %211, %210
+  %.unshifted.i = and i64 %212, %.val8.i
+  %213 = icmp ult i64 %.unshifted.i, 16
+  br i1 %213, label %228, label %214
 
-216:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
-  %217 = shl i64 %.sroa.0.0.i4.i.i, 3
-  %218 = sub nuw nsw i64 -8, %217
-  %219 = getelementptr inbounds i8, ptr %184, i64 %218
-  %220 = getelementptr inbounds i8, ptr %184, i64 %.sroa.0.0.i4.i.i
-  %221 = load i8, ptr %220, align 1, !noundef !5
-  %222 = lshr i64 %187, 57
-  %223 = trunc nuw nsw i64 %222 to i8
-  %224 = add i64 %.sroa.0.0.i4.i.i, -16
-  %225 = and i64 %224, %.val8.i
-  store i8 %223, ptr %220, align 1
-  %226 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
-  %227 = getelementptr i8, ptr %226, i64 %225
-  %228 = getelementptr i8, ptr %227, i64 16
-  store i8 %223, ptr %228, align 1
-  %229 = icmp eq i8 %221, -1
-  br i1 %229, label %244, label %.preheader.i
+214:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
+  %215 = shl i64 %.sroa.0.0.i4.i.i, 3
+  %216 = sub nuw nsw i64 -8, %215
+  %217 = getelementptr inbounds i8, ptr %182, i64 %216
+  %218 = getelementptr inbounds i8, ptr %182, i64 %.sroa.0.0.i4.i.i
+  %219 = load i8, ptr %218, align 1, !noundef !5
+  %220 = lshr i64 %185, 57
+  %221 = trunc nuw nsw i64 %220 to i8
+  %222 = add i64 %.sroa.0.0.i4.i.i, -16
+  %223 = and i64 %222, %.val8.i
+  store i8 %221, ptr %218, align 1
+  %224 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
+  %225 = getelementptr i8, ptr %224, i64 %223
+  %226 = getelementptr i8, ptr %225, i64 16
+  store i8 %221, ptr %226, align 1
+  %227 = icmp eq i8 %219, -1
+  br i1 %227, label %242, label %.preheader.i
 
-230:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
-  %231 = lshr i64 %187, 57
-  %232 = trunc nuw nsw i64 %231 to i8
-  %233 = add i64 %.sroa.04.019.i, -16
-  %234 = and i64 %.val8.i, %233
-  %235 = getelementptr inbounds i8, ptr %184, i64 %.sroa.04.019.i
-  store i8 %232, ptr %235, align 1
-  %236 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
-  %237 = getelementptr i8, ptr %236, i64 %234
-  %238 = getelementptr i8, ptr %237, i64 16
-  store i8 %232, ptr %238, align 1
-  br label %254
+228:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit.i
+  %229 = lshr i64 %185, 57
+  %230 = trunc nuw nsw i64 %229 to i8
+  %231 = add i64 %.sroa.04.019.i, -16
+  %232 = and i64 %.val8.i, %231
+  %233 = getelementptr inbounds i8, ptr %182, i64 %.sroa.04.019.i
+  store i8 %230, ptr %233, align 1
+  %234 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
+  %235 = getelementptr i8, ptr %234, i64 %232
+  %236 = getelementptr i8, ptr %235, i64 16
+  store i8 %230, ptr %236, align 1
+  br label %252
 
-.preheader.i:                                     ; preds = %216, %.preheader.i
-  %.sroa.04.09.i.i = phi i64 [ %243, %.preheader.i ], [ 0, %216 ]
-  %239 = getelementptr inbounds nuw i8, ptr %175, i64 %.sroa.04.09.i.i
-  %240 = getelementptr inbounds nuw i8, ptr %219, i64 %.sroa.04.09.i.i
-  %241 = load i8, ptr %239, align 1
-  %242 = load i8, ptr %240, align 1
-  store i8 %242, ptr %239, align 1
-  store i8 %241, ptr %240, align 1
-  %243 = add nuw nsw i64 %.sroa.04.09.i.i, 1
-  %exitcond.not.i.i9 = icmp eq i64 %243, 8
+.preheader.i:                                     ; preds = %214, %.preheader.i
+  %.sroa.04.09.i.i = phi i64 [ %241, %.preheader.i ], [ 0, %214 ]
+  %237 = getelementptr inbounds nuw i8, ptr %173, i64 %.sroa.04.09.i.i
+  %238 = getelementptr inbounds nuw i8, ptr %217, i64 %.sroa.04.09.i.i
+  %239 = load i8, ptr %237, align 1
+  %240 = load i8, ptr %238, align 1
+  store i8 %240, ptr %237, align 1
+  store i8 %239, ptr %238, align 1
+  %241 = add nuw nsw i64 %.sroa.04.09.i.i, 1
+  %exitcond.not.i.i9 = icmp eq i64 %241, 8
   br i1 %exitcond.not.i.i9, label %_ZN4core3ptr19swap_nonoverlapping17he7032951cfa87e36E.exit.loopexit.i, label %.preheader.i
 
-244:                                              ; preds = %216
-  %245 = add i64 %.sroa.04.019.i, -16
-  %246 = load i64, ptr %11, align 8, !alias.scope !8556, !noundef !5
-  %247 = and i64 %246, %245
+242:                                              ; preds = %214
+  %243 = add i64 %.sroa.04.019.i, -16
+  %244 = load i64, ptr %11, align 8, !alias.scope !8556, !noundef !5
+  %245 = and i64 %244, %243
+  %246 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
+  %247 = getelementptr inbounds i8, ptr %246, i64 %.sroa.04.019.i
+  store i8 -1, ptr %247, align 1
   %248 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
-  %249 = getelementptr inbounds i8, ptr %248, i64 %.sroa.04.019.i
-  store i8 -1, ptr %249, align 1
-  %250 = load ptr, ptr %0, align 8, !alias.scope !8556, !nonnull !5, !noundef !5
-  %251 = getelementptr i8, ptr %250, i64 %247
-  %252 = getelementptr i8, ptr %251, i64 16
-  store i8 -1, ptr %252, align 1
-  %253 = load i64, ptr %175, align 1
-  store i64 %253, ptr %219, align 1
-  br label %254
+  %249 = getelementptr i8, ptr %248, i64 %245
+  %250 = getelementptr i8, ptr %249, i64 16
+  store i8 -1, ptr %250, align 1
+  %251 = load i64, ptr %173, align 1
+  store i64 %251, ptr %217, align 1
+  br label %252
 
-254:                                              ; preds = %244, %230, %167
+252:                                              ; preds = %242, %228, %165
   %exitcond.not.i = icmp eq i64 %.sroa.04.019.i, %12
-  br i1 %exitcond.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit, label %167
+  br i1 %exitcond.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit, label %165
 
-255:                                              ; preds = %165
-  %256 = landingpad { ptr, i32 }
+253:                                              ; preds = %163
+  %254 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit: ; preds = %254
+_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit: ; preds = %252
   %.pre.i = load i64, ptr %11, align 8, !alias.scope !8556
   %.pre.i.fr = freeze i64 %.pre.i
   %.pre38.i = add i64 %.pre.i.fr, 1
-  %257 = lshr i64 %.pre38.i, 3
-  %258 = mul nuw i64 %257, 7
-  %259 = icmp ult i64 %.pre.i.fr, 8
-  %spec.select = select i1 %259, i64 %.pre.i.fr, i64 %258
+  %255 = lshr i64 %.pre38.i, 3
+  %256 = mul nuw i64 %255, 7
+  %257 = icmp ult i64 %.pre.i.fr, 8
+  %spec.select = select i1 %257, i64 %.pre.i.fr, i64 %256
   %.pre = load i64, ptr %7, align 8, !alias.scope !8556
-  br label %260
+  br label %258
 
-260:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread
-  %261 = phi i64 [ %8, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread ], [ %.pre, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit ]
-  %262 = phi i64 [ 0, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread ], [ %spec.select, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit ]
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %264 = sub i64 %262, %261
-  store i64 %264, ptr %263, align 8, !alias.scope !8556
+258:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread
+  %259 = phi i64 [ %8, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread ], [ %.pre, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit ]
+  %260 = phi i64 [ 0, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit.thread ], [ %spec.select, %_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit ]
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %262 = sub i64 %260, %259
+  store i64 %262, ptr %261, align 8, !alias.scope !8556
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8556
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17haee5f3506e2c429dE.exit
 
-_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17haee5f3506e2c429dE.exit: ; preds = %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit.thread, %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit", %18, %260
-  %.sroa.0.0.i = phi i64 [ %20, %18 ], [ -9223372036854775807, %260 ], [ %.sroa.7.025, %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit.thread ], [ -9223372036854775807, %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit" ]
+_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17haee5f3506e2c429dE.exit: ; preds = %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit.thread, %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit", %18, %258
+  %.sroa.0.0.i = phi i64 [ %20, %18 ], [ -9223372036854775807, %258 ], [ %.sroa.7.025, %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit.thread ], [ -9223372036854775807, %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h11fde6b71e65d6a7E.exit" ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -36553,15 +36548,15 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !5
   %.not12 = icmp ult i64 %.sroa.0.0, %15
-  br i1 %.not12, label %.thread, label %127
+  br i1 %.not12, label %.thread, label %123
 
 16:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8585)
   %17 = icmp eq i64 %6, 0
-  br i1 %17, label %.thread73, label %68
+  br i1 %17, label %.thread67, label %68
 
-.thread73:                                        ; preds = %16
+.thread67:                                        ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.5a940242dad4803ffa0694047890eb1b.135.llvm.7428513249094624621, i64 32, i1 false), !noalias !8585
   br label %"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h6968bf8450ba5967E.exit"
 
@@ -36595,13 +36590,13 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8590)
   %32 = icmp eq i64 %6, 0
-  br i1 %32, label %124, label %33
+  br i1 %32, label %120, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %0, align 8, !alias.scope !8593, !noalias !8585, !nonnull !5, !noundef !5
   %35 = add i64 %6, 17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %34, i8 -1, i64 %35, i1 false), !noalias !8594
-  br label %124
+  br label %120
 
 36:                                               ; preds = %.thread
   %37 = add i64 %8, 1
@@ -36656,7 +36651,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %65 = extractvalue { i64, i64 } %63, 1
   br label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h312a5745ec668749E.exit.i
 
-.thread75:                                        ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h312a5745ec668749E.exit.i
+.thread69:                                        ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h312a5745ec668749E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8599)
   %66 = load ptr, ptr %1, align 8, !alias.scope !8602, !noalias !8603, !nonnull !5, !noundef !5
   %67 = add i64 %.sroa.6.0.i, 17
@@ -36675,277 +36670,267 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %71 = icmp eq i64 %.pre, 0
   br i1 %71, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.thread75, %68
-  %72 = phi ptr [ %66, %.thread75 ], [ %69, %68 ]
-  %73 = phi ptr [ %.sroa.07.0.i, %.thread75 ], [ %.pre.i, %68 ]
-  %74 = phi i64 [ %15, %.thread75 ], [ %.pre, %68 ]
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %76 = load <16 x i8>, ptr %72, align 16, !noalias !8613
-  %77 = icmp slt <16 x i8> %76, zeroinitializer
-  %78 = bitcast <16 x i1> %77 to i16
-  %79 = xor i16 %78, -1
-  %80 = ptrtoint ptr %72 to i64
-  br label %81
+.lr.ph.i.i:                                       ; preds = %.thread69, %68
+  %72 = phi ptr [ %66, %.thread69 ], [ %69, %68 ]
+  %73 = phi ptr [ %.sroa.07.0.i, %.thread69 ], [ %.pre.i, %68 ]
+  %74 = phi i64 [ %15, %.thread69 ], [ %.pre, %68 ]
+  %75 = load <16 x i8>, ptr %72, align 16, !noalias !8613
+  %76 = icmp sgt <16 x i8> %75, splat (i8 -1)
+  %77 = bitcast <16 x i1> %76 to i16
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %79 = ptrtoint ptr %72 to i64
+  br label %80
 
-81:                                               ; preds = %92, %.lr.ph.i.i
-  %.sroa.1014.025.i.i = phi i64 [ %74, %.lr.ph.i.i ], [ %99, %92 ]
-  %.sroa.012.024.i.i = phi ptr [ %72, %.lr.ph.i.i ], [ %.sroa.012.1.i.i, %92 ]
-  %.sroa.6.023.i.i = phi ptr [ %75, %.lr.ph.i.i ], [ %.sroa.6.1.i.i, %92 ]
-  %.sroa.813.022.i.i = phi i16 [ %79, %.lr.ph.i.i ], [ %96, %92 ]
-  %82 = icmp eq i16 %.sroa.813.022.i.i, 0
-  br i1 %82, label %.lr.ph.i.i.i, label %92
+80:                                               ; preds = %.loopexit.i.i, %.lr.ph.i.i
+  %.sroa.1014.024.i.i = phi i64 [ %74, %.lr.ph.i.i ], [ %95, %.loopexit.i.i ]
+  %.sroa.012.023.i.i = phi ptr [ %72, %.lr.ph.i.i ], [ %.sroa.012.1.i.i, %.loopexit.i.i ]
+  %.sroa.6.022.i.i = phi ptr [ %78, %.lr.ph.i.i ], [ %.sroa.6.1.i.i, %.loopexit.i.i ]
+  %.sroa.813.021.i.i = phi i16 [ %77, %.lr.ph.i.i ], [ %92, %.loopexit.i.i ]
+  %81 = icmp eq i16 %.sroa.813.021.i.i, 0
+  br i1 %81, label %.lr.ph.i.i.i, label %.loopexit.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %83 = xor i16 %88, -1
-  br label %92
+.lr.ph.i.i.i:                                     ; preds = %80, %.lr.ph.i.i.i
+  %82 = phi ptr [ %87, %.lr.ph.i.i.i ], [ %.sroa.6.022.i.i, %80 ]
+  %83 = phi ptr [ %86, %.lr.ph.i.i.i ], [ %.sroa.012.023.i.i, %80 ]
+  %84 = load <16 x i8>, ptr %82, align 16, !noalias !8618
+  %85 = icmp sgt <16 x i8> %84, splat (i8 -1)
+  %86 = getelementptr inbounds i8, ptr %83, i64 -128
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %.cast.i.i.i = bitcast <16 x i1> %85 to i16
+  %88 = icmp eq i16 %.cast.i.i.i, 0
+  br i1 %88, label %.lr.ph.i.i.i, label %.loopexit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %81, %.lr.ph.i.i.i
-  %84 = phi ptr [ %90, %.lr.ph.i.i.i ], [ %.sroa.6.023.i.i, %81 ]
-  %85 = phi ptr [ %89, %.lr.ph.i.i.i ], [ %.sroa.012.024.i.i, %81 ]
-  %86 = load <16 x i8>, ptr %84, align 16, !noalias !8618
-  %87 = icmp slt <16 x i8> %86, zeroinitializer
-  %88 = bitcast <16 x i1> %87 to i16
-  %89 = getelementptr inbounds i8, ptr %85, i64 -128
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %91 = icmp eq i16 %88, -1
-  br i1 %91, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
-
-92:                                               ; preds = %._crit_edge.i.i.i, %81
-  %.sroa.6.1.i.i = phi ptr [ %90, %._crit_edge.i.i.i ], [ %.sroa.6.023.i.i, %81 ]
-  %.sroa.012.1.i.i = phi ptr [ %89, %._crit_edge.i.i.i ], [ %.sroa.012.024.i.i, %81 ]
-  %.lcssa.i.i.i = phi i16 [ %83, %._crit_edge.i.i.i ], [ %.sroa.813.022.i.i, %81 ]
-  %93 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i, i1 true)
-  %94 = zext nneg i16 %93 to i64
-  %95 = add i16 %.lcssa.i.i.i, -1
-  %96 = and i16 %95, %.lcssa.i.i.i
-  %97 = sub nsw i64 0, %94
-  %98 = getelementptr inbounds i64, ptr %.sroa.012.1.i.i, i64 %97
-  %99 = add i64 %.sroa.1014.025.i.i, -1
-  %100 = getelementptr inbounds i8, ptr %98, i64 -8
-  %101 = load i64, ptr %100, align 8, !alias.scope !8623, !noalias !8612, !noundef !5
-  %102 = ptrtoint ptr %98 to i64
-  %103 = sub i64 %80, %102
-  %104 = ashr exact i64 %103, 3
-  %105 = sub nsw i64 0, %104
-  %106 = getelementptr inbounds i64, ptr %73, i64 %105
-  %107 = getelementptr inbounds i8, ptr %106, i64 -8
-  store i64 %101, ptr %107, align 8, !noalias !8612
-  %108 = icmp eq i64 %99, 0
-  br i1 %108, label %.loopexit.i, label %81
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %80
+  %.sroa.6.1.i.i = phi ptr [ %.sroa.6.022.i.i, %80 ], [ %87, %.lr.ph.i.i.i ]
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.023.i.i, %80 ], [ %86, %.lr.ph.i.i.i ]
+  %.lcssa.i.i.i = phi i16 [ %.sroa.813.021.i.i, %80 ], [ %.cast.i.i.i, %.lr.ph.i.i.i ]
+  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i, i1 true)
+  %90 = zext nneg i16 %89 to i64
+  %91 = add i16 %.lcssa.i.i.i, -1
+  %92 = and i16 %91, %.lcssa.i.i.i
+  %93 = sub nsw i64 0, %90
+  %94 = getelementptr inbounds i64, ptr %.sroa.012.1.i.i, i64 %93
+  %95 = add i64 %.sroa.1014.024.i.i, -1
+  %96 = getelementptr inbounds i8, ptr %94, i64 -8
+  %97 = load i64, ptr %96, align 8, !alias.scope !8623, !noalias !8612, !noundef !5
+  %98 = ptrtoint ptr %94 to i64
+  %99 = sub i64 %79, %98
+  %100 = ashr exact i64 %99, 3
+  %101 = sub nsw i64 0, %100
+  %102 = getelementptr inbounds i64, ptr %73, i64 %101
+  %103 = getelementptr inbounds i8, ptr %102, i64 -8
+  store i64 %97, ptr %103, align 8, !noalias !8612
+  %104 = icmp eq i64 %95, 0
+  br i1 %104, label %.loopexit.i, label %80
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h312a5745ec668749E.exit.i: ; preds = %.noexc2.i, %57, %.noexc.i
   %.sroa.9.0.i = phi i64 [ %53, %.noexc.i ], [ %65, %.noexc2.i ], [ %.sroa.03.0.i.i, %57 ]
   %.sroa.6.0.i = phi i64 [ %52, %.noexc.i ], [ %64, %.noexc2.i ], [ %8, %57 ]
   %.sroa.07.0.i = phi ptr [ null, %.noexc.i ], [ null, %.noexc2.i ], [ %58, %57 ]
-  %109 = load ptr, ptr %0, align 8, !alias.scope !8582, !noalias !8585, !nonnull !5, !noundef !5
+  %105 = load ptr, ptr %0, align 8, !alias.scope !8582, !noalias !8585, !nonnull !5, !noundef !5
   store ptr %.sroa.07.0.i, ptr %0, align 8, !alias.scope !8582, !noalias !8585
   store i64 %.sroa.6.0.i, ptr %5, align 8, !alias.scope !8582, !noalias !8585
   %.sroa.3.0..sroa.03.0.5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.9.0.i, ptr %.sroa.3.0..sroa.03.0.5.sroa_idx.i, align 8, !alias.scope !8582, !noalias !8585
   %.sroa.49.0..sroa.03.0.5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.49.0..sroa.03.0.5.sroa_idx.i, align 8, !alias.scope !8582, !noalias !8585
-  %110 = icmp eq i64 %6, 0
-  br i1 %110, label %.thread75, label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i
+  %106 = icmp eq i64 %6, 0
+  br i1 %106, label %.thread69, label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i
 
 _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i: ; preds = %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h312a5745ec668749E.exit.i
-  %111 = shl i64 %6, 3
-  %112 = add i64 %111, 23
-  %113 = and i64 %112, -16
-  %114 = add i64 %6, 17
-  %115 = add nuw i64 %114, %113
-  %116 = icmp ult i64 %115, 9223372036854775793
-  tail call void @llvm.assume(i1 %116)
-  %117 = sub nsw i64 0, %113
-  %118 = getelementptr inbounds i8, ptr %109, i64 %117
-  tail call void @__rust_dealloc(ptr noundef nonnull %118, i64 noundef %115, i64 noundef 16) #53, !noalias !8595
-  br label %.thread75
+  %107 = shl i64 %6, 3
+  %108 = add i64 %107, 23
+  %109 = and i64 %108, -16
+  %110 = add i64 %6, 17
+  %111 = add nuw i64 %110, %109
+  %112 = icmp ult i64 %111, 9223372036854775793
+  tail call void @llvm.assume(i1 %112)
+  %113 = sub nsw i64 0, %109
+  %114 = getelementptr inbounds i8, ptr %105, i64 %113
+  tail call void @__rust_dealloc(ptr noundef nonnull %114, i64 noundef %111, i64 noundef 16) #53, !noalias !8595
+  br label %.thread69
 
-.loopexit.i:                                      ; preds = %92, %68
-  %119 = phi i64 [ 0, %68 ], [ %74, %92 ]
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %119, ptr %120, align 8, !alias.scope !8606, !noalias !8608
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %122 = load i64, ptr %121, align 8, !alias.scope !8608, !noalias !8606, !noundef !5
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %122, ptr %123, align 8, !alias.scope !8606, !noalias !8608
+.loopexit.i:                                      ; preds = %.loopexit.i.i, %68
+  %115 = phi i64 [ 0, %68 ], [ %74, %.loopexit.i.i ]
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %115, ptr %116, align 8, !alias.scope !8606, !noalias !8608
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %118 = load i64, ptr %117, align 8, !alias.scope !8608, !noalias !8606, !noundef !5
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %118, ptr %119, align 8, !alias.scope !8606, !noalias !8608
   br label %"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h6968bf8450ba5967E.exit"
 
-common.resume:                                    ; preds = %171, %124
-  %common.resume.op = phi { ptr, i32 } [ %31, %124 ], [ %172, %171 ]
+common.resume:                                    ; preds = %163, %120
+  %common.resume.op = phi { ptr, i32 } [ %31, %120 ], [ %164, %163 ]
   resume { ptr, i32 } %common.resume.op
 
-124:                                              ; preds = %33, %30
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %125, align 8, !alias.scope !8593, !noalias !8585
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0, ptr %126, align 8, !alias.scope !8593, !noalias !8585
+120:                                              ; preds = %33, %30
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %121, align 8, !alias.scope !8593, !noalias !8585
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0, ptr %122, align 8, !alias.scope !8593, !noalias !8585
   br label %common.resume
 
-127:                                              ; preds = %9
+123:                                              ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8626)
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %129 = load i64, ptr %128, align 8, !alias.scope !8626, !noundef !5
-  %130 = icmp eq i64 %129, 0
-  br i1 %130, label %137, label %131
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %125 = load i64, ptr %124, align 8, !alias.scope !8626, !noundef !5
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %133, label %127
 
-131:                                              ; preds = %127
+127:                                              ; preds = %123
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8629)
-  %132 = icmp eq i64 %6, 0
-  br i1 %132, label %"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i", label %133
+  %128 = icmp eq i64 %6, 0
+  br i1 %128, label %"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i", label %129
 
-133:                                              ; preds = %131
-  %134 = load ptr, ptr %0, align 8, !alias.scope !8632, !nonnull !5, !noundef !5
-  %135 = add i64 %6, 17
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %134, i8 -1, i64 %135, i1 false), !noalias !8632
+129:                                              ; preds = %127
+  %130 = load ptr, ptr %0, align 8, !alias.scope !8632, !nonnull !5, !noundef !5
+  %131 = add i64 %6, 17
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %130, i8 -1, i64 %131, i1 false), !noalias !8632
   br label %"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i"
 
-"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i": ; preds = %133, %131
-  store i64 0, ptr %128, align 8, !alias.scope !8632
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0, ptr %136, align 8, !alias.scope !8632
-  br label %137
+"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i": ; preds = %129, %127
+  store i64 0, ptr %124, align 8, !alias.scope !8632
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0, ptr %132, align 8, !alias.scope !8632
+  br label %133
 
-"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h6968bf8450ba5967E.exit": ; preds = %.thread73, %.loopexit.i, %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i, %19, %._crit_edge
+"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h6968bf8450ba5967E.exit": ; preds = %.thread67, %.loopexit.i, %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i, %19, %._crit_edge
   ret void
 
-137:                                              ; preds = %"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i", %127
-  %138 = icmp eq i64 %15, 0
-  br i1 %138, label %._crit_edge, label %.lr.ph
+133:                                              ; preds = %"_ZN4core3ptr201drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h707a4fb00067cd82E.exit3.i", %123
+  %134 = icmp eq i64 %15, 0
+  br i1 %134, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %137
-  %139 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load <16 x i8>, ptr %139, align 16, !noalias !8633
-  %142 = icmp slt <16 x i8> %141, zeroinitializer
-  %143 = bitcast <16 x i1> %142 to i16
-  %144 = xor i16 %143, -1
+.lr.ph:                                           ; preds = %133
+  %135 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %136 = load <16 x i8>, ptr %135, align 16, !noalias !8633
+  %137 = icmp sgt <16 x i8> %136, splat (i8 -1)
+  %138 = bitcast <16 x i1> %137 to i16
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %.val18 = load ptr, ptr %0, align 8, !nonnull !5
-  br label %145
+  br label %140
 
-145:                                              ; preds = %.lr.ph, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
-  %.sroa.1029.048 = phi i64 [ %15, %.lr.ph ], [ %166, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %.sroa.828.047 = phi i16 [ %144, %.lr.ph ], [ %163, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %.sroa.6.046 = phi ptr [ %140, %.lr.ph ], [ %.sroa.6.1, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %.sroa.027.045 = phi ptr [ %139, %.lr.ph ], [ %.sroa.027.1, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
-  %146 = icmp eq i16 %.sroa.828.047, 0
-  br i1 %146, label %.lr.ph.i, label %159
+140:                                              ; preds = %.lr.ph, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
+  %.sroa.1029.046 = phi i64 [ %15, %.lr.ph ], [ %158, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
+  %.sroa.828.045 = phi i16 [ %138, %.lr.ph ], [ %155, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
+  %.sroa.6.044 = phi ptr [ %139, %.lr.ph ], [ %.sroa.6.1, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
+  %.sroa.027.043 = phi ptr [ %135, %.lr.ph ], [ %.sroa.027.1, %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit ]
+  %141 = icmp eq i16 %.sroa.828.045, 0
+  br i1 %141, label %.lr.ph.i, label %.loopexit
 
-._crit_edge.i21:                                  ; preds = %.lr.ph.i
-  %147 = xor i16 %152, -1
-  br label %159
+.lr.ph.i:                                         ; preds = %140, %.lr.ph.i
+  %142 = phi ptr [ %147, %.lr.ph.i ], [ %.sroa.6.044, %140 ]
+  %143 = phi ptr [ %146, %.lr.ph.i ], [ %.sroa.027.043, %140 ]
+  %144 = load <16 x i8>, ptr %142, align 16, !noalias !8638
+  %145 = icmp sgt <16 x i8> %144, splat (i8 -1)
+  %146 = getelementptr inbounds i8, ptr %143, i64 -128
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %.cast.i = bitcast <16 x i1> %145 to i16
+  %148 = icmp eq i16 %.cast.i, 0
+  br i1 %148, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %145, %.lr.ph.i
-  %148 = phi ptr [ %154, %.lr.ph.i ], [ %.sroa.6.046, %145 ]
-  %149 = phi ptr [ %153, %.lr.ph.i ], [ %.sroa.027.045, %145 ]
-  %150 = load <16 x i8>, ptr %148, align 16, !noalias !8638
-  %151 = icmp slt <16 x i8> %150, zeroinitializer
-  %152 = bitcast <16 x i1> %151 to i16
-  %153 = getelementptr inbounds i8, ptr %149, i64 -128
-  %154 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %155 = icmp eq i16 %152, -1
-  br i1 %155, label %.lr.ph.i, label %._crit_edge.i21
-
-._crit_edge:                                      ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit, %137
-  store i64 %15, ptr %128, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %157 = load i64, ptr %156, align 8, !noundef !5
-  %158 = sub i64 %157, %15
-  store i64 %158, ptr %156, align 8
+._crit_edge:                                      ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit, %133
+  store i64 %15, ptr %124, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %150 = load i64, ptr %149, align 8, !noundef !5
+  %151 = sub i64 %150, %15
+  store i64 %151, ptr %149, align 8
   br label %"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h6968bf8450ba5967E.exit"
 
-159:                                              ; preds = %145, %._crit_edge.i21
-  %.sroa.027.1 = phi ptr [ %153, %._crit_edge.i21 ], [ %.sroa.027.045, %145 ]
-  %.sroa.6.1 = phi ptr [ %154, %._crit_edge.i21 ], [ %.sroa.6.046, %145 ]
-  %.lcssa.i = phi i16 [ %147, %._crit_edge.i21 ], [ %.sroa.828.047, %145 ]
-  %160 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %161 = zext nneg i16 %160 to i64
-  %162 = add i16 %.lcssa.i, -1
-  %163 = and i16 %162, %.lcssa.i
-  %164 = sub nsw i64 0, %161
-  %165 = getelementptr inbounds i64, ptr %.sroa.027.1, i64 %164
-  %166 = add i64 %.sroa.1029.048, -1
-  %167 = getelementptr inbounds i8, ptr %165, i64 -8
-  %168 = load i64, ptr %167, align 8, !alias.scope !8643, !noundef !5
-  %169 = icmp ult i64 %168, %3
-  br i1 %169, label %173, label %170
+.loopexit:                                        ; preds = %.lr.ph.i, %140
+  %.sroa.027.1 = phi ptr [ %.sroa.027.043, %140 ], [ %146, %.lr.ph.i ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.044, %140 ], [ %147, %.lr.ph.i ]
+  %.lcssa.i = phi i16 [ %.sroa.828.045, %140 ], [ %.cast.i, %.lr.ph.i ]
+  %152 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
+  %153 = zext nneg i16 %152 to i64
+  %154 = add i16 %.lcssa.i, -1
+  %155 = and i16 %154, %.lcssa.i
+  %156 = sub nsw i64 0, %153
+  %157 = getelementptr inbounds i64, ptr %.sroa.027.1, i64 %156
+  %158 = add i64 %.sroa.1029.046, -1
+  %159 = getelementptr inbounds i8, ptr %157, i64 -8
+  %160 = load i64, ptr %159, align 8, !alias.scope !8643, !noundef !5
+  %161 = icmp ult i64 %160, %3
+  br i1 %161, label %165, label %162
 
-170:                                              ; preds = %159
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %168, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.139) #62
-          to label %.noexc unwind label %171
+162:                                              ; preds = %.loopexit
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %160, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.139) #62
+          to label %.noexc unwind label %163
 
-.noexc:                                           ; preds = %170
+.noexc:                                           ; preds = %162
   unreachable
 
-171:                                              ; preds = %170
-  %172 = landingpad { ptr, i32 }
+163:                                              ; preds = %162
+  %164 = landingpad { ptr, i32 }
           cleanup
   tail call fastcc void @"_ZN4core3ptr340drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clone_from_with_hasher$LT$indexmap..map..core..get_hash$LT$alloc..string..String$C$serde_json..value..Value$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0ad8b266553efc75E"(ptr nonnull %0) #61
   br label %common.resume
 
-173:                                              ; preds = %159
-  %174 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %168
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 96
-  %176 = load i64, ptr %175, align 8, !noundef !5
-  %.sroa.0.09.i = and i64 %176, %6
-  %177 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.09.i
-  %.sroa.0.0.copyload.i810.i = load <16 x i8>, ptr %177, align 1, !noalias !8646
-  %178 = icmp slt <16 x i8> %.sroa.0.0.copyload.i810.i, zeroinitializer
-  %179 = bitcast <16 x i1> %178 to i16
-  %180 = icmp eq i16 %179, 0
-  br i1 %180, label %.lr.ph.i24, label %._crit_edge.i22
+165:                                              ; preds = %.loopexit
+  %166 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %160
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %168 = load i64, ptr %167, align 8, !noundef !5
+  %.sroa.0.09.i = and i64 %168, %6
+  %169 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.09.i
+  %.sroa.0.0.copyload.i810.i = load <16 x i8>, ptr %169, align 1, !noalias !8646
+  %170 = icmp slt <16 x i8> %.sroa.0.0.copyload.i810.i, zeroinitializer
+  %171 = bitcast <16 x i1> %170 to i16
+  %172 = icmp eq i16 %171, 0
+  br i1 %172, label %.lr.ph.i24, label %._crit_edge.i22
 
-._crit_edge.i22:                                  ; preds = %.lr.ph.i24, %173
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.09.i, %173 ], [ %.sroa.0.0.i, %.lr.ph.i24 ]
-  %.lcssa.i23 = phi i16 [ %179, %173 ], [ %199, %.lr.ph.i24 ]
-  %181 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i23, i1 true)
-  %182 = zext nneg i16 %181 to i64
-  %183 = add i64 %.sroa.0.0.lcssa.i, %182
-  %184 = and i64 %183, %6
-  %185 = getelementptr inbounds i8, ptr %.val18, i64 %184
-  %186 = load i8, ptr %185, align 1, !noundef !5
-  %187 = icmp sgt i8 %186, -1
-  br i1 %187, label %188, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
+._crit_edge.i22:                                  ; preds = %.lr.ph.i24, %165
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.09.i, %165 ], [ %.sroa.0.0.i, %.lr.ph.i24 ]
+  %.lcssa.i23 = phi i16 [ %171, %165 ], [ %191, %.lr.ph.i24 ]
+  %173 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i23, i1 true)
+  %174 = zext nneg i16 %173 to i64
+  %175 = add i64 %.sroa.0.0.lcssa.i, %174
+  %176 = and i64 %175, %6
+  %177 = getelementptr inbounds i8, ptr %.val18, i64 %176
+  %178 = load i8, ptr %177, align 1, !noundef !5
+  %179 = icmp sgt i8 %178, -1
+  br i1 %179, label %180, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
 
-188:                                              ; preds = %._crit_edge.i22
-  %189 = load <16 x i8>, ptr %.val18, align 16, !noalias !8649
-  %190 = icmp slt <16 x i8> %189, zeroinitializer
-  %191 = bitcast <16 x i1> %190 to i16
-  %192 = icmp ne i16 %191, 0
-  tail call void @llvm.assume(i1 %192)
-  %193 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %191, i1 true)
-  %194 = zext nneg i16 %193 to i64
+180:                                              ; preds = %._crit_edge.i22
+  %181 = load <16 x i8>, ptr %.val18, align 16, !noalias !8649
+  %182 = icmp slt <16 x i8> %181, zeroinitializer
+  %183 = bitcast <16 x i1> %182 to i16
+  %184 = icmp ne i16 %183, 0
+  tail call void @llvm.assume(i1 %184)
+  %185 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %183, i1 true)
+  %186 = zext nneg i16 %185 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit
 
-.lr.ph.i24:                                       ; preds = %173, %.lr.ph.i24
-  %.sroa.0.012.i = phi i64 [ %.sroa.0.0.i, %.lr.ph.i24 ], [ %.sroa.0.09.i, %173 ]
-  %.sroa.7.011.i = phi i64 [ %195, %.lr.ph.i24 ], [ 0, %173 ]
-  %195 = add i64 %.sroa.7.011.i, 16
-  %196 = add i64 %195, %.sroa.0.012.i
-  %.sroa.0.0.i = and i64 %196, %6
-  %197 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.0.i
-  %.sroa.0.0.copyload.i8.i = load <16 x i8>, ptr %197, align 1, !noalias !8646
-  %198 = icmp slt <16 x i8> %.sroa.0.0.copyload.i8.i, zeroinitializer
-  %199 = bitcast <16 x i1> %198 to i16
-  %200 = icmp eq i16 %199, 0
-  br i1 %200, label %.lr.ph.i24, label %._crit_edge.i22
+.lr.ph.i24:                                       ; preds = %165, %.lr.ph.i24
+  %.sroa.0.012.i = phi i64 [ %.sroa.0.0.i, %.lr.ph.i24 ], [ %.sroa.0.09.i, %165 ]
+  %.sroa.7.011.i = phi i64 [ %187, %.lr.ph.i24 ], [ 0, %165 ]
+  %187 = add i64 %.sroa.7.011.i, 16
+  %188 = add i64 %187, %.sroa.0.012.i
+  %.sroa.0.0.i = and i64 %188, %6
+  %189 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.0.i
+  %.sroa.0.0.copyload.i8.i = load <16 x i8>, ptr %189, align 1, !noalias !8646
+  %190 = icmp slt <16 x i8> %.sroa.0.0.copyload.i8.i, zeroinitializer
+  %191 = bitcast <16 x i1> %190 to i16
+  %192 = icmp eq i16 %191, 0
+  br i1 %192, label %.lr.ph.i24, label %._crit_edge.i22
 
-_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit: ; preds = %188, %._crit_edge.i22
-  %.sroa.0.0.i4.i = phi i64 [ %194, %188 ], [ %184, %._crit_edge.i22 ]
-  %201 = lshr i64 %176, 57
-  %202 = trunc nuw nsw i64 %201 to i8
-  %203 = add i64 %.sroa.0.0.i4.i, -16
-  %204 = and i64 %203, %6
-  %205 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.0.i4.i
-  store i8 %202, ptr %205, align 1
-  %206 = getelementptr i8, ptr %.val18, i64 %204
-  %207 = getelementptr i8, ptr %206, i64 16
-  store i8 %202, ptr %207, align 1
-  %208 = sub nsw i64 0, %.sroa.0.0.i4.i
-  %209 = getelementptr inbounds i64, ptr %.val18, i64 %208
-  %210 = getelementptr inbounds i8, ptr %209, i64 -8
-  store i64 %168, ptr %210, align 8
-  %211 = icmp eq i64 %166, 0
-  br i1 %211, label %._crit_edge, label %145
+_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exit: ; preds = %180, %._crit_edge.i22
+  %.sroa.0.0.i4.i = phi i64 [ %186, %180 ], [ %176, %._crit_edge.i22 ]
+  %193 = lshr i64 %168, 57
+  %194 = trunc nuw nsw i64 %193 to i8
+  %195 = add i64 %.sroa.0.0.i4.i, -16
+  %196 = and i64 %195, %6
+  %197 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.0.i4.i
+  store i8 %194, ptr %197, align 1
+  %198 = getelementptr i8, ptr %.val18, i64 %196
+  %199 = getelementptr i8, ptr %198, i64 16
+  store i8 %194, ptr %199, align 1
+  %200 = sub nsw i64 0, %.sroa.0.0.i4.i
+  %201 = getelementptr inbounds i64, ptr %.val18, i64 %200
+  %202 = getelementptr inbounds i8, ptr %201, i64 -8
+  store i64 %160, ptr %202, align 8
+  %203 = icmp eq i64 %158, 0
+  br i1 %203, label %._crit_edge, label %140
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -43061,12 +43046,12 @@ define void @_ZN9workspace9Workspace25recent_navigation_history17h0958d57affa634
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 656
   br label %19
 
-19:                                               ; preds = %55, %5
-  %.sroa.0.0 = phi ptr [ %14, %5 ], [ %25, %55 ]
+19:                                               ; preds = %53, %5
+  %.sroa.0.0 = phi ptr [ %14, %5 ], [ %25, %53 ]
   %20 = icmp eq ptr %.sroa.0.0, %17
   br i1 %20, label %22, label %24
 
-21:                                               ; preds = %51, %22, %43
+21:                                               ; preds = %49, %22, %43
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit"
@@ -43135,7 +43120,7 @@ define void @_ZN9workspace9Workspace25recent_navigation_history17h0958d57affa634
   %40 = extractvalue { i64, i64 } %37, 1
   %41 = icmp eq i64 %40, 4365155009389935492
   %.sroa.0.0.i.i = select i1 %39, i1 %41, i1 false
-  br i1 %.sroa.0.0.i.i, label %55, label %42
+  br i1 %.sroa.0.0.i.i, label %53, label %42
 
 42:                                               ; preds = %.noexc10
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h749e38a2bc9fc4b8E.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
@@ -43146,76 +43131,74 @@ define void @_ZN9workspace9Workspace25recent_navigation_history17h0958d57affa634
 
 43:                                               ; preds = %22
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload, i64 16
-  %45 = icmp slt <16 x i8> %23, zeroinitializer
-  %46 = bitcast <16 x i1> %45 to i16
-  %47 = xor i16 %46, -1
-  %48 = getelementptr i8, ptr %.sroa.018.0.copyload, i64 %.sroa.419.0.copyload
-  %49 = getelementptr i8, ptr %48, i64 1
+  %45 = icmp sgt <16 x i8> %23, splat (i8 -1)
+  %46 = getelementptr i8, ptr %.sroa.018.0.copyload, i64 %.sroa.419.0.copyload
+  %47 = getelementptr i8, ptr %46, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !9538
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.sroa.018.0.copyload, ptr %50, align 8, !alias.scope !9554, !noalias !9555
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %.sroa.018.0.copyload, ptr %48, align 8, !alias.scope !9554, !noalias !9555
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %44, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !9554, !noalias !9555
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %49, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !9554, !noalias !9555
+  store ptr %47, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !9554, !noalias !9555
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 %47, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !9554, !noalias !9555
+  store <16 x i1> %45, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !9554, !noalias !9555
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %.sroa.621.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !9554, !noalias !9555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !9525
   invoke void @_ZN9itertools9Itertools13sorted_by_key17ha5ce44a23b8d4bb6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8)
-          to label %51 unwind label %21
+          to label %49 unwind label %21
 
-51:                                               ; preds = %43
+49:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %52 = icmp eq i64 %2, 0
-  %. = select i1 %52, i64 -1, i64 %3
+  %50 = icmp eq i64 %2, 0
+  %. = select i1 %50, i64 -1, i64 %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %., ptr %53, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i64 %., ptr %51, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h122af37520e3f3adE.llvm.12597586636751361339"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2653fb76e6f9ebabE.exit" unwind label %21
 
-"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2653fb76e6f9ebabE.exit": ; preds = %51
+"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2653fb76e6f9ebabE.exit": ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdccbc71a3bebb670E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef 56, i64 noundef 16)
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdccbc71a3bebb670E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef 56, i64 noundef 16)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-55:                                               ; preds = %.noexc10
-  %56 = getelementptr inbounds nuw i8, ptr %32, i64 128
-  invoke void @_ZN9workspace4pane10NavHistory14for_each_entry17hfb7be44c06de8347E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
+53:                                               ; preds = %.noexc10
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 128
+  invoke void @_ZN9workspace4pane10NavHistory14for_each_entry17hfb7be44c06de8347E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %19 unwind label %.loopexit
 
-"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit": ; preds = %58, %21
-  %lpad.phi24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.phi, %58 ]
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdccbc71a3bebb670E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 56, i64 noundef 16)
-          to label %"_ZN4core3ptr272drop_in_place$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$std..collections..hash..set..HashSet$LT$project..ProjectPath$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h093aace85e0bf19cE.exit" unwind label %60
+"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit": ; preds = %56, %21
+  %lpad.phi24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.phi, %56 ]
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdccbc71a3bebb670E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef 56, i64 noundef 16)
+          to label %"_ZN4core3ptr272drop_in_place$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$std..collections..hash..set..HashSet$LT$project..ProjectPath$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h093aace85e0bf19cE.exit" unwind label %58
 
-.loopexit:                                        ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i", %.noexc, %24, %55
+.loopexit:                                        ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i", %.noexc, %24, %53
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %56
 
 .loopexit.split-lp:                               ; preds = %42, %31
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %56
 
-58:                                               ; preds = %.loopexit.split-lp, %.loopexit
+56:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %59 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hcf89e6fcf0b6c92fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %59, i64 noundef 56, i64 noundef 16)
-          to label %"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit" unwind label %60
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hcf89e6fcf0b6c92fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 56, i64 noundef 16)
+          to label %"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit" unwind label %58
 
-60:                                               ; preds = %58, %"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit"
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %56, %"_ZN4core3ptr211drop_in_place$LT$std..collections..hash..map..HashMap$LT$project..ProjectPath$C$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$usize$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hff3bd0c0497833a7E.exit"
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
@@ -53425,71 +53408,69 @@ define void @_ZN9workspace9Workspace16unfollow_in_pane17h690bcf749d83776aE(ptr d
   %10 = getelementptr i8, ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 1
   %12 = load <16 x i8>, ptr %7, align 16, !noalias !11651
-  %13 = icmp slt <16 x i8> %12, zeroinitializer
-  %14 = bitcast <16 x i1> %13 to i16
-  %15 = xor i16 %14, -1
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1352
-  %18 = load i64, ptr %17, align 8, !alias.scope !11648, !noalias !11649, !noundef !5
+  %13 = icmp sgt <16 x i8> %12, splat (i8 -1)
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1352
+  %16 = load i64, ptr %15, align 8, !alias.scope !11648, !noalias !11649, !noundef !5
   store ptr %7, ptr %5, align 8, !noalias !11642
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %16, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !11642
+  store ptr %14, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !11642
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !11642
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i16 %15, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !11642
+  store <16 x i1> %13, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !11642
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %18, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !11642
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.loopexit, label %.lr.ph.i.i
+  store i64 %16, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !11642
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %4, %35
-  %20 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5), !noalias !11656
-  %21 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !11659, !noalias !11665, !noundef !5
-  %22 = add i64 %21, -1
-  store i64 %22, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !11659, !noalias !11665
-  %23 = icmp eq ptr %20, null
-  br i1 %23, label %.loopexit, label %24
+.lr.ph.i.i:                                       ; preds = %4, %33
+  %18 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5), !noalias !11656
+  %19 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !11659, !noalias !11665, !noundef !5
+  %20 = add i64 %19, -1
+  store i64 %20, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !11659, !noalias !11665
+  %21 = icmp eq ptr %18, null
+  br i1 %21, label %.loopexit, label %22
 
-24:                                               ; preds = %.lr.ph.i.i
-  %25 = getelementptr inbounds i8, ptr %20, i64 -128
-  %.val4.i.i = load i32, ptr %25, align 4, !noalias !11656
-  %26 = getelementptr i8, ptr %20, i64 -124
-  %.val5.i.i = load i32, ptr %26, align 4, !noalias !11656
-  %27 = getelementptr inbounds i8, ptr %20, i64 -96
-  %28 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !11667
-  br i1 %28, label %38, label %29
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = getelementptr inbounds i8, ptr %18, i64 -128
+  %.val4.i.i = load i32, ptr %23, align 4, !noalias !11656
+  %24 = getelementptr i8, ptr %18, i64 -124
+  %.val5.i.i = load i32, ptr %24, align 4, !noalias !11656
+  %25 = getelementptr inbounds i8, ptr %18, i64 -96
+  %26 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !11667
+  br i1 %26, label %36, label %27
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %20, i64 -32
-  %31 = load i32, ptr %30, align 8, !alias.scope !11672, !noalias !11667, !noundef !5
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %35, label %33
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %18, i64 -32
+  %29 = load i32, ptr %28, align 8, !alias.scope !11672, !noalias !11667, !noundef !5
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %33, label %31
 
-33:                                               ; preds = %29
-  %34 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !11667
-  br i1 %34, label %38, label %35
+31:                                               ; preds = %27
+  %32 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !11667
+  br i1 %32, label %36, label %33
 
-35:                                               ; preds = %33, %29
-  %36 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !11659, !noalias !11665, !noundef !5
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.loopexit, label %.lr.ph.i.i
+33:                                               ; preds = %31, %27
+  %34 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !11659, !noalias !11665, !noundef !5
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %.loopexit, label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %35, %.lr.ph.i.i, %4
+.loopexit:                                        ; preds = %33, %.lr.ph.i.i, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11642
-  br label %42
+  br label %40
 
-38:                                               ; preds = %33, %24
+36:                                               ; preds = %31, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11642
-  %39 = call noundef zeroext i1 @_ZN9workspace9Workspace8unfollow17h18f4c9b8c3bcff8eE(ptr noalias noundef nonnull align 8 dereferenceable(1576) %1, i32 noundef %.val4.i.i, i32 noundef %.val5.i.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.val4.i.i, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.val5.i.i, ptr %41, align 4
-  br label %42
+  %37 = call noundef zeroext i1 @_ZN9workspace9Workspace8unfollow17h18f4c9b8c3bcff8eE(ptr noalias noundef nonnull align 8 dereferenceable(1576) %1, i32 noundef %.val4.i.i, i32 noundef %.val5.i.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.val4.i.i, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.val5.i.i, ptr %39, align 4
+  br label %40
 
-42:                                               ; preds = %38, %.loopexit
-  %storemerge = phi i32 [ 1, %38 ], [ 0, %.loopexit ]
+40:                                               ; preds = %36, %.loopexit
+  %storemerge = phi i32 [ 1, %36 ], [ 0, %.loopexit ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }
@@ -56659,85 +56640,81 @@ _ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit: ; preds = %"_Z
   %40 = getelementptr i8, ptr %37, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1
   %42 = load <16 x i8>, ptr %37, align 16, !noalias !12481
-  %43 = icmp slt <16 x i8> %42, zeroinitializer
-  %44 = bitcast <16 x i1> %43 to i16
-  %45 = xor i16 %44, -1
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  %48 = load i64, ptr %47, align 8, !alias.scope !12478, !noalias !12479, !noundef !5
+  %43 = icmp sgt <16 x i8> %42, splat (i8 -1)
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  %46 = load i64, ptr %45, align 8, !alias.scope !12478, !noalias !12479, !noundef !5
   store ptr %37, ptr %5, align 8, !noalias !12472
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %46, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !12472
+  store ptr %44, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !12472
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %41, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !12472
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i16 %45, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !12472
+  store <16 x i1> %43, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !12472
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %48, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !12472
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.loopexit, label %.lr.ph.i.i
+  store i64 %46, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !12472
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit, %65
-  %50 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5), !noalias !12486
-  %51 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !12489, !noalias !12495, !noundef !5
-  %52 = add i64 %51, -1
-  store i64 %52, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !12489, !noalias !12495
-  %53 = icmp eq ptr %50, null
-  br i1 %53, label %.loopexit, label %54
+.lr.ph.i.i:                                       ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit, %63
+  %48 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5), !noalias !12486
+  %49 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !12489, !noalias !12495, !noundef !5
+  %50 = add i64 %49, -1
+  store i64 %50, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !12489, !noalias !12495
+  %51 = icmp eq ptr %48, null
+  br i1 %51, label %.loopexit, label %52
 
-54:                                               ; preds = %.lr.ph.i.i
-  %55 = getelementptr inbounds i8, ptr %50, i64 -128
-  %.val4.i.i = load i32, ptr %55, align 4, !noalias !12486
-  %56 = getelementptr i8, ptr %50, i64 -124
-  %.val5.i.i = load i32, ptr %56, align 4, !noalias !12486
-  %57 = getelementptr inbounds i8, ptr %50, i64 -96
-  %58 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %35), !noalias !12497
-  br i1 %58, label %68, label %59
+52:                                               ; preds = %.lr.ph.i.i
+  %53 = getelementptr inbounds i8, ptr %48, i64 -128
+  %.val4.i.i = load i32, ptr %53, align 4, !noalias !12486
+  %54 = getelementptr i8, ptr %48, i64 -124
+  %.val5.i.i = load i32, ptr %54, align 4, !noalias !12486
+  %55 = getelementptr inbounds i8, ptr %48, i64 -96
+  %56 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %35), !noalias !12497
+  br i1 %56, label %66, label %57
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %50, i64 -32
-  %61 = load i32, ptr %60, align 8, !alias.scope !12502, !noalias !12497, !noundef !5
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %65, label %63
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %48, i64 -32
+  %59 = load i32, ptr %58, align 8, !alias.scope !12502, !noalias !12497, !noundef !5
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %63, label %61
 
-63:                                               ; preds = %59
-  %64 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %35), !noalias !12497
-  br i1 %64, label %68, label %65
+61:                                               ; preds = %57
+  %62 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %35), !noalias !12497
+  br i1 %62, label %66, label %63
 
-65:                                               ; preds = %63, %59
-  %66 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !12489, !noalias !12495, !noundef !5
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.loopexit, label %.lr.ph.i.i
+63:                                               ; preds = %61, %57
+  %64 = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !alias.scope !12489, !noalias !12495, !noundef !5
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %.loopexit, label %.lr.ph.i.i
 
-68:                                               ; preds = %63, %54
+66:                                               ; preds = %61, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12472
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !12505)
-  %69 = load ptr, ptr %34, align 8, !alias.scope !12505, !noalias !12508, !nonnull !5, !noundef !5
-  %70 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %71 = load i64, ptr %70, align 8, !alias.scope !12505, !noalias !12508, !noundef !5
-  %72 = getelementptr i8, ptr %69, i64 %71
-  %73 = getelementptr i8, ptr %72, i64 1
-  %74 = load <16 x i8>, ptr %69, align 16, !noalias !12510
-  %75 = icmp slt <16 x i8> %74, zeroinitializer
-  %76 = bitcast <16 x i1> %75 to i16
-  %77 = xor i16 %76, -1
-  %78 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %79 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %80 = load i64, ptr %79, align 8, !alias.scope !12505, !noalias !12508, !noundef !5
-  store ptr %69, ptr %13, align 8
+  %67 = load ptr, ptr %34, align 8, !alias.scope !12505, !noalias !12508, !nonnull !5, !noundef !5
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %69 = load i64, ptr %68, align 8, !alias.scope !12505, !noalias !12508, !noundef !5
+  %70 = getelementptr i8, ptr %67, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 1
+  %72 = load <16 x i8>, ptr %67, align 16, !noalias !12510
+  %73 = icmp sgt <16 x i8> %72, splat (i8 -1)
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %76 = load i64, ptr %75, align 8, !alias.scope !12505, !noalias !12508, !noundef !5
+  store ptr %67, ptr %13, align 8
   %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %78, ptr %.sroa.474.0..sroa_idx, align 8
+  store ptr %74, ptr %.sroa.474.0..sroa_idx, align 8
   %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %73, ptr %.sroa.575.0..sroa_idx, align 8
+  store ptr %71, ptr %.sroa.575.0..sroa_idx, align 8
   %.sroa.676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i16 %77, ptr %.sroa.676.0..sroa_idx, align 8
+  store <16 x i1> %73, ptr %.sroa.676.0..sroa_idx, align 8
   %.sroa.878.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i64 %80, ptr %.sroa.878.0..sroa_idx, align 8
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread", label %.lr.ph
+  store i64 %76, ptr %.sroa.878.0..sroa_idx, align 8
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread", label %.lr.ph
 
-.loopexit:                                        ; preds = %65, %.lr.ph.i.i, %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit
+.loopexit:                                        ; preds = %63, %.lr.ph.i.i, %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12472
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -56746,122 +56723,122 @@ _ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit: ; preds = %"_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !12515)
   call void @llvm.experimental.noalias.scope.decl(metadata !12518)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  %83 = load i64, ptr %82, align 8, !alias.scope !12515, !noalias !12518, !noundef !5
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %select.unfold, label %85
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1384
+  %79 = load i64, ptr %78, align 8, !alias.scope !12515, !noalias !12518, !noundef !5
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %select.unfold, label %81
 
-85:                                               ; preds = %.loopexit
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %87 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %88 = load i32, ptr %87, align 4, !alias.scope !12520, !noalias !12525, !noundef !5
-  %89 = load i32, ptr %12, align 8, !range !8710, !alias.scope !12520, !noalias !12525, !noundef !5
-  %90 = zext i32 %89 to i64
-  %91 = shl nuw i64 %90, 32
-  %92 = zext i32 %88 to i64
-  %93 = or disjoint i64 %91, %92
-  %94 = mul i64 %93, 5871781006564002453
+81:                                               ; preds = %.loopexit
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1360
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %84 = load i32, ptr %83, align 4, !alias.scope !12520, !noalias !12525, !noundef !5
+  %85 = load i32, ptr %12, align 8, !range !8710, !alias.scope !12520, !noalias !12525, !noundef !5
+  %86 = zext i32 %85 to i64
+  %87 = shl nuw i64 %86, 32
+  %88 = zext i32 %84 to i64
+  %89 = or disjoint i64 %87, %88
+  %90 = mul i64 %89, 5871781006564002453
   call void @llvm.experimental.noalias.scope.decl(metadata !12530)
   call void @llvm.experimental.noalias.scope.decl(metadata !12533)
-  %95 = lshr i64 %94, 57
-  %96 = trunc nuw nsw i64 %95 to i8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1368
-  %98 = load i64, ptr %97, align 8, !alias.scope !12536, !noalias !12537, !noundef !5
-  %99 = load ptr, ptr %86, align 8, !alias.scope !12536, !noalias !12537, !nonnull !5, !noundef !5
-  %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %96, i64 0
+  %91 = lshr i64 %90, 57
+  %92 = trunc nuw nsw i64 %91 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1368
+  %94 = load i64, ptr %93, align 8, !alias.scope !12536, !noalias !12537, !noundef !5
+  %95 = load ptr, ptr %82, align 8, !alias.scope !12536, !noalias !12537, !nonnull !5, !noundef !5
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %92, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %100
+  br label %96
 
-100:                                              ; preds = %119, %85
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %85 ], [ %120, %119 ]
-  %.pn.i.i.i = phi i64 [ %94, %85 ], [ %121, %119 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %98
-  %101 = getelementptr inbounds i8, ptr %99, i64 %.sroa.01.0.i.i.i
-  %.sroa.0.0.copyload.i22.i.i = load <16 x i8>, ptr %101, align 1, !noalias !12540
-  %102 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, %.sroa.0.15.vec.insert.i.i.i
-  %103 = bitcast <16 x i1> %102 to i16
-  %104 = icmp eq i16 %103, 0
-  br i1 %104, label %._crit_edge.i.i, label %.lr.ph.i.i33
+96:                                               ; preds = %115, %81
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %81 ], [ %116, %115 ]
+  %.pn.i.i.i = phi i64 [ %90, %81 ], [ %117, %115 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %94
+  %97 = getelementptr inbounds i8, ptr %95, i64 %.sroa.01.0.i.i.i
+  %.sroa.0.0.copyload.i22.i.i = load <16 x i8>, ptr %97, align 1, !noalias !12540
+  %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, %.sroa.0.15.vec.insert.i.i.i
+  %99 = bitcast <16 x i1> %98 to i16
+  %100 = icmp eq i16 %99, 0
+  br i1 %100, label %._crit_edge.i.i, label %.lr.ph.i.i33
 
-.lr.ph.i.i33:                                     ; preds = %100, %115
-  %.sroa.06.0.i25.i.i = phi i16 [ %117, %115 ], [ %103, %100 ]
-  %105 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i25.i.i, i1 true)
-  %106 = zext nneg i16 %105 to i64
-  %107 = add i64 %.sroa.01.0.i.i.i, %106
-  %108 = and i64 %107, %98
-  %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds { { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} } }, { i32, i32 } }, ptr %99, i64 %109
-  %111 = getelementptr inbounds i8, ptr %110, i64 -40
-  %112 = invoke noundef zeroext i1 @"_ZN76_$LT$gpui..app..entity_map..AnyWeakModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb7d3025254f257c5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %111)
-          to label %.noexc unwind label %165
+.lr.ph.i.i33:                                     ; preds = %96, %111
+  %.sroa.06.0.i25.i.i = phi i16 [ %113, %111 ], [ %99, %96 ]
+  %101 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i25.i.i, i1 true)
+  %102 = zext nneg i16 %101 to i64
+  %103 = add i64 %.sroa.01.0.i.i.i, %102
+  %104 = and i64 %103, %94
+  %105 = sub nsw i64 0, %104
+  %106 = getelementptr inbounds { { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} } }, { i32, i32 } }, ptr %95, i64 %105
+  %107 = getelementptr inbounds i8, ptr %106, i64 -40
+  %108 = invoke noundef zeroext i1 @"_ZN76_$LT$gpui..app..entity_map..AnyWeakModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb7d3025254f257c5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %107)
+          to label %.noexc unwind label %159
 
 .noexc:                                           ; preds = %.lr.ph.i.i33
-  br i1 %112, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit", label %115
+  br i1 %108, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit", label %111
 
-._crit_edge.i.i:                                  ; preds = %115, %100
-  %113 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
-  %114 = bitcast <16 x i1> %113 to i16
-  %.not.i.i.i = icmp eq i16 %114, 0
-  br i1 %.not.i.i.i, label %119, label %select.unfold
+._crit_edge.i.i:                                  ; preds = %111, %96
+  %109 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
+  %110 = bitcast <16 x i1> %109 to i16
+  %.not.i.i.i = icmp eq i16 %110, 0
+  br i1 %.not.i.i.i, label %115, label %select.unfold
 
-115:                                              ; preds = %.noexc
-  %116 = add i16 %.sroa.06.0.i25.i.i, -1
-  %117 = and i16 %116, %.sroa.06.0.i25.i.i
-  %118 = icmp eq i16 %117, 0
-  br i1 %118, label %._crit_edge.i.i, label %.lr.ph.i.i33
+111:                                              ; preds = %.noexc
+  %112 = add i16 %.sroa.06.0.i25.i.i, -1
+  %113 = and i16 %112, %.sroa.06.0.i25.i.i
+  %114 = icmp eq i16 %113, 0
+  br i1 %114, label %._crit_edge.i.i, label %.lr.ph.i.i33
 
-119:                                              ; preds = %._crit_edge.i.i
-  %120 = add i64 %.sroa.9.0.i.i.i, 16
-  %121 = add i64 %.sroa.01.0.i.i.i, %120
-  br label %100
+115:                                              ; preds = %._crit_edge.i.i
+  %116 = add i64 %.sroa.9.0.i.i.i, 16
+  %117 = add i64 %.sroa.01.0.i.i.i, %116
+  br label %96
 
-.lr.ph:                                           ; preds = %68, %126
-  %122 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h3e5d7a19f1806d67E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
-  %123 = load i64, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12543, !noundef !5
-  %124 = add i64 %123, -1
-  store i64 %124, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12543
-  %125 = icmp eq ptr %122, null
-  br i1 %125, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread", label %126
+.lr.ph:                                           ; preds = %66, %122
+  %118 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h3e5d7a19f1806d67E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
+  %119 = load i64, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12543, !noundef !5
+  %120 = add i64 %119, -1
+  store i64 %120, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12543
+  %121 = icmp eq ptr %118, null
+  br i1 %121, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread", label %122
 
-126:                                              ; preds = %.lr.ph
-  %127 = getelementptr inbounds i8, ptr %122, i64 -32
-  %128 = load i32, ptr %127, align 4, !noundef !5
-  %129 = getelementptr inbounds i8, ptr %122, i64 -28
-  %130 = load i32, ptr %129, align 4, !noundef !5
-  %131 = icmp eq i32 %128, %.val4.i.i
-  %132 = icmp eq i32 %130, %.val5.i.i
-  %or.cond = and i1 %131, %132
-  %133 = icmp eq i64 %124, 0
-  %or.cond115 = or i1 %or.cond, %133
+122:                                              ; preds = %.lr.ph
+  %123 = getelementptr inbounds i8, ptr %118, i64 -32
+  %124 = load i32, ptr %123, align 4, !noundef !5
+  %125 = getelementptr inbounds i8, ptr %118, i64 -28
+  %126 = load i32, ptr %125, align 4, !noundef !5
+  %127 = icmp eq i32 %124, %.val4.i.i
+  %128 = icmp eq i32 %126, %.val5.i.i
+  %or.cond = and i1 %127, %128
+  %129 = icmp eq i64 %120, 0
+  %or.cond115 = or i1 %or.cond, %129
   br i1 %or.cond115, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread", label %.lr.ph
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread": ; preds = %.lr.ph, %126
-  %134 = icmp eq i64 %124, 0
-  br i1 %134, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread", label %135
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread": ; preds = %.lr.ph, %122
+  %130 = icmp eq i64 %120, 0
+  br i1 %130, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread", label %131
 
-135:                                              ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread"
-  %136 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h3e5d7a19f1806d67E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
-  %137 = load i64, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12546, !noundef !5
-  %138 = add i64 %137, -1
-  store i64 %138, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12546
-  %139 = icmp eq ptr %136, null
-  br i1 %139, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread", label %140
+131:                                              ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread"
+  %132 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h3e5d7a19f1806d67E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
+  %133 = load i64, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12546, !noundef !5
+  %134 = add i64 %133, -1
+  store i64 %134, ptr %.sroa.878.0..sroa_idx, align 8, !alias.scope !12546
+  %135 = icmp eq ptr %132, null
+  br i1 %135, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread", label %136
 
-140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %136, i64 -32
-  %142 = load i32, ptr %141, align 4, !noundef !5
-  %143 = getelementptr inbounds i8, ptr %136, i64 -28
-  %144 = load i32, ptr %143, align 4, !noundef !5
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds i8, ptr %132, i64 -32
+  %138 = load i32, ptr %137, align 4, !noundef !5
+  %139 = getelementptr inbounds i8, ptr %132, i64 -28
+  %140 = load i32, ptr %139, align 4, !noundef !5
   br label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread"
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread": ; preds = %68, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread", %135, %140
-  %.sroa.662.0 = phi i32 [ %142, %140 ], [ undef, %135 ], [ undef, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread" ], [ undef, %68 ]
-  %.sroa.9.0 = phi i32 [ %144, %140 ], [ undef, %135 ], [ undef, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread" ], [ undef, %68 ]
-  %storemerge = phi i1 [ true, %140 ], [ false, %135 ], [ false, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread" ], [ false, %68 ]
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread": ; preds = %66, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread", %131, %136
+  %.sroa.662.0 = phi i32 [ %138, %136 ], [ undef, %131 ], [ undef, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread" ], [ undef, %66 ]
+  %.sroa.9.0 = phi i32 [ %140, %136 ], [ undef, %131 ], [ undef, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread" ], [ undef, %66 ]
+  %storemerge = phi i1 [ true, %136 ], [ false, %131 ], [ false, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit.thread" ], [ false, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %145
+  br label %141
 
-145:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51", %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread"
+141:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51", %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread"
   %.sroa.662.1 = phi i32 [ %.sroa.662.0, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread" ], [ %.sroa.662.2, %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51" ]
   %.sroa.060.0 = phi i1 [ %storemerge, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread" ], [ %.sroa.060.1, %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51" ]
   %.sroa.9.1 = phi i32 [ %.sroa.9.0, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h501e48a20410560bE.exit37.thread" ], [ %.sroa.9.2, %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51" ]
@@ -56871,144 +56848,142 @@ _ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit: ; preds = %"_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !12549)
-  br i1 %.sroa.060.0, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread", label %146
+  br i1 %.sroa.060.0, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread", label %142
 
-146:                                              ; preds = %145
+142:                                              ; preds = %141
   call void @llvm.experimental.noalias.scope.decl(metadata !12552)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12555
   call void @llvm.experimental.noalias.scope.decl(metadata !12559)
-  %147 = load ptr, ptr %34, align 8, !alias.scope !12562, !noalias !12563, !nonnull !5, !noundef !5
-  %148 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %149 = load i64, ptr %148, align 8, !alias.scope !12562, !noalias !12563, !noundef !5
-  %150 = getelementptr i8, ptr %147, i64 %149
-  %151 = getelementptr i8, ptr %150, i64 1
-  %152 = load <16 x i8>, ptr %147, align 16, !noalias !12565
-  %153 = icmp slt <16 x i8> %152, zeroinitializer
-  %154 = bitcast <16 x i1> %153 to i16
-  %155 = xor i16 %154, -1
-  %156 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %157 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %158 = load i64, ptr %157, align 8, !alias.scope !12562, !noalias !12563, !noundef !5
-  store ptr %147, ptr %4, align 8, !noalias !12555
+  %143 = load ptr, ptr %34, align 8, !alias.scope !12562, !noalias !12563, !nonnull !5, !noundef !5
+  %144 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %145 = load i64, ptr %144, align 8, !alias.scope !12562, !noalias !12563, !noundef !5
+  %146 = getelementptr i8, ptr %143, i64 %145
+  %147 = getelementptr i8, ptr %146, i64 1
+  %148 = load <16 x i8>, ptr %143, align 16, !noalias !12565
+  %149 = icmp sgt <16 x i8> %148, splat (i8 -1)
+  %150 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %152 = load i64, ptr %151, align 8, !alias.scope !12562, !noalias !12563, !noundef !5
+  store ptr %143, ptr %4, align 8, !noalias !12555
   %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %156, ptr %.sroa.410.0..sroa_idx.i.i, align 8, !noalias !12555
+  store ptr %150, ptr %.sroa.410.0..sroa_idx.i.i, align 8, !noalias !12555
   %.sroa.511.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %151, ptr %.sroa.511.0..sroa_idx.i.i, align 8, !noalias !12555
+  store ptr %147, ptr %.sroa.511.0..sroa_idx.i.i, align 8, !noalias !12555
   %.sroa.612.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %155, ptr %.sroa.612.0..sroa_idx.i.i, align 8, !noalias !12555
+  store <16 x i1> %149, ptr %.sroa.612.0..sroa_idx.i.i, align 8, !noalias !12555
   %.sroa.814.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %158, ptr %.sroa.814.0..sroa_idx.i.i, align 8, !noalias !12555
-  %159 = icmp eq i64 %158, 0
-  br i1 %159, label %232, label %160
+  store i64 %152, ptr %.sroa.814.0..sroa_idx.i.i, align 8, !noalias !12555
+  %153 = icmp eq i64 %152, 0
+  br i1 %153, label %226, label %154
 
-160:                                              ; preds = %146
-  %161 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h3e5d7a19f1806d67E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
-          to label %.noexc38 unwind label %226
+154:                                              ; preds = %142
+  %155 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h3e5d7a19f1806d67E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
+          to label %.noexc38 unwind label %220
 
-.noexc38:                                         ; preds = %160
-  %162 = load i64, ptr %.sroa.814.0..sroa_idx.i.i, align 8, !alias.scope !12570, !noalias !12555, !noundef !5
-  %163 = add i64 %162, -1
-  store i64 %163, ptr %.sroa.814.0..sroa_idx.i.i, align 8, !alias.scope !12570, !noalias !12555
-  %164 = icmp eq ptr %161, null
-  br i1 %164, label %232, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit"
+.noexc38:                                         ; preds = %154
+  %156 = load i64, ptr %.sroa.814.0..sroa_idx.i.i, align 8, !alias.scope !12570, !noalias !12555, !noundef !5
+  %157 = add i64 %156, -1
+  store i64 %157, ptr %.sroa.814.0..sroa_idx.i.i, align 8, !alias.scope !12570, !noalias !12555
+  %158 = icmp eq ptr %155, null
+  br i1 %158, label %226, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit"
 
-165:                                              ; preds = %.lr.ph.i.i33
-  %166 = landingpad { ptr, i32 }
+159:                                              ; preds = %.lr.ph.i.i33
+  %160 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !12573)
   call void @llvm.experimental.noalias.scope.decl(metadata !12576)
   call void @llvm.experimental.noalias.scope.decl(metadata !12579)
-  %167 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12582)
   call void @llvm.experimental.noalias.scope.decl(metadata !12585)
-  %168 = load ptr, ptr %167, align 8, !alias.scope !12588, !nonnull !5, !noundef !5
-  %169 = icmp eq ptr %168, inttoptr (i64 -1 to ptr)
-  br i1 %169, label %common.resume, label %170
+  %162 = load ptr, ptr %161, align 8, !alias.scope !12588, !nonnull !5, !noundef !5
+  %163 = icmp eq ptr %162, inttoptr (i64 -1 to ptr)
+  br i1 %163, label %common.resume, label %164
 
-170:                                              ; preds = %165
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %172 = atomicrmw sub ptr %171, i64 1 release, align 8, !noalias !12588
-  %173 = icmp eq i64 %172, 1
-  br i1 %173, label %174, label %common.resume
+164:                                              ; preds = %159
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %166 = atomicrmw sub ptr %165, i64 1 release, align 8, !noalias !12588
+  %167 = icmp eq i64 %166, 1
+  br i1 %167, label %168, label %common.resume
 
-174:                                              ; preds = %170
+168:                                              ; preds = %164
   fence acquire
-  %175 = load ptr, ptr %167, align 8, !alias.scope !12588, !nonnull !5, !noundef !5
+  %169 = load ptr, ptr %161, align 8, !alias.scope !12588, !nonnull !5, !noundef !5
   br label %common.resume.sink.split
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit": ; preds = %.noexc
-  %176 = getelementptr inbounds i8, ptr %110, i64 -8
-  %.val = load i32, ptr %176, align 4
-  %177 = getelementptr i8, ptr %110, i64 -4
-  %.val31 = load i32, ptr %177, align 4
+  %170 = getelementptr inbounds i8, ptr %106, i64 -8
+  %.val = load i32, ptr %170, align 4
+  %171 = getelementptr i8, ptr %106, i64 -4
+  %.val31 = load i32, ptr %171, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !12589)
-  %178 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %179 = load i64, ptr %178, align 8, !alias.scope !12589, !noundef !5
-  %180 = icmp eq i64 %179, 0
-  br i1 %180, label %select.unfold, label %181
+  %172 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %173 = load i64, ptr %172, align 8, !alias.scope !12589, !noundef !5
+  %174 = icmp eq i64 %173, 0
+  br i1 %174, label %select.unfold, label %175
 
-181:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit"
-  %182 = zext i32 %.val to i64
-  %183 = mul i64 %182, 5871781006564002453
-  %184 = zext i32 %.val31 to i64
-  %185 = call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 5)
-  %186 = xor i64 %185, %184
-  %187 = mul i64 %186, 5871781006564002453
+175:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit"
+  %176 = zext i32 %.val to i64
+  %177 = mul i64 %176, 5871781006564002453
+  %178 = zext i32 %.val31 to i64
+  %179 = call i64 @llvm.fshl.i64(i64 %177, i64 %177, i64 5)
+  %180 = xor i64 %179, %178
+  %181 = mul i64 %180, 5871781006564002453
   call void @llvm.experimental.noalias.scope.decl(metadata !12592)
   call void @llvm.experimental.noalias.scope.decl(metadata !12595)
-  %188 = lshr i64 %187, 57
-  %189 = trunc nuw nsw i64 %188 to i8
-  %190 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %191 = load i64, ptr %190, align 8, !alias.scope !12598, !noalias !12599, !noundef !5
-  %192 = load ptr, ptr %34, align 8, !alias.scope !12598, !noalias !12599, !nonnull !5, !noundef !5
-  %.sroa.0.0.vec.insert.i.i.i39 = insertelement <16 x i8> poison, i8 %189, i64 0
+  %182 = lshr i64 %181, 57
+  %183 = trunc nuw nsw i64 %182 to i8
+  %184 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %185 = load i64, ptr %184, align 8, !alias.scope !12598, !noalias !12599, !noundef !5
+  %186 = load ptr, ptr %34, align 8, !alias.scope !12598, !noalias !12599, !nonnull !5, !noundef !5
+  %.sroa.0.0.vec.insert.i.i.i39 = insertelement <16 x i8> poison, i8 %183, i64 0
   %.sroa.0.15.vec.insert.i.i.i40 = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i39, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %193
+  br label %187
 
-193:                                              ; preds = %214, %181
-  %.sroa.9.0.i.i.i41 = phi i64 [ 0, %181 ], [ %215, %214 ]
-  %.pn.i.i.i42 = phi i64 [ %187, %181 ], [ %216, %214 ]
-  %.sroa.01.0.i.i.i43 = and i64 %.pn.i.i.i42, %191
-  %194 = getelementptr inbounds i8, ptr %192, i64 %.sroa.01.0.i.i.i43
-  %.sroa.0.0.copyload.i22.i.i44 = load <16 x i8>, ptr %194, align 1, !noalias !12602
-  %195 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i44, %.sroa.0.15.vec.insert.i.i.i40
-  %196 = bitcast <16 x i1> %195 to i16
-  %197 = icmp eq i16 %196, 0
-  br i1 %197, label %._crit_edge.i.i47, label %.lr.ph.i.i45
+187:                                              ; preds = %208, %175
+  %.sroa.9.0.i.i.i41 = phi i64 [ 0, %175 ], [ %209, %208 ]
+  %.pn.i.i.i42 = phi i64 [ %181, %175 ], [ %210, %208 ]
+  %.sroa.01.0.i.i.i43 = and i64 %.pn.i.i.i42, %185
+  %188 = getelementptr inbounds i8, ptr %186, i64 %.sroa.01.0.i.i.i43
+  %.sroa.0.0.copyload.i22.i.i44 = load <16 x i8>, ptr %188, align 1, !noalias !12602
+  %189 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i44, %.sroa.0.15.vec.insert.i.i.i40
+  %190 = bitcast <16 x i1> %189 to i16
+  %191 = icmp eq i16 %190, 0
+  br i1 %191, label %._crit_edge.i.i47, label %.lr.ph.i.i45
 
-.lr.ph.i.i45:                                     ; preds = %193, %210
-  %.sroa.06.0.i25.i.i46 = phi i16 [ %212, %210 ], [ %196, %193 ]
-  %198 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i25.i.i46, i1 true)
-  %199 = zext nneg i16 %198 to i64
-  %200 = add i64 %.sroa.01.0.i.i.i43, %199
-  %201 = and i64 %200, %191
-  %202 = sub nsw i64 0, %201
-  %203 = getelementptr inbounds { { i32, i32 }, { { i32, i32 }, i64, i16, [3 x i16] } }, ptr %192, i64 %202
-  %204 = getelementptr inbounds i8, ptr %203, i64 -32
-  %.val3.i.i.i = load i32, ptr %204, align 4, !alias.scope !12605, !noalias !12610, !noundef !5
-  %205 = getelementptr i8, ptr %203, i64 -28
-  %.val4.i.i.i = load i32, ptr %205, align 4, !alias.scope !12605, !noalias !12610
-  %206 = icmp eq i32 %.val, %.val3.i.i.i
-  %207 = icmp eq i32 %.val31, %.val4.i.i.i
-  %.sroa.0.0.i.i.i.i.i.i = select i1 %206, i1 %207, i1 false
-  br i1 %.sroa.0.0.i.i.i.i.i.i, label %select.unfold, label %210
+.lr.ph.i.i45:                                     ; preds = %187, %204
+  %.sroa.06.0.i25.i.i46 = phi i16 [ %206, %204 ], [ %190, %187 ]
+  %192 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i25.i.i46, i1 true)
+  %193 = zext nneg i16 %192 to i64
+  %194 = add i64 %.sroa.01.0.i.i.i43, %193
+  %195 = and i64 %194, %185
+  %196 = sub nsw i64 0, %195
+  %197 = getelementptr inbounds { { i32, i32 }, { { i32, i32 }, i64, i16, [3 x i16] } }, ptr %186, i64 %196
+  %198 = getelementptr inbounds i8, ptr %197, i64 -32
+  %.val3.i.i.i = load i32, ptr %198, align 4, !alias.scope !12605, !noalias !12610, !noundef !5
+  %199 = getelementptr i8, ptr %197, i64 -28
+  %.val4.i.i.i = load i32, ptr %199, align 4, !alias.scope !12605, !noalias !12610
+  %200 = icmp eq i32 %.val, %.val3.i.i.i
+  %201 = icmp eq i32 %.val31, %.val4.i.i.i
+  %.sroa.0.0.i.i.i.i.i.i = select i1 %200, i1 %201, i1 false
+  br i1 %.sroa.0.0.i.i.i.i.i.i, label %select.unfold, label %204
 
-._crit_edge.i.i47:                                ; preds = %210, %193
-  %208 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i44, splat (i8 -1)
-  %209 = bitcast <16 x i1> %208 to i16
-  %.not.i.i.i48 = icmp eq i16 %209, 0
-  br i1 %.not.i.i.i48, label %214, label %select.unfold
+._crit_edge.i.i47:                                ; preds = %204, %187
+  %202 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i44, splat (i8 -1)
+  %203 = bitcast <16 x i1> %202 to i16
+  %.not.i.i.i48 = icmp eq i16 %203, 0
+  br i1 %.not.i.i.i48, label %208, label %select.unfold
 
-210:                                              ; preds = %.lr.ph.i.i45
-  %211 = add i16 %.sroa.06.0.i25.i.i46, -1
-  %212 = and i16 %211, %.sroa.06.0.i25.i.i46
-  %213 = icmp eq i16 %212, 0
-  br i1 %213, label %._crit_edge.i.i47, label %.lr.ph.i.i45
+204:                                              ; preds = %.lr.ph.i.i45
+  %205 = add i16 %.sroa.06.0.i25.i.i46, -1
+  %206 = and i16 %205, %.sroa.06.0.i25.i.i46
+  %207 = icmp eq i16 %206, 0
+  br i1 %207, label %._crit_edge.i.i47, label %.lr.ph.i.i45
 
-214:                                              ; preds = %._crit_edge.i.i47
-  %215 = add i64 %.sroa.9.0.i.i.i41, 16
-  %216 = add i64 %.sroa.01.0.i.i.i43, %215
-  br label %193
+208:                                              ; preds = %._crit_edge.i.i47
+  %209 = add i64 %.sroa.9.0.i.i.i41, 16
+  %210 = add i64 %.sroa.01.0.i.i.i43, %209
+  br label %187
 
 select.unfold:                                    ; preds = %._crit_edge.i.i, %._crit_edge.i.i47, %.lr.ph.i.i45, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit", %.loopexit
   %.sroa.662.2 = phi i32 [ undef, %.loopexit ], [ undef, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h13c66b688db8ca29E.exit" ], [ %.val, %.lr.ph.i.i45 ], [ undef, %._crit_edge.i.i47 ], [ undef, %._crit_edge.i.i ]
@@ -57017,314 +56992,314 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %.
   call void @llvm.experimental.noalias.scope.decl(metadata !12615)
   call void @llvm.experimental.noalias.scope.decl(metadata !12618)
   call void @llvm.experimental.noalias.scope.decl(metadata !12621)
-  %217 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12624)
   call void @llvm.experimental.noalias.scope.decl(metadata !12627)
-  %218 = load ptr, ptr %217, align 8, !alias.scope !12630, !nonnull !5, !noundef !5
-  %219 = icmp eq ptr %218, inttoptr (i64 -1 to ptr)
-  br i1 %219, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51", label %220
+  %212 = load ptr, ptr %211, align 8, !alias.scope !12630, !nonnull !5, !noundef !5
+  %213 = icmp eq ptr %212, inttoptr (i64 -1 to ptr)
+  br i1 %213, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51", label %214
 
-220:                                              ; preds = %select.unfold
-  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %222 = atomicrmw sub ptr %221, i64 1 release, align 8, !noalias !12630
-  %223 = icmp eq i64 %222, 1
-  br i1 %223, label %224, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51"
+214:                                              ; preds = %select.unfold
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %216 = atomicrmw sub ptr %215, i64 1 release, align 8, !noalias !12630
+  %217 = icmp eq i64 %216, 1
+  br i1 %217, label %218, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51"
 
-224:                                              ; preds = %220
+218:                                              ; preds = %214
   fence acquire
-  %225 = load ptr, ptr %217, align 8, !alias.scope !12630, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %225, i64 noundef 80, i64 noundef 8) #53, !noalias !12630
+  %219 = load ptr, ptr %211, align 8, !alias.scope !12630, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %219, i64 noundef 80, i64 noundef 8) #53, !noalias !12630
   br label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51"
 
-"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51": ; preds = %select.unfold, %220, %224
+"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit51": ; preds = %select.unfold, %214, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %145
+  br label %141
 
-226:                                              ; preds = %160, %242, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread"
-  %227 = landingpad { ptr, i32 }
+220:                                              ; preds = %154, %236, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread"
+  %221 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #61
-          to label %common.resume unwind label %302
+          to label %common.resume unwind label %296
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit": ; preds = %.noexc38
-  %228 = getelementptr inbounds i8, ptr %161, i64 -32
-  %229 = load i32, ptr %228, align 4, !noalias !12555, !noundef !5
-  %230 = getelementptr inbounds i8, ptr %161, i64 -28
-  %231 = load i32, ptr %230, align 4, !noalias !12555, !noundef !5
+  %222 = getelementptr inbounds i8, ptr %155, i64 -32
+  %223 = load i32, ptr %222, align 4, !noalias !12555, !noundef !5
+  %224 = getelementptr inbounds i8, ptr %155, i64 -28
+  %225 = load i32, ptr %224, align 4, !noalias !12555, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12555
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread": ; preds = %145, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit"
-  %.sroa.659.195 = phi i32 [ %229, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit" ], [ %.sroa.662.1, %145 ]
-  %.sroa.8.194 = phi i32 [ %231, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit" ], [ %.sroa.9.1, %145 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread": ; preds = %141, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit"
+  %.sroa.659.195 = phi i32 [ %223, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit" ], [ %.sroa.662.1, %141 ]
+  %.sroa.8.194 = phi i32 [ %225, %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit" ], [ %.sroa.9.1, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN9workspace9Workspace16unfollow_in_pane17h690bcf749d83776aE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %10, ptr noalias noundef nonnull align 8 dereferenceable(1576) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %233 unwind label %226
+          to label %227 unwind label %220
 
-232:                                              ; preds = %.noexc38, %146
+226:                                              ; preds = %.noexc38, %142
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12555
-  br label %314
+  br label %308
 
-233:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread"
-  %234 = load i32, ptr %10, align 4, !range !4919, !noundef !5
-  %trunc25 = trunc nuw i32 %234 to i1
-  br i1 %trunc25, label %235, label %242
+227:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h9621e5a8ebf1b8b7E.exit.thread"
+  %228 = load i32, ptr %10, align 4, !range !4919, !noundef !5
+  %trunc25 = trunc nuw i32 %228 to i1
+  br i1 %trunc25, label %229, label %236
 
-235:                                              ; preds = %233
-  %236 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %237 = load i32, ptr %236, align 4, !noundef !5
-  %238 = icmp eq i32 %237, %.sroa.659.195
-  %239 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %240 = load i32, ptr %239, align 4
-  %241 = icmp eq i32 %240, %.sroa.8.194
-  %or.cond4 = select i1 %238, i1 %241, i1 false
-  br i1 %or.cond4, label %243, label %242
+229:                                              ; preds = %227
+  %230 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %231 = load i32, ptr %230, align 4, !noundef !5
+  %232 = icmp eq i32 %231, %.sroa.659.195
+  %233 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %234 = load i32, ptr %233, align 4
+  %235 = icmp eq i32 %234, %.sroa.8.194
+  %or.cond4 = select i1 %232, i1 %235, i1 false
+  br i1 %or.cond4, label %237, label %236
 
-242:                                              ; preds = %233, %235
+236:                                              ; preds = %227, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN9workspace9Workspace15start_following17h4c9c7b62534a73bdE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(1576) %0, i32 noundef %.sroa.659.195, i32 noundef %.sroa.8.194, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %244 unwind label %226
+          to label %238 unwind label %220
 
-243:                                              ; preds = %235
+237:                                              ; preds = %229
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %314
+  br label %308
 
-244:                                              ; preds = %242
-  %245 = load i64, ptr %9, align 8, !range !5231, !noundef !5
-  %246 = icmp eq i64 %245, 3
-  br i1 %246, label %249, label %247
+238:                                              ; preds = %236
+  %239 = load i64, ptr %9, align 8, !range !5231, !noundef !5
+  %240 = icmp eq i64 %239, 3
+  br i1 %240, label %243, label %241
 
-247:                                              ; preds = %244
+241:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %248 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %273 unwind label %300
+  %242 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+          to label %267 unwind label %294
 
-249:                                              ; preds = %244
+243:                                              ; preds = %238
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %261 unwind label %250
+          to label %255 unwind label %244
 
-250:                                              ; preds = %249
-  %251 = landingpad { ptr, i32 }
+244:                                              ; preds = %243
+  %245 = landingpad { ptr, i32 }
           cleanup
-  %252 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12631)
   call void @llvm.experimental.noalias.scope.decl(metadata !12634)
-  %253 = load ptr, ptr %252, align 8, !alias.scope !12637, !nonnull !5, !noundef !5
-  %254 = icmp eq ptr %253, inttoptr (i64 -1 to ptr)
-  br i1 %254, label %296, label %255
+  %247 = load ptr, ptr %246, align 8, !alias.scope !12637, !nonnull !5, !noundef !5
+  %248 = icmp eq ptr %247, inttoptr (i64 -1 to ptr)
+  br i1 %248, label %290, label %249
 
-255:                                              ; preds = %250
-  %256 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %257 = atomicrmw sub ptr %256, i64 1 release, align 8, !noalias !12637
-  %258 = icmp eq i64 %257, 1
-  br i1 %258, label %259, label %296
+249:                                              ; preds = %244
+  %250 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %251 = atomicrmw sub ptr %250, i64 1 release, align 8, !noalias !12637
+  %252 = icmp eq i64 %251, 1
+  br i1 %252, label %253, label %290
 
-259:                                              ; preds = %255
+253:                                              ; preds = %249
   fence acquire
-  %260 = load ptr, ptr %252, align 8, !alias.scope !12637, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %260, i64 noundef 80, i64 noundef 8) #53, !noalias !12637
-  br label %296
+  %254 = load ptr, ptr %246, align 8, !alias.scope !12637, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %254, i64 noundef 80, i64 noundef 8) #53, !noalias !12637
+  br label %290
 
-261:                                              ; preds = %249
-  %262 = getelementptr inbounds nuw i8, ptr %11, i64 8
+255:                                              ; preds = %243
+  %256 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12638)
   call void @llvm.experimental.noalias.scope.decl(metadata !12641)
-  %263 = load ptr, ptr %262, align 8, !alias.scope !12644, !nonnull !5, !noundef !5
-  %264 = icmp eq ptr %263, inttoptr (i64 -1 to ptr)
-  br i1 %264, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %265
+  %257 = load ptr, ptr %256, align 8, !alias.scope !12644, !nonnull !5, !noundef !5
+  %258 = icmp eq ptr %257, inttoptr (i64 -1 to ptr)
+  br i1 %258, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %259
 
-265:                                              ; preds = %261
-  %266 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  %267 = atomicrmw sub ptr %266, i64 1 release, align 8, !noalias !12651
-  %268 = icmp eq i64 %267, 1
-  br i1 %268, label %269, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+259:                                              ; preds = %255
+  %260 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %261 = atomicrmw sub ptr %260, i64 1 release, align 8, !noalias !12651
+  %262 = icmp eq i64 %261, 1
+  br i1 %262, label %263, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-269:                                              ; preds = %265
+263:                                              ; preds = %259
   fence acquire
-  %270 = load ptr, ptr %262, align 8, !alias.scope !12644, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %270, i64 noundef 80, i64 noundef 8) #53, !noalias !12651
+  %264 = load ptr, ptr %256, align 8, !alias.scope !12644, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %264, i64 noundef 80, i64 noundef 8) #53, !noalias !12651
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-271:                                              ; preds = %273
-  %272 = landingpad { ptr, i32 }
+265:                                              ; preds = %267
+  %266 = landingpad { ptr, i32 }
           cleanup
-  br label %298
+  br label %292
 
-273:                                              ; preds = %247
-  invoke void @"_ZN4gpui8executor45Task$LT$core..result..Result$LT$T$C$E$GT$$GT$18detach_and_log_err17h8e9ec2028447cab4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %248, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.215)
-          to label %274 unwind label %271
+267:                                              ; preds = %241
+  invoke void @"_ZN4gpui8executor45Task$LT$core..result..Result$LT$T$C$E$GT$$GT$18detach_and_log_err17h8e9ec2028447cab4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %242, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.215)
+          to label %268 unwind label %265
 
-274:                                              ; preds = %273
+268:                                              ; preds = %267
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %286 unwind label %275
+          to label %280 unwind label %269
 
-275:                                              ; preds = %274
-  %276 = landingpad { ptr, i32 }
+269:                                              ; preds = %268
+  %270 = landingpad { ptr, i32 }
           cleanup
-  %277 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12652)
   call void @llvm.experimental.noalias.scope.decl(metadata !12655)
-  %278 = load ptr, ptr %277, align 8, !alias.scope !12658, !nonnull !5, !noundef !5
-  %279 = icmp eq ptr %278, inttoptr (i64 -1 to ptr)
-  br i1 %279, label %common.resume, label %280
+  %272 = load ptr, ptr %271, align 8, !alias.scope !12658, !nonnull !5, !noundef !5
+  %273 = icmp eq ptr %272, inttoptr (i64 -1 to ptr)
+  br i1 %273, label %common.resume, label %274
 
-280:                                              ; preds = %275
-  %281 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  %282 = atomicrmw sub ptr %281, i64 1 release, align 8, !noalias !12658
-  %283 = icmp eq i64 %282, 1
-  br i1 %283, label %284, label %common.resume
+274:                                              ; preds = %269
+  %275 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %276 = atomicrmw sub ptr %275, i64 1 release, align 8, !noalias !12658
+  %277 = icmp eq i64 %276, 1
+  br i1 %277, label %278, label %common.resume
 
-284:                                              ; preds = %280
+278:                                              ; preds = %274
   fence acquire
-  %285 = load ptr, ptr %277, align 8, !alias.scope !12658, !nonnull !5, !noundef !5
+  %279 = load ptr, ptr %271, align 8, !alias.scope !12658, !nonnull !5, !noundef !5
   br label %common.resume.sink.split
 
-286:                                              ; preds = %274
-  %287 = getelementptr inbounds nuw i8, ptr %11, i64 8
+280:                                              ; preds = %268
+  %281 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12659)
   call void @llvm.experimental.noalias.scope.decl(metadata !12662)
-  %288 = load ptr, ptr %287, align 8, !alias.scope !12665, !nonnull !5, !noundef !5
-  %289 = icmp eq ptr %288, inttoptr (i64 -1 to ptr)
-  br i1 %289, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54", label %290
+  %282 = load ptr, ptr %281, align 8, !alias.scope !12665, !nonnull !5, !noundef !5
+  %283 = icmp eq ptr %282, inttoptr (i64 -1 to ptr)
+  br i1 %283, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54", label %284
 
-290:                                              ; preds = %286
-  %291 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  %292 = atomicrmw sub ptr %291, i64 1 release, align 8, !noalias !12672
-  %293 = icmp eq i64 %292, 1
-  br i1 %293, label %294, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54"
+284:                                              ; preds = %280
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  %286 = atomicrmw sub ptr %285, i64 1 release, align 8, !noalias !12672
+  %287 = icmp eq i64 %286, 1
+  br i1 %287, label %288, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54"
 
-294:                                              ; preds = %290
+288:                                              ; preds = %284
   fence acquire
-  %295 = load ptr, ptr %287, align 8, !alias.scope !12665, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %295, i64 noundef 80, i64 noundef 8) #53, !noalias !12672
+  %289 = load ptr, ptr %281, align 8, !alias.scope !12665, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %289, i64 noundef 80, i64 noundef 8) #53, !noalias !12672
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54"
 
-296:                                              ; preds = %259, %255, %250
-  %297 = load i64, ptr %9, align 8, !range !5231, !noundef !5
-  %.not = icmp eq i64 %297, 3
-  br i1 %.not, label %common.resume, label %313
+290:                                              ; preds = %253, %249, %244
+  %291 = load i64, ptr %9, align 8, !range !5231, !noundef !5
+  %.not = icmp eq i64 %291, 3
+  br i1 %.not, label %common.resume, label %307
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54": ; preds = %294, %290, %286
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54": ; preds = %288, %284, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
 
-"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", %310, %309, %305, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54"
+"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", %304, %303, %299, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit54"
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %312
+  br label %306
 
-298:                                              ; preds = %271, %300
-  %299 = phi { ptr, i32 } [ %301, %300 ], [ %272, %271 ]
+292:                                              ; preds = %265, %294
+  %293 = phi { ptr, i32 } [ %295, %294 ], [ %266, %265 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #61
-          to label %common.resume unwind label %302
+          to label %common.resume unwind label %296
 
-300:                                              ; preds = %247
-  %301 = landingpad { ptr, i32 }
+294:                                              ; preds = %241
+  %295 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #61
-          to label %298 unwind label %302
+          to label %292 unwind label %296
 
-302:                                              ; preds = %313, %300, %298, %226
-  %303 = landingpad { ptr, i32 }
+296:                                              ; preds = %307, %294, %292, %220
+  %297 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %269, %265, %261
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %263, %259, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %304 = load i64, ptr %9, align 8, !range !5231, !noundef !5
-  switch i64 %304, label %default.unreachable [
+  %298 = load i64, ptr %9, align 8, !range !5231, !noundef !5
+  switch i64 %298, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
-    i64 2, label %310
+    i64 2, label %304
     i64 0, label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
-    i64 1, label %305
+    i64 1, label %299
   ]
 
 default.unreachable:                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
   unreachable
 
-305:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
-  %306 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %307 = load ptr, ptr %306, align 8, !alias.scope !12673, !noundef !5
-  %308 = icmp eq ptr %307, null
-  br i1 %308, label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit", label %309
+299:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+  %300 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %301 = load ptr, ptr %300, align 8, !alias.scope !12673, !noundef !5
+  %302 = icmp eq ptr %301, null
+  br i1 %302, label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit", label %303
 
-309:                                              ; preds = %305
-  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %306)
+303:                                              ; preds = %299
+  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %300)
   br label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
 
-310:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
-  %311 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h52440ea10ec35c0fE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(8) %311)
+304:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+  %305 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h52440ea10ec35c0fE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(8) %305)
   br label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
 
-312:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55", %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
+306:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55", %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621.exit"
   ret void
 
-common.resume.sink.split:                         ; preds = %284, %174, %324
-  %.sink = phi ptr [ %325, %324 ], [ %175, %174 ], [ %285, %284 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %316, %324 ], [ %166, %174 ], [ %276, %284 ]
+common.resume.sink.split:                         ; preds = %278, %168, %318
+  %.sink = phi ptr [ %319, %318 ], [ %169, %168 ], [ %279, %278 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %310, %318 ], [ %160, %168 ], [ %270, %278 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 80, i64 noundef 8) #53, !noalias !5
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %315, %320, %226, %296, %313, %165, %170, %280, %275, %298
-  %common.resume.op = phi { ptr, i32 } [ %251, %313 ], [ %251, %296 ], [ %227, %226 ], [ %166, %165 ], [ %166, %170 ], [ %276, %280 ], [ %276, %275 ], [ %299, %298 ], [ %316, %320 ], [ %316, %315 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %309, %314, %220, %290, %307, %159, %164, %274, %269, %292
+  %common.resume.op = phi { ptr, i32 } [ %245, %307 ], [ %245, %290 ], [ %221, %220 ], [ %160, %159 ], [ %160, %164 ], [ %270, %274 ], [ %270, %269 ], [ %293, %292 ], [ %310, %314 ], [ %310, %309 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-313:                                              ; preds = %296
+307:                                              ; preds = %290
   invoke void @"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hb376c2110e9518a9E.llvm.7428513249094624621"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #61
-          to label %common.resume unwind label %302
+          to label %common.resume unwind label %296
 
-314:                                              ; preds = %243, %232
+308:                                              ; preds = %237, %226
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %326 unwind label %315
+          to label %320 unwind label %309
 
-315:                                              ; preds = %314
-  %316 = landingpad { ptr, i32 }
+309:                                              ; preds = %308
+  %310 = landingpad { ptr, i32 }
           cleanup
-  %317 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12680)
   call void @llvm.experimental.noalias.scope.decl(metadata !12683)
-  %318 = load ptr, ptr %317, align 8, !alias.scope !12686, !nonnull !5, !noundef !5
-  %319 = icmp eq ptr %318, inttoptr (i64 -1 to ptr)
-  br i1 %319, label %common.resume, label %320
+  %312 = load ptr, ptr %311, align 8, !alias.scope !12686, !nonnull !5, !noundef !5
+  %313 = icmp eq ptr %312, inttoptr (i64 -1 to ptr)
+  br i1 %313, label %common.resume, label %314
 
-320:                                              ; preds = %315
-  %321 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %322 = atomicrmw sub ptr %321, i64 1 release, align 8, !noalias !12686
-  %323 = icmp eq i64 %322, 1
-  br i1 %323, label %324, label %common.resume
+314:                                              ; preds = %309
+  %315 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  %316 = atomicrmw sub ptr %315, i64 1 release, align 8, !noalias !12686
+  %317 = icmp eq i64 %316, 1
+  br i1 %317, label %318, label %common.resume
 
-324:                                              ; preds = %320
+318:                                              ; preds = %314
   fence acquire
-  %325 = load ptr, ptr %317, align 8, !alias.scope !12686, !nonnull !5, !noundef !5
+  %319 = load ptr, ptr %311, align 8, !alias.scope !12686, !nonnull !5, !noundef !5
   br label %common.resume.sink.split
 
-326:                                              ; preds = %314
-  %327 = getelementptr inbounds nuw i8, ptr %11, i64 8
+320:                                              ; preds = %308
+  %321 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12687)
   call void @llvm.experimental.noalias.scope.decl(metadata !12690)
-  %328 = load ptr, ptr %327, align 8, !alias.scope !12693, !nonnull !5, !noundef !5
-  %329 = icmp eq ptr %328, inttoptr (i64 -1 to ptr)
-  br i1 %329, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55", label %330
+  %322 = load ptr, ptr %321, align 8, !alias.scope !12693, !nonnull !5, !noundef !5
+  %323 = icmp eq ptr %322, inttoptr (i64 -1 to ptr)
+  br i1 %323, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55", label %324
 
-330:                                              ; preds = %326
-  %331 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  %332 = atomicrmw sub ptr %331, i64 1 release, align 8, !noalias !12700
-  %333 = icmp eq i64 %332, 1
-  br i1 %333, label %334, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55"
+324:                                              ; preds = %320
+  %325 = getelementptr inbounds nuw i8, ptr %322, i64 8
+  %326 = atomicrmw sub ptr %325, i64 1 release, align 8, !noalias !12700
+  %327 = icmp eq i64 %326, 1
+  br i1 %327, label %328, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55"
 
-334:                                              ; preds = %330
+328:                                              ; preds = %324
   fence acquire
-  %335 = load ptr, ptr %327, align 8, !alias.scope !12693, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %335, i64 noundef 80, i64 noundef 8) #53, !noalias !12700
+  %329 = load ptr, ptr %321, align 8, !alias.scope !12693, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %329, i64 noundef 80, i64 noundef 8) #53, !noalias !12700
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55"
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55": ; preds = %326, %330, %334
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit55": ; preds = %320, %324, %328
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %312
+  br label %306
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57843,366 +57818,364 @@ define noundef zeroext i1 @_ZN9workspace9Workspace8unfollow17h18f4c9b8c3bcff8eE(
   %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %.body40 ]
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 24
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36) #61
-          to label %284 unwind label %178
+          to label %282 unwind label %176
 
-37:                                               ; preds = %.invoke, %213, %197, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i28", %.noexc30, %180, %146, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i21", %.noexc23, %129, %95, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i", %.noexc16, %77, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", %32, %199, %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit, %150, %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit, %104, %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit, %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit"
+37:                                               ; preds = %.invoke, %211, %195, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i28", %.noexc30, %178, %144, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i21", %.noexc23, %127, %93, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i", %.noexc16, %75, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", %32, %197, %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit, %148, %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit, %102, %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit, %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit"
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %35
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.057.0.copyload, i64 16
-  %41 = icmp slt <16 x i8> %34, zeroinitializer
-  %42 = bitcast <16 x i1> %41 to i16
-  %43 = xor i16 %42, -1
-  %44 = getelementptr i8, ptr %.sroa.057.0.copyload, i64 %.sroa.458.0.copyload
-  %45 = getelementptr i8, ptr %44, i64 1
+  %41 = icmp sgt <16 x i8> %34, splat (i8 -1)
+  %42 = getelementptr i8, ptr %.sroa.057.0.copyload, i64 %.sroa.458.0.copyload
+  %43 = getelementptr i8, ptr %42, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !12826
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.sroa.057.0.copyload, ptr %46, align 8, !alias.scope !12834, !noalias !12835
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %.sroa.057.0.copyload, ptr %44, align 8, !alias.scope !12834, !noalias !12835
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %40, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !12834, !noalias !12835
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %45, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !12834, !noalias !12835
+  store ptr %43, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !12834, !noalias !12835
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 %43, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12834, !noalias !12835
+  store <16 x i1> %41, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12834, !noalias !12835
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %.sroa.660.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !12834, !noalias !12835
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12813
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %48 = load i64, ptr %47, align 8, !alias.scope !12836, !noalias !12839, !noundef !5
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %.lr.ph
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %46 = load i64, ptr %45, align 8, !alias.scope !12836, !noalias !12839, !noundef !5
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.5.16..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.7.16..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %52
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br label %50
 
-52:                                               ; preds = %.lr.ph, %"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit"
-  %53 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hc1e110bdb7c0729fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %50)
-          to label %.noexc unwind label %57
+50:                                               ; preds = %.lr.ph, %"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit"
+  %51 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hc1e110bdb7c0729fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %48)
+          to label %.noexc unwind label %55
 
-.noexc:                                           ; preds = %52
-  %54 = load i64, ptr %47, align 8, !alias.scope !12836, !noalias !12839, !noundef !5
-  %55 = add i64 %54, -1
-  store i64 %55, ptr %47, align 8, !alias.scope !12836, !noalias !12839
-  %56 = icmp eq ptr %53, null
-  br i1 %56, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit"
+.noexc:                                           ; preds = %50
+  %52 = load i64, ptr %45, align 8, !alias.scope !12836, !noalias !12839, !noundef !5
+  %53 = add i64 %52, -1
+  store i64 %53, ptr %45, align 8, !alias.scope !12836, !noalias !12839
+  %54 = icmp eq ptr %51, null
+  br i1 %54, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit"
 
-.body40:                                          ; preds = %274, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i", %57, %262
-  %.pn = phi { ptr, i32 } [ %263, %262 ], [ %58, %57 ], [ %275, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i" ], [ %275, %274 ]
+.body40:                                          ; preds = %272, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i", %55, %260
+  %.pn = phi { ptr, i32 } [ %261, %260 ], [ %56, %55 ], [ %273, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i" ], [ %273, %272 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12) #61
-          to label %35 unwind label %178
+          to label %35 unwind label %176
 
-57:                                               ; preds = %52
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %50
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %.body40
 
 "_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit": ; preds = %.noexc
-  %.sroa.5.0..sroa_idx46 = getelementptr inbounds i8, ptr %53, i64 -8
+  %.sroa.5.0..sroa_idx46 = getelementptr inbounds i8, ptr %51, i64 -8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx46, align 8
-  %59 = icmp eq i32 %.sroa.5.0.copyload, 2
-  br i1 %59, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %70
+  %57 = icmp eq i32 %.sroa.5.0.copyload, 2
+  br i1 %57, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %68
 
 "_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread": ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit", %.noexc, %"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit", %39
-  %60 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h7a5f1ccdad52e5daE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %60)
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h7a5f1ccdad52e5daE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %58)
           to label %.noexc15 unwind label %37
 
 .noexc15:                                         ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread"
-  %61 = load i64, ptr %12, align 8, !range !75, !alias.scope !12841, !noundef !5
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit", label %63
+  %59 = load i64, ptr %12, align 8, !range !75, !alias.scope !12841, !noundef !5
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit", label %61
 
-63:                                               ; preds = %.noexc15
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %65 = load i64, ptr %64, align 8, !alias.scope !12841, !noundef !5
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit", label %67
+61:                                               ; preds = %.noexc15
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %63 = load i64, ptr %62, align 8, !alias.scope !12841, !noundef !5
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit", label %65
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %69 = load ptr, ptr %68, align 8, !alias.scope !12841, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %69, i64 noundef %65, i64 noundef %61) #53
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %67 = load ptr, ptr %66, align 8, !alias.scope !12841, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %67, i64 noundef %63, i64 noundef %59) #53
   br label %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit"
 
-70:                                               ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit"
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 -4
+68:                                               ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit"
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 -4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %71 = getelementptr inbounds i8, ptr %53, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
+  %69 = getelementptr inbounds i8, ptr %51, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.16..sroa_idx, align 8
   store i32 %.sroa.7.0.copyload, ptr %.sroa.7.16..sroa_idx, align 4
-  %72 = load ptr, ptr %11, align 8, !nonnull !5, !align !734, !noundef !5
-  %73 = load ptr, ptr %51, align 8, !nonnull !5, !align !36, !noundef !5
+  %70 = load ptr, ptr %11, align 8, !nonnull !5, !align !734, !noundef !5
+  %71 = load ptr, ptr %49, align 8, !nonnull !5, !align !36, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 368
-  %75 = load ptr, ptr %74, align 8, !invariant.load !5, !nonnull !5
-  invoke void %75(ptr noundef nonnull align 1 %72, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-          to label %264 unwind label %262
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 368
+  %73 = load ptr, ptr %72, align 8, !invariant.load !5, !nonnull !5
+  invoke void %73(ptr noundef nonnull align 1 %70, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+          to label %262 unwind label %260
 
-"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit": ; preds = %67, %63, %.noexc15
+"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit": ; preds = %65, %61, %.noexc15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %76 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-          to label %77 unwind label %37
+  %74 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+          to label %75 unwind label %37
 
-77:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit"
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %78)
+75:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..IntoIter$LT$workspace..ViewId$C$workspace..FollowerView$GT$$GT$17haba3233e5ace27d2E.exit"
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %76)
           to label %.noexc16 unwind label %37
 
-.noexc16:                                         ; preds = %77
-  %80 = load i32, ptr %78, align 8, !range !8710, !alias.scope !12850, !noalias !12853, !noundef !5
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1300
-  %82 = load i32, ptr %81, align 4, !alias.scope !12850, !noalias !12853, !noundef !5
-  %83 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %79, i32 noundef %80, i32 noundef %82)
+.noexc16:                                         ; preds = %75
+  %78 = load i32, ptr %76, align 8, !range !8710, !alias.scope !12850, !noalias !12853, !noundef !5
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1300
+  %80 = load i32, ptr %79, align 4, !alias.scope !12850, !noalias !12853, !noundef !5
+  %81 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %77, i32 noundef %78, i32 noundef %80)
           to label %.noexc17 unwind label %37
 
 .noexc17:                                         ; preds = %.noexc16
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.invoke, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i"
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %.invoke, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i"
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i": ; preds = %.noexc17
-  %85 = load ptr, ptr %83, align 8, !nonnull !5, !align !734, !noundef !5
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %87 = load ptr, ptr %86, align 8, !nonnull !5, !align !36, !noundef !5
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %89 = load ptr, ptr %88, align 8, !invariant.load !5, !alias.scope !12855, !nonnull !5
-  %90 = invoke { i64, i64 } %89(ptr noundef nonnull align 1 %85)
+  %83 = load ptr, ptr %81, align 8, !nonnull !5, !align !734, !noundef !5
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %85 = load ptr, ptr %84, align 8, !nonnull !5, !align !36, !noundef !5
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %87 = load ptr, ptr %86, align 8, !invariant.load !5, !alias.scope !12855, !nonnull !5
+  %88 = invoke { i64, i64 } %87(ptr noundef nonnull align 1 %83)
           to label %.noexc19 unwind label %37
 
 .noexc19:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i"
-  %91 = extractvalue { i64, i64 } %90, 0
-  %92 = icmp eq i64 %91, 8736512259559809442
-  %93 = extractvalue { i64, i64 } %90, 1
-  %94 = icmp eq i64 %93, -5297342807411241589
-  %.sroa.0.0.i.i = select i1 %92, i1 %94, i1 false
-  br i1 %.sroa.0.0.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit, label %95
+  %89 = extractvalue { i64, i64 } %88, 0
+  %90 = icmp eq i64 %89, 8736512259559809442
+  %91 = extractvalue { i64, i64 } %88, 1
+  %92 = icmp eq i64 %91, -5297342807411241589
+  %.sroa.0.0.i.i = select i1 %90, i1 %92, i1 false
+  br i1 %.sroa.0.0.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit, label %93
 
-95:                                               ; preds = %.noexc19
+93:                                               ; preds = %.noexc19
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17hb86b8f1401036ecaE.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
           to label %.noexc20 unwind label %37
 
-.noexc20:                                         ; preds = %95
+.noexc20:                                         ; preds = %93
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit: ; preds = %.noexc19
-  %96 = invoke { i64, i64 } @_ZN7project7Project9remote_id17he5ed023f95699a79E(ptr noalias noundef nonnull readonly align 8 dereferenceable(696) %85)
-          to label %97 unwind label %37
+  %94 = invoke { i64, i64 } @_ZN7project7Project9remote_id17he5ed023f95699a79E(ptr noalias noundef nonnull readonly align 8 dereferenceable(696) %83)
+          to label %95 unwind label %37
 
-97:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit
-  %98 = extractvalue { i64, i64 } %96, 0
-  %99 = extractvalue { i64, i64 } %96, 1
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %101 = load i64, ptr %100, align 8, !range !75, !alias.scope !12858, !noundef !5
-  %102 = icmp eq i64 %101, -9223372036854775808
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  br i1 %102, label %106, label %104
+95:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit
+  %96 = extractvalue { i64, i64 } %94, 0
+  %97 = extractvalue { i64, i64 } %94, 1
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %99 = load i64, ptr %98, align 8, !range !75, !alias.scope !12858, !noundef !5
+  %100 = icmp eq i64 %99, -9223372036854775808
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  br i1 %100, label %104, label %102
 
-104:                                              ; preds = %97
-  %105 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-          to label %129 unwind label %37
+102:                                              ; preds = %95
+  %103 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+          to label %127 unwind label %37
 
-106:                                              ; preds = %148, %97
-  %107 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %107)
-          to label %119 unwind label %108
+104:                                              ; preds = %146, %95
+  %105 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %105)
+          to label %117 unwind label %106
 
-108:                                              ; preds = %106
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %104
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %110 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !12861)
   call void @llvm.experimental.noalias.scope.decl(metadata !12864)
-  %111 = load ptr, ptr %110, align 8, !alias.scope !12867, !nonnull !5, !noundef !5
-  %112 = icmp eq ptr %111, inttoptr (i64 -1 to ptr)
-  br i1 %112, label %.body, label %113
+  %109 = load ptr, ptr %108, align 8, !alias.scope !12867, !nonnull !5, !noundef !5
+  %110 = icmp eq ptr %109, inttoptr (i64 -1 to ptr)
+  br i1 %110, label %.body, label %111
 
-113:                                              ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %115 = atomicrmw sub ptr %114, i64 1 release, align 8, !noalias !12867
-  %116 = icmp eq i64 %115, 1
-  br i1 %116, label %117, label %.body
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %113 = atomicrmw sub ptr %112, i64 1 release, align 8, !noalias !12867
+  %114 = icmp eq i64 %113, 1
+  br i1 %114, label %115, label %.body
 
-117:                                              ; preds = %113
+115:                                              ; preds = %111
   fence acquire
-  %118 = load ptr, ptr %110, align 8, !alias.scope !12867, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %118, i64 noundef 80, i64 noundef 8) #53, !noalias !12867
+  %116 = load ptr, ptr %108, align 8, !alias.scope !12867, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %116, i64 noundef 80, i64 noundef 8) #53, !noalias !12867
   br label %.body
 
-119:                                              ; preds = %106
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 32
+117:                                              ; preds = %104
+  %118 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !12868)
   call void @llvm.experimental.noalias.scope.decl(metadata !12871)
-  %121 = load ptr, ptr %120, align 8, !alias.scope !12874, !nonnull !5, !noundef !5
-  %122 = icmp eq ptr %121, inttoptr (i64 -1 to ptr)
-  br i1 %122, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %123
+  %119 = load ptr, ptr %118, align 8, !alias.scope !12874, !nonnull !5, !noundef !5
+  %120 = icmp eq ptr %119, inttoptr (i64 -1 to ptr)
+  br i1 %120, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %121
 
-123:                                              ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %125 = atomicrmw sub ptr %124, i64 1 release, align 8, !noalias !12881
-  %126 = icmp eq i64 %125, 1
-  br i1 %126, label %127, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %123 = atomicrmw sub ptr %122, i64 1 release, align 8, !noalias !12881
+  %124 = icmp eq i64 %123, 1
+  br i1 %124, label %125, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-127:                                              ; preds = %123
+125:                                              ; preds = %121
   fence acquire
-  %128 = load ptr, ptr %120, align 8, !alias.scope !12874, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %128, i64 noundef 80, i64 noundef 8) #53, !noalias !12881
+  %126 = load ptr, ptr %118, align 8, !alias.scope !12874, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %126, i64 noundef 80, i64 noundef 8) #53, !noalias !12881
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-129:                                              ; preds = %104
-  %130 = getelementptr inbounds nuw i8, ptr %105, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %130, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %103)
+127:                                              ; preds = %102
+  %128 = getelementptr inbounds nuw i8, ptr %103, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %101)
           to label %.noexc23 unwind label %37
 
-.noexc23:                                         ; preds = %129
-  %131 = load i32, ptr %103, align 8, !range !8710, !alias.scope !12882, !noalias !12885, !noundef !5
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %133 = load i32, ptr %132, align 4, !alias.scope !12882, !noalias !12885, !noundef !5
-  %134 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %130, i32 noundef %131, i32 noundef %133)
+.noexc23:                                         ; preds = %127
+  %129 = load i32, ptr %101, align 8, !range !8710, !alias.scope !12882, !noalias !12885, !noundef !5
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %131 = load i32, ptr %130, align 4, !alias.scope !12882, !noalias !12885, !noundef !5
+  %132 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %128, i32 noundef %129, i32 noundef %131)
           to label %.noexc24 unwind label %37
 
 .noexc24:                                         ; preds = %.noexc23
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %.invoke, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i21"
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %.invoke, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i21"
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i21": ; preds = %.noexc24
-  %136 = load ptr, ptr %134, align 8, !nonnull !5, !align !734, !noundef !5
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %138 = load ptr, ptr %137, align 8, !nonnull !5, !align !36, !noundef !5
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = load ptr, ptr %139, align 8, !invariant.load !5, !alias.scope !12887, !nonnull !5
-  %141 = invoke { i64, i64 } %140(ptr noundef nonnull align 1 %136)
+  %134 = load ptr, ptr %132, align 8, !nonnull !5, !align !734, !noundef !5
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %136 = load ptr, ptr %135, align 8, !nonnull !5, !align !36, !noundef !5
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  %138 = load ptr, ptr %137, align 8, !invariant.load !5, !alias.scope !12887, !nonnull !5
+  %139 = invoke { i64, i64 } %138(ptr noundef nonnull align 1 %134)
           to label %.noexc26 unwind label %37
 
 .noexc26:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i21"
-  %142 = extractvalue { i64, i64 } %141, 0
-  %143 = icmp eq i64 %142, 5875741650157096801
-  %144 = extractvalue { i64, i64 } %141, 1
-  %145 = icmp eq i64 %144, -4807401864169756943
-  %.sroa.0.0.i.i22 = select i1 %143, i1 %145, i1 false
-  br i1 %.sroa.0.0.i.i22, label %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit, label %146
+  %140 = extractvalue { i64, i64 } %139, 0
+  %141 = icmp eq i64 %140, 5875741650157096801
+  %142 = extractvalue { i64, i64 } %139, 1
+  %143 = icmp eq i64 %142, -4807401864169756943
+  %.sroa.0.0.i.i22 = select i1 %141, i1 %143, i1 false
+  br i1 %.sroa.0.0.i.i22, label %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit, label %144
 
-146:                                              ; preds = %.noexc26
+144:                                              ; preds = %.noexc26
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17hca385a78bd2d59ffE.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
           to label %.noexc27 unwind label %37
 
-.noexc27:                                         ; preds = %146
+.noexc27:                                         ; preds = %144
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit: ; preds = %.noexc26
-  %147 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN4call10ActiveCall4room17heb44132fe249bab9E(ptr noundef nonnull align 8 %136)
-          to label %148 unwind label %37
+  %145 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN4call10ActiveCall4room17heb44132fe249bab9E(ptr noundef nonnull align 8 %134)
+          to label %146 unwind label %37
 
-148:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit
-  %149 = icmp eq ptr %147, null
-  br i1 %149, label %106, label %150
+146:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit
+  %147 = icmp eq ptr %145, null
+  br i1 %147, label %104, label %148
 
-150:                                              ; preds = %148
-  %151 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-          to label %180 unwind label %37
+148:                                              ; preds = %146
+  %149 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+          to label %178 unwind label %37
 
-.body:                                            ; preds = %108, %113, %117
-  %152 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E"(ptr noalias noundef align 8 dereferenceable(32) %152) #61
-          to label %common.resume unwind label %178
+.body:                                            ; preds = %106, %111, %115
+  %150 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E"(ptr noalias noundef align 8 dereferenceable(32) %150) #61
+          to label %common.resume unwind label %176
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %127, %123, %119
-  %153 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %154 = load i32, ptr %153, align 8, !alias.scope !12890, !noundef !5
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %156
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %125, %121, %117
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %152 = load i32, ptr %151, align 8, !alias.scope !12890, !noundef !5
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %154
 
-156:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
-  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %153)
-          to label %168 unwind label %157
+154:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %151)
+          to label %166 unwind label %155
 
-157:                                              ; preds = %156
-  %158 = landingpad { ptr, i32 }
+155:                                              ; preds = %154
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %159 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %157 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !12893)
   call void @llvm.experimental.noalias.scope.decl(metadata !12896)
-  %160 = load ptr, ptr %159, align 8, !alias.scope !12899, !nonnull !5, !noundef !5
-  %161 = icmp eq ptr %160, inttoptr (i64 -1 to ptr)
-  br i1 %161, label %common.resume, label %162
+  %158 = load ptr, ptr %157, align 8, !alias.scope !12899, !nonnull !5, !noundef !5
+  %159 = icmp eq ptr %158, inttoptr (i64 -1 to ptr)
+  br i1 %159, label %common.resume, label %160
 
-162:                                              ; preds = %157
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %164 = atomicrmw sub ptr %163, i64 1 release, align 8, !noalias !12899
-  %165 = icmp eq i64 %164, 1
-  br i1 %165, label %166, label %common.resume
+160:                                              ; preds = %155
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %162 = atomicrmw sub ptr %161, i64 1 release, align 8, !noalias !12899
+  %163 = icmp eq i64 %162, 1
+  br i1 %163, label %164, label %common.resume
 
-166:                                              ; preds = %162
+164:                                              ; preds = %160
   fence acquire
-  %167 = load ptr, ptr %159, align 8, !alias.scope !12899, !nonnull !5, !noundef !5
+  %165 = load ptr, ptr %157, align 8, !alias.scope !12899, !nonnull !5, !noundef !5
   br label %common.resume.sink.split
 
-168:                                              ; preds = %156
-  %169 = getelementptr inbounds nuw i8, ptr %13, i64 96
+166:                                              ; preds = %154
+  %167 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !12900)
   call void @llvm.experimental.noalias.scope.decl(metadata !12903)
-  %170 = load ptr, ptr %169, align 8, !alias.scope !12906, !nonnull !5, !noundef !5
-  %171 = icmp eq ptr %170, inttoptr (i64 -1 to ptr)
-  br i1 %171, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %172
+  %168 = load ptr, ptr %167, align 8, !alias.scope !12906, !nonnull !5, !noundef !5
+  %169 = icmp eq ptr %168, inttoptr (i64 -1 to ptr)
+  br i1 %169, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %170
 
-172:                                              ; preds = %168
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %174 = atomicrmw sub ptr %173, i64 1 release, align 8, !noalias !12913
-  %175 = icmp eq i64 %174, 1
-  br i1 %175, label %176, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39"
+170:                                              ; preds = %166
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %172 = atomicrmw sub ptr %171, i64 1 release, align 8, !noalias !12913
+  %173 = icmp eq i64 %172, 1
+  br i1 %173, label %174, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39"
 
-176:                                              ; preds = %172
+174:                                              ; preds = %170
   fence acquire
-  %177 = load ptr, ptr %169, align 8, !alias.scope !12906, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %177, i64 noundef 80, i64 noundef 8) #53, !noalias !12913
+  %175 = load ptr, ptr %167, align 8, !alias.scope !12906, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %175, i64 noundef 80, i64 noundef 8) #53, !noalias !12913
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39"
 
-common.resume.sink.split:                         ; preds = %166, %250
-  %.sink = phi ptr [ %251, %250 ], [ %167, %166 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %242, %250 ], [ %158, %166 ]
+common.resume.sink.split:                         ; preds = %164, %248
+  %.sink = phi ptr [ %249, %248 ], [ %165, %164 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %240, %248 ], [ %156, %164 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 80, i64 noundef 8) #53, !noalias !5
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %241, %246, %.body, %.body36, %284, %157, %162
-  %common.resume.op = phi { ptr, i32 } [ %158, %162 ], [ %158, %157 ], [ %109, %.body ], [ %216, %.body36 ], [ %.pn10, %284 ], [ %242, %246 ], [ %242, %241 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %239, %244, %.body, %.body36, %282, %155, %160
+  %common.resume.op = phi { ptr, i32 } [ %156, %160 ], [ %156, %155 ], [ %107, %.body ], [ %214, %.body36 ], [ %.pn10, %282 ], [ %240, %244 ], [ %240, %239 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39": ; preds = %31, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", %168, %172, %176, %260, %256, %252, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
-  %.sroa.0.1 = phi i1 [ true, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38" ], [ true, %252 ], [ true, %256 ], [ true, %260 ], [ false, %176 ], [ false, %172 ], [ false, %168 ], [ false, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit" ], [ false, %31 ]
+"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39": ; preds = %31, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", %166, %170, %174, %258, %254, %250, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
+  %.sroa.0.1 = phi i1 [ true, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38" ], [ true, %250 ], [ true, %254 ], [ true, %258 ], [ false, %174 ], [ false, %170 ], [ false, %166 ], [ false, %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit" ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.sroa.0.1
 
-178:                                              ; preds = %284, %262, %.body36, %.body, %.body40, %35
-  %179 = landingpad { ptr, i32 }
+176:                                              ; preds = %282, %260, %.body36, %.body, %.body40, %35
+  %177 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-180:                                              ; preds = %150
-  %181 = getelementptr inbounds nuw i8, ptr %151, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %181, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %147)
+178:                                              ; preds = %148
+  %179 = getelementptr inbounds nuw i8, ptr %149, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %179, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %145)
           to label %.noexc30 unwind label %37
 
-.noexc30:                                         ; preds = %180
-  %182 = load i32, ptr %147, align 8, !range !8710, !alias.scope !12914, !noalias !12917, !noundef !5
-  %183 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %184 = load i32, ptr %183, align 4, !alias.scope !12914, !noalias !12917, !noundef !5
-  %185 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %181, i32 noundef %182, i32 noundef %184)
+.noexc30:                                         ; preds = %178
+  %180 = load i32, ptr %145, align 8, !range !8710, !alias.scope !12914, !noalias !12917, !noundef !5
+  %181 = getelementptr inbounds nuw i8, ptr %145, i64 4
+  %182 = load i32, ptr %181, align 4, !alias.scope !12914, !noalias !12917, !noundef !5
+  %183 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %179, i32 noundef %180, i32 noundef %182)
           to label %.noexc31 unwind label %37
 
 .noexc31:                                         ; preds = %.noexc30
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %.invoke, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i28"
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %.invoke, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i28"
 
 .invoke:                                          ; preds = %.noexc31, %.noexc24, %.noexc17
   invoke void @_ZN3std9panicking11begin_panic17h53b61441d8fa74ebE(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.299.llvm.5196727410964091947, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e73ffbc815108deb73bdb9d87d3223.124.llvm.5196727410964091947) #62
@@ -58212,230 +58185,230 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i28": ; preds = %.noexc31
-  %187 = load ptr, ptr %185, align 8, !nonnull !5, !align !734, !noundef !5
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %189 = load ptr, ptr %188, align 8, !nonnull !5, !align !36, !noundef !5
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  %191 = load ptr, ptr %190, align 8, !invariant.load !5, !alias.scope !12919, !nonnull !5
-  %192 = invoke { i64, i64 } %191(ptr noundef nonnull align 1 %187)
+  %185 = load ptr, ptr %183, align 8, !nonnull !5, !align !734, !noundef !5
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %187 = load ptr, ptr %186, align 8, !nonnull !5, !align !36, !noundef !5
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %189 = load ptr, ptr %188, align 8, !invariant.load !5, !alias.scope !12919, !nonnull !5
+  %190 = invoke { i64, i64 } %189(ptr noundef nonnull align 1 %185)
           to label %.noexc33 unwind label %37
 
 .noexc33:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i28"
-  %193 = extractvalue { i64, i64 } %192, 0
-  %194 = icmp eq i64 %193, -8837223000806423235
-  %195 = extractvalue { i64, i64 } %192, 1
-  %196 = icmp eq i64 %195, -8480792442780059600
-  %.sroa.0.0.i.i29 = select i1 %194, i1 %196, i1 false
-  br i1 %.sroa.0.0.i.i29, label %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit, label %197
+  %191 = extractvalue { i64, i64 } %190, 0
+  %192 = icmp eq i64 %191, -8837223000806423235
+  %193 = extractvalue { i64, i64 } %190, 1
+  %194 = icmp eq i64 %193, -8480792442780059600
+  %.sroa.0.0.i.i29 = select i1 %192, i1 %194, i1 false
+  br i1 %.sroa.0.0.i.i29, label %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit, label %195
 
-197:                                              ; preds = %.noexc33
+195:                                              ; preds = %.noexc33
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17he49f30d68f2c35f5E.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
           to label %.noexc34 unwind label %37
 
-.noexc34:                                         ; preds = %197
+.noexc34:                                         ; preds = %195
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit: ; preds = %.noexc33
-  %198 = invoke noundef i64 @_ZN4call4room4Room2id17hd54df25077bc5036E(ptr noundef nonnull align 8 %187)
-          to label %199 unwind label %37
+  %196 = invoke noundef i64 @_ZN4call4room4Room2id17hd54df25077bc5036E(ptr noundef nonnull align 8 %185)
+          to label %197 unwind label %37
 
-199:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+197:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  %199 = load ptr, ptr %198, align 8, !nonnull !5, !noundef !5
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %201 = load ptr, ptr %200, align 8, !nonnull !5, !noundef !5
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  %203 = load ptr, ptr %202, align 8, !nonnull !5, !noundef !5
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %205 = load i32, ptr %14, align 4, !noundef !5
-  %206 = load i32, ptr %15, align 4, !noundef !5
-  %207 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %198, ptr %207, align 8
-  store i64 %98, ptr %9, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %99, ptr %208, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 1, ptr %209, align 8
+  %203 = load i32, ptr %14, align 4, !noundef !5
+  %204 = load i32, ptr %15, align 4, !noundef !5
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %196, ptr %205, align 8
+  store i64 %96, ptr %9, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %97, ptr %206, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 1, ptr %207, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %205, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 %203, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 %206, ptr %.sroa.5.0..sroa_idx, align 8
-  %210 = invoke noundef ptr @_ZN6client6Client4send17ha64e853241533906E(ptr noundef nonnull align 8 %204, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9)
-          to label %211 unwind label %37
+  store i32 %204, ptr %.sroa.5.0..sroa_idx, align 8
+  %208 = invoke noundef ptr @_ZN6client6Client4send17ha64e853241533906E(ptr noundef nonnull align 8 %202, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9)
+          to label %209 unwind label %37
 
-211:                                              ; preds = %199
+209:                                              ; preds = %197
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %212 = icmp eq ptr %210, null
-  br i1 %212, label %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit", label %213
+  %210 = icmp eq ptr %208, null
+  br i1 %210, label %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit", label %211
 
-213:                                              ; preds = %211
+211:                                              ; preds = %209
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12922
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.218, i64 24, i1 false)
-  invoke void @_ZN4util21log_error_with_caller17h35e97f66897bd922E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %210, i64 noundef 1)
+  invoke void @_ZN4util21log_error_with_caller17h35e97f66897bd922E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %208, i64 noundef 1)
           to label %.noexc35 unwind label %37
 
-.noexc35:                                         ; preds = %213
+.noexc35:                                         ; preds = %211
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12922
   br label %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit"
 
-"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit": ; preds = %.noexc35, %211
-  %214 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %214)
-          to label %226 unwind label %215
+"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit": ; preds = %.noexc35, %209
+  %212 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %212)
+          to label %224 unwind label %213
 
-215:                                              ; preds = %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit"
-  %216 = landingpad { ptr, i32 }
+213:                                              ; preds = %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit"
+  %214 = landingpad { ptr, i32 }
           cleanup
-  %217 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !12925)
   call void @llvm.experimental.noalias.scope.decl(metadata !12928)
-  %218 = load ptr, ptr %217, align 8, !alias.scope !12931, !nonnull !5, !noundef !5
-  %219 = icmp eq ptr %218, inttoptr (i64 -1 to ptr)
-  br i1 %219, label %.body36, label %220
+  %216 = load ptr, ptr %215, align 8, !alias.scope !12931, !nonnull !5, !noundef !5
+  %217 = icmp eq ptr %216, inttoptr (i64 -1 to ptr)
+  br i1 %217, label %.body36, label %218
 
-220:                                              ; preds = %215
-  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %222 = atomicrmw sub ptr %221, i64 1 release, align 8, !noalias !12931
-  %223 = icmp eq i64 %222, 1
-  br i1 %223, label %224, label %.body36
+218:                                              ; preds = %213
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %220 = atomicrmw sub ptr %219, i64 1 release, align 8, !noalias !12931
+  %221 = icmp eq i64 %220, 1
+  br i1 %221, label %222, label %.body36
 
-224:                                              ; preds = %220
+222:                                              ; preds = %218
   fence acquire
-  %225 = load ptr, ptr %217, align 8, !alias.scope !12931, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %225, i64 noundef 80, i64 noundef 8) #53, !noalias !12931
+  %223 = load ptr, ptr %215, align 8, !alias.scope !12931, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %223, i64 noundef 80, i64 noundef 8) #53, !noalias !12931
   br label %.body36
 
-226:                                              ; preds = %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit"
-  %227 = getelementptr inbounds nuw i8, ptr %13, i64 32
+224:                                              ; preds = %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17hdb42981004416ec8E.exit"
+  %225 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !12932)
   call void @llvm.experimental.noalias.scope.decl(metadata !12935)
-  %228 = load ptr, ptr %227, align 8, !alias.scope !12938, !nonnull !5, !noundef !5
-  %229 = icmp eq ptr %228, inttoptr (i64 -1 to ptr)
-  br i1 %229, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38", label %230
+  %226 = load ptr, ptr %225, align 8, !alias.scope !12938, !nonnull !5, !noundef !5
+  %227 = icmp eq ptr %226, inttoptr (i64 -1 to ptr)
+  br i1 %227, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38", label %228
 
-230:                                              ; preds = %226
-  %231 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %232 = atomicrmw sub ptr %231, i64 1 release, align 8, !noalias !12945
-  %233 = icmp eq i64 %232, 1
-  br i1 %233, label %234, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
+228:                                              ; preds = %224
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %230 = atomicrmw sub ptr %229, i64 1 release, align 8, !noalias !12945
+  %231 = icmp eq i64 %230, 1
+  br i1 %231, label %232, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
 
-234:                                              ; preds = %230
+232:                                              ; preds = %228
   fence acquire
-  %235 = load ptr, ptr %227, align 8, !alias.scope !12938, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %235, i64 noundef 80, i64 noundef 8) #53, !noalias !12945
+  %233 = load ptr, ptr %225, align 8, !alias.scope !12938, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %233, i64 noundef 80, i64 noundef 8) #53, !noalias !12945
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
 
-.body36:                                          ; preds = %215, %220, %224
-  %236 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E"(ptr noalias noundef align 8 dereferenceable(32) %236) #61
-          to label %common.resume unwind label %178
+.body36:                                          ; preds = %213, %218, %222
+  %234 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E"(ptr noalias noundef align 8 dereferenceable(32) %234) #61
+          to label %common.resume unwind label %176
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38": ; preds = %234, %230, %226
-  %237 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %238 = load i32, ptr %237, align 8, !alias.scope !12946, !noundef !5
-  %239 = icmp eq i32 %238, 0
-  br i1 %239, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %240
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38": ; preds = %232, %228, %224
+  %235 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %236 = load i32, ptr %235, align 8, !alias.scope !12946, !noundef !5
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %238
 
-240:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
-  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %237)
-          to label %252 unwind label %241
+238:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit38"
+  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %235)
+          to label %250 unwind label %239
 
-241:                                              ; preds = %240
-  %242 = landingpad { ptr, i32 }
+239:                                              ; preds = %238
+  %240 = landingpad { ptr, i32 }
           cleanup
-  %243 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %241 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !12949)
   call void @llvm.experimental.noalias.scope.decl(metadata !12952)
-  %244 = load ptr, ptr %243, align 8, !alias.scope !12955, !nonnull !5, !noundef !5
-  %245 = icmp eq ptr %244, inttoptr (i64 -1 to ptr)
-  br i1 %245, label %common.resume, label %246
+  %242 = load ptr, ptr %241, align 8, !alias.scope !12955, !nonnull !5, !noundef !5
+  %243 = icmp eq ptr %242, inttoptr (i64 -1 to ptr)
+  br i1 %243, label %common.resume, label %244
 
-246:                                              ; preds = %241
-  %247 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  %248 = atomicrmw sub ptr %247, i64 1 release, align 8, !noalias !12955
-  %249 = icmp eq i64 %248, 1
-  br i1 %249, label %250, label %common.resume
+244:                                              ; preds = %239
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %246 = atomicrmw sub ptr %245, i64 1 release, align 8, !noalias !12955
+  %247 = icmp eq i64 %246, 1
+  br i1 %247, label %248, label %common.resume
 
-250:                                              ; preds = %246
+248:                                              ; preds = %244
   fence acquire
-  %251 = load ptr, ptr %243, align 8, !alias.scope !12955, !nonnull !5, !noundef !5
+  %249 = load ptr, ptr %241, align 8, !alias.scope !12955, !nonnull !5, !noundef !5
   br label %common.resume.sink.split
 
-252:                                              ; preds = %240
-  %253 = getelementptr inbounds nuw i8, ptr %13, i64 96
+250:                                              ; preds = %238
+  %251 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !12956)
   call void @llvm.experimental.noalias.scope.decl(metadata !12959)
-  %254 = load ptr, ptr %253, align 8, !alias.scope !12962, !nonnull !5, !noundef !5
-  %255 = icmp eq ptr %254, inttoptr (i64 -1 to ptr)
-  br i1 %255, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %256
+  %252 = load ptr, ptr %251, align 8, !alias.scope !12962, !nonnull !5, !noundef !5
+  %253 = icmp eq ptr %252, inttoptr (i64 -1 to ptr)
+  br i1 %253, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39", label %254
 
-256:                                              ; preds = %252
-  %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %258 = atomicrmw sub ptr %257, i64 1 release, align 8, !noalias !12969
-  %259 = icmp eq i64 %258, 1
-  br i1 %259, label %260, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39"
+254:                                              ; preds = %250
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %256 = atomicrmw sub ptr %255, i64 1 release, align 8, !noalias !12969
+  %257 = icmp eq i64 %256, 1
+  br i1 %257, label %258, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39"
 
-260:                                              ; preds = %256
+258:                                              ; preds = %254
   fence acquire
-  %261 = load ptr, ptr %253, align 8, !alias.scope !12962, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %261, i64 noundef 80, i64 noundef 8) #53, !noalias !12969
+  %259 = load ptr, ptr %251, align 8, !alias.scope !12962, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %259, i64 noundef 80, i64 noundef 8) #53, !noalias !12969
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E.exit39"
 
-262:                                              ; preds = %70
-  %263 = landingpad { ptr, i32 }
+260:                                              ; preds = %68
+  %261 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #61
-          to label %.body40 unwind label %178
+          to label %.body40 unwind label %176
 
-264:                                              ; preds = %70
+262:                                              ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %265 = load ptr, ptr %73, align 8, !invariant.load !5, !noalias !12970
-  %.not.i.i = icmp eq ptr %265, null
-  br i1 %.not.i.i, label %267, label %266
+  %263 = load ptr, ptr %71, align 8, !invariant.load !5, !noalias !12970
+  %.not.i.i = icmp eq ptr %263, null
+  br i1 %.not.i.i, label %265, label %264
 
-266:                                              ; preds = %264
-  invoke void %265(ptr noundef nonnull align 1 %72)
-          to label %267 unwind label %274, !noalias !12970
+264:                                              ; preds = %262
+  invoke void %263(ptr noundef nonnull align 1 %70)
+          to label %265 unwind label %272, !noalias !12970
 
-267:                                              ; preds = %266, %264
-  %268 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %269 = load i64, ptr %268, align 8, !range !1098, !invariant.load !5, !noalias !12975
-  %270 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %271 = load i64, ptr %270, align 8, !range !1099, !invariant.load !5, !noalias !12975
-  %272 = icmp ult i64 %271, -9223372036854775807
-  call void @llvm.assume(i1 %272)
-  %273 = icmp eq i64 %269, 0
-  br i1 %273, label %"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i.i"
+265:                                              ; preds = %264, %262
+  %266 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %267 = load i64, ptr %266, align 8, !range !1098, !invariant.load !5, !noalias !12975
+  %268 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %269 = load i64, ptr %268, align 8, !range !1099, !invariant.load !5, !noalias !12975
+  %270 = icmp ult i64 %269, -9223372036854775807
+  call void @llvm.assume(i1 %270)
+  %271 = icmp eq i64 %267, 0
+  br i1 %271, label %"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i.i": ; preds = %267
-  call void @__rust_dealloc(ptr noundef nonnull %72, i64 noundef %269, i64 noundef %271) #53, !noalias !12975
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i.i": ; preds = %265
+  call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef %267, i64 noundef %269) #53, !noalias !12975
   br label %"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit"
 
-274:                                              ; preds = %266
-  %275 = landingpad { ptr, i32 }
+272:                                              ; preds = %264
+  %273 = landingpad { ptr, i32 }
           cleanup
-  %276 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %277 = load i64, ptr %276, align 8, !range !1098, !invariant.load !5, !noalias !12978
-  %278 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %279 = load i64, ptr %278, align 8, !range !1099, !invariant.load !5, !noalias !12978
-  %280 = icmp ult i64 %279, -9223372036854775807
-  call void @llvm.assume(i1 %280)
-  %281 = icmp eq i64 %277, 0
-  br i1 %281, label %.body40, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i"
+  %274 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %275 = load i64, ptr %274, align 8, !range !1098, !invariant.load !5, !noalias !12978
+  %276 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %277 = load i64, ptr %276, align 8, !range !1099, !invariant.load !5, !noalias !12978
+  %278 = icmp ult i64 %277, -9223372036854775807
+  call void @llvm.assume(i1 %278)
+  %279 = icmp eq i64 %275, 0
+  br i1 %279, label %.body40, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i": ; preds = %274
-  call void @__rust_dealloc(ptr noundef nonnull %72, i64 noundef %277, i64 noundef %279) #53, !noalias !12978
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i1.i.i": ; preds = %272
+  call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef %275, i64 noundef %277) #53, !noalias !12978
   br label %.body40
 
-"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i.i", %267
+"_ZN4core3ptr44drop_in_place$LT$workspace..FollowerView$GT$17ha03f6e1111285149E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i.i", %265
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %282 = load i64, ptr %47, align 8, !alias.scope !12836, !noalias !12839, !noundef !5
-  %283 = icmp eq i64 %282, 0
-  br i1 %283, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %52
+  %280 = load i64, ptr %45, align 8, !alias.scope !12836, !noalias !12839, !noundef !5
+  %281 = icmp eq i64 %280, 0
+  br i1 %281, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9943593bd833ded2E.exit.thread", label %50
 
-284:                                              ; preds = %35
-  %285 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E"(ptr noalias noundef align 8 dereferenceable(32) %285) #61
-          to label %common.resume unwind label %178
+282:                                              ; preds = %35
+  %283 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17he8a3fe95d002a532E"(ptr noalias noundef align 8 dereferenceable(32) %283) #61
+          to label %common.resume unwind label %176
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -59896,12 +59869,12 @@ define void @_ZN9workspace9Workspace13handle_follow17h51b3c67b7fa38825E(ptr dead
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13346
   br label %.loopexit.i
 
-.body.i:                                          ; preds = %258, %250, %197, %189, %168, %118, %114, %109, %107, %72
-  %.pn26.i = phi { ptr, i32 } [ %.pn.i, %168 ], [ %73, %72 ], [ %108, %107 ], [ %110, %109 ], [ %110, %114 ], [ %110, %118 ], [ %190, %197 ], [ %190, %189 ], [ %251, %258 ], [ %251, %250 ]
+.body.i:                                          ; preds = %256, %248, %195, %187, %166, %116, %112, %107, %105, %72
+  %.pn26.i = phi { ptr, i32 } [ %.pn.i, %166 ], [ %73, %72 ], [ %106, %105 ], [ %108, %107 ], [ %108, %112 ], [ %108, %116 ], [ %188, %195 ], [ %188, %187 ], [ %249, %256 ], [ %249, %248 ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17he70db7ea20a6f4e4E"(ptr nonnull %15, ptr nonnull %17) #61
-          to label %common.resume unwind label %279, !noalias !13300
+          to label %common.resume unwind label %277, !noalias !13300
 
-72:                                               ; preds = %133, %.loopexit.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfd24c36a629e97ebE.exit.i.i", %22
+72:                                               ; preds = %131, %.loopexit.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfd24c36a629e97ebE.exit.i.i", %22
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -59925,123 +59898,121 @@ define void @_ZN9workspace9Workspace13handle_follow17h51b3c67b7fa38825E(ptr dead
   %79 = getelementptr i8, ptr %76, i64 %78
   %80 = getelementptr i8, ptr %79, i64 1
   %81 = load <16 x i8>, ptr %76, align 16, !noalias !13368
-  %82 = icmp slt <16 x i8> %81, zeroinitializer
-  %83 = bitcast <16 x i1> %82 to i16
-  %84 = xor i16 %83, -1
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1352
-  %87 = load i64, ptr %86, align 8, !alias.scope !13365, !noalias !13366, !noundef !5
+  %82 = icmp sgt <16 x i8> %81, splat (i8 -1)
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 1352
+  %85 = load i64, ptr %84, align 8, !alias.scope !13365, !noalias !13366, !noundef !5
   store ptr %76, ptr %6, align 8, !noalias !13358
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %85, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !13358
+  store ptr %83, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !13358
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %80, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !13358
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i16 %84, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !13358
+  store <16 x i1> %82, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !13358
   %.sroa.71.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %87, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !noalias !13358
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %.loopexit.i.i, label %.lr.ph.i.i.i41.i
+  store i64 %85, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !noalias !13358
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %.loopexit.i.i, label %.lr.ph.i.i.i41.i
 
-.lr.ph.i.i.i41.i:                                 ; preds = %74, %104
-  %89 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
-          to label %.noexc.i.i unwind label %107, !noalias !13373
+.lr.ph.i.i.i41.i:                                 ; preds = %74, %102
+  %87 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
+          to label %.noexc.i.i unwind label %105, !noalias !13373
 
 .noexc.i.i:                                       ; preds = %.lr.ph.i.i.i41.i
-  %90 = load i64, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !alias.scope !13374, !noalias !13381, !noundef !5
-  %91 = add i64 %90, -1
-  store i64 %91, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !alias.scope !13374, !noalias !13381
-  %92 = icmp eq ptr %89, null
-  br i1 %92, label %.loopexit.i.i, label %93
+  %88 = load i64, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !alias.scope !13374, !noalias !13381, !noundef !5
+  %89 = add i64 %88, -1
+  store i64 %89, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !alias.scope !13374, !noalias !13381
+  %90 = icmp eq ptr %87, null
+  br i1 %90, label %.loopexit.i.i, label %91
 
-93:                                               ; preds = %.noexc.i.i
-  %94 = getelementptr inbounds i8, ptr %89, i64 -128
-  %.val4.i.i.i.i = load i32, ptr %94, align 4, !noalias !13384
-  %95 = getelementptr i8, ptr %89, i64 -124
-  %.val5.i.i.i.i = load i32, ptr %95, align 4, !noalias !13384
-  %96 = getelementptr inbounds i8, ptr %89, i64 -96
-  %97 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
-          to label %.noexc1.i.i unwind label %107, !noalias !13373
+91:                                               ; preds = %.noexc.i.i
+  %92 = getelementptr inbounds i8, ptr %87, i64 -128
+  %.val4.i.i.i.i = load i32, ptr %92, align 4, !noalias !13384
+  %93 = getelementptr i8, ptr %87, i64 -124
+  %.val5.i.i.i.i = load i32, ptr %93, align 4, !noalias !13384
+  %94 = getelementptr inbounds i8, ptr %87, i64 -96
+  %95 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %94, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
+          to label %.noexc1.i.i unwind label %105, !noalias !13373
 
-.noexc1.i.i:                                      ; preds = %93
-  br i1 %97, label %.loopexit.i.i, label %98
+.noexc1.i.i:                                      ; preds = %91
+  br i1 %95, label %.loopexit.i.i, label %96
 
-98:                                               ; preds = %.noexc1.i.i
-  %99 = getelementptr inbounds i8, ptr %89, i64 -32
-  %100 = load i32, ptr %99, align 8, !alias.scope !13385, !noalias !13390, !noundef !5
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %104, label %102
+96:                                               ; preds = %.noexc1.i.i
+  %97 = getelementptr inbounds i8, ptr %87, i64 -32
+  %98 = load i32, ptr %97, align 8, !alias.scope !13385, !noalias !13390, !noundef !5
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %102, label %100
 
-102:                                              ; preds = %98
-  %103 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
-          to label %.noexc2.i.i unwind label %107, !noalias !13373
+100:                                              ; preds = %96
+  %101 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
+          to label %.noexc2.i.i unwind label %105, !noalias !13373
 
-.noexc2.i.i:                                      ; preds = %102
-  br i1 %103, label %.loopexit.i.i, label %104
+.noexc2.i.i:                                      ; preds = %100
+  br i1 %101, label %.loopexit.i.i, label %102
 
-104:                                              ; preds = %.noexc2.i.i, %98
-  %105 = load i64, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !alias.scope !13374, !noalias !13381, !noundef !5
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.loopexit.i.i, label %.lr.ph.i.i.i41.i
+102:                                              ; preds = %.noexc2.i.i, %96
+  %103 = load i64, ptr %.sroa.71.0..sroa_idx.i.i.i, align 8, !alias.scope !13374, !noalias !13381, !noundef !5
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %.loopexit.i.i, label %.lr.ph.i.i.i41.i
 
-107:                                              ; preds = %102, %93, %.lr.ph.i.i.i41.i
-  %108 = landingpad { ptr, i32 }
+105:                                              ; preds = %100, %91, %.lr.ph.i.i.i41.i
+  %106 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #61
-          to label %.body.i unwind label %130, !noalias !13373
+          to label %.body.i unwind label %128, !noalias !13373
 
-.loopexit.i.i:                                    ; preds = %104, %.noexc2.i.i, %.noexc1.i.i, %.noexc.i.i, %74
-  %.sroa.374.1.i = phi i32 [ undef, %74 ], [ undef, %.noexc.i.i ], [ undef, %104 ], [ %.val4.i.i.i.i, %.noexc2.i.i ], [ %.val4.i.i.i.i, %.noexc1.i.i ]
-  %.sroa.475.1.i = phi i32 [ undef, %74 ], [ undef, %.noexc.i.i ], [ undef, %104 ], [ %.val5.i.i.i.i, %.noexc2.i.i ], [ %.val5.i.i.i.i, %.noexc1.i.i ]
-  %storemerge.i.i.i = phi i32 [ 0, %74 ], [ 0, %.noexc.i.i ], [ 0, %104 ], [ 1, %.noexc2.i.i ], [ 1, %.noexc1.i.i ]
+.loopexit.i.i:                                    ; preds = %102, %.noexc2.i.i, %.noexc1.i.i, %.noexc.i.i, %74
+  %.sroa.374.1.i = phi i32 [ undef, %74 ], [ undef, %.noexc.i.i ], [ undef, %102 ], [ %.val4.i.i.i.i, %.noexc2.i.i ], [ %.val4.i.i.i.i, %.noexc1.i.i ]
+  %.sroa.475.1.i = phi i32 [ undef, %74 ], [ undef, %.noexc.i.i ], [ undef, %102 ], [ %.val5.i.i.i.i, %.noexc2.i.i ], [ %.val5.i.i.i.i, %.noexc1.i.i ]
+  %storemerge.i.i.i = phi i32 [ 0, %74 ], [ 0, %.noexc.i.i ], [ 0, %102 ], [ 1, %.noexc2.i.i ], [ 1, %.noexc1.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !13358
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %120 unwind label %109, !noalias !13373
+          to label %118 unwind label %107, !noalias !13373
 
-109:                                              ; preds = %.loopexit.i.i
-  %110 = landingpad { ptr, i32 }
+107:                                              ; preds = %.loopexit.i.i
+  %108 = landingpad { ptr, i32 }
           cleanup
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !13393)
   call void @llvm.experimental.noalias.scope.decl(metadata !13396), !noalias !13399
-  %112 = load ptr, ptr %111, align 8, !alias.scope !13400, !noalias !13401, !nonnull !5, !noundef !5
-  %113 = icmp eq ptr %112, inttoptr (i64 -1 to ptr)
-  br i1 %113, label %.body.i, label %114
+  %110 = load ptr, ptr %109, align 8, !alias.scope !13400, !noalias !13401, !nonnull !5, !noundef !5
+  %111 = icmp eq ptr %110, inttoptr (i64 -1 to ptr)
+  br i1 %111, label %.body.i, label %112
 
-114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %116 = atomicrmw sub ptr %115, i64 1 release, align 8, !noalias !13402
-  %117 = icmp eq i64 %116, 1
-  br i1 %117, label %118, label %.body.i
+112:                                              ; preds = %107
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %114 = atomicrmw sub ptr %113, i64 1 release, align 8, !noalias !13402
+  %115 = icmp eq i64 %114, 1
+  br i1 %115, label %116, label %.body.i
 
-118:                                              ; preds = %114
+116:                                              ; preds = %112
   fence acquire, !noalias !13399
-  %119 = load ptr, ptr %111, align 8, !alias.scope !13400, !noalias !13401, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %119, i64 noundef 80, i64 noundef 8) #53, !noalias !13402
+  %117 = load ptr, ptr %109, align 8, !alias.scope !13400, !noalias !13401, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %117, i64 noundef 80, i64 noundef 8) #53, !noalias !13402
   br label %.body.i
 
-120:                                              ; preds = %.loopexit.i.i
-  %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
+118:                                              ; preds = %.loopexit.i.i
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !13403)
   call void @llvm.experimental.noalias.scope.decl(metadata !13406)
-  %122 = load ptr, ptr %121, align 8, !alias.scope !13409, !noalias !13401, !nonnull !5, !noundef !5
-  %123 = icmp eq ptr %122, inttoptr (i64 -1 to ptr)
-  br i1 %123, label %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i", label %124
+  %120 = load ptr, ptr %119, align 8, !alias.scope !13409, !noalias !13401, !nonnull !5, !noundef !5
+  %121 = icmp eq ptr %120, inttoptr (i64 -1 to ptr)
+  br i1 %121, label %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i", label %122
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %126 = atomicrmw sub ptr %125, i64 1 release, align 8, !noalias !13416
-  %127 = icmp eq i64 %126, 1
-  br i1 %127, label %128, label %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i"
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %124 = atomicrmw sub ptr %123, i64 1 release, align 8, !noalias !13416
+  %125 = icmp eq i64 %124, 1
+  br i1 %125, label %126, label %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i"
 
-128:                                              ; preds = %124
+126:                                              ; preds = %122
   fence acquire
-  %129 = load ptr, ptr %121, align 8, !alias.scope !13409, !noalias !13401, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %129, i64 noundef 80, i64 noundef 8) #53, !noalias !13416
+  %127 = load ptr, ptr %119, align 8, !alias.scope !13409, !noalias !13401, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %127, i64 noundef 80, i64 noundef 8) #53, !noalias !13416
   br label %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i"
 
-130:                                              ; preds = %107
-  %131 = landingpad { ptr, i32 }
+128:                                              ; preds = %105
+  %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !13373
   unreachable
@@ -60050,107 +60021,107 @@ define void @_ZN9workspace9Workspace13handle_follow17h51b3c67b7fa38825E(ptr dead
   %.sroa.073.0.i = phi i32 [ %storemerge.i.i.i, %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i" ], [ 0, %71 ], [ 0, %.noexc.i ], [ 0, %._crit_edge.i.i.i.i ]
   %.sroa.374.0.i = phi i32 [ %.sroa.374.1.i, %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i" ], [ undef, %71 ], [ undef, %.noexc.i ], [ undef, %._crit_edge.i.i.i.i ]
   %.sroa.475.0.i = phi i32 [ %.sroa.475.1.i, %"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i" ], [ undef, %71 ], [ undef, %.noexc.i ], [ undef, %._crit_edge.i.i.i.i ]
-  %132 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-          to label %133 unwind label %72, !noalias !13300
+  %130 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+          to label %131 unwind label %72, !noalias !13300
 
-"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i": ; preds = %128, %124, %120
+"_ZN9workspace9Workspace24active_view_for_follower28_$u7b$$u7b$closure$u7d$$u7d$17hdb36148a7abe93f8E.exit.i": ; preds = %126, %122, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !13305
   br label %.loopexit.i
 
-133:                                              ; preds = %.loopexit.i
-  %134 = getelementptr inbounds nuw i8, ptr %17, i64 264
-  %135 = load ptr, ptr %134, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
-  %136 = invoke { ptr, ptr } %135(ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %132)
-          to label %137 unwind label %72, !noalias !13300
+131:                                              ; preds = %.loopexit.i
+  %132 = getelementptr inbounds nuw i8, ptr %17, i64 264
+  %133 = load ptr, ptr %132, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
+  %134 = invoke { ptr, ptr } %133(ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %130)
+          to label %135 unwind label %72, !noalias !13300
 
-137:                                              ; preds = %133
-  %138 = extractvalue { ptr, ptr } %136, 0
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %141
+135:                                              ; preds = %131
+  %136 = extractvalue { ptr, ptr } %134, 0
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %139
 
-140:                                              ; preds = %137
+138:                                              ; preds = %135
   store i64 8, ptr %14, align 8, !alias.scope !13300, !noalias !13307
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i"
 
-141:                                              ; preds = %137
-  %142 = extractvalue { ptr, ptr } %136, 1
-  %143 = icmp ne ptr %142, null
-  call void @llvm.assume(i1 %143)
+139:                                              ; preds = %135
+  %140 = extractvalue { ptr, ptr } %134, 1
+  %141 = icmp ne ptr %140, null
+  call void @llvm.assume(i1 %141)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !13305
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 1392
-  %145 = load ptr, ptr %144, align 8, !alias.scope !13303, !noalias !13417, !nonnull !5, !noundef !5
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  %147 = getelementptr inbounds nuw i8, ptr %142, i64 352
-  %148 = load ptr, ptr %147, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
-  invoke void %148(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull align 1 %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %146, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-          to label %171 unwind label %169, !noalias !13300
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 1392
+  %143 = load ptr, ptr %142, align 8, !alias.scope !13303, !noalias !13417, !nonnull !5, !noundef !5
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 352
+  %146 = load ptr, ptr %145, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
+  invoke void %146(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull align 1 %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %144, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+          to label %169 unwind label %167, !noalias !13300
 
-"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i": ; preds = %188, %181, %140
-  %149 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !13300
-  %.not.i.i = icmp eq ptr %149, null
-  br i1 %.not.i.i, label %151, label %150
+"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i": ; preds = %186, %179, %138
+  %147 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !13300
+  %.not.i.i = icmp eq ptr %147, null
+  br i1 %.not.i.i, label %149, label %148
 
-150:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i"
-  invoke void %149(ptr noundef nonnull align 1 %15)
-          to label %151 unwind label %159, !noalias !13300
+148:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i"
+  invoke void %147(ptr noundef nonnull align 1 %15)
+          to label %149 unwind label %157, !noalias !13300
 
-151:                                              ; preds = %150, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i"
-  %152 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %153 = load i64, ptr %152, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %154 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %155 = load i64, ptr %154, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %156 = icmp ult i64 %155, -9223372036854775807
-  call void @llvm.assume(i1 %156)
-  %157 = icmp eq i64 %153, 0
-  br i1 %157, label %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit, label %158
+149:                                              ; preds = %148, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i"
+  %150 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %151 = load i64, ptr %150, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %152 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %153 = load i64, ptr %152, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %154 = icmp ult i64 %153, -9223372036854775807
+  call void @llvm.assume(i1 %154)
+  %155 = icmp eq i64 %151, 0
+  br i1 %155, label %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit, label %156
 
-158:                                              ; preds = %151
-  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %153, i64 noundef range(i64 1, -9223372036854775807) %155) #53, !noalias !13300
+156:                                              ; preds = %149
+  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %151, i64 noundef range(i64 1, -9223372036854775807) %153) #53, !noalias !13300
   br label %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit
 
-159:                                              ; preds = %150
-  %160 = landingpad { ptr, i32 }
+157:                                              ; preds = %148
+  %158 = landingpad { ptr, i32 }
           cleanup
-  %161 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %162 = load i64, ptr %161, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %163 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %164 = load i64, ptr %163, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %165 = icmp ult i64 %164, -9223372036854775807
-  call void @llvm.assume(i1 %165)
-  %166 = icmp eq i64 %162, 0
-  br i1 %166, label %common.resume, label %167
+  %159 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %160 = load i64, ptr %159, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %161 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %162 = load i64, ptr %161, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %163 = icmp ult i64 %162, -9223372036854775807
+  call void @llvm.assume(i1 %163)
+  %164 = icmp eq i64 %160, 0
+  br i1 %164, label %common.resume, label %165
 
-167:                                              ; preds = %159
-  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %162, i64 noundef range(i64 1, -9223372036854775807) %164) #53, !noalias !13300
+165:                                              ; preds = %157
+  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %160, i64 noundef range(i64 1, -9223372036854775807) %162) #53, !noalias !13300
   br label %common.resume
 
-common.resume:                                    ; preds = %290, %286, %.body.i, %159, %167, %269, %277
-  %common.resume.op = phi { ptr, i32 } [ %160, %167 ], [ %160, %159 ], [ %270, %277 ], [ %270, %269 ], [ %.pn26.i, %.body.i ], [ %287, %286 ], [ %287, %290 ]
+common.resume:                                    ; preds = %288, %284, %.body.i, %157, %165, %267, %275
+  %common.resume.op = phi { ptr, i32 } [ %158, %165 ], [ %158, %157 ], [ %268, %275 ], [ %268, %267 ], [ %.pn26.i, %.body.i ], [ %285, %284 ], [ %285, %288 ]
   resume { ptr, i32 } %common.resume.op
 
-168:                                              ; preds = %207, %169
-  %.pn.i = phi { ptr, i32 } [ %208, %207 ], [ %170, %169 ]
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E"(ptr nonnull %138, ptr nonnull %142) #61
-          to label %.body.i unwind label %279, !noalias !13300
+166:                                              ; preds = %205, %167
+  %.pn.i = phi { ptr, i32 } [ %206, %205 ], [ %168, %167 ]
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E"(ptr nonnull %136, ptr nonnull %140) #61
+          to label %.body.i unwind label %277, !noalias !13300
 
-169:                                              ; preds = %278, %174, %141
-  %170 = landingpad { ptr, i32 }
+167:                                              ; preds = %276, %172, %139
+  %168 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %166
 
-171:                                              ; preds = %141
-  %172 = load i64, ptr %11, align 8, !range !865, !noalias !13305, !noundef !5
-  %trunc.i = trunc nuw i64 %172 to i1
-  br i1 %trunc.i, label %174, label %173
+169:                                              ; preds = %139
+  %170 = load i64, ptr %11, align 8, !range !865, !noalias !13305, !noundef !5
+  %trunc.i = trunc nuw i64 %170 to i1
+  br i1 %trunc.i, label %172, label %171
 
-173:                                              ; preds = %171
+171:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !13305
   store i64 8, ptr %14, align 8, !alias.scope !13300, !noalias !13307
-  br label %178
+  br label %176
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.078.0.copyload.i = load i32, ptr %175, align 8, !noalias !13305
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.078.0.copyload.i = load i32, ptr %173, align 8, !noalias !13305
   %.sroa.579.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 12
   %.sroa.579.0.copyload.i = load i32, ptr %.sroa.579.0..sroa_idx.i, align 4, !noalias !13305
   %.sroa.680.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -60158,150 +60129,150 @@ common.resume:                                    ; preds = %290, %286, %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !13305
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !13305
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !13305
-  %176 = getelementptr inbounds nuw i8, ptr %142, i64 376
-  %177 = load ptr, ptr %176, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
-  invoke void %177(ptr noalias noundef nonnull sret([272 x i8]) align 8 captures(none) dereferenceable(272) %9, ptr noundef nonnull align 1 %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-          to label %198 unwind label %169, !noalias !13300
+  %174 = getelementptr inbounds nuw i8, ptr %140, i64 376
+  %175 = load ptr, ptr %174, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
+  invoke void %175(ptr noalias noundef nonnull sret([272 x i8]) align 8 captures(none) dereferenceable(272) %9, ptr noundef nonnull align 1 %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+          to label %196 unwind label %167, !noalias !13300
 
-178:                                              ; preds = %206, %173
-  %179 = load ptr, ptr %142, align 8, !invariant.load !5, !noalias !13300
-  %.not.i42.i = icmp eq ptr %179, null
-  br i1 %.not.i42.i, label %181, label %180
+176:                                              ; preds = %204, %171
+  %177 = load ptr, ptr %140, align 8, !invariant.load !5, !noalias !13300
+  %.not.i42.i = icmp eq ptr %177, null
+  br i1 %.not.i42.i, label %179, label %178
 
-180:                                              ; preds = %178
-  invoke void %179(ptr noundef nonnull align 1 %138)
-          to label %181 unwind label %189, !noalias !13300
+178:                                              ; preds = %176
+  invoke void %177(ptr noundef nonnull align 1 %136)
+          to label %179 unwind label %187, !noalias !13300
 
-181:                                              ; preds = %180, %178
-  %182 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %183 = load i64, ptr %182, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %184 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %185 = load i64, ptr %184, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %186 = icmp ult i64 %185, -9223372036854775807
-  call void @llvm.assume(i1 %186)
-  %187 = icmp eq i64 %183, 0
-  br i1 %187, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i", label %188
+179:                                              ; preds = %178, %176
+  %180 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %181 = load i64, ptr %180, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %182 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %183 = load i64, ptr %182, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %184 = icmp ult i64 %183, -9223372036854775807
+  call void @llvm.assume(i1 %184)
+  %185 = icmp eq i64 %181, 0
+  br i1 %185, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i", label %186
 
-188:                                              ; preds = %181
-  call void @__rust_dealloc(ptr noundef nonnull %138, i64 noundef range(i64 1, -9223372036854775808) %183, i64 noundef range(i64 1, -9223372036854775807) %185) #53, !noalias !13300
+186:                                              ; preds = %179
+  call void @__rust_dealloc(ptr noundef nonnull %136, i64 noundef range(i64 1, -9223372036854775808) %181, i64 noundef range(i64 1, -9223372036854775807) %183) #53, !noalias !13300
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit.i"
 
-189:                                              ; preds = %180
-  %190 = landingpad { ptr, i32 }
+187:                                              ; preds = %178
+  %188 = landingpad { ptr, i32 }
           cleanup
-  %191 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %192 = load i64, ptr %191, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %193 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %194 = load i64, ptr %193, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %195 = icmp ult i64 %194, -9223372036854775807
-  call void @llvm.assume(i1 %195)
-  %196 = icmp eq i64 %192, 0
-  br i1 %196, label %.body.i, label %197
+  %189 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %190 = load i64, ptr %189, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %191 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %192 = load i64, ptr %191, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %193 = icmp ult i64 %192, -9223372036854775807
+  call void @llvm.assume(i1 %193)
+  %194 = icmp eq i64 %190, 0
+  br i1 %194, label %.body.i, label %195
 
-197:                                              ; preds = %189
-  call void @__rust_dealloc(ptr noundef nonnull %138, i64 noundef range(i64 1, -9223372036854775808) %192, i64 noundef range(i64 1, -9223372036854775807) %194) #53, !noalias !13300
+195:                                              ; preds = %187
+  call void @__rust_dealloc(ptr noundef nonnull %136, i64 noundef range(i64 1, -9223372036854775808) %190, i64 noundef range(i64 1, -9223372036854775807) %192) #53, !noalias !13300
   br label %.body.i
 
-198:                                              ; preds = %174
-  %199 = load i64, ptr %9, align 8, !range !1164, !noalias !13305, !noundef !5
-  %200 = icmp eq i64 %199, 7
-  br i1 %200, label %201, label %202
+196:                                              ; preds = %172
+  %197 = load i64, ptr %9, align 8, !range !1164, !noalias !13305, !noundef !5
+  %198 = icmp eq i64 %197, 7
+  br i1 %198, label %199, label %200
 
-201:                                              ; preds = %198
+199:                                              ; preds = %196
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !13305
   store i64 8, ptr %14, align 8, !alias.scope !13300, !noalias !13307
-  br label %206
+  br label %204
 
-202:                                              ; preds = %198
+200:                                              ; preds = %196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, ptr noundef nonnull align 8 dereferenceable(272) %9, i64 272, i1 false), !noalias !13305
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !13305
-  %203 = getelementptr inbounds nuw i8, ptr %142, i64 408
-  %204 = load ptr, ptr %203, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
-  %205 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 1 %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-          to label %209 unwind label %207, !noalias !13300
+  %201 = getelementptr inbounds nuw i8, ptr %140, i64 408
+  %202 = load ptr, ptr %201, align 8, !invariant.load !5, !noalias !13300, !nonnull !5
+  %203 = invoke noundef zeroext i1 %202(ptr noundef nonnull align 1 %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+          to label %207 unwind label %205, !noalias !13300
 
-206:                                              ; preds = %278, %201
+204:                                              ; preds = %276, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !13305
-  br label %178
+  br label %176
 
-207:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i, %233, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i", %222, %.noexc45.i, %214, %212, %202
-  %208 = landingpad { ptr, i32 }
+205:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i, %231, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i", %220, %.noexc45.i, %212, %210, %200
+  %206 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.7428513249094624621"(ptr noalias noundef nonnull align 8 dereferenceable(272) %10) #61
-          to label %168 unwind label %279, !noalias !13300
+          to label %166 unwind label %277, !noalias !13300
 
-209:                                              ; preds = %202
-  br i1 %205, label %210, label %239
+207:                                              ; preds = %200
+  br i1 %203, label %208, label %237
 
-210:                                              ; preds = %209
-  %211 = icmp eq i64 %2, 1
-  br i1 %211, label %212, label %278
+208:                                              ; preds = %207
+  %209 = icmp eq i64 %2, 1
+  br i1 %209, label %210, label %276
+
+210:                                              ; preds = %208
+  %211 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+          to label %212 unwind label %205, !noalias !13300
 
 212:                                              ; preds = %210
-  %213 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-          to label %214 unwind label %207, !noalias !13300
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 1296
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %213)
+          to label %.noexc45.i unwind label %205, !noalias !13300
 
-214:                                              ; preds = %212
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 1296
-  %216 = getelementptr inbounds nuw i8, ptr %213, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %216, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %215)
-          to label %.noexc45.i unwind label %207, !noalias !13300
-
-.noexc45.i:                                       ; preds = %214
-  %217 = load i32, ptr %215, align 8, !range !8710, !alias.scope !13418, !noalias !13421, !noundef !5
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 1300
-  %219 = load i32, ptr %218, align 4, !alias.scope !13418, !noalias !13421, !noundef !5
-  %220 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %216, i32 noundef %217, i32 noundef %219)
-          to label %.noexc46.i unwind label %207, !noalias !13300
+.noexc45.i:                                       ; preds = %212
+  %215 = load i32, ptr %213, align 8, !range !8710, !alias.scope !13418, !noalias !13421, !noundef !5
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 1300
+  %217 = load i32, ptr %216, align 4, !alias.scope !13418, !noalias !13421, !noundef !5
+  %218 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %214, i32 noundef %215, i32 noundef %217)
+          to label %.noexc46.i unwind label %205, !noalias !13300
 
 .noexc46.i:                                       ; preds = %.noexc45.i
-  %221 = icmp eq ptr %220, null
-  br i1 %221, label %222, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i"
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %220, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i"
 
-222:                                              ; preds = %.noexc46.i
+220:                                              ; preds = %.noexc46.i
   invoke void @_ZN3std9panicking11begin_panic17h53b61441d8fa74ebE(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.299.llvm.5196727410964091947, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e73ffbc815108deb73bdb9d87d3223.124.llvm.5196727410964091947) #62
-          to label %.noexc47.i unwind label %207, !noalias !13300
+          to label %.noexc47.i unwind label %205, !noalias !13300
 
-.noexc47.i:                                       ; preds = %222
+.noexc47.i:                                       ; preds = %220
   unreachable
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i": ; preds = %.noexc46.i
-  %223 = load ptr, ptr %220, align 8, !noalias !13300, !nonnull !5, !align !734, !noundef !5
-  %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %225 = load ptr, ptr %224, align 8, !noalias !13300, !nonnull !5, !align !36, !noundef !5
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  %227 = load ptr, ptr %226, align 8, !invariant.load !5, !alias.scope !13423, !noalias !13300, !nonnull !5
-  %228 = invoke { i64, i64 } %227(ptr noundef nonnull align 1 %223)
-          to label %.noexc48.i unwind label %207, !noalias !13300
+  %221 = load ptr, ptr %218, align 8, !noalias !13300, !nonnull !5, !align !734, !noundef !5
+  %222 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %223 = load ptr, ptr %222, align 8, !noalias !13300, !nonnull !5, !align !36, !noundef !5
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 24
+  %225 = load ptr, ptr %224, align 8, !invariant.load !5, !alias.scope !13423, !noalias !13300, !nonnull !5
+  %226 = invoke { i64, i64 } %225(ptr noundef nonnull align 1 %221)
+          to label %.noexc48.i unwind label %205, !noalias !13300
 
 .noexc48.i:                                       ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i"
-  %229 = extractvalue { i64, i64 } %228, 0
-  %230 = icmp eq i64 %229, 8736512259559809442
-  %231 = extractvalue { i64, i64 } %228, 1
-  %232 = icmp eq i64 %231, -5297342807411241589
-  %.sroa.0.0.i.i.i = select i1 %230, i1 %232, i1 false
-  br i1 %.sroa.0.0.i.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i, label %233
+  %227 = extractvalue { i64, i64 } %226, 0
+  %228 = icmp eq i64 %227, 8736512259559809442
+  %229 = extractvalue { i64, i64 } %226, 1
+  %230 = icmp eq i64 %229, -5297342807411241589
+  %.sroa.0.0.i.i.i = select i1 %228, i1 %230, i1 false
+  br i1 %.sroa.0.0.i.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i, label %231
 
-233:                                              ; preds = %.noexc48.i
+231:                                              ; preds = %.noexc48.i
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17hb86b8f1401036ecaE.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
-          to label %.noexc49.i unwind label %207, !noalias !13300
+          to label %.noexc49.i unwind label %205, !noalias !13300
 
-.noexc49.i:                                       ; preds = %233
+.noexc49.i:                                       ; preds = %231
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i: ; preds = %.noexc48.i
-  %234 = invoke { i64, i64 } @_ZN7project7Project9remote_id17he5ed023f95699a79E(ptr noalias noundef nonnull readonly align 8 dereferenceable(696) %223)
-          to label %235 unwind label %207, !noalias !13300
+  %232 = invoke { i64, i64 } @_ZN7project7Project9remote_id17he5ed023f95699a79E(ptr noalias noundef nonnull readonly align 8 dereferenceable(696) %221)
+          to label %233 unwind label %205, !noalias !13300
 
-235:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i
-  %236 = extractvalue { i64, i64 } %234, 1
-  %237 = extractvalue { i64, i64 } %234, 0
-  %238 = icmp ne i64 %237, 0
-  %.not.i = icmp eq i64 %3, %236
-  %or.cond.i = select i1 %238, i1 %.not.i, i1 false
-  br i1 %or.cond.i, label %239, label %278
+233:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i
+  %234 = extractvalue { i64, i64 } %232, 1
+  %235 = extractvalue { i64, i64 } %232, 0
+  %236 = icmp ne i64 %235, 0
+  %.not.i = icmp eq i64 %3, %234
+  %or.cond.i = select i1 %236, i1 %.not.i, i1 false
+  br i1 %or.cond.i, label %237, label %276
 
-239:                                              ; preds = %235, %209
+237:                                              ; preds = %233, %207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %14, ptr noundef nonnull align 8 dereferenceable(272) %10, i64 272, i1 false), !noalias !13307
   %..i = xor i32 %19, 1
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 272
@@ -60323,173 +60294,173 @@ _ZN4gpui3app10entity_map9EntityMap4read17he08ddd4a80673b9fE.exit.i: ; preds = %.
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 312
   store i32 %.sroa.475.0.i, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !13300, !noalias !13307
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !13305
-  %240 = load ptr, ptr %142, align 8, !invariant.load !5, !noalias !13300
-  %.not.i50.i = icmp eq ptr %240, null
-  br i1 %.not.i50.i, label %242, label %241
+  %238 = load ptr, ptr %140, align 8, !invariant.load !5, !noalias !13300
+  %.not.i50.i = icmp eq ptr %238, null
+  br i1 %.not.i50.i, label %240, label %239
 
-241:                                              ; preds = %239
-  invoke void %240(ptr noundef nonnull align 1 %138)
-          to label %242 unwind label %250, !noalias !13300
+239:                                              ; preds = %237
+  invoke void %238(ptr noundef nonnull align 1 %136)
+          to label %240 unwind label %248, !noalias !13300
 
-242:                                              ; preds = %241, %239
-  %243 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %244 = load i64, ptr %243, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %245 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %246 = load i64, ptr %245, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %247 = icmp ult i64 %246, -9223372036854775807
-  call void @llvm.assume(i1 %247)
-  %248 = icmp eq i64 %244, 0
-  br i1 %248, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i", label %249
+240:                                              ; preds = %239, %237
+  %241 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %242 = load i64, ptr %241, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %243 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %244 = load i64, ptr %243, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %245 = icmp ult i64 %244, -9223372036854775807
+  call void @llvm.assume(i1 %245)
+  %246 = icmp eq i64 %242, 0
+  br i1 %246, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i", label %247
 
-249:                                              ; preds = %242
-  call void @__rust_dealloc(ptr noundef nonnull %138, i64 noundef range(i64 1, -9223372036854775808) %244, i64 noundef range(i64 1, -9223372036854775807) %246) #53, !noalias !13300
+247:                                              ; preds = %240
+  call void @__rust_dealloc(ptr noundef nonnull %136, i64 noundef range(i64 1, -9223372036854775808) %242, i64 noundef range(i64 1, -9223372036854775807) %244) #53, !noalias !13300
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i"
 
-250:                                              ; preds = %241
-  %251 = landingpad { ptr, i32 }
+248:                                              ; preds = %239
+  %249 = landingpad { ptr, i32 }
           cleanup
-  %252 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %253 = load i64, ptr %252, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %254 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %255 = load i64, ptr %254, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %256 = icmp ult i64 %255, -9223372036854775807
-  call void @llvm.assume(i1 %256)
-  %257 = icmp eq i64 %253, 0
-  br i1 %257, label %.body.i, label %258
+  %250 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %251 = load i64, ptr %250, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %252 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %253 = load i64, ptr %252, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %254 = icmp ult i64 %253, -9223372036854775807
+  call void @llvm.assume(i1 %254)
+  %255 = icmp eq i64 %251, 0
+  br i1 %255, label %.body.i, label %256
 
-258:                                              ; preds = %250
-  call void @__rust_dealloc(ptr noundef nonnull %138, i64 noundef range(i64 1, -9223372036854775808) %253, i64 noundef range(i64 1, -9223372036854775807) %255) #53, !noalias !13300
+256:                                              ; preds = %248
+  call void @__rust_dealloc(ptr noundef nonnull %136, i64 noundef range(i64 1, -9223372036854775808) %251, i64 noundef range(i64 1, -9223372036854775807) %253) #53, !noalias !13300
   br label %.body.i
 
-"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i": ; preds = %249, %242
-  %259 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !13300
-  %.not.i55.i = icmp eq ptr %259, null
-  br i1 %.not.i55.i, label %261, label %260
+"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i": ; preds = %247, %240
+  %257 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !13300
+  %.not.i55.i = icmp eq ptr %257, null
+  br i1 %.not.i55.i, label %259, label %258
 
-260:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i"
-  invoke void %259(ptr noundef nonnull align 1 %15)
-          to label %261 unwind label %269, !noalias !13300
+258:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i"
+  invoke void %257(ptr noundef nonnull align 1 %15)
+          to label %259 unwind label %267, !noalias !13300
 
-261:                                              ; preds = %260, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i"
-  %262 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %263 = load i64, ptr %262, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %264 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %265 = load i64, ptr %264, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %266 = icmp ult i64 %265, -9223372036854775807
-  call void @llvm.assume(i1 %266)
-  %267 = icmp eq i64 %263, 0
-  br i1 %267, label %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit, label %268
+259:                                              ; preds = %258, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit54.i"
+  %260 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %261 = load i64, ptr %260, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %262 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %263 = load i64, ptr %262, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %264 = icmp ult i64 %263, -9223372036854775807
+  call void @llvm.assume(i1 %264)
+  %265 = icmp eq i64 %261, 0
+  br i1 %265, label %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit, label %266
 
-268:                                              ; preds = %261
-  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %263, i64 noundef range(i64 1, -9223372036854775807) %265) #53, !noalias !13300
+266:                                              ; preds = %259
+  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %261, i64 noundef range(i64 1, -9223372036854775807) %263) #53, !noalias !13300
   br label %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit
 
-269:                                              ; preds = %260
-  %270 = landingpad { ptr, i32 }
+267:                                              ; preds = %258
+  %268 = landingpad { ptr, i32 }
           cleanup
-  %271 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %272 = load i64, ptr %271, align 8, !range !1098, !invariant.load !5, !noalias !13300
-  %273 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %274 = load i64, ptr %273, align 8, !range !1099, !invariant.load !5, !noalias !13300
-  %275 = icmp ult i64 %274, -9223372036854775807
-  call void @llvm.assume(i1 %275)
-  %276 = icmp eq i64 %272, 0
-  br i1 %276, label %common.resume, label %277
+  %269 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %270 = load i64, ptr %269, align 8, !range !1098, !invariant.load !5, !noalias !13300
+  %271 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %272 = load i64, ptr %271, align 8, !range !1099, !invariant.load !5, !noalias !13300
+  %273 = icmp ult i64 %272, -9223372036854775807
+  call void @llvm.assume(i1 %273)
+  %274 = icmp eq i64 %270, 0
+  br i1 %274, label %common.resume, label %275
 
-277:                                              ; preds = %269
-  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %272, i64 noundef range(i64 1, -9223372036854775807) %274) #53, !noalias !13300
+275:                                              ; preds = %267
+  call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, -9223372036854775808) %270, i64 noundef range(i64 1, -9223372036854775807) %272) #53, !noalias !13300
   br label %common.resume
 
-278:                                              ; preds = %235, %210
+276:                                              ; preds = %233, %208
   store i64 8, ptr %14, align 8, !alias.scope !13300, !noalias !13307
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.7428513249094624621"(ptr noalias noundef nonnull align 8 dereferenceable(272) %10)
-          to label %206 unwind label %169, !noalias !13300
+          to label %204 unwind label %167, !noalias !13300
 
-279:                                              ; preds = %207, %168, %.body.i
-  %280 = landingpad { ptr, i32 }
+277:                                              ; preds = %205, %166, %.body.i
+  %278 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !13300
   unreachable
 
-_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit: ; preds = %21, %151, %158, %261, %268
-  %281 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %282 = load ptr, ptr %281, align 8, !nonnull !5, !align !36, !noundef !5
-  %283 = load i32, ptr %282, align 8, !range !8710, !noundef !5
-  %284 = getelementptr inbounds nuw i8, ptr %282, i64 4
-  %285 = load i32, ptr %284, align 4, !noundef !5
-  invoke void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %283, i32 noundef %285)
-          to label %291 unwind label %286
+_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit: ; preds = %21, %149, %156, %259, %266
+  %279 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %280 = load ptr, ptr %279, align 8, !nonnull !5, !align !36, !noundef !5
+  %281 = load i32, ptr %280, align 8, !range !8710, !noundef !5
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 4
+  %283 = load i32, ptr %282, align 4, !noundef !5
+  invoke void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %281, i32 noundef %283)
+          to label %289 unwind label %284
 
-286:                                              ; preds = %298, %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit
-  %287 = landingpad { ptr, i32 }
+284:                                              ; preds = %296, %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit
+  %285 = landingpad { ptr, i32 }
           cleanup
-  %288 = load i64, ptr %14, align 8, !range !13426, !alias.scope !13427, !noundef !5
-  %289 = icmp samesign ugt i64 %288, 6
-  br i1 %289, label %common.resume, label %290
+  %286 = load i64, ptr %14, align 8, !range !13426, !alias.scope !13427, !noundef !5
+  %287 = icmp samesign ugt i64 %286, 6
+  br i1 %287, label %common.resume, label %288
 
-290:                                              ; preds = %286
+288:                                              ; preds = %284
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(320) %14)
-          to label %common.resume unwind label %308
+          to label %common.resume unwind label %306
 
-291:                                              ; preds = %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit
-  %292 = load i64, ptr %14, align 8, !range !13426, !noundef !5
-  %293 = icmp eq i64 %292, 8
-  br i1 %293, label %298, label %294
+289:                                              ; preds = %_ZN9workspace9Workspace24active_view_for_follower17h3e0111bb1bd2dc9dE.exit
+  %290 = load i64, ptr %14, align 8, !range !13426, !noundef !5
+  %291 = icmp eq i64 %290, 8
+  br i1 %291, label %296, label %292
 
-default.unreachable36:                            ; preds = %294
+default.unreachable36:                            ; preds = %292
   unreachable
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %14, i64 280
-  %296 = getelementptr inbounds nuw i8, ptr %14, i64 288
-  %297 = load i32, ptr %296, align 8, !range !1210, !noundef !5
-  switch i32 %297, label %default.unreachable36 [
-    i32 2, label %298
-    i32 0, label %304
-    i32 1, label %299
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds nuw i8, ptr %14, i64 280
+  %294 = getelementptr inbounds nuw i8, ptr %14, i64 288
+  %295 = load i32, ptr %294, align 8, !range !1210, !noundef !5
+  switch i32 %295, label %default.unreachable36 [
+    i32 2, label %296
+    i32 0, label %302
+    i32 1, label %297
   ]
 
-298:                                              ; preds = %294, %291, %304
-  %. = phi ptr [ %14, %304 ], [ null, %291 ], [ %14, %294 ]
-  %.sroa.6.sroa.0.0 = phi i32 [ %.sroa.5.0, %304 ], [ undef, %291 ], [ undef, %294 ]
-  %.sroa.6.sroa.4.0 = phi i32 [ %.sroa.7.0, %304 ], [ undef, %291 ], [ undef, %294 ]
-  %.sroa.4.0 = phi i32 [ %297, %304 ], [ 2, %291 ], [ %297, %294 ]
-  %.sroa.0.0 = phi i64 [ %305, %304 ], [ undef, %291 ], [ undef, %294 ]
+296:                                              ; preds = %292, %289, %302
+  %. = phi ptr [ %14, %302 ], [ null, %289 ], [ %14, %292 ]
+  %.sroa.6.sroa.0.0 = phi i32 [ %.sroa.5.0, %302 ], [ undef, %289 ], [ undef, %292 ]
+  %.sroa.6.sroa.4.0 = phi i32 [ %.sroa.7.0, %302 ], [ undef, %289 ], [ undef, %292 ]
+  %.sroa.4.0 = phi i32 [ %295, %302 ], [ 2, %289 ], [ %295, %292 ]
+  %.sroa.0.0 = phi i64 [ %303, %302 ], [ undef, %289 ], [ undef, %292 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h7e57054f4d4486d2E.llvm.12597586636751361339"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef readonly align 8 dereferenceable_or_null(320) %.)
-          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf7a10f97ec2c5e49E.exit" unwind label %286
+          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf7a10f97ec2c5e49E.exit" unwind label %284
 
-299:                                              ; preds = %294
-  %300 = getelementptr inbounds nuw i8, ptr %14, i64 292
-  %301 = load i32, ptr %300, align 4, !noundef !5
-  %302 = getelementptr inbounds nuw i8, ptr %14, i64 296
-  %303 = load i32, ptr %302, align 8, !noundef !5
-  br label %304
+297:                                              ; preds = %292
+  %298 = getelementptr inbounds nuw i8, ptr %14, i64 292
+  %299 = load i32, ptr %298, align 4, !noundef !5
+  %300 = getelementptr inbounds nuw i8, ptr %14, i64 296
+  %301 = load i32, ptr %300, align 8, !noundef !5
+  br label %302
 
-304:                                              ; preds = %294, %299
-  %.sroa.7.0 = phi i32 [ %303, %299 ], [ undef, %294 ]
-  %.sroa.5.0 = phi i32 [ %301, %299 ], [ undef, %294 ]
-  %305 = load i64, ptr %295, align 8, !noundef !5
-  br label %298
+302:                                              ; preds = %292, %297
+  %.sroa.7.0 = phi i32 [ %301, %297 ], [ undef, %292 ]
+  %.sroa.5.0 = phi i32 [ %299, %297 ], [ undef, %292 ]
+  %303 = load i64, ptr %293, align 8, !noundef !5
+  br label %296
 
-"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf7a10f97ec2c5e49E.exit": ; preds = %298
+"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf7a10f97ec2c5e49E.exit": ; preds = %296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(320) %14, i64 320, i1 false)
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i64 %.sroa.0.0, ptr %306, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i64 %.sroa.0.0, ptr %304, align 8
   %.sroa.4.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx2, align 8
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 %.sroa.6.sroa.0.0, ptr %.sroa.6.0..sroa_idx4, align 4
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i32 %.sroa.6.sroa.4.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx4.sroa_idx, align 8
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %307, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %305, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
-308:                                              ; preds = %290
-  %309 = landingpad { ptr, i32 }
+306:                                              ; preds = %288
+  %307 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
@@ -60640,7 +60611,7 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %23 = load i32, ptr %22, align 8, !range !1210, !noundef !5
   %24 = icmp eq i32 %23, 2
-  br i1 %or.cond326, label %select.unfold, label %239
+  br i1 %or.cond326, label %select.unfold, label %237
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %12, align 8, !align !734, !noundef !5
@@ -60661,12 +60632,12 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   invoke void %35(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 1 %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %38 unwind label %36
 
-.body209:                                         ; preds = %207, %215, %147, %149, %154, %158, %36, %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit", %40
-  %.pn178 = phi { ptr, i32 } [ %.pn176, %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit" ], [ %41, %40 ], [ %37, %36 ], [ %148, %147 ], [ %150, %149 ], [ %150, %154 ], [ %150, %158 ], [ %208, %215 ], [ %208, %207 ]
+.body209:                                         ; preds = %205, %213, %145, %147, %152, %156, %36, %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit", %40
+  %.pn178 = phi { ptr, i32 } [ %.pn176, %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit" ], [ %41, %40 ], [ %37, %36 ], [ %146, %145 ], [ %148, %147 ], [ %148, %152 ], [ %148, %156 ], [ %206, %213 ], [ %206, %205 ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17he70db7ea20a6f4e4E"(ptr nonnull %26, ptr nonnull %28) #61
-          to label %.thread unwind label %237
+          to label %.thread unwind label %235
 
-36:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfd24c36a629e97ebE.exit.i", %65, %173, %.loopexit, %44, %43, %32
+36:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfd24c36a629e97ebE.exit.i", %65, %171, %.loopexit, %44, %43, %32
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %.body209
@@ -60679,7 +60650,7 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17hd289459c0ebd73a3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #61
-          to label %.body209 unwind label %237
+          to label %.body209 unwind label %235
 
 42:                                               ; preds = %38
   br i1 %39, label %44, label %43
@@ -60696,8 +60667,8 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit"
 
-"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit": ; preds = %177, %206, %199, %45
-  %.sroa.0101.2 = phi i1 [ true, %45 ], [ true, %177 ], [ %.sroa.0101.4, %206 ], [ %.sroa.0101.4, %199 ]
+"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit": ; preds = %175, %204, %197, %45
+  %.sroa.0101.2 = phi i1 [ true, %45 ], [ true, %175 ], [ %.sroa.0101.4, %204 ], [ %.sroa.0101.4, %197 ]
   %46 = load ptr, ptr %28, align 8, !invariant.load !5
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %48, label %47
@@ -60851,123 +60822,121 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   %119 = getelementptr i8, ptr %116, i64 %118
   %120 = getelementptr i8, ptr %119, i64 1
   %121 = load <16 x i8>, ptr %116, align 16, !noalias !13513
-  %122 = icmp slt <16 x i8> %121, zeroinitializer
-  %123 = bitcast <16 x i1> %122 to i16
-  %124 = xor i16 %123, -1
-  %125 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  %127 = load i64, ptr %126, align 8, !alias.scope !13510, !noalias !13511, !noundef !5
+  %122 = icmp sgt <16 x i8> %121, splat (i8 -1)
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  %125 = load i64, ptr %124, align 8, !alias.scope !13510, !noalias !13511, !noundef !5
   store ptr %116, ptr %3, align 8, !noalias !13503
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %125, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !13503
+  store ptr %123, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !13503
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %120, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !13503
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %124, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !13503
+  store <16 x i1> %122, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !13503
   %.sroa.71.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %127, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !noalias !13503
-  %128 = icmp eq i64 %127, 0
-  br i1 %128, label %.loopexit.i, label %.lr.ph.i.i.i208
+  store i64 %125, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !noalias !13503
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %.loopexit.i, label %.lr.ph.i.i.i208
 
-.lr.ph.i.i.i208:                                  ; preds = %114, %144
-  %129 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
-          to label %.noexc.i unwind label %147, !noalias !13518
+.lr.ph.i.i.i208:                                  ; preds = %114, %142
+  %127 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
+          to label %.noexc.i unwind label %145, !noalias !13518
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i.i208
-  %130 = load i64, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !alias.scope !13519, !noalias !13526, !noundef !5
-  %131 = add i64 %130, -1
-  store i64 %131, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !alias.scope !13519, !noalias !13526
-  %132 = icmp eq ptr %129, null
-  br i1 %132, label %.loopexit.i, label %133
+  %128 = load i64, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !alias.scope !13519, !noalias !13526, !noundef !5
+  %129 = add i64 %128, -1
+  store i64 %129, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !alias.scope !13519, !noalias !13526
+  %130 = icmp eq ptr %127, null
+  br i1 %130, label %.loopexit.i, label %131
 
-133:                                              ; preds = %.noexc.i
-  %134 = getelementptr inbounds i8, ptr %129, i64 -128
-  %.val4.i.i.i = load i32, ptr %134, align 4, !noalias !13529
-  %135 = getelementptr i8, ptr %129, i64 -124
-  %.val5.i.i.i = load i32, ptr %135, align 4, !noalias !13529
-  %136 = getelementptr inbounds i8, ptr %129, i64 -96
-  %137 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-          to label %.noexc1.i unwind label %147, !noalias !13518
+131:                                              ; preds = %.noexc.i
+  %132 = getelementptr inbounds i8, ptr %127, i64 -128
+  %.val4.i.i.i = load i32, ptr %132, align 4, !noalias !13529
+  %133 = getelementptr i8, ptr %127, i64 -124
+  %.val5.i.i.i = load i32, ptr %133, align 4, !noalias !13529
+  %134 = getelementptr inbounds i8, ptr %127, i64 -96
+  %135 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+          to label %.noexc1.i unwind label %145, !noalias !13518
 
-.noexc1.i:                                        ; preds = %133
-  br i1 %137, label %.loopexit.i, label %138
+.noexc1.i:                                        ; preds = %131
+  br i1 %135, label %.loopexit.i, label %136
 
-138:                                              ; preds = %.noexc1.i
-  %139 = getelementptr inbounds i8, ptr %129, i64 -32
-  %140 = load i32, ptr %139, align 8, !alias.scope !13530, !noalias !13535, !noundef !5
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %144, label %142
+136:                                              ; preds = %.noexc1.i
+  %137 = getelementptr inbounds i8, ptr %127, i64 -32
+  %138 = load i32, ptr %137, align 8, !alias.scope !13530, !noalias !13535, !noundef !5
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %142, label %140
 
-142:                                              ; preds = %138
-  %143 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %139, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-          to label %.noexc2.i unwind label %147, !noalias !13518
+140:                                              ; preds = %136
+  %141 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+          to label %.noexc2.i unwind label %145, !noalias !13518
 
-.noexc2.i:                                        ; preds = %142
-  br i1 %143, label %.loopexit.i, label %144
+.noexc2.i:                                        ; preds = %140
+  br i1 %141, label %.loopexit.i, label %142
 
-144:                                              ; preds = %.noexc2.i, %138
-  %145 = load i64, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !alias.scope !13519, !noalias !13526, !noundef !5
-  %146 = icmp eq i64 %145, 0
-  br i1 %146, label %.loopexit.i, label %.lr.ph.i.i.i208
+142:                                              ; preds = %.noexc2.i, %136
+  %143 = load i64, ptr %.sroa.71.0..sroa_idx.i.i, align 8, !alias.scope !13519, !noalias !13526, !noundef !5
+  %144 = icmp eq i64 %143, 0
+  br i1 %144, label %.loopexit.i, label %.lr.ph.i.i.i208
 
-147:                                              ; preds = %142, %133, %.lr.ph.i.i.i208
-  %148 = landingpad { ptr, i32 }
+145:                                              ; preds = %140, %131, %.lr.ph.i.i.i208
+  %146 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #61
-          to label %.body209 unwind label %170, !noalias !13518
+          to label %.body209 unwind label %168, !noalias !13518
 
-.loopexit.i:                                      ; preds = %.noexc1.i, %.noexc2.i, %144, %.noexc.i, %114
-  %.sroa.5.1 = phi i32 [ undef, %114 ], [ %.val4.i.i.i, %.noexc1.i ], [ %.val4.i.i.i, %.noexc2.i ], [ undef, %144 ], [ undef, %.noexc.i ]
-  %.sroa.6254.1 = phi i32 [ undef, %114 ], [ %.val5.i.i.i, %.noexc1.i ], [ %.val5.i.i.i, %.noexc2.i ], [ undef, %144 ], [ undef, %.noexc.i ]
-  %storemerge.i.i = phi i32 [ 0, %114 ], [ 1, %.noexc1.i ], [ 1, %.noexc2.i ], [ 0, %144 ], [ 0, %.noexc.i ]
+.loopexit.i:                                      ; preds = %.noexc1.i, %.noexc2.i, %142, %.noexc.i, %114
+  %.sroa.5.1 = phi i32 [ undef, %114 ], [ %.val4.i.i.i, %.noexc1.i ], [ %.val4.i.i.i, %.noexc2.i ], [ undef, %142 ], [ undef, %.noexc.i ]
+  %.sroa.6254.1 = phi i32 [ undef, %114 ], [ %.val5.i.i.i, %.noexc1.i ], [ %.val5.i.i.i, %.noexc2.i ], [ undef, %142 ], [ undef, %.noexc.i ]
+  %storemerge.i.i = phi i32 [ 0, %114 ], [ 1, %.noexc1.i ], [ 1, %.noexc2.i ], [ 0, %142 ], [ 0, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13503
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %160 unwind label %149, !noalias !13518
+          to label %158 unwind label %147, !noalias !13518
 
-149:                                              ; preds = %.loopexit.i
-  %150 = landingpad { ptr, i32 }
+147:                                              ; preds = %.loopexit.i
+  %148 = landingpad { ptr, i32 }
           cleanup
-  %151 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !13538)
   call void @llvm.experimental.noalias.scope.decl(metadata !13541), !noalias !13518
-  %152 = load ptr, ptr %151, align 8, !alias.scope !13544, !noalias !13518, !nonnull !5, !noundef !5
-  %153 = icmp eq ptr %152, inttoptr (i64 -1 to ptr)
-  br i1 %153, label %.body209, label %154
+  %150 = load ptr, ptr %149, align 8, !alias.scope !13544, !noalias !13518, !nonnull !5, !noundef !5
+  %151 = icmp eq ptr %150, inttoptr (i64 -1 to ptr)
+  br i1 %151, label %.body209, label %152
 
-154:                                              ; preds = %149
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %156 = atomicrmw sub ptr %155, i64 1 release, align 8, !noalias !13545
-  %157 = icmp eq i64 %156, 1
-  br i1 %157, label %158, label %.body209
+152:                                              ; preds = %147
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %154 = atomicrmw sub ptr %153, i64 1 release, align 8, !noalias !13545
+  %155 = icmp eq i64 %154, 1
+  br i1 %155, label %156, label %.body209
 
-158:                                              ; preds = %154
+156:                                              ; preds = %152
   fence acquire, !noalias !13518
-  %159 = load ptr, ptr %151, align 8, !alias.scope !13544, !noalias !13518, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %159, i64 noundef 80, i64 noundef 8) #53, !noalias !13545
+  %157 = load ptr, ptr %149, align 8, !alias.scope !13544, !noalias !13518, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %157, i64 noundef 80, i64 noundef 8) #53, !noalias !13545
   br label %.body209
 
-160:                                              ; preds = %.loopexit.i
-  %161 = getelementptr inbounds nuw i8, ptr %5, i64 8
+158:                                              ; preds = %.loopexit.i
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !13546)
   call void @llvm.experimental.noalias.scope.decl(metadata !13549)
-  %162 = load ptr, ptr %161, align 8, !alias.scope !13552, !noalias !13518, !nonnull !5, !noundef !5
-  %163 = icmp eq ptr %162, inttoptr (i64 -1 to ptr)
-  br i1 %163, label %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit", label %164
+  %160 = load ptr, ptr %159, align 8, !alias.scope !13552, !noalias !13518, !nonnull !5, !noundef !5
+  %161 = icmp eq ptr %160, inttoptr (i64 -1 to ptr)
+  br i1 %161, label %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit", label %162
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %166 = atomicrmw sub ptr %165, i64 1 release, align 8, !noalias !13559
-  %167 = icmp eq i64 %166, 1
-  br i1 %167, label %168, label %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit"
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %164 = atomicrmw sub ptr %163, i64 1 release, align 8, !noalias !13559
+  %165 = icmp eq i64 %164, 1
+  br i1 %165, label %166, label %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit"
 
-168:                                              ; preds = %164
+166:                                              ; preds = %162
   fence acquire
-  %169 = load ptr, ptr %161, align 8, !alias.scope !13552, !noalias !13518, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %169, i64 noundef 80, i64 noundef 8) #53, !noalias !13559
+  %167 = load ptr, ptr %159, align 8, !alias.scope !13552, !noalias !13518, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %167, i64 noundef 80, i64 noundef 8) #53, !noalias !13559
   br label %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit"
 
-170:                                              ; preds = %147
-  %171 = landingpad { ptr, i32 }
+168:                                              ; preds = %145
+  %169 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !13518
   unreachable
@@ -60976,129 +60945,129 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   %.sroa.0247.0 = phi i32 [ %storemerge.i.i, %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit" ], [ 0, %113 ], [ 0, %.noexc ], [ 0, %._crit_edge.i.i.i ]
   %.sroa.5.0 = phi i32 [ %.sroa.5.1, %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit" ], [ undef, %113 ], [ undef, %.noexc ], [ undef, %._crit_edge.i.i.i ]
   %.sroa.6254.0 = phi i32 [ %.sroa.6254.1, %"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit" ], [ undef, %113 ], [ undef, %.noexc ], [ undef, %._crit_edge.i.i.i ]
-  %172 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %173 unwind label %36
+  %170 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %171 unwind label %36
 
-"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit": ; preds = %168, %164, %160
+"_ZN9workspace9Workspace32update_active_view_for_followers28_$u7b$$u7b$closure$u7d$$u7d$17h4251ad25cf38c7e0E.exit": ; preds = %166, %162, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-173:                                              ; preds = %.loopexit
-  %174 = getelementptr inbounds nuw i8, ptr %28, i64 264
-  %175 = load ptr, ptr %174, align 8, !invariant.load !5, !nonnull !5
-  %176 = invoke { ptr, ptr } %175(ptr noundef nonnull align 1 %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %172)
-          to label %177 unwind label %36
+171:                                              ; preds = %.loopexit
+  %172 = getelementptr inbounds nuw i8, ptr %28, i64 264
+  %173 = load ptr, ptr %172, align 8, !invariant.load !5, !nonnull !5
+  %174 = invoke { ptr, ptr } %173(ptr noundef nonnull align 1 %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %170)
+          to label %175 unwind label %36
 
-177:                                              ; preds = %173
-  %178 = extractvalue { ptr, ptr } %176, 0
-  %179 = extractvalue { ptr, ptr } %176, 1
-  %180 = icmp eq ptr %178, null
-  br i1 %180, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit", label %181
+175:                                              ; preds = %171
+  %176 = extractvalue { ptr, ptr } %174, 0
+  %177 = extractvalue { ptr, ptr } %174, 1
+  %178 = icmp eq ptr %176, null
+  br i1 %178, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit", label %179
 
-181:                                              ; preds = %177
-  %182 = icmp ne ptr %179, null
-  call void @llvm.assume(i1 %182)
+179:                                              ; preds = %175
+  %180 = icmp ne ptr %177, null
+  call void @llvm.assume(i1 %180)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  %184 = load ptr, ptr %183, align 8, !nonnull !5, !noundef !5
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %186 = getelementptr inbounds nuw i8, ptr %179, i64 352
-  %187 = load ptr, ptr %186, align 8, !invariant.load !5, !nonnull !5
-  invoke void %187(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 1 %178, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %185, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %190 unwind label %188
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  %182 = load ptr, ptr %181, align 8, !nonnull !5, !noundef !5
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %177, i64 352
+  %185 = load ptr, ptr %184, align 8, !invariant.load !5, !nonnull !5
+  invoke void %185(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 1 %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %188 unwind label %186
 
-"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit": ; preds = %232, %236, %222, %188
-  %.pn176 = phi { ptr, i32 } [ %189, %188 ], [ %223, %222 ], [ %233, %236 ], [ %233, %232 ]
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E"(ptr nonnull %178, ptr nonnull %179) #61
-          to label %.body209 unwind label %237
+"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit": ; preds = %230, %234, %220, %186
+  %.pn176 = phi { ptr, i32 } [ %187, %186 ], [ %221, %220 ], [ %231, %234 ], [ %231, %230 ]
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E"(ptr nonnull %176, ptr nonnull %177) #61
+          to label %.body209 unwind label %235
 
-188:                                              ; preds = %192, %181
-  %189 = landingpad { ptr, i32 }
+186:                                              ; preds = %190, %179
+  %187 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit"
 
-190:                                              ; preds = %181
-  %191 = load i64, ptr %10, align 8, !range !865, !noundef !5
-  %trunc = trunc nuw i64 %191 to i1
-  br i1 %trunc, label %192, label %.thread302
+188:                                              ; preds = %179
+  %189 = load i64, ptr %10, align 8, !range !865, !noundef !5
+  %trunc = trunc nuw i64 %189 to i1
+  br i1 %trunc, label %190, label %.thread302
 
-.thread302:                                       ; preds = %190
+.thread302:                                       ; preds = %188
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %196
+  br label %194
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.0280.0.copyload = load i32, ptr %193, align 8
+190:                                              ; preds = %188
+  %191 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.0280.0.copyload = load i32, ptr %191, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %194 = getelementptr inbounds nuw i8, ptr %179, i64 376
-  %195 = load ptr, ptr %194, align 8, !invariant.load !5, !nonnull !5
-  invoke void %195(ptr noalias noundef nonnull sret([272 x i8]) align 8 captures(none) dereferenceable(272) %9, ptr noundef nonnull align 1 %178, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %216 unwind label %188
+  %192 = getelementptr inbounds nuw i8, ptr %177, i64 376
+  %193 = load ptr, ptr %192, align 8, !invariant.load !5, !nonnull !5
+  invoke void %193(ptr noalias noundef nonnull sret([272 x i8]) align 8 captures(none) dereferenceable(272) %9, ptr noundef nonnull align 1 %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %214 unwind label %186
 
-196:                                              ; preds = %.thread307, %216, %.thread302
-  %.sroa.0101.4 = phi i1 [ true, %.thread302 ], [ %227, %.thread307 ], [ true, %216 ]
-  %197 = load ptr, ptr %179, align 8, !invariant.load !5
-  %.not.i211 = icmp eq ptr %197, null
-  br i1 %.not.i211, label %199, label %198
+194:                                              ; preds = %.thread307, %214, %.thread302
+  %.sroa.0101.4 = phi i1 [ true, %.thread302 ], [ %225, %.thread307 ], [ true, %214 ]
+  %195 = load ptr, ptr %177, align 8, !invariant.load !5
+  %.not.i211 = icmp eq ptr %195, null
+  br i1 %.not.i211, label %197, label %196
 
-198:                                              ; preds = %196
-  invoke void %197(ptr noundef nonnull align 1 %178)
-          to label %199 unwind label %207
+196:                                              ; preds = %194
+  invoke void %195(ptr noundef nonnull align 1 %176)
+          to label %197 unwind label %205
 
-199:                                              ; preds = %198, %196
-  %200 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %201 = load i64, ptr %200, align 8, !range !1098, !invariant.load !5
-  %202 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %203 = load i64, ptr %202, align 8, !range !1099, !invariant.load !5
-  %204 = icmp ult i64 %203, -9223372036854775807
-  call void @llvm.assume(i1 %204)
-  %205 = icmp eq i64 %201, 0
-  br i1 %205, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit", label %206
+197:                                              ; preds = %196, %194
+  %198 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %199 = load i64, ptr %198, align 8, !range !1098, !invariant.load !5
+  %200 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %201 = load i64, ptr %200, align 8, !range !1099, !invariant.load !5
+  %202 = icmp ult i64 %201, -9223372036854775807
+  call void @llvm.assume(i1 %202)
+  %203 = icmp eq i64 %199, 0
+  br i1 %203, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit", label %204
 
-206:                                              ; preds = %199
-  call void @__rust_dealloc(ptr noundef nonnull %178, i64 noundef range(i64 1, -9223372036854775808) %201, i64 noundef range(i64 1, -9223372036854775807) %203) #53
+204:                                              ; preds = %197
+  call void @__rust_dealloc(ptr noundef nonnull %176, i64 noundef range(i64 1, -9223372036854775808) %199, i64 noundef range(i64 1, -9223372036854775807) %201) #53
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit"
 
-207:                                              ; preds = %198
-  %208 = landingpad { ptr, i32 }
+205:                                              ; preds = %196
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %209 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %210 = load i64, ptr %209, align 8, !range !1098, !invariant.load !5
-  %211 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %212 = load i64, ptr %211, align 8, !range !1099, !invariant.load !5
-  %213 = icmp ult i64 %212, -9223372036854775807
-  call void @llvm.assume(i1 %213)
-  %214 = icmp eq i64 %210, 0
-  br i1 %214, label %.body209, label %215
+  %207 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %208 = load i64, ptr %207, align 8, !range !1098, !invariant.load !5
+  %209 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %210 = load i64, ptr %209, align 8, !range !1099, !invariant.load !5
+  %211 = icmp ult i64 %210, -9223372036854775807
+  call void @llvm.assume(i1 %211)
+  %212 = icmp eq i64 %208, 0
+  br i1 %212, label %.body209, label %213
 
-215:                                              ; preds = %207
-  call void @__rust_dealloc(ptr noundef nonnull %178, i64 noundef range(i64 1, -9223372036854775808) %210, i64 noundef range(i64 1, -9223372036854775807) %212) #53
+213:                                              ; preds = %205
+  call void @__rust_dealloc(ptr noundef nonnull %176, i64 noundef range(i64 1, -9223372036854775808) %208, i64 noundef range(i64 1, -9223372036854775807) %210) #53
   br label %.body209
 
-216:                                              ; preds = %192
-  %217 = load i64, ptr %9, align 8, !range !1164, !noundef !5
-  %218 = icmp eq i64 %217, 7
-  br i1 %218, label %196, label %219
+214:                                              ; preds = %190
+  %215 = load i64, ptr %9, align 8, !range !1164, !noundef !5
+  %216 = icmp eq i64 %215, 7
+  br i1 %216, label %194, label %217
 
-219:                                              ; preds = %216
+217:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %220 = trunc nuw i32 %30 to i1
+  %218 = trunc nuw i32 %30 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %8, ptr noundef nonnull align 8 dereferenceable(272) %9, i64 272, i1 false)
   %.sroa.10.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %8, i64 272
-  br i1 %220, label %224, label %221
+  br i1 %218, label %222, label %219
 
-221:                                              ; preds = %219
+219:                                              ; preds = %217
   store i32 1, ptr %.sroa.10.0..sroa_idx18, align 8
   %.sroa.13.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %8, i64 276
   store i32 0, ptr %.sroa.13.0..sroa_idx20, align 4
   br label %.invoke
 
-222:                                              ; preds = %231
-  %223 = landingpad { ptr, i32 }
+220:                                              ; preds = %229
+  %221 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %13, ptr noundef nonnull align 8 dereferenceable(320) %.sroa.072, i64 320, i1 false)
   %.sroa.773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 320
@@ -61117,11 +61086,11 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   store i32 %.sroa.6254.0, ptr %.sroa.1081.sroa.8.0..sroa.1081.0..sroa_idx.sroa_idx, align 8
   br label %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit"
 
-224:                                              ; preds = %219
+222:                                              ; preds = %217
   store i32 0, ptr %.sroa.10.0..sroa_idx18, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %221, %224
+.invoke:                                          ; preds = %219, %222
   %.sroa.16.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %8, i64 280
   store i64 %.sroa.3.0.copyload, ptr %.sroa.16.0..sroa_idx24, align 8
   %.sroa.16.sroa.10.0..sroa.16.0..sroa_idx24.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 288
@@ -61136,26 +61105,26 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   store i32 %.sroa.5.0, ptr %.sroa.19.sroa.10.0..sroa.19.0..sroa_idx26.sroa_idx, align 4
   %.sroa.19.sroa.13.0..sroa.19.0..sroa_idx26.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 312
   store i32 %.sroa.6254.0, ptr %.sroa.19.sroa.13.0..sroa.19.0..sroa_idx26.sroa_idx, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %179, i64 408
-  %226 = load ptr, ptr %225, align 8, !invariant.load !5, !nonnull !5
-  %227 = invoke noundef zeroext i1 %226(ptr noundef nonnull align 1 %178, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %228 unwind label %232
+  %223 = getelementptr inbounds nuw i8, ptr %177, i64 408
+  %224 = load ptr, ptr %223, align 8, !invariant.load !5, !nonnull !5
+  %225 = invoke noundef zeroext i1 %224(ptr noundef nonnull align 1 %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %226 unwind label %230
 
-228:                                              ; preds = %.invoke
+226:                                              ; preds = %.invoke
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.072)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %7, ptr noundef nonnull align 8 dereferenceable(320) %8, i64 320, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %.sroa.072, ptr noundef nonnull align 8 dereferenceable(320) %7, i64 320, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %229 = load i64, ptr %13, align 8, !range !13426, !alias.scope !13560, !noundef !5
-  %230 = icmp samesign ugt i64 %229, 6
-  br i1 %230, label %.thread307, label %231
+  %227 = load i64, ptr %13, align 8, !range !13426, !alias.scope !13560, !noundef !5
+  %228 = icmp samesign ugt i64 %227, 6
+  br i1 %228, label %.thread307, label %229
 
-231:                                              ; preds = %228
+229:                                              ; preds = %226
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(360) %13)
-          to label %.thread307 unwind label %222
+          to label %.thread307 unwind label %220
 
-.thread307:                                       ; preds = %231, %228
+.thread307:                                       ; preds = %229, %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %13, ptr noundef nonnull align 8 dereferenceable(320) %.sroa.072, i64 320, i1 false)
   %.sroa.773.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %13, i64 320
   store i64 %.sroa.3.0.copyload, ptr %.sroa.773.0..sroa_idx74, align 8
@@ -61173,101 +61142,101 @@ define void @_ZN9workspace9Workspace32update_active_view_for_followers17h214dc83
   store i32 %.sroa.6254.0, ptr %.sroa.1081.sroa.8.0..sroa.1081.0..sroa_idx82.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.072)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %196
+  br label %194
 
-232:                                              ; preds = %.invoke
-  %233 = landingpad { ptr, i32 }
+230:                                              ; preds = %.invoke
+  %231 = landingpad { ptr, i32 }
           cleanup
-  %234 = load i64, ptr %8, align 8, !range !13426, !alias.scope !13565, !noundef !5
-  %235 = icmp samesign ugt i64 %234, 6
-  br i1 %235, label %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit", label %236
+  %232 = load i64, ptr %8, align 8, !range !13426, !alias.scope !13565, !noundef !5
+  %233 = icmp samesign ugt i64 %232, 6
+  br i1 %233, label %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit", label %234
 
-236:                                              ; preds = %232
+234:                                              ; preds = %230
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(320) %8)
-          to label %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit" unwind label %237
+          to label %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit" unwind label %235
 
-237:                                              ; preds = %276, %236, %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit", %.body209, %40
-  %238 = landingpad { ptr, i32 }
+235:                                              ; preds = %274, %234, %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17h48edaf50bb7fc00cE.exit", %.body209, %40
+  %236 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
 select.unfold:                                    ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17he70db7ea20a6f4e4E.exit"
-  br i1 %24, label %258, label %272
+  br i1 %24, label %256, label %270
 
-239:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17he70db7ea20a6f4e4E.exit"
-  br i1 %24, label %._crit_edge330, label %240
+237:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17he70db7ea20a6f4e4E.exit"
+  br i1 %24, label %._crit_edge330, label %238
 
-240:                                              ; preds = %239
+238:                                              ; preds = %237
   %trunc182 = trunc nuw i32 %19 to i1
   %trunc183 = trunc nuw i32 %23 to i1
-  br i1 %trunc182, label %242, label %241
+  br i1 %trunc182, label %240, label %239
 
-241:                                              ; preds = %240
-  br i1 %trunc183, label %.thread359, label %243
+239:                                              ; preds = %238
+  br i1 %trunc183, label %.thread359, label %241
 
-242:                                              ; preds = %240
-  br i1 %trunc183, label %246, label %.thread356
+240:                                              ; preds = %238
+  br i1 %trunc183, label %244, label %.thread356
 
-243:                                              ; preds = %241, %252
-  %244 = load i64, ptr %.sroa.086.0.sroa.gep, align 8, !noundef !5
-  %245 = load i64, ptr %21, align 8, !noundef !5
-  %.not = icmp eq i64 %244, %245
-  br i1 %.not, label %258, label %._crit_edge330
+241:                                              ; preds = %239, %250
+  %242 = load i64, ptr %.sroa.086.0.sroa.gep, align 8, !noundef !5
+  %243 = load i64, ptr %21, align 8, !noundef !5
+  %.not = icmp eq i64 %242, %243
+  br i1 %.not, label %256, label %._crit_edge330
 
-246:                                              ; preds = %242
-  %247 = getelementptr inbounds nuw i8, ptr %13, i64 292
+244:                                              ; preds = %240
+  %245 = getelementptr inbounds nuw i8, ptr %13, i64 292
+  %246 = load i32, ptr %245, align 4, !noundef !5
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %248 = load i32, ptr %247, align 4, !noundef !5
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 996
-  %250 = load i32, ptr %249, align 4, !noundef !5
-  %251 = icmp eq i32 %248, %250
-  br i1 %251, label %252, label %.thread356
+  %249 = icmp eq i32 %246, %248
+  br i1 %249, label %250, label %.thread356
 
-252:                                              ; preds = %246
-  %253 = getelementptr inbounds nuw i8, ptr %13, i64 296
+250:                                              ; preds = %244
+  %251 = getelementptr inbounds nuw i8, ptr %13, i64 296
+  %252 = load i32, ptr %251, align 8, !noundef !5
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %254 = load i32, ptr %253, align 8, !noundef !5
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %256 = load i32, ptr %255, align 8, !noundef !5
-  %257 = icmp eq i32 %254, %256
-  br i1 %257, label %243, label %.thread356
+  %255 = icmp eq i32 %252, %254
+  br i1 %255, label %241, label %.thread356
 
-"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit226": ; preds = %260, %258, %272
+"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit226": ; preds = %258, %256, %270
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-258:                                              ; preds = %243, %select.unfold
-  %259 = icmp samesign ugt i64 %17, 6
-  br i1 %259, label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit226", label %260
+256:                                              ; preds = %241, %select.unfold
+  %257 = icmp samesign ugt i64 %17, 6
+  br i1 %257, label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit226", label %258
 
-260:                                              ; preds = %258
+258:                                              ; preds = %256
   call void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(360) %13)
   br label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit226"
 
-.thread356:                                       ; preds = %252, %246, %242
-  %261 = getelementptr inbounds nuw i8, ptr %13, i64 292
-  %262 = load i32, ptr %261, align 4
-  %263 = getelementptr inbounds nuw i8, ptr %13, i64 296
-  %264 = load i32, ptr %263, align 8
+.thread356:                                       ; preds = %250, %244, %240
+  %259 = getelementptr inbounds nuw i8, ptr %13, i64 292
+  %260 = load i32, ptr %259, align 4
+  %261 = getelementptr inbounds nuw i8, ptr %13, i64 296
+  %262 = load i32, ptr %261, align 8
   br label %.thread359
 
-._crit_edge330:                                   ; preds = %243, %239
-  %265 = getelementptr inbounds nuw i8, ptr %13, i64 292
-  %266 = load i32, ptr %265, align 4
-  %267 = getelementptr inbounds nuw i8, ptr %13, i64 296
-  %268 = load i32, ptr %267, align 8
+._crit_edge330:                                   ; preds = %241, %237
+  %263 = getelementptr inbounds nuw i8, ptr %13, i64 292
+  %264 = load i32, ptr %263, align 4
+  %265 = getelementptr inbounds nuw i8, ptr %13, i64 296
+  %266 = load i32, ptr %265, align 8
   br label %.thread359
 
-.thread359:                                       ; preds = %._crit_edge330, %241, %.thread356
-  %269 = phi i32 [ %262, %.thread356 ], [ %266, %._crit_edge330 ], [ undef, %241 ]
-  %270 = phi i32 [ %264, %.thread356 ], [ %268, %._crit_edge330 ], [ undef, %241 ]
-  %271 = load i64, ptr %.sroa.086.0.sroa.gep, align 8, !noundef !5
-  br label %272
+.thread359:                                       ; preds = %._crit_edge330, %239, %.thread356
+  %267 = phi i32 [ %260, %.thread356 ], [ %264, %._crit_edge330 ], [ undef, %239 ]
+  %268 = phi i32 [ %262, %.thread356 ], [ %266, %._crit_edge330 ], [ undef, %239 ]
+  %269 = load i64, ptr %.sroa.086.0.sroa.gep, align 8, !noundef !5
+  br label %270
 
-272:                                              ; preds = %select.unfold, %.thread359
+270:                                              ; preds = %select.unfold, %.thread359
   %.sroa.493.0 = phi i32 [ %19, %.thread359 ], [ 2, %select.unfold ]
-  %.sroa.091.0 = phi i64 [ %271, %.thread359 ], [ undef, %select.unfold ]
-  %.sroa.5.sroa.0.0 = phi i32 [ %269, %.thread359 ], [ undef, %select.unfold ]
-  %.sroa.5.sroa.4.0 = phi i32 [ %270, %.thread359 ], [ undef, %select.unfold ]
+  %.sroa.091.0 = phi i64 [ %269, %.thread359 ], [ undef, %select.unfold ]
+  %.sroa.5.sroa.0.0 = phi i32 [ %267, %.thread359 ], [ undef, %select.unfold ]
+  %.sroa.5.sroa.4.0 = phi i32 [ %268, %.thread359 ], [ undef, %select.unfold ]
   store i64 %.sroa.091.0, ptr %21, align 8
   store i32 %.sroa.493.0, ptr %22, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 996
@@ -61276,22 +61245,22 @@ select.unfold:                                    ; preds = %"_ZN4core3ptr81drop
   store i32 %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %6, ptr noundef nonnull align 8 dereferenceable(360) %13, i64 360, i1 false)
-  %273 = call noundef zeroext i1 @_ZN9workspace9Workspace16update_followers17ha2b96c130212a735E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1576) %0, i1 noundef zeroext %.sroa.0101.0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  %271 = call noundef zeroext i1 @_ZN9workspace9Workspace16update_followers17ha2b96c130212a735E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1576) %0, i1 noundef zeroext %.sroa.0101.0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit226"
 
-"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit228": ; preds = %.thread, %276
+"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit228": ; preds = %.thread, %274
   resume { ptr, i32 } %.pn186288
 
 .thread:                                          ; preds = %64, %56, %.body209, %.thread293
   %.pn186288 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread293 ], [ %.pn178, %.body209 ], [ %57, %64 ], [ %57, %56 ]
-  %274 = load i64, ptr %13, align 8, !range !13426, !alias.scope !13568, !noundef !5
-  %275 = icmp samesign ugt i64 %274, 6
-  br i1 %275, label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit228", label %276
+  %272 = load i64, ptr %13, align 8, !range !13426, !alias.scope !13568, !noundef !5
+  %273 = icmp samesign ugt i64 %272, 6
+  br i1 %273, label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit228", label %274
 
-276:                                              ; preds = %.thread
+274:                                              ; preds = %.thread
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17h5e3e217d426e563bE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(360) %13)
-          to label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit228" unwind label %237
+          to label %"_ZN4core3ptr44drop_in_place$LT$proto..UpdateActiveView$GT$17h237ece42ca2a4371E.exit228" unwind label %235
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61966,65 +61935,63 @@ define void @_ZN9workspace9Workspace15leader_for_pane17hc6615f0cfa188522E(ptr de
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 1
   %11 = load <16 x i8>, ptr %6, align 16, !noalias !13696
-  %12 = icmp slt <16 x i8> %11, zeroinitializer
-  %13 = bitcast <16 x i1> %12 to i16
-  %14 = xor i16 %13, -1
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1352
-  %17 = load i64, ptr %16, align 8, !alias.scope !13691, !noalias !13694, !noundef !5
+  %12 = icmp sgt <16 x i8> %11, splat (i8 -1)
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1352
+  %15 = load i64, ptr %14, align 8, !alias.scope !13691, !noalias !13694, !noundef !5
   store ptr %6, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %15, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %14, ptr %.sroa.6.0..sroa_idx, align 8
+  store <16 x i1> %12, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.71.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %17, ptr %.sroa.71.0..sroa_idx, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread, label %.lr.ph.i
+  store i64 %15, ptr %.sroa.71.0..sroa_idx, align 8
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3, %34
-  %19 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4), !noalias !13701
-  %20 = load i64, ptr %.sroa.71.0..sroa_idx, align 8, !alias.scope !13704, !noalias !13710, !noundef !5
-  %21 = add i64 %20, -1
-  store i64 %21, ptr %.sroa.71.0..sroa_idx, align 8, !alias.scope !13704, !noalias !13710
-  %22 = icmp eq ptr %19, null
-  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread, label %23
+.lr.ph.i:                                         ; preds = %3, %32
+  %17 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4), !noalias !13701
+  %18 = load i64, ptr %.sroa.71.0..sroa_idx, align 8, !alias.scope !13704, !noalias !13710, !noundef !5
+  %19 = add i64 %18, -1
+  store i64 %19, ptr %.sroa.71.0..sroa_idx, align 8, !alias.scope !13704, !noalias !13710
+  %20 = icmp eq ptr %17, null
+  br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread, label %21
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %19, i64 -128
-  %.val4.i = load i32, ptr %24, align 4, !noalias !13701
-  %25 = getelementptr i8, ptr %19, i64 -124
-  %.val5.i = load i32, ptr %25, align 4, !noalias !13701
-  %26 = getelementptr inbounds i8, ptr %19, i64 -96
-  %27 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !13712
-  br i1 %27, label %37, label %28
+21:                                               ; preds = %.lr.ph.i
+  %22 = getelementptr inbounds i8, ptr %17, i64 -128
+  %.val4.i = load i32, ptr %22, align 4, !noalias !13701
+  %23 = getelementptr i8, ptr %17, i64 -124
+  %.val5.i = load i32, ptr %23, align 4, !noalias !13701
+  %24 = getelementptr inbounds i8, ptr %17, i64 -96
+  %25 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !13712
+  br i1 %25, label %35, label %26
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %19, i64 -32
-  %30 = load i32, ptr %29, align 8, !alias.scope !13717, !noalias !13712, !noundef !5
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %34, label %32
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %17, i64 -32
+  %28 = load i32, ptr %27, align 8, !alias.scope !13717, !noalias !13712, !noundef !5
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %32, label %30
 
-32:                                               ; preds = %28
-  %33 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !13712
-  br i1 %33, label %37, label %34
+30:                                               ; preds = %26
+  %31 = call noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !13712
+  br i1 %31, label %35, label %32
 
-34:                                               ; preds = %32, %28
-  %35 = load i64, ptr %.sroa.71.0..sroa_idx, align 8, !alias.scope !13704, !noalias !13710, !noundef !5
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread, label %.lr.ph.i
+32:                                               ; preds = %30, %26
+  %33 = load i64, ptr %.sroa.71.0..sroa_idx, align 8, !alias.scope !13704, !noalias !13710, !noundef !5
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread, label %.lr.ph.i
 
-37:                                               ; preds = %32, %23
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.val4.i, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.val5.i, ptr %39, align 4
+35:                                               ; preds = %30, %21
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.val4.i, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.val5.i, ptr %37, align 4
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread: ; preds = %.lr.ph.i, %34, %3, %37
-  %storemerge = phi i32 [ 1, %37 ], [ 0, %3 ], [ 0, %34 ], [ 0, %.lr.ph.i ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h2122b7b6ef957e6cE.llvm.7428513249094624621.exit.thread: ; preds = %.lr.ph.i, %32, %3, %35
+  %storemerge = phi i32 [ 1, %35 ], [ 0, %3 ], [ 0, %32 ], [ 0, %.lr.ph.i ]
   store i32 %storemerge, ptr %0, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -63123,175 +63090,173 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit: ; preds = %"_Z
   %74 = getelementptr i8, ptr %71, i64 %73
   %75 = getelementptr i8, ptr %74, i64 1
   %76 = load <16 x i8>, ptr %71, align 16, !noalias !13912
-  %77 = icmp slt <16 x i8> %76, zeroinitializer
-  %78 = bitcast <16 x i1> %77 to i16
-  %79 = xor i16 %78, -1
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  %82 = load i64, ptr %81, align 8, !alias.scope !13907, !noalias !13910, !noundef !5
+  %77 = icmp sgt <16 x i8> %76, splat (i8 -1)
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %66, i64 72
+  %80 = load i64, ptr %79, align 8, !alias.scope !13907, !noalias !13910, !noundef !5
   store ptr %71, ptr %13, align 8
   %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %80, ptr %.sroa.453.0..sroa_idx, align 8
+  store ptr %78, ptr %.sroa.453.0..sroa_idx, align 8
   %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %75, ptr %.sroa.554.0..sroa_idx, align 8
   %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i16 %79, ptr %.sroa.655.0..sroa_idx, align 8
+  store <16 x i1> %77, ptr %.sroa.655.0..sroa_idx, align 8
   %.sroa.857.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i64 %82, ptr %.sroa.857.0..sroa_idx, align 8
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %select.unfold, label %84
+  store i64 %80, ptr %.sroa.857.0..sroa_idx, align 8
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %select.unfold, label %82
 
-84:                                               ; preds = %69
-  %85 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h8546bff323398ee6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
-  %86 = load i64, ptr %.sroa.857.0..sroa_idx, align 8, !alias.scope !13917, !noundef !5
-  %87 = add i64 %86, -1
-  store i64 %87, ptr %.sroa.857.0..sroa_idx, align 8, !alias.scope !13917
-  %88 = icmp eq ptr %85, null
-  br i1 %88, label %select.unfold, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit"
+82:                                               ; preds = %69
+  %83 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h8546bff323398ee6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
+  %84 = load i64, ptr %.sroa.857.0..sroa_idx, align 8, !alias.scope !13917, !noundef !5
+  %85 = add i64 %84, -1
+  store i64 %85, ptr %.sroa.857.0..sroa_idx, align 8, !alias.scope !13917
+  %86 = icmp eq ptr %83, null
+  br i1 %86, label %select.unfold, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit"
 
-select.unfold:                                    ; preds = %84, %69
+select.unfold:                                    ; preds = %82, %69
   store i32 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47"
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit": ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %85, i64 -8
-  %90 = load ptr, ptr %89, align 8, !nonnull !5, !noundef !5
-  %91 = atomicrmw add ptr %90, i64 1 monotonic, align 8
-  %92 = icmp slt i64 %91, 0
-  br i1 %92, label %98, label %93
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit": ; preds = %82
+  %87 = getelementptr inbounds i8, ptr %83, i64 -8
+  %88 = load ptr, ptr %87, align 8, !nonnull !5, !noundef !5
+  %89 = atomicrmw add ptr %88, i64 1 monotonic, align 8
+  %90 = icmp slt i64 %89, 0
+  br i1 %90, label %96, label %91
 
-"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47": ; preds = %268, %264, %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45", %select.unfold
+"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47": ; preds = %266, %262, %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45", %select.unfold
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %44
 
-93:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit"
-  store ptr %90, ptr %14, align 8
+91:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit"
+  store ptr %88, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %94 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %95 = load ptr, ptr %94, align 8, !nonnull !5, !noundef !5
-  %96 = atomicrmw add ptr %95, i64 1 monotonic, align 8
-  %97 = icmp slt i64 %96, 0
-  br i1 %97, label %101, label %99
+  %92 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %93 = load ptr, ptr %92, align 8, !nonnull !5, !noundef !5
+  %94 = atomicrmw add ptr %93, i64 1 monotonic, align 8
+  %95 = icmp slt i64 %94, 0
+  br i1 %95, label %99, label %97
 
-98:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit"
+96:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbeb01f501d4df81E.exit"
   call void @llvm.trap()
   unreachable
 
-99:                                               ; preds = %93
-  store ptr %95, ptr %12, align 8
-  %100 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-          to label %102 unwind label %.loopexit.split-lp
+97:                                               ; preds = %91
+  store ptr %93, ptr %12, align 8
+  %98 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+          to label %100 unwind label %.loopexit.split-lp
 
-101:                                              ; preds = %93
+99:                                               ; preds = %91
   call void @llvm.trap()
   unreachable
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %216, %220, %224, %187
-  %.pn = phi { ptr, i32 } [ %lpad.phi66, %187 ], [ %217, %224 ], [ %217, %220 ], [ %217, %216 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %214, %218, %222, %185
+  %.pn = phi { ptr, i32 } [ %lpad.phi66, %185 ], [ %215, %222 ], [ %215, %218 ], [ %215, %214 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val20 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE"(ptr nonnull %.val20) #61
-          to label %162 unwind label %269
+          to label %160 unwind label %267
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.thread.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %99, %.loopexit60, %102, %.noexc, %109, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i27", %120
+.loopexit.split-lp:                               ; preds = %97, %.loopexit60, %100, %.noexc, %107, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i27", %118
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %103, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %102
-  %104 = load i32, ptr %4, align 8, !range !8710, !alias.scope !13920, !noalias !13923, !noundef !5
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %106 = load i32, ptr %105, align 4, !alias.scope !13920, !noalias !13923, !noundef !5
-  %107 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %103, i32 noundef %104, i32 noundef %106)
+.noexc:                                           ; preds = %100
+  %102 = load i32, ptr %4, align 8, !range !8710, !alias.scope !13920, !noalias !13923, !noundef !5
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %104 = load i32, ptr %103, align 4, !alias.scope !13920, !noalias !13923, !noundef !5
+  %105 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %101, i32 noundef %102, i32 noundef %104)
           to label %.noexc29 unwind label %.loopexit.split-lp
 
 .noexc29:                                         ; preds = %.noexc
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i27"
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %107, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i27"
 
-109:                                              ; preds = %.noexc29
+107:                                              ; preds = %.noexc29
   invoke void @_ZN3std9panicking11begin_panic17h53b61441d8fa74ebE(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.299.llvm.5196727410964091947, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e73ffbc815108deb73bdb9d87d3223.124.llvm.5196727410964091947) #62
           to label %.noexc30 unwind label %.loopexit.split-lp
 
-.noexc30:                                         ; preds = %109
+.noexc30:                                         ; preds = %107
   unreachable
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i27": ; preds = %.noexc29
-  %110 = load ptr, ptr %107, align 8, !nonnull !5, !align !734, !noundef !5
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %112 = load ptr, ptr %111, align 8, !nonnull !5, !align !36, !noundef !5
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %114 = load ptr, ptr %113, align 8, !invariant.load !5, !alias.scope !13925, !nonnull !5
-  %115 = invoke { i64, i64 } %114(ptr noundef nonnull align 1 %110)
+  %108 = load ptr, ptr %105, align 8, !nonnull !5, !align !734, !noundef !5
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %110 = load ptr, ptr %109, align 8, !nonnull !5, !align !36, !noundef !5
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %112 = load ptr, ptr %111, align 8, !invariant.load !5, !alias.scope !13925, !nonnull !5
+  %113 = invoke { i64, i64 } %112(ptr noundef nonnull align 1 %108)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
 .noexc31:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i27"
-  %116 = extractvalue { i64, i64 } %115, 0
-  %117 = icmp eq i64 %116, 6444549824335798492
-  %118 = extractvalue { i64, i64 } %115, 1
-  %119 = icmp eq i64 %118, 4365155009389935492
-  %.sroa.0.0.i.i28 = select i1 %117, i1 %119, i1 false
-  br i1 %.sroa.0.0.i.i28, label %_ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit, label %120
+  %114 = extractvalue { i64, i64 } %113, 0
+  %115 = icmp eq i64 %114, 6444549824335798492
+  %116 = extractvalue { i64, i64 } %113, 1
+  %117 = icmp eq i64 %116, 4365155009389935492
+  %.sroa.0.0.i.i28 = select i1 %115, i1 %117, i1 false
+  br i1 %.sroa.0.0.i.i28, label %_ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit, label %118
 
-120:                                              ; preds = %.noexc31
+118:                                              ; preds = %.noexc31
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h749e38a2bc9fc4b8E.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
           to label %.noexc32 unwind label %.loopexit.split-lp
 
-.noexc32:                                         ; preds = %120
+.noexc32:                                         ; preds = %118
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit: ; preds = %.noexc31
-  %121 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %122 = load ptr, ptr %121, align 8, !nonnull !5, !noundef !5
-  %123 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %124 = load i64, ptr %123, align 8, !noundef !5
-  %.idx = shl nsw i64 %124, 4
-  %125 = getelementptr inbounds i8, ptr %122, i64 %.idx
-  %126 = icmp eq i64 %124, 0
-  br i1 %126, label %.loopexit60, label %.lr.ph.i.lr.ph
+  %119 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %120 = load ptr, ptr %119, align 8, !nonnull !5, !noundef !5
+  %121 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %122 = load i64, ptr %121, align 8, !noundef !5
+  %.idx = shl nsw i64 %122, 4
+  %123 = getelementptr inbounds i8, ptr %120, i64 %.idx
+  %124 = icmp eq i64 %122, 0
+  br i1 %124, label %.loopexit60, label %.lr.ph.i.lr.ph
 
 .lr.ph.i.lr.ph:                                   ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit
-  %127 = getelementptr inbounds nuw i8, ptr %7, i64 568
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %.sroa.55.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 584
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 592
   %.sroa.0.sroa.0.568..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.i.i.i.i, i64 568
-  %128 = getelementptr inbounds nuw i8, ptr %7, i64 600
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 584
   %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 592
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 600
-  %129 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.5.0..sroa_idx18.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.7.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %130 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.lr.ph
-  %131 = phi ptr [ %122, %.lr.ph.i.lr.ph ], [ %132, %.lr.ph.i.backedge ]
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %129 = phi ptr [ %120, %.lr.ph.i.lr.ph ], [ %130, %.lr.ph.i.backedge ]
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !13928)
   call void @llvm.experimental.noalias.scope.decl(metadata !13931)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !13934
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !13934
-  %133 = load ptr, ptr %131, align 8, !alias.scope !13940, !noalias !13941, !nonnull !5, !align !734, !noundef !5
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %135 = load ptr, ptr %134, align 8, !alias.scope !13940, !noalias !13941, !nonnull !5, !align !36, !noundef !5
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 200
-  %137 = load ptr, ptr %136, align 8, !invariant.load !5, !noalias !13934, !nonnull !5
-  invoke void %137(ptr noalias noundef nonnull sret([608 x i8]) align 8 captures(none) dereferenceable(608) %7, ptr noundef nonnull align 1 %133)
+  %131 = load ptr, ptr %129, align 8, !alias.scope !13940, !noalias !13941, !nonnull !5, !align !734, !noundef !5
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %133 = load ptr, ptr %132, align 8, !alias.scope !13940, !noalias !13941, !nonnull !5, !align !36, !noundef !5
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 200
+  %135 = load ptr, ptr %134, align 8, !invariant.load !5, !noalias !13934, !nonnull !5
+  invoke void %135(ptr noalias noundef nonnull sret([608 x i8]) align 8 captures(none) dereferenceable(608) %7, ptr noundef nonnull align 1 %131)
           to label %.noexc33 unwind label %.loopexit
 
 .noexc33:                                         ; preds = %.lr.ph.i
@@ -63299,39 +63264,39 @@ _ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit: ; preds = %.no
   call void @llvm.experimental.noalias.scope.decl(metadata !13945)
   %.sroa.55.0.copyload.i.i.i.i = load i64, ptr %.sroa.55.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13945, !noalias !13947
   %.sroa.6.0.copyload.i.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13945, !noalias !13947
-  %138 = icmp eq i64 %.sroa.55.0.copyload.i.i.i.i, -2048072378011799127
-  %139 = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i, 6558878141164024751
-  %or.cond.i.i.i.i.i = select i1 %138, i1 %139, i1 false
-  br i1 %or.cond.i.i.i.i.i, label %140, label %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.i.i.i
+  %136 = icmp eq i64 %.sroa.55.0.copyload.i.i.i.i, -2048072378011799127
+  %137 = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i, 6558878141164024751
+  %or.cond.i.i.i.i.i = select i1 %136, i1 %137, i1 false
+  br i1 %or.cond.i.i.i.i.i, label %138, label %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.i.i.i
 
-140:                                              ; preds = %.noexc33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !alias.scope !13948, !noalias !13934
+138:                                              ; preds = %.noexc33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %125, i64 16, i1 false), !alias.scope !13948, !noalias !13934
   store i64 -2048072378011799127, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13942, !noalias !13949
   store i64 6558878141164024751, ptr %.sroa.5.0..sroa_idx18.i.i.i.i, align 8, !alias.scope !13942, !noalias !13949
-  %141 = load i64, ptr %7, align 8, !range !1027, !alias.scope !13950, !noalias !13947, !noundef !5
-  %142 = icmp eq i64 %141, 2
-  br i1 %142, label %.thread.sink.split.i.i.i, label %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i
+  %139 = load i64, ptr %7, align 8, !range !1027, !alias.scope !13950, !noalias !13947, !noundef !5
+  %140 = icmp eq i64 %139, 2
+  br i1 %140, label %.thread.sink.split.i.i.i, label %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i
 
-_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i: ; preds = %140
+_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i: ; preds = %138
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17he267b450dddfde6aE"(ptr noalias noundef nonnull align 8 dereferenceable(608) %7)
           to label %.thread.sink.split.i.i.i unwind label %.loopexit
 
 _ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.i.i.i: ; preds = %.noexc33
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.568..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !noalias !13947
-  %143 = load ptr, ptr %128, align 8, !alias.scope !13945, !noalias !13947, !nonnull !5, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.568..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %125, i64 16, i1 false), !noalias !13947
+  %141 = load ptr, ptr %126, align 8, !alias.scope !13945, !noalias !13947, !nonnull !5, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %.sroa.0.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(608) %7, i64 568, i1 false), !noalias !13947
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %8, ptr noundef nonnull align 8 dereferenceable(584) %.sroa.0.sroa.0.i.i.i.i, i64 584, i1 false), !noalias !13949
   store i64 %.sroa.55.0.copyload.i.i.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13942, !noalias !13949
   store i64 %.sroa.6.0.copyload.i.i.i.i, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13942, !noalias !13949
-  store ptr %143, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13942, !noalias !13949
+  store ptr %141, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13942, !noalias !13949
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0.i.i.i.i)
   %.pr.pre.i.i.i = load i64, ptr %8, align 8, !noalias !13934
-  %144 = icmp eq i64 %.pr.pre.i.i.i, 3
+  %142 = icmp eq i64 %.pr.pre.i.i.i, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13934
-  br i1 %144, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.thread.i"
+  br i1 %142, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.thread.i"
 
-.thread.sink.split.i.i.i:                         ; preds = %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i, %140
+.thread.sink.split.i.i.i:                         ; preds = %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.thread2.i.i.i, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13934
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i"
 
@@ -63344,16 +63309,16 @@ _ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.i.i.i: ; preds = %.noexc
   br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$$GT$17hda47190bb3d72f20E.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i": ; preds = %.thread.sink.split.i.i.i, %_ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.i.i.i
-  %.sroa.0.0.copyload4.i = load i32, ptr %129, align 8, !noalias !13953
+  %.sroa.0.0.copyload4.i = load i32, ptr %127, align 8, !noalias !13953
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx5.i, i64 28, i1 false), !noalias !13953
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !13934
-  %145 = icmp eq i32 %.sroa.0.0.copyload4.i, 0
-  br i1 %145, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$$GT$17hda47190bb3d72f20E.exit.i", label %149
+  %143 = icmp eq i32 %.sroa.0.0.copyload4.i, 0
+  br i1 %143, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$$GT$17hda47190bb3d72f20E.exit.i", label %147
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$$GT$17hda47190bb3d72f20E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i", %.noexc35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
-  %146 = icmp eq ptr %132, %125
-  br i1 %146, label %.loopexit60, label %.lr.ph.i.backedge
+  %144 = icmp eq ptr %130, %123
+  br i1 %144, label %.loopexit60, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$$GT$17hda47190bb3d72f20E.exit.i", %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit"
   br label %.lr.ph.i
@@ -63362,332 +63327,332 @@ _ZN4gpui4view7AnyView8downcast17h317265bb5cf44e76E.exit.i.i.i: ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %14, ptr %9, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %15, ptr %147, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %12, ptr %148, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %15, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %12, ptr %146, align 8
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view17hd6be5fb1a9465564E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %151 unwind label %.loopexit.split-lp
+          to label %149 unwind label %.loopexit.split-lp
 
-149:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i"
+147:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h81eecba9cc754530E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.i, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   store i32 %.sroa.0.0.copyload4.i, ptr %11, align 8
-  %150 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-          to label %188 unwind label %.loopexit62
+  %148 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+          to label %186 unwind label %.loopexit62
 
-151:                                              ; preds = %.loopexit60
+149:                                              ; preds = %.loopexit60
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.val19 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %152 = atomicrmw sub ptr %.val19, i64 1 release, align 8
-  %153 = icmp eq i64 %152, 1
-  br i1 %153, label %154, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
+  %150 = atomicrmw sub ptr %.val19, i64 1 release, align 8
+  %151 = icmp eq i64 %150, 1
+  br i1 %151, label %152, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
 
-154:                                              ; preds = %151
+152:                                              ; preds = %149
   fence acquire
-  %155 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$client..user..User$GT$17hd499485800b0e0c9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %155)
-          to label %.noexc36 unwind label %163
+  %153 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$client..user..User$GT$17hd499485800b0e0c9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %153)
+          to label %.noexc36 unwind label %161
 
-.noexc36:                                         ; preds = %154
-  %156 = icmp eq ptr %.val19, inttoptr (i64 -1 to ptr)
-  br i1 %156, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit", label %157
+.noexc36:                                         ; preds = %152
+  %154 = icmp eq ptr %.val19, inttoptr (i64 -1 to ptr)
+  br i1 %154, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit", label %155
 
-157:                                              ; preds = %.noexc36
-  %158 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
-  %159 = atomicrmw sub ptr %158, i64 1 release, align 8, !noalias !13954
-  %160 = icmp eq i64 %159, 1
-  br i1 %160, label %161, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
+155:                                              ; preds = %.noexc36
+  %156 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
+  %157 = atomicrmw sub ptr %156, i64 1 release, align 8, !noalias !13954
+  %158 = icmp eq i64 %157, 1
+  br i1 %158, label %159, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
 
-161:                                              ; preds = %157
+159:                                              ; preds = %155
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %.val19, i64 noundef 72, i64 noundef 8) #53, !noalias !13954
   br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
 
-162:                                              ; preds = %.body, %163
-  %.pn17 = phi { ptr, i32 } [ %164, %163 ], [ %.pn, %.body ]
+160:                                              ; preds = %.body, %161
+  %.pn17 = phi { ptr, i32 } [ %162, %161 ], [ %.pn, %.body ]
   %.val23 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE"(ptr nonnull %.val23) #61
-          to label %271 unwind label %269
+          to label %269 unwind label %267
 
-163:                                              ; preds = %238, %154
-  %164 = landingpad { ptr, i32 }
+161:                                              ; preds = %236, %152
+  %162 = landingpad { ptr, i32 }
           cleanup
-  br label %162
+  br label %160
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit": ; preds = %161, %157, %.noexc36, %151
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit": ; preds = %159, %155, %.noexc36, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val22 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
-  %165 = atomicrmw sub ptr %.val22, i64 1 release, align 8
-  %166 = icmp eq i64 %165, 1
-  br i1 %166, label %167, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit"
+  %163 = atomicrmw sub ptr %.val22, i64 1 release, align 8
+  %164 = icmp eq i64 %163, 1
+  br i1 %164, label %165, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit"
 
-167:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
+165:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit"
   fence acquire
-  %168 = getelementptr inbounds nuw i8, ptr %.val22, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.val22, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !13961)
   call void @llvm.experimental.noalias.scope.decl(metadata !13964)
   call void @llvm.experimental.noalias.scope.decl(metadata !13967)
-  %169 = load ptr, ptr %168, align 8, !alias.scope !13970, !noalias !13971, !nonnull !5, !noundef !5
-  %170 = atomicrmw sub ptr %169, i64 1 release, align 8, !noalias !13974
-  %171 = icmp eq i64 %170, 1
-  br i1 %171, label %172, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
+  %167 = load ptr, ptr %166, align 8, !alias.scope !13970, !noalias !13971, !nonnull !5, !noundef !5
+  %168 = atomicrmw sub ptr %167, i64 1 release, align 8, !noalias !13974
+  %169 = icmp eq i64 %168, 1
+  br i1 %169, label %170, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
 
-172:                                              ; preds = %167
+170:                                              ; preds = %165
   fence acquire
   call void @llvm.experimental.noalias.scope.decl(metadata !13975)
-  %173 = load ptr, ptr %168, align 8, !alias.scope !13978, !noalias !13971, !nonnull !5, !noundef !5
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  call void @"_ZN4core3ptr64drop_in_place$LT$live_kit_client..test..TestServerVideoTrack$GT$17hfe1582ae37caf766E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %174), !noalias !13979
-  %175 = icmp eq ptr %173, inttoptr (i64 -1 to ptr)
-  br i1 %175, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i", label %176
+  %171 = load ptr, ptr %166, align 8, !alias.scope !13978, !noalias !13971, !nonnull !5, !noundef !5
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  call void @"_ZN4core3ptr64drop_in_place$LT$live_kit_client..test..TestServerVideoTrack$GT$17hfe1582ae37caf766E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %172), !noalias !13979
+  %173 = icmp eq ptr %171, inttoptr (i64 -1 to ptr)
+  br i1 %173, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i", label %174
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %178 = atomicrmw sub ptr %177, i64 1 release, align 8, !noalias !13980
-  %179 = icmp eq i64 %178, 1
-  br i1 %179, label %180, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %176 = atomicrmw sub ptr %175, i64 1 release, align 8, !noalias !13980
+  %177 = icmp eq i64 %176, 1
+  br i1 %177, label %178, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
 
-180:                                              ; preds = %176
+178:                                              ; preds = %174
   fence acquire
-  call void @__rust_dealloc(ptr noundef nonnull %173, i64 noundef 88, i64 noundef 8) #53, !noalias !13980
+  call void @__rust_dealloc(ptr noundef nonnull %171, i64 noundef 88, i64 noundef 8) #53, !noalias !13980
   br label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
 
-"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i": ; preds = %180, %176, %172, %167
-  %181 = icmp eq ptr %.val22, inttoptr (i64 -1 to ptr)
-  br i1 %181, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit", label %182
+"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i": ; preds = %178, %174, %170, %165
+  %179 = icmp eq ptr %.val22, inttoptr (i64 -1 to ptr)
+  br i1 %179, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit", label %180
 
-182:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
-  %183 = getelementptr inbounds nuw i8, ptr %.val22, i64 8
-  %184 = atomicrmw sub ptr %183, i64 1 release, align 8, !noalias !13985
-  %185 = icmp eq i64 %184, 1
-  br i1 %185, label %186, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit"
+180:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i"
+  %181 = getelementptr inbounds nuw i8, ptr %.val22, i64 8
+  %182 = atomicrmw sub ptr %181, i64 1 release, align 8, !noalias !13985
+  %183 = icmp eq i64 %182, 1
+  br i1 %183, label %184, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit"
 
-186:                                              ; preds = %182
+184:                                              ; preds = %180
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %.val22, i64 noundef 24, i64 noundef 8) #53, !noalias !13985
   br label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit"
 
-"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit", %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i", %182, %186
+"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit", %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i", %180, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %44
 
-.loopexit62:                                      ; preds = %149, %188, %.noexc39, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i37"
+.loopexit62:                                      ; preds = %147, %186, %.noexc39, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i37"
   %lpad.loopexit64 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %185
 
-.loopexit.split-lp63:                             ; preds = %194, %205
+.loopexit.split-lp63:                             ; preds = %192, %203
   %lpad.loopexit.split-lp65 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %185
 
-187:                                              ; preds = %.loopexit.split-lp63, %.loopexit62
+185:                                              ; preds = %.loopexit.split-lp63, %.loopexit62
   %lpad.phi66 = phi { ptr, i32 } [ %lpad.loopexit64, %.loopexit62 ], [ %lpad.loopexit.split-lp65, %.loopexit.split-lp63 ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #61
-          to label %.body unwind label %269
+          to label %.body unwind label %267
 
-188:                                              ; preds = %149
-  %189 = getelementptr inbounds nuw i8, ptr %150, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %189, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
+186:                                              ; preds = %147
+  %187 = getelementptr inbounds nuw i8, ptr %148, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %187, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
           to label %.noexc39 unwind label %.loopexit62
 
-.noexc39:                                         ; preds = %188
-  %190 = load i32, ptr %11, align 8, !range !8710, !alias.scope !13990, !noalias !13993, !noundef !5
-  %191 = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !alias.scope !13990, !noalias !13993, !noundef !5
-  %192 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %189, i32 noundef %190, i32 noundef %191)
+.noexc39:                                         ; preds = %186
+  %188 = load i32, ptr %11, align 8, !range !8710, !alias.scope !13990, !noalias !13993, !noundef !5
+  %189 = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !alias.scope !13990, !noalias !13993, !noundef !5
+  %190 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %187, i32 noundef %188, i32 noundef %189)
           to label %.noexc40 unwind label %.loopexit62
 
 .noexc40:                                         ; preds = %.noexc39
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %194, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i37"
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %192, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i37"
 
-194:                                              ; preds = %.noexc40
+192:                                              ; preds = %.noexc40
   invoke void @_ZN3std9panicking11begin_panic17h53b61441d8fa74ebE(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.299.llvm.5196727410964091947, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e73ffbc815108deb73bdb9d87d3223.124.llvm.5196727410964091947) #62
           to label %.noexc41 unwind label %.loopexit.split-lp63
 
-.noexc41:                                         ; preds = %194
+.noexc41:                                         ; preds = %192
   unreachable
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i37": ; preds = %.noexc40
-  %195 = load ptr, ptr %192, align 8, !nonnull !5, !align !734, !noundef !5
-  %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  %197 = load ptr, ptr %196, align 8, !nonnull !5, !align !36, !noundef !5
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
-  %199 = load ptr, ptr %198, align 8, !invariant.load !5, !alias.scope !13995, !nonnull !5
-  %200 = invoke { i64, i64 } %199(ptr noundef nonnull align 1 %195)
+  %193 = load ptr, ptr %190, align 8, !nonnull !5, !align !734, !noundef !5
+  %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %195 = load ptr, ptr %194, align 8, !nonnull !5, !align !36, !noundef !5
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
+  %197 = load ptr, ptr %196, align 8, !invariant.load !5, !alias.scope !13995, !nonnull !5
+  %198 = invoke { i64, i64 } %197(ptr noundef nonnull align 1 %193)
           to label %.noexc42 unwind label %.loopexit62
 
 .noexc42:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i37"
-  %201 = extractvalue { i64, i64 } %200, 0
-  %202 = icmp eq i64 %201, -2048072378011799127
-  %203 = extractvalue { i64, i64 } %200, 1
-  %204 = icmp eq i64 %203, 6558878141164024751
-  %.sroa.0.0.i.i38 = select i1 %202, i1 %204, i1 false
-  br i1 %.sroa.0.0.i.i38, label %_ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit, label %205
+  %199 = extractvalue { i64, i64 } %198, 0
+  %200 = icmp eq i64 %199, -2048072378011799127
+  %201 = extractvalue { i64, i64 } %198, 1
+  %202 = icmp eq i64 %201, 6558878141164024751
+  %.sroa.0.0.i.i38 = select i1 %200, i1 %202, i1 false
+  br i1 %.sroa.0.0.i.i38, label %_ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit, label %203
 
-205:                                              ; preds = %.noexc42
+203:                                              ; preds = %.noexc42
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h9bbe70376b0cef72E.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
           to label %.noexc43 unwind label %.loopexit.split-lp63
 
-.noexc43:                                         ; preds = %205
+.noexc43:                                         ; preds = %203
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit: ; preds = %.noexc42
-  %206 = getelementptr inbounds nuw i8, ptr %195, i64 120
-  %207 = load i32, ptr %206, align 8, !noundef !5
-  %208 = load i32, ptr %15, align 4, !noundef !5
-  %209 = icmp eq i32 %207, %208
-  br i1 %209, label %210, label %215
+  %204 = getelementptr inbounds nuw i8, ptr %193, i64 120
+  %205 = load i32, ptr %204, align 8, !noundef !5
+  %206 = load i32, ptr %15, align 4, !noundef !5
+  %207 = icmp eq i32 %205, %206
+  br i1 %207, label %208, label %213
 
-210:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit
-  %211 = getelementptr inbounds nuw i8, ptr %195, i64 124
-  %212 = load i32, ptr %211, align 4, !noundef !5
-  %213 = load i32, ptr %16, align 4, !noundef !5
-  %214 = icmp eq i32 %212, %213
-  br i1 %214, label %235, label %215
+208:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit
+  %209 = getelementptr inbounds nuw i8, ptr %193, i64 124
+  %210 = load i32, ptr %209, align 4, !noundef !5
+  %211 = load i32, ptr %16, align 4, !noundef !5
+  %212 = icmp eq i32 %210, %211
+  br i1 %212, label %233, label %213
 
-215:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit, %210
+213:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2ae8313e614383d1E.exit, %208
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %226 unwind label %216
+          to label %224 unwind label %214
 
-216:                                              ; preds = %215
-  %217 = landingpad { ptr, i32 }
+214:                                              ; preds = %213
+  %215 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !13998)
   call void @llvm.experimental.noalias.scope.decl(metadata !14001)
-  %218 = load ptr, ptr %130, align 8, !alias.scope !14004, !nonnull !5, !noundef !5
-  %219 = icmp eq ptr %218, inttoptr (i64 -1 to ptr)
-  br i1 %219, label %.body, label %220
+  %216 = load ptr, ptr %128, align 8, !alias.scope !14004, !nonnull !5, !noundef !5
+  %217 = icmp eq ptr %216, inttoptr (i64 -1 to ptr)
+  br i1 %217, label %.body, label %218
 
-220:                                              ; preds = %216
-  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %222 = atomicrmw sub ptr %221, i64 1 release, align 8, !noalias !14004
-  %223 = icmp eq i64 %222, 1
-  br i1 %223, label %224, label %.body
+218:                                              ; preds = %214
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %220 = atomicrmw sub ptr %219, i64 1 release, align 8, !noalias !14004
+  %221 = icmp eq i64 %220, 1
+  br i1 %221, label %222, label %.body
 
-224:                                              ; preds = %220
+222:                                              ; preds = %218
   fence acquire
-  %225 = load ptr, ptr %130, align 8, !alias.scope !14004, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %225, i64 noundef 80, i64 noundef 8) #53, !noalias !14004
+  %223 = load ptr, ptr %128, align 8, !alias.scope !14004, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %223, i64 noundef 80, i64 noundef 8) #53, !noalias !14004
   br label %.body
 
-226:                                              ; preds = %215
+224:                                              ; preds = %213
   call void @llvm.experimental.noalias.scope.decl(metadata !14005)
   call void @llvm.experimental.noalias.scope.decl(metadata !14008)
-  %227 = load ptr, ptr %130, align 8, !alias.scope !14011, !nonnull !5, !noundef !5
-  %228 = icmp eq ptr %227, inttoptr (i64 -1 to ptr)
-  br i1 %228, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit", label %229
+  %225 = load ptr, ptr %128, align 8, !alias.scope !14011, !nonnull !5, !noundef !5
+  %226 = icmp eq ptr %225, inttoptr (i64 -1 to ptr)
+  br i1 %226, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit", label %227
 
-229:                                              ; preds = %226
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %231 = atomicrmw sub ptr %230, i64 1 release, align 8, !noalias !14018
-  %232 = icmp eq i64 %231, 1
-  br i1 %232, label %233, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit"
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  %229 = atomicrmw sub ptr %228, i64 1 release, align 8, !noalias !14018
+  %230 = icmp eq i64 %229, 1
+  br i1 %230, label %231, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit"
 
-233:                                              ; preds = %229
+231:                                              ; preds = %227
   fence acquire
-  %234 = load ptr, ptr %130, align 8, !alias.scope !14011, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %234, i64 noundef 80, i64 noundef 8) #53, !noalias !14018
+  %232 = load ptr, ptr %128, align 8, !alias.scope !14011, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %232, i64 noundef 80, i64 noundef 8) #53, !noalias !14018
   br label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit"
 
-235:                                              ; preds = %210
+233:                                              ; preds = %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.val = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %236 = atomicrmw sub ptr %.val, i64 1 release, align 8
-  %237 = icmp eq i64 %236, 1
-  br i1 %237, label %238, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
+  %234 = atomicrmw sub ptr %.val, i64 1 release, align 8
+  %235 = icmp eq i64 %234, 1
+  br i1 %235, label %236, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
 
-238:                                              ; preds = %235
+236:                                              ; preds = %233
   fence acquire
-  %239 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$client..user..User$GT$17hd499485800b0e0c9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %239)
-          to label %.noexc44 unwind label %163
+  %237 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$client..user..User$GT$17hd499485800b0e0c9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %237)
+          to label %.noexc44 unwind label %161
 
-.noexc44:                                         ; preds = %238
-  %240 = icmp eq ptr %.val, inttoptr (i64 -1 to ptr)
-  br i1 %240, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45", label %241
+.noexc44:                                         ; preds = %236
+  %238 = icmp eq ptr %.val, inttoptr (i64 -1 to ptr)
+  br i1 %238, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45", label %239
 
-241:                                              ; preds = %.noexc44
-  %242 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %243 = atomicrmw sub ptr %242, i64 1 release, align 8, !noalias !14019
-  %244 = icmp eq i64 %243, 1
-  br i1 %244, label %245, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
+239:                                              ; preds = %.noexc44
+  %240 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %241 = atomicrmw sub ptr %240, i64 1 release, align 8, !noalias !14019
+  %242 = icmp eq i64 %241, 1
+  br i1 %242, label %243, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
 
-245:                                              ; preds = %241
+243:                                              ; preds = %239
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 72, i64 noundef 8) #53, !noalias !14019
   br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
 
-"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit": ; preds = %233, %229, %226
+"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$workspace..shared_screen..SharedScreen$GT$$GT$17hfc4bc0a90ed47355E.exit": ; preds = %231, %227, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %246 = icmp eq ptr %132, %125
-  br i1 %246, label %.loopexit60, label %.lr.ph.i.backedge
+  %244 = icmp eq ptr %130, %123
+  br i1 %244, label %.loopexit60, label %.lr.ph.i.backedge
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45": ; preds = %245, %241, %.noexc44, %235
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45": ; preds = %243, %239, %.noexc44, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val21 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
-  %247 = atomicrmw sub ptr %.val21, i64 1 release, align 8
-  %248 = icmp eq i64 %247, 1
-  br i1 %248, label %249, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47"
+  %245 = atomicrmw sub ptr %.val21, i64 1 release, align 8
+  %246 = icmp eq i64 %245, 1
+  br i1 %246, label %247, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47"
 
-249:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
+247:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17h0d2edd151634de0fE.exit45"
   fence acquire
-  %250 = getelementptr inbounds nuw i8, ptr %.val21, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %.val21, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !14026)
   call void @llvm.experimental.noalias.scope.decl(metadata !14029)
   call void @llvm.experimental.noalias.scope.decl(metadata !14032)
-  %251 = load ptr, ptr %250, align 8, !alias.scope !14035, !noalias !14036, !nonnull !5, !noundef !5
-  %252 = atomicrmw sub ptr %251, i64 1 release, align 8, !noalias !14039
-  %253 = icmp eq i64 %252, 1
-  br i1 %253, label %254, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
+  %249 = load ptr, ptr %248, align 8, !alias.scope !14035, !noalias !14036, !nonnull !5, !noundef !5
+  %250 = atomicrmw sub ptr %249, i64 1 release, align 8, !noalias !14039
+  %251 = icmp eq i64 %250, 1
+  br i1 %251, label %252, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
 
-254:                                              ; preds = %249
+252:                                              ; preds = %247
   fence acquire
   call void @llvm.experimental.noalias.scope.decl(metadata !14040)
-  %255 = load ptr, ptr %250, align 8, !alias.scope !14043, !noalias !14036, !nonnull !5, !noundef !5
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  call void @"_ZN4core3ptr64drop_in_place$LT$live_kit_client..test..TestServerVideoTrack$GT$17hfe1582ae37caf766E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %256), !noalias !14044
-  %257 = icmp eq ptr %255, inttoptr (i64 -1 to ptr)
-  br i1 %257, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46", label %258
+  %253 = load ptr, ptr %248, align 8, !alias.scope !14043, !noalias !14036, !nonnull !5, !noundef !5
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  call void @"_ZN4core3ptr64drop_in_place$LT$live_kit_client..test..TestServerVideoTrack$GT$17hfe1582ae37caf766E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %254), !noalias !14044
+  %255 = icmp eq ptr %253, inttoptr (i64 -1 to ptr)
+  br i1 %255, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46", label %256
 
-258:                                              ; preds = %254
-  %259 = getelementptr inbounds nuw i8, ptr %255, i64 8
-  %260 = atomicrmw sub ptr %259, i64 1 release, align 8, !noalias !14045
-  %261 = icmp eq i64 %260, 1
-  br i1 %261, label %262, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
+256:                                              ; preds = %252
+  %257 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %258 = atomicrmw sub ptr %257, i64 1 release, align 8, !noalias !14045
+  %259 = icmp eq i64 %258, 1
+  br i1 %259, label %260, label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
 
-262:                                              ; preds = %258
+260:                                              ; preds = %256
   fence acquire
-  call void @__rust_dealloc(ptr noundef nonnull %255, i64 noundef 88, i64 noundef 8) #53, !noalias !14045
+  call void @__rust_dealloc(ptr noundef nonnull %253, i64 noundef 88, i64 noundef 8) #53, !noalias !14045
   br label %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
 
-"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46": ; preds = %262, %258, %254, %249
-  %263 = icmp eq ptr %.val21, inttoptr (i64 -1 to ptr)
-  br i1 %263, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47", label %264
+"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46": ; preds = %260, %256, %252, %247
+  %261 = icmp eq ptr %.val21, inttoptr (i64 -1 to ptr)
+  br i1 %261, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47", label %262
 
-264:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
-  %265 = getelementptr inbounds nuw i8, ptr %.val21, i64 8
-  %266 = atomicrmw sub ptr %265, i64 1 release, align 8, !noalias !14050
-  %267 = icmp eq i64 %266, 1
-  br i1 %267, label %268, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47"
+262:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$live_kit_client..test..RemoteVideoTrack$GT$17h0612d8828f26b56cE.exit.i.i.i46"
+  %263 = getelementptr inbounds nuw i8, ptr %.val21, i64 8
+  %264 = atomicrmw sub ptr %263, i64 1 release, align 8, !noalias !14050
+  %265 = icmp eq i64 %264, 1
+  br i1 %265, label %266, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47"
 
-268:                                              ; preds = %264
+266:                                              ; preds = %262
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %.val21, i64 noundef 24, i64 noundef 8) #53, !noalias !14050
   br label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$17h7b8cdebf92e3ec1fE.exit47"
 
-269:                                              ; preds = %162, %.body, %187
-  %270 = landingpad { ptr, i32 }
+267:                                              ; preds = %160, %.body, %185
+  %268 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-271:                                              ; preds = %162
+269:                                              ; preds = %160
   resume { ptr, i32 } %.pn17
 }
 
@@ -66807,11 +66772,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha0a99f1230801e83E.exit: ; preds = %"_Z
 
 56:                                               ; preds = %5
   store i64 2, ptr %0, align 8
-  br label %318
+  br label %316
 
 57:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha0a99f1230801e83E.exit
   store i64 2, ptr %28, align 8
-  br label %276
+  br label %274
 
 58:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha0a99f1230801e83E.exit
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -66856,324 +66821,322 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha0a99f1230801e83E.exit: ; preds = %"_Z
   %79 = getelementptr i8, ptr %76, i64 %78
   %80 = getelementptr i8, ptr %79, i64 1
   %81 = load <16 x i8>, ptr %76, align 16, !noalias !14637
-  %82 = icmp slt <16 x i8> %81, zeroinitializer
-  %83 = bitcast <16 x i1> %82 to i16
-  %84 = xor i16 %83, -1
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1352
-  %87 = load i64, ptr %86, align 8, !alias.scope !14634, !noalias !14635, !noundef !5
+  %82 = icmp sgt <16 x i8> %81, splat (i8 -1)
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 1352
+  %85 = load i64, ptr %84, align 8, !alias.scope !14634, !noalias !14635, !noundef !5
   store ptr %76, ptr %18, align 8, !noalias !14628
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %85, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14628
+  store ptr %83, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14628
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %80, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !14628
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i16 %84, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !14628
+  store <16 x i1> %82, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !14628
   %.sroa.733.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i64 %87, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !noalias !14628
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %._crit_edge.i.i, label %.lr.ph.i.i
+  store i64 %85, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !noalias !14628
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 thread-pre-split.i.i:                             ; preds = %.noexc1.i
   %.pr.i.i = load i64, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !alias.scope !14642, !noalias !14649
-  %89 = icmp eq i64 %.pr.i.i, 0
-  br i1 %89, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %87 = icmp eq i64 %.pr.i.i, 0
+  br i1 %87, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %74, %thread-pre-split.i.i
-  %90 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
+  %88 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6cc0d4540392cf2fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
           to label %.noexc.i unwind label %.loopexit.i, !noalias !14621
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
-  %91 = load i64, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !alias.scope !14642, !noalias !14649, !noundef !5
-  %92 = add i64 %91, -1
-  store i64 %92, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !alias.scope !14642, !noalias !14649
-  %93 = icmp eq ptr %90, null
-  br i1 %93, label %._crit_edge.i.i, label %94
+  %89 = load i64, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !alias.scope !14642, !noalias !14649, !noundef !5
+  %90 = add i64 %89, -1
+  store i64 %90, ptr %.sroa.733.0..sroa_idx.i.i, align 8, !alias.scope !14642, !noalias !14649
+  %91 = icmp eq ptr %88, null
+  br i1 %91, label %._crit_edge.i.i, label %92
 
-94:                                               ; preds = %.noexc.i
-  %95 = getelementptr inbounds i8, ptr %90, i64 -128
-  %.val4.i.i.i = load i64, ptr %95, align 4, !noalias !14652
-  %96 = getelementptr inbounds i8, ptr %90, i64 -32
-  %97 = load i32, ptr %96, align 8, !alias.scope !14653, !noalias !14660, !noundef !5
-  %98 = icmp eq i32 %97, 0
-  %99 = getelementptr inbounds i8, ptr %90, i64 -96
-  %.sroa.0.0.i.i.i.i.i.i = select i1 %98, ptr %99, ptr %96
-  %100 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
+92:                                               ; preds = %.noexc.i
+  %93 = getelementptr inbounds i8, ptr %88, i64 -128
+  %.val4.i.i.i = load i64, ptr %93, align 4, !noalias !14652
+  %94 = getelementptr inbounds i8, ptr %88, i64 -32
+  %95 = load i32, ptr %94, align 8, !alias.scope !14653, !noalias !14660, !noundef !5
+  %96 = icmp eq i32 %95, 0
+  %97 = getelementptr inbounds i8, ptr %88, i64 -96
+  %.sroa.0.0.i.i.i.i.i.i = select i1 %96, ptr %97, ptr %94
+  %98 = invoke noundef zeroext i1 @"_ZN72_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94014db165b2d001E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
           to label %.noexc1.i unwind label %.loopexit.i, !noalias !14621
 
-.noexc1.i:                                        ; preds = %94
-  br i1 %100, label %101, label %thread-pre-split.i.i
+.noexc1.i:                                        ; preds = %92
+  br i1 %98, label %99, label %thread-pre-split.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %thread-pre-split.i.i, %74
   store i64 2, ptr %28, align 8, !alias.scope !14663, !noalias !14664
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !14628
   br label %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
 
-101:                                              ; preds = %.noexc1.i
+99:                                               ; preds = %.noexc1.i
   %.sroa.013.0.extract.trunc.i.i = trunc i64 %.val4.i.i.i to i32
   %.sroa.013.4.extract.shift.i.i = lshr i64 %.val4.i.i.i, 32
   %.sroa.013.4.extract.trunc.i.i = trunc nuw i64 %.sroa.013.4.extract.shift.i.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !14628
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !14628
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !14628
-  %102 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  %100 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc2.i unwind label %.loopexit.split-lp.i, !noalias !14621
 
-.noexc2.i:                                        ; preds = %101
-  invoke void @_ZN4call10ActiveCall10try_global17h79a153458aa45375E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %102)
+.noexc2.i:                                        ; preds = %99
+  invoke void @_ZN4call10ActiveCall10try_global17h79a153458aa45375E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %100)
           to label %.noexc3.i unwind label %.loopexit.split-lp.i, !noalias !14621
 
 .noexc3.i:                                        ; preds = %.noexc2.i
-  %103 = load i32, ptr %16, align 8, !noalias !14628, !noundef !5
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %106
+  %101 = load i32, ptr %16, align 8, !noalias !14628, !noundef !5
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-105:                                              ; preds = %.noexc3.i
+103:                                              ; preds = %.noexc3.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !14628
   store i64 2, ptr %28, align 8, !alias.scope !14663, !noalias !14664
   br label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i"
 
-106:                                              ; preds = %.noexc3.i
+104:                                              ; preds = %.noexc3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !noalias !14628
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !14628
-  %107 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-          to label %110 unwind label %108, !noalias !14665
+  %105 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+          to label %108 unwind label %106, !noalias !14665
 
-"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i": ; preds = %151, %147, %143, %105
+"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i": ; preds = %149, %145, %141, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !14628
   br label %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
 
-108:                                              ; preds = %172, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i22.i.i", %.invoke.i.i, %.noexc24.i.i, %155, %153, %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i, %127, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i.i", %.noexc.i.i, %110, %106
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %170, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i22.i.i", %.invoke.i.i, %.noexc24.i.i, %153, %151, %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i, %125, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i.i", %.noexc.i.i, %108, %104
+  %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #61
-          to label %.body.i unwind label %251, !noalias !14665
+          to label %.body.i unwind label %249, !noalias !14665
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %111, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
-          to label %.noexc.i.i unwind label %108, !noalias !14665
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %109, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
+          to label %.noexc.i.i unwind label %106, !noalias !14665
 
-.noexc.i.i:                                       ; preds = %110
-  %112 = load i32, ptr %17, align 8, !range !8710, !alias.scope !14666, !noalias !14669, !noundef !5
-  %113 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %114 = load i32, ptr %113, align 4, !alias.scope !14666, !noalias !14669, !noundef !5
-  %115 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %111, i32 noundef %112, i32 noundef %114)
-          to label %.noexc18.i.i unwind label %108, !noalias !14665
+.noexc.i.i:                                       ; preds = %108
+  %110 = load i32, ptr %17, align 8, !range !8710, !alias.scope !14666, !noalias !14669, !noundef !5
+  %111 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %112 = load i32, ptr %111, align 4, !alias.scope !14666, !noalias !14669, !noundef !5
+  %113 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %109, i32 noundef %110, i32 noundef %112)
+          to label %.noexc18.i.i unwind label %106, !noalias !14665
 
 .noexc18.i.i:                                     ; preds = %.noexc.i.i
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %.invoke.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i.i"
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %.invoke.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i.i"
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i.i": ; preds = %.noexc18.i.i
-  %117 = load ptr, ptr %115, align 8, !noalias !14665, !nonnull !5, !align !734, !noundef !5
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %119 = load ptr, ptr %118, align 8, !noalias !14665, !nonnull !5, !align !36, !noundef !5
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %121 = load ptr, ptr %120, align 8, !invariant.load !5, !alias.scope !14671, !noalias !14665, !nonnull !5
-  %122 = invoke { i64, i64 } %121(ptr noundef nonnull align 1 %117)
-          to label %.noexc20.i.i unwind label %108, !noalias !14665
+  %115 = load ptr, ptr %113, align 8, !noalias !14665, !nonnull !5, !align !734, !noundef !5
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %117 = load ptr, ptr %116, align 8, !noalias !14665, !nonnull !5, !align !36, !noundef !5
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %119 = load ptr, ptr %118, align 8, !invariant.load !5, !alias.scope !14671, !noalias !14665, !nonnull !5
+  %120 = invoke { i64, i64 } %119(ptr noundef nonnull align 1 %115)
+          to label %.noexc20.i.i unwind label %106, !noalias !14665
 
 .noexc20.i.i:                                     ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i.i.i"
-  %123 = extractvalue { i64, i64 } %122, 0
-  %124 = icmp eq i64 %123, 5875741650157096801
-  %125 = extractvalue { i64, i64 } %122, 1
-  %126 = icmp eq i64 %125, -4807401864169756943
-  %.sroa.0.0.i.i.i.i = select i1 %124, i1 %126, i1 false
-  br i1 %.sroa.0.0.i.i.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i, label %127
+  %121 = extractvalue { i64, i64 } %120, 0
+  %122 = icmp eq i64 %121, 5875741650157096801
+  %123 = extractvalue { i64, i64 } %120, 1
+  %124 = icmp eq i64 %123, -4807401864169756943
+  %.sroa.0.0.i.i.i.i = select i1 %122, i1 %124, i1 false
+  br i1 %.sroa.0.0.i.i.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i, label %125
 
-127:                                              ; preds = %.noexc20.i.i
+125:                                              ; preds = %.noexc20.i.i
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17hca385a78bd2d59ffE.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
-          to label %.noexc21.i.i unwind label %108, !noalias !14665
+          to label %.noexc21.i.i unwind label %106, !noalias !14665
 
-.noexc21.i.i:                                     ; preds = %127
+.noexc21.i.i:                                     ; preds = %125
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i: ; preds = %.noexc20.i.i
-  %128 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN4call10ActiveCall4room17heb44132fe249bab9E(ptr noundef nonnull align 8 %117)
-          to label %129 unwind label %108, !noalias !14665
+  %126 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN4call10ActiveCall4room17heb44132fe249bab9E(ptr noundef nonnull align 8 %115)
+          to label %127 unwind label %106, !noalias !14665
 
-129:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i
-  %130 = icmp eq ptr %128, null
-  br i1 %130, label %131, label %153
+127:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hbdb040b3c68a9bdfE.exit.i.i
+  %128 = icmp eq ptr %126, null
+  br i1 %128, label %129, label %151
 
-131:                                              ; preds = %129
+129:                                              ; preds = %127
   store i64 2, ptr %28, align 8, !alias.scope !14663, !noalias !14664
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %143 unwind label %132, !noalias !14665
+          to label %141 unwind label %130, !noalias !14665
 
-132:                                              ; preds = %131
-  %133 = landingpad { ptr, i32 }
+130:                                              ; preds = %129
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %134 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14674)
   call void @llvm.experimental.noalias.scope.decl(metadata !14677)
-  %135 = load ptr, ptr %134, align 8, !alias.scope !14680, !noalias !14628, !nonnull !5, !noundef !5
-  %136 = icmp eq ptr %135, inttoptr (i64 -1 to ptr)
-  br i1 %136, label %.body.i, label %137
+  %133 = load ptr, ptr %132, align 8, !alias.scope !14680, !noalias !14628, !nonnull !5, !noundef !5
+  %134 = icmp eq ptr %133, inttoptr (i64 -1 to ptr)
+  br i1 %134, label %.body.i, label %135
 
-137:                                              ; preds = %132
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %139 = atomicrmw sub ptr %138, i64 1 release, align 8, !noalias !14681
-  %140 = icmp eq i64 %139, 1
-  br i1 %140, label %141, label %.body.i
+135:                                              ; preds = %130
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %137 = atomicrmw sub ptr %136, i64 1 release, align 8, !noalias !14681
+  %138 = icmp eq i64 %137, 1
+  br i1 %138, label %139, label %.body.i
 
-141:                                              ; preds = %137
+139:                                              ; preds = %135
   fence acquire
-  %142 = load ptr, ptr %134, align 8, !alias.scope !14680, !noalias !14628, !nonnull !5, !noundef !5
+  %140 = load ptr, ptr %132, align 8, !alias.scope !14680, !noalias !14628, !nonnull !5, !noundef !5
   br label %common.resume.sink.split.i.i
 
-143:                                              ; preds = %131
-  %144 = getelementptr inbounds nuw i8, ptr %17, i64 8
+141:                                              ; preds = %129
+  %142 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14682)
   call void @llvm.experimental.noalias.scope.decl(metadata !14685)
-  %145 = load ptr, ptr %144, align 8, !alias.scope !14688, !noalias !14628, !nonnull !5, !noundef !5
-  %146 = icmp eq ptr %145, inttoptr (i64 -1 to ptr)
-  br i1 %146, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i", label %147
+  %143 = load ptr, ptr %142, align 8, !alias.scope !14688, !noalias !14628, !nonnull !5, !noundef !5
+  %144 = icmp eq ptr %143, inttoptr (i64 -1 to ptr)
+  br i1 %144, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i", label %145
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %149 = atomicrmw sub ptr %148, i64 1 release, align 8, !noalias !14693
-  %150 = icmp eq i64 %149, 1
-  br i1 %150, label %151, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i"
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %147 = atomicrmw sub ptr %146, i64 1 release, align 8, !noalias !14693
+  %148 = icmp eq i64 %147, 1
+  br i1 %148, label %149, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i"
 
-151:                                              ; preds = %147
+149:                                              ; preds = %145
   fence acquire
-  %152 = load ptr, ptr %144, align 8, !alias.scope !14688, !noalias !14628, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %152, i64 noundef 80, i64 noundef 8) #53, !noalias !14693
+  %150 = load ptr, ptr %142, align 8, !alias.scope !14688, !noalias !14628, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %150, i64 noundef 80, i64 noundef 8) #53, !noalias !14693
   br label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i"
 
-common.resume.sink.split.i.i:                     ; preds = %182, %141
-  %.sink.i.i = phi ptr [ %183, %182 ], [ %142, %141 ]
-  %common.resume.op.ph.i.i = phi { ptr, i32 } [ %174, %182 ], [ %133, %141 ]
+common.resume.sink.split.i.i:                     ; preds = %180, %139
+  %.sink.i.i = phi ptr [ %181, %180 ], [ %140, %139 ]
+  %common.resume.op.ph.i.i = phi { ptr, i32 } [ %172, %180 ], [ %131, %139 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sink.i.i, i64 noundef 80, i64 noundef 8) #53, !noalias !14665
   br label %.body.i
 
-153:                                              ; preds = %129
-  %154 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-          to label %155 unwind label %108, !noalias !14665
+151:                                              ; preds = %127
+  %152 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+          to label %153 unwind label %106, !noalias !14665
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 656
-  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %156, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %128)
-          to label %.noexc24.i.i unwind label %108, !noalias !14665
+153:                                              ; preds = %151
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 656
+  invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %154, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %126)
+          to label %.noexc24.i.i unwind label %106, !noalias !14665
 
-.noexc24.i.i:                                     ; preds = %155
-  %157 = load i32, ptr %128, align 8, !range !8710, !alias.scope !14694, !noalias !14697, !noundef !5
-  %158 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %159 = load i32, ptr %158, align 4, !alias.scope !14694, !noalias !14697, !noundef !5
-  %160 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %156, i32 noundef %157, i32 noundef %159)
-          to label %.noexc25.i.i unwind label %108, !noalias !14665
+.noexc24.i.i:                                     ; preds = %153
+  %155 = load i32, ptr %126, align 8, !range !8710, !alias.scope !14694, !noalias !14697, !noundef !5
+  %156 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  %157 = load i32, ptr %156, align 4, !alias.scope !14694, !noalias !14697, !noundef !5
+  %158 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h22d5d569ed4000f1E.llvm.5196727410964091947"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %154, i32 noundef %155, i32 noundef %157)
+          to label %.noexc25.i.i unwind label %106, !noalias !14665
 
 .noexc25.i.i:                                     ; preds = %.noexc24.i.i
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %.invoke.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i22.i.i"
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %.invoke.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i22.i.i"
 
 .invoke.i.i:                                      ; preds = %.noexc25.i.i, %.noexc18.i.i
   invoke void @_ZN3std9panicking11begin_panic17h53b61441d8fa74ebE(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.299.llvm.5196727410964091947, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e73ffbc815108deb73bdb9d87d3223.124.llvm.5196727410964091947) #62
-          to label %.cont.i.i unwind label %108, !noalias !14665
+          to label %.cont.i.i unwind label %106, !noalias !14665
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i22.i.i": ; preds = %.noexc25.i.i
-  %162 = load ptr, ptr %160, align 8, !noalias !14665, !nonnull !5, !align !734, !noundef !5
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %164 = load ptr, ptr %163, align 8, !noalias !14665, !nonnull !5, !align !36, !noundef !5
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  %166 = load ptr, ptr %165, align 8, !invariant.load !5, !alias.scope !14699, !noalias !14665, !nonnull !5
-  %167 = invoke { i64, i64 } %166(ptr noundef nonnull align 1 %162)
-          to label %.noexc27.i.i unwind label %108, !noalias !14665
+  %160 = load ptr, ptr %158, align 8, !noalias !14665, !nonnull !5, !align !734, !noundef !5
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %162 = load ptr, ptr %161, align 8, !noalias !14665, !nonnull !5, !align !36, !noundef !5
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
+  %164 = load ptr, ptr %163, align 8, !invariant.load !5, !alias.scope !14699, !noalias !14665, !nonnull !5
+  %165 = invoke { i64, i64 } %164(ptr noundef nonnull align 1 %160)
+          to label %.noexc27.i.i unwind label %106, !noalias !14665
 
 .noexc27.i.i:                                     ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h616d68b93b68cb01E.llvm.5196727410964091947.exit.i22.i.i"
-  %168 = extractvalue { i64, i64 } %167, 0
-  %169 = icmp eq i64 %168, -8837223000806423235
-  %170 = extractvalue { i64, i64 } %167, 1
-  %171 = icmp eq i64 %170, -8480792442780059600
-  %.sroa.0.0.i.i23.i.i = select i1 %169, i1 %171, i1 false
-  br i1 %.sroa.0.0.i.i23.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i, label %172
+  %166 = extractvalue { i64, i64 } %165, 0
+  %167 = icmp eq i64 %166, -8837223000806423235
+  %168 = extractvalue { i64, i64 } %165, 1
+  %169 = icmp eq i64 %168, -8480792442780059600
+  %.sroa.0.0.i.i23.i.i = select i1 %167, i1 %169, i1 false
+  br i1 %.sroa.0.0.i.i23.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i, label %170
 
-172:                                              ; preds = %.noexc27.i.i
+170:                                              ; preds = %.noexc27.i.i
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17he49f30d68f2c35f5E.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, i64 noundef 4) #62
-          to label %.noexc28.i.i unwind label %108, !noalias !14665
+          to label %.noexc28.i.i unwind label %106, !noalias !14665
 
-.noexc28.i.i:                                     ; preds = %172
+.noexc28.i.i:                                     ; preds = %170
   unreachable
 
 _ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i: ; preds = %.noexc27.i.i
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %184 unwind label %173, !noalias !14665
+          to label %182 unwind label %171, !noalias !14665
 
-173:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i
-  %174 = landingpad { ptr, i32 }
+171:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i
+  %172 = landingpad { ptr, i32 }
           cleanup
-  %175 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14702)
   call void @llvm.experimental.noalias.scope.decl(metadata !14705)
-  %176 = load ptr, ptr %175, align 8, !alias.scope !14708, !noalias !14628, !nonnull !5, !noundef !5
-  %177 = icmp eq ptr %176, inttoptr (i64 -1 to ptr)
-  br i1 %177, label %.body.i, label %178
+  %174 = load ptr, ptr %173, align 8, !alias.scope !14708, !noalias !14628, !nonnull !5, !noundef !5
+  %175 = icmp eq ptr %174, inttoptr (i64 -1 to ptr)
+  br i1 %175, label %.body.i, label %176
 
-178:                                              ; preds = %173
-  %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %180 = atomicrmw sub ptr %179, i64 1 release, align 8, !noalias !14709
-  %181 = icmp eq i64 %180, 1
-  br i1 %181, label %182, label %.body.i
+176:                                              ; preds = %171
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %178 = atomicrmw sub ptr %177, i64 1 release, align 8, !noalias !14709
+  %179 = icmp eq i64 %178, 1
+  br i1 %179, label %180, label %.body.i
 
-182:                                              ; preds = %178
+180:                                              ; preds = %176
   fence acquire
-  %183 = load ptr, ptr %175, align 8, !alias.scope !14708, !noalias !14628, !nonnull !5, !noundef !5
+  %181 = load ptr, ptr %173, align 8, !alias.scope !14708, !noalias !14628, !nonnull !5, !noundef !5
   br label %common.resume.sink.split.i.i
 
-184:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i
-  %185 = getelementptr inbounds nuw i8, ptr %17, i64 8
+182:                                              ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i
+  %183 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14710)
   call void @llvm.experimental.noalias.scope.decl(metadata !14713)
-  %186 = load ptr, ptr %185, align 8, !alias.scope !14716, !noalias !14628, !nonnull !5, !noundef !5
-  %187 = icmp eq ptr %186, inttoptr (i64 -1 to ptr)
-  br i1 %187, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i", label %188
+  %184 = load ptr, ptr %183, align 8, !alias.scope !14716, !noalias !14628, !nonnull !5, !noundef !5
+  %185 = icmp eq ptr %184, inttoptr (i64 -1 to ptr)
+  br i1 %185, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i", label %186
 
-188:                                              ; preds = %184
-  %189 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %190 = atomicrmw sub ptr %189, i64 1 release, align 8, !noalias !14721
-  %191 = icmp eq i64 %190, 1
-  br i1 %191, label %192, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i"
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %188 = atomicrmw sub ptr %187, i64 1 release, align 8, !noalias !14721
+  %189 = icmp eq i64 %188, 1
+  br i1 %189, label %190, label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i"
 
-192:                                              ; preds = %188
+190:                                              ; preds = %186
   fence acquire
-  %193 = load ptr, ptr %185, align 8, !alias.scope !14716, !noalias !14628, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef 80, i64 noundef 8) #53, !noalias !14721
+  %191 = load ptr, ptr %183, align 8, !alias.scope !14716, !noalias !14628, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %191, i64 noundef 80, i64 noundef 8) #53, !noalias !14721
   br label %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i"
 
-"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i": ; preds = %192, %188, %184
+"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i": ; preds = %190, %186, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !14628
-  %194 = invoke noundef align 8 dereferenceable_or_null(136) ptr @_ZN4call4room4Room30remote_participant_for_peer_id17h0b1681089589509aE(ptr noundef nonnull align 8 %162, i32 noundef %.sroa.013.0.extract.trunc.i.i, i32 noundef %.sroa.013.4.extract.trunc.i.i)
+  %192 = invoke noundef align 8 dereferenceable_or_null(136) ptr @_ZN4call4room4Room30remote_participant_for_peer_id17h0b1681089589509aE(ptr noundef nonnull align 8 %160, i32 noundef %.sroa.013.0.extract.trunc.i.i, i32 noundef %.sroa.013.4.extract.trunc.i.i)
           to label %.noexc4.i unwind label %.loopexit.split-lp.i, !noalias !14621
 
 .noexc4.i:                                        ; preds = %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i"
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %196, label %197
+  %193 = icmp eq ptr %192, null
+  br i1 %193, label %194, label %195
 
-196:                                              ; preds = %.noexc4.i
+194:                                              ; preds = %.noexc4.i
   store i64 2, ptr %28, align 8, !alias.scope !14663, !noalias !14664
   br label %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
 
-197:                                              ; preds = %.noexc4.i
+195:                                              ; preds = %.noexc4.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !14628
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !14628
-  %198 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  %196 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc5.i unwind label %.loopexit.split-lp.i, !noalias !14621
 
-.noexc5.i:                                        ; preds = %197
-  %199 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN60_$LT$gpui..app..AppContext$u20$as$u20$theme..ActiveTheme$GT$5theme17ha8660378d7032914E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %198)
+.noexc5.i:                                        ; preds = %195
+  %197 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN60_$LT$gpui..app..AppContext$u20$as$u20$theme..ActiveTheme$GT$5theme17ha8660378d7032914E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %196)
           to label %.noexc6.i unwind label %.loopexit.split-lp.i, !noalias !14621
 
 .noexc6.i:                                        ; preds = %.noexc5.i
-  %200 = load ptr, ptr %199, align 8, !noalias !14665, !nonnull !5, !noundef !5
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 88
-  %202 = getelementptr inbounds nuw i8, ptr %194, i64 124
-  %203 = load i32, ptr %202, align 4, !noalias !14665, !noundef !5
-  invoke void @_ZN5theme6styles7players12PlayerColors21color_for_participant17he701e538d1915239E(ptr noalias noundef nonnull sret([48 x i8]) align 4 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201, i32 noundef %203)
+  %198 = load ptr, ptr %197, align 8, !noalias !14665, !nonnull !5, !noundef !5
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 88
+  %200 = getelementptr inbounds nuw i8, ptr %192, i64 124
+  %201 = load i32, ptr %200, align 4, !noalias !14665, !noundef !5
+  invoke void @_ZN5theme6styles7players12PlayerColors21color_for_participant17he701e538d1915239E(ptr noalias noundef nonnull sret([48 x i8]) align 4 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %199, i32 noundef %201)
           to label %.noexc7.i unwind label %.loopexit.split-lp.i, !noalias !14621
 
 .noexc7.i:                                        ; preds = %.noexc6.i
@@ -67194,121 +67157,121 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i.i: ; preds = 
 
 .noexc9.i:                                        ; preds = %.noexc8.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14722)
-  %204 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %8)
-          to label %_ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i unwind label %205, !noalias !14725
+  %202 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %8)
+          to label %_ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i unwind label %203, !noalias !14725
 
-205:                                              ; preds = %.noexc9.i
-  %206 = landingpad { ptr, i32 }
+203:                                              ; preds = %.noexc9.i
+  %204 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %8) #61
-          to label %.body.i unwind label %207, !noalias !14725
+          to label %.body.i unwind label %205, !noalias !14725
 
-207:                                              ; preds = %205
-  %208 = landingpad { ptr, i32 }
+205:                                              ; preds = %203
+  %206 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14725
   unreachable
 
 _ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i: ; preds = %.noexc9.i
-  %209 = getelementptr inbounds nuw i8, ptr %204, i64 556
-  store i8 1, ptr %209, align 4, !noalias !14725
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 556
+  store i8 1, ptr %207, align 4, !noalias !14725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %9, ptr noundef nonnull align 8 dereferenceable(720) %8, i64 720, i1 false), !alias.scope !14726, !noalias !14628
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !14628
   call void @llvm.experimental.noalias.scope.decl(metadata !14728)
-  %210 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9)
-          to label %213 unwind label %211, !noalias !14731
+  %208 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9)
+          to label %211 unwind label %209, !noalias !14731
 
-211:                                              ; preds = %220, %217, %215, %213, %_ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i
-  %212 = landingpad { ptr, i32 }
+209:                                              ; preds = %218, %215, %213, %211, %_ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i
+  %210 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9) #61
-          to label %.body.i unwind label %222, !noalias !14731
+          to label %.body.i unwind label %220, !noalias !14731
 
-213:                                              ; preds = %_ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i
-  %214 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %215 unwind label %211, !noalias !14731
+211:                                              ; preds = %_ZN4gpui6styled6Styled8absolute17h48cd916c83bc0975E.exit.i.i
+  %212 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %213 unwind label %209, !noalias !14731
+
+213:                                              ; preds = %211
+  %214 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %212)
+          to label %215 unwind label %209, !noalias !14731
 
 215:                                              ; preds = %213
-  %216 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %214)
-          to label %217 unwind label %211, !noalias !14731
+  %216 = getelementptr inbounds nuw i8, ptr %208, i64 424
+  store i64 %214, ptr %216, align 8, !noalias !14731
+  %217 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %218 unwind label %209, !noalias !14731
 
-217:                                              ; preds = %215
-  %218 = getelementptr inbounds nuw i8, ptr %210, i64 424
-  store i64 %216, ptr %218, align 8, !noalias !14731
-  %219 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %220 unwind label %211, !noalias !14731
+218:                                              ; preds = %215
+  %219 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %217)
+          to label %_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i unwind label %209, !noalias !14731
 
-220:                                              ; preds = %217
-  %221 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %219)
-          to label %_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i unwind label %211, !noalias !14731
-
-222:                                              ; preds = %211
-  %223 = landingpad { ptr, i32 }
+220:                                              ; preds = %209
+  %221 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14731
   unreachable
 
-_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i: ; preds = %220
-  %224 = getelementptr inbounds nuw i8, ptr %210, i64 432
-  store i64 %221, ptr %224, align 8, !noalias !14731
+_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i: ; preds = %218
+  %222 = getelementptr inbounds nuw i8, ptr %208, i64 432
+  store i64 %219, ptr %222, align 8, !noalias !14731
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %10, ptr noundef nonnull align 8 dereferenceable(720) %9, i64 720, i1 false), !alias.scope !14732, !noalias !14628
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !14628
   call void @llvm.experimental.noalias.scope.decl(metadata !14734)
-  %225 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %10)
-          to label %228 unwind label %226, !noalias !14737
+  %223 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %10)
+          to label %226 unwind label %224, !noalias !14737
 
-226:                                              ; preds = %230, %228, %_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i
-  %227 = landingpad { ptr, i32 }
+224:                                              ; preds = %228, %226, %_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i
+  %225 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %10) #61
-          to label %.body.i unwind label %232, !noalias !14737
+          to label %.body.i unwind label %230, !noalias !14737
 
-228:                                              ; preds = %_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i
-  %229 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-          to label %230 unwind label %226, !noalias !14737
+226:                                              ; preds = %_ZN4gpui6styled6Styled9size_full17h745f7853da8dbb6dE.exit.i.i
+  %227 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+          to label %228 unwind label %224, !noalias !14737
 
-230:                                              ; preds = %228
-  %231 = invoke i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5f587850a01200e3E"(float noundef %229)
-          to label %_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i unwind label %226, !noalias !14737
+228:                                              ; preds = %226
+  %229 = invoke i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5f587850a01200e3E"(float noundef %227)
+          to label %_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i unwind label %224, !noalias !14737
 
-232:                                              ; preds = %226
-  %233 = landingpad { ptr, i32 }
+230:                                              ; preds = %224
+  %231 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14737
   unreachable
 
-_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i: ; preds = %230
-  %234 = getelementptr inbounds nuw i8, ptr %225, i64 416
-  store i64 %231, ptr %234, align 8, !noalias !14737
+_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i: ; preds = %228
+  %232 = getelementptr inbounds nuw i8, ptr %223, i64 416
+  store i64 %229, ptr %232, align 8, !noalias !14737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %11, ptr noundef nonnull align 8 dereferenceable(720) %10, i64 720, i1 false), !alias.scope !14738, !noalias !14628
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !14628
   call void @llvm.experimental.noalias.scope.decl(metadata !14740)
-  %235 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %11)
-          to label %238 unwind label %236, !noalias !14743
+  %233 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %11)
+          to label %236 unwind label %234, !noalias !14743
 
-236:                                              ; preds = %240, %238, %_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i
-  %237 = landingpad { ptr, i32 }
+234:                                              ; preds = %238, %236, %_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i
+  %235 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %11) #61
-          to label %.body.i unwind label %242, !noalias !14743
+          to label %.body.i unwind label %240, !noalias !14743
 
-238:                                              ; preds = %_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i
-  %239 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-          to label %240 unwind label %236, !noalias !14743
+236:                                              ; preds = %_ZN4gpui6styled6Styled6left_017h459290ea9519f91aE.exit.i.i
+  %237 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+          to label %238 unwind label %234, !noalias !14743
 
-240:                                              ; preds = %238
-  %241 = invoke i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5f587850a01200e3E"(float noundef %239)
-          to label %_ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i unwind label %236, !noalias !14743
+238:                                              ; preds = %236
+  %239 = invoke i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5f587850a01200e3E"(float noundef %237)
+          to label %_ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i unwind label %234, !noalias !14743
 
-242:                                              ; preds = %236
-  %243 = landingpad { ptr, i32 }
+240:                                              ; preds = %234
+  %241 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14743
   unreachable
 
-_ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i: ; preds = %240
-  %244 = getelementptr inbounds nuw i8, ptr %235, i64 392
-  store i64 %241, ptr %244, align 8, !noalias !14743
+_ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i: ; preds = %238
+  %242 = getelementptr inbounds nuw i8, ptr %233, i64 392
+  store i64 %239, ptr %242, align 8, !noalias !14743
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %12, ptr noundef nonnull align 8 dereferenceable(720) %11, i64 720, i1 false), !alias.scope !14744, !noalias !14628
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !14628
   invoke void @_ZN4gpui6styled6Styled8border_217hb9f8271c80327750E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %12)
@@ -67318,25 +67281,25 @@ _ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i: ; preds = %240
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !14628
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !noalias !14628
-  %245 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %13)
-          to label %_ZN4gpui6styled6Styled12border_color17h2fe1c197a8a0bf35E.exit.i.i unwind label %246, !noalias !14746
+  %243 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %13)
+          to label %_ZN4gpui6styled6Styled12border_color17h2fe1c197a8a0bf35E.exit.i.i unwind label %244, !noalias !14746
 
-246:                                              ; preds = %.noexc10.i
-  %247 = landingpad { ptr, i32 }
+244:                                              ; preds = %.noexc10.i
+  %245 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %13) #61
-          to label %.body.i unwind label %248, !noalias !14746
+          to label %.body.i unwind label %246, !noalias !14746
 
-248:                                              ; preds = %246
-  %249 = landingpad { ptr, i32 }
+246:                                              ; preds = %244
+  %247 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14746
   unreachable
 
 _ZN4gpui6styled6Styled12border_color17h2fe1c197a8a0bf35E.exit.i.i: ; preds = %.noexc10.i
-  %250 = getelementptr inbounds nuw i8, ptr %245, i64 532
-  store i32 1, ptr %250, align 4, !noalias !14746
-  %.sroa.4.0..sroa_idx.i30.i.i = getelementptr inbounds nuw i8, ptr %245, i64 536
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 532
+  store i32 1, ptr %248, align 4, !noalias !14746
+  %.sroa.4.0..sroa_idx.i30.i.i = getelementptr inbounds nuw i8, ptr %243, i64 536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i30.i.i, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !noalias !14750
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %28, ptr noundef nonnull align 8 dereferenceable(720) %13, i64 720, i1 false), !noalias !14664
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -67344,249 +67307,249 @@ _ZN4gpui6styled6Styled12border_color17h2fe1c197a8a0bf35E.exit.i.i: ; preds = %.n
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !14628
   br label %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
 
-251:                                              ; preds = %108
-  %252 = landingpad { ptr, i32 }
+249:                                              ; preds = %106
+  %250 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14665
   unreachable
 
-.loopexit.i:                                      ; preds = %94, %.lr.ph.i.i
+.loopexit.i:                                      ; preds = %92, %.lr.ph.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.i:                             ; preds = %_ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i, %.noexc8.i, %.noexc7.i, %.noexc6.i, %.noexc5.i, %197, %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i", %.noexc2.i, %101
+.loopexit.split-lp.i:                             ; preds = %_ZN4gpui6styled6Styled5top_017h46f35e31fd8991ffE.exit.i.i, %.noexc8.i, %.noexc7.i, %.noexc6.i, %.noexc5.i, %195, %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit29.i.i", %.noexc2.i, %99
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %246, %236, %226, %211, %205, %178, %173, %common.resume.sink.split.i.i, %137, %132, %108
-  %eh.lpad-body.i = phi { ptr, i32 } [ %133, %137 ], [ %133, %132 ], [ %174, %178 ], [ %174, %173 ], [ %206, %205 ], [ %212, %211 ], [ %227, %226 ], [ %237, %236 ], [ %247, %246 ], [ %109, %108 ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+.body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %244, %234, %224, %209, %203, %176, %171, %common.resume.sink.split.i.i, %135, %130, %106
+  %eh.lpad-body.i = phi { ptr, i32 } [ %131, %135 ], [ %131, %130 ], [ %172, %176 ], [ %172, %171 ], [ %204, %203 ], [ %210, %209 ], [ %225, %224 ], [ %235, %234 ], [ %245, %244 ], [ %107, %106 ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #61
-          to label %common.resume unwind label %274, !noalias !14621
+          to label %common.resume unwind label %272, !noalias !14621
 
-_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i: ; preds = %_ZN4gpui6styled6Styled12border_color17h2fe1c197a8a0bf35E.exit.i.i, %196, %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i", %._crit_edge.i.i
+_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i: ; preds = %_ZN4gpui6styled6Styled12border_color17h2fe1c197a8a0bf35E.exit.i.i, %194, %"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$call..ActiveCall$GT$$GT$17hb196ba6151c79132E.exit.i.i", %._crit_edge.i.i
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
-          to label %264 unwind label %253, !noalias !14621
+          to label %262 unwind label %251, !noalias !14621
 
-253:                                              ; preds = %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
-  %254 = landingpad { ptr, i32 }
+251:                                              ; preds = %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
+  %252 = landingpad { ptr, i32 }
           cleanup
-  %255 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14751)
   call void @llvm.experimental.noalias.scope.decl(metadata !14754)
-  %256 = load ptr, ptr %255, align 8, !alias.scope !14757, !noalias !14619, !nonnull !5, !noundef !5
-  %257 = icmp eq ptr %256, inttoptr (i64 -1 to ptr)
-  br i1 %257, label %common.resume, label %258
+  %254 = load ptr, ptr %253, align 8, !alias.scope !14757, !noalias !14619, !nonnull !5, !noundef !5
+  %255 = icmp eq ptr %254, inttoptr (i64 -1 to ptr)
+  br i1 %255, label %common.resume, label %256
 
-258:                                              ; preds = %253
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %260 = atomicrmw sub ptr %259, i64 1 release, align 8, !noalias !14758
-  %261 = icmp eq i64 %260, 1
-  br i1 %261, label %262, label %common.resume
+256:                                              ; preds = %251
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  %258 = atomicrmw sub ptr %257, i64 1 release, align 8, !noalias !14758
+  %259 = icmp eq i64 %258, 1
+  br i1 %259, label %260, label %common.resume
 
-262:                                              ; preds = %258
+260:                                              ; preds = %256
   fence acquire
-  %263 = load ptr, ptr %255, align 8, !alias.scope !14757, !noalias !14619, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %263, i64 noundef 80, i64 noundef 8) #53, !noalias !14758
+  %261 = load ptr, ptr %253, align 8, !alias.scope !14757, !noalias !14619, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %261, i64 noundef 80, i64 noundef 8) #53, !noalias !14758
   br label %common.resume
 
-264:                                              ; preds = %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
-  %265 = getelementptr inbounds nuw i8, ptr %20, i64 8
+262:                                              ; preds = %_ZN9workspace22leader_border_for_pane17hdca299960761c0bcE.exit.i
+  %263 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14759)
   call void @llvm.experimental.noalias.scope.decl(metadata !14762)
-  %266 = load ptr, ptr %265, align 8, !alias.scope !14765, !noalias !14619, !nonnull !5, !noundef !5
-  %267 = icmp eq ptr %266, inttoptr (i64 -1 to ptr)
-  br i1 %267, label %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit", label %268
+  %264 = load ptr, ptr %263, align 8, !alias.scope !14765, !noalias !14619, !nonnull !5, !noundef !5
+  %265 = icmp eq ptr %264, inttoptr (i64 -1 to ptr)
+  br i1 %265, label %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit", label %266
 
-268:                                              ; preds = %264
-  %269 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  %270 = atomicrmw sub ptr %269, i64 1 release, align 8, !noalias !14772
-  %271 = icmp eq i64 %270, 1
-  br i1 %271, label %272, label %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit"
+266:                                              ; preds = %262
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %268 = atomicrmw sub ptr %267, i64 1 release, align 8, !noalias !14772
+  %269 = icmp eq i64 %268, 1
+  br i1 %269, label %270, label %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit"
 
-272:                                              ; preds = %268
+270:                                              ; preds = %266
   fence acquire
-  %273 = load ptr, ptr %265, align 8, !alias.scope !14765, !noalias !14619, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %273, i64 noundef 80, i64 noundef 8) #53, !noalias !14772
+  %271 = load ptr, ptr %263, align 8, !alias.scope !14765, !noalias !14619, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %271, i64 noundef 80, i64 noundef 8) #53, !noalias !14772
   br label %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit"
 
-common.resume:                                    ; preds = %313, %325, %.thread21, %.body.i, %253, %258, %262
-  %common.resume.op = phi { ptr, i32 } [ %254, %262 ], [ %254, %258 ], [ %254, %253 ], [ %eh.lpad-body.i, %.body.i ], [ %314, %313 ], [ %.pn20, %325 ], [ %.pn20, %.thread21 ]
+common.resume:                                    ; preds = %311, %323, %.thread21, %.body.i, %251, %256, %260
+  %common.resume.op = phi { ptr, i32 } [ %252, %260 ], [ %252, %256 ], [ %252, %251 ], [ %eh.lpad-body.i, %.body.i ], [ %312, %311 ], [ %.pn20, %323 ], [ %.pn20, %.thread21 ]
   resume { ptr, i32 } %common.resume.op
 
-274:                                              ; preds = %.body.i
-  %275 = landingpad { ptr, i32 }
+272:                                              ; preds = %.body.i
+  %273 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14621
   unreachable
 
-"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit": ; preds = %73, %264, %268, %272
+"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit": ; preds = %73, %262, %266, %270
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !14619
-  br label %276
+  br label %274
 
-276:                                              ; preds = %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit", %57
+274:                                              ; preds = %"_ZN9workspace9Workspace11render_dock28_$u7b$$u7b$closure$u7d$$u7d$17h7bdfcd311e7e0356E.exit", %57
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a940242dad4803ffa0694047890eb1b.235)
-          to label %278 unwind label %.thread30
+          to label %276 unwind label %.thread30
 
-.thread30:                                        ; preds = %276
-  %277 = landingpad { ptr, i32 }
+.thread30:                                        ; preds = %274
+  %275 = landingpad { ptr, i32 }
           cleanup
   br label %.thread21
 
-278:                                              ; preds = %276
+276:                                              ; preds = %274
   call void @llvm.experimental.noalias.scope.decl(metadata !14773)
-  %279 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %23)
-          to label %284 unwind label %280, !noalias !14773
+  %277 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %23)
+          to label %282 unwind label %278, !noalias !14773
+
+278:                                              ; preds = %276
+  %279 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %23) #61
+          to label %.thread21 unwind label %280, !noalias !14773
 
 280:                                              ; preds = %278
   %281 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %23) #61
-          to label %.thread21 unwind label %282, !noalias !14773
-
-282:                                              ; preds = %280
-  %283 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14773
   unreachable
 
-284:                                              ; preds = %278
-  %285 = getelementptr inbounds nuw i8, ptr %279, i64 558
-  store i8 1, ptr %285, align 2, !noalias !14773
+282:                                              ; preds = %276
+  %283 = getelementptr inbounds nuw i8, ptr %277, i64 558
+  store i8 1, ptr %283, align 2, !noalias !14773
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %24, ptr noundef nonnull align 8 dereferenceable(720) %23, i64 720, i1 false), !alias.scope !14776
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !14778)
-  %286 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %24)
-          to label %289 unwind label %287, !noalias !14778
+  %284 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %24)
+          to label %287 unwind label %285, !noalias !14778
 
-287:                                              ; preds = %289, %284
-  %288 = landingpad { ptr, i32 }
+285:                                              ; preds = %287, %282
+  %286 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %24) #61
-          to label %.thread21 unwind label %293, !noalias !14778
+          to label %.thread21 unwind label %291, !noalias !14778
 
-289:                                              ; preds = %284
-  %290 = getelementptr inbounds nuw i8, ptr %286, i64 256
-  store i32 1, ptr %290, align 8, !noalias !14778
-  %291 = getelementptr inbounds nuw i8, ptr %286, i64 260
-  store float 0.000000e+00, ptr %291, align 4, !noalias !14778
-  %292 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %24)
-          to label %295 unwind label %287, !noalias !14778
+287:                                              ; preds = %282
+  %288 = getelementptr inbounds nuw i8, ptr %284, i64 256
+  store i32 1, ptr %288, align 8, !noalias !14778
+  %289 = getelementptr inbounds nuw i8, ptr %284, i64 260
+  store float 0.000000e+00, ptr %289, align 4, !noalias !14778
+  %290 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %24)
+          to label %293 unwind label %285, !noalias !14778
 
-293:                                              ; preds = %287
-  %294 = landingpad { ptr, i32 }
+291:                                              ; preds = %285
+  %292 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14778
   unreachable
 
-295:                                              ; preds = %289
-  %296 = getelementptr inbounds nuw i8, ptr %292, i64 264
-  store i32 1, ptr %296, align 8, !noalias !14778
-  %297 = getelementptr inbounds nuw i8, ptr %292, i64 268
-  store float 0.000000e+00, ptr %297, align 4, !noalias !14778
+293:                                              ; preds = %287
+  %294 = getelementptr inbounds nuw i8, ptr %290, i64 264
+  store i32 1, ptr %294, align 8, !noalias !14778
+  %295 = getelementptr inbounds nuw i8, ptr %290, i64 268
+  store float 0.000000e+00, ptr %295, align 4, !noalias !14778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %25, ptr noundef nonnull align 8 dereferenceable(720) %24, i64 720, i1 false), !alias.scope !14781
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !14783)
-  %298 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %25)
-          to label %301 unwind label %299, !noalias !14783
+  %296 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %25)
+          to label %299 unwind label %297, !noalias !14783
 
-299:                                              ; preds = %301, %295
-  %300 = landingpad { ptr, i32 }
+297:                                              ; preds = %299, %293
+  %298 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %25) #61
-          to label %.thread21 unwind label %304, !noalias !14783
+          to label %.thread21 unwind label %302, !noalias !14783
 
-301:                                              ; preds = %295
-  %302 = getelementptr inbounds nuw i8, ptr %298, i64 552
-  store i8 2, ptr %302, align 8, !noalias !14783
-  %303 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %25)
-          to label %306 unwind label %299, !noalias !14783
+299:                                              ; preds = %293
+  %300 = getelementptr inbounds nuw i8, ptr %296, i64 552
+  store i8 2, ptr %300, align 8, !noalias !14783
+  %301 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %25)
+          to label %304 unwind label %297, !noalias !14783
 
-304:                                              ; preds = %299
-  %305 = landingpad { ptr, i32 }
+302:                                              ; preds = %297
+  %303 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14783
   unreachable
 
-306:                                              ; preds = %301
-  %307 = getelementptr inbounds nuw i8, ptr %303, i64 553
-  store i8 2, ptr %307, align 1, !noalias !14783
+304:                                              ; preds = %299
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 553
+  store i8 2, ptr %305, align 1, !noalias !14783
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %26, ptr noundef nonnull align 8 dereferenceable(720) %25, i64 720, i1 false), !alias.scope !14786
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
-          to label %310 unwind label %319
+          to label %308 unwind label %317
 
-308:                                              ; preds = %310
-  %309 = landingpad { ptr, i32 }
+306:                                              ; preds = %308
+  %307 = landingpad { ptr, i32 }
           cleanup
   br label %.thread21
 
-310:                                              ; preds = %306
+308:                                              ; preds = %304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   invoke void @_ZN4gpui7element13ParentElement5child17hcb4e2795162d39eaE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %27, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %22)
-          to label %311 unwind label %308
+          to label %309 unwind label %306
 
-311:                                              ; preds = %310
+309:                                              ; preds = %308
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !14788
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %28, i64 720, i1 false)
-  %312 = getelementptr inbounds nuw i8, ptr %27, i64 664
-  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h1643dde6f33642f5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %312, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %6)
-          to label %317 unwind label %313, !noalias !14793
+  %310 = getelementptr inbounds nuw i8, ptr %27, i64 664
+  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h1643dde6f33642f5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %310, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %6)
+          to label %315 unwind label %311, !noalias !14793
+
+311:                                              ; preds = %309
+  %312 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %27) #61
+          to label %common.resume unwind label %313, !noalias !14793
 
 313:                                              ; preds = %311
   %314 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %27) #61
-          to label %common.resume unwind label %315, !noalias !14793
-
-315:                                              ; preds = %313
-  %316 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60, !noalias !14793
   unreachable
 
-317:                                              ; preds = %311
+315:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !14788
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %27, i64 720, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %318
+  br label %316
 
-318:                                              ; preds = %317, %56
+316:                                              ; preds = %315, %56
   ret void
 
-319:                                              ; preds = %306
-  %320 = landingpad { ptr, i32 }
+317:                                              ; preds = %304
+  %318 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %26) #61
-          to label %.thread21 unwind label %321
+          to label %.thread21 unwind label %319
 
-321:                                              ; preds = %325, %319
-  %322 = landingpad { ptr, i32 }
+319:                                              ; preds = %323, %317
+  %320 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-.thread21:                                        ; preds = %308, %319, %299, %287, %280, %.thread30
-  %.pn20 = phi { ptr, i32 } [ %277, %.thread30 ], [ %281, %280 ], [ %288, %287 ], [ %300, %299 ], [ %309, %308 ], [ %320, %319 ]
-  %323 = load i64, ptr %28, align 8, !range !1027, !alias.scope !14794, !noundef !5
-  %324 = icmp eq i64 %323, 2
-  br i1 %324, label %common.resume, label %325
+.thread21:                                        ; preds = %306, %317, %297, %285, %278, %.thread30
+  %.pn20 = phi { ptr, i32 } [ %275, %.thread30 ], [ %279, %278 ], [ %286, %285 ], [ %298, %297 ], [ %307, %306 ], [ %318, %317 ]
+  %321 = load i64, ptr %28, align 8, !range !1027, !alias.scope !14794, !noundef !5
+  %322 = icmp eq i64 %321, 2
+  br i1 %322, label %common.resume, label %323
 
-325:                                              ; preds = %.thread21
+323:                                              ; preds = %.thread21
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h3bb2ebd20407284cE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %28)
-          to label %common.resume unwind label %321
+          to label %common.resume unwind label %319
 }
 
 ; Function Attrs: nonlazybind uwtable

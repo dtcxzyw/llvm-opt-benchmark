@@ -696,25 +696,23 @@ define void @_ZN16uv_configuration9overrides9Overrides12requirements17h51ff8eeb9
   %6 = getelementptr i8, ptr %3, i64 %5
   %7 = getelementptr i8, ptr %6, i64 1
   %8 = load <16 x i8>, ptr %3, align 16, !noalias !90
-  %9 = icmp slt <16 x i8> %8, zeroinitializer
-  %10 = bitcast <16 x i1> %9 to i16
-  %11 = xor i16 %10, -1
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !alias.scope !85, !noalias !88, !noundef !6
+  %9 = icmp sgt <16 x i8> %8, splat (i8 -1)
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = load i64, ptr %11, align 8, !alias.scope !85, !noalias !88, !noundef !6
   store ptr null, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %12, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store ptr %10, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %7, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i16 %11, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store <16 x i1> %9, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %14, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store i64 %12, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   ret void
 }
 
@@ -2071,7 +2069,7 @@ default.unreachable5:                             ; preds = %2
 define void @_ZN16uv_configuration15package_options7Upgrade11constraints17h421f29d208fe40adE(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 {
   %3 = load i64, ptr %1, align 8, !range !49, !noundef !6
   %4 = icmp eq i64 %3, 2
-  br i1 %4, label %5, label %20
+  br i1 %4, label %5, label %18
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2082,29 +2080,27 @@ define void @_ZN16uv_configuration15package_options7Upgrade11constraints17h421f2
   %10 = getelementptr i8, ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 1
   %12 = load <16 x i8>, ptr %7, align 16, !noalias !320
-  %13 = icmp slt <16 x i8> %12, zeroinitializer
-  %14 = bitcast <16 x i1> %13 to i16
-  %15 = xor i16 %14, -1
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load i64, ptr %17, align 8, !alias.scope !315, !noalias !318, !noundef !6
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %19, align 8
+  %13 = icmp sgt <16 x i8> %12, splat (i8 -1)
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = load i64, ptr %15, align 8, !alias.scope !315, !noalias !318, !noundef !6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %17, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.75.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %7, ptr %.sroa.75.0..sroa_idx, align 8
   %.sroa.75.sroa.4.0..sroa.75.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %16, ptr %.sroa.75.sroa.4.0..sroa.75.0..sroa_idx.sroa_idx, align 8
+  store ptr %14, ptr %.sroa.75.sroa.4.0..sroa.75.0..sroa_idx.sroa_idx, align 8
   %.sroa.75.sroa.5.0..sroa.75.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %.sroa.75.sroa.5.0..sroa.75.0..sroa_idx.sroa_idx, align 8
   %.sroa.75.sroa.6.0..sroa.75.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i16 %15, ptr %.sroa.75.sroa.6.0..sroa.75.0..sroa_idx.sroa_idx, align 8
+  store <16 x i1> %13, ptr %.sroa.75.sroa.6.0..sroa.75.0..sroa_idx.sroa_idx, align 8
   %.sroa.75.sroa.8.0..sroa.75.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %18, ptr %.sroa.75.sroa.8.0..sroa.75.0..sroa_idx.sroa_idx, align 8
-  br label %20
+  store i64 %16, ptr %.sroa.75.sroa.8.0..sroa.75.0..sroa_idx.sroa_idx, align 8
+  br label %18
 
-20:                                               ; preds = %2, %5
+18:                                               ; preds = %2, %5
   %storemerge = phi i64 [ 1, %5 ], [ 0, %2 ]
   store i64 %storemerge, ptr %0, align 8
   ret void

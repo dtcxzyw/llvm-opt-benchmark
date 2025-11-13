@@ -11103,7 +11103,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h4ee3f1816623c127E
 
 18:                                               ; preds = %13
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h532b6b37f9f8c90fE(ptr noundef nonnull align 8 %1)
-          to label %"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit" unwind label %37
+          to label %"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit" unwind label %35
 
 19:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h4ee3f1816623c127E.llvm.13054344295739906232.exit, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h4ee3f1816623c127E.llvm.13054344295739906232.exit.thread
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11114,39 +11114,37 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h4ee3f1816623c127E
   %24 = getelementptr i8, ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 1
   %26 = load <16 x i8>, ptr %21, align 16, !noalias !1376
-  %27 = icmp slt <16 x i8> %26, zeroinitializer
-  %28 = bitcast <16 x i1> %27 to i16
-  %29 = xor i16 %28, -1
-  %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load i64, ptr %31, align 8, !alias.scope !1371, !noalias !1374, !noundef !4
+  %27 = icmp sgt <16 x i8> %26, splat (i8 -1)
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %30 = load i64, ptr %29, align 8, !alias.scope !1371, !noalias !1374, !noundef !4
   store ptr %21, ptr %3, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store ptr %28, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %29, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store <16 x i1> %27, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %32, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
+  store i64 %30, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17he361f3173a99c082E.llvm.12936710431969675094"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he8ba09548b481960E.exit" unwind label %13
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he8ba09548b481960E.exit": ; preds = %19
-  %33 = atomicrmw sub ptr %1, i64 16 release, align 8, !noalias !1381
-  %34 = and i64 %33, -14
-  %35 = icmp eq i64 %34, 18
-  br i1 %35, label %36, label %"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit7"
+  %31 = atomicrmw sub ptr %1, i64 16 release, align 8, !noalias !1381
+  %32 = and i64 %31, -14
+  %33 = icmp eq i64 %32, 18
+  br i1 %33, label %34, label %"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit7"
 
-36:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he8ba09548b481960E.exit"
+34:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he8ba09548b481960E.exit"
   tail call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h532b6b37f9f8c90fE(ptr noundef nonnull align 8 %1), !noalias !1381
   br label %"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit7"
 
-"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit7": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he8ba09548b481960E.exit", %36
+"_ZN4core3ptr137drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..catalog..InnerCatalog$GT$$GT$17h75b4d893236c1cf1E.llvm.13054344295739906232.exit7": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he8ba09548b481960E.exit", %34
   ret void
 
-37:                                               ; preds = %18
-  %38 = landingpad { ptr, i32 }
+35:                                               ; preds = %18
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #32
   unreachable

@@ -72557,53 +72557,49 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %.sroa.07.0.copyload = load ptr, ptr %1, align 8, !alias.scope !11290
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %.sroa.0.022 = phi ptr [ %.sroa.0.1, %14 ], [ %.sroa.07.0.copyload, %.lr.ph.preheader ]
-  %.sroa.6.021 = phi ptr [ %.sroa.6.1, %14 ], [ %.sroa.4.0.copyload, %.lr.ph.preheader ]
-  %.sroa.106.020 = phi i64 [ %21, %14 ], [ %.sroa.89.0.copyload, %.lr.ph.preheader ]
-  %.sroa.85.019 = phi i16 [ %18, %14 ], [ %.sroa.68.0.copyload, %.lr.ph.preheader ]
-  %.not9.i.i = icmp eq i16 %.sroa.85.019, 0
-  br i1 %.not9.i.i, label %.lr.ph.i.i, label %14
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %6 = xor i16 %11, -1
-  br label %14
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
+  %.sroa.0.021 = phi ptr [ %.sroa.0.1, %.loopexit ], [ %.sroa.07.0.copyload, %.lr.ph.preheader ]
+  %.sroa.6.020 = phi ptr [ %.sroa.6.1, %.loopexit ], [ %.sroa.4.0.copyload, %.lr.ph.preheader ]
+  %.sroa.106.019 = phi i64 [ %18, %.loopexit ], [ %.sroa.89.0.copyload, %.lr.ph.preheader ]
+  %.sroa.85.018 = phi i16 [ %15, %.loopexit ], [ %.sroa.68.0.copyload, %.lr.ph.preheader ]
+  %.not8.i.i = icmp eq i16 %.sroa.85.018, 0
+  br i1 %.not8.i.i, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
-  %7 = phi ptr [ %13, %.lr.ph.i.i ], [ %.sroa.6.021, %.lr.ph ]
-  %8 = phi ptr [ %12, %.lr.ph.i.i ], [ %.sroa.0.022, %.lr.ph ]
-  %9 = load <16 x i8>, ptr %7, align 16, !noalias !11294
-  %10 = icmp slt <16 x i8> %9, zeroinitializer
-  %11 = bitcast <16 x i1> %10 to i16
-  %12 = getelementptr inbounds i8, ptr %8, i64 -640
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.not.i.i = icmp eq i16 %11, -1
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %6 = phi ptr [ %11, %.lr.ph.i.i ], [ %.sroa.6.020, %.lr.ph ]
+  %7 = phi ptr [ %10, %.lr.ph.i.i ], [ %.sroa.0.021, %.lr.ph ]
+  %8 = load <16 x i8>, ptr %6, align 16, !noalias !11294
+  %9 = icmp sgt <16 x i8> %8, splat (i8 -1)
+  %10 = getelementptr inbounds i8, ptr %7, i64 -640
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.cast.i.i = bitcast <16 x i1> %9 to i16
+  %.not.i.i = icmp eq i16 %.cast.i.i, 0
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %.loopexit
 
-14:                                               ; preds = %.lr.ph, %._crit_edge.i.i
-  %.sroa.6.1 = phi ptr [ %13, %._crit_edge.i.i ], [ %.sroa.6.021, %.lr.ph ]
-  %.sroa.0.1 = phi ptr [ %12, %._crit_edge.i.i ], [ %.sroa.0.022, %.lr.ph ]
-  %.lcssa.i.i = phi i16 [ %6, %._crit_edge.i.i ], [ %.sroa.85.019, %.lr.ph ]
-  %15 = add i16 %.lcssa.i.i, -1
-  %16 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %17 = zext nneg i16 %16 to i64
-  %18 = and i16 %15, %.lcssa.i.i
-  %19 = sub nsw i64 0, %17
-  %20 = getelementptr inbounds { { { { ptr, i64, i32, i16, i8, i8 } } }, { ptr, i32, i32 } }, ptr %.sroa.0.1, i64 %19
-  %21 = add i64 %.sroa.106.020, -1
-  %22 = getelementptr inbounds i8, ptr %20, i64 -40
-  %23 = getelementptr inbounds i8, ptr %20, i64 -16
+.loopexit:                                        ; preds = %.lr.ph.i.i, %.lr.ph
+  %.sroa.6.1 = phi ptr [ %.sroa.6.020, %.lr.ph ], [ %11, %.lr.ph.i.i ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.021, %.lr.ph ], [ %10, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i16 [ %.sroa.85.018, %.lr.ph ], [ %.cast.i.i, %.lr.ph.i.i ]
+  %12 = add i16 %.lcssa.i.i, -1
+  %13 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
+  %14 = zext nneg i16 %13 to i64
+  %15 = and i16 %12, %.lcssa.i.i
+  %16 = sub nsw i64 0, %14
+  %17 = getelementptr inbounds { { { { ptr, i64, i32, i16, i8, i8 } } }, { ptr, i32, i32 } }, ptr %.sroa.0.1, i64 %16
+  %18 = add i64 %.sroa.106.019, -1
+  %19 = getelementptr inbounds i8, ptr %17, i64 -40
+  %20 = getelementptr inbounds i8, ptr %17, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %22, ptr %4, align 8
+  store ptr %19, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %23, ptr %3, align 8
-  %24 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17hb72f310b3912fe1eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.23a4a7421bd9f9c0649619a3c8e96f38.351, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.23a4a7421bd9f9c0649619a3c8e96f38.352)
+  store ptr %20, ptr %3, align 8
+  %21 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17hb72f310b3912fe1eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.23a4a7421bd9f9c0649619a3c8e96f38.351, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.23a4a7421bd9f9c0649619a3c8e96f38.352)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %25 = icmp eq i64 %21, 0
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  %22 = icmp eq i64 %18, 0
+  br i1 %22, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %.loopexit, %2
   ret ptr %0
 }
 

@@ -15589,8 +15589,8 @@ define void @_ZN13project_model15ProjectManifest12discover_all17hc5c1040e65d949e
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34, !noalias !4139
   unreachable
 
-common.resume:                                    ; preds = %26, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %27, %26 ]
+common.resume:                                    ; preds = %24, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hd21bdaa1982308cdE.exit": ; preds = %3
@@ -15606,10 +15606,8 @@ common.resume:                                    ; preds = %26, %11
   %15 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
   %16 = getelementptr i8, ptr %15, i64 1
   %17 = load <16 x i8>, ptr %.sroa.0.sroa.0.0.copyload, align 16, !noalias !4149
-  %18 = icmp slt <16 x i8> %17, zeroinitializer
-  %19 = bitcast <16 x i1> %18 to i16
-  %20 = xor i16 %19, -1
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
+  %18 = icmp sgt <16 x i8> %17, splat (i8 -1)
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4160
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %5, align 8, !noalias !4165
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15623,34 +15621,34 @@ common.resume:                                    ; preds = %26, %11
   %.sroa.011.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %.sroa.011.sroa.4.0..sroa_idx, align 8
   %.sroa.011.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %21, ptr %.sroa.011.sroa.5.0..sroa_idx, align 8
+  store ptr %19, ptr %.sroa.011.sroa.5.0..sroa_idx, align 8
   %.sroa.011.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %16, ptr %.sroa.011.sroa.6.0..sroa_idx, align 8
   %.sroa.011.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i16 %20, ptr %.sroa.011.sroa.7.0..sroa_idx, align 8
+  store <16 x i1> %18, ptr %.sroa.011.sroa.7.0..sroa_idx, align 8
   %.sroa.011.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.011.sroa.9.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hbdafaf755bb71d2dE.llvm.13226508256559533314"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8)
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load ptr, ptr %22, align 8, !nonnull !9, !noundef !9
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %25 = load i64, ptr %24, align 8, !noundef !9
-  invoke void @_ZN4core5slice4sort10merge_sort17h2c56c84e9d0ed49aE(ptr noalias noundef nonnull align 8 %23, i64 noundef %25, ptr noalias noundef nonnull align 1 %4)
-          to label %_ZN5alloc5slice11stable_sort17h75909afca0c74ef7E.exit unwind label %26
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %21 = load ptr, ptr %20, align 8, !nonnull !9, !noundef !9
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %23 = load i64, ptr %22, align 8, !noundef !9
+  invoke void @_ZN4core5slice4sort10merge_sort17h2c56c84e9d0ed49aE(ptr noalias noundef nonnull align 8 %21, i64 noundef %23, ptr noalias noundef nonnull align 1 %4)
+          to label %_ZN5alloc5slice11stable_sort17h75909afca0c74ef7E.exit unwind label %24
 
-26:                                               ; preds = %"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hd21bdaa1982308cdE.exit"
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hd21bdaa1982308cdE.exit"
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$project_model..ProjectManifest$GT$$GT$17h5ec892e48fe60e5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #33
-          to label %common.resume unwind label %28
+          to label %common.resume unwind label %26
 
 _ZN5alloc5slice11stable_sort17h75909afca0c74ef7E.exit: ; preds = %"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hd21bdaa1982308cdE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable

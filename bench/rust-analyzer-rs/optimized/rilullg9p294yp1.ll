@@ -27874,32 +27874,30 @@ define hidden void @"_ZN6ide_db12prime_caches14topologic_sort33TopologicSortIter
   %8 = getelementptr i8, ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 1
   %10 = load <16 x i8>, ptr %5, align 16, !noalias !5917
-  %11 = icmp slt <16 x i8> %10, zeroinitializer
-  %12 = bitcast <16 x i1> %11 to i16
-  %13 = xor i16 %12, -1
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i64, ptr %15, align 8, !alias.scope !5912, !noalias !5915, !noundef !4
+  %11 = icmp sgt <16 x i8> %10, splat (i8 -1)
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load i64, ptr %13, align 8, !alias.scope !5912, !noalias !5915, !noundef !4
   store ptr %5, ptr %4, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store ptr %12, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %9, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %13, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store <16 x i1> %11, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %16, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
+  store i64 %14, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5922
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8cab9077d55e9625E.llvm.14583280071648273458"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
-          to label %19 unwind label %17
+          to label %17 unwind label %15
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr137drop_in_place$LT$ide_db..prime_caches..topologic_sort..TopologicSortIterBuilder$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$17hcdca5ea33af86ed7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #41
-          to label %23 unwind label %21
+          to label %21 unwind label %19
 
-19:                                               ; preds = %2
+17:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 8, !alias.scope !5926, !noalias !5931
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !5926, !noalias !5931, !nonnull !4, !noundef !4
@@ -27913,18 +27911,18 @@ define hidden void @"_ZN6ide_db12prime_caches14topologic_sort33TopologicSortIter
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.5.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #42
   unreachable
 
-23:                                               ; preds = %17
-  resume { ptr, i32 } %18
+21:                                               ; preds = %15
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: nonlazybind uwtable

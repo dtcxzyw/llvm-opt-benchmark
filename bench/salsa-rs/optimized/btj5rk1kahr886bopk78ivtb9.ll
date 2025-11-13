@@ -19,26 +19,24 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 1
   %11 = load <16 x i8>, ptr %6, align 16, !noalias !16
-  %12 = icmp slt <16 x i8> %11, zeroinitializer
-  %13 = bitcast <16 x i1> %12 to i16
-  %14 = xor i16 %13, -1
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !13, !noalias !14, !noundef !3
+  %12 = icmp sgt <16 x i8> %11, splat (i8 -1)
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %15 = load i64, ptr %14, align 8, !alias.scope !13, !noalias !14, !noundef !3
   store ptr %6, ptr %3, align 8, !noalias !8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %15, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !8
+  store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %14, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !8
+  store <16 x i1> %12, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !8
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %17, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !8
-  %18 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap7entries17h462ec35da8225513E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3), !noalias !5
+  store i64 %15, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !8
+  %16 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap7entries17h462ec35da8225513E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3), !noalias !5
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !8
-  %19 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugMap6finish17h05c2da575c6967f9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %18), !noalias !5
+  %17 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugMap6finish17h05c2da575c6967f9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !5
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
-  ret i1 %19
+  ret i1 %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57,26 +55,24 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 1
   %11 = load <16 x i8>, ptr %6, align 16, !noalias !28
-  %12 = icmp slt <16 x i8> %11, zeroinitializer
-  %13 = bitcast <16 x i1> %12 to i16
-  %14 = xor i16 %13, -1
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !25, !noalias !26, !noundef !3
+  %12 = icmp sgt <16 x i8> %11, splat (i8 -1)
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %15 = load i64, ptr %14, align 8, !alias.scope !25, !noalias !26, !noundef !3
   store ptr %6, ptr %3, align 8, !noalias !20
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %15, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !20
+  store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !20
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !20
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %14, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !20
+  store <16 x i1> %12, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !20
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %17, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !20
-  %18 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap7entries17he40e041688072bbeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3), !noalias !17
+  store i64 %15, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !20
+  %16 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap7entries17he40e041688072bbeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3), !noalias !17
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !20
-  %19 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugMap6finish17h05c2da575c6967f9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %18), !noalias !17
+  %17 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugMap6finish17h05c2da575c6967f9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !17
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
-  ret i1 %19
+  ret i1 %17
 }
 
 ; Function Attrs: nonlazybind uwtable

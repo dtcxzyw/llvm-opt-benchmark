@@ -6012,19 +6012,17 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h7c3705724abb92cdE.exit: ; preds = %
   %50 = getelementptr i8, ptr %.sroa.09.0.copyload, i64 %.sroa.410.0.copyload
   %51 = getelementptr i8, ptr %50, i64 1
   %52 = load <16 x i8>, ptr %.sroa.09.0.copyload, align 16, !noalias !950
-  %53 = icmp slt <16 x i8> %52, zeroinitializer
-  %54 = bitcast <16 x i1> %53 to i16
-  %55 = xor i16 %54, -1
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.copyload, i64 16
+  %53 = icmp sgt <16 x i8> %52, splat (i8 -1)
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.copyload, i64 16
   store ptr %.sroa.09.0.copyload, ptr %7, align 8, !alias.scope !947, !noalias !955
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %56, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !947, !noalias !955
+  store ptr %54, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !947, !noalias !955
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %51, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !947, !noalias !955
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i16 %55, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !947, !noalias !955
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %.sroa.612.0.copyload, ptr %57, align 8, !alias.scope !947, !noalias !955
+  store <16 x i1> %53, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !947, !noalias !955
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i64 %.sroa.612.0.copyload, ptr %55, align 8, !alias.scope !947, !noalias !955
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !956
   store ptr %.sroa.09.0.copyload, ptr %6, align 8, !noalias !957
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6041,26 +6039,26 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h7c3705724abb92cdE.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !958
   br label %40
 
-58:                                               ; preds = %59
+56:                                               ; preds = %57
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %37, %41
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %57
 
 .loopexit.split-lp:                               ; preds = %4
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %57
 
-59:                                               ; preds = %.loopexit.split-lp, %.loopexit
+57:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$hashbrown..set..HashSet$LT$elfshaker..packidx..FileHandle$GT$$GT$17h8bac684b62fe419cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #22
-          to label %58 unwind label %60
+          to label %56 unwind label %58
 
-60:                                               ; preds = %59
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable

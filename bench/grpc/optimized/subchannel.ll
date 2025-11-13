@@ -9726,7 +9726,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit: ; preds = %15, %11, %8, %5
   store i64 0, ptr %6, align 8, !tbaa !141
-  br label %69
+  br label %68
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9787,62 +9787,58 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
-  %.0.i25.i = phi ptr [ %52, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph27.preheader.i ]
-  %.025.i24.i = phi ptr [ %51, %._crit_edge.i ], [ %22, %.lr.ph27.preheader.i ]
+  %.0.i25.i = phi ptr [ %51, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph27.preheader.i ]
+  %.025.i24.i = phi ptr [ %50, %._crit_edge.i ], [ %22, %.lr.ph27.preheader.i ]
   %.026.i23.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %46, %.lr.ph27.preheader.i ]
   %47 = load <16 x i8>, ptr %.025.i24.i, align 1, !tbaa !82
-  %48 = icmp slt <16 x i8> %47, zeroinitializer
+  %48 = icmp sgt <16 x i8> %47, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
-  %.not19.i = icmp eq i16 %49, -1
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.lr.ph27.i
-  %50 = xor i16 %49, -1
-  br label %.lr.ph.i
+  %.not19.i = icmp eq i16 %49, 0
+  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, %.lr.ph27.i
-  %.1.i.lcssa.i = phi i64 [ %.026.i23.i, %.lr.ph27.i ], [ %65, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ]
-  %51 = getelementptr inbounds nuw i8, ptr %.025.i24.i, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i25.i, i64 128
+  %.1.i.lcssa.i = phi i64 [ %.026.i23.i, %.lr.ph27.i ], [ %64, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ]
+  %50 = getelementptr inbounds nuw i8, ptr %.025.i24.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i25.i, i64 128
   %.not.i.i = icmp eq i64 %.1.i.lcssa.i, 0
   br i1 %.not.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit, label %.lr.ph27.i, !llvm.loop !520
 
-.lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, %.lr.ph.preheader.i
-  %.1.i21.i = phi i64 [ %65, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %.026.i23.i, %.lr.ph.preheader.i ]
-  %.sroa.04.020.i = phi i16 [ %67, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %50, %.lr.ph.preheader.i ]
-  %53 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
-  %54 = zext nneg i16 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.0.i25.i, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !142
-  %.not.i.i.i.i.i.i2.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, label %57
+.lr.ph.i:                                         ; preds = %.lr.ph27.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i
+  %.1.i21.i = phi i64 [ %64, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %.026.i23.i, %.lr.ph27.i ]
+  %.sroa.04.020.i = phi i16 [ %66, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %49, %.lr.ph27.i ]
+  %52 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
+  %53 = zext nneg i16 %52 to i64
+  %54 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.0.i25.i, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !142
+  %.not.i.i.i.i.i.i2.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, label %56
 
-57:                                               ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = atomicrmw sub ptr %58, i64 1 acq_rel, align 8
-  %60 = icmp eq i64 %59, 1
-  br i1 %60, label %61, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, !prof !50
+56:                                               ; preds = %.lr.ph.i
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = atomicrmw sub ptr %57, i64 1 acq_rel, align 8
+  %59 = icmp eq i64 %58, 1
+  br i1 %59, label %60, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, !prof !50
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %56, align 8, !tbaa !8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %56) #42
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %55, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %55) #42
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i: ; preds = %61, %57, %.lr.ph.i
-  %65 = add i64 %.1.i21.i, -1
-  %66 = add i16 %.sroa.04.020.i, -1
-  %67 = and i16 %66, %.sroa.04.020.i
-  %.not.i2 = icmp eq i16 %67, 0
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i: ; preds = %60, %56, %.lr.ph.i
+  %64 = add i64 %.1.i21.i, -1
+  %65 = add i16 %.sroa.04.020.i, -1
+  %66 = and i16 %65, %.sroa.04.020.i
+  %.not.i2 = icmp eq i16 %66, 0
   br i1 %.not.i2, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit: ; preds = %._crit_edge.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i, %24, %43
-  %68 = icmp ult i64 %2, 128
-  tail call void @_ZN4absl12lts_2024072218container_internal17ClearBackingArrayERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEbb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE18GetPolicyFunctionsEvE5value, i1 noundef zeroext %68, i1 noundef zeroext true)
-  br label %69
+  %67 = icmp ult i64 %2, 128
+  tail call void @_ZN4absl12lts_2024072218container_internal17ClearBackingArrayERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEbb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE18GetPolicyFunctionsEvE5value, i1 noundef zeroext %67, i1 noundef zeroext true)
+  br label %68
 
-69:                                               ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit
+68:                                               ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit
   ret void
 }
 
@@ -10392,72 +10388,68 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
-  %.0.i25.i = phi ptr [ %52, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph27.preheader.i ]
-  %.025.i24.i = phi ptr [ %51, %._crit_edge.i ], [ %22, %.lr.ph27.preheader.i ]
+  %.0.i25.i = phi ptr [ %51, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph27.preheader.i ]
+  %.025.i24.i = phi ptr [ %50, %._crit_edge.i ], [ %22, %.lr.ph27.preheader.i ]
   %.026.i23.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %46, %.lr.ph27.preheader.i ]
   %47 = load <16 x i8>, ptr %.025.i24.i, align 1, !tbaa !82
-  %48 = icmp slt <16 x i8> %47, zeroinitializer
+  %48 = icmp sgt <16 x i8> %47, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
-  %.not19.i = icmp eq i16 %49, -1
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.lr.ph27.i
-  %50 = xor i16 %49, -1
-  br label %.lr.ph.i
+  %.not19.i = icmp eq i16 %49, 0
+  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, %.lr.ph27.i
-  %.1.i.lcssa.i = phi i64 [ %.026.i23.i, %.lr.ph27.i ], [ %65, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ]
-  %51 = getelementptr inbounds nuw i8, ptr %.025.i24.i, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i25.i, i64 128
+  %.1.i.lcssa.i = phi i64 [ %.026.i23.i, %.lr.ph27.i ], [ %64, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ]
+  %50 = getelementptr inbounds nuw i8, ptr %.025.i24.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i25.i, i64 128
   %.not.i.i = icmp eq i64 %.1.i.lcssa.i, 0
   br i1 %.not.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit, label %.lr.ph27.i, !llvm.loop !520
 
-.lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, %.lr.ph.preheader.i
-  %.1.i21.i = phi i64 [ %65, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %.026.i23.i, %.lr.ph.preheader.i ]
-  %.sroa.04.020.i = phi i16 [ %67, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %50, %.lr.ph.preheader.i ]
-  %53 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
-  %54 = zext nneg i16 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.0.i25.i, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !142
-  %.not.i.i.i.i.i.i2.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, label %57
+.lr.ph.i:                                         ; preds = %.lr.ph27.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i
+  %.1.i21.i = phi i64 [ %64, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %.026.i23.i, %.lr.ph27.i ]
+  %.sroa.04.020.i = phi i16 [ %66, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %49, %.lr.ph27.i ]
+  %52 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
+  %53 = zext nneg i16 %52 to i64
+  %54 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.0.i25.i, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !142
+  %.not.i.i.i.i.i.i2.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, label %56
 
-57:                                               ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = atomicrmw sub ptr %58, i64 1 acq_rel, align 8
-  %60 = icmp eq i64 %59, 1
-  br i1 %60, label %61, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, !prof !50
+56:                                               ; preds = %.lr.ph.i
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = atomicrmw sub ptr %57, i64 1 acq_rel, align 8
+  %59 = icmp eq i64 %58, 1
+  br i1 %59, label %60, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, !prof !50
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %56, align 8, !tbaa !8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %56) #42
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %55, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %55) #42
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i: ; preds = %61, %57, %.lr.ph.i
-  %65 = add i64 %.1.i21.i, -1
-  %66 = add i16 %.sroa.04.020.i, -1
-  %67 = and i16 %66, %.sroa.04.020.i
-  %.not.i1 = icmp eq i16 %67, 0
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i: ; preds = %60, %56, %.lr.ph.i
+  %64 = add i64 %.1.i21.i, -1
+  %65 = add i16 %.sroa.04.020.i, -1
+  %66 = and i16 %65, %.sroa.04.020.i
+  %.not.i1 = icmp eq i16 %66, 0
   br i1 %.not.i1, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit: ; preds = %._crit_edge.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i, %24, %43
-  %68 = load i64, ptr %0, align 8, !tbaa !139
-  %69 = icmp ne i64 %68, 0
-  tail call void @llvm.assume(i1 %69)
-  %70 = load ptr, ptr %21, align 8, !tbaa !82
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = load i64, ptr %71, align 8, !tbaa !141
-  %73 = and i64 %72, 1
-  %.neg.i.i = sub nuw nsw i64 -8, %73
-  %74 = getelementptr inbounds i8, ptr %70, i64 %.neg.i.i
-  %75 = add i64 %68, 31
-  %76 = shl i64 %68, 3
-  %77 = add i64 %75, %76
-  %78 = add i64 %77, %73
-  %79 = and i64 %78, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %79) #44
+  %67 = load i64, ptr %0, align 8, !tbaa !139
+  %68 = icmp ne i64 %67, 0
+  tail call void @llvm.assume(i1 %68)
+  %69 = load ptr, ptr %21, align 8, !tbaa !82
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1
+  %.neg.i.i = sub nuw nsw i64 -8, %72
+  %73 = getelementptr inbounds i8, ptr %69, i64 %.neg.i.i
+  %74 = add i64 %67, 31
+  %75 = shl i64 %67, 3
+  %76 = add i64 %74, %75
+  %77 = add i64 %76, %72
+  %78 = and i64 %77, -8
+  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %78) #44
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit: ; preds = %15, %11, %8, %5, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE13destroy_slotsEv.exit

@@ -27459,7 +27459,7 @@ define void @_ZN8language5proto19serialize_operation17h5bd4243f86c2f80aE(ptr dea
   switch i64 %10, label %11 [
     i64 0, label %12
     i64 1, label %14
-    i64 2, label %68
+    i64 2, label %66
     i64 3, label %28
   ]
 
@@ -27533,16 +27533,16 @@ define void @_ZN8language5proto19serialize_operation17h5bd4243f86c2f80aE(ptr dea
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
-39:                                               ; preds = %68, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit", %38, %28, %14
-  %.sroa.8.sroa.0.sroa.8.0 = phi i32 [ %.sroa.05.sroa.4.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.8.0.copyload, %38 ], [ %.sroa.432.24.extract.trunc, %14 ], [ %83, %68 ], [ %32, %28 ]
-  %.sroa.8.sroa.0.sroa.9.0 = phi i32 [ %.sroa.05.sroa.6.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.9.0.copyload, %38 ], [ %.sroa.432.28.extract.trunc, %14 ], [ %72, %68 ], [ %33, %28 ]
-  %.sroa.8.sroa.0.sroa.10.0 = phi i32 [ %.sroa.05.sroa.7.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.10.0.copyload, %38 ], [ %18, %14 ], [ %switch.idx.cast.i, %68 ], [ undef, %28 ]
-  %.sroa.8.sroa.0.sroa.11.0 = phi i8 [ %.sroa.05.sroa.8.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.11.0.copyload, %38 ], [ %.sroa.9.36.extract.trunc, %14 ], [ %80, %68 ], [ undef, %28 ]
-  %.sroa.8.sroa.0.sroa.13.0 = phi i64 [ %.sroa.05.sroa.10.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.13.0.copyload, %38 ], [ undef, %14 ], [ undef, %68 ], [ undef, %28 ]
-  %.sroa.8.sroa.9.0 = phi i32 [ %53, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.9.0.copyload, %38 ], [ undef, %14 ], [ undef, %68 ], [ undef, %28 ]
-  %.sroa.8.sroa.8.0 = phi i32 [ %67, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.8.0.copyload, %38 ], [ undef, %14 ], [ undef, %68 ], [ undef, %28 ]
-  %.sroa.8.sroa.0.sroa.12.sroa.0.0 = phi i24 [ %.sroa.05.sroa.9.sroa.0.0.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.12.sroa.0.0.copyload, %38 ], [ %.sroa.9.37.extract.trunc, %14 ], [ undef, %68 ], [ undef, %28 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775808, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.0.0.copyload, %38 ], [ -9223372036854775806, %14 ], [ -9223372036854775807, %68 ], [ -9223372036854775805, %28 ]
+39:                                               ; preds = %66, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit", %38, %28, %14
+  %.sroa.8.sroa.0.sroa.8.0 = phi i32 [ %.sroa.05.sroa.4.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.8.0.copyload, %38 ], [ %.sroa.432.24.extract.trunc, %14 ], [ %81, %66 ], [ %32, %28 ]
+  %.sroa.8.sroa.0.sroa.9.0 = phi i32 [ %.sroa.05.sroa.6.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.9.0.copyload, %38 ], [ %.sroa.432.28.extract.trunc, %14 ], [ %70, %66 ], [ %33, %28 ]
+  %.sroa.8.sroa.0.sroa.10.0 = phi i32 [ %.sroa.05.sroa.7.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.10.0.copyload, %38 ], [ %18, %14 ], [ %switch.idx.cast.i, %66 ], [ undef, %28 ]
+  %.sroa.8.sroa.0.sroa.11.0 = phi i8 [ %.sroa.05.sroa.8.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.11.0.copyload, %38 ], [ %.sroa.9.36.extract.trunc, %14 ], [ %78, %66 ], [ undef, %28 ]
+  %.sroa.8.sroa.0.sroa.13.0 = phi i64 [ %.sroa.05.sroa.10.24.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.13.0.copyload, %38 ], [ undef, %14 ], [ undef, %66 ], [ undef, %28 ]
+  %.sroa.8.sroa.9.0 = phi i32 [ %53, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.9.0.copyload, %38 ], [ undef, %14 ], [ undef, %66 ], [ undef, %28 ]
+  %.sroa.8.sroa.8.0 = phi i32 [ %65, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.8.0.copyload, %38 ], [ undef, %14 ], [ undef, %66 ], [ undef, %28 ]
+  %.sroa.8.sroa.0.sroa.12.sroa.0.0 = phi i24 [ %.sroa.05.sroa.9.sroa.0.0.copyload, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.8.sroa.0.sroa.12.sroa.0.0.copyload, %38 ], [ %.sroa.9.37.extract.trunc, %14 ], [ undef, %66 ], [ undef, %28 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775808, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" ], [ %.sroa.0.0.copyload, %38 ], [ -9223372036854775806, %14 ], [ -9223372036854775807, %66 ], [ -9223372036854775805, %28 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.sroa.0.sroa.0, i64 24, i1 false)
@@ -27603,26 +27603,24 @@ define void @_ZN8language5proto19serialize_operation17h5bd4243f86c2f80aE(ptr dea
   %58 = getelementptr i8, ptr %55, i64 %57
   %59 = getelementptr i8, ptr %58, i64 1
   %60 = load <16 x i8>, ptr %55, align 16, !noalias !5590
-  %61 = icmp slt <16 x i8> %60, zeroinitializer
-  %62 = bitcast <16 x i1> %61 to i16
-  %63 = xor i16 %62, -1
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %66 = load i64, ptr %65, align 8, !alias.scope !5585, !noalias !5588, !noundef !4
+  %61 = icmp sgt <16 x i8> %60, splat (i8 -1)
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %64 = load i64, ptr %63, align 8, !alias.scope !5585, !noalias !5588, !noundef !4
   store ptr %55, ptr %4, align 8
   %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %64, ptr %.sroa.449.0..sroa_idx, align 8
+  store ptr %62, ptr %.sroa.449.0..sroa_idx, align 8
   %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %59, ptr %.sroa.550.0..sroa_idx, align 8
   %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %63, ptr %.sroa.651.0..sroa_idx, align 8
+  store <16 x i1> %61, ptr %.sroa.651.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %66, ptr %.sroa.8.0..sroa_idx53, align 8
+  store i64 %64, ptr %.sroa.8.0..sroa_idx53, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha56e4194db61fcc1E.llvm.2989133700921788752"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit" unwind label %40
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0496b6e754101e19E.exit": ; preds = %48
-  %67 = zext i16 %52 to i32
+  %65 = zext i16 %52 to i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.05.sroa.4.24.copyload = load i32, ptr %5, align 8
   %.sroa.05.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -27642,24 +27640,24 @@ define void @_ZN8language5proto19serialize_operation17h5bd4243f86c2f80aE(ptr dea
 "_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$proto..VectorClockEntry$GT$$GT$17h97da5d94c1b0b3d2E.exit": ; preds = %44, %40
   resume { ptr, i32 } %41
 
-68:                                               ; preds = %2
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %71 = load i16, ptr %70, align 4, !noundef !4
-  %72 = load i32, ptr %69, align 8, !noundef !4
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %74 = load ptr, ptr %73, align 8, !alias.scope !5595, !noalias !5598, !nonnull !4, !noundef !4
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %76 = load i64, ptr %75, align 8, !alias.scope !5595, !noalias !5598, !noundef !4
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = getelementptr inbounds { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %77, i64 %76
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd60317452ea0c73aE.llvm.2989133700921788752"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.8.sroa.0.sroa.0, ptr noundef nonnull %77, ptr noundef nonnull %78)
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %80 = load i8, ptr %79, align 1, !range !524, !noundef !4
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %82 = load i8, ptr %81, align 8, !range !5600, !alias.scope !5601, !noundef !4
-  %switch.idx.cast.i = zext nneg i8 %82 to i32
-  %83 = zext i16 %71 to i32
+66:                                               ; preds = %2
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %69 = load i16, ptr %68, align 4, !noundef !4
+  %70 = load i32, ptr %67, align 8, !noundef !4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8, !alias.scope !5595, !noalias !5598, !nonnull !4, !noundef !4
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %74 = load i64, ptr %73, align 8, !alias.scope !5595, !noalias !5598, !noundef !4
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %76 = getelementptr inbounds { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %75, i64 %74
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd60317452ea0c73aE.llvm.2989133700921788752"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.8.sroa.0.sroa.0, ptr noundef nonnull %75, ptr noundef nonnull %76)
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %78 = load i8, ptr %77, align 1, !range !524, !noundef !4
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %80 = load i8, ptr %79, align 8, !range !5600, !alias.scope !5601, !noundef !4
+  %switch.idx.cast.i = zext nneg i8 %80 to i32
+  %81 = zext i16 %69 to i32
   br label %39
 }
 

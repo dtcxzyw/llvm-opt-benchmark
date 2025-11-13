@@ -4067,41 +4067,39 @@ define hidden void @_ZN4text8undo_map7UndoMap6insert17h5b10157cd0867734E(ptr noa
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 1
   %11 = load <16 x i8>, ptr %6, align 16, !noalias !581
-  %12 = icmp slt <16 x i8> %11, zeroinitializer
-  %13 = bitcast <16 x i1> %12 to i16
-  %14 = xor i16 %13, -1
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !576, !noalias !579, !noundef !4
+  %12 = icmp sgt <16 x i8> %11, splat (i8 -1)
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 8, !alias.scope !576, !noalias !579, !noundef !4
   store ptr %6, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %15, ptr %.sroa.43.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %.sroa.54.0..sroa_idx, align 8
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %14, ptr %.sroa.65.0..sroa_idx, align 8
+  store <16 x i1> %12, ptr %.sroa.65.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %17, ptr %.sroa.8.0..sroa_idx, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %1, ptr %18, align 8
+  store i64 %15, ptr %.sroa.8.0..sroa_idx, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %1, ptr %16, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1b411011612f233cE.llvm.1728190777194418898"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN8sum_tree16SumTree$LT$T$GT$4edit17ha572c26ff77d4e52E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr))
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !589)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !592)
-  %19 = load i64, ptr %3, align 8, !alias.scope !595, !noalias !598, !noundef !4
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$text..undo_map..UndoMapEntry$GT$$GT$17h07653b15c7765c4cE.exit", label %21
+  %17 = load i64, ptr %3, align 8, !alias.scope !595, !noalias !598, !noundef !4
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$text..undo_map..UndoMapEntry$GT$$GT$17h07653b15c7765c4cE.exit", label %19
 
-21:                                               ; preds = %2
-  %22 = mul nuw i64 %19, 20
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load ptr, ptr %23, align 8, !alias.scope !595, !noalias !598, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %22, i64 noundef 4) #24, !noalias !600
+19:                                               ; preds = %2
+  %20 = mul nuw i64 %17, 20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = load ptr, ptr %21, align 8, !alias.scope !595, !noalias !598, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %20, i64 noundef 4) #24, !noalias !600
   br label %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$text..undo_map..UndoMapEntry$GT$$GT$17h07653b15c7765c4cE.exit"
 
-"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$text..undo_map..UndoMapEntry$GT$$GT$17h07653b15c7765c4cE.exit": ; preds = %2, %21
+"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$text..undo_map..UndoMapEntry$GT$$GT$17h07653b15c7765c4cE.exit": ; preds = %2, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

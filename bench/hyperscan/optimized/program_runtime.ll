@@ -20008,7 +20008,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti32x8(ptr nou
   %20 = sub nsw i32 0, %19
   %21 = sext i32 %20 to i64
   %22 = icmp ult i64 %2, %21
-  br i1 %22, label %262, label %23
+  br i1 %22, label %261, label %23
 
 23:                                               ; preds = %17, %3
   %24 = icmp sgt i64 %11, 0
@@ -20033,7 +20033,7 @@ getData128.exit.thread:                           ; preds = %25
   %33 = shufflevector <2 x i64> %32, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %35 = load <4 x i64>, ptr %34, align 1
-  br label %223
+  br label %222
 
 36:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -20425,7 +20425,7 @@ getData128.exit.thread53:                         ; preds = %140
   %190 = shufflevector <2 x i64> %189, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %192 = load <4 x i64>, ptr %191, align 1
-  br label %223
+  br label %222
 
 getData128.exit.thread48:                         ; preds = %143, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -20447,7 +20447,7 @@ getData128.exit:                                  ; preds = %138, %136, %128, %1
   %202 = load <4 x i64>, ptr %201, align 1
   %203 = and i32 %198, 1
   %.not = icmp eq i32 %203, 0
-  br i1 %.not, label %204, label %223, !prof !7
+  br i1 %.not, label %204, label %222, !prof !7
 
 204:                                              ; preds = %getData128.exit.thread48, %getData128.exit
   %205 = phi <4 x i64> [ %194, %getData128.exit.thread48 ], [ %202, %getData128.exit ]
@@ -20466,57 +20466,56 @@ getData128.exit:                                  ; preds = %138, %136, %128, %1
   %217 = bitcast <4 x i64> %216 to <32 x i8>
   %218 = bitcast <4 x i64> %205 to <32 x i8>
   %219 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %217, <32 x i8> %218)
-  %220 = icmp slt <32 x i8> %219, zeroinitializer
+  %220 = icmp sgt <32 x i8> %219, splat (i8 -1)
   %221 = bitcast <32 x i1> %220 to i32
-  %222 = xor i32 %221, -1
-  br label %223
+  br label %222
 
-223:                                              ; preds = %getData128.exit.thread53, %getData128.exit.thread, %204, %getData128.exit
-  %224 = phi <4 x i64> [ %205, %204 ], [ %202, %getData128.exit ], [ %35, %getData128.exit.thread ], [ %192, %getData128.exit.thread53 ]
-  %225 = phi <4 x i64> [ %206, %204 ], [ %200, %getData128.exit ], [ %33, %getData128.exit.thread ], [ %190, %getData128.exit.thread53 ]
-  %.039 = phi i32 [ %222, %204 ], [ 0, %getData128.exit ], [ 0, %getData128.exit.thread ], [ 0, %getData128.exit.thread53 ]
-  %226 = bitcast <4 x i64> %225 to <32 x i8>
-  %227 = bitcast <4 x i64> %224 to <32 x i8>
-  %228 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %226, <32 x i8> %227)
-  %229 = bitcast <32 x i8> %228 to <4 x i64>
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %231 = load <16 x i8>, ptr %230, align 1
-  %232 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %233 = load <16 x i8>, ptr %232, align 1
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %235 = load <32 x i8>, ptr %234, align 1
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %237 = load i32, ptr %236, align 4
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %241 = load i32, ptr %240, align 4
-  %242 = lshr <4 x i64> %229, splat (i64 4)
-  %243 = shufflevector <16 x i8> %233, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %244 = and <32 x i8> %228, splat (i8 15)
-  %245 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %243, <32 x i8> %244)
-  %246 = shufflevector <16 x i8> %231, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %247 = bitcast <4 x i64> %242 to <32 x i8>
-  %248 = and <32 x i8> %247, splat (i8 15)
-  %249 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %246, <32 x i8> %248)
-  %250 = and <32 x i8> %245, %235
-  %251 = and <32 x i8> %250, %249
-  %252 = icmp eq <32 x i8> %251, zeroinitializer
-  %253 = bitcast <32 x i1> %252 to i32
-  %254 = xor i32 %241, %253
-  %255 = or i32 %254, %.039
-  %256 = or i32 %255, %237
-  %257 = xor i32 %256, -1
-  %258 = add i32 %239, %257
-  %259 = xor i32 %255, -1
-  %260 = and i32 %258, %259
-  %261 = and i32 %260, %237
-  %.not57 = icmp ne i32 %261, 0
+222:                                              ; preds = %getData128.exit.thread53, %getData128.exit.thread, %204, %getData128.exit
+  %223 = phi <4 x i64> [ %205, %204 ], [ %202, %getData128.exit ], [ %35, %getData128.exit.thread ], [ %192, %getData128.exit.thread53 ]
+  %224 = phi <4 x i64> [ %206, %204 ], [ %200, %getData128.exit ], [ %33, %getData128.exit.thread ], [ %190, %getData128.exit.thread53 ]
+  %.039 = phi i32 [ %221, %204 ], [ 0, %getData128.exit ], [ 0, %getData128.exit.thread ], [ 0, %getData128.exit.thread53 ]
+  %225 = bitcast <4 x i64> %224 to <32 x i8>
+  %226 = bitcast <4 x i64> %223 to <32 x i8>
+  %227 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %225, <32 x i8> %226)
+  %228 = bitcast <32 x i8> %227 to <4 x i64>
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %230 = load <16 x i8>, ptr %229, align 1
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %232 = load <16 x i8>, ptr %231, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %234 = load <32 x i8>, ptr %233, align 1
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %236 = load i32, ptr %235, align 4
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %238 = load i32, ptr %237, align 4
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %240 = load i32, ptr %239, align 4
+  %241 = lshr <4 x i64> %228, splat (i64 4)
+  %242 = shufflevector <16 x i8> %232, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %243 = and <32 x i8> %227, splat (i8 15)
+  %244 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %242, <32 x i8> %243)
+  %245 = shufflevector <16 x i8> %230, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %246 = bitcast <4 x i64> %241 to <32 x i8>
+  %247 = and <32 x i8> %246, splat (i8 15)
+  %248 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %245, <32 x i8> %247)
+  %249 = and <32 x i8> %244, %234
+  %250 = and <32 x i8> %249, %248
+  %251 = icmp eq <32 x i8> %250, zeroinitializer
+  %252 = bitcast <32 x i1> %251 to i32
+  %253 = xor i32 %240, %252
+  %254 = or i32 %253, %.039
+  %255 = or i32 %254, %236
+  %256 = xor i32 %255, -1
+  %257 = add i32 %238, %256
+  %258 = xor i32 %254, -1
+  %259 = and i32 %257, %258
+  %260 = and i32 %259, %236
+  %.not57 = icmp ne i32 %260, 0
   %. = zext i1 %.not57 to i32
-  br label %262
+  br label %261
 
-262:                                              ; preds = %17, %223
-  %.0 = phi i32 [ %., %223 ], [ 0, %17 ]
+261:                                              ; preds = %17, %222
+  %.0 = phi i32 [ %., %222 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -20543,7 +20542,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti32x16(ptr no
   %20 = sub nsw i32 0, %19
   %21 = sext i32 %20 to i64
   %22 = icmp ult i64 %2, %21
-  br i1 %22, label %278, label %23
+  br i1 %22, label %277, label %23
 
 23:                                               ; preds = %17, %3
   %24 = icmp sgt i64 %11, 0
@@ -20568,7 +20567,7 @@ getData128.exit.thread:                           ; preds = %25
   %33 = shufflevector <2 x i64> %32, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %35 = load <4 x i64>, ptr %34, align 1
-  br label %223
+  br label %222
 
 36:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -20960,7 +20959,7 @@ getData128.exit.thread59:                         ; preds = %140
   %190 = shufflevector <2 x i64> %189, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %192 = load <4 x i64>, ptr %191, align 1
-  br label %223
+  br label %222
 
 getData128.exit.thread54:                         ; preds = %143, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -20982,7 +20981,7 @@ getData128.exit:                                  ; preds = %138, %136, %128, %1
   %202 = load <4 x i64>, ptr %201, align 1
   %203 = and i32 %198, 1
   %.not = icmp eq i32 %203, 0
-  br i1 %.not, label %204, label %223, !prof !7
+  br i1 %.not, label %204, label %222, !prof !7
 
 204:                                              ; preds = %getData128.exit.thread54, %getData128.exit
   %205 = phi <4 x i64> [ %194, %getData128.exit.thread54 ], [ %202, %getData128.exit ]
@@ -21001,73 +21000,72 @@ getData128.exit:                                  ; preds = %138, %136, %128, %1
   %217 = bitcast <4 x i64> %216 to <32 x i8>
   %218 = bitcast <4 x i64> %205 to <32 x i8>
   %219 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %217, <32 x i8> %218)
-  %220 = icmp slt <32 x i8> %219, zeroinitializer
+  %220 = icmp sgt <32 x i8> %219, splat (i8 -1)
   %221 = bitcast <32 x i1> %220 to i32
-  %222 = xor i32 %221, -1
-  br label %223
+  br label %222
 
-223:                                              ; preds = %getData128.exit.thread59, %getData128.exit.thread, %204, %getData128.exit
-  %224 = phi <4 x i64> [ %205, %204 ], [ %202, %getData128.exit ], [ %35, %getData128.exit.thread ], [ %192, %getData128.exit.thread59 ]
-  %225 = phi <4 x i64> [ %206, %204 ], [ %200, %getData128.exit ], [ %33, %getData128.exit.thread ], [ %190, %getData128.exit.thread59 ]
-  %.045 = phi i32 [ %222, %204 ], [ 0, %getData128.exit ], [ 0, %getData128.exit.thread ], [ 0, %getData128.exit.thread59 ]
-  %226 = bitcast <4 x i64> %225 to <32 x i8>
-  %227 = bitcast <4 x i64> %224 to <32 x i8>
-  %228 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %226, <32 x i8> %227)
-  %229 = bitcast <32 x i8> %228 to <4 x i64>
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %231 = load <16 x i8>, ptr %230, align 1
-  %232 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %233 = load <16 x i8>, ptr %232, align 1
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %235 = load <16 x i8>, ptr %234, align 1
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 49
-  %237 = load <16 x i8>, ptr %236, align 1
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %239 = load <4 x i64>, ptr %238, align 1
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 97
-  %241 = load <4 x i64>, ptr %240, align 1
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  %247 = load i32, ptr %246, align 4
-  %248 = lshr <4 x i64> %229, splat (i64 4)
-  %249 = shufflevector <16 x i8> %235, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %250 = and <32 x i8> %228, splat (i8 15)
-  %251 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %249, <32 x i8> %250)
-  %252 = shufflevector <16 x i8> %237, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %253 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %252, <32 x i8> %250)
-  %254 = shufflevector <16 x i8> %231, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %255 = bitcast <4 x i64> %248 to <32 x i8>
-  %256 = and <32 x i8> %255, splat (i8 15)
-  %257 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %254, <32 x i8> %256)
-  %258 = shufflevector <16 x i8> %233, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %259 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %258, <32 x i8> %256)
-  %260 = and <32 x i8> %257, %251
-  %261 = bitcast <32 x i8> %260 to <4 x i64>
-  %262 = and <32 x i8> %259, %253
-  %263 = bitcast <32 x i8> %262 to <4 x i64>
-  %264 = and <4 x i64> %241, %261
-  %265 = and <4 x i64> %239, %263
-  %266 = or <4 x i64> %265, %264
-  %267 = bitcast <4 x i64> %266 to <32 x i8>
-  %268 = icmp eq <32 x i8> %267, zeroinitializer
-  %269 = bitcast <32 x i1> %268 to i32
-  %270 = xor i32 %247, %269
-  %271 = or i32 %270, %.045
-  %272 = or i32 %271, %243
-  %273 = xor i32 %272, -1
-  %274 = add i32 %245, %273
-  %275 = xor i32 %271, -1
-  %276 = and i32 %274, %275
-  %277 = and i32 %276, %243
-  %.not63 = icmp ne i32 %277, 0
+222:                                              ; preds = %getData128.exit.thread59, %getData128.exit.thread, %204, %getData128.exit
+  %223 = phi <4 x i64> [ %205, %204 ], [ %202, %getData128.exit ], [ %35, %getData128.exit.thread ], [ %192, %getData128.exit.thread59 ]
+  %224 = phi <4 x i64> [ %206, %204 ], [ %200, %getData128.exit ], [ %33, %getData128.exit.thread ], [ %190, %getData128.exit.thread59 ]
+  %.045 = phi i32 [ %221, %204 ], [ 0, %getData128.exit ], [ 0, %getData128.exit.thread ], [ 0, %getData128.exit.thread59 ]
+  %225 = bitcast <4 x i64> %224 to <32 x i8>
+  %226 = bitcast <4 x i64> %223 to <32 x i8>
+  %227 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %225, <32 x i8> %226)
+  %228 = bitcast <32 x i8> %227 to <4 x i64>
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %230 = load <16 x i8>, ptr %229, align 1
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %232 = load <16 x i8>, ptr %231, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %234 = load <16 x i8>, ptr %233, align 1
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 49
+  %236 = load <16 x i8>, ptr %235, align 1
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %238 = load <4 x i64>, ptr %237, align 1
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 97
+  %240 = load <4 x i64>, ptr %239, align 1
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %242 = load i32, ptr %241, align 4
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %244 = load i32, ptr %243, align 4
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 172
+  %246 = load i32, ptr %245, align 4
+  %247 = lshr <4 x i64> %228, splat (i64 4)
+  %248 = shufflevector <16 x i8> %234, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %249 = and <32 x i8> %227, splat (i8 15)
+  %250 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %248, <32 x i8> %249)
+  %251 = shufflevector <16 x i8> %236, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %252 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %251, <32 x i8> %249)
+  %253 = shufflevector <16 x i8> %230, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %254 = bitcast <4 x i64> %247 to <32 x i8>
+  %255 = and <32 x i8> %254, splat (i8 15)
+  %256 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %253, <32 x i8> %255)
+  %257 = shufflevector <16 x i8> %232, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %258 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %257, <32 x i8> %255)
+  %259 = and <32 x i8> %256, %250
+  %260 = bitcast <32 x i8> %259 to <4 x i64>
+  %261 = and <32 x i8> %258, %252
+  %262 = bitcast <32 x i8> %261 to <4 x i64>
+  %263 = and <4 x i64> %240, %260
+  %264 = and <4 x i64> %238, %262
+  %265 = or <4 x i64> %264, %263
+  %266 = bitcast <4 x i64> %265 to <32 x i8>
+  %267 = icmp eq <32 x i8> %266, zeroinitializer
+  %268 = bitcast <32 x i1> %267 to i32
+  %269 = xor i32 %246, %268
+  %270 = or i32 %269, %.045
+  %271 = or i32 %270, %242
+  %272 = xor i32 %271, -1
+  %273 = add i32 %244, %272
+  %274 = xor i32 %270, -1
+  %275 = and i32 %273, %274
+  %276 = and i32 %275, %242
+  %.not63 = icmp ne i32 %276, 0
   %. = zext i1 %.not63 to i32
-  br label %278
+  br label %277
 
-278:                                              ; preds = %17, %223
-  %.0 = phi i32 [ %., %223 ], [ 0, %17 ]
+277:                                              ; preds = %17, %222
+  %.0 = phi i32 [ %., %222 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -21094,7 +21092,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti64(ptr nound
   %20 = sub nsw i32 0, %19
   %21 = sext i32 %20 to i64
   %22 = icmp ult i64 %2, %21
-  br i1 %22, label %289, label %23
+  br i1 %22, label %288, label %23
 
 23:                                               ; preds = %17, %3
   %24 = icmp sgt i64 %11, 0
@@ -21121,7 +21119,7 @@ getData128.exit.thread:                           ; preds = %25
   %35 = load <4 x i64>, ptr %34, align 1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %37 = load <4 x i64>, ptr %36, align 1
-  br label %235
+  br label %234
 
 38:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -21515,7 +21513,7 @@ getData128.exit.thread63:                         ; preds = %142
   %194 = load <4 x i64>, ptr %193, align 1
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %196 = load <4 x i64>, ptr %195, align 1
-  br label %235
+  br label %234
 
 getData128.exit.thread58:                         ; preds = %145, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -21541,7 +21539,7 @@ getData128.exit:                                  ; preds = %140, %138, %130, %1
   %210 = load <4 x i64>, ptr %209, align 1
   %211 = and i32 %204, 1
   %.not = icmp eq i32 %211, 0
-  br i1 %.not, label %212, label %235, !prof !7
+  br i1 %.not, label %212, label %234, !prof !7
 
 212:                                              ; preds = %getData128.exit.thread58, %getData128.exit
   %213 = phi <4 x i64> [ %200, %getData128.exit.thread58 ], [ %210, %getData128.exit ]
@@ -21564,72 +21562,71 @@ getData128.exit:                                  ; preds = %140, %138, %130, %1
   %229 = bitcast <4 x i64> %213 to <32 x i8>
   %230 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %226, <32 x i8> %229)
   %231 = shufflevector <32 x i8> %228, <32 x i8> %230, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %232 = icmp slt <64 x i8> %231, zeroinitializer
+  %232 = icmp sgt <64 x i8> %231, splat (i8 -1)
   %233 = bitcast <64 x i1> %232 to i64
-  %234 = xor i64 %233, -1
-  br label %235
+  br label %234
 
-235:                                              ; preds = %getData128.exit.thread63, %getData128.exit.thread, %212, %getData128.exit
-  %236 = phi <4 x i64> [ %213, %212 ], [ %210, %getData128.exit ], [ %37, %getData128.exit.thread ], [ %196, %getData128.exit.thread63 ]
-  %237 = phi <4 x i64> [ %214, %212 ], [ %208, %getData128.exit ], [ %35, %getData128.exit.thread ], [ %194, %getData128.exit.thread63 ]
-  %238 = phi <4 x i64> [ %215, %212 ], [ %206, %getData128.exit ], [ %33, %getData128.exit.thread ], [ %192, %getData128.exit.thread63 ]
-  %.049 = phi i64 [ %234, %212 ], [ 0, %getData128.exit ], [ 0, %getData128.exit.thread ], [ 0, %getData128.exit.thread63 ]
-  %239 = bitcast <4 x i64> %238 to <32 x i8>
-  %240 = bitcast <4 x i64> %237 to <32 x i8>
-  %241 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %239, <32 x i8> %240)
-  %242 = bitcast <32 x i8> %241 to <4 x i64>
-  %243 = bitcast <4 x i64> %236 to <32 x i8>
-  %244 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %239, <32 x i8> %243)
-  %245 = bitcast <32 x i8> %244 to <4 x i64>
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %247 = load <16 x i8>, ptr %246, align 1
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %249 = load <16 x i8>, ptr %248, align 1
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %251 = load <32 x i8>, ptr %250, align 1
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %253 = load <32 x i8>, ptr %252, align 1
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %255 = load i64, ptr %254, align 8
-  %256 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %257 = load i64, ptr %256, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %259 = load i64, ptr %258, align 8
-  %260 = shufflevector <16 x i8> %249, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %261 = and <32 x i8> %241, splat (i8 15)
-  %262 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %260, <32 x i8> %261)
-  %263 = and <32 x i8> %244, splat (i8 15)
-  %264 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %260, <32 x i8> %263)
-  %265 = lshr <4 x i64> %242, splat (i64 4)
-  %266 = shufflevector <16 x i8> %247, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %267 = bitcast <4 x i64> %265 to <32 x i8>
-  %268 = and <32 x i8> %267, splat (i8 15)
-  %269 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %266, <32 x i8> %268)
-  %270 = lshr <4 x i64> %245, splat (i64 4)
-  %271 = bitcast <4 x i64> %270 to <32 x i8>
-  %272 = and <32 x i8> %271, splat (i8 15)
-  %273 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %266, <32 x i8> %272)
-  %274 = and <32 x i8> %262, %251
-  %275 = and <32 x i8> %264, %253
-  %276 = and <32 x i8> %274, %269
-  %277 = and <32 x i8> %275, %273
-  %278 = shufflevector <32 x i8> %276, <32 x i8> %277, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %279 = icmp eq <64 x i8> %278, zeroinitializer
-  %280 = bitcast <64 x i1> %279 to i64
-  %281 = xor i64 %259, %280
-  %282 = or i64 %281, %.049
-  %283 = or i64 %282, %255
-  %284 = xor i64 %283, -1
-  %285 = add i64 %257, %284
-  %286 = xor i64 %282, -1
-  %287 = and i64 %285, %286
-  %288 = and i64 %287, %255
-  %.not67 = icmp ne i64 %288, 0
+234:                                              ; preds = %getData128.exit.thread63, %getData128.exit.thread, %212, %getData128.exit
+  %235 = phi <4 x i64> [ %213, %212 ], [ %210, %getData128.exit ], [ %37, %getData128.exit.thread ], [ %196, %getData128.exit.thread63 ]
+  %236 = phi <4 x i64> [ %214, %212 ], [ %208, %getData128.exit ], [ %35, %getData128.exit.thread ], [ %194, %getData128.exit.thread63 ]
+  %237 = phi <4 x i64> [ %215, %212 ], [ %206, %getData128.exit ], [ %33, %getData128.exit.thread ], [ %192, %getData128.exit.thread63 ]
+  %.049 = phi i64 [ %233, %212 ], [ 0, %getData128.exit ], [ 0, %getData128.exit.thread ], [ 0, %getData128.exit.thread63 ]
+  %238 = bitcast <4 x i64> %237 to <32 x i8>
+  %239 = bitcast <4 x i64> %236 to <32 x i8>
+  %240 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %238, <32 x i8> %239)
+  %241 = bitcast <32 x i8> %240 to <4 x i64>
+  %242 = bitcast <4 x i64> %235 to <32 x i8>
+  %243 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %238, <32 x i8> %242)
+  %244 = bitcast <32 x i8> %243 to <4 x i64>
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %246 = load <16 x i8>, ptr %245, align 1
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %248 = load <16 x i8>, ptr %247, align 1
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %250 = load <32 x i8>, ptr %249, align 1
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %252 = load <32 x i8>, ptr %251, align 1
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %254 = load i64, ptr %253, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %256 = load i64, ptr %255, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %258 = load i64, ptr %257, align 8
+  %259 = shufflevector <16 x i8> %248, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %260 = and <32 x i8> %240, splat (i8 15)
+  %261 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %259, <32 x i8> %260)
+  %262 = and <32 x i8> %243, splat (i8 15)
+  %263 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %259, <32 x i8> %262)
+  %264 = lshr <4 x i64> %241, splat (i64 4)
+  %265 = shufflevector <16 x i8> %246, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %266 = bitcast <4 x i64> %264 to <32 x i8>
+  %267 = and <32 x i8> %266, splat (i8 15)
+  %268 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %265, <32 x i8> %267)
+  %269 = lshr <4 x i64> %244, splat (i64 4)
+  %270 = bitcast <4 x i64> %269 to <32 x i8>
+  %271 = and <32 x i8> %270, splat (i8 15)
+  %272 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %265, <32 x i8> %271)
+  %273 = and <32 x i8> %261, %250
+  %274 = and <32 x i8> %263, %252
+  %275 = and <32 x i8> %273, %268
+  %276 = and <32 x i8> %274, %272
+  %277 = shufflevector <32 x i8> %275, <32 x i8> %276, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %278 = icmp eq <64 x i8> %277, zeroinitializer
+  %279 = bitcast <64 x i1> %278 to i64
+  %280 = xor i64 %258, %279
+  %281 = or i64 %280, %.049
+  %282 = or i64 %281, %254
+  %283 = xor i64 %282, -1
+  %284 = add i64 %256, %283
+  %285 = xor i64 %281, -1
+  %286 = and i64 %284, %285
+  %287 = and i64 %286, %254
+  %.not67 = icmp ne i64 %287, 0
   %. = zext i1 %.not67 to i32
-  br label %289
+  br label %288
 
-289:                                              ; preds = %17, %235
-  %.0 = phi i32 [ %., %235 ], [ 0, %17 ]
+288:                                              ; preds = %17, %234
+  %.0 = phi i32 [ %., %234 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -31975,7 +31972,7 @@ roseCountingMiracleScan.exit:                     ; preds = %46, %roseCountingMi
   %.pre-phi216 = phi i64 [ %.pre215, %roseCountingMiracleScan.exit.loopexit ], [ %49, %46 ]
   %56 = sub i64 %24, %.pre-phi218
   %57 = add i64 %56, %.pre-phi216
-  br label %206
+  br label %202
 
 roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %.0154 = phi i32 [ 0, %20 ], [ %.040.i, %45 ], [ %55, %46 ]
@@ -32051,7 +32048,7 @@ roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMi
   %.pre-phi = phi i64 [ %.pre, %roseCountingMiracleScan.exit126.loopexit ], [ %85, %82 ]
   %92 = sub i64 %18, %.pre-phi214
   %93 = add i64 %92, %.pre-phi
-  br label %206
+  br label %202
 
 94:                                               ; preds = %16
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -32079,10 +32076,10 @@ roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMi
   br label %.critedge.i127
 
 .critedge.i127:                                   ; preds = %115, %104
-  %.053.i = phi i32 [ 0, %104 ], [ %131, %115 ]
+  %.053.i = phi i32 [ 0, %104 ], [ %130, %115 ]
   %.052.i = phi ptr [ %107, %104 ], [ %116, %115 ]
   %.not.i128 = icmp ugt ptr %112, %.052.i
-  br i1 %.not.i128, label %132, label %115
+  br i1 %.not.i128, label %131, label %115
 
 115:                                              ; preds = %.critedge.i127
   %116 = getelementptr inbounds i8, ptr %.052.i, i64 -16
@@ -32095,46 +32092,44 @@ roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMi
   %123 = and <16 x i8> %122, splat (i8 15)
   %124 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %123)
   %125 = and <16 x i8> %124, %120
-  %126 = icmp eq <16 x i8> %125, zeroinitializer
+  %126 = icmp ne <16 x i8> %125, zeroinitializer
   %127 = bitcast <16 x i1> %126 to i16
-  %128 = xor i16 %127, -1
-  %129 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %128)
-  %130 = zext nneg i16 %129 to i32
-  %131 = add i32 %.053.i, %130
-  %.not62.i = icmp ult i32 %131, %111
+  %128 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %127)
+  %129 = zext nneg i16 %128 to i32
+  %130 = add i32 %.053.i, %129
+  %.not62.i = icmp ult i32 %130, %111
   br i1 %.not62.i, label %.critedge.i127, label %roseCountingMiracleScanShufti.exit.loopexit
 
-132:                                              ; preds = %.critedge.i127
+131:                                              ; preds = %.critedge.i127
   %.not60.i = icmp eq ptr %108, %.052.i
-  br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %133
+  br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %132
 
-133:                                              ; preds = %132
+132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0148)
   %.sroa.0148.0.zext = zext i8 %100 to i64
   %.sroa.0148.0.isplat = mul nuw i64 %.sroa.0148.0.zext, 72340172838076673
   %.sroa.0148.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0148.0.isplat, i64 0
   %.sroa.0148.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0148.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
   store <2 x i64> %.sroa.0148.0.vsplat.splat, ptr %.sroa.0148, align 16
-  %134 = ptrtoint ptr %.052.i to i64
-  %135 = ptrtoint ptr %108 to i64
-  %136 = sub i64 %134, %135
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0148, ptr align 1 %108, i64 %136, i1 false)
+  %133 = ptrtoint ptr %.052.i to i64
+  %134 = ptrtoint ptr %108 to i64
+  %135 = sub i64 %133, %134
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0148, ptr align 1 %108, i64 %135, i1 false)
   %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. = load <2 x i64>, ptr %.sroa.0148, align 16
-  %137 = bitcast <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. to <16 x i8>
-  %138 = and <16 x i8> %137, splat (i8 15)
-  %139 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %113, <16 x i8> %138)
-  %140 = lshr <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0., splat (i64 4)
-  %141 = bitcast <2 x i64> %140 to <16 x i8>
-  %142 = and <16 x i8> %141, splat (i8 15)
-  %143 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %142)
-  %144 = and <16 x i8> %143, %139
-  %145 = icmp eq <16 x i8> %144, zeroinitializer
-  %146 = bitcast <16 x i1> %145 to i16
-  %147 = xor i16 %146, -1
-  %148 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %147)
-  %149 = zext nneg i16 %148 to i32
-  %150 = add i32 %.053.i, %149
-  %.not61.i = icmp ult i32 %150, %111
+  %136 = bitcast <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. to <16 x i8>
+  %137 = and <16 x i8> %136, splat (i8 15)
+  %138 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %113, <16 x i8> %137)
+  %139 = lshr <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0., splat (i64 4)
+  %140 = bitcast <2 x i64> %139 to <16 x i8>
+  %141 = and <16 x i8> %140, splat (i8 15)
+  %142 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %141)
+  %143 = and <16 x i8> %142, %138
+  %144 = icmp ne <16 x i8> %143, zeroinitializer
+  %145 = bitcast <16 x i1> %144 to i16
+  %146 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %145)
+  %147 = zext nneg i16 %146 to i32
+  %148 = add i32 %.053.i, %147
+  %.not61.i = icmp ult i32 %148, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0148)
   br i1 %.not61.i, label %roseCountingMiracleScanShufti.exit.thread, label %roseCountingMiracleScanShufti.exit
 
@@ -32143,113 +32138,111 @@ roseCountingMiracleScanShufti.exit.loopexit:      ; preds = %115
   %.pre225 = ptrtoint ptr %108 to i64
   br label %roseCountingMiracleScanShufti.exit
 
-roseCountingMiracleScanShufti.exit:               ; preds = %133, %roseCountingMiracleScanShufti.exit.loopexit
-  %.pre-phi226 = phi i64 [ %.pre225, %roseCountingMiracleScanShufti.exit.loopexit ], [ %135, %133 ]
-  %.pre-phi224 = phi i64 [ %.pre223, %roseCountingMiracleScanShufti.exit.loopexit ], [ %135, %133 ]
-  %151 = sub i64 %102, %.pre-phi226
-  %152 = add i64 %151, %.pre-phi224
-  br label %206
+roseCountingMiracleScanShufti.exit:               ; preds = %132, %roseCountingMiracleScanShufti.exit.loopexit
+  %.pre-phi226 = phi i64 [ %.pre225, %roseCountingMiracleScanShufti.exit.loopexit ], [ %134, %132 ]
+  %.pre-phi224 = phi i64 [ %.pre223, %roseCountingMiracleScanShufti.exit.loopexit ], [ %134, %132 ]
+  %149 = sub i64 %102, %.pre-phi226
+  %150 = add i64 %149, %.pre-phi224
+  br label %202
 
-roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
-  %.1 = phi i32 [ 0, %94 ], [ %.053.i, %132 ], [ %150, %133 ]
-  br i1 %101, label %153, label %.thread
+roseCountingMiracleScanShufti.exit.thread:        ; preds = %132, %131, %94
+  %.1 = phi i32 [ 0, %94 ], [ %.053.i, %131 ], [ %148, %132 ]
+  br i1 %101, label %151, label %.thread
 
-153:                                              ; preds = %roseCountingMiracleScanShufti.exit.thread
-  %154 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 %157
-  %159 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
-  %160 = getelementptr inbounds i8, ptr %158, i64 %159
-  %161 = getelementptr inbounds i8, ptr %158, i64 %18
-  %162 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i32
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %166 = bitcast <2 x i64> %96 to <16 x i8>
-  %167 = bitcast <2 x i64> %98 to <16 x i8>
+151:                                              ; preds = %roseCountingMiracleScanShufti.exit.thread
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %155 = load i64, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %155
+  %157 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
+  %158 = getelementptr inbounds i8, ptr %156, i64 %157
+  %159 = getelementptr inbounds i8, ptr %156, i64 %18
+  %160 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i32
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %164 = bitcast <2 x i64> %96 to <16 x i8>
+  %165 = bitcast <2 x i64> %98 to <16 x i8>
   br label %.critedge.i130
 
-.critedge.i130:                                   ; preds = %168, %153
-  %.053.i131 = phi i32 [ %.1, %153 ], [ %184, %168 ]
-  %.052.i132 = phi ptr [ %160, %153 ], [ %169, %168 ]
-  %.not.i133 = icmp ugt ptr %165, %.052.i132
-  br i1 %.not.i133, label %185, label %168
+.critedge.i130:                                   ; preds = %166, %151
+  %.053.i131 = phi i32 [ %.1, %151 ], [ %181, %166 ]
+  %.052.i132 = phi ptr [ %158, %151 ], [ %167, %166 ]
+  %.not.i133 = icmp ugt ptr %163, %.052.i132
+  br i1 %.not.i133, label %182, label %166
 
-168:                                              ; preds = %.critedge.i130
-  %169 = getelementptr inbounds i8, ptr %.052.i132, i64 -16
-  %170 = load <2 x i64>, ptr %169, align 1
-  %171 = bitcast <2 x i64> %170 to <16 x i8>
-  %172 = and <16 x i8> %171, splat (i8 15)
-  %173 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %166, <16 x i8> %172)
-  %174 = lshr <2 x i64> %170, splat (i64 4)
-  %175 = bitcast <2 x i64> %174 to <16 x i8>
-  %176 = and <16 x i8> %175, splat (i8 15)
-  %177 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %167, <16 x i8> %176)
-  %178 = and <16 x i8> %177, %173
-  %179 = icmp eq <16 x i8> %178, zeroinitializer
-  %180 = bitcast <16 x i1> %179 to i16
-  %181 = xor i16 %180, -1
-  %182 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %181)
-  %183 = zext nneg i16 %182 to i32
-  %184 = add i32 %.053.i131, %183
-  %.not62.i134 = icmp ult i32 %184, %164
+166:                                              ; preds = %.critedge.i130
+  %167 = getelementptr inbounds i8, ptr %.052.i132, i64 -16
+  %168 = load <2 x i64>, ptr %167, align 1
+  %169 = bitcast <2 x i64> %168 to <16 x i8>
+  %170 = and <16 x i8> %169, splat (i8 15)
+  %171 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %164, <16 x i8> %170)
+  %172 = lshr <2 x i64> %168, splat (i64 4)
+  %173 = bitcast <2 x i64> %172 to <16 x i8>
+  %174 = and <16 x i8> %173, splat (i8 15)
+  %175 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %165, <16 x i8> %174)
+  %176 = and <16 x i8> %175, %171
+  %177 = icmp ne <16 x i8> %176, zeroinitializer
+  %178 = bitcast <16 x i1> %177 to i16
+  %179 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %178)
+  %180 = zext nneg i16 %179 to i32
+  %181 = add i32 %.053.i131, %180
+  %.not62.i134 = icmp ult i32 %181, %162
   br i1 %.not62.i134, label %.critedge.i130, label %roseCountingMiracleScanShufti.exit140.loopexit
 
-185:                                              ; preds = %.critedge.i130
-  %.not60.i136 = icmp eq ptr %161, %.052.i132
-  br i1 %.not60.i136, label %.thread, label %186
+182:                                              ; preds = %.critedge.i130
+  %.not60.i136 = icmp eq ptr %159, %.052.i132
+  br i1 %.not60.i136, label %.thread, label %183
 
-186:                                              ; preds = %185
+183:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0149)
   %.sroa.0149.0.zext = zext i8 %100 to i64
   %.sroa.0149.0.isplat = mul nuw i64 %.sroa.0149.0.zext, 72340172838076673
   %.sroa.0149.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0149.0.isplat, i64 0
   %.sroa.0149.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0149.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
   store <2 x i64> %.sroa.0149.0.vsplat.splat, ptr %.sroa.0149, align 16
-  %187 = ptrtoint ptr %.052.i132 to i64
-  %188 = ptrtoint ptr %161 to i64
-  %189 = sub i64 %187, %188
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0149, ptr nonnull align 1 %161, i64 %189, i1 false)
+  %184 = ptrtoint ptr %.052.i132 to i64
+  %185 = ptrtoint ptr %159 to i64
+  %186 = sub i64 %184, %185
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0149, ptr nonnull align 1 %159, i64 %186, i1 false)
   %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. = load <2 x i64>, ptr %.sroa.0149, align 16
-  %190 = bitcast <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. to <16 x i8>
-  %191 = and <16 x i8> %190, splat (i8 15)
-  %192 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %166, <16 x i8> %191)
-  %193 = lshr <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0., splat (i64 4)
-  %194 = bitcast <2 x i64> %193 to <16 x i8>
-  %195 = and <16 x i8> %194, splat (i8 15)
-  %196 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %167, <16 x i8> %195)
-  %197 = and <16 x i8> %196, %192
-  %198 = icmp eq <16 x i8> %197, zeroinitializer
-  %199 = bitcast <16 x i1> %198 to i16
-  %200 = xor i16 %199, -1
-  %201 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %200)
-  %202 = zext nneg i16 %201 to i32
-  %203 = add i32 %.053.i131, %202
-  %.not61.i137 = icmp ult i32 %203, %164
+  %187 = bitcast <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. to <16 x i8>
+  %188 = and <16 x i8> %187, splat (i8 15)
+  %189 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %164, <16 x i8> %188)
+  %190 = lshr <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0., splat (i64 4)
+  %191 = bitcast <2 x i64> %190 to <16 x i8>
+  %192 = and <16 x i8> %191, splat (i8 15)
+  %193 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %165, <16 x i8> %192)
+  %194 = and <16 x i8> %193, %189
+  %195 = icmp ne <16 x i8> %194, zeroinitializer
+  %196 = bitcast <16 x i1> %195 to i16
+  %197 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %196)
+  %198 = zext nneg i16 %197 to i32
+  %199 = add i32 %.053.i131, %198
+  %.not61.i137 = icmp ult i32 %199, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0149)
   br i1 %.not61.i137, label %.thread, label %roseCountingMiracleScanShufti.exit140
 
-roseCountingMiracleScanShufti.exit140.loopexit:   ; preds = %168
-  %.pre219 = ptrtoint ptr %169 to i64
-  %.pre221 = ptrtoint ptr %161 to i64
+roseCountingMiracleScanShufti.exit140.loopexit:   ; preds = %166
+  %.pre219 = ptrtoint ptr %167 to i64
+  %.pre221 = ptrtoint ptr %159 to i64
   br label %roseCountingMiracleScanShufti.exit140
 
-roseCountingMiracleScanShufti.exit140:            ; preds = %186, %roseCountingMiracleScanShufti.exit140.loopexit
-  %.pre-phi222 = phi i64 [ %.pre221, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %188, %186 ]
-  %.pre-phi220 = phi i64 [ %.pre219, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %188, %186 ]
-  %204 = sub i64 %18, %.pre-phi222
-  %205 = add i64 %204, %.pre-phi220
-  br label %206
+roseCountingMiracleScanShufti.exit140:            ; preds = %183, %roseCountingMiracleScanShufti.exit140.loopexit
+  %.pre-phi222 = phi i64 [ %.pre221, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %185, %183 ]
+  %.pre-phi220 = phi i64 [ %.pre219, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %185, %183 ]
+  %200 = sub i64 %18, %.pre-phi222
+  %201 = add i64 %200, %.pre-phi220
+  br label %202
 
-206:                                              ; preds = %roseCountingMiracleScanShufti.exit140, %roseCountingMiracleScanShufti.exit, %roseCountingMiracleScan.exit126, %roseCountingMiracleScan.exit
-  %.10 = phi i64 [ %57, %roseCountingMiracleScan.exit ], [ %93, %roseCountingMiracleScan.exit126 ], [ %152, %roseCountingMiracleScanShufti.exit ], [ %205, %roseCountingMiracleScanShufti.exit140 ]
+202:                                              ; preds = %roseCountingMiracleScanShufti.exit140, %roseCountingMiracleScanShufti.exit, %roseCountingMiracleScan.exit126, %roseCountingMiracleScan.exit
+  %.10 = phi i64 [ %57, %roseCountingMiracleScan.exit ], [ %93, %roseCountingMiracleScan.exit126 ], [ %150, %roseCountingMiracleScanShufti.exit ], [ %201, %roseCountingMiracleScanShufti.exit140 ]
   store i64 %.10, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %186, %82, %185, %roseCountingMiracleScanShufti.exit.thread, %81, %roseCountingMiracleScan.exit.thread, %206, %9, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %206 ], [ 0, %roseCountingMiracleScan.exit.thread ], [ 0, %81 ], [ 0, %roseCountingMiracleScanShufti.exit.thread ], [ 0, %185 ], [ 0, %82 ], [ 0, %186 ]
+.thread:                                          ; preds = %183, %82, %182, %roseCountingMiracleScanShufti.exit.thread, %81, %roseCountingMiracleScan.exit.thread, %202, %9, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %202 ], [ 0, %roseCountingMiracleScan.exit.thread ], [ 0, %81 ], [ 0, %roseCountingMiracleScanShufti.exit.thread ], [ 0, %182 ], [ 0, %82 ], [ 0, %183 ]
   ret i32 %.0
 }
 

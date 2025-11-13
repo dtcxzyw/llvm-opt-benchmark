@@ -13034,10 +13034,10 @@ define dso_local noundef range(i32 0, 16) i32 @_ZNK8simdjson7icelake14implementa
   br i1 %.not.i, label %._crit_edge.i, label %.noexc39.i
 
 .noexc39.i:                                       ; preds = %5, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i
-  %.sroa.32.0744.i = phi i64 [ %58, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ 0, %5 ]
-  %.sroa.41.0743.i = phi ptr [ %71, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ %3, %5 ]
+  %.sroa.32.0744.i = phi i64 [ %57, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ 0, %5 ]
+  %.sroa.41.0743.i = phi ptr [ %69, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ %3, %5 ]
   %.sroa.12.0742.i = phi i64 [ %.sroa.12.2.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ 0, %5 ]
-  %.sroa.11.0741.i = phi i64 [ %72, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ 0, %5 ]
+  %.sroa.11.0741.i = phi i64 [ %70, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0741.i
   %9 = load <64 x i8>, ptr %8, align 1, !tbaa !4, !noalias !228
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -13073,169 +13073,165 @@ define dso_local noundef range(i32 0, 16) i32 @_ZNK8simdjson7icelake14implementa
   %32 = xor i64 %31, %.sroa.32.0744.i
   %33 = ashr i64 %32, 63
   %34 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %9)
-  %35 = icmp eq <64 x i8> %9, %34
-  %36 = bitcast <64 x i1> %35 to i64
-  %37 = icmp eq <64 x i8> %11, splat (i8 92)
-  %38 = bitcast <64 x i1> %37 to i64
-  %.not.i68.i = icmp eq i64 %38, 0
-  br i1 %.not.i68.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i, label %39
+  %35 = icmp ne <64 x i8> %9, %34
+  %36 = icmp eq <64 x i8> %11, splat (i8 92)
+  %37 = bitcast <64 x i1> %36 to i64
+  %.not.i68.i = icmp eq i64 %37, 0
+  br i1 %.not.i68.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i, label %38
 
-39:                                               ; preds = %.noexc41.i
-  %40 = xor i64 %.sroa.12.3.i, -1
-  %41 = and i64 %40, %38
-  %42 = shl i64 %38, 1
-  %43 = or i64 %42, -6148914691236517206
-  %44 = sub i64 %43, %41
-  %45 = xor i64 %44, -6148914691236517206
-  %46 = or i64 %.sroa.12.3.i, %38
-  %47 = xor i64 %45, %46
-  %48 = and i64 %45, %38
-  %49 = lshr i64 %48, 63
+38:                                               ; preds = %.noexc41.i
+  %39 = xor i64 %.sroa.12.3.i, -1
+  %40 = and i64 %39, %37
+  %41 = shl i64 %37, 1
+  %42 = or i64 %41, -6148914691236517206
+  %43 = sub i64 %42, %40
+  %44 = xor i64 %43, -6148914691236517206
+  %45 = or i64 %.sroa.12.3.i, %37
+  %46 = xor i64 %44, %45
+  %47 = and i64 %44, %37
+  %48 = lshr i64 %47, 63
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i: ; preds = %39, %.noexc41.i
-  %.sroa.12.2.i = phi i64 [ %49, %39 ], [ 0, %.noexc41.i ]
-  %.sroa.0.0.i69.i = phi i64 [ %47, %39 ], [ %.sroa.12.3.i, %.noexc41.i ]
-  %50 = icmp eq <64 x i8> %11, splat (i8 34)
-  %51 = bitcast <64 x i1> %50 to i64
-  %52 = xor i64 %.sroa.0.0.i69.i, -1
-  %53 = and i64 %52, %51
-  %54 = insertelement <2 x i64> poison, i64 %53, i64 0
-  %55 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %54, <2 x i64> <i64 -1, i64 poison>, i8 0)
-  %56 = extractelement <2 x i64> %55, i64 0
-  %57 = xor i64 %56, %33
-  %58 = ashr i64 %57, 63
-  %59 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %11)
-  %60 = icmp eq <64 x i8> %59, %11
-  %61 = bitcast <64 x i1> %60 to i64
-  %.not755.i = xor i64 %36, -1
-  %62 = or i64 %32, %.not755.i
-  %63 = bitcast i64 %62 to <64 x i1>
-  %64 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %9, <64 x i8> zeroinitializer, <64 x i1> %63)
-  store <64 x i8> %64, ptr %.sroa.41.0743.i, align 1, !tbaa !4
-  %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %62)
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.41.0743.i, i64 %65
-  %.not756.i = xor i64 %61, -1
-  %67 = or i64 %57, %.not756.i
-  %68 = bitcast i64 %67 to <64 x i1>
-  %69 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %11, <64 x i8> zeroinitializer, <64 x i1> %68)
-  store <64 x i8> %69, ptr %66, align 1, !tbaa !4
-  %70 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %67)
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 %70
-  %72 = add nuw i64 %.sroa.11.0741.i, 128
-  %73 = icmp ult i64 %72, %spec.select.i.i
-  br i1 %73, label %.noexc39.i, label %._crit_edge.i, !llvm.loop !234
+_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i: ; preds = %38, %.noexc41.i
+  %.sroa.12.2.i = phi i64 [ %48, %38 ], [ 0, %.noexc41.i ]
+  %.sroa.0.0.i69.i = phi i64 [ %46, %38 ], [ %.sroa.12.3.i, %.noexc41.i ]
+  %49 = icmp eq <64 x i8> %11, splat (i8 34)
+  %50 = bitcast <64 x i1> %49 to i64
+  %51 = xor i64 %.sroa.0.0.i69.i, -1
+  %52 = and i64 %51, %50
+  %53 = insertelement <2 x i64> poison, i64 %52, i64 0
+  %54 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %53, <2 x i64> <i64 -1, i64 poison>, i8 0)
+  %55 = extractelement <2 x i64> %54, i64 0
+  %56 = xor i64 %55, %33
+  %57 = ashr i64 %56, 63
+  %58 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %11)
+  %59 = icmp ne <64 x i8> %58, %11
+  %.not755.i = bitcast <64 x i1> %35 to i64
+  %60 = or i64 %32, %.not755.i
+  %61 = bitcast i64 %60 to <64 x i1>
+  %62 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %9, <64 x i8> zeroinitializer, <64 x i1> %61)
+  store <64 x i8> %62, ptr %.sroa.41.0743.i, align 1, !tbaa !4
+  %63 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.41.0743.i, i64 %63
+  %.not756.i = bitcast <64 x i1> %59 to i64
+  %65 = or i64 %56, %.not756.i
+  %66 = bitcast i64 %65 to <64 x i1>
+  %67 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %11, <64 x i8> zeroinitializer, <64 x i1> %66)
+  store <64 x i8> %67, ptr %64, align 1, !tbaa !4
+  %68 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %65)
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %68
+  %70 = add nuw i64 %.sroa.11.0741.i, 128
+  %71 = icmp ult i64 %70, %spec.select.i.i
+  br i1 %71, label %.noexc39.i, label %._crit_edge.i, !llvm.loop !234
 
 ._crit_edge.i:                                    ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i, %5
-  %.sroa.11.0.lcssa.i = phi i64 [ 0, %5 ], [ %72, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
+  %.sroa.11.0.lcssa.i = phi i64 [ 0, %5 ], [ %70, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
   %.sroa.12.0.lcssa.i = phi i64 [ 0, %5 ], [ %.sroa.12.2.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
-  %.sroa.41.0.lcssa.i = phi ptr [ %3, %5 ], [ %71, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
-  %.sroa.32.0.lcssa.i = phi i64 [ 0, %5 ], [ %58, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
+  %.sroa.41.0.lcssa.i = phi ptr [ %3, %5 ], [ %69, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
+  %.sroa.32.0.lcssa.i = phi i64 [ 0, %5 ], [ %57, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %74 = icmp eq i64 %2, %.sroa.11.0.lcssa.i
-  br i1 %74, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit, label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+  %72 = icmp eq i64 %2, %.sroa.11.0.lcssa.i
+  br i1 %72, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit, label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %._crit_edge.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 32, i64 128, i1 false)
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa.i
-  %76 = sub i64 %2, %.sroa.11.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %75, i64 %76, i1 false)
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa.i
+  %74 = sub i64 %2, %.sroa.11.0.lcssa.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %73, i64 %74, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.0..0..0..0..0.739.i = load <64 x i8>, ptr %6, align 16, !tbaa !4, !noalias !235
   %.64..64..64..64..64..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.64..64..64..64..64.740.i = load <64 x i8>, ptr %.64..64..64..64..64..sroa_idx, align 16, !tbaa !4, !noalias !238
-  %77 = icmp eq <64 x i8> %.0..0..0..0..0.739.i, splat (i8 92)
-  %78 = bitcast <64 x i1> %77 to i64
-  %.not.i62.i = icmp eq i64 %78, 0
-  br i1 %.not.i62.i, label %.noexc47.i, label %79
+  %75 = icmp eq <64 x i8> %.0..0..0..0..0.739.i, splat (i8 92)
+  %76 = bitcast <64 x i1> %75 to i64
+  %.not.i62.i = icmp eq i64 %76, 0
+  br i1 %.not.i62.i, label %.noexc47.i, label %77
 
-79:                                               ; preds = %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %80 = xor i64 %.sroa.12.0.lcssa.i, -1
-  %81 = and i64 %78, %80
-  %82 = shl i64 %81, 1
-  %83 = or i64 %82, -6148914691236517206
-  %84 = sub i64 %83, %81
-  %85 = xor i64 %84, -6148914691236517206
-  %86 = or i64 %.sroa.12.0.lcssa.i, %78
-  %87 = xor i64 %85, %86
-  %88 = and i64 %85, %78
-  %89 = lshr i64 %88, 63
+77:                                               ; preds = %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+  %78 = xor i64 %.sroa.12.0.lcssa.i, -1
+  %79 = and i64 %76, %78
+  %80 = shl i64 %79, 1
+  %81 = or i64 %80, -6148914691236517206
+  %82 = sub i64 %81, %79
+  %83 = xor i64 %82, -6148914691236517206
+  %84 = or i64 %.sroa.12.0.lcssa.i, %76
+  %85 = xor i64 %83, %84
+  %86 = and i64 %83, %76
+  %87 = lshr i64 %86, 63
   br label %.noexc47.i
 
-.noexc47.i:                                       ; preds = %79, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %.sroa.12.1.i = phi i64 [ %89, %79 ], [ 0, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
-  %.sroa.0.0.i63.i = phi i64 [ %87, %79 ], [ %.sroa.12.0.lcssa.i, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
-  %90 = icmp eq <64 x i8> %.0..0..0..0..0.739.i, splat (i8 34)
-  %91 = bitcast <64 x i1> %90 to i64
-  %92 = xor i64 %.sroa.0.0.i63.i, -1
-  %93 = and i64 %92, %91
-  %94 = insertelement <2 x i64> poison, i64 %93, i64 0
-  %95 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %94, <2 x i64> <i64 -1, i64 poison>, i8 0)
-  %96 = extractelement <2 x i64> %95, i64 0
-  %97 = xor i64 %96, %.sroa.32.0.lcssa.i
-  %98 = ashr i64 %97, 63
-  %99 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %.0..0..0..0..0.739.i)
-  %100 = icmp eq <64 x i8> %.0..0..0..0..0.739.i, %99
-  %101 = bitcast <64 x i1> %100 to i64
-  %102 = icmp eq <64 x i8> %.64..64..64..64..64.740.i, splat (i8 92)
-  %103 = bitcast <64 x i1> %102 to i64
-  %.not.i59.i = icmp eq i64 %103, 0
-  br i1 %.not.i59.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i, label %104
+.noexc47.i:                                       ; preds = %77, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+  %.sroa.12.1.i = phi i64 [ %87, %77 ], [ 0, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
+  %.sroa.0.0.i63.i = phi i64 [ %85, %77 ], [ %.sroa.12.0.lcssa.i, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
+  %88 = icmp eq <64 x i8> %.0..0..0..0..0.739.i, splat (i8 34)
+  %89 = bitcast <64 x i1> %88 to i64
+  %90 = xor i64 %.sroa.0.0.i63.i, -1
+  %91 = and i64 %90, %89
+  %92 = insertelement <2 x i64> poison, i64 %91, i64 0
+  %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %92, <2 x i64> <i64 -1, i64 poison>, i8 0)
+  %94 = extractelement <2 x i64> %93, i64 0
+  %95 = xor i64 %94, %.sroa.32.0.lcssa.i
+  %96 = ashr i64 %95, 63
+  %97 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %.0..0..0..0..0.739.i)
+  %98 = icmp ne <64 x i8> %.0..0..0..0..0.739.i, %97
+  %99 = icmp eq <64 x i8> %.64..64..64..64..64.740.i, splat (i8 92)
+  %100 = bitcast <64 x i1> %99 to i64
+  %.not.i59.i = icmp eq i64 %100, 0
+  br i1 %.not.i59.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i, label %101
 
-104:                                              ; preds = %.noexc47.i
-  %105 = xor i64 %.sroa.12.1.i, -1
-  %106 = and i64 %105, %103
-  %107 = shl i64 %103, 1
-  %108 = or i64 %107, -6148914691236517206
-  %109 = sub i64 %108, %106
-  %110 = or i64 %.sroa.12.1.i, %103
-  %111 = xor i64 %110, %109
-  %112 = xor i64 %111, -6148914691236517206
+101:                                              ; preds = %.noexc47.i
+  %102 = xor i64 %.sroa.12.1.i, -1
+  %103 = and i64 %102, %100
+  %104 = shl i64 %100, 1
+  %105 = or i64 %104, -6148914691236517206
+  %106 = sub i64 %105, %103
+  %107 = or i64 %.sroa.12.1.i, %100
+  %108 = xor i64 %107, %106
+  %109 = xor i64 %108, -6148914691236517206
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i: ; preds = %104, %.noexc47.i
-  %.sroa.0.0.i.i = phi i64 [ %112, %104 ], [ %.sroa.12.1.i, %.noexc47.i ]
-  %113 = icmp eq <64 x i8> %.64..64..64..64..64.740.i, splat (i8 34)
-  %114 = bitcast <64 x i1> %113 to i64
-  %115 = xor i64 %.sroa.0.0.i.i, -1
-  %116 = and i64 %115, %114
-  %117 = insertelement <2 x i64> poison, i64 %116, i64 0
-  %118 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %117, <2 x i64> <i64 -1, i64 poison>, i8 0)
-  %119 = extractelement <2 x i64> %118, i64 0
-  %120 = xor i64 %119, %98
-  %121 = ashr i64 %120, 63
-  %122 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %.64..64..64..64..64.740.i)
-  %123 = icmp eq <64 x i8> %.64..64..64..64..64.740.i, %122
-  %124 = bitcast <64 x i1> %123 to i64
-  %.not757.i = xor i64 %101, -1
-  %125 = or i64 %97, %.not757.i
-  %126 = bitcast i64 %125 to <64 x i1>
-  %127 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %.0..0..0..0..0.739.i, <64 x i8> zeroinitializer, <64 x i1> %126)
-  store <64 x i8> %127, ptr %7, align 16, !tbaa !4
-  %128 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %125)
-  %129 = getelementptr inbounds nuw i8, ptr %7, i64 %128
-  %.not758.i = xor i64 %124, -1
-  %130 = or i64 %120, %.not758.i
-  %131 = bitcast i64 %130 to <64 x i1>
-  %132 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %.64..64..64..64..64.740.i, <64 x i8> zeroinitializer, <64 x i1> %131)
-  store <64 x i8> %132, ptr %129, align 1, !tbaa !4
-  %133 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %130)
-  %134 = add nuw nsw i64 %133, %128
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %134, i64 %76)
+_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i: ; preds = %101, %.noexc47.i
+  %.sroa.0.0.i.i = phi i64 [ %109, %101 ], [ %.sroa.12.1.i, %.noexc47.i ]
+  %110 = icmp eq <64 x i8> %.64..64..64..64..64.740.i, splat (i8 34)
+  %111 = bitcast <64 x i1> %110 to i64
+  %112 = xor i64 %.sroa.0.0.i.i, -1
+  %113 = and i64 %112, %111
+  %114 = insertelement <2 x i64> poison, i64 %113, i64 0
+  %115 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %114, <2 x i64> <i64 -1, i64 poison>, i8 0)
+  %116 = extractelement <2 x i64> %115, i64 0
+  %117 = xor i64 %116, %96
+  %118 = ashr i64 %117, 63
+  %119 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %.64..64..64..64..64.740.i)
+  %120 = icmp ne <64 x i8> %.64..64..64..64..64.740.i, %119
+  %.not757.i = bitcast <64 x i1> %98 to i64
+  %121 = or i64 %95, %.not757.i
+  %122 = bitcast i64 %121 to <64 x i1>
+  %123 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %.0..0..0..0..0.739.i, <64 x i8> zeroinitializer, <64 x i1> %122)
+  store <64 x i8> %123, ptr %7, align 16, !tbaa !4
+  %124 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %121)
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 %124
+  %.not758.i = bitcast <64 x i1> %120 to i64
+  %126 = or i64 %117, %.not758.i
+  %127 = bitcast i64 %126 to <64 x i1>
+  %128 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %.64..64..64..64..64.740.i, <64 x i8> zeroinitializer, <64 x i1> %127)
+  store <64 x i8> %128, ptr %125, align 1, !tbaa !4
+  %129 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %126)
+  %130 = add nuw nsw i64 %129, %124
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %130, i64 %74)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.41.0.lcssa.i, ptr nonnull align 16 %7, i64 %spec.select.i, i1 false)
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.41.0.lcssa.i, i64 %spec.select.i
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.41.0.lcssa.i, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit: ; preds = %._crit_edge.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i
-  %.sroa.41.1.i = phi ptr [ %135, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.41.0.lcssa.i, %._crit_edge.i ]
-  %.sroa.32.1.i = phi i64 [ %121, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.32.0.lcssa.i, %._crit_edge.i ]
+  %.sroa.41.1.i = phi ptr [ %131, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.41.0.lcssa.i, %._crit_edge.i ]
+  %.sroa.32.1.i = phi i64 [ %118, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.32.0.lcssa.i, %._crit_edge.i ]
   %.not.i87.i = icmp eq i64 %.sroa.32.1.i, 0
   %..i.i = select i1 %.not.i87.i, i32 0, i32 15
-  %136 = ptrtoint ptr %.sroa.41.1.i to i64
-  %137 = ptrtoint ptr %3 to i64
-  %138 = sub i64 %136, %137
-  %storemerge.i.i = select i1 %.not.i87.i, i64 %138, i64 0
+  %132 = ptrtoint ptr %.sroa.41.1.i to i64
+  %133 = ptrtoint ptr %3 to i64
+  %134 = sub i64 %132, %133
+  %storemerge.i.i = select i1 %.not.i87.i, i64 %134, i64 0
   store i64 %storemerge.i.i, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %..i.i

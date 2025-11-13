@@ -64929,17 +64929,17 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h50eefe3f1af5e6
   %12 = load ptr, ptr %11, align 16, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %.not = icmp eq ptr %13, %1
-  br i1 %.not, label %15, label %30, !prof !4
+  br i1 %.not, label %15, label %26, !prof !4
 
-14:                                               ; preds = %15, %30, %8
+14:                                               ; preds = %15, %26, %8
   ret void
 
 15:                                               ; preds = %10
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !3, !noundef !3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1999
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2006)
   %16 = load ptr, ptr %.sroa.0.0.copyload, align 8, !alias.scope !2006, !noalias !2009, !nonnull !3, !noundef !3
@@ -64948,30 +64948,24 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h50eefe3f1af5e6
   %19 = getelementptr i8, ptr %16, i64 %18
   %20 = getelementptr i8, ptr %19, i64 1
   %21 = load <16 x i8>, ptr %16, align 16, !noalias !2011
-  %22 = icmp slt <16 x i8> %21, zeroinitializer
-  %23 = bitcast <16 x i1> %22 to i16
-  %24 = xor i16 %23, -1
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %26 = icmp ne ptr %.sroa.4.0.copyload, null
-  tail call void @llvm.assume(i1 %26)
-  %27 = icmp ne ptr %.sroa.5.0.copyload, null
-  tail call void @llvm.assume(i1 %27)
+  %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %16, ptr %4, align 8, !noalias !1999
   %.sroa.413.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %25, ptr %.sroa.413.0..sroa_idx.i.i, align 8, !noalias !1999
+  store ptr %23, ptr %.sroa.413.0..sroa_idx.i.i, align 8, !noalias !1999
   %.sroa.514.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %.sroa.514.0..sroa_idx.i.i, align 8, !noalias !1999
   %.sroa.615.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %24, ptr %.sroa.615.0..sroa_idx.i.i, align 8, !noalias !1999
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.4.0.copyload, ptr %28, align 8, !noalias !1999
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.5.0.copyload, ptr %29, align 8, !noalias !1999
+  store <16 x i1> %22, ptr %.sroa.615.0..sroa_idx.i.i, align 8, !noalias !1999
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.4.0.copyload, ptr %24, align 8, !noalias !1999
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.5.0.copyload, ptr %25, align 8, !noalias !1999
   call void @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$13from_par_iter17he1734a14b8321324E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !2012
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1999
   br label %14
 
-30:                                               ; preds = %10
+26:                                               ; preds = %10
   tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hbbbbc2bbbcce9053E(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2)
   br label %14
 }
@@ -66461,9 +66455,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hb3b3f3246a48f4
   %14 = load ptr, ptr %13, align 16, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %.not = icmp eq ptr %15, %1
-  br i1 %.not, label %17, label %27, !prof !4
+  br i1 %.not, label %17, label %25, !prof !4
 
-16:                                               ; preds = %9, %17, %27
+16:                                               ; preds = %9, %17, %25
   ret void
 
 17:                                               ; preds = %12
@@ -66474,24 +66468,22 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hb3b3f3246a48f4
   %19 = getelementptr i8, ptr %.val, i64 %.val2
   %20 = getelementptr i8, ptr %19, i64 1
   %21 = load <16 x i8>, ptr %.val, align 16, !noalias !2362
-  %22 = icmp slt <16 x i8> %21, zeroinitializer
-  %23 = bitcast <16 x i1> %22 to i16
-  %24 = xor i16 %23, -1
-  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
+  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   store ptr %.val, ptr %5, align 8, !noalias !2354
   %.sroa.413.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %25, ptr %.sroa.413.0..sroa_idx.i.i, align 8, !noalias !2354
+  store ptr %23, ptr %.sroa.413.0..sroa_idx.i.i, align 8, !noalias !2354
   %.sroa.514.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %20, ptr %.sroa.514.0..sroa_idx.i.i, align 8, !noalias !2354
   %.sroa.615.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i16 %24, ptr %.sroa.615.0..sroa_idx.i.i, align 8, !noalias !2354
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %3, ptr %26, align 8, !noalias !2354
+  store <16 x i1> %22, ptr %.sroa.615.0..sroa_idx.i.i, align 8, !noalias !2354
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %3, ptr %24, align 8, !noalias !2354
   call void @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$13from_par_iter17h0c7cfba8c4aba5d1E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5), !noalias !2366
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2354
   br label %16
 
-27:                                               ; preds = %12
+25:                                               ; preds = %12
   tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h9cac46f8f7b82f22E(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %7, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
   br label %16
 }

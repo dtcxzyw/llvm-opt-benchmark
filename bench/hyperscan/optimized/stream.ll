@@ -6150,7 +6150,7 @@ roseCountingMiracleScan.exit:                     ; preds = %46, %roseCountingMi
   %.pre-phi216 = phi i64 [ %.pre215, %roseCountingMiracleScan.exit.loopexit ], [ %49, %46 ]
   %56 = sub i64 %24, %.pre-phi218
   %57 = add i64 %56, %.pre-phi216
-  br label %206
+  br label %202
 
 roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %.0154 = phi i32 [ 0, %20 ], [ %.040.i, %45 ], [ %55, %46 ]
@@ -6226,7 +6226,7 @@ roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMi
   %.pre-phi = phi i64 [ %.pre, %roseCountingMiracleScan.exit126.loopexit ], [ %85, %82 ]
   %92 = sub i64 %18, %.pre-phi214
   %93 = add i64 %92, %.pre-phi
-  br label %206
+  br label %202
 
 94:                                               ; preds = %16
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6254,10 +6254,10 @@ roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMi
   br label %.critedge.i127
 
 .critedge.i127:                                   ; preds = %115, %104
-  %.053.i = phi i32 [ 0, %104 ], [ %131, %115 ]
+  %.053.i = phi i32 [ 0, %104 ], [ %130, %115 ]
   %.052.i = phi ptr [ %107, %104 ], [ %116, %115 ]
   %.not.i128 = icmp ugt ptr %112, %.052.i
-  br i1 %.not.i128, label %132, label %115
+  br i1 %.not.i128, label %131, label %115
 
 115:                                              ; preds = %.critedge.i127
   %116 = getelementptr inbounds i8, ptr %.052.i, i64 -16
@@ -6270,46 +6270,44 @@ roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMi
   %123 = and <16 x i8> %122, splat (i8 15)
   %124 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %123)
   %125 = and <16 x i8> %124, %120
-  %126 = icmp eq <16 x i8> %125, zeroinitializer
+  %126 = icmp ne <16 x i8> %125, zeroinitializer
   %127 = bitcast <16 x i1> %126 to i16
-  %128 = xor i16 %127, -1
-  %129 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %128)
-  %130 = zext nneg i16 %129 to i32
-  %131 = add i32 %.053.i, %130
-  %.not62.i = icmp ult i32 %131, %111
+  %128 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %127)
+  %129 = zext nneg i16 %128 to i32
+  %130 = add i32 %.053.i, %129
+  %.not62.i = icmp ult i32 %130, %111
   br i1 %.not62.i, label %.critedge.i127, label %roseCountingMiracleScanShufti.exit.loopexit
 
-132:                                              ; preds = %.critedge.i127
+131:                                              ; preds = %.critedge.i127
   %.not60.i = icmp eq ptr %108, %.052.i
-  br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %133
+  br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %132
 
-133:                                              ; preds = %132
+132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0148)
   %.sroa.0148.0.zext = zext i8 %100 to i64
   %.sroa.0148.0.isplat = mul nuw i64 %.sroa.0148.0.zext, 72340172838076673
   %.sroa.0148.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0148.0.isplat, i64 0
   %.sroa.0148.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0148.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
   store <2 x i64> %.sroa.0148.0.vsplat.splat, ptr %.sroa.0148, align 16
-  %134 = ptrtoint ptr %.052.i to i64
-  %135 = ptrtoint ptr %108 to i64
-  %136 = sub i64 %134, %135
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0148, ptr align 1 %108, i64 %136, i1 false)
+  %133 = ptrtoint ptr %.052.i to i64
+  %134 = ptrtoint ptr %108 to i64
+  %135 = sub i64 %133, %134
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0148, ptr align 1 %108, i64 %135, i1 false)
   %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. = load <2 x i64>, ptr %.sroa.0148, align 16
-  %137 = bitcast <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. to <16 x i8>
-  %138 = and <16 x i8> %137, splat (i8 15)
-  %139 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %113, <16 x i8> %138)
-  %140 = lshr <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0., splat (i64 4)
-  %141 = bitcast <2 x i64> %140 to <16 x i8>
-  %142 = and <16 x i8> %141, splat (i8 15)
-  %143 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %142)
-  %144 = and <16 x i8> %143, %139
-  %145 = icmp eq <16 x i8> %144, zeroinitializer
-  %146 = bitcast <16 x i1> %145 to i16
-  %147 = xor i16 %146, -1
-  %148 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %147)
-  %149 = zext nneg i16 %148 to i32
-  %150 = add i32 %.053.i, %149
-  %.not61.i = icmp ult i32 %150, %111
+  %136 = bitcast <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. to <16 x i8>
+  %137 = and <16 x i8> %136, splat (i8 15)
+  %138 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %113, <16 x i8> %137)
+  %139 = lshr <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0., splat (i64 4)
+  %140 = bitcast <2 x i64> %139 to <16 x i8>
+  %141 = and <16 x i8> %140, splat (i8 15)
+  %142 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %141)
+  %143 = and <16 x i8> %142, %138
+  %144 = icmp ne <16 x i8> %143, zeroinitializer
+  %145 = bitcast <16 x i1> %144 to i16
+  %146 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %145)
+  %147 = zext nneg i16 %146 to i32
+  %148 = add i32 %.053.i, %147
+  %.not61.i = icmp ult i32 %148, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0148)
   br i1 %.not61.i, label %roseCountingMiracleScanShufti.exit.thread, label %roseCountingMiracleScanShufti.exit
 
@@ -6318,113 +6316,111 @@ roseCountingMiracleScanShufti.exit.loopexit:      ; preds = %115
   %.pre225 = ptrtoint ptr %108 to i64
   br label %roseCountingMiracleScanShufti.exit
 
-roseCountingMiracleScanShufti.exit:               ; preds = %133, %roseCountingMiracleScanShufti.exit.loopexit
-  %.pre-phi226 = phi i64 [ %.pre225, %roseCountingMiracleScanShufti.exit.loopexit ], [ %135, %133 ]
-  %.pre-phi224 = phi i64 [ %.pre223, %roseCountingMiracleScanShufti.exit.loopexit ], [ %135, %133 ]
-  %151 = sub i64 %102, %.pre-phi226
-  %152 = add i64 %151, %.pre-phi224
-  br label %206
+roseCountingMiracleScanShufti.exit:               ; preds = %132, %roseCountingMiracleScanShufti.exit.loopexit
+  %.pre-phi226 = phi i64 [ %.pre225, %roseCountingMiracleScanShufti.exit.loopexit ], [ %134, %132 ]
+  %.pre-phi224 = phi i64 [ %.pre223, %roseCountingMiracleScanShufti.exit.loopexit ], [ %134, %132 ]
+  %149 = sub i64 %102, %.pre-phi226
+  %150 = add i64 %149, %.pre-phi224
+  br label %202
 
-roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
-  %.1 = phi i32 [ 0, %94 ], [ %.053.i, %132 ], [ %150, %133 ]
-  br i1 %101, label %153, label %.thread
+roseCountingMiracleScanShufti.exit.thread:        ; preds = %132, %131, %94
+  %.1 = phi i32 [ 0, %94 ], [ %.053.i, %131 ], [ %148, %132 ]
+  br i1 %101, label %151, label %.thread
 
-153:                                              ; preds = %roseCountingMiracleScanShufti.exit.thread
-  %154 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 %157
-  %159 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
-  %160 = getelementptr inbounds i8, ptr %158, i64 %159
-  %161 = getelementptr inbounds i8, ptr %158, i64 %18
-  %162 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i32
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %166 = bitcast <2 x i64> %96 to <16 x i8>
-  %167 = bitcast <2 x i64> %98 to <16 x i8>
+151:                                              ; preds = %roseCountingMiracleScanShufti.exit.thread
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %155 = load i64, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %155
+  %157 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
+  %158 = getelementptr inbounds i8, ptr %156, i64 %157
+  %159 = getelementptr inbounds i8, ptr %156, i64 %18
+  %160 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i32
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %164 = bitcast <2 x i64> %96 to <16 x i8>
+  %165 = bitcast <2 x i64> %98 to <16 x i8>
   br label %.critedge.i130
 
-.critedge.i130:                                   ; preds = %168, %153
-  %.053.i131 = phi i32 [ %.1, %153 ], [ %184, %168 ]
-  %.052.i132 = phi ptr [ %160, %153 ], [ %169, %168 ]
-  %.not.i133 = icmp ugt ptr %165, %.052.i132
-  br i1 %.not.i133, label %185, label %168
+.critedge.i130:                                   ; preds = %166, %151
+  %.053.i131 = phi i32 [ %.1, %151 ], [ %181, %166 ]
+  %.052.i132 = phi ptr [ %158, %151 ], [ %167, %166 ]
+  %.not.i133 = icmp ugt ptr %163, %.052.i132
+  br i1 %.not.i133, label %182, label %166
 
-168:                                              ; preds = %.critedge.i130
-  %169 = getelementptr inbounds i8, ptr %.052.i132, i64 -16
-  %170 = load <2 x i64>, ptr %169, align 1
-  %171 = bitcast <2 x i64> %170 to <16 x i8>
-  %172 = and <16 x i8> %171, splat (i8 15)
-  %173 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %166, <16 x i8> %172)
-  %174 = lshr <2 x i64> %170, splat (i64 4)
-  %175 = bitcast <2 x i64> %174 to <16 x i8>
-  %176 = and <16 x i8> %175, splat (i8 15)
-  %177 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %167, <16 x i8> %176)
-  %178 = and <16 x i8> %177, %173
-  %179 = icmp eq <16 x i8> %178, zeroinitializer
-  %180 = bitcast <16 x i1> %179 to i16
-  %181 = xor i16 %180, -1
-  %182 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %181)
-  %183 = zext nneg i16 %182 to i32
-  %184 = add i32 %.053.i131, %183
-  %.not62.i134 = icmp ult i32 %184, %164
+166:                                              ; preds = %.critedge.i130
+  %167 = getelementptr inbounds i8, ptr %.052.i132, i64 -16
+  %168 = load <2 x i64>, ptr %167, align 1
+  %169 = bitcast <2 x i64> %168 to <16 x i8>
+  %170 = and <16 x i8> %169, splat (i8 15)
+  %171 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %164, <16 x i8> %170)
+  %172 = lshr <2 x i64> %168, splat (i64 4)
+  %173 = bitcast <2 x i64> %172 to <16 x i8>
+  %174 = and <16 x i8> %173, splat (i8 15)
+  %175 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %165, <16 x i8> %174)
+  %176 = and <16 x i8> %175, %171
+  %177 = icmp ne <16 x i8> %176, zeroinitializer
+  %178 = bitcast <16 x i1> %177 to i16
+  %179 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %178)
+  %180 = zext nneg i16 %179 to i32
+  %181 = add i32 %.053.i131, %180
+  %.not62.i134 = icmp ult i32 %181, %162
   br i1 %.not62.i134, label %.critedge.i130, label %roseCountingMiracleScanShufti.exit140.loopexit
 
-185:                                              ; preds = %.critedge.i130
-  %.not60.i136 = icmp eq ptr %161, %.052.i132
-  br i1 %.not60.i136, label %.thread, label %186
+182:                                              ; preds = %.critedge.i130
+  %.not60.i136 = icmp eq ptr %159, %.052.i132
+  br i1 %.not60.i136, label %.thread, label %183
 
-186:                                              ; preds = %185
+183:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0149)
   %.sroa.0149.0.zext = zext i8 %100 to i64
   %.sroa.0149.0.isplat = mul nuw i64 %.sroa.0149.0.zext, 72340172838076673
   %.sroa.0149.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0149.0.isplat, i64 0
   %.sroa.0149.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0149.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
   store <2 x i64> %.sroa.0149.0.vsplat.splat, ptr %.sroa.0149, align 16
-  %187 = ptrtoint ptr %.052.i132 to i64
-  %188 = ptrtoint ptr %161 to i64
-  %189 = sub i64 %187, %188
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0149, ptr nonnull align 1 %161, i64 %189, i1 false)
+  %184 = ptrtoint ptr %.052.i132 to i64
+  %185 = ptrtoint ptr %159 to i64
+  %186 = sub i64 %184, %185
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0149, ptr nonnull align 1 %159, i64 %186, i1 false)
   %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. = load <2 x i64>, ptr %.sroa.0149, align 16
-  %190 = bitcast <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. to <16 x i8>
-  %191 = and <16 x i8> %190, splat (i8 15)
-  %192 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %166, <16 x i8> %191)
-  %193 = lshr <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0., splat (i64 4)
-  %194 = bitcast <2 x i64> %193 to <16 x i8>
-  %195 = and <16 x i8> %194, splat (i8 15)
-  %196 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %167, <16 x i8> %195)
-  %197 = and <16 x i8> %196, %192
-  %198 = icmp eq <16 x i8> %197, zeroinitializer
-  %199 = bitcast <16 x i1> %198 to i16
-  %200 = xor i16 %199, -1
-  %201 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %200)
-  %202 = zext nneg i16 %201 to i32
-  %203 = add i32 %.053.i131, %202
-  %.not61.i137 = icmp ult i32 %203, %164
+  %187 = bitcast <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. to <16 x i8>
+  %188 = and <16 x i8> %187, splat (i8 15)
+  %189 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %164, <16 x i8> %188)
+  %190 = lshr <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0., splat (i64 4)
+  %191 = bitcast <2 x i64> %190 to <16 x i8>
+  %192 = and <16 x i8> %191, splat (i8 15)
+  %193 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %165, <16 x i8> %192)
+  %194 = and <16 x i8> %193, %189
+  %195 = icmp ne <16 x i8> %194, zeroinitializer
+  %196 = bitcast <16 x i1> %195 to i16
+  %197 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %196)
+  %198 = zext nneg i16 %197 to i32
+  %199 = add i32 %.053.i131, %198
+  %.not61.i137 = icmp ult i32 %199, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0149)
   br i1 %.not61.i137, label %.thread, label %roseCountingMiracleScanShufti.exit140
 
-roseCountingMiracleScanShufti.exit140.loopexit:   ; preds = %168
-  %.pre219 = ptrtoint ptr %169 to i64
-  %.pre221 = ptrtoint ptr %161 to i64
+roseCountingMiracleScanShufti.exit140.loopexit:   ; preds = %166
+  %.pre219 = ptrtoint ptr %167 to i64
+  %.pre221 = ptrtoint ptr %159 to i64
   br label %roseCountingMiracleScanShufti.exit140
 
-roseCountingMiracleScanShufti.exit140:            ; preds = %186, %roseCountingMiracleScanShufti.exit140.loopexit
-  %.pre-phi222 = phi i64 [ %.pre221, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %188, %186 ]
-  %.pre-phi220 = phi i64 [ %.pre219, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %188, %186 ]
-  %204 = sub i64 %18, %.pre-phi222
-  %205 = add i64 %204, %.pre-phi220
-  br label %206
+roseCountingMiracleScanShufti.exit140:            ; preds = %183, %roseCountingMiracleScanShufti.exit140.loopexit
+  %.pre-phi222 = phi i64 [ %.pre221, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %185, %183 ]
+  %.pre-phi220 = phi i64 [ %.pre219, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %185, %183 ]
+  %200 = sub i64 %18, %.pre-phi222
+  %201 = add i64 %200, %.pre-phi220
+  br label %202
 
-206:                                              ; preds = %roseCountingMiracleScanShufti.exit140, %roseCountingMiracleScanShufti.exit, %roseCountingMiracleScan.exit126, %roseCountingMiracleScan.exit
-  %.10 = phi i64 [ %57, %roseCountingMiracleScan.exit ], [ %93, %roseCountingMiracleScan.exit126 ], [ %152, %roseCountingMiracleScanShufti.exit ], [ %205, %roseCountingMiracleScanShufti.exit140 ]
+202:                                              ; preds = %roseCountingMiracleScanShufti.exit140, %roseCountingMiracleScanShufti.exit, %roseCountingMiracleScan.exit126, %roseCountingMiracleScan.exit
+  %.10 = phi i64 [ %57, %roseCountingMiracleScan.exit ], [ %93, %roseCountingMiracleScan.exit126 ], [ %150, %roseCountingMiracleScanShufti.exit ], [ %201, %roseCountingMiracleScanShufti.exit140 ]
   store i64 %.10, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %186, %82, %185, %roseCountingMiracleScanShufti.exit.thread, %81, %roseCountingMiracleScan.exit.thread, %206, %9, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %206 ], [ 0, %roseCountingMiracleScan.exit.thread ], [ 0, %81 ], [ 0, %roseCountingMiracleScanShufti.exit.thread ], [ 0, %185 ], [ 0, %82 ], [ 0, %186 ]
+.thread:                                          ; preds = %183, %82, %182, %roseCountingMiracleScanShufti.exit.thread, %81, %roseCountingMiracleScan.exit.thread, %202, %9, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %202 ], [ 0, %roseCountingMiracleScan.exit.thread ], [ 0, %81 ], [ 0, %roseCountingMiracleScanShufti.exit.thread ], [ 0, %182 ], [ 0, %82 ], [ 0, %183 ]
   ret i32 %.0
 }
 

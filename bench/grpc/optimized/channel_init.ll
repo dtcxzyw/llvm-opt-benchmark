@@ -5705,66 +5705,62 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %._crit_edge
-  %.0.i27 = phi ptr [ %42, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
-  %.025.i26 = phi ptr [ %41, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
+  %.0.i27 = phi ptr [ %41, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
+  %.025.i26 = phi ptr [ %40, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
   %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %36, %.lr.ph29.preheader ]
   %37 = load <16 x i8>, ptr %.025.i26, align 1, !tbaa !33
-  %38 = icmp slt <16 x i8> %37, zeroinitializer
+  %38 = icmp sgt <16 x i8> %37, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
-  %.not21 = icmp eq i16 %39, -1
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph29
-  %40 = xor i16 %39, -1
-  br label %.lr.ph
+  %.not21 = icmp eq i16 %39, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5, %.lr.ph29
-  %.1.i.lcssa = phi i64 [ %.026.i25, %.lr.ph29 ], [ %62, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.025.i26, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 1280
+  %.1.i.lcssa = phi i64 [ %.026.i25, %.lr.ph29 ], [ %61, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.025.i26, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 1280
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS5_S8_EENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPS9_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29, !llvm.loop !293
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5
-  %.1.i23 = phi i64 [ %62, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5 ], [ %.026.i25, %.lr.ph.preheader ]
-  %.sroa.06.022 = phi i16 [ %64, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5 ], [ %40, %.lr.ph.preheader ]
-  %43 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.022, i1 true)
-  %44 = zext nneg i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i27, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !10
-  %.not.i.i.i.i.i.i.i.i.i.i.i2 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2, label %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3, label %49
+.lr.ph:                                           ; preds = %.lr.ph29, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5
+  %.1.i23 = phi i64 [ %61, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5 ], [ %.026.i25, %.lr.ph29 ]
+  %.sroa.06.022 = phi i16 [ %63, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5 ], [ %39, %.lr.ph29 ]
+  %42 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.022, i1 true)
+  %43 = zext nneg i16 %42 to i64
+  %44 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i27, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %47 = load ptr, ptr %46, align 8, !tbaa !10
+  %.not.i.i.i.i.i.i.i.i.i.i.i2 = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2, label %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3, label %48
 
-49:                                               ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !9
-  %52 = ptrtoint ptr %51 to i64
-  %53 = ptrtoint ptr %48 to i64
-  %54 = sub i64 %52, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %54) #33
+48:                                               ; preds = %.lr.ph
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  %50 = load ptr, ptr %49, align 8, !tbaa !9
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %47 to i64
+  %53 = sub i64 %51, %52
+  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %53) #33
   br label %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3
 
-_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3: ; preds = %49, %.lr.ph
-  %55 = load ptr, ptr %46, align 8, !tbaa !187
-  %.not.i.i.i1.i.i.i.i.i.i.i.i4 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i4, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5, label %56
+_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3: ; preds = %48, %.lr.ph
+  %54 = load ptr, ptr %45, align 8, !tbaa !187
+  %.not.i.i.i1.i.i.i.i.i.i.i.i4 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i4, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5, label %55
 
-56:                                               ; preds = %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3
-  %57 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %58 = load ptr, ptr %57, align 8, !tbaa !186
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %55 to i64
-  %61 = sub i64 %59, %60
-  tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #33
+55:                                               ; preds = %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %57 = load ptr, ptr %56, align 8, !tbaa !186
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %54 to i64
+  %60 = sub i64 %58, %59
+  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #33
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5: ; preds = %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3, %56
-  %62 = add i64 %.1.i23, -1
-  %63 = add i16 %.sroa.06.022, -1
-  %64 = and i16 %63, %.sroa.06.022
-  %.not = icmp eq i16 %64, 0
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit5: ; preds = %_ZNSt6vectorIN9grpc_core14UniqueTypeNameESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i3, %55
+  %61 = add i64 %.1.i23, -1
+  %62 = add i16 %.sroa.06.022, -1
+  %63 = and i16 %62, %.sroa.06.022
+  %.not = icmp eq i16 %63, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS5_S8_EENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPS9_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE7destroyEPNS1_13map_slot_typeIS5_S8_EE.exit, %33, %7
@@ -7614,7 +7610,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE15destructor_implEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !179
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %58, label %4
+  br i1 %3, label %57, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7670,68 +7666,64 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %._crit_edge.i, %.lr.ph28.preheader.i
-  %.0.i26.i = phi ptr [ %34, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
-  %.025.i25.i = phi ptr [ %33, %._crit_edge.i ], [ %7, %.lr.ph28.preheader.i ]
+  %.0.i26.i = phi ptr [ %33, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
+  %.025.i25.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %.lr.ph28.preheader.i ]
   %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %28, %.lr.ph28.preheader.i ]
   %29 = load <16 x i8>, ptr %.025.i25.i, align 1, !tbaa !33
-  %30 = icmp slt <16 x i8> %29, zeroinitializer
+  %30 = icmp sgt <16 x i8> %29, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16
-  %.not20.i = icmp eq i16 %31, -1
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.lr.ph28.i
-  %32 = xor i16 %31, -1
-  br label %.lr.ph.i
+  %.not20.i = icmp eq i16 %31, 0
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i, %.lr.ph28.i
-  %.1.i.lcssa.i = phi i64 [ %.026.i24.i, %.lr.ph28.i ], [ %44, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %.025.i25.i, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 768
+  %.1.i.lcssa.i = phi i64 [ %.026.i24.i, %.lr.ph28.i ], [ %43, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.025.i25.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 768
   %.not.i.i = icmp eq i64 %.1.i.lcssa.i, 0
   br i1 %.not.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE13destroy_slotsEv.exit, label %.lr.ph28.i, !llvm.loop !340
 
-.lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i, %.lr.ph.preheader.i
-  %.1.i22.i = phi i64 [ %44, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i ], [ %.026.i24.i, %.lr.ph.preheader.i ]
-  %.sroa.05.021.i = phi i16 [ %46, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i ], [ %32, %.lr.ph.preheader.i ]
-  %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.05.021.i, i1 true)
-  %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.178", ptr %.0.i26.i, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !117
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %41 = icmp eq ptr %39, %40
-  br i1 %41, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i2.i
+.lr.ph.i:                                         ; preds = %.lr.ph28.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i
+  %.1.i22.i = phi i64 [ %43, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i ], [ %.026.i24.i, %.lr.ph28.i ]
+  %.sroa.05.021.i = phi i16 [ %45, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i ], [ %31, %.lr.ph28.i ]
+  %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.05.021.i, i1 true)
+  %35 = zext nneg i16 %34 to i64
+  %36 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.178", ptr %.0.i26.i, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !117
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i2.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i2.i: ; preds = %.lr.ph.i
-  %42 = load i64, ptr %40, align 8, !tbaa !33
-  %43 = add i64 %42, 1
-  tail call void @_ZdlPvm(ptr noundef %39, i64 noundef %43) #33
+  %41 = load i64, ptr %39, align 8, !tbaa !33
+  %42 = add i64 %41, 1
+  tail call void @_ZdlPvm(ptr noundef %38, i64 noundef %42) #33
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit4.i: ; preds = %.lr.ph.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i2.i
-  %44 = add i64 %.1.i22.i, -1
-  %45 = add i16 %.sroa.05.021.i, -1
-  %46 = and i16 %45, %.sroa.05.021.i
-  %.not.i1 = icmp eq i16 %46, 0
+  %43 = add i64 %.1.i22.i, -1
+  %44 = add i16 %.sroa.05.021.i, -1
+  %45 = and i16 %44, %.sroa.05.021.i
+  %.not.i1 = icmp eq i16 %45, 0
   br i1 %.not.i1, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE13destroy_slotsEv.exit: ; preds = %._crit_edge.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE7destroyEPNS1_13map_slot_typeIS5_SB_EE.exit.i, %9, %25
-  %47 = load i64, ptr %0, align 8, !tbaa !179
-  %48 = load ptr, ptr %6, align 8, !tbaa !33
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !146
-  %51 = and i64 %50, 1
-  %.neg.i.i = sub nuw nsw i64 -8, %51
-  %52 = getelementptr inbounds i8, ptr %48, i64 %.neg.i.i
-  %53 = add i64 %47, 31
-  %54 = mul i64 %47, 48
-  %55 = add i64 %53, %54
-  %56 = add i64 %55, %51
-  %57 = and i64 %56, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #33
-  br label %58
+  %46 = load i64, ptr %0, align 8, !tbaa !179
+  %47 = load ptr, ptr %6, align 8, !tbaa !33
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !146
+  %50 = and i64 %49, 1
+  %.neg.i.i = sub nuw nsw i64 -8, %50
+  %51 = getelementptr inbounds i8, ptr %47, i64 %.neg.i.i
+  %52 = add i64 %46, 31
+  %53 = mul i64 %46, 48
+  %54 = add i64 %52, %53
+  %55 = add i64 %54, %50
+  %56 = and i64 %55, -8
+  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %56) #33
+  br label %57
 
-58:                                               ; preds = %1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE13destroy_slotsEv.exit
+57:                                               ; preds = %1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE13destroy_slotsEv.exit
   ret void
 }
 

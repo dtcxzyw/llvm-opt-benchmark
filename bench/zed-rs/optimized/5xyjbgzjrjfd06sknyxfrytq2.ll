@@ -14348,7 +14348,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$language..language_settings..Format
   ]
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4008767f2c10083cE.llvm.3114086836089837235.exit": ; preds = %38, %8, %26, %58, %53, %20, %15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit", %7, %2, %45
-  %.sroa.0.0.shrunk = phi i1 [ %52, %45 ], [ false, %2 ], [ true, %7 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit" ], [ %25, %20 ], [ false, %15 ], [ %72, %58 ], [ false, %53 ], [ false, %26 ], [ %.mux, %8 ], [ %.mux13, %38 ]
+  %.sroa.0.0.shrunk = phi i1 [ %52, %45 ], [ false, %2 ], [ true, %7 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit" ], [ %25, %20 ], [ false, %15 ], [ %70, %58 ], [ false, %53 ], [ false, %26 ], [ %.mux, %8 ], [ %.mux13, %38 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable11:                            ; preds = %7
@@ -14445,21 +14445,19 @@ default.unreachable11:                            ; preds = %7
   %64 = getelementptr i8, ptr %61, i64 %63
   %65 = getelementptr i8, ptr %64, i64 1
   %66 = load <16 x i8>, ptr %61, align 16, !noalias !3731
-  %67 = icmp slt <16 x i8> %66, zeroinitializer
-  %68 = bitcast <16 x i1> %67 to i16
-  %69 = xor i16 %68, -1
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %67 = icmp sgt <16 x i8> %66, splat (i8 -1)
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %61, ptr %3, align 8, !noalias !3724
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %70, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3724
+  store ptr %68, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3724
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %65, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !3724
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %69, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !3724
+  store <16 x i1> %67, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !3724
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %55, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !3724
-  %71 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1b6832ecbf19f70E.llvm.10103224049646331845(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %59), !noalias !3719
-  %72 = xor i1 %71, true
+  %69 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1b6832ecbf19f70E.llvm.10103224049646331845(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %59), !noalias !3719
+  %70 = xor i1 %69, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3724
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4008767f2c10083cE.llvm.3114086836089837235.exit"
 }
