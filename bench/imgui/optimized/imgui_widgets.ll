@@ -4545,8 +4545,8 @@ define noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef %0, i1 nounde
   %20 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %22 = load i32, ptr %21, align 8
-  %.sroa_idx82 = getelementptr inbounds nuw i8, ptr %12, i64 284
-  %23 = load i32, ptr %.sroa_idx82, align 4
+  %.sroa_idx79 = getelementptr inbounds nuw i8, ptr %12, i64 284
+  %23 = load i32, ptr %.sroa_idx79, align 4
   %24 = bitcast i32 %22 to float
   %25 = bitcast i32 %23 to float
   %26 = fadd float %20, %24
@@ -4574,8 +4574,8 @@ define noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef %0, i1 nounde
   %.sroa.0.0.vec.insert.i60 = insertelement <2 x float> poison, float %39, i64 0
   %.sroa.0.4.vec.insert.i61 = insertelement <2 x float> %.sroa.0.0.vec.insert.i60, float %40, i64 1
   store i32 %22, ptr %4, align 4
-  %.sroa_idx81 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %23, ptr %.sroa_idx81, align 4
+  %.sroa_idx78 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %23, ptr %.sroa_idx78, align 4
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %.sroa.0.4.vec.insert.i61, ptr %41, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -44179,8 +44179,8 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %34 = load float, ptr %33, align 4, !tbaa !166
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float %28, ptr %12, align 4, !tbaa !191
-  %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %31, ptr %.sroa.4107.0..sroa_idx, align 4, !tbaa !191
+  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store float %31, ptr %.sroa.4104.0..sroa_idx, align 4, !tbaa !191
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float %32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !191
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -44226,16 +44226,16 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
 
 .thread:                                          ; preds = %55
   %57 = and i32 %2, 1
-  %.not84112 = icmp ne i32 %57, 0
+  %.not84109 = icmp ne i32 %57, 0
   %58 = fadd float %41, %44
   %59 = load float, ptr %22, align 4
   %60 = fcmp ole float %58, %59
-  %61 = select i1 %.not84112, i1 %60, i1 false
-  br i1 %61, label %104, label %.thread134
+  %61 = select i1 %.not84109, i1 %60, i1 false
+  br i1 %61, label %104, label %.thread131
 
 62:                                               ; preds = %55
   %.not87 = xor i1 %56, true
-  %.pre144 = load float, ptr %22, align 4
+  %.pre141 = load float, ptr %22, align 4
   br i1 %7, label %63, label %75
 
 63:                                               ; preds = %62
@@ -44250,10 +44250,10 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %69 = select i1 %68, float %41, float %65
   %70 = fcmp ult float %25, %69
   %71 = and i32 %2, 1
-  %.not84115 = icmp ne i32 %71, 0
+  %.not84112 = icmp ne i32 %71, 0
   %72 = fadd float %41, %44
-  %73 = fcmp ole float %72, %.pre144
-  %74 = select i1 %.not84115, i1 %73, i1 false
+  %73 = fcmp ole float %72, %.pre141
+  %74 = select i1 %.not84112, i1 %73, i1 false
   br i1 %70, label %99, label %92
 
 75:                                               ; preds = %62
@@ -44268,10 +44268,10 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %81 = select i1 %80, float %41, float %77
   %82 = fcmp ult float %25, %81
   %83 = and i32 %2, 1
-  %.not84117 = icmp ne i32 %83, 0
+  %.not84114 = icmp ne i32 %83, 0
   %84 = fadd float %41, %44
-  %85 = fcmp ole float %84, %.pre144
-  %86 = select i1 %.not84117, i1 %85, i1 false
+  %85 = fcmp ole float %84, %.pre141
+  %86 = select i1 %.not84114, i1 %85, i1 false
   br i1 %82, label %99, label %92
 
 87:                                               ; preds = %75, %63
@@ -44279,7 +44279,7 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %88 = and i32 %2, 1
   %.not84 = icmp ne i32 %88, 0
   %89 = fadd float %41, %44
-  %90 = fcmp ole float %89, %.pre144
+  %90 = fcmp ole float %89, %.pre141
   %91 = select i1 %.not84, i1 %90, i1 false
   br i1 %.073, label %92, label %99
 
@@ -44304,10 +44304,10 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
 99:                                               ; preds = %79, %67, %87
   %100 = phi i1 [ %91, %87 ], [ %74, %67 ], [ %86, %79 ]
   %101 = phi float [ %89, %87 ], [ %72, %67 ], [ %84, %79 ]
-  br i1 %100, label %104, label %.thread134
+  br i1 %100, label %104, label %.thread131
 
-.thread134:                                       ; preds = %.thread, %99
-  %102 = phi float [ %59, %.thread ], [ %.pre144, %99 ]
+.thread131:                                       ; preds = %.thread, %99
+  %102 = phi float [ %59, %.thread ], [ %.pre141, %99 ]
   %103 = fadd float %102, -1.000000e+00
   br label %119
 
@@ -44323,7 +44323,7 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %111 = tail call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 1.000000e+00)
   tail call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i98, i32 noundef %111)
   %112 = fmul float %41, 0x3FE99999A0000000
-  %.pre145 = fsub float %32, %112
+  %.pre142 = fsub float %32, %112
   br label %116
 
 113:                                              ; preds = %92, %97
@@ -44337,15 +44337,15 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   br label %116
 
 116:                                              ; preds = %104, %113, %114
-  %.pre-phi = phi float [ %.pre145, %104 ], [ %42, %113 ], [ %42, %114 ]
-  %.2124131141 = phi i8 [ 0, %104 ], [ %.1, %113 ], [ %.1, %114 ]
+  %.pre-phi = phi float [ %.pre142, %104 ], [ %42, %113 ], [ %42, %114 ]
+  %.2121128138 = phi i8 [ 0, %104 ], [ %.1, %113 ], [ %.1, %114 ]
   %117 = phi float [ %112, %104 ], [ 0.000000e+00, %113 ], [ %115, %114 ]
   %118 = fsub float %32, %117
   store float %118, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !172
   br label %119
 
-119:                                              ; preds = %.thread134, %116
-  %.2124130 = phi i8 [ %.2124131141, %116 ], [ 0, %.thread134 ]
+119:                                              ; preds = %.thread131, %116
+  %.2121127 = phi i8 [ %.2121128138, %116 ], [ 0, %.thread134 ]
   %.sroa.5.0 = phi float [ %.pre-phi, %116 ], [ %32, %.thread134 ]
   %.0 = phi float [ %.pre-phi, %116 ], [ %103, %.thread134 ]
   tail call void @_ZN5ImGui24LogSetNextTextDecorationEPKcS1_(ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131)
@@ -44353,7 +44353,7 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   br i1 %.not, label %121, label %120
 
 120:                                              ; preds = %119
-  store i8 %.2124130, ptr %8, align 1, !tbaa !209
+  store i8 %.2121127, ptr %8, align 1, !tbaa !209
   br label %121
 
 121:                                              ; preds = %120, %119

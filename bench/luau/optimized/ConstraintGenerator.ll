@@ -38586,9 +38586,9 @@ _ZSt8_DestroyIPSt8optionalIN4Luau16FunctionArgumentEES3_EvT_S5_RSaIT0_E.exit.i.i
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.gep.val = load i64, ptr %.sroa.gep, align 8
   %.sroa.3.0.i = select i1 %921, i64 %.sroa.gep.val, i64 %918
-  %.sroa.0.0.i.sroa.speculate.load.true = load i64, ptr %6, align 8
-  %.sroa.0.0.i.sroa.speculated = select i1 %921, i64 %.sroa.0.0.i.sroa.speculate.load.true, i64 %918
-  store i64 %.sroa.0.0.i.sroa.speculated, ptr %891, align 4
+  %.val = load i64, ptr %6, align 8
+  %.sroa.0.0.i = select i1 %921, i64 %.val, i64 %918
+  store i64 %.sroa.0.0.i, ptr %891, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 84
   store i64 %.sroa.3.0.i, ptr %.sroa.5.0..sroa_idx, align 4
   %922 = getelementptr inbounds nuw i8, ptr %36, i64 96
@@ -56272,9 +56272,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
   br label %148
 
 148:                                              ; preds = %.sink.split, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
-  %.sink259 = phi i64 [ 144, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit ], [ 160, %.sink.split ]
+  %.sink253 = phi i64 [ 144, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit ], [ 160, %.sink.split ]
   %.sink = phi i64 [ 152, %_ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit ], [ 168, %.sink.split ]
-  %149 = getelementptr inbounds nuw i8, ptr %66, i64 %.sink259
+  %149 = getelementptr inbounds nuw i8, ptr %66, i64 %.sink253
   store ptr %48, ptr %149, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 %.sink
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -56297,11 +56297,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %.noexc.i108.cont.then, label %.noexc.i108.cont.cont
 
-.noexc.i108.cont.then:                            ; preds = %.noexc.i108
+.noexc.i108.cont.then:; preds = %.noexc.i108
   %157 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %.sroa.gep161 = getelementptr inbounds nuw i8, ptr %44, i64 44
   %.sroa.3.0.i.then.val = load i64, ptr %.sroa.gep161, align 4
-  %.sroa.0.0.i.then.val = load i64, ptr %157, align 4
+  %.sroa.3.0.i = load i64, ptr %157, align 4
   br label %.noexc.i108.cont.cont
 
 .noexc.i108.cont.cont:                            ; preds = %.noexc.i108, %.noexc.i108.cont.then
@@ -56433,11 +56433,11 @@ _ZN4Luau12GenericErrorD2Ev.exit123:               ; preds = %_ZN4Luau7VariantIJN
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %.noexc.i131.cont.then, label %.noexc.i131.cont.cont
 
-.noexc.i131.cont.then:                            ; preds = %.noexc.i131
+.noexc.i131.cont.then:; preds = %.noexc.i131
   %205 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %44, i64 44
   %.sroa.3.0.i126.then.val = load i64, ptr %.sroa.gep, align 4
-  %.sroa.0.0.i127.then.val = load i64, ptr %205, align 4
+  %.sroa.3.0.i126 = load i64, ptr %205, align 4
   br label %.noexc.i131.cont.cont
 
 .noexc.i131.cont.cont:                            ; preds = %.noexc.i131, %.noexc.i131.cont.then

@@ -2332,16 +2332,16 @@ cleanup:                                          ; preds = %for.cond.cleanup, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15CavesRandomWalk10carveRouteEN3irr4core8vector3dIfEEfb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(150) %this, <2 x float> %vec.coerce0, float %vec.coerce1, float noundef %f, i1 noundef zeroext %randomize_xz) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %waternode.sroa.0 = alloca i32, align 4
+  %waternode = alloca i32, align 4
   %lavanode = alloca %struct.MapNode, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %waternode.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %waternode)
   %c_water_source = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i16, ptr %c_water_source, align 8, !tbaa !139
-  store i16 %0, ptr %waternode.sroa.0, align 4, !tbaa !61
-  %waternode.sroa.0.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx = getelementptr inbounds nuw i8, ptr %waternode.sroa.0, i64 2
-  store i8 0, ptr %waternode.sroa.0.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx, align 2, !tbaa !175
-  %waternode.sroa.0.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx = getelementptr inbounds nuw i8, ptr %waternode.sroa.0, i64 3
-  store i8 0, ptr %waternode.sroa.0.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx, align 1, !tbaa !176
+  store i16 %0, ptr %waternode, align 4, !tbaa !61
+  %waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx = getelementptr inbounds nuw i8, ptr %waternode, i64 2
+  store i8 0, ptr %waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx, align 2, !tbaa !175
+  %waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx = getelementptr inbounds nuw i8, ptr %waternode, i64 3
+  store i8 0, ptr %waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx, align 1, !tbaa !176
   call void @llvm.lifetime.start.p0(ptr nonnull %lavanode)
   %c_lava_source = getelementptr inbounds nuw i8, ptr %this, i64 146
   %1 = load i16, ptr %c_lava_source, align 2, !tbaa !140
@@ -2445,7 +2445,7 @@ cond.false:                                       ; preds = %land.lhs.true, %if.
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %land.lhs.true
-  %cond-lvalue = phi ptr [ %waternode.sroa.0, %cond.false ], [ %lavanode, %land.lhs.true ]
+  %cond-lvalue = phi ptr [ %waternode, %cond.false ], [ %lavanode, %land.lhs.true ]
   %21 = load i32, ptr %cond-lvalue, align 4, !tbaa.struct !101
   %liquidnode.sroa.0.0.extract.trunc = trunc i32 %21 to i16
   %22 = and i32 %21, -65536
@@ -2518,14 +2518,14 @@ for.body.lr.ph:                                   ; preds = %land.end
   %sub243 = add nsw i32 %conv242, -4
   %liquidnode.sroa.0.0.insert.ext = zext i16 %liquidnode.sroa.0.0 to i32
   %liquidnode.sroa.0.0.insert.insert = or disjoint i32 %liquidnode.sroa.6.0, %liquidnode.sroa.0.0.insert.ext
-  %waternode.sroa.0.0.waternode.sroa.0.0.waternode.sroa.0.0.waternode.sroa.0.0.waternode.sroa.0.0.waternode.0.waternode.0.waternode.0.waternode.val = load i32, ptr %waternode.sroa.0, align 4
+  %waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.val = load i32, ptr %waternode, align 4
   %.pre = load ptr, ptr %ps, align 8, !tbaa !142
   %.pre476 = load i32, ptr %.pre, align 4, !tbaa !147
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup100, %land.end
   call void @llvm.lifetime.end.p0(ptr nonnull %lavanode)
-  call void @llvm.lifetime.end.p0(ptr nonnull %waternode.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %waternode)
   ret void
 
 for.body:                                         ; preds = %for.cond.cleanup100, %for.body.lr.ph
@@ -2774,7 +2774,7 @@ land.lhs.true213:                                 ; preds = %if.then203
 if.then219:                                       ; preds = %land.lhs.true213
   %conv221 = sext i16 %add8.i384 to i32
   %cmp223.not = icmp slt i32 %82, %conv221
-  %83 = select i1 %cmp223.not, i32 126, i32 %waternode.sroa.0.0.waternode.sroa.0.0.waternode.sroa.0.0.waternode.sroa.0.0.waternode.sroa.0.0.waternode.0.waternode.0.waternode.0.waternode.val
+  %83 = select i1 %cmp223.not, i32 126, i32 %waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.val
   store i32 %83, ptr %arrayidx, align 4, !tbaa.struct !101
   br label %for.inc
 

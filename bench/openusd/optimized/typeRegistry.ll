@@ -23903,7 +23903,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit._
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread: ; preds = %12, %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec2fE)
   %.sroa.0.0.copyload = load <2 x float>, ptr %15, align 4
-  br label %45
+  br label %46
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread2: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread2_crit_edge, %6
   %.pre-phi = phi i64 [ %.pre3, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread2_crit_edge ], [ %5, %6 ]
@@ -23952,29 +23952,29 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i: ; preds = %22, 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_7GfVec2fEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERS4_.exit.i: ; preds = %28, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.sroa.0.0.copyload.i.i1.i = load <2 x float>, ptr %0, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %.not.i.i1 = icmp eq ptr %36, null
-  %38 = and i64 %37, 3
-  %39 = icmp eq i64 %38, 3
-  %or.cond.i.i = or i1 %.not.i.i1, %39
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit, label %40
+  %36 = load <2 x float>, ptr %0, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %.not.i.i1 = icmp eq ptr %37, null
+  %39 = and i64 %38, 3
+  %40 = icmp eq i64 %39, 3
+  %or.cond.i.i = or i1 %.not.i.i1, %40
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit, label %41
 
-40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_7GfVec2fEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERS4_.exit.i
-  %41 = and i64 %37, -8
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8
+41:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_7GfVec2fEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERS4_.exit.i
+  %42 = and i64 %38, -8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_7GfVec2fEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERS4_.exit.i, %40
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_7GfVec2fEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERS4_.exit.i, %41
   store ptr null, ptr %3, align 8
-  br label %45
+  br label %46
 
-45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread ], [ %.sroa.0.0.copyload.i.i1.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit ]
+46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v.exit ]
   ret <2 x float> %.sroa.0.0
 }
 

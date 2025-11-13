@@ -4509,17 +4509,17 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
 _ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit: ; preds = %.thread22.i.i, %51, %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit
   %53 = phi ptr [ %43, %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit ], [ %46, %51 ], [ %45, %.thread22.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %.sroa.25.16.copyload.i = load i64, ptr %scevgep.i, align 8, !tbaa !21, !noalias !240
+  %54 = load i64, ptr %scevgep.i, align 8, !tbaa !21, !noalias !240
   %.sroa.6.16.insert.ext = zext i32 %3 to i64
   %.sroa.6.16.insert.shift = shl nuw i64 %.sroa.6.16.insert.ext, 32
   %.sroa.3.16.insert.ext = zext i32 %2 to i64
   %.sroa.3.16.insert.insert = or disjoint i64 %.sroa.6.16.insert.shift, %.sroa.3.16.insert.ext
   store ptr %53, ptr %0, align 8, !tbaa !72, !alias.scope !240
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %45, ptr %54, align 8, !tbaa !72, !alias.scope !240
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.25.16.copyload.i, ptr %55, align 8, !tbaa !21, !alias.scope !240
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %45, ptr %55, align 8, !tbaa !72, !alias.scope !240
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %54, ptr %56, align 8, !tbaa !21, !alias.scope !240
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %45, ptr %56, align 8, !tbaa !72, !alias.scope !240
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %45, ptr %57, align 8, !tbaa !72, !alias.scope !240

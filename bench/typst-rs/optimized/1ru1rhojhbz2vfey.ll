@@ -184136,19 +184136,19 @@ _ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i: ; preds = %_ZN4core4hash
   %571 = inttoptr i64 %.sroa.4.8.insert.ext to ptr
   %572 = cmpxchg weak ptr %15, i64 0, i64 8 acquire monotonic, align 8, !noalias !41177
   %573 = extractvalue { i64, i1 } %572, 1
-  br i1 %573, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.cont.i", label %574
+  br i1 %573, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.i", label %574
 
 574:                                              ; preds = %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i
   %575 = invoke noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17hb9df2711adca4db4E(ptr noundef nonnull align 8 %15, i64 undef, i32 noundef 1000000000)
           to label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.cont.i" unwind label %555
 
-"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.cont.i": ; preds = %574, %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i
+"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.i": ; preds = %574, %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i
   %576 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !41178
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hb4a44aa2e387a051E"(ptr noalias noundef nonnull sret({ i128, [4 x i64] }) align 16 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %576, i128 noundef %570)
           to label %.noexc.i unwind label %606, !noalias !41177
 
-.noexc.i:                                         ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.cont.i"
+.noexc.i:                                         ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.i"
   %577 = load i128, ptr %4, align 16, !range !586, !noalias !41178, !noundef !5
   %578 = icmp eq i128 %577, 2
   br i1 %578, label %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8bd356b893b9f823E.exit.i.i", label %579
@@ -184208,7 +184208,7 @@ _ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i: ; preds = %_ZN4core4hash
   store i64 %605, ptr %603, align 8, !alias.scope !41192, !noalias !41187
   br label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h624da34a59996eb2E.exit.i"
 
-606:                                              ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8bd356b893b9f823E.exit.i.i", %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.cont.i"
+606:                                              ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8bd356b893b9f823E.exit.i.i", %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.i"
   %607 = landingpad { ptr, i32 }
           cleanup
   %608 = cmpxchg ptr %15, i64 8, i64 0 release monotonic, align 8, !noalias !41177

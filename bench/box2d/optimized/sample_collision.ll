@@ -1019,7 +1019,7 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance4StepER8Settings(ptr nound
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 3020
   %38 = load i8, ptr %37, align 4, !tbaa !100, !range !13, !noundef !14
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %107
+  br i1 %39, label %40, label %105
 
 40:                                               ; preds = %25
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2972
@@ -1035,7 +1035,7 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance4StepER8Settings(ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 72
   store ptr %48, ptr %47, align 16, !tbaa !102
   %49 = icmp sgt i32 %42, 0
-  br i1 %49, label %50, label %95
+  br i1 %49, label %50, label %93
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 108
@@ -1120,196 +1120,196 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance4StepER8Settings(ptr nound
   br label %_ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit
 
 _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; preds = %50, %53, %57, %76
-  %93 = phi <2 x float> [ undef, %50 ], [ %.sroa.08.4.vec.insert.i.i, %76 ], [ %54, %53 ], [ %.sroa.05.4.vec.insert.i.i, %57 ]
-  %94 = phi <2 x float> [ undef, %50 ], [ %.sroa.08.4.vec.insert.i.i, %76 ], [ %56, %53 ], [ %.sroa.05.4.vec.insert.i38.i, %57 ]
-  call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %93, <2 x float> %94, i32 noundef 16777215)
-  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %93, float noundef 5.000000e+00, i32 noundef 16777215)
-  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %94, float noundef 5.000000e+00, i32 noundef 16777215)
-  br label %95
+  %.sroa.044.0 = phi <2 x float> [ undef, %50 ], [ %.sroa.08.4.vec.insert.i.i, %76 ], [ %54, %53 ], [ %.sroa.05.4.vec.insert.i.i, %57 ]
+  %.sroa.0.0 = phi <2 x float> [ undef, %50 ], [ %.sroa.08.4.vec.insert.i.i, %76 ], [ %56, %53 ], [ %.sroa.05.4.vec.insert.i38.i, %57 ]
+  call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.044.0, <2 x float> %.sroa.0.0, i32 noundef 16777215)
+  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.044.0, float noundef 5.000000e+00, i32 noundef 16777215)
+  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0, float noundef 5.000000e+00, i32 noundef 16777215)
+  br label %93
 
-95:                                               ; preds = %_ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit, %40
-  %96 = getelementptr inbounds nuw i8, ptr %44, i64 108
-  %97 = load i32, ptr %96, align 4, !tbaa !104
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph, label %._crit_edge
+93:                                               ; preds = %_ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit, %40
+  %94 = getelementptr inbounds nuw i8, ptr %44, i64 108
+  %95 = load i32, ptr %94, align 4, !tbaa !104
+  %96 = icmp sgt i32 %95, 0
+  br i1 %96, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %95
+._crit_edge:                                      ; preds = %.lr.ph, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %109
+  br label %107
 
-.lr.ph:                                           ; preds = %95, %.lr.ph
+.lr.ph:                                           ; preds = %93, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %95 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %100 = load ptr, ptr %99, align 8, !tbaa !102
-  %.sroa.018.0.copyload = load <2 x float>, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i32, ptr @__const._ZN12RayCastWorld4StepER8Settings.colors, i64 %indvars.iv
-  %102 = load i32, ptr %101, align 4, !tbaa !110
-  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.018.0.copyload, float noundef 5.000000e+00, i32 noundef %102)
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %.sroa.017.0.copyload = load <2 x float>, ptr %103, align 4
-  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.017.0.copyload, float noundef 5.000000e+00, i32 noundef %102)
+  %97 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %98 = load ptr, ptr %97, align 8, !tbaa !102
+  %.sroa.018.0.copyload = load <2 x float>, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i32, ptr @__const._ZN12RayCastWorld4StepER8Settings.colors, i64 %indvars.iv
+  %100 = load i32, ptr %99, align 4, !tbaa !110
+  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.018.0.copyload, float noundef 5.000000e+00, i32 noundef %100)
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %.sroa.017.0.copyload = load <2 x float>, ptr %101, align 4
+  call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.017.0.copyload, float noundef 5.000000e+00, i32 noundef %100)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %104 = load i32, ptr %96, align 4, !tbaa !104
-  %105 = sext i32 %104 to i64
-  %106 = icmp slt i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !112
+  %102 = load i32, ptr %94, align 4, !tbaa !104
+  %103 = sext i32 %102 to i64
+  %104 = icmp slt i64 %indvars.iv.next, %103
+  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !112
 
-107:                                              ; preds = %25
+105:                                              ; preds = %25
   %.sroa.016.0.copyload = load <2 x float>, ptr %4, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.015.0.copyload = load <2 x float>, ptr %108, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.015.0.copyload = load <2 x float>, ptr %106, align 8
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.016.0.copyload, <2 x float> %.sroa.015.0.copyload, i32 noundef 16777215)
   %.sroa.014.0.copyload = load <2 x float>, ptr %4, align 8
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.014.0.copyload, float noundef 5.000000e+00, i32 noundef 16777215)
-  %.sroa.013.0.copyload = load <2 x float>, ptr %108, align 8
+  %.sroa.013.0.copyload = load <2 x float>, ptr %106, align 8
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.013.0.copyload, float noundef 5.000000e+00, i32 noundef 16777215)
-  br label %109
+  br label %107
 
-109:                                              ; preds = %107, %._crit_edge
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 3018
-  %111 = load i8, ptr %110, align 2, !tbaa !114, !range !13, !noundef !14
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %.preheader43, label %.loopexit
+107:                                              ; preds = %105, %._crit_edge
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 3018
+  %109 = load i8, ptr %108, align 2, !tbaa !114, !range !13, !noundef !14
+  %110 = trunc nuw i8 %109 to i1
+  br i1 %110, label %.preheader47, label %.loopexit
 
-.preheader43:                                     ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %114 = load i32, ptr %113, align 8, !tbaa !115
-  %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %.lr.ph46, label %.preheader
+.preheader47:                                     ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %112 = load i32, ptr %111, align 8, !tbaa !115
+  %113 = icmp sgt i32 %112, 0
+  br i1 %113, label %.lr.ph50, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph46, %.preheader43
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %117 = load i32, ptr %116, align 8, !tbaa !116
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph48, label %.loopexit
+.preheader:                                       ; preds = %.lr.ph50, %.preheader47
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %115 = load i32, ptr %114, align 8, !tbaa !116
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %.lr.ph52, label %.loopexit
 
-.lr.ph46:                                         ; preds = %.preheader43, %.lr.ph46
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph46 ], [ 0, %.preheader43 ]
-  %119 = getelementptr inbounds nuw %struct.b2Vec2, ptr %6, i64 %indvars.iv50
-  %.sroa.08.0.copyload = load <2 x float>, ptr %119, align 8
-  %120 = trunc nuw nsw i64 %indvars.iv50 to i32
-  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.08.0.copyload, ptr noundef nonnull @.str.18, i32 noundef %120)
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %121 = load i32, ptr %113, align 8, !tbaa !115
-  %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next51, %122
-  br i1 %123, label %.lr.ph46, label %.preheader, !llvm.loop !117
+.lr.ph50:                                         ; preds = %.preheader47, %.lr.ph50
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph46 ], [ 0, %.preheader43 ]
+  %117 = getelementptr inbounds nuw %struct.b2Vec2, ptr %6, i64 %indvars.iv54
+  %.sroa.08.0.copyload = load <2 x float>, ptr %117, align 8
+  %118 = trunc nuw nsw i64 %indvars.iv54 to i32
+  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.08.0.copyload, ptr noundef nonnull @.str.18, i32 noundef %118)
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %119 = load i32, ptr %111, align 8, !tbaa !115
+  %120 = sext i32 %119 to i64
+  %121 = icmp slt i64 %indvars.iv.next55, %120
+  br i1 %121, label %.lr.ph50, label %.preheader, !llvm.loop !117
 
-.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
-  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.lr.ph48 ], [ 0, %.preheader ]
+.lr.ph52:                                         ; preds = %.preheader, %.lr.ph52
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph48 ], [ 0, %.preheader ]
   %.sroa.02.0.copyload = load <2 x float>, ptr %10, align 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.235.0..sroa_idx, align 8
-  %124 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv53
-  %.sroa.01.0.copyload = load <2 x float>, ptr %124, align 8
+  %122 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv57
+  %.sroa.01.0.copyload = load <2 x float>, ptr %122, align 8
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %.sroa.2.0.copyload, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
   %foldExtExtBinop = fmul <2 x float> %.sroa.2.0.copyload, %.sroa.01.0.copyload
-  %125 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %123 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.3.12.vec.extract.i = extractelement <2 x float> %.sroa.2.0.copyload, i64 1
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 1
-  %126 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %127 = fsub float %125, %126
+  %124 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.4.vec.extract.i
+  %125 = fsub float %123, %124
   %.sroa.06.0.vec.extract.i = extractelement <2 x float> %.sroa.02.0.copyload, i64 0
-  %128 = fadd float %.sroa.06.0.vec.extract.i, %127
-  %129 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.0.vec.extract.i
-  %130 = fmul float %.sroa.3.8.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %131 = fadd float %129, %130
+  %126 = fadd float %.sroa.06.0.vec.extract.i, %125
+  %127 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.0.vec.extract.i
+  %128 = fmul float %.sroa.3.8.vec.extract.i, %.sroa.0.4.vec.extract.i
+  %129 = fadd float %127, %128
   %.sroa.06.4.vec.extract.i = extractelement <2 x float> %.sroa.02.0.copyload, i64 1
-  %132 = fadd float %.sroa.06.4.vec.extract.i, %131
-  %.sroa.011.0.vec.insert.i = insertelement <2 x float> poison, float %128, i64 0
-  %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %132, i64 1
-  %133 = trunc nuw nsw i64 %indvars.iv53 to i32
-  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, ptr noundef nonnull @.str.18, i32 noundef %133)
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %134 = load i32, ptr %116, align 8, !tbaa !116
-  %135 = sext i32 %134 to i64
-  %136 = icmp slt i64 %indvars.iv.next54, %135
-  br i1 %136, label %.lr.ph48, label %.loopexit, !llvm.loop !118
+  %130 = fadd float %.sroa.06.4.vec.extract.i, %129
+  %.sroa.011.0.vec.insert.i = insertelement <2 x float> poison, float %126, i64 0
+  %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %130, i64 1
+  %131 = trunc nuw nsw i64 %indvars.iv57 to i32
+  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, ptr noundef nonnull @.str.18, i32 noundef %131)
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %132 = load i32, ptr %114, align 8, !tbaa !116
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %indvars.iv.next58, %133
+  br i1 %134, label %.lr.ph52, label %.loopexit, !llvm.loop !118
 
-.loopexit:                                        ; preds = %.lr.ph48, %.preheader, %109
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %138 = load i32, ptr %137, align 8, !tbaa !119
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %138, ptr noundef nonnull @.str.19)
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %140 = load i32, ptr %139, align 4, !tbaa !120
-  %141 = load i32, ptr %137, align 8, !tbaa !119
-  %142 = add nsw i32 %141, %140
-  store i32 %142, ptr %137, align 8, !tbaa !119
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %142, ptr noundef nonnull @.str.20)
-  %143 = load i32, ptr %139, align 4, !tbaa !120
-  %144 = load i32, ptr %137, align 8, !tbaa !119
-  %145 = add nsw i32 %144, %143
-  store i32 %145, ptr %137, align 8, !tbaa !119
-  %146 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %147 = load float, ptr %146, align 8, !tbaa !121
-  %148 = fpext float %147 to double
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %150 = load i32, ptr %149, align 4, !tbaa !122
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %145, ptr noundef nonnull @.str.21, double noundef %148, i32 noundef %150)
-  %151 = load i32, ptr %139, align 4, !tbaa !120
-  %152 = load i32, ptr %137, align 8, !tbaa !119
-  %153 = add nsw i32 %152, %151
-  store i32 %153, ptr %137, align 8, !tbaa !119
-  %154 = load i16, ptr %26, align 8, !tbaa !97
-  switch i16 %154, label %194 [
-    i16 1, label %155
-    i16 2, label %162
-    i16 3, label %175
+.loopexit:                                        ; preds = %.lr.ph52, %.preheader, %107
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %136 = load i32, ptr %135, align 8, !tbaa !119
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %136, ptr noundef nonnull @.str.19)
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %138 = load i32, ptr %137, align 4, !tbaa !120
+  %139 = load i32, ptr %135, align 8, !tbaa !119
+  %140 = add nsw i32 %139, %138
+  store i32 %140, ptr %135, align 8, !tbaa !119
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %140, ptr noundef nonnull @.str.20)
+  %141 = load i32, ptr %137, align 4, !tbaa !120
+  %142 = load i32, ptr %135, align 8, !tbaa !119
+  %143 = add nsw i32 %142, %141
+  store i32 %143, ptr %135, align 8, !tbaa !119
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %145 = load float, ptr %144, align 8, !tbaa !121
+  %146 = fpext float %145 to double
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %148 = load i32, ptr %147, align 4, !tbaa !122
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %143, ptr noundef nonnull @.str.21, double noundef %146, i32 noundef %148)
+  %149 = load i32, ptr %137, align 4, !tbaa !120
+  %150 = load i32, ptr %135, align 8, !tbaa !119
+  %151 = add nsw i32 %150, %149
+  store i32 %151, ptr %135, align 8, !tbaa !119
+  %152 = load i16, ptr %26, align 8, !tbaa !97
+  switch i16 %152, label %194 [
+    i16 1, label %153
+    i16 2, label %160
+    i16 3, label %173
   ]
 
-155:                                              ; preds = %.loopexit
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 722
-  %157 = load i8, ptr %156, align 2, !tbaa !63
-  %158 = zext i8 %157 to i32
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 725
-  %160 = load i8, ptr %159, align 1, !tbaa !63
-  %161 = zext i8 %160 to i32
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %153, ptr noundef nonnull @.str.22, i32 noundef %158, i32 noundef %161)
-  br label %194
+153:                                              ; preds = %.loopexit
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 722
+  %155 = load i8, ptr %154, align 2, !tbaa !63
+  %156 = zext i8 %155 to i32
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 725
+  %158 = load i8, ptr %157, align 1, !tbaa !63
+  %159 = zext i8 %158 to i32
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %151, ptr noundef nonnull @.str.22, i32 noundef %156, i32 noundef %159)
+  br label %192
 
-162:                                              ; preds = %.loopexit
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 722
-  %164 = load i8, ptr %163, align 2, !tbaa !63
-  %165 = zext i8 %164 to i32
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 723
-  %167 = load i8, ptr %166, align 1, !tbaa !63
-  %168 = zext i8 %167 to i32
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 725
-  %170 = load i8, ptr %169, align 1, !tbaa !63
-  %171 = zext i8 %170 to i32
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 726
-  %173 = load i8, ptr %172, align 2, !tbaa !63
-  %174 = zext i8 %173 to i32
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %153, ptr noundef nonnull @.str.23, i32 noundef %165, i32 noundef %168, i32 noundef %171, i32 noundef %174)
-  br label %194
+160:                                              ; preds = %.loopexit
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 722
+  %162 = load i8, ptr %161, align 2, !tbaa !63
+  %163 = zext i8 %162 to i32
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %165 = load i8, ptr %164, align 1, !tbaa !63
+  %166 = zext i8 %165 to i32
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 725
+  %168 = load i8, ptr %167, align 1, !tbaa !63
+  %169 = zext i8 %168 to i32
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 726
+  %171 = load i8, ptr %170, align 2, !tbaa !63
+  %172 = zext i8 %171 to i32
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %151, ptr noundef nonnull @.str.23, i32 noundef %163, i32 noundef %166, i32 noundef %169, i32 noundef %172)
+  br label %192
 
-175:                                              ; preds = %.loopexit
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 722
-  %177 = load i8, ptr %176, align 2, !tbaa !63
-  %178 = zext i8 %177 to i32
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 723
-  %180 = load i8, ptr %179, align 1, !tbaa !63
-  %181 = zext i8 %180 to i32
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %183 = load i8, ptr %182, align 4, !tbaa !63
-  %184 = zext i8 %183 to i32
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 725
-  %186 = load i8, ptr %185, align 1, !tbaa !63
-  %187 = zext i8 %186 to i32
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 726
-  %189 = load i8, ptr %188, align 2, !tbaa !63
-  %190 = zext i8 %189 to i32
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 727
-  %192 = load i8, ptr %191, align 1, !tbaa !63
-  %193 = zext i8 %192 to i32
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %153, ptr noundef nonnull @.str.24, i32 noundef %178, i32 noundef %181, i32 noundef %184, i32 noundef %187, i32 noundef %190, i32 noundef %193)
-  br label %194
+173:                                              ; preds = %.loopexit
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 722
+  %175 = load i8, ptr %174, align 2, !tbaa !63
+  %176 = zext i8 %175 to i32
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %178 = load i8, ptr %177, align 1, !tbaa !63
+  %179 = zext i8 %178 to i32
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 724
+  %181 = load i8, ptr %180, align 4, !tbaa !63
+  %182 = zext i8 %181 to i32
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 725
+  %184 = load i8, ptr %183, align 1, !tbaa !63
+  %185 = zext i8 %184 to i32
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 726
+  %187 = load i8, ptr %186, align 2, !tbaa !63
+  %188 = zext i8 %187 to i32
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 727
+  %190 = load i8, ptr %189, align 1, !tbaa !63
+  %191 = zext i8 %190 to i32
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %151, ptr noundef nonnull @.str.24, i32 noundef %176, i32 noundef %179, i32 noundef %182, i32 noundef %185, i32 noundef %188, i32 noundef %191)
+  br label %192
 
-194:                                              ; preds = %.loopexit, %162, %175, %155
-  %195 = load i32, ptr %139, align 4, !tbaa !120
-  %196 = load i32, ptr %137, align 8, !tbaa !119
-  %197 = add nsw i32 %196, %195
-  store i32 %197, ptr %137, align 8, !tbaa !119
+192:                                              ; preds = %.loopexit, %160, %173, %153
+  %193 = load i32, ptr %137, align 4, !tbaa !120
+  %194 = load i32, ptr %135, align 8, !tbaa !119
+  %195 = add nsw i32 %194, %193
+  store i32 %195, ptr %135, align 8, !tbaa !119
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1324,10 +1324,10 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   %6 = alloca i32, align 4
   %.sroa.716 = alloca i64, align 8
   %.sroa.1017 = alloca i64, align 8
-  %.sroa.1218.sroa.0 = alloca i64, align 8
+  %.sroa.1218 = alloca i64, align 8
   %.sroa.7 = alloca i64, align 8
   %.sroa.10 = alloca i64, align 8
-  %.sroa.12.sroa.0 = alloca i64, align 8
+  %.sroa.12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
   %8 = sitofp i32 %7 to float
@@ -1364,13 +1364,13 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   store i32 %19, ptr %15, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.716)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1017)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1218.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1218)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %21 = load float, ptr %20, align 8, !tbaa !88
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   store i64 0, ptr %.sroa.716, align 8, !alias.scope !127
   store i64 0, ptr %.sroa.1017, align 8, !alias.scope !127
-  store i64 0, ptr %.sroa.1218.sroa.0, align 8
+  store i64 0, ptr %.sroa.1218, align 8
   switch i32 %19, label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit [
     i32 0, label %.sink.split.i
     i32 1, label %22
@@ -1405,33 +1405,33 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
 .sink.split.sink.split.i:                         ; preds = %30, %25, %22
   %.sroa.015.0 = phi i64 [ %24, %22 ], [ %27, %25 ], [ %32, %30 ]
   %.sink7.i = phi i64 [ 552, %22 ], [ 408, %25 ], [ 272, %30 ]
-  %.sink6.i.sroa.phi = phi ptr [ %.sroa.716, %22 ], [ %.sroa.1017, %25 ], [ %.sroa.1218.sroa.0, %30 ]
+  %.sink6.i.sroa.phi = phi ptr [ %.sroa.716, %22 ], [ %.sroa.1017, %25 ], [ %.sroa.1218, %30 ]
   %.sink.ph.i = phi i32 [ 2, %22 ], [ 3, %25 ], [ 4, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
   %38 = load i64, ptr %37, align 8, !noalias !127
   store i64 %38, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !127
-  %.sroa.716.0..sroa.716.0..sroa.716.0..sroa.716.0.copyload.pre = load i64, ptr %.sroa.716, align 8
-  %.sroa.1017.0..sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload.pre = load i64, ptr %.sroa.1017, align 8
-  %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..pre = load i64, ptr %.sroa.1218.sroa.0, align 8
+  %.sroa.716.0..sroa.716.0..pre = load i64, ptr %.sroa.716, align 8
+  %.sroa.1017.0..sroa.1017.0..pre = load i64, ptr %.sroa.1017, align 8
+  %.sroa.1218.0..sroa.1218.0..pre = load i64, ptr %.sroa.1218, align 8
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit
 
 .sink.split.i:                                    ; preds = %18
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit
 
 _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.split.i, %18, %.sink.split.i
-  %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0. = phi i64 [ 0, %18 ], [ %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
-  %.sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload = phi i64 [ 0, %18 ], [ %.sroa.1017.0..sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload.pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
-  %.sroa.716.0..sroa.716.0..sroa.716.0.copyload = phi i64 [ 0, %18 ], [ %.sroa.716.0..sroa.716.0..sroa.716.0..sroa.716.0.copyload.pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
+  %.sroa.1218.0. = phi i64 [ 0, %18 ], [ %.sroa.1218.0..sroa.1218.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
+  %.sroa.1017.0. = phi i64 [ 0, %18 ], [ %.sroa.1017.0..sroa.1017.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
+  %.sroa.716.0. = phi i64 [ 0, %18 ], [ %.sroa.716.0..sroa.716.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
   %.sroa.1320.0 = phi i32 [ 0, %18 ], [ %.sink.ph.i, %.sink.split.sink.split.i ], [ 1, %.sink.split.i ]
   %.sroa.015.2 = phi i64 [ 0, %18 ], [ %.sroa.015.0, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i64 %.sroa.015.2, ptr %39, align 8
   %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store i64 %.sroa.716.0..sroa.716.0..sroa.716.0.copyload, ptr %.sroa.716.0..sroa_idx, align 8
+  store i64 %.sroa.716.0., ptr %.sroa.716.0..sroa_idx, align 8
   %.sroa.1017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store i64 %.sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload, ptr %.sroa.1017.0..sroa_idx, align 8
+  store i64 %.sroa.1017.0., ptr %.sroa.1017.0..sroa_idx, align 8
   %.sroa.1218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store i64 %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0., ptr %.sroa.1218.0..sroa_idx, align 8
+  store i64 %.sroa.1218.0., ptr %.sroa.1218.0..sroa_idx, align 8
   %.sroa.1319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1319.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.1320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -1440,7 +1440,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   store float %21, ptr %.sroa.1421.0..sroa_idx, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.716)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1017)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1218.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1218)
   br label %40
 
 40:                                               ; preds = %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit, %1
@@ -1466,13 +1466,13 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   store i32 %51, ptr %47, align 4, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %53 = load float, ptr %52, align 4, !tbaa !89
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   store i64 0, ptr %.sroa.7, align 8, !alias.scope !131
   store i64 0, ptr %.sroa.10, align 8, !alias.scope !131
-  store i64 0, ptr %.sroa.12.sroa.0, align 8
+  store i64 0, ptr %.sroa.12, align 8
   switch i32 %51, label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9 [
     i32 0, label %.sink.split.i7
     i32 1, label %54
@@ -1507,33 +1507,33 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
 .sink.split.sink.split.i3:                        ; preds = %62, %57, %54
   %.sroa.0.0 = phi i64 [ %56, %54 ], [ %59, %57 ], [ %64, %62 ]
   %.sink7.i4 = phi i64 [ 552, %54 ], [ 408, %57 ], [ 272, %62 ]
-  %.sink6.i5.sroa.phi = phi ptr [ %.sroa.7, %54 ], [ %.sroa.10, %57 ], [ %.sroa.12.sroa.0, %62 ]
+  %.sink6.i5.sroa.phi = phi ptr [ %.sroa.7, %54 ], [ %.sroa.10, %57 ], [ %.sroa.12, %62 ]
   %.sink.ph.i6 = phi i32 [ 2, %54 ], [ 3, %57 ], [ 4, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i4
   %70 = load i64, ptr %69, align 8, !noalias !131
   store i64 %70, ptr %.sink6.i5.sroa.phi, align 8, !alias.scope !131
-  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load i64, ptr %.sroa.7, align 8
-  %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.0.copyload.pre = load i64, ptr %.sroa.10, align 8
-  %.sroa.12.sroa.0.0..sroa.12.sroa.0.0..sroa.12.sroa.0.0..pre = load i64, ptr %.sroa.12.sroa.0, align 8
+  %.sroa.7.0..sroa.7.0..pre = load i64, ptr %.sroa.7, align 8
+  %.sroa.10.0..sroa.10.0..pre = load i64, ptr %.sroa.10, align 8
+  %.sroa.12.0..sroa.12.0..pre = load i64, ptr %.sroa.12, align 8
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9
 
 .sink.split.i7:                                   ; preds = %50
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9
 
 _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.split.i3, %50, %.sink.split.i7
-  %.sroa.12.sroa.0.0..sroa.12.sroa.0.0. = phi i64 [ 0, %50 ], [ %.sroa.12.sroa.0.0..sroa.12.sroa.0.0..sroa.12.sroa.0.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
-  %.sroa.10.0..sroa.10.0..sroa.10.0.copyload = phi i64 [ 0, %50 ], [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.0.copyload.pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
-  %.sroa.7.0..sroa.7.0..sroa.7.0.copyload = phi i64 [ 0, %50 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
+  %.sroa.12.0. = phi i64 [ 0, %50 ], [ %.sroa.12.0..sroa.12.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
+  %.sroa.10.0. = phi i64 [ 0, %50 ], [ %.sroa.10.0..sroa.10.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
+  %.sroa.7.0. = phi i64 [ 0, %50 ], [ %.sroa.7.0..sroa.7.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
   %.sroa.0.2 = phi i64 [ 0, %50 ], [ %.sroa.0.0, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
   %.sroa.1312.0 = phi i32 [ 0, %50 ], [ %.sink.ph.i6, %.sink.split.sink.split.i3 ], [ 1, %.sink.split.i7 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i64 %.sroa.0.2, ptr %71, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i64 %.sroa.7.0..sroa.7.0..sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.7.0., ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i64 %.sroa.10.0..sroa.10.0..sroa.10.0.copyload, ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.10.0., ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i64 %.sroa.12.sroa.0.0..sroa.12.sroa.0.0., ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %.sroa.12.0., ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 680
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.1312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 712
@@ -1542,7 +1542,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.
   store float %53, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   br label %72
 
 72:                                               ; preds = %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9, %46

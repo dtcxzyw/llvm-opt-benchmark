@@ -5646,29 +5646,29 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_remote_addres
 21:                                               ; preds = %20, %3
   %.sroa.7.0.ph.in = phi i32 [ %.sroa.0.0.copyload, %3 ], [ %.sroa.035.3.vec.insert.extract.i.i, %20 ]
   %22 = icmp eq i32 %.sroa.7.0.ph.in, 0
-  br i1 %22, label %26, label %24
+  br i1 %22, label %27, label %25
 
 _ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit: ; preds = %5
   %23 = icmp eq i128 %.sroa.02.sroa.0.0.copyload, 0
   br i1 %23, label %26, label %24
 
-24:                                               ; preds = %21, %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
+25:                                               ; preds = %21, %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
   %.03.in.v = select i1 %trunc, i64 28, i64 6
   %.03.in = getelementptr inbounds nuw i8, ptr %0, i64 %.03.in.v
   %.03 = load i16, ptr %.03.in, align 2, !noundef !4
-  %25 = icmp eq i16 %.03, 0
-  br i1 %25, label %28, label %30
+  %26 = icmp eq i16 %.03, 0
+  br i1 %26, label %29, label %31
 
-26:                                               ; preds = %21, %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
-  %27 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.72.llvm.11181120138937278269, i64 noundef 43)
-  br label %30
+27:                                               ; preds = %21, %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
+  %28 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.72.llvm.11181120138937278269, i64 noundef 43)
+  br label %31
 
-28:                                               ; preds = %24
-  %29 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.71.llvm.11181120138937278269, i64 noundef 24)
-  br label %30
+29:                                               ; preds = %25
+  %30 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.71.llvm.11181120138937278269, i64 noundef 24)
+  br label %31
 
-30:                                               ; preds = %24, %28, %26
-  %.0 = phi ptr [ %27, %26 ], [ %29, %28 ], [ null, %24 ]
+31:                                               ; preds = %25, %29, %27
+  %.0 = phi ptr [ %28, %26 ], [ %30, %28 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -5677,20 +5677,20 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_address_famil
   %3 = load i16, ptr %0, align 4, !range !897, !noundef !4
   %trunc = trunc nuw i16 %3 to i1
   %4 = load i8, ptr %1, align 1, !range !27, !noundef !4
-  %trunc813 = trunc nuw i8 %4 to i1
+  %trunc815 = trunc nuw i8 %4 to i1
   br i1 %trunc, label %.thread, label %5
 
 5:                                                ; preds = %2
-  br i1 %trunc813, label %.thread16, label %7
+  br i1 %trunc815, label %.thread18, label %7
 
 .thread:                                          ; preds = %2
-  br i1 %trunc813, label %8, label %.thread16
+  br i1 %trunc815, label %8, label %.thread18
 
-.thread16:                                        ; preds = %.thread, %5
+.thread18:                                        ; preds = %.thread, %5
   %6 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.75.llvm.11181120138937278269, i64 noundef 23)
   br label %7
 
-7:                                                ; preds = %5, %30, %32, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread, %.thread16
+7:                                                ; preds = %5, %30, %32, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread, %.thread18
   %.0 = phi ptr [ %6, %.thread16 ], [ %31, %30 ], [ %33, %32 ], [ null, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread ], [ null, %5 ]
   ret ptr %.0
 
@@ -5698,19 +5698,19 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_address_famil
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.03.sroa.4.sroa.0.0.copyload = load i96, ptr %.sroa.03.sroa.4.0..sroa_idx, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.03.sroa.0.0.copyload = load i32, ptr %9, align 4
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.03.sroa.0.0.copyload to i128
+  %.sroa.03.sroa.0.0.copyload27 = load i32, ptr %9, align 4
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.03.sroa.0.0.copyload27 to i128
   %.sroa.0.4.insert.ext = zext i96 %.sroa.03.sroa.4.sroa.0.0.copyload to i128
   %.sroa.0.4.insert.shift = shl nuw i128 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i128 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
-  %.sroa.0.2.extract.shift = lshr i32 %.sroa.03.sroa.0.0.copyload, 16
+  %.sroa.0.2.extract.shift = lshr i32 %.sroa.03.sroa.0.0.copyload27, 16
   %.sroa.0.4.extract.trunc = trunc i96 %.sroa.03.sroa.4.sroa.0.0.copyload to i16
   %.sroa.0.6.extract.shift = lshr i128 %.sroa.0.4.insert.ext, 16
   %.sroa.0.6.extract.trunc = trunc i128 %.sroa.0.6.extract.shift to i16
   %.sroa.0.8.extract.shift = lshr i128 %.sroa.0.4.insert.ext, 32
   %.sroa.0.8.extract.trunc = trunc i128 %.sroa.0.8.extract.shift to i16
-  %10 = or i32 %.sroa.0.2.extract.shift, %.sroa.03.sroa.0.0.copyload
-  %11 = trunc i32 %10 to i16
+  %12 = or i32 %.sroa.0.2.extract.shift, %.sroa.03.sroa.0.0.copyload
+  %11 = trunc i32 %12 to i16
   %12 = or i16 %.sroa.0.6.extract.trunc, %.sroa.0.4.extract.trunc
   %13 = or i16 %12, %.sroa.0.8.extract.trunc
   %14 = or i16 %13, %11
@@ -5724,13 +5724,13 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_address_famil
   br i1 %or.cond23, label %30, label %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread
 
 _ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread: ; preds = %8
-  %18 = bitcast i128 %.sroa.0.4.insert.insert to <16 x i8>
-  %shift = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %17 = bitcast i128 %.sroa.0.4.insert.insert to <16 x i8>
+  %shift = shufflevector <16 x i8> %17, <16 x i8> poison, <16 x i32> <i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %shift25 = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %19 = or <16 x i8> %shift, %shift25
   %shift28 = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %20 = or <16 x i8> %19, %shift28
-  %shift31 = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %shift31 = shufflevector <16 x i8> %17, <16 x i8> poison, <16 x i32> <i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %21 = or <16 x i8> %20, %shift31
   %shift34 = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %22 = or <16 x i8> %21, %shift34
@@ -5742,14 +5742,14 @@ _ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcae
   %25 = or <16 x i8> %24, %shift43
   %shift46 = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 9, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %26 = or <16 x i8> %25, %shift46
-  %foldExtExtBinop47 = or <16 x i8> %26, %18
+  %foldExtExtBinop47 = or <16 x i8> %27, %18
   %27 = extractelement <16 x i8> %foldExtExtBinop47, i64 0
   %or.cond26.i = icmp eq i8 %27, 0
-  %shift49 = shufflevector <16 x i8> %18, <16 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 11, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %shift49 = shufflevector <16 x i8> %17, <16 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 11, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop50 = and <16 x i8> %shift49, %18
   %28 = extractelement <16 x i8> %foldExtExtBinop50, i64 10
-  %29 = icmp eq i8 %28, -1
-  %or.cond32.i = and i1 %29, %or.cond26.i
+  %30 = icmp eq i8 %28, -1
+  %or.cond32.i = and i1 %30, %or.cond26.i
   br i1 %or.cond32.i, label %32, label %7
 
 30:                                               ; preds = %8
