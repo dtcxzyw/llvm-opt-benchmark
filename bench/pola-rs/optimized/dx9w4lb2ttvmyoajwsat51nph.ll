@@ -18995,11 +18995,11 @@ define hidden { i8, i8 } @_ZN14polars_compute7min_max6scalar21min_max_propagate_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14polars_compute7min_max6scalar21min_max_propagate_nan17h9e69f25cdc2c47d6E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 16 captures(none) dereferenceable(32) initializes((0, 32)) %0, i128 noundef %1, i128 noundef %2, i128 noundef %3, i128 noundef %4) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.0.0.i2 = tail call i128 @llvm.smin.i128(i128 %1, i128 %3)
-  %.sroa.0.0.i = tail call i128 @llvm.smax.i128(i128 %2, i128 %4)
-  store i128 %.sroa.0.0.i2, ptr %0, align 16
+  %.sroa.0.0.i2.sroa.speculated = tail call i128 @llvm.smin.i128(i128 %1, i128 %3)
+  %.sroa.0.0.i.sroa.speculated = tail call i128 @llvm.smax.i128(i128 %2, i128 %4)
+  store i128 %.sroa.0.0.i2.sroa.speculated, ptr %0, align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i128 %.sroa.0.0.i, ptr %6, align 16
+  store i128 %.sroa.0.0.i.sroa.speculated, ptr %6, align 16
   ret void
 }
 
@@ -19014,11 +19014,11 @@ define hidden { i64, i64 } @_ZN14polars_compute7min_max6scalar21min_max_propagat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14polars_compute7min_max6scalar21min_max_propagate_nan17hca1e4bab3954c06bE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 16 captures(none) dereferenceable(32) initializes((0, 32)) %0, i128 noundef %1, i128 noundef %2, i128 noundef %3, i128 noundef %4) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.0.0.i2 = tail call i128 @llvm.umin.i128(i128 %1, i128 %3)
-  %.sroa.0.0.i = tail call i128 @llvm.umax.i128(i128 %2, i128 %4)
-  store i128 %.sroa.0.0.i2, ptr %0, align 16
+  %.sroa.0.0.i2.sroa.speculated = tail call i128 @llvm.umin.i128(i128 %1, i128 %3)
+  %.sroa.0.0.i.sroa.speculated = tail call i128 @llvm.umax.i128(i128 %2, i128 %4)
+  store i128 %.sroa.0.0.i2.sroa.speculated, ptr %0, align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i128 %.sroa.0.0.i, ptr %6, align 16
+  store i128 %.sroa.0.0.i.sroa.speculated, ptr %6, align 16
   ret void
 }
 
@@ -20441,7 +20441,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2488)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !2490, !noalias !2485, !nonnull !3, !align !2476, !noundef !3
@@ -20450,14 +20450,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !2491, !noalias !2494, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.smax.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.smax.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !2485
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17h61dea2c23e4ca5c1E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h61dea2c23e4ca5c1E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2481
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !2465, !noalias !2468
@@ -20801,7 +20801,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2547)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !2549, !noalias !2544, !nonnull !3, !align !2476, !noundef !3
@@ -20810,14 +20810,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !2550, !noalias !2553, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.umax.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.umax.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !2544
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17h3c78600845cce517E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h3c78600845cce517E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2540
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !2525, !noalias !2528
@@ -23270,7 +23270,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2894)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !2896, !noalias !2891, !nonnull !3, !align !2476, !noundef !3
@@ -23279,14 +23279,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !2897, !noalias !2900, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.umax.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.umax.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !2891
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17hf859697e04b6c152E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf859697e04b6c152E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2887
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !2872, !noalias !2875
@@ -23456,7 +23456,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2929)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !2931, !noalias !2926, !nonnull !3, !align !2476, !noundef !3
@@ -23465,14 +23465,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !2932, !noalias !2935, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.umin.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.umin.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !2926
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17hf22eb9df1c338d81E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf22eb9df1c338d81E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2922
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !2907, !noalias !2910
@@ -23818,7 +23818,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2988)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !2990, !noalias !2985, !nonnull !3, !align !2476, !noundef !3
@@ -23827,14 +23827,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !2991, !noalias !2994, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.smin.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.smin.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !2985
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17h3e067645b87fb2e1E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h3e067645b87fb2e1E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2981
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !2966, !noalias !2969
@@ -26468,7 +26468,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3359)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !3361, !noalias !3356, !nonnull !3, !align !2476, !noundef !3
@@ -26477,14 +26477,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !3362, !noalias !3365, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.umin.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.umin.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !3356
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17hfa0e6e776762dd3cE.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hfa0e6e776762dd3cE.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3352
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !3337, !noalias !3340
@@ -27182,7 +27182,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3466)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !3468, !noalias !3463, !nonnull !3, !align !2476, !noundef !3
@@ -27191,14 +27191,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !3469, !noalias !3472, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.smin.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.smin.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !3463
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17h00a654eef810ab53E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h00a654eef810ab53E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3459
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !3444, !noalias !3447
@@ -27368,7 +27368,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %73 = phi { i64, i64 } [ %68, %.lr.ph.i.i ], [ %80, %72 ]
-  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.07.i.i = phi i128 [ %66, %.lr.ph.i.i ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3501)
   %74 = extractvalue { i64, i64 } %73, 1
   %75 = load ptr, ptr %3, align 8, !alias.scope !3503, !noalias !3498, !nonnull !3, !align !2476, !noundef !3
@@ -27377,14 +27377,14 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i128, ptr %75, i64 %74
   %79 = load i128, ptr %78, align 16, !alias.scope !3504, !noalias !3507, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.smax.i128(i128 %.sroa.0.07.i.i, i128 %79)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.smax.i128(i128 %.sroa.0.07.i.i, i128 %79)
   %80 = call fastcc { i64, i64 } @"_ZN102_$LT$polars_arrow..bitmap..iterator..TrueIdxIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f809c81a05ec1e3E"(ptr noalias noundef align 8 dereferenceable(64) %67), !noalias !3498
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = trunc nuw i64 %81 to i1
   br i1 %82, label %72, label %_ZN4core4iter6traits8iterator8Iterator4fold17h3b214aea1294b738E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h3b214aea1294b738E.exit.i: ; preds = %72, %60
-  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.i.i.i, %72 ]
+  %.sroa.0.0.lcssa.i.i = phi i128 [ %66, %60 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3494
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.0.0.lcssa.i.i, ptr %83, align 16, !alias.scope !3479, !noalias !3482

@@ -4485,8 +4485,8 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef %0,
   %20 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %22 = load i32, ptr %21, align 8
-  %.sroa_idx79 = getelementptr inbounds nuw i8, ptr %12, i64 284
-  %23 = load i32, ptr %.sroa_idx79, align 4
+  %.sroa_idx82 = getelementptr inbounds nuw i8, ptr %12, i64 284
+  %23 = load i32, ptr %.sroa_idx82, align 4
   %24 = bitcast i32 %22 to float
   %25 = bitcast i32 %23 to float
   %26 = fadd float %20, %24
@@ -4515,8 +4515,8 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef %0,
   %.sroa.0.0.vec.insert.i60 = insertelement <2 x float> poison, float %40, i64 0
   %.sroa.0.4.vec.insert.i61 = insertelement <2 x float> %.sroa.0.0.vec.insert.i60, float %41, i64 1
   store i32 %22, ptr %4, align 4
-  %.sroa_idx78 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %23, ptr %.sroa_idx78, align 4
+  %.sroa_idx81 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %23, ptr %.sroa_idx81, align 4
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %.sroa.0.4.vec.insert.i61, ptr %42, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -43079,8 +43079,8 @@ define dso_local void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImR
   %34 = load float, ptr %33, align 4, !tbaa !165
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float %28, ptr %12, align 4, !tbaa !190
-  %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %31, ptr %.sroa.491.0..sroa_idx, align 4, !tbaa !190
+  %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store float %31, ptr %.sroa.494.0..sroa_idx, align 4, !tbaa !190
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float %32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !190
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -43158,11 +43158,11 @@ define dso_local void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImR
 
 74:                                               ; preds = %47, %39, %58
   %75 = and i32 %2, 1
-  %.not7696 = icmp ne i32 %75, 0
+  %.not7699 = icmp ne i32 %75, 0
   %76 = fadd float %41, %44
   %77 = load float, ptr %22, align 4
   %78 = fcmp ole float %76, %77
-  %79 = select i1 %.not7696, i1 %78, i1 false
+  %79 = select i1 %.not7699, i1 %78, i1 false
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %74
@@ -43188,25 +43188,25 @@ define dso_local void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImR
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %91 = fmul float %41, 0x3FE99999A0000000
   %92 = select i1 %68, float %91, float 0.000000e+00
-  %.pre121 = fsub float %32, %92
+  %.pre124 = fsub float %32, %92
   br label %93
 
 93:                                               ; preds = %82, %90
-  %.pre-phi122 = phi float [ %.pre, %82 ], [ %.pre121, %90 ]
+  %.pre-phi125 = phi float [ %.pre, %82 ], [ %.pre124, %90 ]
   %.pre-phi = phi float [ %.pre, %82 ], [ %42, %90 ]
-  %.2105112118 = phi i8 [ 0, %82 ], [ %.1, %90 ]
-  store float %.pre-phi122, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !171
+  %.2108115121 = phi i8 [ 0, %82 ], [ %.1, %90 ]
+  store float %.pre-phi125, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !171
   br label %94
 
 94:                                               ; preds = %80, %93
-  %.2105111 = phi i8 [ %.2105112118, %93 ], [ 0, %80 ]
+  %.2108114 = phi i8 [ %.2108115121, %93 ], [ 0, %80 ]
   %.sroa.5.0 = phi float [ %.pre-phi, %93 ], [ %32, %80 ]
   %.0 = phi float [ %.pre-phi, %93 ], [ %81, %80 ]
   call void @_ZN5ImGui18RenderTextEllipsisEP10ImDrawListRK6ImVec2S4_ffPKcS6_PS3_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.5.0..sroa_idx, float noundef %.sroa.5.0, float noundef %.0, ptr noundef %4, ptr noundef null, ptr noundef nonnull %11)
   br i1 %.not, label %96, label %95
 
 95:                                               ; preds = %94
-  store i8 %.2105111, ptr %8, align 1, !tbaa !207
+  store i8 %.2108114, ptr %8, align 1, !tbaa !207
   br label %96
 
 96:                                               ; preds = %95, %94

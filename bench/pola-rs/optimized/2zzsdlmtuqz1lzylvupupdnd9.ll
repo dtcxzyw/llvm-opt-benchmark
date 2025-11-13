@@ -883,17 +883,17 @@ define hidden noundef i128 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.sroa.07.0.i = phi i128 [ %2, %6 ], [ %.sroa.0.0.i.i.i.i, %11 ]
+  %.sroa.07.0.i = phi i128 [ %2, %6 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %11 ]
   %.sroa.09.0.i = phi i64 [ 0, %6 ], [ %13, %11 ]
   %12 = getelementptr inbounds nuw i128, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i128, ptr %12, align 16, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.smax.i128(i128 %.sroa.07.0.i, i128 %.val.i)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.smax.i128(i128 %.sroa.07.0.i, i128 %.val.i)
   %13 = add nuw i64 %.sroa.09.0.i, 1
   %14 = icmp eq i64 %13, %10
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48272178a44f0221E.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48272178a44f0221E.exit": ; preds = %11, %3
-  %.sroa.04.0.i = phi i128 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %11 ]
+  %.sroa.04.0.i = phi i128 [ %2, %3 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %11 ]
   ret i128 %.sroa.04.0.i
 }
 
@@ -1743,17 +1743,17 @@ define hidden noundef i128 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.sroa.07.0.i = phi i128 [ %2, %6 ], [ %.sroa.0.0.i.i.i.i, %11 ]
+  %.sroa.07.0.i = phi i128 [ %2, %6 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %11 ]
   %.sroa.09.0.i = phi i64 [ 0, %6 ], [ %13, %11 ]
   %12 = getelementptr inbounds nuw i128, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i128, ptr %12, align 16, !noundef !3
-  %.sroa.0.0.i.i.i.i = tail call noundef i128 @llvm.smin.i128(i128 %.sroa.07.0.i, i128 %.val.i)
+  %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i128 @llvm.smin.i128(i128 %.sroa.07.0.i, i128 %.val.i)
   %13 = add nuw i64 %.sroa.09.0.i, 1
   %14 = icmp eq i64 %13, %10
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8f6a6d2fd2a58c6fE.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8f6a6d2fd2a58c6fE.exit": ; preds = %11, %3
-  %.sroa.04.0.i = phi i128 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %11 ]
+  %.sroa.04.0.i = phi i128 [ %2, %3 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %11 ]
   ret i128 %.sroa.04.0.i
 }
 
@@ -35353,8 +35353,8 @@ _ZN11compact_str13CompactString7try_new17h2a552cc2a76ee9e3E.exit.thread.i: ; pre
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17h08ce406263c24cc6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 16
-  %.sroa.7.i = alloca [16 x i8], align 16
-  %.sroa.11.i = alloca [16 x i8], align 16
+  %.sroa.7.i = alloca i128, align 16
+  %.sroa.11.i = alloca i128, align 16
   %4 = alloca [96 x i8], align 8
   %5 = alloca [56 x i8], align 8
   %6 = alloca [56 x i8], align 8
@@ -35497,7 +35497,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17he6d9962b0f3332d6E.exit.i: ; preds =
   %.sink17.i.sroa.phi.i = phi ptr [ %.sroa.7.i, %58 ], [ %.sroa.11.i, %54 ], [ %.sroa.7.i, %47 ]
   %.sink.i.i = phi i128 [ 2, %58 ], [ %57, %54 ], [ 2, %47 ]
   store i128 %.sink.i.i, ptr %.sink17.i.sroa.phi.i, align 16, !alias.scope !4755, !noalias !4768
-  %.sroa.7.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.16..i = load i128, ptr %.sroa.7.i, align 16, !noalias !4747
+  %.sroa.7.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.16..i = load i128, ptr %.sroa.7.i, align 16, !range !4767, !noalias !4747, !noundef !3
   %.not.i = icmp eq i128 %.sroa.7.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.16..i, 2
   br i1 %.not.i, label %74, label %62
 

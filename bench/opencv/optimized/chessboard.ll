@@ -22383,14 +22383,14 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit95: ; preds = %44, %39, %
 
 69:                                               ; preds = %64
   %70 = add nsw i32 %.035, 1
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %7, align 8
+  %.sroa.0.0.copyload.i265 = load i64, ptr %7, align 8
   %71 = load ptr, ptr %31, align 8, !tbaa !237
   %72 = load ptr, ptr %32, align 8, !tbaa !245
   %.not.i.i = icmp eq ptr %71, %72
   br i1 %.not.i.i, label %76, label %73
 
 73:                                               ; preds = %69
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %71, align 4
+  store i64 %.sroa.0.0.copyload.i265, ptr %71, align 4
   %74 = load ptr, ptr %31, align 8, !tbaa !237
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %75, ptr %31, align 8, !tbaa !237
@@ -22406,7 +22406,7 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit95: ; preds = %44, %39, %
 
 82:                                               ; preds = %76
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.109) #36
-          to label %.noexc105 unwind label %.loopexit.split-lp266
+          to label %.noexc105 unwind label %.loopexit.split-lp267
 
 .noexc105:                                        ; preds = %82
   unreachable
@@ -22422,11 +22422,11 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %88 = shl nuw nsw i64 %87, 3
   %89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #39
-          to label %.noexc106 unwind label %.loopexit265
+          to label %.noexc106 unwind label %.loopexit266
 
 .noexc106:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %80
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %90, align 4
+  store i64 %.sroa.0.0.copyload.i265, ptr %90, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %77, %71
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -22482,13 +22482,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
           cleanup
   br label %.body134
 
-.loopexit265:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit267 = landingpad { ptr, i32 }
+.loopexit266:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit268 = landingpad { ptr, i32 }
           cleanup
   br label %.body134
 
-.loopexit.split-lp266:                            ; preds = %82
-  %lpad.loopexit.split-lp268 = landingpad { ptr, i32 }
+.loopexit.split-lp267:                            ; preds = %82
+  %lpad.loopexit.split-lp269 = landingpad { ptr, i32 }
           cleanup
   br label %.body134
 
@@ -22732,8 +22732,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %.critedge, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.3
 
-.body134:                                         ; preds = %.loopexit265, %.loopexit.split-lp266, %.loopexit, %.loopexit.split-lp, %.body93, %143, %55
-  %.pn46 = phi { ptr, i32 } [ %56, %55 ], [ %57, %.body93 ], [ %144, %143 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit267, %.loopexit265 ], [ %lpad.loopexit.split-lp268, %.loopexit.split-lp266 ]
+.body134:                                         ; preds = %.loopexit266, %.loopexit.split-lp267, %.loopexit, %.loopexit.split-lp, %.body93, %143, %55
+  %.pn46 = phi { ptr, i32 } [ %56, %55 ], [ %57, %.body93 ], [ %144, %143 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit268, %.loopexit266 ], [ %lpad.loopexit.split-lp269, %.loopexit.split-lp267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %198 = load ptr, ptr %6, align 8, !tbaa !239
@@ -23540,14 +23540,14 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit94: ; preds = %43, %38, 
 
 66:                                               ; preds = %61
   %67 = add nsw i32 %.034, 1
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %7, align 8
+  %.sroa.0.0.copyload.i265 = load i64, ptr %7, align 8
   %68 = load ptr, ptr %31, align 8, !tbaa !237
   %69 = load ptr, ptr %32, align 8, !tbaa !245
   %.not.i.i = icmp eq ptr %68, %69
   br i1 %.not.i.i, label %73, label %70
 
 70:                                               ; preds = %66
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %68, align 4
+  store i64 %.sroa.0.0.copyload.i265, ptr %68, align 4
   %71 = load ptr, ptr %31, align 8, !tbaa !237
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %72, ptr %31, align 8, !tbaa !237
@@ -23563,7 +23563,7 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit94: ; preds = %43, %38, 
 
 79:                                               ; preds = %73
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.109) #36
-          to label %.noexc104 unwind label %.loopexit.split-lp266
+          to label %.noexc104 unwind label %.loopexit.split-lp267
 
 .noexc104:                                        ; preds = %79
   unreachable
@@ -23579,11 +23579,11 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %85 = shl nuw nsw i64 %84, 3
   %86 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %85) #39
-          to label %.noexc105 unwind label %.loopexit265
+          to label %.noexc105 unwind label %.loopexit266
 
 .noexc105:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %77
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %87, align 4
+  store i64 %.sroa.0.0.copyload.i265, ptr %87, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %74, %68
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -23639,13 +23639,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
           cleanup
   br label %.body133
 
-.loopexit265:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit267 = landingpad { ptr, i32 }
+.loopexit266:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit268 = landingpad { ptr, i32 }
           cleanup
   br label %.body133
 
-.loopexit.split-lp266:                            ; preds = %79
-  %lpad.loopexit.split-lp268 = landingpad { ptr, i32 }
+.loopexit.split-lp267:                            ; preds = %79
+  %lpad.loopexit.split-lp269 = landingpad { ptr, i32 }
           cleanup
   br label %.body133
 
@@ -23882,8 +23882,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %.critedge, %189
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.3
 
-.body133:                                         ; preds = %.loopexit265, %.loopexit.split-lp266, %.loopexit, %.loopexit.split-lp, %.body92, %140, %52
-  %.pn45 = phi { ptr, i32 } [ %53, %52 ], [ %54, %.body92 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit267, %.loopexit265 ], [ %lpad.loopexit.split-lp268, %.loopexit.split-lp266 ]
+.body133:                                         ; preds = %.loopexit266, %.loopexit.split-lp267, %.loopexit, %.loopexit.split-lp, %.body92, %140, %52
+  %.pn45 = phi { ptr, i32 } [ %53, %52 ], [ %54, %.body92 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit268, %.loopexit266 ], [ %lpad.loopexit.split-lp269, %.loopexit.split-lp267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %190 = load ptr, ptr %6, align 8, !tbaa !239
@@ -24261,7 +24261,7 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %_ZN2cv7detai
 
 _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer: ; preds = %170, %30
   %.ph = phi i1 [ true, %170 ], [ false, %30 ]
-  %.ph318 = phi i1 [ false, %170 ], [ true, %30 ]
+  %.ph319 = phi i1 [ false, %170 ], [ true, %30 ]
   %.sroa.11177.1.ph = phi ptr [ %172, %170 ], [ %.sroa.11177.0, %30 ]
   %.034.ph = phi i32 [ %.135, %170 ], [ 0, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.11177.1.ph, i64 8
@@ -24273,7 +24273,7 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer: ; preds = %170, 
 
 _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %_ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131
   %41 = phi i1 [ true, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131 ], [ %.ph, %_ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer ]
-  %42 = phi i1 [ false, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131 ], [ %.ph318, %_ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer ]
+  %42 = phi i1 [ false, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131 ], [ %.ph319, %_ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer ]
   %.034 = phi i32 [ %.135, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131 ], [ %.034.ph, %_ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer ]
   br i1 %41, label %47, label %43
 
@@ -24349,14 +24349,14 @@ _ZN2cv7details10Chessboard5Board9PointIter4leftEb.exit100: ; preds = %43, %47, %
 
 66:                                               ; preds = %61
   %67 = add nsw i32 %.034, 1
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %8, align 8
+  %.sroa.0.0.copyload.i281 = load i64, ptr %8, align 8
   %68 = load ptr, ptr %34, align 8, !tbaa !237
   %69 = load ptr, ptr %35, align 8, !tbaa !245
   %.not.i.i = icmp eq ptr %68, %69
   br i1 %.not.i.i, label %73, label %70
 
 70:                                               ; preds = %66
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %68, align 4
+  store i64 %.sroa.0.0.copyload.i281, ptr %68, align 4
   %71 = load ptr, ptr %34, align 8, !tbaa !237
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %72, ptr %34, align 8, !tbaa !237
@@ -24372,7 +24372,7 @@ _ZN2cv7details10Chessboard5Board9PointIter4leftEb.exit100: ; preds = %43, %47, %
 
 79:                                               ; preds = %73
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.109) #36
-          to label %.noexc110 unwind label %.loopexit.split-lp282
+          to label %.noexc110 unwind label %.loopexit.split-lp283
 
 .noexc110:                                        ; preds = %79
   unreachable
@@ -24388,11 +24388,11 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %85 = shl nuw nsw i64 %84, 3
   %86 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %85) #39
-          to label %.noexc111 unwind label %.loopexit281
+          to label %.noexc111 unwind label %.loopexit282
 
 .noexc111:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %77
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %87, align 4
+  store i64 %.sroa.0.0.copyload.i281, ptr %87, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %74, %68
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -24448,13 +24448,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
           cleanup
   br label %.body
 
-.loopexit281:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+.loopexit282:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit284 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp282:                            ; preds = %79
-  %lpad.loopexit.split-lp284 = landingpad { ptr, i32 }
+.loopexit.split-lp283:                            ; preds = %79
+  %lpad.loopexit.split-lp285 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -24696,8 +24696,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %.critedge, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.3
 
-.body:                                            ; preds = %.loopexit281, %.loopexit.split-lp282, %.loopexit, %.loopexit.split-lp, %187, %.body98, %140
-  %.pn45.pn = phi { ptr, i32 } [ %54, %.body98 ], [ %141, %140 ], [ %188, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit283, %.loopexit281 ], [ %lpad.loopexit.split-lp284, %.loopexit.split-lp282 ]
+.body:                                            ; preds = %.loopexit282, %.loopexit.split-lp283, %.loopexit, %.loopexit.split-lp, %187, %.body98, %140
+  %.pn45.pn = phi { ptr, i32 } [ %54, %.body98 ], [ %141, %140 ], [ %188, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit284, %.loopexit282 ], [ %lpad.loopexit.split-lp285, %.loopexit.split-lp283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %192 = load ptr, ptr %6, align 8, !tbaa !239
@@ -25159,14 +25159,14 @@ _ZN2cv7details10Chessboard5Board9PointIter3topEb.exit100: ; preds = %42, %46, %_
 
 65:                                               ; preds = %60
   %66 = add nsw i32 %.034, 1
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %8, align 8
+  %.sroa.0.0.copyload.i281 = load i64, ptr %8, align 8
   %67 = load ptr, ptr %34, align 8, !tbaa !237
   %68 = load ptr, ptr %35, align 8, !tbaa !245
   %.not.i.i = icmp eq ptr %67, %68
   br i1 %.not.i.i, label %72, label %69
 
 69:                                               ; preds = %65
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %67, align 4
+  store i64 %.sroa.0.0.copyload.i281, ptr %67, align 4
   %70 = load ptr, ptr %34, align 8, !tbaa !237
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %71, ptr %34, align 8, !tbaa !237
@@ -25182,7 +25182,7 @@ _ZN2cv7details10Chessboard5Board9PointIter3topEb.exit100: ; preds = %42, %46, %_
 
 78:                                               ; preds = %72
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.109) #36
-          to label %.noexc110 unwind label %.loopexit.split-lp282
+          to label %.noexc110 unwind label %.loopexit.split-lp283
 
 .noexc110:                                        ; preds = %78
   unreachable
@@ -25198,11 +25198,11 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %84 = shl nuw nsw i64 %83, 3
   %85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #39
-          to label %.noexc111 unwind label %.loopexit281
+          to label %.noexc111 unwind label %.loopexit282
 
 .noexc111:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %76
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %86, align 4
+  store i64 %.sroa.0.0.copyload.i281, ptr %86, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %73, %67
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -25258,13 +25258,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
           cleanup
   br label %.body
 
-.loopexit281:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+.loopexit282:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit284 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp282:                            ; preds = %78
-  %lpad.loopexit.split-lp284 = landingpad { ptr, i32 }
+.loopexit.split-lp283:                            ; preds = %78
+  %lpad.loopexit.split-lp285 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -25506,8 +25506,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %.critedge, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.3
 
-.body:                                            ; preds = %.loopexit281, %.loopexit.split-lp282, %.loopexit, %.loopexit.split-lp, %186, %.body98, %139
-  %.pn45.pn = phi { ptr, i32 } [ %53, %.body98 ], [ %140, %139 ], [ %187, %186 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit283, %.loopexit281 ], [ %lpad.loopexit.split-lp284, %.loopexit.split-lp282 ]
+.body:                                            ; preds = %.loopexit282, %.loopexit.split-lp283, %.loopexit, %.loopexit.split-lp, %186, %.body98, %139
+  %.pn45.pn = phi { ptr, i32 } [ %53, %.body98 ], [ %140, %139 ], [ %187, %186 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit284, %.loopexit282 ], [ %lpad.loopexit.split-lp285, %.loopexit.split-lp283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %191 = load ptr, ptr %6, align 8, !tbaa !239

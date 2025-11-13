@@ -43,9 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.base.120" = type <{ ptr, i32 }>
 %"struct.llvm::detail::DenseMapPair.122" = type { %"struct.std::pair.base.125", [4 x i8] }
 %"struct.std::pair.base.125" = type <{ ptr, i32 }>
-%"struct.std::_Optional_payload.113" = type { %"struct.std::_Optional_payload_base.base.115", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.115" = type <{ %"union.std::_Optional_payload_base<clang::ento::bugreporter::TrackingKind>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<clang::ento::bugreporter::TrackingKind>::_Storage" = type { i32 }
 %"class.clang::ento::PathPieces" = type { %"class.std::__cxx11::list" }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::shared_ptr<clang::ento::PathDiagnosticPiece>, std::allocator<std::shared_ptr<clang::ento::PathDiagnosticPiece>>>::_List_impl" }
@@ -2510,8 +2507,8 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE6insertES4_.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindENS0_4SValE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1000) %0, ptr %1, i8 %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.clang::ento::SVal", align 8
-  %.sroa.05 = alloca %"struct.std::_Optional_payload.113", align 8
-  %.sroa.0 = alloca %"struct.std::_Optional_payload.113", align 8
+  %.sroa.05 = alloca i64, align 8
+  %.sroa.0 = alloca i64, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %2, ptr %5, align 8
